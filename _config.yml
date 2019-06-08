@@ -26,10 +26,10 @@ paginate: 5
 github_profile: "https://github.com/sotex"
 user: "乌合之众"
 user_email: "ymwh@foxmail.com"
-contact_url: "https://goo.gl/tVljbV"
-google_tracking_id: "UA-96359860-1"
-google_site_verification: "UA-96359860-1"
-disqus_shortname: "matjek"
+contact_url: "https://www.cnblogs.com/oloroso/"
+#google_tracking_id: "UA-96359860-1"
+#google_site_verification: "UA-96359860-1"
+#disqus_shortname: "matjek"
 
 # Build settings
 markdown: kramdown
