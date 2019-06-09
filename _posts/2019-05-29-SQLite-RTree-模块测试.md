@@ -11,6 +11,8 @@ comments: 1
 
 [TOC]
 
+[博客园文章地址 https://www.cnblogs.com/oloroso/p/10941099.html](https://www.cnblogs.com/oloroso/p/10941099.html)
+
 相关参考：
 
 >   [MySQL空间索引简单使用](https://www.cnblogs.com/oloroso/p/9579720.html)
