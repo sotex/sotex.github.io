@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "SQLite R*Tree 模块测试"
+date:   2019-05-29
+categories: 地理信息
+tags: SQLite GIS RTree
+comments: 1
+---
+
 # SQLite R*Tree 模块测试
 
 [TOC]
