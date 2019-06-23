@@ -1,0 +1,65 @@
+html,body,p,ul,table,tr,td{margin:0;padding:0}
+                    a{text-decoration:none}
+                    li{list-style:none}
+                    img{border:0 none}
+                    body{font-family:'Microsoft YaHei';font-size:14px}
+                    div,span,a{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-o-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box}
+                    table{border-collapse:collapse;border-spacing:0;border:0 none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
+                    td{text-align:left}
+                    .resume_clearfix{display:block;overflow:hidden;clear:both}
+                    .all_wrap{width:693px}
+                    .logo_divide{border-bottom:1px solid #b9b9b9}
+                    .at{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+                    .page{width:693px;margin:0 auto;padding:3px;background-color:#fff}
+                    .gray{color:#919191 !important}
+                    .l_green{color:#6d8194 !important}
+                    .blue{color:#4567af !important}
+                    .yellow{color:#fae001 !important}
+                    .y_green{color:#a4b049 !important}
+                    .s_blue{color:#00a0e9 !important}
+                    .orange{color:#f39800 !important}
+                    .resume_box{border:15px solid #efefef}
+                    .company{font-size:12px;font-weight:bold}
+                    .infomation_l{width:266px;vertical-align:top;background-color:#2d4e5c}
+                    .top{margin:26px 0px 18px 0px}
+                    .picture{text-align:center}
+                    .name{height:40px;line-height:40px;font-size:18px;color:#fff;text-align:center}
+                    .posi{width:265px;line-height:14px;text-align:center;padding:0 10px}
+                    .mes_l{margin-left:20px}
+                    .title{height:30px;font-weight:bold;color:#d8dcde}
+                    .border_b2{margin-left:20px;border-bottom:1px solid #91a875}
+                    .per_list{line-height:35px;font-size:12px;color:#d8dcde}
+                    .title_iconl{*width:12px;padding-right:8px}
+                    .title_icon1 img{margin-top:5px}
+                    .b_border{border-top:1px solid #233c47}
+                    .dir{vertical-align:top}
+                    .limit1{width:180px}
+                    .wid{width:225px}
+                    .limit2{width:204px}
+                    .con{position:relative;width:176px;height:16px;*height:15px;top:2px;border:1px solid #b9b9b9}
+                    .rank{position:absolute;top:0;left:0;width:70%;height:16px;line-height:16px;text-indent:6px;top:0px;left:0px;background-color:#b9b9b9}
+                    .email{max-width:146px;word-wrap:break-word}
+                    .infomation_r{width:386px;vertical-align:top;padding-left:12px;background-color:#efefef}
+                    .mes_r{margin-left:26px;padding:10px 0 16px 0}
+                    .title_icon{*width:17px;padding-right:8px;border:0 none}
+                    .title_icon img{margin-top:0px}
+                    .title_txt{width:340px;height:28px;line-height:28px;font-weight:bold;color:#2d4e5c;text-align:left;border-bottom:1px solid #96a6ad}
+                    .title_txt1{width:235px;height:27px;line-height:27px;font-weight:bold;color:#d8dcde;text-align:left}
+                    .mes_boxl{margin:10px 0 22px 0}
+                    .mes_detail{margin:10px 0px 16px 0px}
+                    .mes_detail_a{margin-bottom:10px}
+                    .mes_r .info_list{line-height:24px;font-size:12px;color:#000;overflow:hidden}
+                    .mes_r .limit{width:290px}
+                    .mes_r .edu{width:42px;line-height:15px;}
+                    .mes_r .edu_a{width:100px;line-height:15px;}
+                    .mes_r .reu{max-width:144px;line-height:15px;}
+                    .mes_r .reu_a{max-width:190px;vertical-align:top;padding-right:20px}
+                    .mes_r .in{line-height:22px;font-size:12px;color:#919191}
+                    .mes_r .exp{width:180px}
+                    .mes_r .pofi{width:106px;text-align:right;vertical-align:top}
+                    .mes_r .edu1{width:206px;margin-right:20px}
+                    .mes_r .edu2{width:220px;padding-right:20px}
+                    .mes_r .edu2 span{display:block;width:220px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+                    .infomation_l2{width:276px;vertical-align:top;background-color:#466820}                   .title_txt_b{width:340px;height:12px;line-height:3px;font-weight:bold;color:#466820;text-align:left;border-bottom:1px solid #a2b68c}
+                    .mes_l                    
+                    .mer_right{line-height:22px;font-size:12px;color:#919191;padding-left:25px;}
