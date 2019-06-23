@@ -24,7 +24,7 @@ html,body,p,ul,table,tr,td{margin:0;padding:0}
                     .top{margin:26px 0px 18px 0px}
                     .picture{text-align:center}
                     .name{height:40px;line-height:40px;font-size:18px;color:#fff;text-align:center}
-                    .posi{width:265px;line-height:14px;text-align:center;padding:0 10px}
+                    .posi{width:265px;line-height:14px;text-align:center;padding:0 10px;background-color:#466820}
                     .mes_l{margin-left:20px}
                     .title{height:30px;font-weight:bold;color:#d8dcde}
                     .border_b2{margin-left:20px;border-bottom:1px solid #91a875}
