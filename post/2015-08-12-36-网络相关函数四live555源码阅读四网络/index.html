@@ -1,0 +1,409 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 36 网络相关函数(四)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>36 网络相关函数(四)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月12日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/12/4724040.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/12/4724040.html</a>
+<h1 id="36-live555">36 网络相关函数(四)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#36-live555">36 网络相关函数(四)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#7createsocketsocket">7)createSocket创建socket方法</a></li>
+<li><a href="#8closesocket">8)closeSocket 关闭套接口</a></li>
+<li><a href="#9setsockopt-socket">9)setsockopt 设置socket套接口选项</a>
+<ul>
+<li><a href="#_2">函数原型：</a></li>
+<li><a href="#_3">参数说明：</a></li>
+<li><a href="#_4">返回说明：</a></li>
+<li><a href="#_5">注意：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="7createsocketsocket">7)createSocket创建socket方法</h2>
+<p><code>createSocket</code>使用参数<code>type</code>创建一个相关类型的<code>socket</code>套接口。如果有相关定义，将为这个套接口添加<code>&rdquo;close on exec&rdquo;</code>执行时关闭属性。<br />
+注意，这个函数是<code>static</code>类型的，只在本文件<code>(live555sourcecontrol\groupsock\GroupsockHelper.cpp)</code>内使用。</p>
+<pre><code class="cpp">// type socket类型，有SOCK_STREAM、SOCK_DGRAM、SOCK_RAW、SOCK_PACKET、SOCK_SEQPACKET等
+static int createSocket(int type) {
+    // Call &ldquo;socket()&rdquo; to create a (IPv4) socket of the specified type.
+    // 调用&ldquo;socket()创建一个（IPv4）指定类型的套接字。
+    // But also set it to have the &lsquo;close on exec&rsquo; property (if we can)
+    // 还设置它具有&ldquo;执行exec时关闭&rdquo;属性（如果可以）
+    int sock;</p>
+
+<p>#ifdef SOCK_CLOEXEC
+    sock = socket(AF_INET, type|SOCK_CLOEXEC, 0);
+    if (sock != -1 || errno != EINVAL) return sock;
+    // An &ldquo;errno&rdquo; of EINVAL likely means that the system wasn&rsquo;t happy with the SOCK_CLOEXEC; fall through and try again without it:
+#endif</p>
+
+<pre><code>sock = socket(AF_INET, type, 0);
+</code></pre>
+
+<p>#ifdef FD_CLOEXEC
+    if (sock != -1) fcntl(sock, F_SETFD, FD_CLOEXEC);
+#endif
+    return sock;
+}
+</code></pre>
+<h2 id="8closesocket">8)closeSocket 关闭套接口</h2>
+<p><code>closesocket</code>是<code>winsock.h</code>中声明的函数，用于关闭一个套接口</p>
+<pre><code class="cpp">#define closeSocket closesocket     //关闭socket函数
+</code></pre>
+<p>在<code>linux/unix</code>等系统下，被替换为<code>close</code>函数</p>
+<pre><code class="cpp">#define closeSocket close   //关闭socket
+</code></pre>
+<h2 id="9setsockopt-socket">9)setsockopt 设置socket套接口选项</h2>
+<p>这个函数是一个<code>socket API</code>函数，还有一个对应的<code>getsockopt</code>函数。在这里简单提一下。<br />
+函数说明：用于任意类型、任意状态套接口的设置选项值。选项可能存在于多层协议中，它们总会出现在最上面的套接字层。当操作套接字选项时，选项位于的层和选项的名称必须给出。为了操作套接字层的选项，应该 将层的值指定为<code>SOL_SOCKET</code>。为了操作其它层的选项，控制选项的合适协议号必须给出。例如，为了表示一个选项由<code>TCP</code>协议解析，层应该设定为协议 号<code>TCP</code>。</p>
+<h3 id="_2">函数原型：</h3>
+<pre><code class="cpp">    int setsockopt(int sockfd, int level, int optname,const void *optval, socklen_t optlen);
+</code></pre>
+<h3 id="_3">参数说明：</h3>
+<ul>
+<li>sockfd：标识一个套接口的描述字。</li>
+<li>level：选项定义的层次；支持SOL_SOCKET、IPPROTO_TCP、IPPROTO_IP和IPPROTO_IPV6。</li>
+<li>optname：需设置的选项。</li>
+<li>optval：指针，指向存放选项待设置的新值的缓冲区。</li>
+<li>optlen：optval缓冲区长度。</li>
+</ul>
+<table>
+<thead>
+<tr><th align="left">选项名称</th><th align="left">说明</th><th align="left">数据类型</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">SOL_SOCKET</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">SO_BROADCAST</td>
+<td align="left">允许发送广播数据</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_DEBUG</td>
+<td align="left">允许调试</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_DONTROUTE</td>
+<td align="left">不查找路由</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_ERROR</td>
+<td align="left">获得套接字错误</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_KEEPALIVE</td>
+<td align="left">保持连接</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_LINGER</td>
+<td align="left">延迟关闭连接</td>
+<td align="left">structlinger</td>
+</tr>
+<tr>
+<td align="left">SO_OOBINLINE</td>
+<td align="left">带外数据放入正常数据流</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_RCVBUF</td>
+<td align="left">接收缓冲区大小</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_SNDBUF</td>
+<td align="left">发送缓冲区大小</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_RCVLOWAT</td>
+<td align="left">接收缓冲区下限</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_SNDLOWAT</td>
+<td align="left">发送缓冲区下限</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_RCVTIMEO</td>
+<td align="left">接收超时</td>
+<td align="left">structtimeval</td>
+</tr>
+<tr>
+<td align="left">SO_SNDTIMEO</td>
+<td align="left">发送超时</td>
+<td align="left">structtimeval</td>
+</tr>
+<tr>
+<td align="left">SO_REUSERADDR</td>
+<td align="left">允许重用本地地址和端口</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_TYPE</td>
+<td align="left">获得套接字类型</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">SO_BSDCOMPAT</td>
+<td align="left">与BSD系统兼容</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">IPPROTO_IP</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_HDRINCL</td>
+<td align="left">在数据包中包含IP首部</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">IP_OPTINOS</td>
+<td align="left">IP首部选项</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">IP_TOS</td>
+<td align="left">服务类型</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_MULTICAST_TTL</td>
+<td align="left">设置多播的TTL值</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_MULTICAST_IF</td>
+<td align="left">获取或设置多播接口</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_MULTICAST_LOOP</td>
+<td align="left">禁止多播数据回送到本地loop接口</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_ADD_MEMBERSHIP</td>
+<td align="left">将指定的接口加入多播</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_DROP_MEMBERSHIP</td>
+<td align="left">退出多播组</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">IP_TTL</td>
+<td align="left">生存时间</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">IPPRO_TCP</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td align="left">TCP_MAXSEG</td>
+<td align="left">TCP最大数据段的大小</td>
+<td align="left">int</td>
+</tr>
+<tr>
+<td align="left">TCP_NODELAY</td>
+<td align="left">不使用Nagle算法</td>
+<td align="left">int</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_4">返回说明：</h3>
+<ul>
+<li>成功执行时，返回0。失败返回-1，errno被设为以下的某个值</li>
+<li>EBADF：sock不是有效的文件描述词</li>
+<li>EFAULT：optval指向的内存并非有效的进程空间</li>
+<li>EINVAL：在调用setsockopt()时，optlen无效</li>
+<li>ENOPROTOOPT：指定的协议层不能识别选项</li>
+<li>ENOTSOCK：sock描述的不是套接字</li>
+</ul>
+<p><strong><code>SO_RCVBUF</code></strong>和<strong><code>SO_SNDBUF</code></strong>每个套接口都有一个发送缓冲区和一个接收缓冲区，使用这两个套接口选项可以改变缺省缓冲区大小。</p>
+<pre><code class="cpp">// 接收缓冲区
+int nRecvBuf=32<em>1024;         //设置为32K
+setsockopt(s,SOL_SOCKET,SO_RCVBUF,(const char</em>)&amp;nRecvBuf,sizeof(int));
+//发送缓冲区
+int nSendBuf=32<em>1024;//设置为32K
+setsockopt(s,SOL_SOCKET,SO_SNDBUF,(const char</em>)&amp;nSendBuf,sizeof(int));
+</code></pre>
+<h3 id="_5">注意：</h3>
+<p>当设置<code>TCP</code>套接口接收缓冲区的大小时，函数调用顺序是很重要的，因为<code>TCP</code>的窗口规模选项是在建立连接时用<code>SYN</code>与对方互换得到的。对于客户，<code>SO_RCVBUF</code>选项必须在<code>connect</code>之前设置；对于服务器，<code>SO_RCVBU</code>F选项必须在<code>listen</code>前设置。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

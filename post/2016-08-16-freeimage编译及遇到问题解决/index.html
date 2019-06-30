@@ -1,0 +1,433 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> FreeImage编译及遇到问题解决 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>FreeImage编译及遇到问题解决</h1>
+          <span class="post-date">2016年08月16日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/16/5777959.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/08/16/5777959.html</a>
+#FreeImage编译及遇到问题解决</p>
+
+<h2 id="1-下载freeimage源码包">1、下载freeImage源码包</h2>
+
+<pre><code class="language-shell">wget http://downloads.sourceforge.net/freeimage/FreeImage3170.zip
+#解压
+unzip FreeImage3170.zip -d freeImage
+</code></pre>
+
+<h2 id="2-linux下编译">2、Linux下编译</h2>
+
+<p>编译环境及工具说明
+-   操作系统：Ubuntu 16.04 64位，内核版本4.4.0-31
+-   编译工具: gcc 5.4 工具链
+-   硬件环境:Intel&reg; Core&trade; i5-4460处理器 + 8GB内存</p>
+
+<p>进入freeImage源码目录下，执行<code>make</code>命令。</p>
+
+<h3 id="2-1-类型转换错误">2.1、类型转换错误</h3>
+
+<p>这个问题出现在<code>dcraw_common.cpp</code>这个文件中的<code>4522</code>到<code>4543</code>行之间。
+报错信息如下</p>
+
+<pre><code class="language-shell">Source/LibRawLite/./internal/dcraw_common.cpp: 在成员函数‘void LibRaw::vng_interpolate()’中:
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘128’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+   };
+   ^
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘136’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘128’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘136’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘128’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+Source/LibRawLite/./internal/dcraw_common.cpp:4546:3: 错误：在 {} 内将‘136’从‘int’转换为较窄的类型‘signed char’ [-Wnarrowing]
+</code></pre>
+
+<p>我们把有问题的这段代码摘出来,可以看到<code>{}</code>中以十六进制表示的数字，有的是超过<code>127</code>的，因为字面整数默认是<code>int</code>类型，所以这里会出现这个错误。</p>
+
+<pre><code class="language-C">void CLASS vng_interpolate()
+{
+  static const signed char *cp, terms[] = {
+    -2,-2,+0,-1,0,0x01, -2,-2,+0,+0,1,0x01, -2,-1,-1,+0,0,0x01,
+    -2,-1,+0,-1,0,0x02, -2,-1,+0,+0,0,0x03, -2,-1,+0,+1,1,0x01,
+    -2,+0,+0,-1,0,0x06, -2,+0,+0,+0,1,0x02, -2,+0,+0,+1,0,0x03,
+    -2,+1,-1,+0,0,0x04, -2,+1,+0,-1,1,0x04, -2,+1,+0,+0,0,0x06,
+    -2,+1,+0,+1,0,0x02, -2,+2,+0,+0,1,0x04, -2,+2,+0,+1,0,0x04,
+    -1,-2,-1,+0,0,0x80, -1,-2,+0,-1,0,0x01, -1,-2,+1,-1,0,0x01,
+    -1,-2,+1,+0,1,0x01, -1,-1,-1,+1,0,0x88, -1,-1,+1,-2,0,0x40,
+    -1,-1,+1,-1,0,0x22, -1,-1,+1,+0,0,0x33, -1,-1,+1,+1,1,0x11,
+    -1,+0,-1,+2,0,0x08, -1,+0,+0,-1,0,0x44, -1,+0,+0,+1,0,0x11,
+    -1,+0,+1,-2,1,0x40, -1,+0,+1,-1,0,0x66, -1,+0,+1,+0,1,0x22,
+    -1,+0,+1,+1,0,0x33, -1,+0,+1,+2,1,0x10, -1,+1,+1,-1,1,0x44,
+    -1,+1,+1,+0,0,0x66, -1,+1,+1,+1,0,0x22, -1,+1,+1,+2,0,0x10,
+    -1,+2,+0,+1,0,0x04, -1,+2,+1,+0,1,0x04, -1,+2,+1,+1,0,0x04,
+    +0,-2,+0,+0,1,0x80, +0,-1,+0,+1,1,0x88, +0,-1,+1,-2,0,0x40,
+    +0,-1,+1,+0,0,0x11, +0,-1,+2,-2,0,0x40, +0,-1,+2,-1,0,0x20,
+    +0,-1,+2,+0,0,0x30, +0,-1,+2,+1,1,0x10, +0,+0,+0,+2,1,0x08,
+    +0,+0,+2,-2,1,0x40, +0,+0,+2,-1,0,0x60, +0,+0,+2,+0,1,0x20,
+    +0,+0,+2,+1,0,0x30, +0,+0,+2,+2,1,0x10, +0,+1,+1,+0,0,0x44,
+    +0,+1,+1,+2,0,0x10, +0,+1,+2,-1,1,0x40, +0,+1,+2,+0,0,0x60,
+    +0,+1,+2,+1,0,0x20, +0,+1,+2,+2,0,0x10, +1,-2,+1,+0,0,0x80,
+    +1,-1,+1,+1,0,0x88, +1,+0,+1,+2,0,0x08, +1,+0,+2,-1,0,0x40,
+    +1,+0,+2,+1,0,0x10
+  }, chood[] = { -1,-1, -1,0, -1,+1, 0,+1, +1,+1, +1,0, +1,-1, 0,-1 };
+</code></pre>
+
+<p>将上面的代码改为下面的形式即可</p>
+
+<pre><code class="language-C">void CLASS vng_interpolate()
+{
+  static const signed char *cp, terms[] = {
+    -2,-2,+0,-1,0,(char)0x01, -2,-2,+0,+0,1,(char)0x01, -2,-1,-1,+0,0,(char)0x01,
+    -2,-1,+0,-1,0,(char)0x02, -2,-1,+0,+0,0,(char)0x03, -2,-1,+0,+1,1,(char)0x01,
+    -2,+0,+0,-1,0,(char)0x06, -2,+0,+0,+0,1,(char)0x02, -2,+0,+0,+1,0,(char)0x03,
+    -2,+1,-1,+0,0,(char)0x04, -2,+1,+0,-1,1,(char)0x04, -2,+1,+0,+0,0,(char)0x06,
+    -2,+1,+0,+1,0,(char)0x02, -2,+2,+0,+0,1,(char)0x04, -2,+2,+0,+1,0,(char)0x04,
+    -1,-2,-1,+0,0,(char)0x80, -1,-2,+0,-1,0,(char)0x01, -1,-2,+1,-1,0,(char)0x01,
+    -1,-2,+1,+0,1,(char)0x01, -1,-1,-1,+1,0,(char)0x88, -1,-1,+1,-2,0,(char)0x40,
+    -1,-1,+1,-1,0,(char)0x22, -1,-1,+1,+0,0,(char)0x33, -1,-1,+1,+1,1,(char)0x11,
+    -1,+0,-1,+2,0,(char)0x08, -1,+0,+0,-1,0,(char)0x44, -1,+0,+0,+1,0,(char)0x11,
+    -1,+0,+1,-2,1,(char)0x40, -1,+0,+1,-1,0,(char)0x66, -1,+0,+1,+0,1,(char)0x22,
+    -1,+0,+1,+1,0,(char)0x33, -1,+0,+1,+2,1,(char)0x10, -1,+1,+1,-1,1,(char)0x44,
+    -1,+1,+1,+0,0,(char)0x66, -1,+1,+1,+1,0,(char)0x22, -1,+1,+1,+2,0,(char)0x10,
+    -1,+2,+0,+1,0,(char)0x04, -1,+2,+1,+0,1,(char)0x04, -1,+2,+1,+1,0,(char)0x04,
+    +0,-2,+0,+0,1,(char)0x80, +0,-1,+0,+1,1,(char)0x88, +0,-1,+1,-2,0,(char)0x40,
+    +0,-1,+1,+0,0,(char)0x11, +0,-1,+2,-2,0,(char)0x40, +0,-1,+2,-1,0,(char)0x20,
+    +0,-1,+2,+0,0,(char)0x30, +0,-1,+2,+1,1,(char)0x10, +0,+0,+0,+2,1,(char)0x08,
+    +0,+0,+2,-2,1,(char)0x40, +0,+0,+2,-1,0,(char)0x60, +0,+0,+2,+0,1,(char)0x20,
+    +0,+0,+2,+1,0,(char)0x30, +0,+0,+2,+2,1,(char)0x10, +0,+1,+1,+0,0,(char)0x44,
+    +0,+1,+1,+2,0,(char)0x10, +0,+1,+2,-1,1,(char)0x40, +0,+1,+2,+0,0,(char)0x60,
+    +0,+1,+2,+1,0,(char)0x20, +0,+1,+2,+2,0,(char)0x10, +1,-2,+1,+0,0,(char)0x80,
+    +1,-1,+1,+1,0,(char)0x88, +1,+0,+1,+2,0,(char)0x08, +1,+0,+2,-1,0,(char)0x40,
+    +1,+0,+2,+1,0,(char)0x10
+  }, chood[] = { -1,-1, -1,0, -1,+1, 0,+1, +1,+1, +1,0, +1,-1, 0,-1 };
+</code></pre>
+
+<h3 id="2-2-c-11的原始字符串与宏定义-r-产生的错误">2.2 C++11的原始字符串与宏定义<code>R</code>产生的错误</h3>
+
+<p>这个错误是因为<code>gcc 5.4</code>这里支持的是<code>C++ 11</code>的标准，C++11中引入了<code>原始字符串</code>的新特性，使用<code>R&quot;&quot;</code><strong>等</strong>方式来定义一个不进行转义的字符串。而在<code>FreeImage</code>的一些代码中，使用了<code>R</code>作为一些宏函数的参数，导致一些场合会将其当做是一个原始字符串。</p>
+
+<p>先来看一下报错信息</p>
+
+<pre><code class="language-shell">Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:37:34: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;shll_s.w         %[&quot;#R&quot;],      %[&quot;#R&quot;],        9              \n\t&quot;     \
+                             ^     
+Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:37:48: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;shll_s.w         %[&quot;#R&quot;],      %[&quot;#R&quot;],        9              \n\t&quot;     \
+                                           ^     
+Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:40:34: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;precrqu_s.qb.ph  %[&quot;#R&quot;],      %[&quot;#R&quot;],        $zero          \n\t&quot;     \
+                             ^     
+Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:40:48: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;precrqu_s.qb.ph  %[&quot;#R&quot;],      %[&quot;#R&quot;],        $zero          \n\t&quot;     \
+                                           ^     
+Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:43:34: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;srl              %[&quot;#R&quot;],      %[&quot;#R&quot;],        24             \n\t&quot;     \
+                             ^     
+Source/LibWebP/./src/dsp/dsp.upsampling_mips_dsp_r2.c:43:48: 错误：原始字符串分隔符中有无效字符‘ ’
+       &quot;srl              %[&quot;#R&quot;],      %[&quot;#R&quot;],        24             \n\t&quot;     \
+</code></pre>
+
+<p>报错的文件是<code>dsp.upsampling_mips_dsp_r2.c</code>。这是一个<code>.c</code>的文件，使用gcc编译也会出现这个错误。</p>
+
+<p><strong>报错的代码如下(dsp.upsampling_mips_dsp_r2.c 22-49)</strong></p>
+
+<pre><code class="language-C">#if !defined(WEBP_YUV_USE_TABLE)
+
+#define YUV_TO_RGB(Y, U, V, R, G, B) do {                                      \
+    const int t1 = kYScale * Y;                                                \
+    const int t2 = kVToG * V;                                                  \
+    R = kVToR * V;                                                             \
+    G = kUToG * U;                                                             \
+    B = kUToB * U;                                                             \
+    R = t1 + R;                                                                \
+    G = t1 - G;                                                                \
+    B = t1 + B;                                                                \
+    R = R + kRCst;                                                             \
+    G = G - t2 + kGCst;                                                        \
+    B = B + kBCst;                                                             \
+    __asm__ volatile (                                                         \
+      &quot;shll_s.w         %[&quot;#R&quot;],      %[&quot;#R&quot;],        9              \n\t&quot;     \
+      &quot;shll_s.w         %[&quot;#G&quot;],      %[&quot;#G&quot;],        9              \n\t&quot;     \
+      &quot;shll_s.w         %[&quot;#B&quot;],      %[&quot;#B&quot;],        9              \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#R&quot;],      %[&quot;#R&quot;],        $zero          \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#G&quot;],      %[&quot;#G&quot;],        $zero          \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#B&quot;],      %[&quot;#B&quot;],        $zero          \n\t&quot;     \
+      &quot;srl              %[&quot;#R&quot;],      %[&quot;#R&quot;],        24             \n\t&quot;     \
+      &quot;srl              %[&quot;#G&quot;],      %[&quot;#G&quot;],        24             \n\t&quot;     \
+      &quot;srl              %[&quot;#B&quot;],      %[&quot;#B&quot;],        24             \n\t&quot;     \
+      : [R]&quot;+r&quot;(R), [G]&quot;+r&quot;(G), [B]&quot;+r&quot;(B)                                     \
+      :                                                                        \
+    );                                                                         \
+  } while (0)
+</code></pre>
+
+<p>上面代码中的第16行起，有多处是<code>R&quot;],</code>的形式。这里编译器会将其当做一个原始字符串，从而导致错误。
+做如下修改，将所有的<code>R</code>都使用<code>Red</code>替代。</p>
+
+<pre><code class="language-C">#if !defined(WEBP_YUV_USE_TABLE)
+
+#define YUV_TO_RGB(Y, U, V, Red, G, B) do {                                      \
+    const int t1 = kYScale * Y;                                                \
+    const int t2 = kVToG * V;                                                  \
+    Red = kVToR * V;                                                             \
+    G = kUToG * U;                                                             \
+    B = kUToB * U;                                                             \
+    Red = t1 + Red;                                                                \
+    G = t1 - G;                                                                \
+    B = t1 + B;                                                                \
+    Red = Red + kRCst;                                                             \
+    G = G - t2 + kGCst;                                                        \
+    B = B + kBCst;                                                             \
+    __asm__ volatile (                                                         \
+      &quot;shll_s.w         %[&quot;#Red&quot;],      %[&quot;#Red&quot;],      9              \n\t&quot;     \
+      &quot;shll_s.w         %[&quot;#G&quot;],        %[&quot;#G&quot;],        9              \n\t&quot;     \
+      &quot;shll_s.w         %[&quot;#B&quot;],        %[&quot;#B&quot;],        9              \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#Red&quot;],      %[&quot;#Red&quot;],      $zero          \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#G&quot;],        %[&quot;#G&quot;],        $zero          \n\t&quot;     \
+      &quot;precrqu_s.qb.ph  %[&quot;#B&quot;],        %[&quot;#B&quot;],        $zero          \n\t&quot;     \
+      &quot;srl              %[&quot;#Red&quot;],      %[&quot;#Red&quot;],      24             \n\t&quot;     \
+      &quot;srl              %[&quot;#G&quot;],        %[&quot;#G&quot;],        24             \n\t&quot;     \
+      &quot;srl              %[&quot;#B&quot;],        %[&quot;#B&quot;],        24             \n\t&quot;     \
+      : [R]&quot;+r&quot;(R), [G]&quot;+r&quot;(G), [B]&quot;+r&quot;(B)                                     \
+      :                                                                        \
+    );                                                                         \
+  } while (0)
+</code></pre>
+
+<p><strong>这个错误还会出现在<code>Source/LibWebP/./src/dsp/dsp.yuv_mips_dsp_r2.c</code>文件中，修改的方式是一样的。</strong></p>
+
+<h3 id="2-3-tmpnam与mkstemp的选择">2.3 tmpnam与mkstemp的选择</h3>
+
+<p>这并不是一个错误，只是一个警告。</p>
+
+<pre><code class="language-shell">Source/LibJXR/./image/encode/strenc.o：在函数‘StrIOEncInit’中：
+strenc.c:(.text+0x17cc): 警告： the use of `tmpnam' is dangerous, better use `mkstemp'
+</code></pre>
+
+<p><code>tmpnam</code>函数是危险的，建议使用<code>mkstemp</code>。原因是<code>mkstemp</code>调用完成后，就已经生成并打开了一个临时文件，而<code>tmpnam</code>只是生成了一个临时文件的文件名，并没有创建文件，不能保证其一定不存在！！！
+这里就不做修改了。</p>
+
+<h3 id="2-4-安装到指定目录">2.4 安装到指定目录</h3>
+
+<p>编译完成后，可以使用<code>make install</code>命令进行安装。默认的安装目录是<code>/usr</code>下。我们可以使用如下命令指定安装目录。</p>
+
+<pre><code class="language-shell">&gt; sudo make DESTDIR=/home/o/code/freeimage install
+[sudo] o 的密码： 
+make -f Makefile.gnu install 
+make[1]: Entering directory '/media/o/work/development_library/FreeImage'
+install -d /home/o/code/freeimage/usr/include /home/o/code/freeimage/usr/lib
+install -m 644 -o root -g root Source/FreeImage.h /home/o/code/freeimage/usr/include
+install -m 644 -o root -g root libfreeimage.a /home/o/code/freeimage/usr/lib
+install -m 755 -o root -g root libfreeimage-3.17.0.so /home/o/code/freeimage/usr/lib
+ln -sf libfreeimage-3.17.0.so /home/o/code/freeimage/usr/lib/libfreeimage.so.3
+ln -sf libfreeimage.so.3 /home/o/code/freeimage/usr/lib/libfreeimage.so	
+make[1]: Leaving directory '/media/o/work/development_library/FreeImage'
+</code></pre>
+
+<p>到安装目录下查看一下</p>
+
+<pre><code class="language-shell">/home/o/code/freeimage/usr [o@o-pc] [12:05]
+&gt; tree
+.
+├── include
+│   └── FreeImage.h
+└── lib
+    ├── libfreeimage-3.17.0.so
+    ├── libfreeimage.a
+    ├── libfreeimage.so -&gt; libfreeimage.so.3
+    └── libfreeimage.so.3 -&gt; libfreeimage-3.17.0.so
+
+2 directories, 5 files
+</code></pre>
+
+<h2 id="3-vs2015进行编译">3、VS2015进行编译</h2>
+
+<p>我当前下载的版本，里面没有带VS2015的工程文件。但是有VS2005/2008/2013的。</p>
+
+<p>直接使用<code>VS2015</code>打开源码目录下的<code>FreeImage.2013.sln</code>文件，然后<code>升级 VC++ 编译器和库</code>。</p>
+
+<h3 id="3-1-源码的修改">3.1 源码的修改</h3>
+
+<p>1、将文件<code>tif_config.h</code>中的</p>
+
+<pre><code class="language-c">#ifdef _WIN32
+#define snprintf _snprintf	// 将此行注释掉
+#define lfind _lfind
+#endif // _WIN32
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code class="language-c">#ifdef _WIN32
+//#define snprintf _snprintf
+#define lfind _lfind
+#endif // _WIN32
+</code></pre>
+
+<p>早期的<code>VC</code>自带的C标准库中确实没有<code>snprintf</code>这个函数，只有<code>_snprintf</code>。但是<code>VS2015</code>下是有的，所以这里不注释掉会有重定义的问题。
+也可以修改为</p>
+
+<pre><code class="language-c">#ifdef _WIN32
+#if defined(_MSC_VER) &amp;&amp; _MSC_VER &lt; 1900
+#define snprintf _snprintf
+#endif
+#define lfind _lfind
+#endif // _WIN32
+</code></pre>
+
+<h3 id="3-2-编译和生成">3.2 编译和生成</h3>
+
+<p>直接构建解决方案即可。编译完成后可以到源码目录下的<code>Dist</code>目录拷贝<code>FreeImage.h</code>和库文件。
+<img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161124112323175-176674600.png" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,66 +1,412 @@
----
-layout: page
-css: ["index.css"]
----
-<div class="row">
-  {% for post in paginator.posts %}
-  <div class="col s12">
-    <div class="card hoverable">
-      <div class="card-content">
-        <span id="post-title" class="card-title">{{post.title}}</span>
-        <p id="post-date">
-          <i class="material-icons">date_range</i>
-          {{post.date | date: "%d/%m/%Y %H:%M"}}
-        </p>
-        <p id="post-content">{{post.excerpt | remove: '<p>' | remove: '</p>'}}</p>
-      </div>
-      <div class="card-action">
-        <a href="{{post.url | prepend: site.baseurl}}">
-          Read More
-        </a>
-      </div>
+    <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+	<meta name="generator" content="Hugo 0.55.6" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 风吹过 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="http://sotex.github.io/index.xml" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+    <body>
+        <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+        
+                panel-cover
+        
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
     </div>
-  </div>
-  {% endfor %}
-  <div class="col s12 center-align">
-    <ul class="pagination">
-      <li class="{% unless paginator.previous_page %}disabled{% else %}waves-effect{% endunless %}">
-        {% if paginator.previous_page %}
-        {% if paginator.previous_page == 1 %}
-        <a href="{{site.baseurl}}/">
-        {% else %}
-        <a href="{{site.baseurl}}/page{{paginator.previous_page}}">
-        {% endif %}
-        {% else %}
-        <a href="#!">
-        {% endif %}
-          <i class="material-icons">chevron_left</i>
-        </a>
-      </li>
-      {% if paginator.page == 1 %}
-      <li class="active teal">
-        <a href="#!">1</a>
-      {% else %}
-      <li class="waves-effect">
-        <a href="{{site.baseurl}}/">1</a>
-      {% endif %}
-      </li>
-      {% for count in (2..paginator.total_pages) %}
-      {% if count == paginator.page %}
-      <li class="active teal"><a href="#!">{{count}}</a></li>
-      {% else %}
-      <li class="waves-effect"><a href="{{site.baseurl}}/page{{count}}">{{count}}</a></li>
-      {% endif %}
-      {% endfor %}
-      <li class="{% unless paginator.next_page %}disabled{% else %}waves-effect{% endunless %}">
-        {% if paginator.next_page %}
-        <a href="{{site.baseurl}}/page{{paginator.next_page}}">
-        {% else %}
-        <a href="#!">
-        {% endif %}
-          <i class="material-icons">chevron_right</i>
-        </a>
-      </li>
-    </ul>
-  </div>
+</header>
 </div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+        <div class="content-wrapper">
+            <div class="content-wrapper__inner">
+                <section id="main">
+                    <div>
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-06-24-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87quantized-mesh%E6%A0%BC%E5%BC%8F/">cesium地形瓦片(Quantized-mesh)格式 </a> </h2>
+<div class="post-meta">2019年06月24日</div>
+</header>
+<div class="summary">
+    [TOC]
+博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/11080222.html
+参考资料：
+ quantized-mesh-1.0 terrain format(用于三维可视化的流式海量地形数据集规范) Tile Map Service Specification 国内主要地图瓦片坐标系定义及计算原理 QuantizedMeshTerrainData cesium地形瓦片(HeightMap)格式 Index compression follow-up  1、切片规则 量化网格-1.0格式的地形图瓦片的切分规则和HeightMap的一样，也是Tile Map Service (TMS) 的global-geodetic规则，详情可见cesium地形瓦片(HeightMap)格式中的描述。
+如果瓦片集的URL是如下形式:
+http://assets.agi.com/stk-terrain/world/tiles  则金字塔根部两个瓦片文件的URL:
+ (-180 deg, -90 deg) - (0 deg, 90 deg) - http://assets.agi.com/stk-terrain/world/tiles/0/0/0.terrain (0 deg, -90 deg) - (180 deg, 90 deg) - http://assets.agi.com/stk-terrain/world/tiles/0/1/0.terrain  再下一级的8个瓦片文件的URL:
+ (-180 deg, -90 deg) - (-90 deg, 0 deg) - http://assets.agi.com/stk-terrain/world/tiles/1/0/0.terrain (-90 deg, -90 deg) - (0 deg, 0 deg) - http://assets.
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-06-24-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87quantized-mesh%E6%A0%BC%E5%BC%8F/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-06-24-%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96/">博客园备份提取 </a> </h2>
+<div class="post-meta">2019年06月24日</div>
+</header>
+<div class="summary">
+    简述 [TOC]
+博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/11079838.html
+在博客园记录了一些文章，想把它备份到github上，还好大部分博文都是markdown格式的，博客园也支持备份导出，但是到处的是单个的XML文件。 为了把每一篇博文单独提取出来，所以写了一个小程序来提取。 github中需要如下图所示的格式，方能正确的分类 文件名需要日期开头，文件内容中最前面一段是文章的一些描述信息
+程序代码 程序是用Golang编写的，代码如下：
+// cnblogs2githubpages project main.go package main import ( &quot;bytes&quot; &quot;encoding/xml&quot; &quot;fmt&quot; &quot;io/ioutil&quot; &quot;os&quot; &quot;strings&quot; &quot;time&quot; ) // 结构体中要能够进行XML解析，则字段名必须以大写开头 // 帖子 type Post struct { XMLName xml.Name `xml:&quot;item&quot;` Title string `xml:&quot;title&quot;` Link string `xml:&quot;link&quot;` Creator string `xml:&quot;dc:creator&quot;` Author string `xml:&quot;author&quot;` PubDate string `xml:&quot;pubDate&quot;` Guid string `xml:&quot;guid&quot;` Description string `xml:&quot;description,CDATA&quot;` } type Blogs struct { XMLName xml.Name `xml:&quot;channel&quot;` Title string `xml:&quot;title&quot;` Link string `xml:&quot;link&quot;` Description string `xml:&quot;description&quot;` Language string `xml:&quot;language&quot;` LastBuildDate string `xml:&quot;lastBuildDate&quot;` PubDate string `xml:&quot;pubDate&quot;` Ttl string `xml:&quot;ttl&quot;` Items []Post `xml:&quot;item&quot;` } type RSS struct { XMLName xml.
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-06-24-%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-06-24-%E5%B9%B2%E6%8E%89%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%BA%91%E4%BB%A3%E7%90%86sogoucloud.exe/">干掉搜狗输入法云代理SogouCloud.exe </a> </h2>
+<div class="post-meta">2019年06月24日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/10930945.html 搜狗输入法暂时还离不开，但是很讨厌搜狗输入法一直在后台的“搜狗云代理程序”（C:\Program Files (x86)\SogouInput\9.1.0.2657\SogouCloud.exe），占用大量CPU和网络，不知道进行什么活动。 2019年6月24日更新，我已经卸载了搜狗输入法，现在用微软拼音也习惯了。
+方法一 删除SogouCloud.exe文件。 这个方法有效，但是搜狗会一直提示要修复，即便是你不修复，也会在某一时间就被修复了。 如果是删除之后替换为一个名为SogouCloud.exe的空文件或者目录，就会经常在启动一些程序的时候，会打开这个文件或目录。 可以通过设置只读权限，来防止被搜狗替换回来。
+方法二 在组策略中限制SogouCloud.exe的运行。 打开组策略，定位到用户配置 --&gt; 管理模板 --&gt; 系统 --&gt; 不允许指定 Windows 应用程序 --&gt;点选“已启用” 方法三 写一个最简单的程序来替换掉SogouCloud.exe，这个程序什么都不干，足够的小即可。
+#include &lt;Windows.h&gt; int main() { // 保证只有一个进程实例 HANDLE h = CreateMutexA(NULL, TRUE, &quot;SouguCloud.exe&quot;); DWORD dwRet = GetLastError(); if (!h || dwRet == ERROR_ALREADY_EXISTS) { return 0; } // 为了让程序不被替换掉，无限休眠下去 // https://docs.microsoft.com/zh-cn/windows/desktop/api/synchapi/nf-synchapi-sleep Sleep(0xFFFFFFFF); ReleaseMutex(h); return 0; }  编译链接
+# 编译 cl SogouCloud.c /c /Fo:SogouCloud.
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-06-24-%E5%B9%B2%E6%8E%89%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%BA%91%E4%BB%A3%E7%90%86sogoucloud.exe/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-06-21-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87heightmap%E6%A0%BC%E5%BC%8F/">cesium地形瓦片(HeightMap)格式 </a> </h2>
+<div class="post-meta">2019年06月21日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/21/11063905.html
+参考资料：
+ heightmap 1.0 Tile Map Service Specification 国内主要地图瓦片坐标系定义及计算原理 HeightmapTerrainData  cesium支持多种地形瓦片数据（GoogleEarthEnterpriseTerrainData、QuantizedMeshTerrainData、HeightmapTerrainData），这里不详细叙述每一个，以下说的地形瓦片都是指HeightmapTerrainData。
+1、瓦片切分规则 地形瓦片(heightmap-1.0)格式的terrain瓦片集是根据TMS（瓦片地图服务）global-geodetic（全球大地坐标）规则进行切分。
+TMS特性简述：
+ TMS中一个瓦片地图(TileMap)由一组具有不同比例尺瓦片集(TileSet)组成，每个瓦片集由相同大小格式的规则瓦片平铺而成。下一级的瓦片集由上一级的四叉分割而来（整个地图就是个四叉树结构）。
+ 对于一个瓦片地图(TileMap)只能支持一个空间参考系(SRS)和一种图像格式，如果需要支持多种就要做多个瓦片地图。
+ 瓦片地图具有边界范围(BoundingBox)和原点(Origin)，原点是0,0瓦片的左下角（也是-1,-1瓦片的右上角），也就是轴向是向左向上。
+  global-geodetic切分规则：
+ 坐标系为WGS84大地坐标系（&lt;SRS&gt;EPSG:4326&lt;/SRS&gt;）
+ 对于任意级别（n），该级别瓦片集的瓦片像素分辨率为units-per-pixel = 0.703125/2^n
+ 0级为覆盖全球的2个256x256像素大小（地理大小为180*180度）的图块，其Origin为-180,90。
+  heightmap 1.0 特定规则：
+ 所有图块都具有后缀名.terrain。
+ 图块大小为65x65像素大小，实际上图块的最后一行和最后一列是相邻的 东边/南边 图块的第一行/第一列。因为其大小不是256x256，所以其对应级别的分辨率也有所不同。
+ 图块获取URL示例如下：
+ 对于顶级的两个图块：
+ (-180°, -90°) - (0 °, 90 °) - /path/tilesets/terrain/smallterrain/0/0/0.terrain ( 0°, -90 °) - (180 °, 90 °) - /path/tilesets/terrain/smallterrain/0/1/0.
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-06-21-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87heightmap%E6%A0%BC%E5%BC%8F/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-05-31-proj.4-%E5%8D%87%E7%BA%A7%E6%96%B0%E7%89%88%E6%9C%AC5.x%E5%92%8C6.x/">Proj.4 升级新版本5.x和6.x </a> </h2>
+<div class="post-meta">2019年05月31日</div>
+</header>
+<div class="summary">
+    Proj.4 升级新版本5.x和6.x [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/31/10955620.html
+0、缘起 今天（2019年5月30日）去编译最新版本的GDAL，发现其对Proj.4的依赖已经要求为6.x版本了。于是去https://github.com/OSGeo/proj.4看了一下最新的代码，又去https://proj4.org/看了一下文档，感觉5.x和6.x的更新挺大的，有必要测试一下，看工作中的项目是不是要升级过来。
+1、5.x和6.x更新情况简述 我没有仔细去看5.x版本的代码，仅看了一下最新的Proj.4 版本6的代码，与早前使用的4.9.3版本简单对比了一下，感觉区别还是挺大的，这里列出几点我关注的地方的对比。
+1、新版本改用C++编写，相比4.9版本代码量增加了不少，功能也多了不少。代码层次结构清晰了许多，比如各种转换算法都在src/transformations目录下可以找到，各种投影方法相关的算法都在src/projections目录可以找到。
+2、支持了从WKT/WKT2字符串和EPSG代码直接创建坐标系对象，也支持导出WKT字符串。老版本中记录EPSG坐标系定义的的nad/epsg被弃用，改用SQLite数据库来记录（在data/sql目录下保存着用于生成proj.db文件的SQL脚本），不过新版本需要依赖SQLite3。
+3、新版的实现使用了缓存机制，在创建操作坐标系对象及搜索查找等都有用到。代码可见 src/iso19111/factory.cpp、src/iso19111/crs.cpp、src/iso19111/coordinateoperation.cpp、
+src/iso19111/coordinateoperation.cpp 等文件。
+4、新版添加了proj_math.h、math.cpp，添加了pj_hypot等函数，这解决了一些编译问题（因为之前版本projects.h中声明了hypot函数，但这个函数在非_WIN32环境中也可能是存在math.h中的）。
+以下主要翻译自：PROJ.4 News
+PROJ 5.x 更新 此版本的 PROJ 对系统的大地测量功能 (主要是) 引入了一些重要的扩展和改进。
+引入新功能的主要驱动因素是动态参考框架的出现、高精度全球导航卫星系统的使用日益增加以及对精确坐标变换的相关需求的增加。虽然旧版本的 PROJ 包含一些大地测量功能, 但新框架为将 PROJ 转变为通用地理空间坐标转换引擎奠定了基础。
+内部架构也有了许多变化和改进。到目前为止，这些改进都遵循现有的编程接口。但是这个过程已经显示出需要简化和减少代码库，以支持持续的主动开发。
+新的主要版本号使该项目在名称上留下了一些难题。在产品的大部分使用寿命中，它被称为PROJ.4，但由于我们现在已达到版本5，因此名称不再与版本号对齐。
+因此，我们决定将名称与版本号和该版本分离，然后将产品简称为PROJ。为了表彰软件的历史，我们将PROJ.4作为组织项目的名称。同一个项目团队也会生成datum-grid 包。
+综上所述:
+ PROJ.4项目提供产品PROJ，现在版本为5.0.0。 PROJ的基础组件是库libproj。 其他PROJ组件包括应用程序proj，它为libproj提供命令行界面。 PROJ.4项目还分发了基准网格(datum-grid)包，在编写本文时，它是1.6.0版本。  5.0.0 更新  推出新的API在proj.h
+ 新版API增加了4D空间坐标转换功能 新API中的函数使用proj_命名空间(名称前缀) 新API中的数据类型使用PJ_命名空间(名称前缀)  引入“转换管道”(transformation pipelines)的概念，可以通过 菊花链 的方式简化坐标操作，可以对坐标进行复杂的大地转换。
+ 采用 OGC/ISO-19100 地理空间标准系列术语。关键定义是：
+ 在通用层面上，坐标操作是基于从一个坐标参考系统到另一个坐标参考系统的一对一关系的坐标变换。 变换(transformation )是一种坐标操作，其中两个坐标参考系统基于不同的基准，例如，从全局参考框架改变到区域框架。 转换(conversion )是一种坐标操作，其中两个坐标参考系统都基于相同的数据，例如，坐标单位的变化。 投影是从椭球坐标系到平面坐标系的坐标转换。虽然投影只是根据标准进行的转换, 但它们在 PROJ 中被视为单独的实体, 因为它们占库中绝大多数操作。  新操作
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-05-31-proj.4-%E5%8D%87%E7%BA%A7%E6%96%B0%E7%89%88%E6%9C%AC5.x%E5%92%8C6.x/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-05-29-sqlite-rtree-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95/">SQLite R*Tree 模块测试 </a> </h2>
+<div class="post-meta">2019年05月29日</div>
+</header>
+<div class="summary">
+    SQLite R*Tree 模块测试 [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/29/10941099.html
+相关参考：
+ MySQL空间索引简单使用
+MongoDB地理空间数据存储及检索
+The SQLite R*Tree Module
+Memory-Mapped I/O
+In-Memory Databases
+libspatialindex
+R* tree - Wikipedia
+ 我另外做了GEOS STRtree/Quadtree 空间检索的性能，测试代码和数据可见Spatial_Index_Test
+1、SQLite R*Tree 模块特性简介 关于SQLite的空间索引相关介绍可以查看官方文档 The SQLite R*Tree Module ，这里只做简单的介绍。
+1、SQLite R *Tree模块实现部分在其源代码内（源码下载页面），无需另外合并。但是默认是没有启用的，启用需要定义SQLITE_ENABLE_RTREE=1宏再编译。
+2、SQLite R *Tree模块采用虚拟表实现，每个R *Tree索引都是一个虚拟表。对于这个表，其第一列必须是64位有符号整数类型，作为主键。其它的列（2-12列）根据空间维度确定，每个维度包含一对（两列），分别是该维度的最小和最大值。例如：一维R *Tree索引虚拟表包含3列，分别是Int64主键| 最小值| 最大值；二维R*Tree索引虚拟表包含5列，分别是Int64主键| 第一维最小值| 第一维最大值| 第二维最小值| 第二维最大值；3、4、5维R*Tree索引虚拟表列数情况的以此论推，SQLite R *Tree实现不支持宽度超过5维的R *树。
+3、对于各个维度的最大最小值列，SQLite中可以使用int32或者float32类型进行数据存储。与其它常规表中的列不同，这里存储就是二进制类型的值，而不是转换为字符串。如果在插入数据的时候，使用了这两者之外的类型，则会进行隐式转换。
+-- 创建整型坐标rtree索引虚拟表 CREATE VIRTUAL TABLE intrtree USING rtree_i32(id,x0,x1,y0,y1,z0,z1); -- 创建浮点型坐标rtree索引虚拟表 CREATE VIRTUAL TABLE floatrtree USING rtree(id,x0,x1,y0,y1,z0,z1);  4、SQLite R *Tree中查询并不限制查询的维度一定要与所查询的表中的维度一致，可以仅查询其中的某几个维度（如3维空间仅查询2个维度）。一般来说，约束（维度）越多，查询的范围框越小，速度越快。
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-05-29-sqlite-rtree-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-05-28-%E4%BD%BF%E7%94%A8-arcgis-desktop-%E5%88%87%E7%93%A6%E7%89%87/">使用 ArcGIS Desktop 切瓦片 </a> </h2>
+<div class="post-meta">2019年05月28日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/28/10936522.html
+1、生成切片缓存切片方案 ArcGIS有默认的切片方案，如果需要自定义切片规则，需要先生成一个切片方案。
+打开ArcMap，打开 工具箱(Tools Box) &ndash;&gt; 系统工具箱(System Tools Box) &ndash;&gt; 数据管理工具(Data Managment Tools) &ndash;&gt; 切片缓存(Tile Cache)&ndash;&gt;生成切片缓存切片方案(Generate Tile Cache Tiling Scheme)
+各个选项简要说明：
+ 1、输入数据源：这个是用来确定这个切片方案能够切多少级的，切片的最大级别的分辨率最多能够是小于等于输入的数据源的分辨率，也就是说最多能切到刚好等于或者小于数据源的分辨率，就不能再继续往下切了。 2、输出切片方案：也就是这个切片方案的保存位置，不能是一个已经存在的文件。 3、生成方案：二选一，NEW 表示创建一个新的，PREDEFINED 表示基于一个已有的切片方案来创建。 4、比例级数：指定要切多少级，这个数据会自动根据输入数据源的分辨率进行调整。 5、比例：指定比例级数后，会自动计算出相应的比例系数列表，如果需要添加，则可以在这里输入后，点击右侧的+按钮进行添加。移除则是在表格中选择后，点击右侧的X按钮进行移除。 6、切片原点：就是切片的第一个瓦片(0,0)的左上角点坐标。 7、每英寸的点数(像素)：就是DPI的设置，一般国内的切片96（天地图），但是WMTS服务通常是90.714（WMTS标准里面就是，但是ArcGIS Desktop10.2/3版本，由于计算使用的经纬度与米的换算系数偏小的原因，导致其计算比例尺与分辨率的结果有问题，其加载WMTS图层时可见） 8、切片大小（以像素为单位）：瓦片的大小，通常是256 x 256。经过我的测试，大部分情况下512 x 512的瓦片大小，在切瓦片的速度和发布成服务后的浏览速度上，都是优于256大小的，1024大小的瓦片在大多数时候也是优于256的，但与512差异不大。 9、切片格式：主要是PNGx、JPEG、MIXED。MIXED混合格式，指的是在切片的时候，如果检测到瓦片内有透明区域，则这个瓦片使用PNG32格式，如果没有，则使用JPEG格式。这样做可以在不失去透明通道的前提下，有效降低瓦片数据文件的大小。 10、切片压缩质量：仅对JPEG（包括MIXED中使用JPEG的瓦片）有效，参数值需要介于1-100之间，默认是75。 11、存储格式：COMPACT 紧凑格式，也就是把多个瓦片（最多128x128个）存储到一个bundle/bundlx文件的形式，避免出现大量碎文件。EXPLODED 分散格式，就是把每一个瓦片存储成一个图片文件，这个形式的瓦片不能和tpk包一起使用。  参考：Generate Tile Cache Tiling Scheme
+2、切瓦片 切瓦片在ArcGIS里面没有直接使用这个名称，在“管理切片缓存”里面。
+打开ArcMap，打开 工具箱(Tools Box) &ndash;&gt; 系统工具箱(System Tools Box) &ndash;&gt; 数据管理工具(Data Managment Tools) &ndash;&gt; 切片缓存(Tile Cache)&ndash;&gt;管理切片缓存(Manage Tile Cache)
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-05-28-%E4%BD%BF%E7%94%A8-arcgis-desktop-%E5%88%87%E7%93%A6%E7%89%87/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-05-22-%E4%BD%BF%E7%94%A8hdfs-mount%E6%8C%82%E8%BD%BDhdfs/">使用hdfs-mount挂载HDFS </a> </h2>
+<div class="post-meta">2019年05月22日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/22/10906275.html
+hdfs-mount是一个将HDFS挂载为本地Linux文件系统的工具，使用go语言开发，不依赖libdfs和java虚拟机。它允许将远程HDFS作为本地Linux文件系统挂载，并允许任意应用程序或shell脚本以高效和安全的方式访问HDFS作为普通文件和目录。
+1、特性(计划)简介 以下翻译自 hdfs-mount/README.md
+ 高性能  使用protocol buffers协议直接连接HDFS和Linux内核FUSE接口（无需Java虚拟机） 针对吞吐量密集型工作负载进行设计和优化（尽可能以延迟交换吞吐量） 完全流式传输和自动预读支持 并发操作 在内存中缓存元数据 (速度非常快 l!)  高稳定性和强大的故障处理行为  自动重试和故障转移，全部可配置 可选的延迟挂载, 在 HDFS 可用之前  读写操作都支持  支持随机写入[慢，但功能正确] 支持文件截断  （可选）扩展ZIP存档，并根据需要提取内容  这为”数百万个小文件在HDFS上“(millions of small files on HDFS)问题提供了有效的解决方案  对CoreOS和Docker友好  可选择打包为静态链接的独立可执行文件   2、构建程序 我的系统环境是CentOS 7.0 x86_64，以下所有操作都是基于此。
+先安装编译所需的必要工具软件：
+yum install make golang  然后下载hdfs-mount的源码回来，源码仓库地址:https://github.com/microsoft/hdfs-mount.git
+git clone https://github.com/microsoft/hdfs-mount.git  然后就可以编译了，先进入源码目录
+# 进入源码根目录 cd hdfs-mount # 执行构建 make  编译的过程中因为要下载依赖（bazil/fuse、x/net/context、protobuf/proto），所以需要保持网络通畅。
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-05-22-%E4%BD%BF%E7%94%A8hdfs-mount%E6%8C%82%E8%BD%BDhdfs/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-04-30-qt-multimedia-backends%E5%A4%9A%E5%AA%92%E4%BD%93%E5%90%8E%E7%AB%AF%E7%BF%BB%E8%AF%91/">Qt Multimedia Backends（多媒体后端）翻译 </a> </h2>
+<div class="post-meta">2019年04月30日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/30/10795485.html
+原文地址：
+Qt Multimedia Backends
+Qt 5.11 Multimedia Backends
+对于大多数功能，Qt Multimedia建立在底层系统的多媒体框架之上。因此，有基于不同技术和API的多个多媒体后端。平台特定的库和Qt Multimedia之间使用插件进行结合。 Qt Multimedia目前有三种插件：
+ MediaService（媒体服务）插件，提供媒体播放器，摄像头，收音机和录音功能。 Audio（音频）插件，提供低延迟（low-latency）音频支持。 PlaylistFormat（播放列表格式）插件，支持特定的播放列表文件格式。  插件不一定实现所有可能的功能, 不同的后端具有不同的功能。下表概述了 Qt 5.11 中每个后端所支持的内容。
+MediaService plugins 媒体服务插件 不同后端支持的媒体播放器功能:     DirectShow (Windows) Media Foundation (Windows) AV Foundation (OSX/ iOS) GStreamer (Unix) Android BlackBerry WinRT     媒体播放控制（MediaPlayer control） √ √ √ √ √ √ √   URL 媒体源 (本地和远程) √ √ √ √ √ √ √   流媒体源（Stream source） √ √  √   √   媒体元信息（Metadata） √ √ 部分 √ √ √    播放速率（Playback rate） √ √ √ √  √ √   轨道选择（Track selection）    √      硬件解码（HW decoding） √ √ √  √ √ √   视频窗口(输出)控制（Video window control） √ √ √ √  √    视频部件(输出)控制（Video widget control）   √ √      视频渲染控制（Video renderer control）(包括OpenGL纹理) √ √ √ √ √ √ √   音频Audio probe √ √  √      视频探针（Video Probe） √ √  √       后端支持的摄像头（相机）功能     DirectShow (Windows) Media Foundation (Windows) AV Foundation (OSX/ iOS) GStreamer (Unix) Android BlackBerry WinRT     s摄像头控制（Camera control） √  √ √ √ √ √   视频窗口(输出)控制（Video window control）    √      视频部件(输出)控制（Video widget control） √   √      视频渲染控制（Video renderer control）(包括OpenGL纹理) √  √ √ √ √ √   音频探针（Audio probe）          视频探针（Video probe） √  √  √  √   视口查找设置（ViewFinder settings） √  √ √ √ √    影像捕获（Image capture） √  √ √ √ √ √   捕获目标（Capture destination） 文件, 内存缓存区  文件 文件, 内存缓存区 文件, 内存缓存区 文件, 内存缓存区 文件   影像设置（Image settings）   分辨率 分辨率 分辨率, 质量 分辨率, 质量 分辨率   缩放（Zoom） √(depends on HW)  √(only iOS &gt;= 7.
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-04-30-qt-multimedia-backends%E5%A4%9A%E5%AA%92%E4%BD%93%E5%90%8E%E7%AB%AF%E7%BF%BB%E8%AF%91/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                            
+                                <article class="post">
+<header>
+<h2><a href="http://sotex.github.io/post/2019-04-23-minfiltermaxfilter%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95c&#43;&#43;%E5%AE%9E%E7%8E%B0/">MinFilter(MaxFilter)快速算法C&#43;&#43;实现 </a> </h2>
+<div class="post-meta">2019年04月23日</div>
+</header>
+<div class="summary">
+    [TOC] 博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/23/10758029.html
+参考资料：
+ MinFilter - Wolfram 语言与系统参考资料中心 ImageFilter - Wolfram 语言与系统参考资料中心 Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element [SSE图像算法优化系列七：基于SSE实现的极速的矩形核腐蚀和膨胀（最大值和最小值）算法。]  1、算法简述 1.1、MinFilter(MaxFilter) 算法简述 MinFilter（MaxFilter）算法是用于对一维或多维数据进行滤波的算法，滤波的结果为原数据中对应位置领域r内的最小（最大）值。在数据的边界处，使用较小（较大）的邻域.。
+1.2、MinFilter(MaxFilter) 快速算法简述 对于MinFilter(MaxFilter)的快速算法，思想来自于这篇论文Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element。在网上找到了这张图，但这个图也没有什么文字说明，并不是很清楚。
+下面按照我实现的时候的思路，来说一下我的理解。
+首先，对于一个多维的数据，都可以逐个维度进行处理。比如说一个图片，也就是二维数据，可以先对每一行进行处理，然后再对每一列进行处理，这样得到的结果与行列同时处理是一样的。
+假设r=1 原始数据 --&gt; 逐行处理 --&gt; 逐列处理 5 2 1 3 4 2 1 1 1 3 2 1 1 1 3 6 9 8 4 7 6 6 4 4 4 2 1 1 0 0 7 3 8 2 0 3 3 2 0 0 0 0 0 0 0 9 0 1 5 6 0 0 0 1 5 0 0 0 0 0 原始数据 --&gt; 逐行列处理 5 2 1 3 4 2 1 1 1 3 6 9 8 4 7 2 1 1 0 0 7 3 8 2 0 0 0 0 0 0 9 0 1 5 6 0 0 0 0 0  因此算法的关键在于提高一行数据处理的效率。
+</div>
+<footer>
+<a href='http://sotex.github.io/post/2019-04-23-minfiltermaxfilter%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95c&#43;&#43;%E5%AE%9E%E7%8E%B0/'><nobr>阅读更多 →</nobr></a>
+</footer>
+</article>
+
+
+                            
+                        
+                    </div>
+                    </br>
+                    <h4>
+                        <a href="http://sotex.github.io//post/">Archive</a>
+                    </h4>
+                </section>
+            </div>
+        </div>
+        <footer class="footer"></footer>
+
+        
+    </body>
+</html>

@@ -1,0 +1,277 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> cesium地形瓦片(HeightMap)格式 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>cesium地形瓦片(HeightMap)格式</h1>
+          <span class="post-date">2019年06月21日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2019/06/21/11063905.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/21/11063905.html</a></p>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><a href="https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0">heightmap 1.0</a></li>
+<li><a href="https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification">Tile Map Service Specification</a></li>
+<li><a href="http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/">国内主要地图瓦片坐标系定义及计算原理</a></li>
+<li><a href="https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html">HeightmapTerrainData</a></li>
+</ul>
+
+<p>cesium支持多种地形瓦片数据（<a href="https://cesiumjs.org/Cesium/Build/Documentation/GoogleEarthEnterpriseTerrainData.html">GoogleEarthEnterpriseTerrainData</a>、<a href="https://cesiumjs.org/Cesium/Build/Documentation/QuantizedMeshTerrainData.html">QuantizedMeshTerrainData</a>、<a href="https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html">HeightmapTerrainData</a>），这里不详细叙述每一个，以下说的地形瓦片都是指<a href="https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html">HeightmapTerrainData</a>。</p>
+
+<h2 id="1-瓦片切分规则">1、瓦片切分规则</h2>
+
+<p>地形瓦片(heightmap-1.0)格式的terrain瓦片集是根据<a href="https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification">TMS</a>（瓦片地图服务）<strong>global-geodetic</strong>（全球大地坐标）规则进行切分。</p>
+
+<p><strong>TMS特性简述：</strong></p>
+
+<ul>
+<li><p>TMS中一个瓦片地图(TileMap)由一组具有不同比例尺瓦片集(TileSet)组成，每个瓦片集由相同大小格式的规则瓦片平铺而成。下一级的瓦片集由上一级的四叉分割而来（整个地图就是个四叉树结构）。</p></li>
+
+<li><p>对于一个瓦片地图(TileMap)只能支持一个空间参考系(SRS)和一种图像格式，如果需要支持多种就要做多个瓦片地图。</p></li>
+
+<li><p>瓦片地图具有边界范围(BoundingBox)和原点(Origin)，原点是<code>0,0</code>瓦片的左下角（也是<code>-1,-1</code>瓦片的右上角），也就是轴向是向左向上。</p></li>
+</ul>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122711470-1135189334.png" alt="TMS" /></p>
+
+<p><strong>global-geodetic切分规则：</strong></p>
+
+<ul>
+<li><p>坐标系为WGS84大地坐标系（<code>&lt;SRS&gt;EPSG:4326&lt;/SRS&gt;</code>）</p></li>
+
+<li><p>对于任意级别（<code>n</code>），该级别瓦片集的瓦片像素分辨率为<code>units-per-pixel = 0.703125/2^n</code></p></li>
+
+<li><p>0级为覆盖全球的2个256x256像素大小（地理大小为180*180度）的图块，其Origin为<code>-180,90</code>。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122730318-1157815087.png" alt="global-geodetic" /></p></li>
+</ul>
+
+<p><strong>heightmap 1.0 特定规则：</strong></p>
+
+<ul>
+<li><p>所有图块都具有后缀名<code>.terrain</code>。</p></li>
+
+<li><p>图块大小为<code>65x65</code>像素大小，实际上图块的最后一行和最后一列是相邻的 东边/南边 图块的第一行/第一列。因为其大小不是<code>256x256</code>，所以其对应级别的分辨率也有所不同。</p></li>
+
+<li><p>图块获取URL示例如下：</p>
+
+<blockquote>
+<p>对于顶级的两个图块：</p>
+
+<ul>
+<li>(-180°, -90°) - (0 °,     90 °) - <code>/path/tilesets/terrain/smallterrain/0/0/0.terrain</code></li>
+<li>(     0°, -90 °) - (180 °, 90 °) - <code>/path/tilesets/terrain/smallterrain/0/1/0.terrain</code></li>
+</ul>
+
+<p>往下一级的8个图块:</p>
+
+<ul>
+<li>(-180°,-90°) - ( -90°,  0°) - <code>/path/tilesets/terrain/smallterrain/1/0/0.terrain</code></li>
+<li>( -90°,-90°) - (   0°,  0°) - <code>/path/tilesets/terrain/smallterrain/1/1/0.terrain</code></li>
+<li>(   0°,-90°) - (  90°,  0°) - <code>/path/tilesets/terrain/smallterrain/1/2/0.terrain</code></li>
+<li>(  90°,-90°) - ( 180°,  0°) - <code>/path/tilesets/terrain/smallterrain/1/3/0.terrain</code></li>
+<li>(-180°,  0°) - ( -90°, 90°) - <code>/path/tilesets/terrain/smallterrain/1/0/1.terrain</code></li>
+<li>( -90°,  0°) - (   0°, 90°) - <code>/path/tilesets/terrain/smallterrain/1/1/1.terrain</code></li>
+<li>(   0°,  0°) - (  90°, 90°) - <code>/path/tilesets/terrain/smallterrain/1/2/1.terrain</code></li>
+<li>(  90°,  0°) - (180 °, 90 °) - <code>/path/tilesets/terrain/smallterrain/1/3/1.terrain</code></li>
+</ul>
+</blockquote>
+
+<p>可以参考一下 <a href="http://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/">http://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/</a> ，它的图块大小是<code>32x32</code>的，瓦片集的信息如下。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122756415-1978569628.png" alt="vr-theworld" /></p></li>
+</ul>
+
+<h2 id="2-terrain瓦片格式分析">2、.terrain瓦片格式分析</h2>
+
+<p>可以使用开源软件 <a href="https://github.com/geo-data/cesium-terrain-builder">Cesium Terrain Builder</a> 来对DEM数据切片，生成terrain瓦片。</p>
+
+<p>对于<code>TerrainTile</code>的数据结构，可以查看代码<a href="https://github.com/geo-data/cesium-terrain-builder/blob/master/src/TerrainTile.hpp">TerrainTile.hpp</a>、<a href="https://github.com/geo-data/cesium-terrain-builder/blob/master/src/TerrainTile.cpp">TerrainTile.cpp</a>，很清晰明了。</p>
+
+<p>对于单个图块，为65x65大小，每个像素表示一个高度值，海拔值的计算规则为<code>H=像素值*0.2-1000</code>。</p>
+
+<p>每个高度值为16Bit的整数，排列顺序为<strong>行-从西向东，列-从北向南</strong>，总的字节数为<code>65*65*2=8450</code>。</p>
+
+<p>相邻图块直接关系大致如下图所示，相邻瓦片之间有一行或者一列的重合。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122846970-1423906158.png" alt="terrain-layout" /></p>
+
+<p>对于一个.terrain图块，其经过<code>gzip</code>解压后的数据（文档里面说要瓦片数据要经过gzip压缩，但是我在使用cesium测试的时候，是不经过压缩的才能正确读取），布局大致如下：</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122907825-1804582034.png" alt="terrain-memory-layout" /></p>
+
+<p>前8540字节是高度数据，每个高度数据为<strong>2字节</strong>的小端表示的16位带符号整数。</p>
+
+<p>紧跟其后的一个字节是<strong>子块掩码</strong>，用于标识当前块的子块是否存在。</p>
+
+<p>再之后是1个或者256*256个字节的水域掩码，如果全部是水域(0)或者陆地(255)，那么就是一个字节，如果混合了水域和陆地，那么就是256x256个字节，每个字节表示该像素位置是水域(0)还是陆地(255)。</p>
+
+<p>cesium里解析terrain瓦片数据(解压缩后的)的示例代码：</p>
+
+<pre><code class="language-js">var buffer = ...
+var heightBuffer = new Uint16Array(buffer, 0, that._heightmapWidth * that._heightmapWidth);
+var childTileMask = new Uint8Array(buffer, heightBuffer.byteLength, 1)[0];
+var waterMask = new Uint8Array(buffer, heightBuffer.byteLength + 1,
+                               buffer.byteLength - heightBuffer.byteLength - 1);
+var terrainData = new Cesium.HeightmapTerrainData({
+  buffer : heightBuffer,
+  width : 65,
+  height : 65,
+  childTileMask : childTileMask,
+  waterMask : waterMask
+});
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

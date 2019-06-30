@@ -1,0 +1,278 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> BSON 1.0版本规范(翻译) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>BSON 1.0版本规范(翻译)</h1>
+          <span class="post-date">2016年04月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/04/25/5431684.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/04/25/5431684.html</a>
+#BSON 1.0版本规范</p>
+
+<p>本文翻译自 <a href="http://bsonspec.org/spec.html">http://bsonspec.org/spec.html</a></p>
+
+<p>BSON是用于存储零个或多个键/值对为一个单一的实体的一个二进制格式。我们称这个实体为文档(Document)。
+以下语法用于指定BSON标准的1.0版本。我们使用伪BNF语法来(编写)描述。有效数据BSON数据是由非终端显示的文档表示的。</p>
+
+<p>##基本类型
+以下基本类型用作终端中其余的语法。每种类型必须序列化为小端字节序。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">类型</th>
+<th align="left">内存宽度</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">byte</td>
+<td align="left">1 byte</td>
+<td align="left">(8-bits)</td>
+</tr>
+
+<tr>
+<td align="left">int32</td>
+<td align="left">4 bytes</td>
+<td align="left">(32-bit 有符号整数，补码表示)</td>
+</tr>
+
+<tr>
+<td align="left">int64</td>
+<td align="left">8 bytes</td>
+<td align="left">(64-bit 有符号整数，补码表示)</td>
+</tr>
+
+<tr>
+<td align="left">double</td>
+<td align="left">8 bytes</td>
+<td align="left">(64-bit IEEE 754-2008 二进制浮点数)</td>
+</tr>
+</tbody>
+</table>
+
+<p>##非终端</p>
+
+<p>下面指定BSON的其他语法。注意，终端引用字符的表示，应该用C语言的语义来理解(例如：<code>&quot;\x01&quot;</code>代表的一个字节，二进制表示为<code>0000 0001</code>)。
+同时，我们使用操作法<code>*</code>来速记重复的部分(例如：(<code>&quot;\x01&quot;*2</code>)表示的是<code>&quot;\x01\x01&quot;</code>)。当作为一元运算符，<code>*</code>表示重复出现0次或以上。</p>
+
+<pre><code class="language-BNF">document    ::=	int32 e_list &quot;\x00&quot;	BSON 文档. int32表示的是组成这个文档的总字节数.
+e_list      ::=	element e_list	
+            |	&quot;&quot;	
+element     ::= &quot;\x01&quot; e_name double    64-bit二进制浮点数
+            |	&quot;\x02&quot; e_name string    UTF-8 字符串
+            |	&quot;\x03&quot; e_name document  内嵌文档
+            |	&quot;\x04&quot; e_name document  数组
+            |	&quot;\x05&quot; e_name binary    二进制数据
+            |	&quot;\x06&quot; e_name           未定义(value) — 不推荐使用
+            |	&quot;\x07&quot; e_name (byte*12)	对象Id
+            |	&quot;\x08&quot; e_name &quot;\x00&quot;	布尔值 &quot;false&quot;
+            |	&quot;\x08&quot; e_name &quot;\x01&quot;	布尔值 &quot;true&quot;
+            |	&quot;\x09&quot; e_name int64     UTC 时间数据
+            |	&quot;\x0A&quot; e_name           Null value(空值)
+            |	&quot;\x0B&quot; e_name           cstring cstring	正则表达式 - 第一个 cstring 是正则表达式模式,
+                                         第二个是正则表达式选项字符串. 选项是一个标记字符, 必须按照字母顺
+                                         序存储. 有效的选项是：'i' 不区分大小写匹配, 'm'多行匹配, 'x'详
+                                         细模式, 'l'去创建\w, \W,等区域(本地化)依赖设置, 's'dotall匹配
+                                         ('.' 可以匹配所有字符),以及 'u'去创建 \w, \W 配置.匹配unicode.
+            |	&quot;\x0C&quot; e_name string    (byte*12)	DB指针 — 不推荐使用
+            |	&quot;\x0D&quot; e_name string    JavaScript代码
+            |	&quot;\x0E&quot; e_name string    不推荐使用
+            |	&quot;\x0F&quot; e_name code_w_s  JavaScript code w/ scope
+            |	&quot;\x10&quot; e_name int32	    32-bit 整数
+            |	&quot;\x11&quot; e_name int64     时间戳
+            |	&quot;\x12&quot; e_name int64	    64-bit整数
+            |	&quot;\xFF&quot; e_name           Min key
+            |	&quot;\x7F&quot; e_name           Max key
+e_name	    ::=	cstring	Key name
+string	    ::=	int32 (byte*) &quot;\x00&quot;	String - Int32是总字节数 (byte*) + 1(结尾\x00)。(byte*)是零个
+                                        或更多的 utf-8 编码字符。
+cstring	    ::=	(byte*) &quot;\x00&quot;          零个或更多修改 UTF-8 编码字符后,以\x00结尾。(byte*)中必须不
+                                        包含'\x00'，因此它不是完全UTF-8。
+binary	    ::=	int32 subtype (byte*)	Binary - int32 是(byte*)字节数.
+subtype	    ::=	&quot;\x00&quot;	Generic binary  子类型
+            |	&quot;\x01&quot;	Function
+            |	&quot;\x02&quot;	Binary (Old)
+            |	&quot;\x03&quot;	UUID (Old)
+            |	&quot;\x04&quot;	UUID
+            |	&quot;\x05&quot;	MD5
+            |	&quot;\x80&quot;	User defined
+code_w_s	::=	int32 string document	Code w/ scope
+</code></pre>
+
+<p>##笔记</p>
+
+<ul>
+<li><p>Array - 数组文档是一个正常的BSON文档。keys是从0开始顺序编号的整数.例如,一个数组<code>['red', 'blue']</code>编码为document表示<code>{'0': 'red', '1': 'blue'}</code>。keys必须是升序的。</p></li>
+
+<li><p>UTC datetime - int64是以毫秒为单位的Unix时间.</p></li>
+
+<li><p>Timestamp - 使用 MongoDB 复制和分片的特别内部类型。前4字节是增量,后4字节时间戳.</p></li>
+
+<li><p>Min key - 与其他可能的 BSON 元素值进行小于比较的特殊类型。</p></li>
+
+<li><p>Max key - 与其他可能的 BSON 元素值进行大于比较的特殊类型。</p></li>
+
+<li><p>Generic binary subtype - 这是最常用的二进制子类型，应该是默认的驱动程序和工具。</p></li>
+
+<li><p>BSON &ldquo;binary&rdquo;或&rdquo;BinData&rdquo;的数据类型用来表示的字节数组。它是有些类似于Java的ByteArray的概念。BSON 二进制值有一种亚型。这用于指示什么样的数据是在字节数组中。从0到127的子类型是预定义或保留的。从128-255 的子类型是用户定义的。</p>
+
+<p><code>\x02 Binary</code> （旧版本）-这曾经是默认的子类型，但是为了支持 \x00 被否决。驱动程序和工具应务必妥善处理 \x02。二进制数据 （byte* 中的数组的二进制非终端） 的结构必须是int32后紧接着(byte*)。Int32是重复中的字节数。</p>
+
+<p><code>\x03 UUID</code> （旧版本）-这曾经是 UUID 亚型，但为了支持 \x04 被否决。驱动程序和工具的语言与本机的 UUID 类型应适当地处理 \x03。</p>
+
+<p><code>\x80-\xFF</code>是用户定义的子类型。二进制数据可以是任何数据。code_w_s带一个int32范围，表示代码以字节为单位的长度。该字符串是 JavaScript 代码。该文件是从标识符映射到值，表示应在其中计算字符串的范围。</p></li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

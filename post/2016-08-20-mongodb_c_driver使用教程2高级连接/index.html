@@ -1,0 +1,298 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> MongoDB_C_Driver使用教程(2)高级连接 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>MongoDB_C_Driver使用教程(2)高级连接</h1>
+          <span class="post-date">2016年08月20日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/20/5790491.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/08/20/5790491.html</a></p>
+
+<h1 id="span-id-advanced-connection-高级连接-advanced-connection-span"><span id="Advanced Connection">高级连接(Advanced Connection)</span></h1>
+
+<p>以下指南包含MongoDB配置的特定类型的信息。
+简单的连接到独立服务器的示例，请参考<a href="http://www.cnblogs.com/oloroso/p/5733083.html">MongoDB_C_Dirver使用教程</a>。
+要连接到启用身份验证选项的服务器，请参考<a href="http://mongoc.org/libmongoc/1.4.0/authentication.html">身份验证页 Authentication page</a>。
+<a href="http://mongoc.org/libmongoc/1.4.0/advanced-connections.html#additional-options">原文地址</a></p>
+
+<h2 id="1-连接到一个副本集-replica-set">1、连接到一个副本集(Replica Set)</h2>
+
+<p>连接到一个副本集与连接到独立的MongoDB服务器类似。只需要使用<code>?replicaSet=副本集名</code>指定<code>URI</code>的副本集名字选项。</p>
+
+<pre><code class="language-c">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    /* 初始化libmongoc's */
+    mongoc_init ();
+
+    /* 创建 MongoDB Client连接到副本集 */
+    client = mongoc_client_new (&quot;mongodb://host01:27017,host02:27017,host03:27017/?replicaSet=myreplset&quot;);
+
+    /* Do some work */
+    /* TODO */
+
+    /* 清理 */
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<blockquote>
+<p>MongoDB连接字符串<code>URI</code>中可以指定多个主机名(<code>hostname</code>)，使用<code>,</code>分割<code>种子列表</code>(seed list)中的指定的主机。</p>
+</blockquote>
+
+<h3 id="更多信息">更多信息</h3>
+
+<p><a href="#Advanced Connections">Advanced Connections</a></p>
+
+<h2 id="2-连接到分片集群-sharded-cluster">2、连接到分片集群(Sharded Cluster)</h2>
+
+<p>连接到分片集群，需要指定<code>client</code>要连接的<code>mongos节点</code>。<code>mongodb c dirver</code>中会自动检查已连接到的<code>mongo</code>分片服务器。
+如果指定多个主机名，则种子列表(seed list)的创建将会在<code>mongos</code>实例之间尝试故障转移。
+&gt; 连接到分片服务器时，指定<code>replicaSet</code>参数是无效的。</p>
+
+<pre><code class="language-c">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    /* 初始化libmongoc's */
+    mongoc_init ();
+
+    /* 创建MongoDB Client连接到分片集群 */
+    client = mongoc_client_new (&quot;mongodb://myshard01:27017/&quot;);
+
+    /* Do something with client ... */
+
+    /* 释放client */
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="更多信息-1">更多信息</h3>
+
+<p>关于集群，分布式集群等内容，可以参考
+<a href="http://www.cnblogs.com/aoldman/p/4191822.html">http://www.cnblogs.com/aoldman/p/4191822.html</a>
+<a href="http://www.cnblogs.com/huangfox/p/3543351.html">http://www.cnblogs.com/huangfox/p/3543351.html</a></p>
+
+<h2 id="3-连接到ipv6地址">3、连接到IPv6地址</h2>
+
+<p><code>mongodb c dirver</code>将自动解析<code>IPv6</code>地址到主机名(<code>hostname</code>)。在<code>URI</code>中指定<code>IPv6</code>地址时，需要使用<code>[]</code>进行包裹。</p>
+
+<pre><code class="language-c">mongoc_uri_t *uri = mongoc_uri_new (&quot;mongodb://[::1]:27017&quot;);
+</code></pre>
+
+<h2 id="4-连接到unix-domain-socket-unix域套接字">4、连接到Unix Domain Socket(Unix域套接字)</h2>
+
+<p>在类Unix系统中，<code>mongodb c dirver</code>可以直接连接到使用<code>Unix域套接字</code>的<code>MongoDB</code>服务器。只需要传入这个<code>socket</code>的路径，但必须使用<code>.sock</code>后缀。</p>
+
+<pre><code class="language-c">mongoc_uri_t *uri = mongoc_uri_new (&quot;mongodb:///tmp/mysocket.sock&quot;);
+</code></pre>
+
+<blockquote>
+<p>直接连接到<code>Unix域套接字</code>不是常见做法。</p>
+</blockquote>
+
+<h2 id="5-通过ssl连接到服务器">5、通过SSL连接到服务器</h2>
+
+<p>以下是配置<code>TLS/SSL</code>连接的说明。
+###基本配置
+运行本地服务器(端口27017)示例</p>
+
+<pre><code class="language-shell">$ mongod --port 27017 --sslMode requireSSL --sslPEMKeyFile server.pem --sslCAFile ca.pem 
+</code></pre>
+
+<p>添加<code>/?ssl=true</code>到客户端<code>URI</code>尾部</p>
+
+<pre><code class="language-c">mongoc_client_t *client = NULL;
+client = mongoc_client_new (&quot;mongodb://localhost:27017/?ssl=true&quot;);
+</code></pre>
+
+<p>###指定客户端证书
+默认情况下，MongoDB要求指定客户端证书，除非在提供<code>--sslAllowConnectionsWithoutCertificates</code>情况下。<code>mongodb c dirver</code>可以使用<code>mongoc_ssl_opt_t</code>为客户端配置证书。</p>
+
+<pre><code class="language-c">/* 获取默认的ssl选项 */
+const mongoc_ssl_opt_t *ssl_default = mongoc_ssl_opt_get_default ();
+/* 使用的ssl选项结构体 */
+mongoc_ssl_opts_t ssl_opts = { 0 };
+
+/* 可以选择从用户自定义的目录或文件拷贝;否则使用默认值. */
+memcpy (&amp;ssl_opts, ssl_default, sizeof ssl_opts);   // 使用默认值
+//ssl_opts.pem_file = &quot;client.pem&quot;;   // 使用自定义pem文件
+
+/* 为客户端设置ssl选项 */
+mongoc_client_set_ssl_opts (client, &amp;ssl_opts);
+</code></pre>
+
+<p>通过<code>pem_file</code>提供的客户端证书必须由<code>--sslCAFile</code>列出的服务器信任的证书颁发机构之一颁发。或者由服务器上的本地证书存储中的 CA 颁发，在使用默认值时。
+为了验证一个指定的CA服务器的证书，需要提供<code>PEM armored</code>文件(PEM装甲文件)和<code>CA证书</code>。或CA证书列表包含使用<code>ca_file</code>选项在，或CA的<code>c_rehash</code>目录结构。当没有提供<code>ca_file</code>或<code>ca_dir</code>，<code>mongodb c dirver</code>将使用本机平台证书存储区提供的CA。</p>
+
+<h2 id="6-其他连接选项">6、其他连接选项</h2>
+
+<p>其他的连接选项的<code>MongoDB URI</code>可以看<a href="https://docs.mongodb.com/manual/reference/connection-string/">这里</a></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

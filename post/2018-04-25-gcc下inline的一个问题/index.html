@@ -1,0 +1,258 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> gcc下inline的一个问题 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>gcc下inline的一个问题</h1>
+          <span class="post-date">2018年04月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/04/25/8944230.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/04/25/8944230.html</a>
+今天发现一个问题，与<code>inline</code>有关,也与编译时候是不是优化有关。
+大概问题可以用下面的代码来描述：</p>
+
+<p>先写一个<code>libtest1</code>，代码如下
+<strong>libtest1.h</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBTEST_H
+#define LIBTEST_H
+
+class Test{
+	public:
+		inline void fun1()const;
+		void fun2()const;
+};
+#endif //!LIBTEST_H
+</code></pre>
+
+<p><strong>libtest1.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &quot;libtest.h&quot;
+
+void Test::fun1()const
+{
+	puts(&quot;fun1&quot;);
+}
+
+void Test::fun2()const
+{
+	fun1();
+	puts(&quot;fun2 call fun1&quot;);
+}
+</code></pre>
+
+<p>编译为动态库，使用命令为：<code>gcc -shared -fpic libtest.cpp -o libtest1.so</code></p>
+
+<p>然后第二个动态库<code>libtest2</code>，代码如下</p>
+
+<pre><code class="language-cpp">#include &quot;libtest.h&quot;
+
+extern &quot;C&quot; void fun3()
+{
+	Test t;
+	t.fun1();
+	t.fun2();
+}
+</code></pre>
+
+<p>编译命令为:<code>gcc -shared -fpic libtest2.cpp -o libtest2.so -Wl,-rpath=. -L. -ltest1</code></p>
+
+<p>然后写测试代码，运行时加载<code>libtest2.so</code>，然后调用<code>fun3</code>函数。代码如下</p>
+
+<pre><code class="language-cpp">#include &lt;stdio.h&gt;
+#include &lt;dlfcn.h&gt;
+
+typedef void (FuncType)();
+
+int main()
+{
+	//void* p = dlopen(&quot;./libtest2.so&quot;,RTLD_NOW);
+	void* p = dlopen(&quot;./libtest2.so&quot;,RTLD_LAZY);
+	if(p == NULL){
+		printf(&quot;dlopen libtest2.so failed:%s\n&quot;,dlerror());
+		return 0;
+	}
+	FuncType* f1 = (FuncType*)dlsym(p,&quot;fun3&quot;);
+	if(f1 == NULL){
+		printf(&quot;dlsym fun3 failed:%s\n&quot;,dlerror());
+		return 0;
+	}
+	f1();
+	dlclose(p);
+	return 0;
+}
+</code></pre>
+
+<p>编译执行结果如下：</p>
+
+<pre><code class="language-bash">/home/o/sopath [o@o-pc] [13:40]
+&gt; gcc test.cpp -o test -ldl                                            
+
+/home/o/sopath [o@o-pc] [13:41]
+&gt; ./test 
+fun1
+fun1
+fun2 call fun1
+</code></pre>
+
+<p>看起来好像没有问题，但是这里编译的时候都没有进行优化，使用的默认选项，如果我们编译命令修改一下，则就变了</p>
+
+<pre><code>/home/o/sopath [o@o-pc] [13:34]
+&gt; gcc -shared -fpic libtest.cpp -o libtest.so -O3
+/home/o/sopath [o@o-pc] [13:41]
+&gt; ./test 
+./test: symbol lookup error: ./libtest2.so: undefined symbol: _ZNK4Test4fun1Ev
+</code></pre>
+
+<p>这时候就找不到<code>fun1</code>这个函数了，使用<code>strings libtest1.so</code>也确实找不到。但是如果把fun1前面的<code>inline</code>去掉，就没有问题了。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

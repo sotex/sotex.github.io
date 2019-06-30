@@ -1,0 +1,392 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> getopt函数的使用——分析命令行参数 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>getopt函数的使用——分析命令行参数</h1>
+          <span class="post-date">2015年07月02日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/02/4616282.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/02/4616282.html</a>
+<h2 id="getopt">getopt（分析命令行参数）</h2>
+<div class="toc">
+<ul>
+<li><a href="#getopt">getopt（分析命令行参数）</a>
+<ul>
+<li><a href="#_1">短参数的定义</a></li>
+<li><a href="#_2">返回值</a></li>
+<li><a href="#_3">范例</a></li>
+<li><a href="#getopt_long">getopt_long</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li>相关函数表头文件<br /><code>#include&lt;unistd.h&gt;</code></li>
+<li>函数声明<br /><code>int getopt(int argc,char * const argv[ ],const char * optstring);</code></li>
+<li>全局变量</li></p>
+
+<p></ul>
+<p><span style="font-size: 14px;">　　　　extern char *optarg;</span></p>
+<p><span style="font-size: 14px;">　　　　extern int optind, opterr, optopt;&nbsp; //索引/错误输出标志/最后一个未知选项</span></p>
+<ul>
+<li>函数说明<br /><code>getopt()</code>用来分析<code>命令行</code>参数。参数<code>argc</code>和<code>argv</code>是由<code>main()</code>传递的<code>参数个数</code>和<code>内容</code>。参数<code>optstring</code> 则代表欲处理的<code>选项字符串</code>。此函数会返回在<code>argv</code>中下一个的选项<code>字母</code>，此字母会对应参数<code>optstring</code> 中的字母。如果选项字符串里的字母后接着冒号<code>&ldquo;:&rdquo;</code>，则表示还有相关的参数，全域变量<code>optarg</code> 即会指向此额外参数。如果<code>getopt()</code>找不到符合的参数，则会打印出错信息，并将全域变量<code>optarg</code>设为<code>&ldquo;?&rdquo;</code>字符，如果不希望<code>getopt()</code>打印出错信息，则只要将全域变量<code>opterr</code>设为<code>0</code>即可。</li></p>
+
+<p></ul>
+<p style="margin-left: 30px;">getopt() 所设置的全局变量包括：</p>
+<p style="margin-left: 60px;"><span style="font-size: 14px;"><code><span style="font-family: 新宋体;">char *optarg</span></code>&mdash;&mdash;当前选项参数字串（如果有）。 </span></p>
+<p style="margin-left: 60px;"><span style="font-size: 14px;"><code><span style="font-family: 新宋体;">int optind</span></code>&mdash;&mdash;argv的当前索引值。当getopt()在while循环中使用时，循环结束后，剩下的字串视为操作数，在argv[optind]至argv[argc-1]中可以找到。 </span></p>
+<p style="margin-left: 60px;"><span style="font-size: 14px;">int opterr&mdash;&mdash;这个变量非零时，getopt()函数为&ldquo;无效选项&rdquo;和&ldquo;缺少参数选项，并输出其错误信息。<br />
+</span></p>
+<p style="margin-left: 60px;"><span style="font-size: 14px;"><code><span style="font-family: 新宋体;">int optopt</span></code>&mdash;&mdash;当发现无效选项字符之时，getopt()函数或返回&rsquo;?&lsquo;字符，或返回&rsquo;:&lsquo;字符，并且optopt包含了所发现的无效选项字符。</span></p>
+<h2 id="_1">短参数的定义</h2>
+<p><code>getopt()</code>使用<code>optstring</code>所指的字串作为短参数列表，象<code>&ldquo;1ac:d::&rdquo;</code>就是一个短参数列表。短参数的定义是一个<code>-</code>后面跟一个<code>字母或数字</code>，象<code>-a</code>,<code>-b</code>就是一个<code>短参数</code>。每个数字或字母定义一个参数。 </p>
+<p>其中短参数在getopt定义里分为三种：</p>
+<p style="margin-left: 30px;">1、不带值的参数，它的定义即是参数本身。</p>
+<p style="margin-left: 30px;">2、必须带值的参数，它的定义是在参数本身后面再加一个冒号。</p>
+<p style="margin-left: 30px;">3、可选值的参数，它的定义是在参数本身后面加两个冒号 。</p>
+<p>&nbsp;</p>
+<p>在这里拿上面的<code>&ldquo;1ac:d::&rdquo;</code>作为样例进行说明，其中的<code>1</code>,<code>a</code>就是<code>不带值</code>的参数，<code>c</code>是<code>必须带值</code>的参数，<code>d</code>是<code>可选值</code>的参数。<br />
+　　在实际调用中，<code>-1 -a -c cvalue -d</code>, <code>-1 -a -c cvalue -ddvalue</code>,<code>-1a -ddvalue -c cvalue</code>都是合法的。这里需要注意三点：</p>
+<p style="margin-left: 30px;"><code>1、不带值</code>的参数可以<code>连写</code>，象<code>1</code>和<code>a</code>是不带值的参数，它们可以<code>-1 -a</code>分开写，也可以<code>-1a</code>或<code>-a1</code>连写。</p>
+<p style="margin-left: 30px;">2、参数不分先后顺序，<code>-1a -c cvalue -ddvalue</code>和<code>-d -c cvalue -a1</code>的解析结果是一样的。</p>
+<p style="margin-left: 30px;">3、要注意<code>可选值</code>的参数的<code>值</code>与<code>参数</code>之间<strong><code>不能有空格</code></strong>，必须写成<code>-ddvalue</code>这样的格式，如果写成<code>-d dvalue</code>这样的格式就会解析错误。</p>
+<p>默认情况下getopt会<span style="background-color: #cc99ff;">重新排列命令行参数的顺序</span>，所以到最后所有不包含选项的命令行参数都排到最后。</p>
+<h2 id="_2">返回值</h2>
+<p>getopt()每次调用会逐次返回命令行传入的参数。<br />
+当<code>没有参数</code>的最后的一次调用时，getopt()将返回<code>-1</code>。<br />
+当解析到一个<code>不在optstring</code>里面的参数，或者一个<code>必选值参数不带值</code>时，返回<code>?</code>。<br />
+当optstring是以<code>:</code>开头时，<code>缺值参数</code>的情况下会返回<code>:</code>，而不是<code>?</code> 。</p>
+<h2 id="_3">范例<code class="c">
+</code></h2>
+<div class="cnblogs_code" onclick="cnblogs_code_show('678cf341-eb0d-4cd5-ba11-724227766913')"><img id="code_img_closed_678cf341-eb0d-4cd5-ba11-724227766913" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_678cf341-eb0d-4cd5-ba11-724227766913" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('678cf341-eb0d-4cd5-ba11-724227766913',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_678cf341-eb0d-4cd5-ba11-724227766913" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> #include &lt;unistd.h&gt;
+<span style="color: #008080;"> 2</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;"> 3</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;"> 4</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 6</span> main(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> <em><span style="color: #000000;">argv[])
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">int</span> opt;    <span style="color: #008000;">/</em></span><span style="color: #008000;">接收选项</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">char</span></em> optarg;<span style="color: #008000;">/<em></span><span style="color: #008000;">指向当前getopt()返回选项的参数</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">10</span>     <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span> optopt;  <span style="color: #008000;">/<em></span><span style="color: #008000;">当选项没有出现在optstring中，或者选项缺少必要的参数时，该选项存储在optopt中，getopt返回&rsquo;？&rsquo;</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span> opterr;  <span style="color: #008000;">/<em></span><span style="color: #008000;">用于控制getopt()是否打印出错信息</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span> optind;  <span style="color: #008000;">/<em></span><span style="color: #008000;">当前getopt()返回选项的下一个选项的索引(argv数组)</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">13</span>
+<span style="color: #008080;">14</span>     opterr = <span style="color: #800080;">0</span>; <span style="color: #008000;">/<em></span><span style="color: #008000;">不要打印出错信息</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">15</span>
+<span style="color: #008080;">16</span>     <span style="color: #0000ff;">while</span> ((opt = getopt(argc, argv, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">a1b:c::</span><span style="color: #800000;">&ldquo;</span>)) != -<span style="color: #800080;">1</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">17</span>         <span style="color: #008000;">/<em></span><span style="color: #008000;"> a和1为不带参数选项,b为必须带一个参数选项,c为可选参数选项(注意参数与-c直接不能分开) </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">18</span>         <span style="color: #008000;">/<em></span><span style="color: #008000;"> 示例： getopt -a -b 100 -c12 </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">19</span>         <span style="color: #0000ff;">switch</span><span style="color: #000000;"> (opt) {
+</span><span style="color: #008080;">20</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">a</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">21</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">1</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">22</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: %c\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,opt);
+</span><span style="color: #008080;">23</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">24</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">b</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">25</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: b，带的参数是 %s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,optarg);
+</span><span style="color: #008080;">26</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">27</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">28</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: c，带的参数是 %s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,optarg);
+</span><span style="color: #008080;">29</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">30</span>             <span style="color: #0000ff;">default</span>: <span style="color: #008000;">/<em></span><span style="color: #008000;"> &lsquo;?&rsquo; </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">31</span>                 <span style="color: #0000ff;">if</span>(optopt == <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">){
+</span><span style="color: #008080;">32</span>                     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: c，没有带参数\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">33</span>                     <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">34</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">35</span>                 fprintf(stderr, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">用法: %s [-1a] [-c [argument]] [-b argument]\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">36</span>                             argv[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+</span><span style="color: #008080;">37</span>                 exit(EXIT_FAILURE); <span style="color: #008000;">//</span><span style="color: #008000;">无效的参数，退出程序</span>
+<span style="color: #008080;">38</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">39</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">40</span>     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">optind=%d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,optind);
+</span><span style="color: #008080;">41</span>
+<span style="color: #008080;">42</span>     <span style="color: #008000;">//</span><span style="color: #008000;">在命令行选项参数再也检查不到optstring中包含的选项时，
+</span><span style="color: #008080;">43</span>     <span style="color: #008000;">//</span><span style="color: #008000;">返回－1，同时optind储存第一个不包含选项的命令行参数。
+</span><span style="color: #008080;">44</span>     <span style="color: #008000;">//</span><span style="color: #008000;">getopt 中指的 选项是指以 <code>-</code>开头的</span>
+<span style="color: #008080;">45</span>     <span style="color: #0000ff;">if</span> (optind &gt;=<span style="color: #000000;"> argc) {
+</span><span style="color: #008080;">46</span>         fprintf(stderr, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项索引超过了argv数组的长度\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">47</span> <span style="color: #000000;">        exit(EXIT_FAILURE);
+</span><span style="color: #008080;">48</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">49</span>     <span style="color: #008000;">//</span><span style="color: #008000;">输出第一个不包含选项的参数</span>
+<span style="color: #008080;">50</span>     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">非选项参数 = %s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, argv[optind]);
+</span><span style="color: #008080;">51</span>
+<span style="color: #008080;">52</span>     <span style="color: #008000;">//</span><span style="color: #008000;">输出一下命令行参数，看看是否被改变</span>
+<span style="color: #008080;">53</span>     <span style="color: #0000ff;">for</span>(opt = <span style="color: #800080;">0</span>; opt &lt; argc ; ++<span style="color: #000000;">opt){
+</span><span style="color: #008080;">54</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">索引:%d\t\t命令行参数:%s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,opt,argv[opt]);
+</span><span style="color: #008080;">55</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">56</span>
+<span style="color: #008080;">57</span>     exit(EXIT_SUCCESS); <span style="color: #008000;">//</span><span style="color: #008000;">成功退出</span>
+<span style="color: #008080;">58</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">getopt示例代码</span></div>
+<p>&nbsp;</p>
+<h3>执行：<code class="bash"></code></h3>
+<div class="cnblogs_code">
+<pre>fx@fx:~/code$ ./<span style="color: #0000ff;">getopt</span> -a -b <span style="color: #800080;">100</span> -<span style="color: #000000;">c12
+选项: a
+选项: b，带的参数是 </span><span style="color: #800080;">100</span><span style="color: #000000;">
+选项: c，带的参数是 </span><span style="color: #800080;">12</span><span style="color: #000000;">
+optind</span>=<span style="color: #800080;">5</span><span style="color: #000000;">
+选项索引超过了argv数组的长度
+fx@fx:</span>~/code$ ./<span style="color: #0000ff;">getopt</span> -a 哈哈 -b <span style="color: #800080;">100</span> -<span style="color: #000000;">c12
+选项: a
+选项: b，带的参数是 </span><span style="color: #800080;">100</span><span style="color: #000000;">
+选项: c，带的参数是 </span><span style="color: #800080;">12</span><span style="color: #000000;">
+optind</span>=<span style="color: #800080;">5</span><span style="color: #000000;">
+非选项参数 </span>=<span style="color: #000000;"> 哈哈
+索引:</span><span style="color: #800080;">0</span>        命令行参数:./<span style="color: #0000ff;">getopt</span><span style="color: #000000;">
+索引:</span><span style="color: #800080;">1</span>        命令行参数:-<span style="color: #000000;">a
+索引:</span><span style="color: #800080;">2</span>        命令行参数:-<span style="color: #000000;">b
+索引:</span><span style="color: #800080;">3</span>        命令行参数:<span style="color: #800080;">100</span><span style="color: #000000;">
+索引:</span><span style="color: #800080;">4</span>        命令行参数:-<span style="color: #000000;">c12
+索引:</span><span style="color: #800080;">5</span>        命令行参数:哈哈</pre>
+</div>
+<h3><code class="bash">getopt_long示例代码</code></h3>
+<div class="cnblogs_code" onclick="cnblogs_code_show('b9b8ae92-dd66-42c6-85c4-9e07b7574dd4')"><img id="code_img_closed_b9b8ae92-dd66-42c6-85c4-9e07b7574dd4" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_b9b8ae92-dd66-42c6-85c4-9e07b7574dd4" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('b9b8ae92-dd66-42c6-85c4-9e07b7574dd4',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_b9b8ae92-dd66-42c6-85c4-9e07b7574dd4" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> #include &lt;unistd.h&gt;
+<span style="color: #008080;"> 2</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;"> 3</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;"> 4</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> optind, opterr, optopt;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 8</span> main(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<em><span style="color: #000000;">argv)
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">int</span> c;  <span style="color: #008000;">/</em></span><span style="color: #008000;"> 用于接收字符选项 </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">int</span> digit_optind = <span style="color: #800080;">0</span>;   <span style="color: #008000;">/</em></span><span style="color: #008000;"> 用于接收数字选项 </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span>     <span style="color: #0000ff;">while</span> (<span style="color: #800080;">1</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">14</span>         <span style="color: #008000;">/</em></span> <span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">15</span>         <span style="color: #0000ff;">int</span> this_option_optind = optind ? optind : <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">16</span>         <span style="color: #0000ff;">int</span> option_index = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">17</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;"> 长选项结构体数组 </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">18</span>         <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">struct</span> option long_options[] =<span style="color: #000000;"> {
+</span><span style="color: #008080;">19</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">add</span><span style="color: #800000;">&ldquo;</span>,     required_argument, <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span> }, <span style="color: #008000;">//</span><span style="color: #008000;">需要一个参数</span>
+<span style="color: #008080;">20</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">append</span><span style="color: #800000;">&ldquo;</span>,  no_argument,       <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span> }, <span style="color: #008000;">//</span><span style="color: #008000;">没有参数</span>
+<span style="color: #008080;">21</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">delete</span><span style="color: #800000;">&ldquo;</span>,  required_argument, <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">22</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">verbose</span><span style="color: #800000;">&ldquo;</span>, no_argument,       <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">23</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">create</span><span style="color: #800000;">&ldquo;</span>,  required_argument, <span style="color: #800080;">0</span>, <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span>}, <span style="color: #008000;">//</span><span style="color: #008000;">返回字符&rsquo;c&rsquo;</span>
+<span style="color: #008080;">24</span>             {<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">file</span><span style="color: #800000;">&ldquo;</span>,    required_argument, <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">25</span>             {<span style="color: #800080;">0</span>,         <span style="color: #800080;">0</span>,                 <span style="color: #800080;">0</span>,  <span style="color: #800080;">0</span><span style="color: #000000;"> }
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">        };
+</span><span style="color: #008080;">27</span> <span style="color: #008000;">/</em></span>
+<span style="color: #008080;">28</span> <span style="color: #008000;">        struct option {
+</span><span style="color: #008080;">29</span> <span style="color: #008000;">            const char *name; //选项名称
+</span><span style="color: #008080;">30</span> <span style="color: #008000;">            int         has_arg;    //参数标志(no_argument/0没有参数;required_argument/1需要一个参数;optional_argument/2一个可选参数)
+</span><span style="color: #008080;">31</span> <span style="color: #008000;">            int        <em>flag;   //指定如何返回一个较长的选项。当这个指针为空的时候，函数直接将val的数值从getopt_long的返回值返回出去，当它非空时，val的值会被赋到flag指向的整型数中，而函数返回值为0
+</span><span style="color: #008080;">32</span> <span style="color: #008000;">            int         val;    //用于指定函数找到该选项时的返回值，或者当flag非空时指定flag指向的数据的值。
+</span><span style="color: #008080;">33</span> <span style="color: #008000;">        };
+</span><span style="color: #008080;">34</span> <span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">35</span>         <span style="color: #008000;">/<em></span><span style="color: #008000;"> 获取一个选项 </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">36</span>         c = getopt_long(argc, argv, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">abc:d:012</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">37</span>                     long_options, &amp;<span style="color: #000000;">option_index);
+</span><span style="color: #008080;">38</span>
+<span style="color: #008080;">39</span>         <span style="color: #0000ff;">if</span> (c == -<span style="color: #800080;">1</span>){   <span style="color: #008000;">/<em></span><span style="color: #008000;"> 无参数可获取了 </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">40</span>           <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">42</span>
+<span style="color: #008080;">43</span>         <span style="color: #0000ff;">switch</span> &copy; {    <span style="color: #008000;">/<em></span><span style="color: #008000;"> 获取参数解析 </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">44</span>             <span style="color: #0000ff;">case</span> <span style="color: #800080;">0</span><span style="color: #000000;">:
+</span><span style="color: #008080;">45</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项是:%s</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, long_options[option_index].name);
+</span><span style="color: #008080;">46</span>                 <span style="color: #0000ff;">if</span> (optarg){    <span style="color: #008000;">/<em></span><span style="color: #008000;">如果是带参数的选项 </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">47</span>                   printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 参数是: %s</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">48</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">49</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">50</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">51</span>
+<span style="color: #008080;">52</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">53</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">1</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">54</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">2</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">55</span>                 <span style="color: #0000ff;">if</span> (digit_optind != <span style="color: #800080;">0</span> &amp;&amp; digit_optind !=<span style="color: #000000;"> this_option_optind)
+</span><span style="color: #008080;">56</span>                   printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">digits occur in two different argv-elements.\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">57</span>                 digit_optind =<span style="color: #000000;"> this_option_optind;
+</span><span style="color: #008080;">58</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: %c\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">59</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">60</span>
+<span style="color: #008080;">61</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">a</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">62</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: a\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">63</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">64</span>
+<span style="color: #008080;">65</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">b</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">66</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: b\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">67</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">68</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">69</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: c 带的值: &lsquo;%s&rsquo;\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">70</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">71</span>
+<span style="color: #008080;">72</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">d</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">73</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">选项: d 带的值: &lsquo;%s&rsquo;\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">74</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">75</span>
+<span style="color: #008080;">76</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">?</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">77</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">78</span>
+<span style="color: #008080;">79</span>             <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;">80</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">?? getopt 返回字符代码 0%o ??\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">81</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">82</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">83</span>
+<span style="color: #008080;">84</span>     <span style="color: #0000ff;">if</span> (optind &lt;<span style="color: #000000;"> argc) {
+</span><span style="color: #008080;">85</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">非选项的命令行参数项: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">86</span>         <span style="color: #0000ff;">while</span> (optind &lt;<span style="color: #000000;"> argc)
+</span><span style="color: #008080;">87</span>           printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%s </span><span style="color: #800000;">&ldquo;</span>, argv[optind++<span style="color: #000000;">]);
+</span><span style="color: #008080;">88</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">89</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">90</span> <span style="color: #000000;">    exit(EXIT_SUCCESS);
+</span><span style="color: #008080;">91</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">getopt_long示例代码</span></div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

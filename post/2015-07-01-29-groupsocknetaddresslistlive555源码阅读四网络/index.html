@@ -1,0 +1,379 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 29 GroupSock(NetAddressList)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>29 GroupSock(NetAddressList)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月01日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/01/4613361.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/01/4613361.html</a>
+<h2 id="29-groupsocknetaddresslistlive555">29 GroupSock(NetAddressList)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#29-groupsocknetaddresslistlive555">29 GroupSock(NetAddressList)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#netaddresslist">NetAddressList的定义</a></li>
+<li><a href="#assign">assign方法</a></li>
+<li><a href="#netaddresslist_1">NetAddressList的构造</a></li>
+<li><a href="#clean">clean方法与析构</a></li>
+<li><a href="#_2">拷贝构造与赋值运算符重载</a></li>
+<li><a href="#netaddresslistiterator">NetAddressList::Iterator迭代器</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络地址列表是用于保存一系列网络地址的类。它与<code>NetAddress</code>无直接联系。<br />
+<code>NetAddressList</code>类内部定义了一个二级指针<code>NetAddress** fAddressArray</code>，在使用的时候给它动态申请一个元素个数为<code>unsigned fNumAddresses</code>的<code>指针(NetAddress<em>)数组</code>。指针数组的每一个元素又指向一个<code>动态申请</code>的<code>NetAddress</code>对象。<br />
+</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/011524253751932.png" alt="" /></p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/011524339535210.png" alt="" /></p>
+<h2 id="netaddresslist">NetAddressList的定义<code class="cpp">
+</code></h2>
+<div class="cnblogs_code" onclick="cnblogs_code_show('1bd84c4b-68ec-4433-9201-9b6bb0b49cde')"><img id="code_img_closed_1bd84c4b-68ec-4433-9201-9b6bb0b49cde" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_1bd84c4b-68ec-4433-9201-9b6bb0b49cde" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('1bd84c4b-68ec-4433-9201-9b6bb0b49cde',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_1bd84c4b-68ec-4433-9201-9b6bb0b49cde" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> NetAddressList {
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 3</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 构造函数hostname可以是一个点分十进制的IP地址，也可以是主机域名</span>
+<span style="color: #008080;"> 4</span>     NetAddressList(<span style="color: #0000ff;">char</span> <span style="color: #0000ff;">const</span></em><span style="color: #000000;"> hostname);
+</span><span style="color: #008080;"> 5</span>     NetAddressList(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> orig);
+</span><span style="color: #008080;"> 6</span>     NetAddressList&amp; <span style="color: #0000ff;">operator</span>=(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> rightSide);
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">NetAddressList();
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;">获取地址表中元素个数</span>
+<span style="color: #008080;"> 9</span>     unsigned numAddresses() <span style="color: #0000ff;">const</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> fNumAddresses; }
+</span><span style="color: #008080;">10</span>     <span style="color: #008000;">//</span><span style="color: #008000;">获取地址表第一个地址的内存地址</span>
+<span style="color: #008080;">11</span>     NetAddress <span style="color: #0000ff;">const</span>* firstAddress() <span style="color: #0000ff;">const</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Used to iterate through the addresses in a list:
+</span><span style="color: #008080;">14</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 用于遍历列表中的地址：</span>
+<span style="color: #008080;">15</span>     <span style="color: #0000ff;">class</span><span style="color: #000000;"> Iterator {
+</span><span style="color: #008080;">16</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;">17</span>         Iterator(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> addressList);
+</span><span style="color: #008080;">18</span>         NetAddress <span style="color: #0000ff;">const</span>* nextAddress(); <span style="color: #008000;">//</span><span style="color: #008000;"> NULL iff none没有跟多地址了</span>
+<span style="color: #008080;">19</span>     <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">20</span>         NetAddressList <span style="color: #0000ff;">const</span>&amp; fAddressList; <span style="color: #008000;">//</span><span style="color: #008000;">必须绑定一个地址表</span>
+<span style="color: #008080;">21</span>         unsigned fNextIndex;    <span style="color: #008000;">//</span><span style="color: #008000;">下一个地址的索引</span>
+<span style="color: #008080;">22</span> <span style="color: #000000;">    };
+</span><span style="color: #008080;">23</span>
+<span style="color: #008080;">24</span> <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">25</span>     <span style="color: #008000;">//</span><span style="color: #008000;">为地址表申请内存空间，并将表addressArray中的内容拷贝进去</span>
+<span style="color: #008080;">26</span>     <span style="color: #0000ff;">void</span> assign(netAddressBits numAddresses, NetAddress<strong><span style="color: #000000;"> addressArray);
+</span><span style="color: #008080;">27</span>     <span style="color: #008000;">//</span><span style="color: #008000;">删除地址表和地址表中所有地址</span>
+<span style="color: #008080;">28</span>     <span style="color: #0000ff;">void</span><span style="color: #000000;"> clean();
+</span><span style="color: #008080;">29</span>
+<span style="color: #008080;">30</span>     friend <span style="color: #0000ff;">class</span><span style="color: #000000;"> Iterator;
+</span><span style="color: #008080;">31</span>     unsigned fNumAddresses;     <span style="color: #008000;">//</span><span style="color: #008000;">地址个数</span>
+<span style="color: #008080;">32</span>     NetAddress</strong> fAddressArray; <span style="color: #008000;">//</span><span style="color: #008000;">地址表</span>
+<span style="color: #008080;">33</span> };</pre>
+</div>
+<span class="cnblogs_code_collapse">NetAddressList 定义</span></div>
+<h2 id="assign">assign方法</h2>
+<p>assign方法为地址表动态申请内存来保存地址元素。<br />
+要注意的是，这里所有的地址元素都是动态申请来的，所以释放的时候不知只释放fAddressArray指向的内存空间。<code class="cpp">
+</code></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('bbbe3970-cf3a-4e37-b240-5db7b0e2b064')"><img id="code_img_closed_bbbe3970-cf3a-4e37-b240-5db7b0e2b064" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_bbbe3970-cf3a-4e37-b240-5db7b0e2b064" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('bbbe3970-cf3a-4e37-b240-5db7b0e2b064',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_bbbe3970-cf3a-4e37-b240-5db7b0e2b064" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">void</span> NetAddressList::assign(unsigned numAddresses, NetAddress<strong><span style="color: #000000;"> addressArray) {
+</span><span style="color: #008080;"> 2</span>     <span style="color: #008000;">//</span><span style="color: #008000;">为地址表分配内存空间</span>
+<span style="color: #008080;"> 3</span>     fAddressArray = <span style="color: #0000ff;">new</span> NetAddress<em><span style="color: #000000;">[numAddresses];
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">if</span> (fAddressArray ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 5</span>         fNumAddresses = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;">为地址表每个地址分配内存空间</span>
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">for</span> (unsigned i = <span style="color: #800080;">0</span>; i &lt; numAddresses; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;">10</span>         fAddressArray[i] = <span style="color: #0000ff;">new</span> NetAddress(</em><span style="color: #000000;">addressArray[i]);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">12</span>     fNumAddresses =<span style="color: #000000;"> numAddresses;
+</span><span style="color: #008080;">13</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">assign 方法</span></div>
+<p>&nbsp;</p>
+<h2 id="netaddresslist_1">NetAddressList的构造</h2>
+<p><code>NetAddressList(char const* hostname)</code>构造函数很长，内容不多，但是涉及到一些网络编程的基础知识。</p>
+<p>首先参数<code>hostnam</code>e，是一个<code>C风格</code>的字符串，如果它保存的是一个点分十进制的<code>IP地址</code>(例如：<code>&rdquo;192.168.1.128&rdquo;</code>)，那么只会给这个地址表申请一个元素的空间来保存地址。注意，保存的地址在一个<code>NetAddress</code>对象中，对象里面保存的是整型数形式的地址。</p>
+<p>这里有一句<code>netAddressBits addr = our_inet_addr((char<em>)hostname);</code>这个函数的作用是把点分十进制的IP地址转换为整型数形式的地址。参数不是点分十进制的IP地址字符串，那么函数会返回错误码<code>INADDR_NONE</code> 。<code>our_inet_addr</code>实质上是调用的<code>inet_addr</code>(socket库函数)，其定义在<code>live555sourcecontrol\groupsock\inet.c</code>文件中。</p>
+<p>那如果参数<code>hostname</code>不是一个<code>IP</code>地址，那么它就应该是<code>主机名</code>(<a href="http://通常指域名，如live555.com">通常指域名，如live555.com</a>)。一个域名可能对应不止一个IP地址(windows下可以使用<code>nslookup</code>命令查看，linux/unix下可以用<code>dig</code>命令)。这里使用了<code>gethostbyname</code>函数来获取它的所有地址。然后分配空间拷贝保存了这些地址。<code class="cpp">
+</code></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('9afebc38-9c5d-4ed0-addc-d522a7ea8f08')"><img id="code_img_closed_9afebc38-9c5d-4ed0-addc-d522a7ea8f08" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_9afebc38-9c5d-4ed0-addc-d522a7ea8f08" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('9afebc38-9c5d-4ed0-addc-d522a7ea8f08',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_9afebc38-9c5d-4ed0-addc-d522a7ea8f08" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> NetAddressList::NetAddressList(<span style="color: #0000ff;">char</span> <span style="color: #0000ff;">const</span></em><span style="color: #000000;"> hostname)
+</span><span style="color: #008080;"> 2</span> : fNumAddresses(<span style="color: #800080;">0</span><span style="color: #000000;">), fAddressArray(NULL) {
+</span><span style="color: #008080;"> 3</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> First, check whether &ldquo;hostname&rdquo; is an IP address string:
+</span><span style="color: #008080;"> 4</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 首先，检查&ldquo;hostname&rdquo;是否是一个IP地址字符串</span>
+<span style="color: #008080;"> 5</span>     netAddressBits addr = our_inet_addr((<span style="color: #0000ff;">char</span><em><span style="color: #000000;">)hostname);
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">if</span> (addr !=<span style="color: #000000;"> INADDR_NONE) {
+</span><span style="color: #008080;"> 7</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> Yes, it was an IP address string.  Return a 1-element list with this address:
+</span><span style="color: #008080;"> 8</span>         <span style="color: #008000;">//</span><span style="color: #008000;">它是一个IP地址字符串，那么这个地址表只需要1个元素</span>
+<span style="color: #008080;"> 9</span>         fNumAddresses = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">10</span>         fAddressArray = <span style="color: #0000ff;">new</span> NetAddress</em><span style="color: #000000;">[fNumAddresses];
+</span><span style="color: #008080;">11</span>         <span style="color: #0000ff;">if</span> (fAddressArray == NULL) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span>         <span style="color: #008000;">//</span><span style="color: #008000;">申请空间，保存这个地址。注意保存的是整数地址而不是字符串</span>
+<span style="color: #008080;">13</span>         fAddressArray[<span style="color: #800080;">0</span>] = <span style="color: #0000ff;">new</span> NetAddress((u_int8_t<em>)&amp;addr, <span style="color: #0000ff;">sizeof</span><span style="color: #000000;"> (netAddressBits));
+</span><span style="color: #008080;">14</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">16</span>
+<span style="color: #008080;">17</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> &ldquo;hostname&rdquo; is not an IP address string; try resolving it as a real host name instead:
+</span><span style="color: #008080;">18</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 当它不是一个IP地址字符串，尝试解析hostname真实的地址来代替</span>
+<span style="color: #008080;">19</span> <span style="color: #0000ff;">#if</span> defined(USE_GETHOSTBYNAME) || defined(VXWORKS)
+<span style="color: #008080;">20</span>     <span style="color: #0000ff;">struct</span> hostent</em><span style="color: #000000;"> host;
+</span><span style="color: #008080;">21</span> <span style="color: #0000ff;">#if</span> defined(VXWORKS)
+<span style="color: #008080;">22</span>     <span style="color: #0000ff;">char</span> hostentBuf[<span style="color: #800080;">512</span><span style="color: #000000;">];
+</span><span style="color: #008080;">23</span>
+<span style="color: #008080;">24</span>     host = (<span style="color: #0000ff;">struct</span> hostent<em>)resolvGetHostByName((<span style="color: #0000ff;">char</span></em>)hostname, (<span style="color: #0000ff;">char</span><em>)&amp;hostentBuf, <span style="color: #0000ff;">sizeof</span><span style="color: #000000;"> hostentBuf);
+</span><span style="color: #008080;">25</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">26</span>     <span style="color: #008000;">//</span><span style="color: #008000;">gethostbyname()返回对应于给定主机名的包含主机名字和地址信息的hostent结构指针(不要试图delete这个返回的地址)</span>
+<span style="color: #008080;">27</span>     host = gethostbyname((<span style="color: #0000ff;">char</span></em><span style="color: #000000;">)hostname);
+</span><span style="color: #008080;">28</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">29</span>     <span style="color: #0000ff;">if</span> (host == NULL || host-&gt;h_length != <span style="color: #800080;">4</span> || host-&gt;h_addr_list == NULL) <span style="color: #0000ff;">return</span>; <span style="color: #008000;">//</span><span style="color: #008000;"> no luck      </span><span style="color: #008000;">//</span><span style="color: #008000;">不幸，没有得到</span>
+<span style="color: #008080;">30</span>
+<span style="color: #008080;">31</span>     u_int8_t <span style="color: #0000ff;">const</span></strong> <span style="color: #0000ff;">const</span> hAddrPtr = (u_int8_t <span style="color: #0000ff;">const</span><strong>)host-&gt;<span style="color: #000000;">h_addr_list;
+</span><span style="color: #008080;">32</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> First, count the number of addresses:取得地址个数</span>
+<span style="color: #008080;">33</span>     u_int8_t <span style="color: #0000ff;">const</span></strong> hAddrPtr1 =<span style="color: #000000;"> hAddrPtr;
+</span><span style="color: #008080;">34</span>     <span style="color: #0000ff;">while</span> (<em>hAddrPtr1 !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">35</span>         ++<span style="color: #000000;">fNumAddresses;
+</span><span style="color: #008080;">36</span>         ++<span style="color: #000000;">hAddrPtr1;
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">38</span>
+<span style="color: #008080;">39</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Next, set up the list: 给地址表分配内存</span>
+<span style="color: #008080;">40</span>     fAddressArray = <span style="color: #0000ff;">new</span> NetAddress</em><span style="color: #000000;">[fNumAddresses];
+</span><span style="color: #008080;">41</span>     <span style="color: #0000ff;">if</span> (fAddressArray == NULL) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">42</span>     <span style="color: #008000;">//</span><span style="color: #008000;">逐个拷贝地址到地址表</span>
+<span style="color: #008080;">43</span>     <span style="color: #0000ff;">for</span> (unsigned i = <span style="color: #800080;">0</span>; i &lt; fNumAddresses; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;">44</span>         fAddressArray[i] = <span style="color: #0000ff;">new</span> NetAddress(hAddrPtr[i], host-&gt;<span style="color: #000000;">h_length);
+</span><span style="color: #008080;">45</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">46</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">47</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Use &ldquo;getaddrinfo()&rdquo; (rather than the older, deprecated &ldquo;gethostbyname()&rdquo;):</span>
+<span style="color: #008080;">48</span>     <span style="color: #0000ff;">struct</span><span style="color: #000000;"> addrinfo addrinfoHints;
+</span><span style="color: #008080;">49</span>     memset(&amp;addrinfoHints, <span style="color: #800080;">0</span>, <span style="color: #0000ff;">sizeof</span><span style="color: #000000;"> addrinfoHints);
+</span><span style="color: #008080;">50</span>     addrinfoHints.ai_family = AF_INET; <span style="color: #008000;">//</span><span style="color: #008000;"> For now, we&rsquo;re interested in IPv4 addresses only</span>
+<span style="color: #008080;">51</span>     <span style="color: #0000ff;">struct</span> addrinfo* addrinfoResultPtr =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">52</span>     <span style="color: #0000ff;">int</span> result = getaddrinfo(hostname, NULL, &amp;addrinfoHints, &amp;<span style="color: #000000;">addrinfoResultPtr);
+</span><span style="color: #008080;">53</span>     <span style="color: #0000ff;">if</span> (result != <span style="color: #800080;">0</span> || addrinfoResultPtr == NULL) <span style="color: #0000ff;">return</span>; <span style="color: #008000;">//</span><span style="color: #008000;"> no luck
+</span><span style="color: #008080;">54</span>
+<span style="color: #008080;">55</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> First, count the number of addresses:</span>
+<span style="color: #008080;">56</span>     <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> addrinfo* p =<span style="color: #000000;"> addrinfoResultPtr;
+</span><span style="color: #008080;">57</span>     <span style="color: #0000ff;">while</span> (p !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">58</span>         <span style="color: #0000ff;">if</span> (p-&gt;ai_addrlen &lt; <span style="color: #800080;">4</span>) <span style="color: #0000ff;">continue</span>; <span style="color: #008000;">//</span><span style="color: #008000;"> sanity check: skip over addresses that are too small</span>
+<span style="color: #008080;">59</span>         ++<span style="color: #000000;">fNumAddresses;
+</span><span style="color: #008080;">60</span>         p = p-&gt;<span style="color: #000000;">ai_next;
+</span><span style="color: #008080;">61</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">62</span>
+<span style="color: #008080;">63</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Next, set up the list:</span>
+<span style="color: #008080;">64</span>     fAddressArray = <span style="color: #0000ff;">new</span> NetAddress<em><span style="color: #000000;">[fNumAddresses];
+</span><span style="color: #008080;">65</span>     <span style="color: #0000ff;">if</span> (fAddressArray == NULL) <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">66</span>
+<span style="color: #008080;">67</span>     unsigned i = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">68</span>     p =<span style="color: #000000;"> addrinfoResultPtr;
+</span><span style="color: #008080;">69</span>     <span style="color: #0000ff;">while</span> (p !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">70</span>         <span style="color: #0000ff;">if</span> (p-&gt;ai_addrlen &lt; <span style="color: #800080;">4</span>) <span style="color: #0000ff;">continue</span><span style="color: #000000;">;
+</span><span style="color: #008080;">71</span>         fAddressArray[i++] = <span style="color: #0000ff;">new</span> NetAddress((u_int8_t <span style="color: #0000ff;">const</span></em>)&amp;(((<span style="color: #0000ff;">struct</span> sockaddr_in*)p-&gt;ai_addr)-&gt;sin_addr.s_addr), <span style="color: #800080;">4</span><span style="color: #000000;">);
+</span><span style="color: #008080;">72</span>         p = p-&gt;<span style="color: #000000;">ai_next;
+</span><span style="color: #008080;">73</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">74</span>
+<span style="color: #008080;">75</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Finally, free the data that we had allocated by calling &ldquo;getaddrinfo()&rdquo;:</span>
+<span style="color: #008080;">76</span> <span style="color: #000000;">    freeaddrinfo(addrinfoResultPtr);
+</span><span style="color: #008080;">77</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">78</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">NetAddressList 构造函数</span></div>
+<h2 id="clean">clean方法与析构</h2>
+<p>先说<code>clean</code>方法，它的作用是将地址表和表中所有的地址元素都释放了。之前<code>assign</code>分配空间，在这里对应的释放。<code class="cpp"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> NetAddressList::clean() {
+</span><span style="color: #008080;">2</span>     <span style="color: #0000ff;">while</span> (fNumAddresses&ndash; &gt; <span style="color: #800080;">0</span>) {   <span style="color: #008000;">//</span><span style="color: #008000;">逐个删除地址</span>
+<span style="color: #008080;">3</span>         <span style="color: #0000ff;">delete</span><span style="color: #000000;"> fAddressArray[fNumAddresses];
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">    }<br />
+</span><span style="color: #008080;">5</span>     <span style="color: #008000;">//</span><span style="color: #008000;">释放地址表</span>
+<span style="color: #008080;">6</span>     <span style="color: #0000ff;">delete</span>[] fAddressArray; fAddressArray =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">7</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p>析构函数就是简单的调用<code>clean</code>。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> NetAddressList::~<span style="color: #000000;">NetAddressList() {
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">    clean();
+</span><span style="color: #008080;">3</span> }</pre>
+</div>
+<h2 id="_2">拷贝构造与赋值运算符重载</h2>
+<p>这里就不多说了，代码很明白。(有人问赋值和拷贝构造的区别，这里简单说一下。拷贝构造的重点在于构造，是对象还没有的时候调用来创建一个一样的对象的，而<code>赋值的重点在于赋值</code>，是对象已经存在的时候，用来替换对象数据的。)</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> NetAddressList::NetAddressList(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> orig) {
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">    assign(orig.numAddresses(), orig.fAddressArray);
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 4</span>
+<span style="color: #008080;"> 5</span> NetAddressList&amp; NetAddressList::<span style="color: #0000ff;">operator</span>=(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> rightSide) {
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">if</span> (&amp;rightSide != <span style="color: #0000ff;">this</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">        clean();
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">        assign(rightSide.numAddresses(), rightSide.fAddressArray);
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">return</span> <em><span style="color: #0000ff;">this</span><span style="color: #000000;">;
+</span><span style="color: #008080;">11</span> }</pre>
+</div>
+<h2 id="netaddresslistiterator">NetAddressList::Iterator迭代器</h2>
+<p>这里的迭代器与之前的<code>HanlerSet</code>类和<code>DelayQueue</code>很像。这里<code>NetAddressList::Iterator</code>在<code>NetAddressList</code>类内部嵌套定义的类，权限是<code>public</code>。在构造的时候，其也需要绑定一个<code>NetAddressList</code>对象，迭代器方法<code>nextAddress</code>返回类型是<code>NetAddress const</em></code>，这里要注意一下。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> NetAddressList::Iterator::Iterator(NetAddressList <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> addressList)
+</span><span style="color: #008080;">2</span> : fAddressList(addressList), fNextIndex(<span style="color: #800080;">0</span><span style="color: #000000;">) {}
+</span><span style="color: #008080;">3</span>
+<span style="color: #008080;">4</span> NetAddress <span style="color: #0000ff;">const</span>*<span style="color: #000000;"> NetAddressList::Iterator::nextAddress() {
+</span><span style="color: #008080;">5</span>     <span style="color: #0000ff;">if</span> (fNextIndex &gt;= fAddressList.numAddresses()) <span style="color: #0000ff;">return</span> NULL; <span style="color: #008000;">//</span><span style="color: #008000;"> no more</span>
+<span style="color: #008080;">6</span>     <span style="color: #0000ff;">return</span> fAddressList.fAddressArray[fNextIndex++<span style="color: #000000;">];
+</span><span style="color: #008080;">7</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

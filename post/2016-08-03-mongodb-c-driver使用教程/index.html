@@ -1,0 +1,1072 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> MongoDB C Driver使用教程 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>MongoDB C Driver使用教程</h1>
+          <span class="post-date">2016年08月03日</span>
+          <p>#MongoDB C Driver使用教程</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">转载请注明出处http://www.cnblogs.com/oloroso/</a></p>
+
+<p>本指南提供简介 MongoDB C 驱动程序。
+在 C API 的详细信息，请参阅<a href="http://api.mongodb.com/c/current/index.html#api-reference">API 文档</a>.
+原文来自<a href="http://api.mongodb.com/c/current/tutorial.html">http://api.mongodb.com/c/current/tutorial.html</a></p>
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/03/5733083.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2016/08/03/5733083.html</a></p>
+
+<p>##0.安装</p>
+
+<p>有关特定的平台上安装<code>MongoDB C</code>驱动程序的详细说明，请参阅<a href="http://api.mongodb.com/c/current/installing.html">安装指南</a>.</p>
+
+<p><a href="http://api.mongodb.com/c/current/installing.html">MongoDB C 驱动程序的安装</a>
+<a href="http://www.cnblogs.com/oloroso/p/5740431.html">编译 http://www.cnblogs.com/oloroso/p/5740431.html</a></p>
+
+<p>##1.启动MongoDB</p>
+
+<p>要运行本教程中的例子，MongoDB 必须安装运行在本地主机(localhost)，且使用默认端口<code>27017</code>。要检查MongoDB是否启动并运行，使用<code>MongoDB Shell</code>连接就知道了。</p>
+
+<pre><code class="language-shell">$ mongo --host localhost --port 27017
+MongoDB shell version: 3.0.6
+connecting to: localhost:27017/test
+&gt; 
+</code></pre>
+
+<p>##2.进行连接</p>
+
+<p><code>MongoDB C Driver</code>程序通过<a href="http://api.mongodb.com/c/current/mongoc_client_t.html">mongoc_client_t</a>提供了一种简便的访问MongoDB的方法（ 与集群配置无关的）。
+它满足透明地连接到独立的服务器，副本集和分片集群上的需求。一旦建立了连接，数据库和集合的句柄可以通过结构<a href="http://api.mongodb.com/c/current/mongoc_database_t.html">mongoc_database_t</a>和<a href="http://api.mongodb.com/c/current/mongoc_collection_t.html">mongoc_collection_t</a>分别得到。然后可以通过这些句柄执行<code>MongoDB</code>操作。</p>
+
+<p>在应用程序的启动后，先调用<a href="http://api.mongodb.com/c/current/mongoc_init.html"><code>mongoc_init()</code></a>，<code>libmongoc</code> 的任何其他功能才能正确使用，并需要在退出之前调用<a href="http://api.mongodb.com/c/current/mongoc_cleanup.html"><code>mongoc_cleanup()</code></a>。当创建client、database和server的句柄后，需要在使用完后调用适当的销毁函数。</p>
+
+<p>下面的示例建立一个独立的服务器上的本地主机的连接，并执行一个简单的命令。有关数据库操作的详细信息可以查看<a href="http://api.mongodb.com/c/current/tutorial.html#crud-operations">CRUD 操作</a>和<a href="http://api.mongodb.com/c/current/tutorial.html#executing-commands">执行命令</a>部分。连接到副本集和分片集群的例子可以在<a href="http://api.mongodb.com/c/current/advanced-connections.html">高级连接</a>页面查看。</p>
+
+<p><strong>connect.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;bcon.h&gt;
+#include &lt;mongoc.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+   mongoc_client_t      *client;
+   mongoc_database_t    *database;
+   mongoc_collection_t  *collection;
+   bson_t               *command,
+                         reply,
+                        *insert;
+   bson_error_t          error;
+   char                 *str;
+   bool                  retval;
+
+   /*
+    * 初始化libmongoc's
+    */
+   mongoc_init ();
+
+   /*
+    * 创建一个新的client实例
+    */
+   client = mongoc_client_new (&quot;mongodb://localhost:27017&quot;);
+
+   /*
+    * 获取数据库&quot;db_name&quot;和集合&quot;coll_name&quot;的句柄
+    */
+   database = mongoc_client_get_database (client, &quot;db_name&quot;);
+   collection = mongoc_client_get_collection (client, &quot;db_name&quot;, &quot;coll_name&quot;);
+
+   /*
+    * 执行操作。此处以执行ping数据库，以json格式打印结果。并执行一个插入操作。
+    */
+
+   // 执行命令操作(ping)
+   command = BCON_NEW (&quot;ping&quot;, BCON_INT32 (1));
+   retval = mongoc_client_command_simple (client, &quot;admin&quot;, command, NULL, &amp;reply, &amp;error);
+
+   if (!retval) {
+      fprintf (stderr, &quot;%s\n&quot;, error.message);
+      return EXIT_FAILURE;
+   }
+   // 获取json形式的结果
+   str = bson_as_json (&amp;reply, NULL);
+   printf (&quot;%s\n&quot;, str);	// 打印输出
+
+   // 插入操作命令
+   insert = BCON_NEW (&quot;hello&quot;, BCON_UTF8 (&quot;world&quot;));
+
+   if (!mongoc_collection_insert (collection, MONGOC_INSERT_NONE, insert, NULL, &amp;error)) {
+      fprintf (stderr, &quot;%s\n&quot;, error.message);
+   }
+
+   // 释放资源
+   bson_destroy (insert);
+   bson_destroy (&amp;reply);
+   bson_destroy (command);
+   bson_free (str);
+
+   /*
+    * 释放拥有的句柄并清理libmongoc
+    */
+   mongoc_collection_destroy (collection);
+   mongoc_database_destroy (database);
+   mongoc_client_destroy (client);
+   mongoc_cleanup ();
+
+   return 0;
+}
+</code></pre>
+
+<p>在 unix 系统中，代码可以编译和运行像这样︰</p>
+
+<pre><code class="language-shell">$ gcc -o connect connect.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./connect
+{ &quot;ok&quot; : 1.000000 }
+</code></pre>
+
+<p>或者，如果pkg 配置不可用，可以手动管理路径和库文件。</p>
+
+<pre><code class="language-shell">$ gcc -o connect connect.c -I/usr/local/include -lmongoc-1.0 -lbson-1.0
+$ ./connect
+{ &quot;ok&quot; : 1.000000 }
+</code></pre>
+
+<p>对于 Windows 用户，可以编译和运行下面的命令代码。(这假定<code>MongoDB C Driver</code>程序安装在<code>C:\mongo-c-driver</code>; 安装在其他位置的根据需要更改包含目录。)</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 connect.c
+C:\&gt; connect
+{ &quot;ok&quot; : 1.000000 }
+</code></pre>
+
+<p>###查看更多
+-   <a href="http://api.mongodb.com/c/current/advanced-connections.html">高级的连接</a>
+-   <a href="http://api.mongodb.com/c/current/index.html#tutorial">教程</a>
+-   <a href="http://api.mongodb.com/c/current/mongoc_client_get_collection.html">mongoc_client_get_collection()</a>
+-   <a href="http://api.mongodb.com/c/current/mongoc_client_get_database.html">mongoc_client_get_database()</a>
+-   <a href="http://api.mongodb.com/c/current/mongoc_client_new.html">mongoc_client_new()</a></p>
+
+<p>##3.创建 BSON 文件</p>
+
+<p><code>BSON</code>文档(Documents)是存储在<code>MongoDB</code>的数据格式。<code>C Driver</code>程序使用<code>libbson</code>来创建<code>BSON</code>文档。
+有几种方式来构建它们：1、追加<code>key-value</code>(键值对);2、使用<code>BCON</code>;3、解析<code>JSON</code>字符串。</p>
+
+<p>###1、追加BSON</p>
+
+<p><code>BSON</code>文档，在代码中使用<code>bson_t</code>表示。可以将构造一个字段，使用<code>libbson</code>的<code>append</code>功能进行追加。</p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+   bson_t *document;
+   bson_t  child;
+   char   *str;
+
+   document = bson_new ();
+
+   /*
+	* 追加{&quot;hello&quot; : &quot;world&quot;}到document.
+    * 传递 -1 作为长度参数，告诉libbson自己去计算字符串长度.
+    */
+   bson_append_utf8 (document, &quot;hello&quot;, -1, &quot;world&quot;, -1);
+
+   /*
+    * 方便使用的, 这个宏与上面是等效的。
+    */
+   BSON_APPEND_UTF8 (document, &quot;hello&quot;, &quot;world&quot;);
+
+   /*
+    * 开始一个子文档
+    */
+   BSON_APPEND_DOCUMENT_BEGIN (document, &quot;subdoc&quot;, &amp;child);
+   BSON_APPEND_UTF8 (&amp;child, &quot;subkey&quot;, &quot;value&quot;);
+   bson_append_document_end (document, &amp;child);
+
+   /*
+    * 打印这个BSON对象，以json字符串格式。
+    */
+   str = bson_as_json (document, NULL);
+   printf (&quot;%s\n&quot;, str);
+   bson_free (str);
+
+   /*
+    * 清理已分配的bson documents.
+    */
+   bson_destroy (document);
+   return 0;
+}
+</code></pre>
+
+<p>请参阅<a href="http://api.mongodb.com/libbson/current/">libbson</a>文档的所有可附加到<code>bson_t</code>的类型.</p>
+
+<p>###2、使用BCON</p>
+
+<p><code>BCON</code>是<code>BSON</code>C对象表示法的简称，是另一种以更接近预定的格式构建<code>BSON</code>文档的方式。它有在类型安全上比<code>BSON</code>的<code>append</code>功能弱，但使用的代码更少。</p>
+
+<pre><code class="language-C">#include &lt;bcon.h&gt;
+#include &lt;bson.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+   bson_t *doc;
+   char *str;
+
+   doc = BCON_NEW (&quot;name&quot;, BCON_UTF8 (&quot;Babe Ruth&quot;),
+                   &quot;statistics&quot;, &quot;{&quot;,
+                      &quot;batting_average&quot;, BCON_DOUBLE (.342),
+                      &quot;hits&quot;, BCON_INT32 (2873),
+                      &quot;home_runs&quot;, BCON_INT32 (714),
+                      &quot;rbi&quot;, BCON_INT32 (2213),
+                   &quot;}&quot;,
+                   &quot;nicknames&quot;, &quot;[&quot;,
+                      BCON_UTF8 (&quot;the Sultan of Swat&quot;),
+                      BCON_UTF8 (&quot;the Bambino&quot;),
+                   &quot;]&quot;);
+
+   str = bson_as_json (doc, NULL);
+   printf (&quot;%s\n&quot;, str);
+   bson_free (str);
+
+   bson_destroy (doc);
+
+   return 0;
+}
+</code></pre>
+
+<p>请注意，<code>BCON</code>可以创建数组、子文档以及任意字段。</p>
+
+<p>###3、从JSON创建BSON</p>
+
+<p><code>JSON</code>字符串可以通过<code>bson_new_from_json</code>创建单个BSON文档。
+若要从一个<code>JSON</code>文档<strong>序列</strong>初始化BSON，使用<a href="http://api.mongodb.com/libbson/current/bson_reader_t.html"><code>bson_json_reader_t</code></a>。</p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+   bson_error_t error;
+   bson_t      *bson;
+   char        *string;
+
+   const char *json = &quot;{\&quot;hello\&quot;: \&quot;world\&quot;}&quot;;
+   bson = bson_new_from_json ((const uint8_t *)json, -1, &amp;error);
+
+   if (!bson) {
+      fprintf (stderr, &quot;%s\n&quot;, error.message);
+      return EXIT_FAILURE;
+   }
+
+   string = bson_as_json (bson, NULL);
+   printf (&quot;%s\n&quot;, string);
+   bson_free (string);
+
+   return 0;
+}
+</code></pre>
+
+<p>更多的信息
+-   <a href="http://api.mongodb.com/c/current/index.html#tutorial">教程</a></p>
+
+<p>##4.基本的CRUD(增删查改)操作</p>
+
+<p>本节演示如何使用<code>C Driver</code>程序与<code>MongoDB</code>进行交互的基本知识。
+-    <a href="#insert">插入文档</a>
+-    <a href="#find">查找文档</a>
+-    <a href="#update">更新的文档</a>
+-    <a href="#delete">删除文档</a>
+-    <a href="#count">统计文档</a></p>
+
+<p>###1、<span id="insert">插入文档</span></p>
+
+<p>若要向集合中插入文件，首先通过<code>mongoc_client_t</code>获取<code>mongoc_collection_t</code>的句柄。然后使用<a href="http://api.mongodb.com/c/current/mongoc_collection_insert.html"><code>mongoc_collection_insert()</code></a>将<code>BSON文档</code>添加到集合。
+本示例将插入记录到数据库&rdquo;mydb&rdquo;和集合&rdquo;mycoll&rdquo;。</p>
+
+<p>当完成后，确保分配的结构使用他们各自的销毁函数进行释放。</p>
+
+<p><strong>insert.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+    bson_error_t error;
+    bson_oid_t oid;
+    bson_t *doc;
+
+	// 初始化libmongoc
+    mongoc_init ();
+	
+	// 连接到数据库，并获取集合句柄
+    client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+    collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+	// 创建一个bson文档，并追加键值对数据
+    doc = bson_new ();
+    bson_oid_init (&amp;oid, NULL);
+    BSON_APPEND_OID (doc, &quot;_id&quot;, &amp;oid);
+    BSON_APPEND_UTF8 (doc, &quot;hello&quot;, &quot;world&quot;);
+
+	// 将bson文档插入到集合
+    if (!mongoc_collection_insert (collection, MONGOC_INSERT_NONE, doc, NULL, &amp;error)) {
+        fprintf (stderr, &quot;%s\n&quot;, error.message);
+    }
+	// 释放资源
+    bson_destroy (doc);
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+
+	// 清理libmongoc
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<p>对代码进行编译并运行︰
+Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o insert insert.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./insert
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 insert.c
+C:\&gt; insert
+</code></pre>
+
+<p>若要验证插入成功与否，使用MongoDB Shell进行查看。</p>
+
+<pre><code class="language-shell">$ mongo
+MongoDB shell version: 3.0.6
+connecting to: test
+&gt; use mydb
+switched to db mydb
+&gt; db.mycoll.find()
+{ &quot;_id&quot; : ObjectId(&quot;55ef43766cb5f36a3bae6ee4&quot;), &quot;hello&quot; : &quot;world&quot; }
+&gt; 
+</code></pre>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/index.html#basic-operations">基本操作</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_insert.html">mongoc_collection_insert()</a></li>
+</ul>
+
+<p>###2、<span id="find">查找文档</span></p>
+
+<p>若使用<code>C Dirver</code>程序去查询<code>MongoDB 集合</code>，请使用函数<code>mongoc_collection_find()</code>](<a href="http://api.mongodb.com/c/current/mongoc_collection_find.html)。将返回一个匹配的文档的[cursor](http://api.mongodb.com/c/current/mongoc_cursor_t.html)(游标)。">http://api.mongodb.com/c/current/mongoc_collection_find.html)。将返回一个匹配的文档的[cursor](http://api.mongodb.com/c/current/mongoc_cursor_t.html)(游标)。</a></p>
+
+<p>下面示例循环访问<code>result cursor</code>(结果游标)并打印到为<strong>JSON字符串</strong>到标准输出。</p>
+
+<p>请注意，<code>mongoc_collection_find</code>使用<code>BSON</code>文档作为查询说明符;
+例如，<code>{ &quot;color&quot; : &quot;red&quot; }</code>将匹配所有文档中字段名为<code>color</code>且值为<code>red</code>的。空文档<code>{}</code>可以用于匹配的所有文件。</p>
+
+<p>这第一个示例使用<code>空查询</code>说明符，来找到所有&rdquo;mydb&rdquo;数据库中&rdquo;mycoll&rdquo;集合的文档。</p>
+
+<p><strong>find.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+     char *argv[])
+{
+  mongoc_client_t *client;
+  mongoc_collection_t *collection;
+  mongoc_cursor_t *cursor;
+  const bson_t *doc;
+  bson_t *query;
+  char *str;
+
+  mongoc_init ();
+
+  client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+  collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+  // query是一个空的BSON文档，用于做查询说明符的时候匹配所有文档。
+  query = bson_new ();
+  // 执行查询操作
+  cursor = mongoc_collection_find (collection, MONGOC_QUERY_NONE, 0, 0, 0, query, NULL, NULL);
+
+  while (mongoc_cursor_next (cursor, &amp;doc)) {
+     str = bson_as_json (doc, NULL);
+     printf (&quot;%s\n&quot;, str);
+     bson_free (str);
+  }
+
+  bson_destroy (query);
+  mongoc_cursor_destroy (cursor);
+  mongoc_collection_destroy (collection);
+  mongoc_client_destroy (client);
+  mongoc_cleanup ();
+
+  return 0;
+}
+</code></pre>
+
+<p>对代码进行编译和运行它︰
+Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o find find.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./find
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;55ef43766cb5f36a3bae6ee4&quot; }, &quot;hello&quot; : &quot;world&quot; }
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 find.c
+C:\&gt; find
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;55ef43766cb5f36a3bae6ee4&quot; }, &quot;hello&quot; : &quot;world&quot; }
+</code></pre>
+
+<p>若要查找特定的文档，将添加指定的查询说明符。本示例将添加对<code>BSON_APPEND_UTF8()</code>的调用来寻找匹配<code>{&quot;hello&quot;:&quot;world&quot;}</code>的所有文档。</p>
+
+<p><strong>find-specific.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+    mongoc_cursor_t *cursor;
+    const bson_t *doc;
+    bson_t *query;
+    char *str;
+
+    mongoc_init ();
+
+    client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+    collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+	// query在这里将添加一个键值对，查询的时候将只查询出匹配上的结果
+    query = bson_new ();
+    BSON_APPEND_UTF8 (query, &quot;hello&quot;, &quot;world&quot;);
+
+    cursor = mongoc_collection_find (collection, MONGOC_QUERY_NONE, 0, 0, 0, query, NULL, NULL);
+
+    while (mongoc_cursor_next (cursor, &amp;doc)) {
+        str = bson_as_json (doc, NULL);
+        printf (&quot;%s\n&quot;, str);
+        bson_free (str);
+    }
+
+    bson_destroy (query);
+    mongoc_cursor_destroy (cursor);
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<p>编译运行</p>
+
+<pre><code class="language-shell">$ gcc -o find-specific find-specific.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./find-specific
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;55ef43766cb5f36a3bae6ee4&quot; }, &quot;hello&quot; : &quot;world&quot; }
+
+C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 find-specific.c
+C:\&gt; find-specific
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;55ef43766cb5f36a3bae6ee4&quot; }, &quot;hello&quot; : &quot;world&quot; }
+</code></pre>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/index.html#basic-operations">基本操作</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_find.html">mongoc_collection_find()</a></li>
+</ul>
+
+<p>###3、<span id="update">更新文档</span></p>
+
+<p>这段代码是使用<a href="http://api.mongodb.com/c/current/mongoc_collection_update.html"><code>mongoc_collection_update()</code></a>来更新的文档字段的示例。</p>
+
+<p>下面的示例使用&rdquo;mydb&rdquo;数据库，将文档插入到&rdquo;mycoll&rdquo;集合。然后利用其<code>_id</code>字段，更新文档的值(key对应的value)，并添加一个新的字段(updated)。</p>
+
+<p><strong>update.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bcon.h&gt;
+#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_collection_t *collection;
+    mongoc_client_t *client;
+    bson_error_t error;
+    bson_oid_t oid;
+    bson_t *doc = NULL;
+    bson_t *update = NULL;
+    bson_t *query = NULL;
+
+    mongoc_init ();
+
+    client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+    collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+	// 初始化一个对象ID
+    bson_oid_init (&amp;oid, NULL);
+    doc = BCON_NEW (&quot;_id&quot;, BCON_OID (&amp;oid)/*使用上面初始化的oid*/,
+                    &quot;key&quot;, BCON_UTF8 (&quot;old_value&quot;));
+
+	// 插入到数据库中
+    if (!mongoc_collection_insert (collection, MONGOC_INSERT_NONE, doc, NULL, &amp;error)) {
+        fprintf (stderr, &quot;%s\n&quot;, error.message);
+        goto fail;
+    }
+
+	// 注意，这里使用的oid是之前插入一样的
+    query = BCON_NEW (&quot;_id&quot;, BCON_OID (&amp;oid));
+    update = BCON_NEW (&quot;$set&quot;, &quot;{&quot;,
+                           &quot;key&quot;, BCON_UTF8 (&quot;new_value&quot;)/*修改值*/,
+                           &quot;updated&quot;, BCON_BOOL (true)	/*添加的字段*/,
+                       &quot;}&quot;);
+	// 执行update操作。这个操作将使用update的内容去替换之前插入到数据库中的doc的内容
+    if (!mongoc_collection_update (collection, MONGOC_UPDATE_NONE, query, update, NULL, &amp;error)) {
+        fprintf (stderr, &quot;%s\n&quot;, error.message);
+        goto fail;
+    }
+
+fail:
+    if (doc)
+        bson_destroy (doc);
+    if (query)
+        bson_destroy (query);
+    if (update)
+        bson_destroy (update);
+
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<p>对代码进行编译和运行它︰
+Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o update update.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./update
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 update.c
+C:\&gt; update
+{ &quot;_id&quot; : { &quot;$oid&quot; : &quot;55ef43766cb5f36a3bae6ee4&quot; }, &quot;hello&quot; : &quot;world&quot; }
+</code></pre>
+
+<p>若要验证插入成功与否，使用MongoDB Shell进行查看。</p>
+
+<pre><code class="language-shell">$ mongo
+MongoDB shell version: 3.0.6
+connecting to: test
+&gt; use mydb
+switched to db mydb
+&gt; db.mycoll.find({&quot;updated&quot; : true})
+{ &quot;_id&quot; : ObjectId(&quot;55ef549236fe322f9490e17b&quot;), &quot;updated&quot; : true, &quot;key&quot; : &quot;new_value&quot; }
+&gt; 
+</code></pre>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/index.html#basic-operations">基本操作</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_find_and_modify.html">mongoc_collection_find_and_modify()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_update.html">mongoc_collection_update()</a></li>
+</ul>
+
+<p>###4、<span id="delete">删除文档</span></p>
+
+<p>本示例说明了使用<a href="http://api.mongodb.com/c/current/mongoc_collection_remove.html"><code>mongoc_collection_remove()</code></a>来删除文档。</p>
+
+<p>下面的代码插入一个示例文档到数据库&rdquo;mydb&rdquo;的&rdquo;mycoll&rdquo;集合。然后，它会删除所有与<code>{&quot;hello&quot;:&quot;world&quot;}</code>相匹配的文档。</p>
+
+<p><strong>delete.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+    bson_error_t error;
+    bson_oid_t oid;
+    bson_t *doc;
+
+    mongoc_init ();
+
+    client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+    collection = mongoc_client_get_collection (client, &quot;test&quot;, &quot;test&quot;);
+
+    doc = bson_new ();
+    bson_oid_init (&amp;oid, NULL);
+    BSON_APPEND_OID (doc, &quot;_id&quot;, &amp;oid);
+    BSON_APPEND_UTF8 (doc, &quot;hello&quot;, &quot;world&quot;);	// 添加hello字段，值为world
+
+	// 插入文档
+    if (!mongoc_collection_insert (collection, MONGOC_INSERT_NONE, doc, NULL, &amp;error)) {
+        fprintf (stderr, &quot;Insert failed: %s\n&quot;, error.message);
+    }
+
+    bson_destroy (doc);
+
+    doc = bson_new ();
+    BSON_APPEND_OID (doc, &quot;_id&quot;, &amp;oid);	// 这里只添加了_id字段
+
+	// 这里与上面描述的有点不一致，因为这里匹配的只是上面插入的，而不是含hello字段，且值为world的
+	// 如果按照描述的话，这里应该改为BSON_APPEND_UTF8(doc,&quot;hello&quot;,&quot;world&quot;)才行。
+
+	// 执行删除操作。这里只能匹配_id字段，也就只能删除上面插入的文档
+    if (!mongoc_collection_remove (collection, MONGOC_REMOVE_SINGLE_REMOVE, doc, NULL, &amp;error)) {
+        fprintf (stderr, &quot;Delete failed: %s\n&quot;, error.message);
+    }
+
+    bson_destroy (doc);
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<p>对代码进行编译和运行它︰
+Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o delete delete.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./delete
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 delete.c
+C:\&gt; delete
+</code></pre>
+
+<p>使用<code>MongoDB Shell</code>证明文件已成功删除。</p>
+
+<pre><code class="language-shell">$ mongo
+MongoDB shell version: 3.0.6
+connecting to: test
+&gt; use mydb
+switched to db mydb
+&gt; db.mycoll.count({&quot;hello&quot; : &quot;world&quot;})
+0
+&gt; 
+</code></pre>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/index.html#basic-operations">基本操作</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_remove.html">mongoc_collection_remove()</a></li>
+</ul>
+
+<p>###5、<span id=count>统计文档</span></p>
+
+<p>这里的标题应该改为<strong>文档计数</strong>会更合理。</p>
+
+<p>计数<code>MongoDB 集合</code>中的<code>文档数目</code>类似于执行查找操作。此示例在数据库&rdquo;mydb&rdquo;中&rdquo;mycoll&rdquo;集合中获取与<code>{&quot;hello&quot;:&quot;world&quot;}</code>相匹配的文档的数目。</p>
+
+<p><strong>count.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+   mongoc_client_t *client;
+   mongoc_collection_t *collection;
+   bson_error_t error;
+   bson_t *doc;
+   int64_t count;
+
+   mongoc_init ();
+
+   client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+   collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+   // doc用于计数时候做匹配
+   doc = bson_new_from_json ((const uint8_t *)&quot;{\&quot;hello\&quot; : \&quot;world\&quot;}&quot;, -1, &amp;error);
+   
+   // 进行统计操作
+   count = mongoc_collection_count (collection, MONGOC_QUERY_NONE, doc, 0, 0, NULL, &amp;error);
+
+   if (count &lt; 0) {
+      fprintf (stderr, &quot;%s\n&quot;, error.message);
+   } else {
+      printf (&quot;%&quot; PRId64 &quot;\n&quot;, count);
+   }
+
+   bson_destroy (doc);
+   mongoc_collection_destroy (collection);
+   mongoc_client_destroy (client);
+   mongoc_cleanup ();
+
+   return 0;
+}
+</code></pre>
+
+<p>对代码进行编译和运行它︰</p>
+
+<p>Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o count count.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./count
+1
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 count.c
+C:\&gt; count
+1
+</code></pre>
+
+<p>更多的信息
+-   <a href="http://api.mongodb.com/c/current/index.html#basic-operations">基本操作</a>
+-   <a href="http://api.mongodb.com/c/current/mongoc_collection_count.html">mongoc_collection_count()</a>
+-   <a href="http://api.mongodb.com/c/current/index.html#tutorial">Tutorial</a></p>
+
+<p>##5.执行命令</p>
+
+<p>驱动程序提供在客户端执行<code>MongoDB命令</code>操作数据库和集合结构的<code>helper functions</code>(辅助函数)。这些函数返回的<code>cursor</code>游标。这些函数的<code>*_simple</code>变体形式返回指示成功或失败的布尔值。</p>
+
+<p>本示例针对数据库&rdquo;mydb&rdquo;中的&rdquo;mycoll&rdquo;集合执行<a href="http://docs.mongodb.org/manual/reference/command/collStats/"><code>collStats</code></a>(获取集合状态信息)命令。</p>
+
+<p><strong>executing.c</strong></p>
+
+<pre><code class="language-C">#include &lt;bson.h&gt;
+#include &lt;bcon.h&gt;
+#include &lt;mongoc.h&gt;
+#include &lt;stdio.h&gt;
+
+int
+main (int   argc,
+      char *argv[])
+{
+    mongoc_client_t *client;
+    mongoc_collection_t *collection;
+    bson_error_t error;
+    bson_t *command;
+    bson_t reply;
+    char *str;
+
+    mongoc_init ();
+
+    client = mongoc_client_new (&quot;mongodb://localhost:27017/&quot;);
+    collection = mongoc_client_get_collection (client, &quot;mydb&quot;, &quot;mycoll&quot;);
+
+	// 创建命令(命令也是一个BSON文档)
+    command = BCON_NEW (&quot;collStats&quot;,BCON_UTF8 (&quot;mycoll&quot;));
+	// 执行命令。注意，这里使用的是_simple变体形式
+    if (mongoc_collection_command_simple (collection, command, NULL, &amp;reply, &amp;error)) {
+        str = bson_as_json (&amp;reply, NULL);
+        printf (&quot;%s\n&quot;, str);
+        bson_free (str);
+    } else {
+        fprintf (stderr, &quot;Failed to run command: %s\n&quot;, error.message);
+    }
+
+    bson_destroy (command);
+    bson_destroy (&amp;reply);
+    mongoc_collection_destroy (collection);
+    mongoc_client_destroy (client);
+    mongoc_cleanup ();
+
+    return 0;
+}
+</code></pre>
+
+<p>对代码进行编译和运行它︰
+Linux和Unix下:</p>
+
+<pre><code class="language-shell">$ gcc -o executing executing.c $(pkg-config --cflags --libs libmongoc-1.0)
+$ ./executing
+{ &quot;ns&quot; : &quot;mydb.mycoll&quot;, &quot;count&quot; : 1, &quot;size&quot; : 48, &quot;avgObjSize&quot; : 48, &quot;numExtents&quot; : 1, &quot;storageSize&quot; : 8192,
+&quot;lastExtentSize&quot; : 8192.000000, &quot;paddingFactor&quot; : 1.000000, &quot;userFlags&quot; : 1, &quot;capped&quot; : false, &quot;nindexes&quot; : 1,
+&quot;indexDetails&quot; : {  }, &quot;totalIndexSize&quot; : 8176, &quot;indexSizes&quot; : { &quot;_id_&quot; : 8176 }, &quot;ok&quot; : 1.000000 }
+</code></pre>
+
+<p>Windows下:</p>
+
+<pre><code class="language-bat">C:\&gt; cl.exe /IC:\mongo-c-driver\include\libbson-1.0 /IC:\mongo-c-driver\include\libmongoc-1.0 executing.c
+C:\&gt; executing
+{ &quot;ns&quot; : &quot;mydb.mycoll&quot;, &quot;count&quot; : 1, &quot;size&quot; : 48, &quot;avgObjSize&quot; : 48, &quot;numExtents&quot; : 1, &quot;storageSize&quot; : 8192,
+&quot;lastExtentSize&quot; : 8192.000000, &quot;paddingFactor&quot; : 1.000000, &quot;userFlags&quot; : 1, &quot;capped&quot; : false, &quot;nindexes&quot; : 1,
+&quot;indexDetails&quot; : {  }, &quot;totalIndexSize&quot; : 8176, &quot;indexSizes&quot; : { &quot;_id_&quot; : 8176 }, &quot;ok&quot; : 1.000000 }
+</code></pre>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/index.html#tutorial">教程</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_client_command.html">mongoc_client_command()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_client_command_simple.html">mongoc_client_command_simple()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_command.html">mongoc_collection_command()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_collection_command_simple.html">mongoc_collection_command_simple()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_database_command.html">mongoc_database_command()</a></li>
+<li><a href="http://api.mongodb.com/c/current/mongoc_database_command_simple.html">mongoc_database_command_simple()</a></li>
+</ul>
+
+<p>##6.线程</p>
+
+<p><code>MongoDB C Driver</code>程序在绝大多数相关操作是线程未知的。这意味着它是由程序员来保证线程安全性。</p>
+
+<p>然而，<a href="http://api.mongodb.com/c/current/mongoc_client_pool_t.html"><code>mongoc_client_pool_t</code></a>(mongoc客户端池)是线程安全,用于以线程安全的方式获取<code>mongoc_client_t</code>。然后后从pool中检索client，<code>client structure</code>应调用线程持有。该线程完成后，<code>client</code>应该放回池中。</p>
+
+<pre><code class="language-C">#include &lt;mongoc.h&gt;
+#include &lt;pthread.h&gt;
+
+#define N_THREADS 10
+
+// 线程工作函数
+static void *
+worker (void *data) {
+   
+	mongoc_client_pool_t *pool = data;
+	mongoc_client_t      *client;
+
+	// 从客户端池中获取一个客户端
+	client = mongoc_client_pool_pop (pool);
+
+    /* Do something... */
+
+	// 用完后需要还回客户端池
+	mongoc_client_pool_push (pool, client);
+
+	return NULL;
+}
+
+int
+main (int   argc,
+      char *argv[])
+{
+	mongoc_client_pool_t *pool;
+	mongoc_uri_t         *uri;
+	pthread_t             threads[N_THREADS];
+	
+	mongoc_init ();
+	
+	uri = mongoc_uri_new (&quot;mongodb://localhost/&quot;);
+	// 创建客户端池
+	pool = mongoc_client_pool_new (uri);
+	
+	// 循环创建线程	
+	for (i = 0; i &lt; N_THREADS; i++) {
+	   pthread_create (&amp;threads[i], NULL, worker, pool);
+	}
+	// 等待各个线程结束
+	for (i = 0; i &lt; N_THREADS; i++) {
+	   pthread_join (threads[i], NULL);
+	}
+	
+	// 是否客户端池
+	mongoc_client_pool_destroy (pool);
+	mongoc_uri_destroy (uri);
+	mongoc_cleanup ();
+	
+	return 0;
+}
+</code></pre>
+
+<p>##7.今后的步骤</p>
+
+<p>若要查找有关高级主题的信息，请浏览<a href="http://api.mongodb.com/c/current/index.html">C Driver程序指南</a>或<a href="https://docs.mongodb.org/">官方MongoDB文档</a>的其余部分.</p>
+
+<p>常见的问题的帮助，请参阅<a href="http://api.mongodb.com/c/current/basic-troubleshooting.html">疑难解答</a>页。要报告一个bug或请求一个新的功能，请按照<a href="http://api.mongodb.com/c/current/basic-troubleshooting.html#file-bug">这里的说明</a></p>
+
+<p>更多的信息</p>
+
+<ul>
+<li><a href="http://api.mongodb.com/c/current/basic-troubleshooting.html">基本的疑难解答</a></li>
+<li><a href="http://api.mongodb.com/c/current/index.html#tutorial">教程</a></li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

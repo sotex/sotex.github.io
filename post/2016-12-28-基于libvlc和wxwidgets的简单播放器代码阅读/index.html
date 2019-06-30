@@ -1,0 +1,454 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 基于libvlc和wxWidgets的简单播放器代码阅读 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>基于libvlc和wxWidgets的简单播放器代码阅读</h1>
+          <span class="post-date">2016年12月28日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/12/28/6229500.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/12/28/6229500.html</a>
+源代码来自 <a href="http://git.videolan.org/?p=vlc.git;a=blob_plain;f=doc/libvlc/wx_player.cpp">http://git.videolan.org/?p=vlc.git;a=blob_plain;f=doc/libvlc/wx_player.cpp</a></p>
+
+<pre><code class="language-c++">// g++ wx_player.cpp `wx-config --libs` `wx-config --cxxflags` `pkg-config --cflags gtk+-2.0 libvlc` `pkg-config --libs gtk+-2.0 libvlc` -o wx_player
+
+/* License WTFPL http://sam.zoy.org/wtfpl/ */
+/* Written by Vincent Schüßler */
+
+#include &lt;wx/wx.h&gt;
+#include &lt;wx/filename.h&gt;
+#include &lt;vlc/vlc.h&gt;
+#include &lt;climits&gt;
+
+#ifdef __WXGTK__
+    #include &lt;gdk/gdkx.h&gt;
+    #include &lt;gtk/gtk.h&gt;
+    #include &lt;wx/gtk/win_gtk.h&gt;
+    #define GET_XID(window) GDK_WINDOW_XWINDOW(GTK_PIZZA(window-&gt;m_wxwindow)-&gt;bin_window)
+#endif
+
+#define myID_PLAYPAUSE wxID_HIGHEST+1
+#define myID_STOP wxID_HIGHEST+2
+#define myID_TIMELINE wxID_HIGHEST+3
+#define myID_VOLUME wxID_HIGHEST+4
+
+#define TIMELINE_MAX (INT_MAX-9)
+#define VOLUME_MAX 100
+
+DECLARE_EVENT_TYPE(vlcEVT_END, -1)
+DECLARE_EVENT_TYPE(vlcEVT_POS, -1)
+DEFINE_EVENT_TYPE(vlcEVT_END)
+DEFINE_EVENT_TYPE(vlcEVT_POS)
+
+void OnPositionChanged_VLC(const libvlc_event_t *event, void *data);
+void OnEndReached_VLC(const libvlc_event_t *event, void *data);
+
+// 主窗口
+class MainWindow : public wxFrame {
+    public:
+        MainWindow(const wxString&amp; title);
+        ~MainWindow();
+
+    private:
+		// 初始化VLC
+        void initVLC();
+
+        void OnOpen(wxCommandEvent&amp; event);
+        void OnPlayPause(wxCommandEvent&amp; event);
+        void OnStop(wxCommandEvent&amp; event);
+        void OnPositionChanged_USR(wxCommandEvent&amp; event);
+        void OnPositionChanged_VLC(wxCommandEvent&amp; event);
+        void OnEndReached_VLC(wxCommandEvent&amp; event);
+        void OnVolumeChanged(wxCommandEvent&amp; event);
+        void OnVolumeClicked(wxMouseEvent&amp; event);
+        void OnTimelineClicked(wxMouseEvent&amp; event);
+
+        void play();
+        void pause();
+        void stop();
+        void setTimeline(float value);
+        void connectTimeline();
+
+        wxButton *playpause_button;	// 播放暂停按钮
+        wxButton *stop_button;		// 停止按钮
+        wxSlider *timeline;			// 进度控制滑块
+        wxSlider *volume_slider;	// 音量控制滑块
+        wxWindow *player_widget;	// 视频输出窗口
+
+        libvlc_media_player_t *media_player;	// vlc媒体播放对象
+        libvlc_instance_t *vlc_inst;			// vlc实例
+        libvlc_event_manager_t *vlc_evt_man;	// vlc事件管理
+};
+
+MainWindow *mainWindow;
+
+MainWindow::MainWindow(const wxString&amp; title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition) {
+    // setup menubar
+    wxMenuBar *menubar;
+    wxMenu *file;
+    menubar = new wxMenuBar;
+    file = new wxMenu;
+    file-&gt;Append(wxID_OPEN, wxT(&quot;&amp;Open&quot;));
+    menubar-&gt;Append(file, wxT(&quot;&amp;File&quot;));
+    SetMenuBar(menubar);
+    Connect(wxID_OPEN, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler(MainWindow::OnOpen));
+
+    // setup vbox
+    wxBoxSizer *vbox = new wxBoxSizer(wxVERTICAL);
+    this-&gt;SetSizer(vbox);
+
+    //setup player widget
+    player_widget = new wxWindow(this, wxID_ANY);
+    player_widget-&gt;SetBackgroundColour(wxColour(wxT(&quot;black&quot;)));	// 设置播放窗口颜色
+    vbox-&gt;Add(player_widget, 1, wxEXPAND | wxALIGN_TOP);
+
+    //setup timeline slider
+    timeline = new wxSlider(this, myID_TIMELINE, 0, 0, TIMELINE_MAX);
+    timeline-&gt;Enable(false);
+    vbox-&gt;Add(timeline, 0, wxEXPAND);
+    connectTimeline();
+	// 设置进度滑块鼠标事件回调
+    timeline-&gt;Connect(myID_TIMELINE, wxEVT_LEFT_UP, wxMouseEventHandler(MainWindow::OnTimelineClicked));
+
+    //setup control panel
+    wxPanel *controlPanel = new wxPanel(this, wxID_ANY);
+
+    //setup hbox
+    wxBoxSizer *hbox = new wxBoxSizer(wxHORIZONTAL);
+    controlPanel-&gt;SetSizer(hbox);
+    vbox-&gt;Add(controlPanel, 0, wxEXPAND);
+
+    //setup controls
+    playpause_button = new wxButton(controlPanel, myID_PLAYPAUSE, wxT(&quot;Play&quot;));
+    stop_button = new wxButton(controlPanel, myID_STOP, wxT(&quot;Stop&quot;));
+    volume_slider = new wxSlider(controlPanel, myID_VOLUME, VOLUME_MAX, 0, VOLUME_MAX, wxDefaultPosition, wxSize(100, -1));
+    playpause_button-&gt;Enable(false);
+    stop_button-&gt;Enable(false);
+    hbox-&gt;Add(playpause_button);
+    hbox-&gt;Add(stop_button);
+    hbox-&gt;AddStretchSpacer();
+    hbox-&gt;Add(volume_slider);
+    Connect(myID_PLAYPAUSE, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MainWindow::OnPlayPause));
+    Connect(myID_STOP, wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(MainWindow::OnStop));
+    Connect(myID_VOLUME, wxEVT_COMMAND_SLIDER_UPDATED, wxCommandEventHandler(MainWindow::OnVolumeChanged));
+    volume_slider-&gt;Connect(myID_VOLUME, wxEVT_LEFT_UP, wxMouseEventHandler(MainWindow::OnVolumeClicked));
+
+    //setup vlc
+	// 创建vlc实例
+    vlc_inst = libvlc_new(0, NULL);
+	// 创建媒体播放对象
+    media_player = libvlc_media_player_new(vlc_inst);
+	// 创建vlc事件管理对象
+    vlc_evt_man = libvlc_media_player_event_manager(media_player);
+	// 设置VLC事件属性
+	// 媒体播放结束事件
+    libvlc_event_attach(vlc_evt_man, libvlc_MediaPlayerEndReached, ::OnEndReached_VLC, NULL);
+	// 媒体播放进度改变事件
+    libvlc_event_attach(vlc_evt_man, libvlc_MediaPlayerPositionChanged, ::OnPositionChanged_VLC, NULL);
+	// wx的事件处理
+	// 处理vlcEVT_END事件
+    Connect(wxID_ANY, vlcEVT_END, wxCommandEventHandler(MainWindow::OnEndReached_VLC));
+	// 处理vlcEVT_POS事件
+    Connect(wxID_ANY, vlcEVT_POS, wxCommandEventHandler(MainWindow::OnPositionChanged_VLC));
+
+    Show(true);
+    initVLC();
+}
+
+MainWindow::~MainWindow() {
+	// 释放媒体播放对象
+    libvlc_media_player_release(media_player);
+    libvlc_release(vlc_inst);
+}
+
+void MainWindow::initVLC() {
+    #ifdef __WXGTK__
+		// 设置视频输出的窗口
+        libvlc_media_player_set_xwindow(media_player, GET_XID(this-&gt;player_widget));
+    #else
+		// 这是在windows下的
+        libvlc_media_player_set_hwnd(media_player, this-&gt;player_widget-&gt;GetHandle());
+    #endif
+}
+
+void MainWindow::OnOpen(wxCommandEvent&amp; event) {
+    wxFileDialog openFileDialog(this, wxT(&quot;Choose File&quot;));
+
+    if (openFileDialog.ShowModal() == wxID_CANCEL) {
+        return;
+    }
+    else {
+        libvlc_media_t *media;
+        wxFileName filename = wxFileName::FileName(openFileDialog.GetPath());
+        filename.MakeRelativeTo();
+		// 使用本地文件创建vlc媒体对象
+        media = libvlc_media_new_path(vlc_inst, filename.GetFullPath().mb_str());
+		// 给媒体播放对象设置一个媒体对象
+        libvlc_media_player_set_media(media_player, media);
+        play();	// 开始播放
+        libvlc_media_release(media);
+    }
+}
+
+void MainWindow::OnPlayPause(wxCommandEvent&amp; event) {
+    // 判断是不是播放状态
+    if(libvlc_media_player_is_playing(media_player) == 1) {
+        pause();
+    }
+    else {
+        play();
+    }
+}
+
+void MainWindow::OnStop(wxCommandEvent&amp; event) {
+    stop();
+}
+
+void MainWindow::OnPositionChanged_USR(wxCommandEvent&amp; event) {
+	// 设置视频播放进度(播放位置)
+    libvlc_media_player_set_position(media_player, (float) event.GetInt() / (float) TIMELINE_MAX);
+}
+
+void MainWindow::OnPositionChanged_VLC(wxCommandEvent&amp; event) {
+	// 获取进度(获取到的是个比值，范围[0,1])
+    float factor = libvlc_media_player_get_position(media_player);
+    setTimeline(factor);
+}
+
+void MainWindow::OnEndReached_VLC(wxCommandEvent&amp; event) {
+    stop();
+}
+
+void MainWindow::OnVolumeChanged(wxCommandEvent&amp; event) {
+	// 设置音量
+    libvlc_audio_set_volume(media_player, volume_slider-&gt;GetValue());
+}
+
+void MainWindow::OnVolumeClicked(wxMouseEvent&amp; event) {
+    wxSize size = mainWindow-&gt;volume_slider-&gt;GetSize();
+    float position = (float) event.GetX() / (float) size.GetWidth();
+    mainWindow-&gt;volume_slider-&gt;SetValue(position*VOLUME_MAX);
+    libvlc_audio_set_volume(mainWindow-&gt;media_player, position*VOLUME_MAX);
+    event.Skip();
+}
+
+void MainWindow::OnTimelineClicked(wxMouseEvent&amp; event) {
+    wxSize size = mainWindow-&gt;timeline-&gt;GetSize();
+    float position = (float) event.GetX() / (float) size.GetWidth();
+    libvlc_media_player_set_position(mainWindow-&gt;media_player, position);
+    mainWindow-&gt;setTimeline(position);
+    event.Skip();
+}
+
+void MainWindow::play() {
+	// 媒体播放对象播放媒体
+    libvlc_media_player_play(media_player);
+    playpause_button-&gt;SetLabel(wxT(&quot;Pause&quot;));
+    playpause_button-&gt;Enable(true);
+    stop_button-&gt;Enable(true);
+    timeline-&gt;Enable(true);
+}
+
+void MainWindow::pause() {
+	// 暂停播放
+    libvlc_media_player_pause(media_player);
+    playpause_button-&gt;SetLabel(wxT(&quot;Play&quot;));
+}
+
+void MainWindow::stop() {
+    pause();	// 暂停
+	// 停止播放
+    libvlc_media_player_stop(media_player);
+    stop_button-&gt;Enable(false);
+    setTimeline(0.0);
+    timeline-&gt;Enable(false);
+}
+
+void MainWindow::setTimeline(float value) {
+    if(value &lt; 0.0) value = 0.0;
+    if(value &gt; 1.0) value = 1.0;
+    Disconnect(myID_TIMELINE);
+    timeline-&gt;SetValue((int) (value * TIMELINE_MAX));
+    connectTimeline();
+}
+
+void MainWindow::connectTimeline() {
+    Connect(myID_TIMELINE, wxEVT_COMMAND_SLIDER_UPDATED, wxCommandEventHandler(MainWindow::OnPositionChanged_USR));
+}
+
+class MyApp : public wxApp {
+    public:
+        virtual bool OnInit();
+};
+
+void OnPositionChanged_VLC(const libvlc_event_t *event, void *data) {
+	// VLC的进度改变事件(这个函数在VLC的事件处理中调用)
+	// 添加一个事件到wx
+    wxCommandEvent evt(vlcEVT_POS, wxID_ANY);
+    mainWindow-&gt;GetEventHandler()-&gt;AddPendingEvent(evt);
+}
+
+void OnEndReached_VLC(const libvlc_event_t *event, void *data) {
+	// VLC的播放结束事件(这个函数在VLC的事件处理中调用)
+	// 添加一个事件到wx
+    wxCommandEvent evt(vlcEVT_END, wxID_ANY);
+    mainWindow-&gt;GetEventHandler()-&gt;AddPendingEvent(evt);
+}
+
+bool MyApp::OnInit() {
+    mainWindow = new MainWindow(wxT(&quot;wxWidgets libVLC demo&quot;));
+    return true;
+}
+
+IMPLEMENT_APP(MyApp)
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

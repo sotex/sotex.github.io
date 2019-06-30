@@ -1,0 +1,458 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> windows下的getopt/getoptlong函数 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>windows下的getopt/getoptlong函数</h1>
+          <span class="post-date">2015年10月06日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/10/06/4856104.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/10/06/4856104.html</a>
+<h1>windows下的getopt/getoptlong函数</h1>
+<p><span style="color: #ff0000; background-color: #ffff99;">getopt/getopt_long</span>函数是GNU C中的函数，在linux编程中很常用到。这里就不介绍了。</p>
+<p>windows下没有找到类似的函数，自己写一个又浪费时间，于是乎从glibc中找出来。</p>
+<p>这里放出两个版本的下载地址</p>
+<p><a title="http://files.cnblogs.com/files/oloroso/getopt--from-glibc-2.15.tar.gz" href="http://files.cnblogs.com/files/oloroso/getopt--from-glibc-2.15.tar.gz" target="_blank"><a href="http://files.cnblogs.com/files/oloroso/getopt--from-glibc-2.15.tar.gz">http://files.cnblogs.com/files/oloroso/getopt--from-glibc-2.15.tar.gz</a></a></p>
+<p><a title="getopt-win-from-glibc-2.2.5.tar.gz" href="http://files.cnblogs.com/files/oloroso/getopt-win-from-glibc-2.2.5.tar.gz" target="_blank"><a href="http://files.cnblogs.com/files/oloroso/getopt-win-from-glibc-2.2.5.tar.gz">http://files.cnblogs.com/files/oloroso/getopt-win-from-glibc-2.2.5.tar.gz</a></a></p>
+<h2>下载GLibC源码</h2>
+<p>首先需要下载glibC的源代码文件，这个文件比较大，但是我们只需要其中的几个文件而已。</p>
+<p>如果是后面给出的链接下载的<span style="background-color: #ffff99; color: #ff0000;">glibc</span>源码包，只需要两个文件。如果是比较新版本的<span style="background-color: #ffff99; color: #ff0000;">glibc</span>，可能需要四个文件(<span style="color: #ff0000;">getopt.h/getopt_int.h/getopt.c/getopt_init.c</span>)</p>
+<p>这个只需要图中所示的两个文件即可。下载之后找到这两个文件解压出来即可。</p>
+<p>下载地址 &nbsp;<a title="http://down1.chinaunix.net/distfiles/glibc-2.2.5.tar.bz2" href="http://down1.chinaunix.net/distfiles/glibc-2.2.5.tar.bz2" target="_blank"><a href="http://down1.chinaunix.net/distfiles/glibc-2.2.5.tar.bz2">http://down1.chinaunix.net/distfiles/glibc-2.2.5.tar.bz2</a></a></p>
+<p>这是<span style="color: #ff0000;">glibc-2.2.5</span>的压缩包中间提取的文件</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151005182344909-1724764847.png" alt="" /></p>
+<p>下面是glibc-2.15中需要提取的文件</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006093642034-1691319933.png" alt="" /></p>
+<h2>修改getopt.c</h2>
+<h3>gettext.h头文件不存在问题（<span style="background-color: #ffff99;"><strong><span style="color: #ff0000;">glibc-2.15</span></strong></span>）</h3>
+<p>首先需要修改的是没有&ldquo;<strong><span style="background-color: #ffff99; color: #ff0000;">gettext.h</span></strong>&rdquo;这个头文件的问题。这里直接将其注释掉，然后修改后面的宏定义。</p>
+<p>这个修改仅是<span style="background-color: #ffff99;"><strong><span style="color: #ff0000;">glibc-2.15</span></strong></span>版本中，如果是glibc-2.2.5版本的，是没有这个问题的。</p>
+<p>将下面的代码（大概在70行）</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #000000;">#ifdef _LIBC
+</span><span style="color: #008080;">2</span> # include &lt;libintl.h&gt;
+<span style="color: #008080;">3</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">4</span> # include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">gettext.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #008080;">5</span> <span style="color: #000000;"># define _(msgid) gettext (msgid)
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">#endif</span></pre>
+</div>
+<p>修改为</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #000000;">#ifdef _LIBC
+</span><span style="color: #008080;">2</span> # include &lt;libintl.h&gt;
+<span style="color: #008080;">3</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">4</span> <span style="color: #008000;">//</span><span style="color: #008000;"># include &ldquo;gettext.h&rdquo;</span>
+<span style="color: #008080;">5</span> <span style="color: #000000;"># define _(msgid)  (msgid)
+</span><span style="color: #008080;">6</span> <span style="color: #0000ff;">#endif</span></pre>
+</div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151005183514862-229727078.png" alt="" /></p>
+<p>修改后</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151005183527096-1764328556.png" alt="" /></p>
+<p>&nbsp;</p>
+<h3>alloca的问题(无法解析的外部符号 _alloca)(<span style="background-color: #ffff99;"><strong><span style="color: #ff0000;">glibc-2.15</span></strong></span>)</h3>
+<p>关于alloca这个函数，从百度百科中摘抄下来一点。</p>
+<p><span style="color: #ff0000; background-color: #ffff99;"><a title="alloca" href="http://baike.baidu.com/link?url=eTYZz9FnAlc8hBSqwHONt23ra8ONzxBKwopj1YrIkbdNZ-tsXemrt4jCC6pKZiAHUcwhqKebiPXDtvRIWEYbda" target="_blank"><span style="color: #ff0000; background-color: #ffff99;">alloca</span></a></span>内存分配函数,与<a href="http://baike.baidu.com/view/736228.htm" target="_blank">malloc</a>,<a href="http://baike.baidu.com/view/653964.htm" target="_blank">calloc</a>,<a href="http://baike.baidu.com/view/736230.htm" target="_blank">realloc</a>类似。但是注意一个重要的区别,<strong><a href="http://baike.baidu.com/subview/3880768/3880768.htm" target="_blank">_alloca</a></strong>是在栈(stack)上申请空间,用完马上就释放.</p>
+<div class="lemma-summary">
+<p class="para">包含在头文件malloc.h中.在某些系统中会<a href="http://baike.baidu.com/subview/2076445/2076445.htm" target="_blank">宏定义</a>成<span style="background-color: #ffff99; color: #ff0000;"><strong>_alloca</strong></span>使用。</p>
+</div>
+<p>在glibc-2.2.5版本是没有这个问题的，这个问题存在于glibc-2.15版本中。</p>
+<p>编译生成的时候会报错</p>
+<div class="cnblogs_code">
+<pre><span style="color: #800080;">1</span>&gt;  <span style="color: #0000ff;">getopt</span><span style="color: #000000;">.c
+</span><span style="color: #800080;">1</span>&gt;e:&lt;span style=&ldquo;color: #0000ff;&ldquo;&gt;getopt</span>-win&lt;span style=&ldquo;color: #0000ff;&ldquo;&gt;getopt</span>.c(<span style="color: #800080;">571</span>): warning C4013: &ldquo;alloca&rdquo;未定义；假设外部返回 <span style="color: #0000ff;">int</span>
+<span style="color: #800080;">1</span>&gt;e:&lt;span style=&ldquo;color: #0000ff;&ldquo;&gt;getopt</span>-win&lt;span style=&ldquo;color: #0000ff;&ldquo;&gt;getopt</span>.c(<span style="color: #800080;">571</span>): warning C4047: &ldquo;初始化&rdquo;:&ldquo;option_list *&rdquo;与&ldquo;<span style="color: #0000ff;">int</span><span style="color: #000000;">&rdquo;的间接级别不同
+</span><span style="color: #800080;">1</span>&gt;<span style="color: #0000ff;">getopt</span>.obj : error LNK2019: 无法解析的外部符号 _alloca，该符号在函数 __getopt_internal_r 中被引用</pre>
+</div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006102247268-953568352.png" alt="" /></p>
+<p>这里保存的原因是alloca这个函数没有定义，那么我们使用已经定义好的版本就是了。修改成如下图所示即可</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006102601987-1449095031.png" alt="" /></p>
+<p>&nbsp;</p>
+<h3>strings.h头文件不存在问题（<span style="background-color: #ffff99;"><strong><span style="color: #ff0000;">glibc-2.2.5</span></strong></span>）</h3>
+<p>这个修改和前面的gettext.h文件的修改类似，但是区别是这个问题在<strong><span style="color: #ff0000; background-color: #ffff99;">glibc-2.15中不存</span></strong>在。</p>
+<p>这里的修改很简单，添加一个&nbsp;<span class="cnblogs_code">HAVE_STRING_H</span>&nbsp;的宏定义即可。</p>
+<p>修改前&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 修改后</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006095309815-2076930443.png" alt="" /> <img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006095453284-92447008.png" alt="" /></p>
+<h3>&nbsp;</h3>
+<h3>添加<span style="background-color: #ffff99; color: #ff0000;">getopt_long/getopt_long_only</span>的定义</h3>
+<p>这两个函数在<span style="background-color: #ffff99; color: #ff0000;">getopt.h</span>文件中声明了，但是其定义在<strong><span style="color: #ff0000; background-color: #ffff99;">getopt1.c</span></strong>中，可以直接将<span style="color: #ff0000;">getopt1.c</span>文件也拿过来用。因为这个文件中的内容不多，为了减少文件的数量，直接将其中有用的部分拷贝到<span style="color: #ff0000;">getopt.c</span>文件中是个不错的主意。</p>
+<p><strong><span style="background-color: #ffff99; color: #ff0000;">glibc-2.2.5</span></strong>版本中，要拷贝的内容如下</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 2</span> <span style="color: #000000;">getopt_long (argc, argv, options, long_options, opt_index)
+</span><span style="color: #008080;"> 3</span>      <span style="color: #0000ff;">int</span><span style="color: #000000;"> argc;
+</span><span style="color: #008080;"> 4</span>      <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *<span style="color: #000000;">argv;
+</span><span style="color: #008080;"> 5</span>      <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options;
+</span><span style="color: #008080;"> 6</span>      <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *<span style="color: #000000;">long_options;
+</span><span style="color: #008080;"> 7</span>      <span style="color: #0000ff;">int</span> <em><span style="color: #000000;">opt_index;
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 9</span>   <span style="color: #0000ff;">return</span> _getopt_internal (argc, argv, options, long_options, opt_index, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">11</span>
+<span style="color: #008080;">12</span> <span style="color: #008000;">/</em></span><span style="color: #008000;"> Like getopt_long, but &lsquo;-&rsquo; as well as &lsquo;&ndash;&rsquo; can indicate a long option.
+</span><span style="color: #008080;">13</span> <span style="color: #008000;">   If an option that starts with &lsquo;-&rsquo; (not &lsquo;&ndash;&rsquo;) doesn&rsquo;t match a long option,
+</span><span style="color: #008080;">14</span> <span style="color: #008000;">   but does match a short option, it is parsed as a short option
+</span><span style="color: #008080;">15</span> <span style="color: #008000;">   instead.  </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">16</span>
+<span style="color: #008080;">17</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">getopt_long_only (argc, argv, options, long_options, opt_index)
+</span><span style="color: #008080;">19</span>      <span style="color: #0000ff;">int</span><span style="color: #000000;"> argc;
+</span><span style="color: #008080;">20</span>      <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *<span style="color: #000000;">argv;
+</span><span style="color: #008080;">21</span>      <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options;
+</span><span style="color: #008080;">22</span>      <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *<span style="color: #000000;">long_options;
+</span><span style="color: #008080;">23</span>      <span style="color: #0000ff;">int</span> *<span style="color: #000000;">opt_index;
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">25</span>   <span style="color: #0000ff;">return</span> _getopt_internal (argc, argv, options, long_options, opt_index, <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">26</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p>如果是<strong><span style="color: #ff0000; background-color: #ffff99;">glibc-2.15</span></strong>版本的，除了这两个函数之外，还有两个<strong><span style="color: #ff0000; background-color: #ffff99;">可重入版本</span></strong>的可以添加进去</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 2</span> getopt_long(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *argv, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options,
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *long_options, <span style="color: #0000ff;">int</span> *<span style="color: #000000;">opt_index)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">return</span> _getopt_internal(argc, argv, options, long_options, opt_index, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 7</span>
+<span style="color: #008080;"> 8</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 9</span> _getopt_long_r(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *argv, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options,
+</span><span style="color: #008080;">10</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *long_options, <span style="color: #0000ff;">int</span> *<span style="color: #000000;">opt_index,
+</span><span style="color: #008080;">11</span> <span style="color: #0000ff;">struct</span> _getopt_data <em><span style="color: #000000;">d)
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">13</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> _getopt_internal_r(argc, argv, options, long_options, opt_index,
+</span><span style="color: #008080;">14</span>         <span style="color: #800080;">0</span>, d, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">16</span>
+<span style="color: #008080;">17</span> <span style="color: #008000;">/</em></span><span style="color: #008000;"> Like getopt_long, but &lsquo;-&rsquo; as well as &lsquo;&ndash;&rsquo; can indicate a long option.
+</span><span style="color: #008080;">18</span> <span style="color: #008000;">If an option that starts with &lsquo;-&rsquo; (not &lsquo;&ndash;&rsquo;) doesn&rsquo;t match a long option,
+</span><span style="color: #008080;">19</span> <span style="color: #008000;">but does match a short option, it is parsed as a short option
+</span><span style="color: #008080;">20</span> <span style="color: #008000;">instead.  </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">21</span>
+<span style="color: #008080;">22</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;">23</span> getopt_long_only (<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *argv, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options,
+</span><span style="color: #008080;">24</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *long_options, <span style="color: #0000ff;">int</span> *<span style="color: #000000;">opt_index)
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">26</span>     <span style="color: #0000ff;">return</span> _getopt_internal (argc, argv, options, long_options, opt_index, <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">28</span>
+<span style="color: #008080;">29</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;">30</span> _getopt_long_only_r(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">const</span> *argv, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *<span style="color: #000000;">options,
+</span><span style="color: #008080;">31</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> option *long_options, <span style="color: #0000ff;">int</span> *<span style="color: #000000;">opt_index,
+</span><span style="color: #008080;">32</span> <span style="color: #0000ff;">struct</span> _getopt_data *<span style="color: #000000;">d)
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">34</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> _getopt_internal_r(argc, argv, options, long_options, opt_index,
+</span><span style="color: #008080;">35</span>         <span style="color: #800080;">1</span>, d, <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">36</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2>测试一下</h2>
+<p>经过上面的修改，可以进行一点简单的测试了。</p>
+<p>测试用例不用自己写了，在<strong><span style="color: #ff0000; background-color: #ffff99;">getopt.c</span></strong>和<strong><span style="color: #ff0000; background-color: #ffff99;">getopt1.c</span></strong>文件中都有，直接拿过来用了。</p>
+<p>这里测试的时候没有区分是glibc-2.2.5还是glibc-2.15版本的getopt/getopt_long，因为两个测试的结果是一样的。</p>
+<h3>getopt()函数的测试</h3>
+<p>测试代码</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> #include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">getopt.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #008080;"> 2</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;"> 3</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;"> 4</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 6</span> main(<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> **<span style="color: #000000;">argv)
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> c;
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">int</span> digit_optind = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">while</span> (<span style="color: #800080;">1</span><span style="color: #000000;">)
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">13</span>         <span style="color: #0000ff;">int</span> this_option_optind = optind ? optind : <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span>         c = getopt(argc, argv, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">abc:d:0123456789</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">16</span>         <span style="color: #0000ff;">if</span> (c == -<span style="color: #800080;">1</span><span style="color: #000000;">)
+</span><span style="color: #008080;">17</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">18</span>
+<span style="color: #008080;">19</span>         <span style="color: #0000ff;">switch</span><span style="color: #000000;"> &copy;
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">21</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">22</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">1</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">23</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">2</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">24</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">3</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">25</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">4</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">26</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">5</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">27</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">6</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">28</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">7</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">29</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">8</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">30</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">9</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">31</span>                 <span style="color: #0000ff;">if</span> (digit_optind != <span style="color: #800080;">0</span> &amp;&amp; digit_optind !=<span style="color: #000000;"> this_option_optind)
+</span><span style="color: #008080;">32</span>                     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">digits occur in two different argv-elements.\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">33</span>                 digit_optind =<span style="color: #000000;"> this_option_optind;
+</span><span style="color: #008080;">34</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option %c\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">35</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">36</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">a</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">37</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option a\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">38</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">39</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">b</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">40</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option b\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">41</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">42</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">43</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option c with value &lsquo;%s&rsquo;\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">44</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">45</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">?</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">46</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">47</span>             <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;">48</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">?? getopt returned character code 0%o ??\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">49</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">50</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">51</span>
+<span style="color: #008080;">52</span>     <span style="color: #0000ff;">if</span> (optind &lt;<span style="color: #000000;"> argc)
+</span><span style="color: #008080;">53</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">54</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">non-option ARGV-elements: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">55</span>         <span style="color: #0000ff;">while</span> (optind &lt;<span style="color: #000000;"> argc)
+</span><span style="color: #008080;">56</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%s </span><span style="color: #800000;">&ldquo;</span>, argv[optind++<span style="color: #000000;">]);
+</span><span style="color: #008080;">57</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">58</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">59</span>
+<span style="color: #008080;">60</span>     exit(<span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">61</span> }</pre>
+</div>
+<p>测试结果</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006103503706-2133024885.png" alt="" /></p>
+<h3>getopt_long的测试</h3>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> #include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">getopt.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #008080;"> 2</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;"> 3</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 5</span> <span style="color: #000000;">main(argc, argv)
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">int</span> argc;        <span style="color: #008000;">//</span><span style="color: #008000;">这是早期的C语言函数参数的写法</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">char</span> **argv;    <span style="color: #008000;">//</span><span style="color: #008000;">现在不提倡这么写</span>
+<span style="color: #008080;"> 8</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> c;
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">int</span> digit_optind = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">11</span>
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">while</span> (<span style="color: #800080;">1</span><span style="color: #000000;">)
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">14</span>         <span style="color: #0000ff;">int</span> this_option_optind = optind ? optind : <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">15</span>         <span style="color: #0000ff;">int</span> option_index = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">16</span>         <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">struct</span> option long_options[] =
+<span style="color: #008080;">17</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">18</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">add</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">19</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">append</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">20</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">delete</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">21</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">verbose</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">22</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">create</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">23</span>             { <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">file</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800080;">1</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> },
+</span><span style="color: #008080;">24</span>             { <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span>, <span style="color: #800080;">0</span><span style="color: #000000;"> }
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">        };
+</span><span style="color: #008080;">26</span>
+<span style="color: #008080;">27</span>         c = getopt_long(argc, argv, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">abc:d:0123456789</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">28</span>             long_options, &amp;<span style="color: #000000;">option_index);
+</span><span style="color: #008080;">29</span>         <span style="color: #0000ff;">if</span> (c == -<span style="color: #800080;">1</span><span style="color: #000000;">)
+</span><span style="color: #008080;">30</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">31</span>
+<span style="color: #008080;">32</span>         <span style="color: #0000ff;">switch</span><span style="color: #000000;"> &copy;
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">        {
+</span><span style="color: #008080;">34</span>             <span style="color: #0000ff;">case</span> <span style="color: #800080;">0</span><span style="color: #000000;">:
+</span><span style="color: #008080;">35</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option %s</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, long_options[option_index].name);
+</span><span style="color: #008080;">36</span>                 <span style="color: #0000ff;">if</span><span style="color: #000000;"> (optarg)
+</span><span style="color: #008080;">37</span>                     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> with arg %s</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">38</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">39</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">40</span>
+<span style="color: #008080;">41</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">42</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">1</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">43</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">2</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">44</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">3</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">45</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">4</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">46</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">5</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">47</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">6</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">48</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">7</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">49</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">8</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">50</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">9</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">51</span>                 <span style="color: #0000ff;">if</span> (digit_optind != <span style="color: #800080;">0</span> &amp;&amp; digit_optind !=<span style="color: #000000;"> this_option_optind)
+</span><span style="color: #008080;">52</span>                     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">digits occur in two different argv-elements.\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">53</span>                 digit_optind =<span style="color: #000000;"> this_option_optind;
+</span><span style="color: #008080;">54</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option %c\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">55</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">56</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">a</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">57</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option a\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">58</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">59</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">b</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">60</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option b\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">61</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">62</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">c</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">63</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">option c with value <code>%s'\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, optarg);
+&lt;/span&gt;&lt;span style=&quot;color: #008080;&quot;&gt;64&lt;/span&gt;                 &lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #008080;&quot;&gt;65&lt;/span&gt;             &lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; &lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;d&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
+&lt;/span&gt;&lt;span style=&quot;color: #008080;&quot;&gt;66&lt;/span&gt;                 printf(&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;option d with value</code>%s&rsquo;\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, optarg);
+</span><span style="color: #008080;">67</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">68</span>             <span style="color: #0000ff;">case</span> <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">?</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">:
+</span><span style="color: #008080;">69</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">70</span>             <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;">71</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">?? getopt returned character code 0%o ??\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, c);
+</span><span style="color: #008080;">72</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">73</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">74</span>
+<span style="color: #008080;">75</span>     <span style="color: #0000ff;">if</span> (optind &lt;<span style="color: #000000;"> argc)
+</span><span style="color: #008080;">76</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;">77</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">non-option ARGV-elements: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">78</span>         <span style="color: #0000ff;">while</span> (optind &lt;<span style="color: #000000;"> argc)
+</span><span style="color: #008080;">79</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%s </span><span style="color: #800000;">&ldquo;</span>, argv[optind++<span style="color: #000000;">]);
+</span><span style="color: #008080;">80</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">81</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">82</span>
+<span style="color: #008080;">83</span>     exit(<span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">84</span> }</pre>
+</div>
+<p>&nbsp;测试结果</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151006104424893-1239127210.png" alt="" /></p>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

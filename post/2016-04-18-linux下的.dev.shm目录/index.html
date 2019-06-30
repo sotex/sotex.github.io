@@ -1,0 +1,229 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下的/dev/shm目录 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下的/dev/shm目录</h1>
+          <span class="post-date">2016年04月18日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/04/18/5405113.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/04/18/5405113.html</a>
+<h1 id="linuxdevshm">linux下的/dev/shm目录</h1>
+<p>linux中<code>/dev</code>目录下一般都是一些设备文件，例如磁盘、内存、摄像头等。<br />
+<code>/dev/shm</code>这个目录是linux下一个利用内存虚拟出来的一个目录，这个目录中的文件都是保存在内存中，而不是磁盘上。其大小是非固定的，即不是预先分配好的内存来存储的。(shm == shared memory)</p>
+<h2 id="_1">简要说明</h2>
+<p><code>/dev/shm</code>的容量默认最大为内存的一半大小，使用df -h命令可以看到。但它并不会真正的占用这块内存，如果/dev/shm/下没有任何文件，它占用的内存实际上就是0字节。<br />
+通过下面的命令，我们可以看到<code>/dev/shm</code>的文件系统为<code>tmpfs</code>，即为临时文件系统。其他的几个<code>tmpfs</code>的挂载目录，其实质上于<code>/dev/shm</code>是一致的。</p>
+<pre><code class="shell">/home/o [o@o-s] [16:22]
+&gt; df -h
+文件系统        容量  已用  可用 已用% 挂载点
+dev             3.9G     0  3.9G    0% /dev
+run             3.9G  656K  3.9G    1% /run
+/dev/sda2        58G   12G   43G   22% /
+tmpfs           3.9G  1.0G  2.9G   26% /dev/shm
+tmpfs           3.9G     0  3.9G    0% /sys/fs/cgroup
+tmpfs           3.9G     0  3.9G    0% /tmp
+/dev/sdb1        58G   24G   32G   44% /mnt/data
+/dev/sda1       488M   26M  463M    6% /boot
+tmpfs           791M     0  791M    0% /run/user/1000
+</code></pre>
+<h2 id="_2">文件测试</h2>
+<p>执行下面命令</p>
+<pre><code class="shell">/home/o [o@o-s] [16:18]
+&gt; ls /dev/shm</p>
+
+<p>/home/o [o@o-s] [16:18]
+&gt; free -m
+              total        used        free      shared  buff/cache   available
+Mem:           7901         249        2217           1        5434        7595
+Swap:             0<br />
+</code></pre>
+<p>我们可以看到当前<code>/dev/shm</code>目录为空。当前系统使用的内存为249MB，可用内存为7595MB，而<code>buff/cache</code>缓存了<code>5434</code>MB的内容在内存中，并且<code>shared</code>部分仅为1MB大小。<br />
+这个缓存的数据可以通过修改<code>/proc/sys/vm/</code>drop_caches文件的内容为<code>3</code>来清理掉。这里就不做了。</p>
+<p>现在我们在<code>/dev/shm</code>目录中创建一个大小为1G的文件</p>
+<pre><code class="shell">/home/o [o@o-s] [16:19]
+&gt; dd if=/dev/zero of=/dev/shm/123.random bs=1M count=1024
+记录了1024+0 的读入
+记录了1024+0 的写出
+1073741824字节(1.1 GB)已复制，0.322718 秒，3.3 GB/秒
+</code></pre>
+<p>看看操作后的结果</p>
+<pre><code class="shell">&gt; free -m
+              total        used        free      shared  buff/cache   available
+Mem:           7901         248        1191        1025        6461        6571
+Swap:             0           0           0
+</code></pre>
+<p>可以看到，现在<code>shared</code>部分的内存已经有了1025MB，并且<code>buff/cache</code>部分也增加了1G多，可用内存减少了1G。</p>
+<h2 id="_3">容量修改</h2>
+<p>如果需要使用到这个目录，并且默认的大小不够使用，而其他程序占用的内存又比较少的时候，可以修改器最大占用内存的大小，来达到自己的目的。<br />
+其实修改它的原理很简单，对其进行重新挂载即可，挂载的时候指定挂载参数。</p>
+<pre><code class="shell">/home/o [o@o-s] [16:38]
+&gt; sudo mount -o size=5128M  -o remount /dev/shm
+</code></pre>
+<p>上面对<code>/dev/shm</code>进行了重新挂载，并修改其大小为<code>5G</code>。使用下面的命令查看，可以看到确实已经修改为了5G。</p>
+<pre><code class="shell">/home/o [o@o-s] [16:38]
+&gt; df -h
+文件系统        容量  已用  可用 已用% 挂载点
+dev             3.9G     0  3.9G    0% /dev
+run             3.9G  656K  3.9G    1% /run
+/dev/sda2        58G   12G   43G   22% /
+tmpfs           5.1G  1.0G  4.1G   20% /dev/shm
+tmpfs           3.9G     0  3.9G    0% /sys/fs/cgroup
+tmpfs           3.9G     0  3.9G    0% /tmp
+/dev/sdb1        58G   24G   32G   44% /mnt/data
+/dev/sda1       488M   26M  463M    6% /boot
+tmpfs           791M     0  791M    0% /run/user/1000
+</code></pre>
+<p>可以通过修改<code>/etc/fstab</code>文件，来修改默认的参数。</p>
+<p>mount的参数可以参考如下<br />
+<a href="http://www.cnblogs.com/oloroso/p/5405099.html">http://www.cnblogs.com/oloroso/p/5405099.html</a></p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

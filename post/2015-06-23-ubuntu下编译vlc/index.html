@@ -1,0 +1,704 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> ubuntu下编译VLC &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>ubuntu下编译VLC</h1>
+          <span class="post-date">2015年06月23日</span>
+          
+
+<h1 id="ubuntu下编译vlc">ubuntu下编译VLC</h1>
+
+<p>标签（空格分隔）： ubuntu vlc 视频 编译</p>
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595136.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595136.html</a></p>
+
+<hr />
+
+<p>##1.下载VLC源码包并解压
+VLC的源码包在VLC的官网有，可以直接下载。也可以使用git来clone一个。
+git的地址<code>git  clone git://git.videolan.org/vlc.git</code>
+源码包地址 <a href="http://get.videolan.org/vlc/2.2.0/vlc-2.2.0.tar.xz">http://get.videolan.org/vlc/2.2.0/vlc-2.2.0.tar.xz</a>
+<strong>下载和解压</strong>
+xz压缩的档案包使用<code>J</code>参数来解压</p>
+
+<pre><code class="language-shell">wget http://get.videolan.org/vlc/2.2.0/vlc-2.2.0.tar.xz
+o@o-pc:~/work/vlc$ tar -xJvf vlc-2.2.0.tar.xz 
+...
+o@o-pc:~/work/vlc$ ls vlc-2.2.0
+ABOUT-NLS   autotools  ChangeLog    configure     COPYING      extras   lib         Makefile.am  NEWS    share  THANKS
+aclocal.m4  bin        compat       configure.ac  COPYING.LIB  include  m4          Makefile.in  po      src
+AUTHORS     bootstrap  config.h.in  contrib       doc          INSTALL  make-alias  modules      README  test
+</code></pre>
+
+<p>##2.配置编译环境
+下面说的东西很多，嫌麻烦的可以先安装依赖包，能够少很多问题。</p>
+
+<pre><code class="language-shell">$ sudo apt-get build-dep vlc
+</code></pre>
+
+<p>###2.1使用configure脚本来配置</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc$ ./configure --prefix=/usr/local/vlc
+...
+checking for LUA... no
+configure: WARNING: , trying lua 5.1 instead
+checking for LUA... no
+configure: WARNING: , trying lua &gt;= 5.1 instead
+checking for LUA... no
+configure: WARNING: , trying manual detection instead
+checking lua.h usability... no
+checking lua.h presence... no
+checking for lua.h... no
+checking lauxlib.h usability... no
+checking lauxlib.h presence... no
+checking for lauxlib.h... no
+checking lualib.h usability... no
+checking lualib.h presence... no
+checking for lualib.h... no
+checking for luaL_newstate in -llua5.2 ... no
+checking for luaL_newstate in -llua5.1 ... no
+checking for luaL_newstate in -llua51 ... no
+checking for luaL_newstate in -llua ... no
+
+configure: error: Could not find lua. Lua is needed for some interfaces (rc, telnet, http) as well as many other custom scripts. Use --disable-lua to ignore this error.
+</code></pre>
+
+<p>看到上面的错误提示了吧，lua没有发现。Lua是需要一些接口（RC，TELNET，HTTP）以及许多其他的自定义脚本.可以使用<code>--disable-lua</code>来忽略这个错误。
+我的电脑上确实没有安装lua，我也不打算忽略这个错误。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ lua
+程序 'lua' 已包含在下列软件包中：
+ * lua5.2
+ * lua5.1
+ * lua50
+请尝试：sudo apt-get install &lt;选定的软件包&gt;
+</code></pre>
+
+<p>###2.2安装lua开发环境，再重新./configure
+先安装一个lua5.2</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install lua5.2
+</code></pre>
+
+<p><strong>仅仅安装这个lua是不行的，这个lua5.2只是一个脚本解释器而已。</strong>
+去lua官网下载一个lua的源码包。<a href="http://www.lua.org/ftp/lua-5.2.4.tar.gz">http://www.lua.org/ftp/lua-5.2.4.tar.gz</a>
+下载之后再<strong>编译lua</strong>。编译的时候需要<strong>指定平台</strong>。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua/lua-5.2.4$ make
+Please do 'make PLATFORM' where PLATFORM is one of these:
+   aix ansi bsd freebsd generic linux macosx mingw posix solaris
+See doc/readme.html for complete instructions.
+o@o-pc:~/work/lua/lua-5.2.4$ make linux 
+cd src &amp;&amp; make linux
+...
+lua.c:67:31: fatal error: readline/readline.h: 没有那个文件或目录
+ #include &lt;readline/readline.h&gt;
+                               ^
+...
+</code></pre>
+
+<p>编译的时候提示错误，找不到头文件<code>readline/readline.h</code>，那么去下载一个。</p>
+
+<pre><code class="language-shell">wget ftp://ftp.cwru.edu/pub/bash/readline-6.3.tar.gz
+</code></pre>
+
+<p>解压后在make编译安装readline
+<code>./configure</code>指定了其安装的目录，其实不指定目录更好。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua$ tar -xzvf readline-6.3.tar.gz
+...
+o@o-pc:~/work/lua/readline-6.3$ ./configure --prefix=/usr/local/readline
+...
+o@o-pc:~/work/lua/readline-6.3$ make
+...
+o@o-pc:~/work/lua/readline-6.3$ sudo make install
+</code></pre>
+
+<p>####编译安装readline库。修改lua的src/Makefile
+如果前面配置编译readline的时候不指定目录，就不需要修改了。所以前面说不指定目录更好。
+注意：这里修改的Makefile文件的位置，是<code>src</code>目录下的Makefile。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua/lua-5.2.4$ vi src/Makefile 
+</code></pre>
+
+<p>修改<code>MYCFLAGS</code>和<code>MYLDFLAGS</code>两个变量的值(应该是22,23行)。</p>
+
+<pre><code class="language-MYCFLAGS=">MYLDFLAGS= -L/usr/local/readline/lib```
+**再次`make linux`
+可以看到找不到头文件的错误已经没有了，但是有了新的错误。
+这个错误是因为不能链接上动态库的原因。
+```shell
+cd src &amp;&amp; make linux
+make[1]: 正在进入目录 `/home/o/work/lua/lua-5.2.4/src'
+make all SYSCFLAGS=&quot;-DLUA_USE_LINUX&quot; SYSLIBS=&quot;-Wl,-E -ldl -lreadline&quot;
+make[2]: 正在进入目录 `/home/o/work/lua/lua-5.2.4/src'
+gcc -O2 -Wall -DLUA_COMPAT_ALL -DLUA_USE_LINUX -I/usr/local/readline/include   -c -o lua.o lua.c
+gcc -o lua  -L/usr/local/readline/lib lua.o liblua.a -lm -Wl,-E -ldl -lreadline 
+/usr/local/readline/lib/libreadline.so：对‘tputs’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘tgoto’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘tgetflag’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘UP’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘tgetent’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘tgetnum’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘PC’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘tgetstr’未定义的引用
+/usr/local/readline/lib/libreadline.so：对‘BC’未定义的引用
+collect2: error: ld returned 1 exit status
+make[2]: *** [lua] 错误 1
+make[2]:正在离开目录 `/home/o/work/lua/lua-5.2.4/src'
+make[1]: *** [linux] 错误 2
+make[1]:正在离开目录 `/home/o/work/lua/lua-5.2.4/src'
+make: *** [linux] 错误 2
+</code></pre>
+
+<p>####编译安装ncurses库，然后修改src/Makefile
+现在解决这个错误。先得知道这个错误的原因。原因是因为<code>readline</code>这个库，还依赖于<code>ncurses</code>这个库。于是我们还需要去下载这个｀ncurses｀库。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua$ wget http://ftp.gnu.org/pub/gnu/ncurses/ncurses-5.9.tar.gz
+...
+o@o-pc:~/work/lua$ tar -xzvf ncurses-5.9.tar.gz 
+...
+o@o-pc:~/work/lua/ncurses-5.9$ ./configure 
+...
+** Configuration summary for NCURSES 5.9 20110404:
+
+     extended funcs: yes
+     xterm terminfo: xterm-new
+
+      bin directory: /usr/bin
+      lib directory: /usr/lib
+  include directory: /usr/include
+      man directory: /usr/man
+ terminfo directory: /usr/share/terminfo
+</code></pre>
+
+<p>这次我们.configure的时候没有指定安装路径，使用默认的配置。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua/ncurses-5.9$ make
+...
+o@o-pc:~/work/lua/ncurses-5.9$ sudo make install
+</code></pre>
+
+<p>我们还得<strong>修改<code>src/Makefile</code>文件</strong>
+linux编译target=linux，在SYSLIBS变量中追加<code>-lncurses</code>选项即可。如下(应该是105,106行)：
+<code>linux:
+       $(MAKE) $(ALL) SYSCFLAGS=&quot;-DLUA_USE_LINUX&quot; SYSLIBS=&quot;-Wl,-E -ldl -lreadline -lncurses&quot;</code>
+上述操作完成后，再次<code>make　linux</code>就没问题了。</p>
+
+<p><strong>重新编译安装lua</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua/lua-5.2.4$ make linux
+...
+o@o-pc:~/work/lua/lua-5.2.4$ sudo make install 
+cd src &amp;&amp; mkdir -p /usr/local/bin /usr/local/include /usr/local/lib /usr/local/man/man1 /usr/local/share/lua/5.2 /usr/local/lib/lua/5.2
+cd src &amp;&amp; install -p -m 0755 lua luac /usr/local/bin
+cd src &amp;&amp; install -p -m 0644 lua.h luaconf.h lualib.h lauxlib.h lua.hpp /usr/local/include
+cd src &amp;&amp; install -p -m 0644 liblua.a /usr/local/lib
+cd doc &amp;&amp; install -p -m 0644 lua.1 luac.1 /usr/local/man/man1
+</code></pre>
+
+<p>###2.3 安装libmad库，重新<code>./configure</code>
+再次<code>./configure</code>后又报错了，这次的错误原因是没有发现libmad库。它还提供了一个地址给我们，那么就去这个地址看看。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc
+configure: error: Could not find libmad on your system: you may get it from http://www.underbit.com/products/mad/. Alternatively you can use --disable-mad to disable the mad plugin.
+</code></pre>
+
+<p>在　　<a href="http://www.underbit.com/products/mad/　　这个页面，可以找到一个ftp的下载站点　　ftp://ftp.mars.org/pub/mpeg/　那就从这里开始吧。">http://www.underbit.com/products/mad/　　这个页面，可以找到一个ftp的下载站点　　ftp://ftp.mars.org/pub/mpeg/　那就从这里开始吧。</a>
+<strong>下载／配置／编译／安装</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc$ wget ftp://ftp.mars.org/pub/mpeg/libmad-0.15.1b.tar.gz
+o@o-pc:~/work/vlc$ tar -xzvf libmad-0.15.1b.tar.gz 
+o@o-pc:~/work/vlc/libmad-0.15.1b$ ./configure 
+o@o-pc:~/work/vlc/libmad-0.15.1b$ make
+...
+ gcc -DHAVE_CONFIG_H -I. -I. -I. -DFPM_DEFAULT -Wall -g -O -fforce-mem -fforce-addr -fthread-jumps -fcse-follow-jumps -fcse-skip-blocks -fexpensive-optimizations -fregmove -fschedule-insns2 -MT version.lo -MD -MP -MF .deps/version.Tpo -c version.c  -fPIC -DPIC -o .libs/version.o
+gcc: error: unrecognized command line option '-fforce-mem'
+make[2]: *** [version.lo] 错误 1
+...
+</code></pre>
+
+<p>在make的时候报错了。错误的原因是<strong>gcc</strong>没有选项<code>-fforce-mem</code>。原因是因为当前的gcc版本太高了，就不提供这个选项了。我们修改Makefile来适应当前的gcc编译器。
+<strong>打开Makefile文件</strong>
+找到关键的一行(应该是129)<code>CFLAGS = -Wall -g -O -fforce-mem -fforce-addr -fthread-jumps -fcse-follow-jumps -fcse-skip-blocks -fexpensive-optimizations -fregmove -fschedule-insns2</code>　将-fforce-mem删除即可。
+<strong>重新make编译安装</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/libmad-0.15.1b$ sudo make install
+[sudo] password for o: 
+make  install-recursive
+...
+chmod 644 /usr/local/lib/libmad.a
+PATH=&quot;$PATH:/sbin&quot; ldconfig -n /usr/local/lib
+...
+Libraries have been installed in:
+   /usr/local/lib
+...
+mkdir -p -- . /usr/local/include
+ /usr/bin/install -c -m 644 mad.h /usr/local/include/mad.h
+ ...
+</code></pre>
+
+<p>###2.4 忽略avcodec/swscale/liba52
+经过上面的步骤，我们再<code>./configure</code>的时候，又会报错</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc
+...
+checking for AVCODEC... no
+configure: error: . Pass --disable-avcodec to ignore this error.
+</code></pre>
+
+<p>这次是没有检查到ＡＶＣＯＤＥＣ，我们这次就不再去下载编译它了。如果需要，就下载ffmpeg编译安装就是。
+如果指示忽略掉avcodec之后还会报错，还需要忽略两个。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc --disable-avcodec --disable-swscale --disable-a52
+...
+configure: error: in `/home/o/work/vlc/vlc-2.2.0':
+configure: error: The pkg-config script could not be found or is too old.  Make sure it
+is in your PATH or set the PKG_CONFIG environment variable to the full
+...
+</code></pre>
+
+<p>###2.5 解决pkg-config问题
+又报错了，这个从的错误是这个<code>pkg-config</code>无法找到或者太旧。确保它
+在PATH或者设置PKG_CONFIG环境变量完整。
+####安装pkg-config和autoconf
+要解决它，先安装一下pkg-config和autoconf。然后运行一下<code>bootstrap</code>脚本。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install pkg-config
+o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install autoconf
+o@o-pc:~/work/vlc/vlc-2.2.0$ ./bootstrap
+...
+autoreconf: running: libtoolize --copy --force
+Can't exec &quot;libtoolize&quot;: 没有那个文件或目录 at /usr/share/autoconf/Autom4te/FileUtils.pm line 345, &lt;GEN3&gt; line 6.
+autoreconf: failed to run libtoolize: 没有那个文件或目录
+autoreconf: libtoolize is needed because this package uses Libtool
+</code></pre>
+
+<p>还有错误，要安装libtool</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install libtool
+</code></pre>
+
+<p>安装之后再次./bootstrap，可以看到成功了。</p>
+
+<pre><code>o@o-pc:~/work/vlc/vlc-2.2.0$ ./bootstrap 
+...
+autoreconf: configure.ac: tracing
+autoreconf: running: libtoolize --copy --force
+...
+Successfully bootstrapped
+</code></pre>
+
+<p>###2.6 解决 XCB 包问题
+然后在<code>./configure</code>可以看到，还有错误。这次的错误是xcb包的问题。
+看错误输出
+包装要求（XCB&gt;=1.6）没有得到满足：没有发现包&rsquo;XCB&rsquo;
+试想，如果你调整PKG_CONFIG_PATH环境变量，安装的软件在一个非标准的前缀。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc --disable-avcodec --disable-swscale --disable-a52
+...
+configure: error: Package requirements (xcb &gt;= 1.6) were not met:
+No package 'xcb' found
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix.
+Alternatively, you may set the environment variables XCB_CFLAGS
+and XCB_LIBS to avoid the need to call pkg-config.
+</code></pre>
+
+<p>它也给了我们解决的办法
+&gt; Alternatively, you may set the environment variables XCB_CFLAGS
+and XCB_LIBS to avoid the need to call pkg-config.
+或者，您可以设置环境变量XCB_CFLAGS和XCB_LIBS以避免需要调用pkg配置。</p>
+
+<p>####安装libxcb库
+那么我们还是需要下载安装<code>libxcb</code>库</p>
+
+<pre><code class="language-shell">wget http://xcb.freedesktop.org/dist/libxcb-1.7.tar.gz
+wget http://xcb.freedesktop.org/dist/xcb-proto-1.7.tar.gz
+</code></pre>
+
+<p>先编译安装xcb-proto，再去配置linxcb编译环境的时候，这时候还会报错</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/xcb/libxcb-1.7$ ./configure 
+configure: error: Package requirements (pthread-stubs xau &gt;= 0.99.2) were not met:
+
+No package 'pthread-stubs' found
+No package 'xau' found
+</code></pre>
+
+<p>我们再安装<code>libxau-dev</code>和<code>libpthread-stubs0-dev</code></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/xcb/libxcb-1.7$ sudo apt-get install libpthread-stubs0-dev o@o-pc:~/work/vlc/xcb/libxcb-1.7$ sudo apt-get install libxau-dev
+</code></pre>
+
+<p>然后添加环境变量
+<code>export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig</code>
+再次./configure就成功了</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/xcb/libxcb-1.7$ ./configure 
+  Package: libxcb 1.7
+...
+  Used CFLAGS:
+    CPPFLAGS............: 
+    CFLAGS..............: -g -O2
+    Warning CFLAGS......: -Wall -pedantic -Wpointer-arith 		-Wstrict-prototypes -Wmissing-declarations -Wnested-externs
+...
+  Installation:
+    Prefix..............: /usr/local
+o@o-pc:~/work/vlc/xcb/libxcb-1.7$ make
+o@o-pc:~/work/vlc/xcb/libxcb-1.7$ sudo make install
+</code></pre>
+
+<p>###2.7 alsa问题
+回到　vlc-2.2.0 目录，再次<code>./configure ...</code>，又报错了</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc --disable-avcodec --disable-swscale --disable-a52
+...
+checking for ALSA... no
+configure: error: No package 'alsa' found. alsa-lib 1.0.24 or later required.
+</code></pre>
+
+<p>这次是找不到<code>alsa</code>包，那么还是去安装一个吧。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/xcb/libxcb-1.7$ sudo apt-get install libalsa-ocaml-dev 
+正在读取软件包列表... 完成
+正在分析软件包的依赖关系树       
+正在读取状态信息... 完成       
+将会安装下列额外的软件包：
+  camlp4 ledit libasound2-dev libfindlib-ocaml libfindlib-ocaml-dev
+  libncurses5-dev libtinfo-dev ocaml-compiler-libs ocaml-findlib ocaml-interp
+  ocaml-nox
+...
+</code></pre>
+
+<p>我们看到它提示会额外安装<code>libasound2-dev</code>，其实我们这里需要的就是这个。
+###2.8 lingcrypt 问题
+之前安装了libalsa-ocaml-dev之后，再次configure还有错误，没关系，继续解决。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc --disable-avcodec --disable-swscale --disable-a52
+...
+checking whether GCRYCTL_SET_THREAD_CBS is declared... no
+configure: error: libgcrypt version 1.1.94 or higher not found. Install libgcrypt or pass --disable-libgcrypt.
+</code></pre>
+
+<p>这里提示我们没有发现libgcrypt 1.1.94或者更高的版本，那么就安装一个。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/xcb/libxcb-1.7$ sudo apt-get install libgcrypt20-dev 
+...      
+将会安装下列额外的软件包：
+  libgcrypt20 libgpg-error-dev
+  ...
+</code></pre>
+
+<p>###2.9 成功的　configure</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc --disable-avcodec --disable-swscale --disable-a52
+...
+libvlc configuration
+--------------------
+version               : 2.2.0
+system                : linux
+architecture          : x86_64 mmx sse sse2
+optimizations         : yes
+vlc aliases           : cvlc rvlc
+
+To build vlc and its plugins, type `make', or `./compile' if you like nice colors.
+</code></pre>
+
+<p>##3. make编译安装
+make的过程会又大量的 warning ，这是正常的，不用管它。但是有错误必须解决</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ make
+...
+/usr/bin/ld: //usr/local/lib/liblua.a(lapi.o): relocation R_X86_64_32 against `luaO_nilobject_' can not be used when making a shared object; recompile with -fPIC
+//usr/local/lib/liblua.a: error adding symbols: Bad value
+collect2: error: ld returned 1 exit status
+make[4]: *** [liblua_plugin.la] 错误 1
+...
+</code></pre>
+
+<p>###3.1解决lua共享库文件重定位问题
+这里出现的错误提示:创建共享目标时，对&rsquo;luaO_nilobject_文件的重定位R_X86_64_32不能使用;重新编译，使用-fPIC选项。
+&gt; -fPIC 作用于编译阶段，告诉编译器产生与位置无关代码(Position-Independent Code)，则产生的代码中，没有绝对地址，全部使用相对地址，故而代码可以被加载器加载到内存的任意位置，都可以正确的执行。这正是共享库所要求的，共享库被加载时，在内存的位置不是固定的。</p>
+
+<p>那么我们还是需要去修改Makefile文件了，不过不是vlc的Makefile文件，而是lua的。
+进入lua-5.2.4目录，然后修改src目录下的Makefile。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/lua/lua-5.2.4$ vi src/Makefile 
+</code></pre>
+
+<p>修改MYCFLAGS变量的值(应该是22行)，为其加上-fPIC选项。
+MYCFLAGS= -I/usr/loacl/readline/include -fPIC
+修改完成之后<strong>重新make编译安装</strong>。</p>
+
+<p>回到vlc-2.2.0目录，重新make，这次就成功了。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ make
+  GEN      ../modules/plugins.dat
+...
+  GEN      cvlc
+  GEN      rvlc
+  GEN      vlc
+  ...
+</code></pre>
+
+<p>###3.2运行一下编译后的程序</p>
+
+<h4 id="处理-core-error错误">处理 core *** error错误</h4>
+
+<p>出现了三个错误，是因为之前<code>./configure</code>配置的时候，我们忽略了一些警告。可以安装<code>libxml2-dev</code>，<code>libvlc-dev</code>等库，然后重新<code>./configure</code>后<code>make</code></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./vlc 
+VLC media player 2.2.0 Weatherwax (revision 2.2.0-0-g1349ef2)
+[0000000002132a28] core xml reader error: XML reader not found
+[0000000002158b58] core interface error: no suitable interface module
+[000000000209a3f8] core libvlc error: interface &quot;globalhotkeys,none&quot; initialization failed
+[000000000209a3f8] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[0000000002158b58] [cli] lua interface: Listening on host &quot;*console&quot;.
+VLC media player 2.2.0 Weatherwax
+Command Line Interface initialized. Type `help' for help.
+</code></pre>
+
+<p>安装libxml2-dev之后重新<code>./configure</code>再<code>make</code>后去运行，少了一个错误了。剩下的两个错误也可以通过这个办法解决。(安装<code>libmodplug-dev</code>,<code>libdvbpsi-dev</code>库会更好，core libvlc error错误可以安装<code>libvlc-dev</code>库，这个库我们已经编译了)</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./vlc 
+VLC media player 2.2.0 Weatherwax (revision 2.2.0-0-g1349ef2)
+[000000000262e748] core interface error: no suitable interface module
+[000000000256c3f8] core libvlc error: interface &quot;globalhotkeys,none&quot; initialization failed
+[000000000256c3f8] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[000000000262aed8] [cli] lua interface: Listening on host &quot;*console&quot;.
+VLC media player 2.2.0 Weatherwax
+Command Line Interface initialized. Type `help' for help.
+&gt; quit
+Shutting down.
+[000000000262aed8] [cli] lua interface: Requested shutdown.
+</code></pre>
+
+<p>####处理解码支持问题
+已经提示我们输入命令行参数去初始化接口了
+可以尝试一下添加一个视频文件到播放列表，可以看到这次是解码出错了，因为h264编码不支持。继续解决。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./vlc 
+VLC media player 2.2.0 Weatherwax (revision 2.2.0-0-g1349ef2)
+[0000000001dcf938] core interface error: no suitable interface module
+[0000000001d093f8] core libvlc error: interface &quot;globalhotkeys,none&quot; initialization failed
+[0000000001d093f8] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[0000000001e35898] [cli] lua interface: Listening on host &quot;*console&quot;.
+VLC media player 2.2.0 Weatherwax
+Command Line Interface initialized. Type `help' for help.
+&gt; add ../../../视频/NextLight.flv
+&gt; [00007f1fe4c7df38] core decoder error: Codec `h264' (H264 - MPEG-4 AVC (part 10)) is not supported.
+[00007f1fe4c7df38] core decoder error: Codec not supported
+[00007f1fe4c7df38] core decoder error: VLC could not decode the format &quot;h264&quot; (H264 - MPEG-4 AVC (part 10))
+[00007f1fe4c7df38] core decoder error: Codec `mp4a' (MPEG AAC Audio) is not supported.
+[00007f1fe4c7df38] core decoder error: Codec not supported
+[00007f1fe4c7df38] core decoder error: VLC could not decode the format &quot;mp4a&quot; (MPEG AAC Audio)
+</code></pre>
+
+<p>安装<code>libavcodec-dev</code>和<code>libavformat-dev</code>库，然后重新<code>./configure</code>，这次没有添加&ndash;disable-avcodec等选项。顺便把<code>libswscale-dev</code>和<code>liba52</code>这两个库。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install libavcodec-dev 
+o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install libavformat-dev 
+o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install libswscale-dev
+o@o-pc:~/work/vlc/vlc-2.2.0$ sudo apt-get install liba52-0.7.4-dev 
+o@o-pc:~/work/vlc/vlc-2.2.0$ ./configure --prefix=/usr/local/vlc 
+</code></pre>
+
+<p>重新编译</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ make
+...
+  CC       libpacketizer_avparser_plugin_la-avparser.lo
+avparser.c: In function ‘OpenPacketizer’:
+avparser.c:108:9: error: implicit declaration of function ‘avcodec_free_context’ [-Werror=implicit-function-declaration]
+         avcodec_free_context( &amp;p_codec_ctx );
+         ^
+cc1: some warnings being treated as errors
+make[5]: *** [libpacketizer_avparser_plugin_la-avparser.lo] 错误 1
+</code></pre>
+
+<p>####处理 vcodec_free_context 函数隐式声明问题
+make的时候有一处错误：<code>avparser.c:108:9: error:implicit declaration offunction ‘avcodec_free_context’[-Werror=implicit-function-declaration]</code>
+解决方法是：打开/vlc-2.2.0/modules/packetizer/Makefile文件，把里面的<code>-Werror-implicit-function-declaration</code>删除掉可。
+然后重现编译就通过了。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ make
+...
+  GEN      cvlc
+  GEN      rvlc
+  GEN      vlc
+  ...
+</code></pre>
+
+<p>可以来播放视频了
+不断的报音频输出错误<code>alsa audio output error:cannot estimate delay:</code>是因为&hellip;</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/vlc/vlc-2.2.0$ ./vlc 
+VLC media player 2.2.0 Weatherwax (revision 2.2.0-0-g1349ef2)
+[0000000002409388] core interface error: no suitable interface module
+[0000000002313398] core libvlc error: interface &quot;globalhotkeys,none&quot; initialization failed
+[0000000002313398] core libvlc: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+[00000000023daf48] [cli] lua interface: Listening on host &quot;*console&quot;.
+VLC media player 2.2.0 Weatherwax
+Command Line Interface initialized. Type `help' for help.
+&gt; add ../../MediaFiles/NextLight.flv
+&gt; [00007fdf18001478] xcb_window window error: X11 key press support not compiled-in
+[00000000023c5b78] alsa audio output error: cannot estimate delay: 输入/输出错误
+[00000000023c5b78] alsa audio output error: cannot estimate delay: 输入/输出错误
+[00000000023c5b78] alsa audio output error: cannot estimate delay: 输入/输出错误
+</code></pre>
+
+<p><img src="http://i1.tietuku.com/6a99082331d38cc1.png" alt="VLC播放视频" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

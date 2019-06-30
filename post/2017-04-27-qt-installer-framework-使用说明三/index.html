@@ -1,0 +1,1810 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Qt Installer Framework 使用说明（三） &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Qt Installer Framework 使用说明（三）</h1>
+          <span class="post-date">2017年04月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/04/27/6775318.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2017/04/27/6775318.html</a></p>
+
+<h1 id="6-qt-installer-framework-示例">6、Qt Installer Framework 示例</h1>
+
+<p>这些示例说明如何使用组件脚本来定制安装程序。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">示例</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-changeuserinterface-example.html">更改安装程序UI示例 Change Installer UI Example</a></td>
+<td align="left">使用组件脚本修改安装程序UI</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-componenterror-example.html">组件错误示例 Component Error Example</a></td>
+<td align="left">如果无法安装组件，请使用组件脚本停止安装</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-dependencies-example.html">依赖性解决示例 Dependency Solving Example</a></td>
+<td align="left">使用组件的package.xml文件来定义组件之间的依赖性和自动依赖性</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-dynamicpage-example.html">动态页面安装程序示例 Dynamic Page Installer Example</a></td>
+<td align="left">使用组件脚本和动态页来构建安装程序</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-modifyextract-example.html">修改提取安装程序示例 Modify Extract Installer Example</a></td>
+<td align="left">在组件脚本中使用归档提取钩子来修改目标路径</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-online-example.html">在线安装程序示例 Online Installer Example</a></td>
+<td align="left">使用repogen工具和配置文件设置在线安装程序</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-openreadme-example.html">打开ReadMe示例 Open ReadMe Example</a></td>
+<td align="left">使用组件脚本添加用于打开自述文件到最终安装程序页面的复选框</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-quitinstaller-example.html">退出安装程序示例 Quit Installer Example</a></td>
+<td align="left">使用组件脚本退出安装程序</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-registerfileextension-example.html">注册文件扩展示例 Register File Extension Example</a></td>
+<td align="left">使用组件脚本在Windows上注册文件扩展名</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-startmenu-example.html">开始菜单快捷方式示例 Start Menu Shortcut Example</a></td>
+<td align="left">使用组件脚本将条目添加到Windows“开始”菜单</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-systeminfo-example.html">系统信息示例 System Information Example</a></td>
+<td align="left">在组件脚本中使用systemInfo API来检查操作系统版本和位数</td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://doc.qt.io/qtinstallerframework/qt-installer-framework-translations-example.html">翻译示例 Translation Example</a></td>
+<td align="left">使用翻译本地化安装程序页面和许可证</td>
+</tr>
+</tbody>
+</table>
+
+<h1 id="7-参考-reference">7、参考 Reference</h1>
+
+<p>以下部分包含有关Qt Installer Framework的详细信息：</p>
+
+<h2 id="配置文件-configuration-file">配置文件 Configuration File</h2>
+
+<p>配置文件定制安装程序的用户界面和行为。 该文件通常名为config.xml并位于config目录中。</p>
+
+<p>最小配置文件由<code>&lt;Installer&gt;</code>根元素和<code>&lt;Name&gt;</code>和<code>&lt;Version&gt;</code>元素组成。 其他元素都是可选的，且无顺序要求。</p>
+
+<p>以下是典型的配置文件示例：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;Installer&gt;
+    &lt;Name&gt;Some Application&lt;/Name&gt;
+    &lt;Version&gt;1.0.0&lt;/Version&gt;
+    &lt;Title&gt;Some Application Setup&lt;/Title&gt;
+    &lt;Publisher&gt;发行公司&lt;/Publisher&gt;
+    &lt;ProductUrl&gt;http://www.your-fantastic-company.com&lt;/ProductUrl&gt;
+    &lt;InstallerWindowIcon&gt;installericon&lt;/InstallerWindowIcon&gt;
+    &lt;InstallerApplicationIcon&gt;installericon&lt;/InstallerApplicationIcon&gt;
+    &lt;Logo&gt;logo.png&lt;/Logo&gt;
+    &lt;Watermark&gt;watermark.png&lt;/Watermark&gt;
+    &lt;RunProgram&gt;@TargetDir@/YourAppToRun&lt;/RunProgram&gt;
+    &lt;RunProgramArguments&gt;
+        &lt;Argument&gt;Argument 1&lt;/Argument&gt;
+        &lt;Argument&gt;Argument 2&lt;/Argument&gt;
+    &lt;/RunProgramArguments&gt;
+    &lt;RunProgramDescription&gt;程序描述文本&lt;/RunProgramDescription&gt;
+    &lt;StartMenuDir&gt;Some Application Entry Dir&lt;/StartMenuDir&gt;
+    &lt;MaintenanceToolName&gt;SDKMaintenanceTool&lt;/MaintenanceToolName&gt;
+    &lt;AllowNonAsciiCharacters&gt;true&lt;/AllowNonAsciiCharacters&gt;
+    &lt;Background&gt;background.png&lt;/Background&gt;
+
+    &lt;TargetDir&gt;@HomeDir@/testinstall&lt;/TargetDir&gt;
+    &lt;AdminTargetDir&gt;@RootDir@/testinstall&lt;/AdminTargetDir&gt;
+    &lt;RemoteRepositories&gt;
+        &lt;Repository&gt;
+            &lt;Url&gt;http://www.your-repo-location/packages/&lt;/Url&gt;
+        &lt;/Repository&gt;
+    &lt;/RemoteRepositories&gt;
+&lt;/Installer&gt;
+</code></pre>
+
+<h3 id="配置文件元素的简要说明-summary-of-configuration-file-elements">配置文件元素的简要说明 Summary of Configuration File Elements</h3>
+
+<p>下表总结了配置文件中的元素。</p>
+
+<p><strong>注意：</strong> 我们建议您将配置文件中引用的所有文件放在config目录中。 但是，您也可以使用相对路径，工具相对于config.xml文件的位置进行解析。</p>
+
+<p>您可以使用预定义变量 <strong>(嵌入@字符)</strong> 作为元素的值。 有关详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/scripting.html#predefined-variables">预定义变量 Predefined Variables</a>。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">元素</th>
+<th align="left">是否必需</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Name</td>
+<td align="left">必需</td>
+<td align="left">正在安装的产品名称</td>
+</tr>
+
+<tr>
+<td align="left">Version</td>
+<td align="left">必需</td>
+<td align="left">安装软件的版本，格式要求:`[0-9]+((.</td>
+</tr>
+
+<tr>
+<td align="left">Title</td>
+<td align="left">可选</td>
+<td align="left">标题栏上显示的安装程序的名称</td>
+</tr>
+
+<tr>
+<td align="left">Publisher</td>
+<td align="left">可选</td>
+<td align="left">软件发行商(如Windows控制面板中所示)</td>
+</tr>
+
+<tr>
+<td align="left">ProductUrl</td>
+<td align="left">可选</td>
+<td align="left">指向包含您网站上产品信息的网页的网址</td>
+</tr>
+
+<tr>
+<td align="left">Icon</td>
+<td align="left">可选</td>
+<td align="left">自定义安装程序图标的文件名。通过附加&rsquo;.icns&rsquo;(OS X)，&rsquo;.ico&rsquo;(Windows)或&rsquo;.png&rsquo;(Unix)后缀来查找实际文件。 <strong>已弃用</strong> ，请改用<code>&lt;InstallerApplicationIcon&gt;</code>或<code>&lt;InstallerWindowIcon&gt;</code></td>
+</tr>
+
+<tr>
+<td align="left">InstallerApplicationIcon</td>
+<td align="left">可选</td>
+<td align="left">自定义安装程序图标的文件名。 通过附加&rsquo;.icns&rsquo;(OS X)，&rsquo;.ico&rsquo;(Windows)后缀来查找实际文件。 在Unix上没有此功能</td>
+</tr>
+
+<tr>
+<td align="left">InstallerWindowIcon</td>
+<td align="left">可选</td>
+<td align="left">安装程序应用程序的自定义窗口图标的文件名(PNG格式)</td>
+</tr>
+
+<tr>
+<td align="left">Logo</td>
+<td align="left">可选</td>
+<td align="left">用作<code>QWizard::LogoPixmap</code>的徽标的文件名</td>
+</tr>
+
+<tr>
+<td align="left">Watermark</td>
+<td align="left">可选</td>
+<td align="left">用作<code>QWizard::WatermarkPixmap</code>的水印的文件名</td>
+</tr>
+
+<tr>
+<td align="left">Banner</td>
+<td align="left">可选</td>
+<td align="left">用作<code>QWizard::BannerPixmap</code>(横幅)的文件名(仅由<code>ModernStyle</code>使用)</td>
+</tr>
+
+<tr>
+<td align="left">Background</td>
+<td align="left">可选</td>
+<td align="left">用作<code>QWizard::BackgroundPixmap</code>的图像的文件名(仅由<code>MacStyle</code>使用)</td>
+</tr>
+
+<tr>
+<td align="left">WizardStyle</td>
+<td align="left">可选</td>
+<td align="left">设置要使用的向导样式 (&ldquo;Modern&rdquo;(现代), &ldquo;Mac&rdquo;, &ldquo;Aero&rdquo;或&rdquo;Classic&rdquo;(经典))</td>
+</tr>
+
+<tr>
+<td align="left">WizardDefaultWidth</td>
+<td align="left">可选</td>
+<td align="left">像素单位的默认向导(Wizard)宽度，设置的横幅图像(Banner Image)将覆盖在此</td>
+</tr>
+
+<tr>
+<td align="left">WizardDefaultHeight</td>
+<td align="left">可选</td>
+<td align="left">以像素为单位设置向导的默认高度,设置水印图像将覆盖在此</td>
+</tr>
+
+<tr>
+<td align="left">TitleColor</td>
+<td align="left">可选</td>
+<td align="left">设置标题和字幕的颜色(采用HTML颜色代码，例如“＃88FF33”)</td>
+</tr>
+
+<tr>
+<td align="left">RunProgram</td>
+<td align="left">可选</td>
+<td align="left">如果用户接受操作，则在安装程序完成后执行命令。要提供应用程序的完整路径</td>
+</tr>
+
+<tr>
+<td align="left">RunProgramArguments</td>
+<td align="left">可选</td>
+<td align="left">传递给<code>&lt;RunProgram&gt;</code>中指定的程序的参数。您可以添加多个<code>&lt;Argument&gt;</code>子元素，每个子元素为<code>&lt;RunProgram&gt;</code>指定一个参数</td>
+</tr>
+
+<tr>
+<td align="left">RunProgramDescription</td>
+<td align="left">可选</td>
+<td align="left">安装后运行程序的复选框旁边显示的文本。如果<code>&lt;RunProgram&gt;</code>设置，但没有提供说明，用户界面将显示运行程序<code>&lt;Name&gt;</code>替代</td>
+</tr>
+
+<tr>
+<td align="left">StartMenuDir</td>
+<td align="left">可选</td>
+<td align="left">Windows开始菜单中产品的默认程序组名称</td>
+</tr>
+
+<tr>
+<td align="left">TargetDir</td>
+<td align="left">可选</td>
+<td align="left">安装的默认目标目录。在Linux上，这通常是用户的主目录(/home/username/)</td>
+</tr>
+
+<tr>
+<td align="left">AdminTargetDir</td>
+<td align="left">可选</td>
+<td align="left">具有管理员权限的安装的默认目标目录。仅在Linux上可用，通常不建议在管理员用户的主目录中安装</td>
+</tr>
+
+<tr>
+<td align="left">RemoteRepositories</td>
+<td align="left">可选</td>
+<td align="left">远程存储库列表。此元素可以包含多个<code>&lt;Repository&gt;</code>子元素，每个子元素包含指定用于访问存储库的URL的<code>&lt;Url&gt;</code>子元素。有关更多信息，请参阅<a href="#5_2_2">配置存储库</a></td>
+</tr>
+
+<tr>
+<td align="left">MaintenanceToolName</td>
+<td align="left">可选</td>
+<td align="left">生成的维护工具的文件名。默认为<code>maintenancetool</code>。将附加平台特定的可执行文件扩展名</td>
+</tr>
+
+<tr>
+<td align="left">MaintenanceToolIniFile</td>
+<td align="left">可选</td>
+<td align="left">用于生成维护工具配置的文件名。默认为<code>MaintenanceToolName.ini</code></td>
+</tr>
+
+<tr>
+<td align="left">RemoveTargetDir</td>
+<td align="left">可选</td>
+<td align="left">如果卸载时不删除目标目录(TargetDir)，请设置为<code>false</code></td>
+</tr>
+
+<tr>
+<td align="left">AllowNonAsciiCharacters</td>
+<td align="left">可选</td>
+<td align="left">如果安装路径可以包含 <strong>非ASCII字符</strong> ，请设置为<code>true</code></td>
+</tr>
+
+<tr>
+<td align="left">RepositorySettingsPageVisible</td>
+<td align="left">可选</td>
+<td align="left">设置为<code>false</code>来 <strong>隐藏</strong> 设置对话框中的 <strong>存储库设置页面</strong></td>
+</tr>
+
+<tr>
+<td align="left">AllowSpaceInPath</td>
+<td align="left">可选</td>
+<td align="left">如果安装路径 <strong>不能包含空格字符</strong> ，请设置为<code>false</code></td>
+</tr>
+
+<tr>
+<td align="left">DependsOnLocalInstallerBinary</td>
+<td align="left">可选</td>
+<td align="left">如果要禁止从外部资源(如网络驱动器)安装，请设置为true。 这可能有意义，例如，安装程序非常大。该选项仅在Windows上使用</td>
+</tr>
+
+<tr>
+<td align="left">TargetConfigurationFile</td>
+<td align="left">可选</td>
+<td align="left">目标的配置文件名。默认是<code>components.xml</code></td>
+</tr>
+
+<tr>
+<td align="left">Translations</td>
+<td align="left">可选</td>
+<td align="left">用于翻译用户界面的语言代码列表。要添加多个语言变体，请指定多个<code>&lt;Translation&gt;</code>子元素，每个元素指定语言变体的名称。该项可选。有关详细信息，请参阅<a href="#5_4_5">翻译页</a></td>
+</tr>
+
+<tr>
+<td align="left">UrlQueryString</td>
+<td align="left">可选</td>
+<td align="left">此字符串必须采用<code>key = value</code>形式，并且将附加到存档下载请求。这可以用于向托管存储库的web服务器传输信息</td>
+</tr>
+
+<tr>
+<td align="left">ControlScript</td>
+<td align="left">可选</td>
+<td align="left">自定义安装程序控制脚本的文件名。请参阅<a href="#7_3">控制脚本</a></td>
+</tr>
+
+<tr>
+<td align="left">CreateLocalRepository</td>
+<td align="left">可选</td>
+<td align="left">如果要在安装目录中 <strong>创建本地存储库</strong> ，请设置为<code>true</code>。此选项对在线安装程序没有影响。存储库将自动添加到默认存储库列表</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="包目录-package-directory">包目录 Package Directory</h2>
+
+<p>安装程序包含嵌入到安装程序或从远程存储库加载的组件。在这两种情况下，你需要提供组件使用的文件格式和结构，以便安装程序读取。</p>
+
+<h3 id="包目录结构-package-directory-structure">包目录结构 Package Directory Structure</h3>
+
+<p>将所有组件放在同一根目录中，这称为包目录。目录名称用作 <strong>域标识符</strong> ，其标识所有组件。例如 <code>com.vendor.root</code>。</p>
+
+<p>在根目录中，创建称<code>data</code>和<code>meta</code>子目录。</p>
+
+<p>一个包目录可以如下所示：</p>
+
+<pre><code class="language-shell">-packages
+    - com.vendor.root
+        - data
+        - meta
+    - com.vendor.root.component1
+        - data
+        - meta
+    - com.vendor.root.component1.subcomponent1
+        - data
+        - meta
+    - com.vendor.root.component2
+        - data
+        - meta
+</code></pre>
+
+<h3 id="元信息目录-meta-directory">元信息目录 Meta Directory</h3>
+
+<p>meta目录包含指定部署和安装过程设置的文件。安装程序不会提取文件(这些文件不会嵌入到安装程序中)。该目录必须至少包含程序 <strong>包信息文件</strong> 和您在程序包信息文件中所有 <strong>引用的文件</strong> ，例如脚本，用户界面文件和翻译。</p>
+
+<h4 id="包信息文件语法-package-information-file-syntax">包信息文件语法 Package Information File Syntax</h4>
+
+<p><code>package.xml</code>文件是关于组件信息的主要来源。 以下是package文件的示例：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;Package&gt;
+    &lt;DisplayName&gt;QtGui&lt;/DisplayName&gt;
+    &lt;Description&gt;Qt gui libraries&lt;/Description&gt;
+    &lt;Description xml:lang=&quot;de_de&quot;&gt;Qt GUI Bibliotheken&lt;/Description&gt;
+    &lt;Version&gt;1.2.3&lt;/Version&gt;
+    &lt;ReleaseDate&gt;2009-04-23&lt;/ReleaseDate&gt;
+    &lt;Name&gt;com.vendor.root.component2&lt;/Name&gt;
+    &lt;Dependencies&gt;com.vendor.root.component1&lt;/Dependencies&gt;
+    &lt;Virtual&gt;false&lt;/Virtual&gt;
+    &lt;Licenses&gt;
+        &lt;License name=&quot;License Agreement&quot; file=&quot;license.txt&quot; /&gt;
+    &lt;/Licenses&gt;
+    &lt;Script&gt;installscript.qs&lt;/Script&gt;
+    &lt;UserInterfaces&gt;
+        &lt;UserInterface&gt;specialpage.ui&lt;/UserInterface&gt;
+        &lt;UserInterface&gt;errorpage.ui&lt;/UserInterface&gt;
+    &lt;/UserInterfaces&gt;
+    &lt;Translations&gt;
+        &lt;Translation&gt;sv_se.qm&lt;/Translation&gt;
+        &lt;Translation&gt;de_de.qm&lt;/Translation&gt;
+    &lt;/Translations&gt;
+    &lt;DownloadableArchives&gt;component2.7z, component2a.7z&lt;/DownloadableArchives&gt;
+    &lt;AutoDependOn&gt;com.vendor.root.component3&lt;/AutoDependOn&gt;
+    &lt;SortingPriority&gt;123&lt;/SortingPriority&gt;
+    &lt;UpdateText&gt;This changed compared to the last release&lt;/UpdateText&gt;
+    &lt;Default&gt;false&lt;/Default&gt;
+    &lt;ForcedInstallation&gt;false&lt;/ForcedInstallation&gt;
+    &lt;Essential&gt;false&lt;/Essential&gt;
+    &lt;Replaces&gt;com.vendor.root.component2old&lt;/Replaces&gt;
+&lt;/Package&gt;
+</code></pre>
+
+<h4 id="软件包信息文件元素简介-summary-of-package-information-file-elements">软件包信息文件元素简介 Summary of Package Information File Elements</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">元素</th>
+<th align="left">是否必需</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">DisplayName</td>
+<td align="left">必需</td>
+<td align="left">组件的可读名称</td>
+</tr>
+
+<tr>
+<td align="left">Description</td>
+<td align="left">必需</td>
+<td align="left">组件的可读描述。<br>将描述的翻译指定为附加说明标记的值，并将<code>xml:lang</code>属性设置为正确的语言环境。如果找不到与语言环境匹配的翻译文件，且存在未翻译的版本，则使用未翻译版本。否则，将不显示该描述</td>
+</tr>
+
+<tr>
+<td align="left">Version</td>
+<td align="left">必需</td>
+<td align="left">组件的版本号格式为：`[0-9]+((.</td>
+</tr>
+
+<tr>
+<td align="left">ReleaseDate</td>
+<td align="left">必需</td>
+<td align="left">此组件版本发布的日期</td>
+</tr>
+
+<tr>
+<td align="left">Name</td>
+<td align="left">必需</td>
+<td align="left">此组件的域标识</td>
+</tr>
+
+<tr>
+<td align="left">Dependencies</td>
+<td align="left">可选</td>
+<td align="left">此组件依赖的组件的标识符列表(使用逗号分割)。<br>您可以指定版本号，以破折号(<code>-</code>)分隔。您可以使用比较运算符<code>(=, &gt;, &lt;, &gt;= or &lt;=)</code>为版本号添加前缀。<br>请记住，您必须使用字符引用<code>＆lt;</code>来避开左尖括号(使用<code>&amp;lt;</code>来插入<code>&lt;</code>，使用<code>＆lt; =</code>来插入<code>&lt;=</code>)。更多相关信息，请参阅<a href="#7_2_2_3">组件依赖关系</a></td>
+</tr>
+
+<tr>
+<td align="left">AutoDependOn</td>
+<td align="left">可选</td>
+<td align="left">此组件具有自动依赖性的组件的标识符列表(逗号分隔)。<br>当且仅当 <strong>满足所有指定的依赖关系</strong> 时，才安装组件。如果组件对其他组件有自动依赖性，则组件树中组件旁的复选框将隐藏，并自动进行选择。如果组件以前未安装，则只有当选择此列表中的所有组件进行安装时，才会选择安装组件。如果组件已安装，则当选择此列表中的 <strong>至少一个组件</strong> 进行卸载时，将选择卸载组件。有关更多信息，请参阅<a href="#7_2_2_3">组件依赖关系</a></td>
+</tr>
+
+<tr>
+<td align="left">Virtual</td>
+<td align="left">可选</td>
+<td align="left">设置为true可从安装程序中隐藏组件。<br>请注意，在根组件上设置此选项不起作用</td>
+</tr>
+
+<tr>
+<td align="left">SortingPriority</td>
+<td align="left">可选</td>
+<td align="left">组件在组件树中的优先级。 树从最高优先级到最低优先级排序，在顶部具有最高优先级</td>
+</tr>
+
+<tr>
+<td align="left">Licenses</td>
+<td align="left">可选</td>
+<td align="left">安装用户接受的许可协议列表。<br>要添加几个许可证，请添加几个<code>&lt;License&gt;</code>子元素，每个子元素指定许可证名称和文件。 如果有针对此组件列出的翻译，安装程序还将查找翻译的许可证。 它们需要具有与原始许可证文件相同的名称，但是具有添加的区域设置标识符。 例如，如果许可证文件被称为<code>license.txt</code>并且指定了德语翻译，且安装程序还包含一个<code>license_de_de.txt</code>文件（将在德语系统上安装时显示）</td>
+</tr>
+
+<tr>
+<td align="left">Script</td>
+<td align="left">可选</td>
+<td align="left">被加载的脚本文件名。<br>有关详细信息，请参阅<a href="#5_4_1">添加操作</a></td>
+</tr>
+
+<tr>
+<td align="left">UserInterfaces</td>
+<td align="left">可选</td>
+<td align="left">要加载的页面列表。 要添加多个页面，请添加多个<code>&lt;UserInterface&gt;</code>子元素，每个子元素指定页面的文件名。有关详细信息，请参阅<a href="#5_4_2">添加页面</a></td>
+</tr>
+
+<tr>
+<td align="left">Translations</td>
+<td align="left">可选</td>
+<td align="left">要加载的翻译文件的列表。<br>要添加多个语言变体，请指定多个<code>&lt;Translation&gt;</code>子元素，每个子元素指定语言变体的文件名。有关详细信息，请参阅<a href="#5_4_5">翻译页</a></td>
+</tr>
+
+<tr>
+<td align="left">UpdateText</td>
+<td align="left">可选</td>
+<td align="left">如果这是一个更新组件，则将说明添加到组件描述中</td>
+</tr>
+
+<tr>
+<td align="left">Default</td>
+<td align="left">可选</td>
+<td align="left">可以设置为<code>true</code>、<code>false</code>、<code>脚本名</code>。<br>true：在安装程序中预先选中组件。此操作仅适用于没有可见子组件的组件。<br>脚本名：在运行时解析执行脚本，计算出布尔值(boolean)。将脚本文件名称添加为此文件中<code>&lt;Script&gt;</code>元素的值。有关脚本示例，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-tutorial.html#selecting-default-contents">Selecting Default Contents</a></td>
+</tr>
+
+<tr>
+<td align="left">Essential</td>
+<td align="left">可选</td>
+<td align="left">将包标记为必须去强制重启<code>MaintenanceTool</code>程序的。<br>如果有 <strong>可用的必要组件更新</strong> ，则程序包管理器保持禁用状态直到该组件更新。当运行<code>updater</code>时，新引入的必要组件将自动安装</td>
+</tr>
+
+<tr>
+<td align="left">ForcedInstallation</td>
+<td align="left">可选</td>
+<td align="left">确定必须安装的包。<br>最终用户无法在安装程序中取消选择它</td>
+</tr>
+
+<tr>
+<td align="left">Replaces</td>
+<td align="left">可选</td>
+<td align="left">要替换的组件列表(逗号分隔)</td>
+</tr>
+
+<tr>
+<td align="left">DownloadableArchives</td>
+<td align="left">可选</td>
+<td align="left">列出数据文件(逗号分隔)，供在线安装程序下载。<br>如果组件中有一些数据，并且<code>package.xml</code>和(或)脚本没有<code>DownloadableArchives</code>值，<code>repogen</code>工具将自动注册找到的数据</td>
+</tr>
+
+<tr>
+<td align="left">RequiresAdminRights</td>
+<td align="left">可选</td>
+<td align="left">如果程序包需要提升权限进行安装，请设置为true</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-2-2-3-组件依赖关系-component-dependencies-span"><span id="7_2_2_3">组件依赖关系 Component Dependencies</span></h4>
+
+<p>组件可以依赖于一个或多个 <strong>真实</strong> 或 <strong>虚拟</strong> 组件。 通过使用 <strong>组件标识符</strong> 和可选的 <strong>组件版本</strong> 来定义依赖性。 使用破折号<code>-</code>将版本号与标识符分隔开。</p>
+
+<p>您可以使用比较运算符 <code>(=, &gt;, &amp;lt; (&lt;), &gt;=  或 &amp;lt;= (&lt;=))</code>为版本号添加前缀，以指示包的版本号与所需版本进行比较，并且必须 <strong>等于，大于，小于，大于等于 或 小于等于</strong> 依赖关系中指定的版本号。如果未给出比较运算符，它将默认为<code>=</code>。</p>
+
+<h3 id="数据目录-data-directory">数据目录 Data Directory</h3>
+
+<p>数据(data)目录包含安装程序在安装期间提取的内容。您必须将数据打包为7zip存档(<code>.7z</code>)。 您可以使用随Qt Installer Framework提供的archivegen工具或其它生成7zip存档的工具。
+译注：实际上并不直接打包成7z压缩包也可以，可以使用<code>binarycreator</code>工具直接创建安装程序。</p>
+
+<h2 id="span-id-7-3-控制脚本-controller-scripting-span"><span id="7_3">控制脚本 Controller Scripting</span></h2>
+
+<p>对于每个安装程序，您可以指定一个控制脚本与安装程序的用户界面或功能进行某些交互。控制脚本可以对向导(Wizard)添加和删除页面，更改现有页面，做额外的检查，并通过模拟用户点击UI交互。 这允许例如 <strong>无人值守的安装</strong> 。</p>
+
+<p>脚本格式必须兼容<a href="http://doc.qt.io/qt-5/qjsengine.html"><code>QJSEngine</code></a>。</p>
+
+<p>本节介绍为实现此类控制脚本而调用的函数。 它还概述了安装程序页面和每个页面上可用的小部件，例如按钮，单选按钮和行编辑。</p>
+
+<h3 id="编写控制脚本-writing-control-scripts">编写控制脚本 Writing Control Scripts</h3>
+
+<p>最小有效脚本需要至少包含一个构造函数，它可能如下所示：</p>
+
+<pre><code class="language-js">function Controller()
+{
+}
+</code></pre>
+
+<p>以下示例介绍了一个更高级的脚本，它使用<a href="http://doc.qt.io/qtinstallerframework/scripting-gui.html"><code>gui</code></a> JavaScript全局对象的方法在介绍页面上设置新的页面标题和欢迎消息，并自动单击 <strong>目标目录选择页面</strong> 上的 <strong>下一步(Next)</strong> 按钮：</p>
+
+<pre><code class="language-js">function Controller()
+{
+}
+
+// 介绍页面回调函数
+Controller.prototype.IntroductionPageCallback = function()
+{
+    var widget = gui.currentPageWidget(); // 获取当前向导页面 wizard page
+    if (widget != null) {
+        widget.title = &quot;New title.&quot;; // 设置页面标题
+        widget.MessageLabel.setText(&quot;New Message.&quot;); // 设置欢迎信息 welcome text
+    }
+}
+
+// 目标目录选择页面回调函数
+Controller.prototype.TargetDirectoryPageCallback = function()
+{
+    gui.clickButton(buttons.NextButton); // 自动单击 Next 按钮(下一步)
+}
+</code></pre>
+
+<p>有关可以在控制脚本中使用的JavaScript全局对象的更多信息，请参阅<a href="#7_7">Scripting API</a>。</p>
+
+<h3 id="预定义安装页-predefined-installer-pages">预定义安装页 Predefined Installer Pages</h3>
+
+<p><code>QInstaller</code> JavaScript对象提供对以下预定义安装程序页面的访问：</p>
+
+<ul>
+<li><a href="#7_3_2_1">Introduction</a> 介绍</li>
+<li><a href="#7_3_2_3">TargetDirectory</a> 目标目录</li>
+<li><a href="#7_3_2_4">ComponentSelection</a> 组件选择</li>
+<li><a href="#7_3_2_2">LicenseCheck</a> 许可证检查</li>
+<li><a href="#7_3_2_5">StartMenuSelection</a> 开始菜单选择</li>
+<li><a href="#7_3_2_6">ReadyForInstallation</a> 准备安装</li>
+<li><a href="#7_3_2_7">PerformInstallation</a> 执行安装</li>
+<li><a href="#7_3_2_8">InstallationFinished</a> 安装完成</li>
+</ul>
+
+<p><a href="http://doc.qt.io/qtinstallerframework/scripting-buttons.html"><code>button</code></a> JavaScript对象提供了一组可在安装程序页面上使用的按钮。</p>
+
+<p>以下部分描述可用于与安装程序页面和 <strong>每个页面</strong> 上 <strong>可用的窗口小部件</strong> 交互的功能。(就是每个页面上具有的控件)</p>
+
+<h4 id="span-id-7-3-2-1-介绍页-introduction-page-span"><span id="7_3_2_1">介绍页 Introduction Page</span></h4>
+
+<p>实现<code>Controller.prototype.IntroductionPageCallback()</code>函数与介绍页上的小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">ErrorLabel</td>
+<td align="left">显示错误消息</td>
+</tr>
+
+<tr>
+<td align="left">MessageLabel</td>
+<td align="left">显示消息。默认情况下，它显示<code>Welcome to the &lt;Name&gt; Setup Wizard</code>消息。(可能会是翻译后的版本)</td>
+</tr>
+
+<tr>
+<td align="left">InformationLabel</td>
+<td align="left">显示进度信息</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="left">Radio Buttons</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">PackageManagerRadioButton</td>
+<td align="left">维护工具运行时，显示在页面上的包管理器(Package manager)单选按钮</td>
+</tr>
+
+<tr>
+<td align="left">UpdaterRadioButton</td>
+<td align="left">维护工具运行时，页面上显示更新程序(Update components)单选按钮</td>
+</tr>
+
+<tr>
+<td align="left">UninstallerRadioButton</td>
+<td align="left">维护工具运行时，页面上显示的卸载程序(Remove all Components)单选按钮。 默认选择</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="left">Progress Bar</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">InformationProgressBar</td>
+<td align="left">获取远程包时显示的进度条</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="left">Qt Core Feature</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">packageManagerCoreTypeChanged()</td>
+<td align="left">如果希望在维护工具类型更改时收到通知，请连接到此信号。<br> <strong>注意：</strong> 该信号仅在用户已经启动二进制文件时发出(就是启动的maintenancetool)，且仅在单选按钮之间切换时</td>
+</tr>
+</tbody>
+</table>
+
+<p>示例代码:</p>
+
+<pre><code class="language-js">function Controller()
+{
+    var widget = gui.pageById(QInstaller.Introduction); // get the introduction wizard page
+    if (widget != null)
+        widget.packageManagerCoreTypeChanged.connect(onPackageManagerCoreTypeChanged);
+}
+
+onPackageManagerCoreTypeChanged = function()
+{
+    console.log(&quot;Is Updater: &quot; + installer.isUpdater());
+    console.log(&quot;Is Uninstaller: &quot; + installer.isUninstaller());
+    console.log(&quot;Is Package Manager: &quot; + installer.isPackageManager());
+}
+</code></pre>
+
+<h4 id="span-id-7-3-2-2-许可协议页-license-agreement-page-span"><span id="7_3_2_2">许可协议页 License Agreement Page</span></h4>
+
+<p>实现<code>Controller.prototype.LicenseAgreementPageCallback()</code>函数与许可协议页面上的窗口小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮
+- BackButton    后退按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">LicenseListWidget</td>
+<td align="left">列出可用的许可证</td>
+</tr>
+
+<tr>
+<td align="left">LicenseTextBrowser</td>
+<td align="left">显示所选许可证文件的内容</td>
+</tr>
+
+<tr>
+<td align="left">AcceptLicenseLabel</td>
+<td align="left">显示接受许可证单选按钮旁的文本</td>
+</tr>
+
+<tr>
+<td align="left">RejectLicenseLabel</td>
+<td align="left">显示拒绝许可证单选按钮旁的文本</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="left">Radio Buttons</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">AcceptLicenseRadioButton</td>
+<td align="left">接受许可协议单选按钮</td>
+</tr>
+
+<tr>
+<td align="left">RejectLicenseRadioButton</td>
+<td align="left">拒绝许可协议单选按钮。默认选择</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-目标目录选择页-target-directory-page-span"><span id="7_3_2_1"> 目标目录选择页 Target Directory Page</span></h4>
+
+<p>实现<code>Controller.prototype.TargetDirectoryPageCallback()</code>函数与目标目录选择页面上的窗口小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮
+- BackButton    后退按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">MessageLabel</td>
+<td align="left">显示消息</td>
+</tr>
+
+<tr>
+<td align="left">TargetDirectoryLineEdit</td>
+<td align="left">显示安装的目标目录路径</td>
+</tr>
+
+<tr>
+<td align="left">WarningLabel</td>
+<td align="left">显示警告</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-组件选择页-component-selection-page-span"><span id="7_3_2_1">组件选择页 Component Selection Page</span></h4>
+
+<p>实现<code>Controller.prototype.ComponentS actionPage Callback()</code>函数与组件选择页面上的窗口小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮
+- BackButton    后退按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Methods</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">selectAll()</td>
+<td align="left">如果可以，选择所有可用的软件包</td>
+</tr>
+
+<tr>
+<td align="left">deselectAll()</td>
+<td align="left">如果可以，取消选择所有可用的软件包</td>
+</tr>
+
+<tr>
+<td align="left">selectDefault()</td>
+<td align="left">检查可用软件包状态，重置为其初始状态</td>
+</tr>
+
+<tr>
+<td align="left">selectComponent(id)</td>
+<td align="left">选择带有ID(string)的包</td>
+</tr>
+
+<tr>
+<td align="left">deselectComponent(id)</td>
+<td align="left">取消选择带有ID(string)的包</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<thead>
+<tr>
+<th align="left">Push Buttons</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">SelectAllComponentsButton</td>
+<td align="left">如果可以，选择所有可用的软件包</td>
+</tr>
+
+<tr>
+<td align="left">DeselectAllComponentsButton</td>
+<td align="left">如果可以，取消选择所有可用的软件包</td>
+</tr>
+
+<tr>
+<td align="left">SelectDefaultComponentsButton</td>
+<td align="left">检查可用软件包状态，重置为其初始状态</td>
+</tr>
+
+<tr>
+<td align="left">ResetComponentsButton</td>
+<td align="left">重置为已安装的组件</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-开始菜单目录页-start-menu-directory-page-span"><span id="7_3_2_1">开始菜单目录页 Start Menu Directory Page</span></h4>
+
+<p>实现<code>Controller.prototype.StartMenuDirectoryPageCallback()</code>函数与准备安装页面上的小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮
+- BackButton    后退按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">StartMenuPathLineEdit</td>
+<td align="left">显示创建程序快捷方式的目录</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-准备安装页-ready-for-installation-page-span"><span id="7_3_2_1">准备安装页 Ready for Installation Page</span></h4>
+
+<p>实现<code>Controller.prototype.StartMenuDirectoryPageCallback()</code>函数与准备安装页面上的小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- NextButton    下一步按钮
+- CanceButton   取消按钮
+- BackButton    后退按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">MessageLabel</td>
+<td align="left">显示消息</td>
+</tr>
+
+<tr>
+<td align="left">TaskDetailsBrowser</td>
+<td align="left">显示有关安装的一些更详细的信息</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-执行安装页-perform-installation-page-span"><span id="7_3_2_1">执行安装页 Perform Installation Page</span></h4>
+
+<p>实现<code>Controller.prototype.PerformInstallationPageCallback()</code>函数来与执行安装页面上的窗口小部件交互。</p>
+
+<p>向导按钮 Wizard Button:
+- CommitButton  提交按钮
+- CancelButton  取消按钮</p>
+
+<h4 id="span-id-7-3-2-1-介绍页-finished-page-span"><span id="7_3_2_1">介绍页 Finished Page</span></h4>
+
+<p>实现<code>Controller.prototype.Finished Page Callback()</code>函数与安装完成页面上的小部件进行交互。</p>
+
+<p>向导按钮 Wizard Button:
+- CommitButton  提交按钮
+- CancelButton  取消按钮
+- FinishButton  完成按钮</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Widgets</th>
+<th align="left">简介</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">MessageLabel</td>
+<td align="left">显示消息</td>
+</tr>
+
+<tr>
+<td align="left">RunItCheckBox</td>
+<td align="left">文本字段，通知用户他们可以在安装过程完成后启动应用程序</td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="span-id-7-3-2-1-介绍页-custom-pages-span"><span id="7_3_2_1">介绍页 Custom Pages</span></h4>
+
+<p>自定义页面注册为<code>Dynamic${ObjectName}</code>，其中<code>${ObjectName}</code>是在UI文件中设置的对象名。因此<code>Dynamic${ObjectName}Callback()</code>的调用，可以使用对象名(从UI文件)来寻址小部件。</p>
+
+<p>示例代码：</p>
+
+<pre><code class="language-js">function Controller()
+{
+    // add page with widget \c SomePageWidget before the target directory page
+    // 在目标目录页之前添加具有部件\ C SomePageWidget的页
+    installer.addWizardPage(component, &quot;SomePageWidget&quot;, QInstaller.TargetDirectory)
+}
+
+Controller.prototype.DynamicSomePageWidgetCallback()
+{
+    var page = gui.pageWidgetByObjectName(&quot;DynamicSomePageWidget&quot;);
+    page.myButton.click, //指向子对象或UI文件中的小部件 direct child of the UI file's widget
+    page.someFancyWidget.subWidget.setText(&quot;foobar&quot;) // 嵌套小部件 nested widget
+}
+</code></pre>
+
+<h4 id="消息框-message-boxes">消息框 Message Boxes</h4>
+
+<p>在执行安装程序应用程序时，例如，应用程序可能会(弹出)显示一些关于发生的错误的消息框。 这在最终用户的系统上运行应用程序是很棒的，但它可能会破坏自动测试套件。为了克服这个问题，Qt安装程序框架显示的所有消息框，都可以通过特定的标识符寻址。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Identifier标识符</th>
+<th align="left">可能的Answers</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">OverwriteTargetDirectory</td>
+<td align="left">Yes, No</td>
+<td align="left">确认将已存在的目录用作安装的目标目录</td>
+</tr>
+
+<tr>
+<td align="left">installationError</td>
+<td align="left">OK, Retry, Ignore</td>
+<td align="left">执行安装时出现致命错误</td>
+</tr>
+
+<tr>
+<td align="left">installationErrorWithRetry</td>
+<td align="left">Retry, Ignore, Cancel</td>
+<td align="left">执行安装时出错。最终用户可以选择重试来再次安装</td>
+</tr>
+
+<tr>
+<td align="left">AuthorizationError</td>
+<td align="left">Abort, OK</td>
+<td align="left">无法提升权限</td>
+</tr>
+
+<tr>
+<td align="left">OperationDoesNotExistError</td>
+<td align="left">Abort, Ignore</td>
+<td align="left">尝试执行操作时发生错误，但操作并不存在</td>
+</tr>
+
+<tr>
+<td align="left">isAutoDependOnError</td>
+<td align="left">OK</td>
+<td align="left">调用软件包脚本时出错。 无法评估程序包是否具有对其他程序包的自动依赖性</td>
+</tr>
+
+<tr>
+<td align="left">isDefaultError</td>
+<td align="left">OK</td>
+<td align="left">调用软件包脚本时出错。 无法评估默认情况下是否安装软件包</td>
+</tr>
+
+<tr>
+<td align="left">DownloadError</td>
+<td align="left">Retry, Cancel</td>
+<td align="left">而从远程仓库下载的存档散列(hash)时发生错误。最终用户可以选择重试来重试</td>
+</tr>
+
+<tr>
+<td align="left">archiveDownloadError</td>
+<td align="left">Retry, Cancel</td>
+<td align="left">从远程存储库下载归档时出错。最终用户可以选择重试来重试</td>
+</tr>
+
+<tr>
+<td align="left">WriteError</td>
+<td align="left">OK</td>
+<td align="left">写入维护工具(maintenance tool)时出错</td>
+</tr>
+
+<tr>
+<td align="left">ElevationError</td>
+<td align="left">OK</td>
+<td align="left">无法提升权限</td>
+</tr>
+
+<tr>
+<td align="left">unknown</td>
+<td align="left">OK</td>
+<td align="left">删除某个包时发生未知错误</td>
+</tr>
+
+<tr>
+<td align="left">Error</td>
+<td align="left">OK</td>
+<td align="left">一般错误</td>
+</tr>
+
+<tr>
+<td align="left">stopProcessesForUpdates</td>
+<td align="left">Retry, Ignore, Cancel</td>
+<td align="left">更新软件包时出错。 某些正在运行的应用程序或进程需要退出才能执行更新。 最终用户可以选择重试，来在停止这些程序后重试</td>
+</tr>
+
+<tr>
+<td align="left">Installer_Needs_To_Be_Local_Error</td>
+<td align="left">OK</td>
+<td align="left">安装程序二进制文件是从网络位置启动的，但不支持通过网络安装</td>
+</tr>
+
+<tr>
+<td align="left">TargetDirectoryInUse</td>
+<td align="left">No</td>
+<td align="left">安装的目标目录已包含安装的文件</td>
+</tr>
+
+<tr>
+<td align="left">WrongTargetDirectory</td>
+<td align="left">OK</td>
+<td align="left">安装的目标目录是一个文件或符号链接。</td>
+</tr>
+
+<tr>
+<td align="left">AlreadyRunning</td>
+<td align="left">OK</td>
+<td align="left">另一个应用程序实例已在运行</td>
+</tr>
+</tbody>
+</table>
+
+<p>示例代码：</p>
+
+<pre><code class="language-js">function Controller()
+{
+    installer.autoRejectMessageBoxes;
+    installer.setMessageBoxAutomaticAnswer(&quot;OverwriteTargetDirectory&quot;, QMessageBox.Yes);
+    installer.setMessageBoxAutomaticAnswer(&quot;stopProcessesForUpdates&quot;, QMessageBox.Ignore);
+}
+</code></pre>
+
+<h2 id="组件脚本-component-scripting">组件脚本 Component Scripting</h2>
+
+<p>对于每个组件，您可以准备一个脚本来指定由安装程序执行的操作。 脚本格式必须兼容<a href="http://doc.qt.io/qt-5/qjsengine.html">QJSEngine</a></p>
+
+<h3 id="construction">Construction</h3>
+
+<p>脚本必须包含安装程序在 <strong>加载脚本时</strong> 创建的<code>Component</code>对象。 因此，脚本必须至少包含<code>Component()</code>函数，该函数执行初始化，例如将页面放在正确的位置或连接信号和槽。</p>
+
+<p>以下代码片段将<code>ErrorPage</code>（它是从<code>errorpage.ui</code>加载的用户界面文件的类名）放在 <strong>准备安装页面</strong> 的前面，并将其完整性设置为<code>false</code>。</p>
+
+<pre><code class="language-js">function Component()
+{
+    // Add a user interface file called ErrorPage, which should not be complete
+    // 添加UI文件调用ErrorPage，这应该是不完整的
+    installer.addWizardPage( component, &quot;ErrorPage&quot;, QInstaller.ReadyForInstallation );
+    component.userInterface( &quot;ErrorPage&quot; ).complete = false;
+}
+</code></pre>
+
+<p>有关更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/scripting-installer.html#addWizardPage-method"><code>installer::addWizardPage()</code></a>和<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#userInterface-method"><code>component::userInterface()</code></a>的文档</p>
+
+<h3 id="安装钩子-installer-hooks">安装钩子 Installer Hooks</h3>
+
+<p>您可以在脚本中添加以下钩子方法：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Method</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Component.prototype.retranslateUi</td>
+<td align="left">当安装程序的语言更改时调用</td>
+</tr>
+
+<tr>
+<td align="left">Component.prototype.createOperations</td>
+<td align="left">参见<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#createOperations-method">component::createOperations()</a></td>
+</tr>
+
+<tr>
+<td align="left">Component.prototype.createOperationsForArchive</td>
+<td align="left">参见<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#createOperationsForArchive-method">component::createOperationsForArchive()</a></td>
+</tr>
+
+<tr>
+<td align="left">Component.prototype.createOperationsForPath</td>
+<td align="left">S参见<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#createOperationsForPath-method">component::createOperationsForPath()</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="全局变量-global-variables">全局变量 Global Variables</h3>
+
+<p>安装程序将以下符号放入脚本空间：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">installer</td>
+<td align="left">引用组件的<a href="http://doc.qt.io/qtinstallerframework/scripting-qinstaller.html">QInstaller</a></td>
+</tr>
+
+<tr>
+<td align="left">component</td>
+<td align="left">引用组件的<a href="http://doc.qt.io/qt-5/qml-qtqml-component.html">Component</a></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="消息框-message-boxes-1">消息框 Message Boxes</h3>
+
+<p>您可以通过使用以下静态成员从脚本中显示<a href="http://doc.qt.io/qtinstallerframework/scripting-qmessagebox.html">QMessageBox</a>：</p>
+
+<ul>
+<li><a href="http://doc.qt.io/qtinstallerframework/scripting-qmessagebox.html#critical-method">QMessageBox::critical()</a></li>
+<li><a href="http://doc.qt.io/qtinstallerframework/scripting-qmessagebox.html#information-method">QMessageBox::information()</a></li>
+<li><a href="http://doc.qt.io/qtinstallerframework/scripting-qmessagebox.html#question-method">QMessageBox::question()</a></li>
+<li><a href="http://doc.qt.io/qtinstallerframework/scripting-qmessagebox.html#warning-method">QMessageBox::warning()</a></li>
+</ul>
+
+<p>为了方便起见，<a href="http://doc.qt.io/qt-5/qmessagebox.html#StandardButton-enum"><code>QMessageBox::StandardButton</code></a>的值通过使用<code>QMessageBox.Ok</code>，<code>QMessageBox.Open</code>等提供。</p>
+
+<h3 id="添加操作到组件-adding-operations-to-components">添加操作到组件 Adding Operations to Components</h3>
+
+<p>例如，您可能需要在解压缩内容后，在复制文件或修补文件内容时添加自定义操作。 您可以使用<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#addOperation-method">component::addOperation()</a>从脚本中创建和添加更新操作到安装。 如果需要运行需要管理权限的操作，请改用<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#addElevatedOperation-method">component::addElevatedOperation()</a>。</p>
+
+<p>操作需要在实际安装步骤之前添加。 重写<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#createOperations-method">component::createOperations()</a>来注册组件的自定义操作。</p>
+
+<p>每个操作都有一个用于识别的唯一键，最多可以占用五个参数。在参数值中，可以使用在<a href="http://doc.qt.io/qtinstallerframework/scripting-installer.html#setValue-method">installer::setValue()</a>中设置的变量。 有关详细信息，请参阅<a href="#7_4_7">预定义变量</a>。</p>
+
+<p>有关所有可用操作的摘要信息，请参阅<a href="#7_5">操作</a>。</p>
+
+<h3 id="注册自定义组件-registering-custom-operations">注册自定义组件 Registering Custom Operations</h3>
+
+<p>您可以通过继承<a href="http://doc.qt.io/qtinstallerframework/kdupdater-updateoperation.html"><code>KDUpdater::UpdateOperation</code></a>类在安装程序中注册自定义安装操作。
+下面的代码显示您必须实现的方法：</p>
+
+<pre><code class="language-c++">#include &lt;KDUpdater/UpdateOperation&gt;
+
+class CustomOperation : public KDUpdater::UpdateOperation
+{
+public:
+  CustomOperation()
+  {
+      setName( &quot;CustomOperation&quot; );
+  }
+
+  void backup()
+  {
+      // do whatever is needed to restore the state in undoOperation()
+      // 恢复所有需要在undoOperation()中需要恢复的状态
+  }
+
+  bool performOperation()
+  {
+      const QStringList args = arguments();
+      // do whatever is needed to do for the given arguments
+      // 获取所有需要给定的参数
+
+      bool success = ...;
+      return success;
+  }
+
+  void undoOperation()
+  {
+      // restore the previous state, as saved in backup()
+      // 恢复以前的状态，保存在backup()中
+  }
+
+  bool testOperation()
+  {
+      // currently unused
+      // 当前未使用
+      return true;
+  }
+
+  CustomOperation* clone() const
+  {
+      return new CustomOperation;
+  }
+
+  QDomDocument toXml()
+  {
+      // automatically adds the operation's arguments and everything set via setValue
+      // 自动添加操作的参数，并通过setValue设置所有
+      QDomDocument doc = KDUpdater::UpdateOperation::toXml();
+
+      // if you need any information to undo the operation you did,
+      // add them to the doc here
+      // 如果您需要任何信息来撤消您所做的操作，请在此处将其添加到doc
+
+      return doc;
+  }
+
+  bool fromXml( const QDomDocument&amp; doc )
+  {
+      // automatically loads the operation's arguments and everything set via setValue
+      // 自动加载操作参数并通过setValue设置所有
+      if( !KDUpdater::UpdateOperation::fromXml( doc ) )
+          return false;
+
+      // if you need any information to undo the operation you did,
+      // read them from the doc here
+      // 如果您需要任何信息来撤消您所做的操作，请在此处将其添加到doc
+
+      return true;
+  }
+};
+</code></pre>
+
+<p>最后，需要注册您的自定义操作类，如下所示：</p>
+
+<pre><code class="language-c++">#include &lt;KDupdater/UpdateOperationFactory&gt;
+
+KDUpdater::UpdateOperationFactory::instance().registerUpdateOperation&lt; CustomOperation &gt;( &quot;CustomOperation&quot; );
+</code></pre>
+
+<p>现在，您可以用与预定义操作相同的方式在安装程序中使用您自定义的操作。</p>
+
+<h3 id="span-id-7-4-7-预定义变量-predefined-variables-span"><span id="7_4_7">预定义变量 Predefined Variables</span></h3>
+
+<p>您可以在脚本中使用以下预定义变量，以便直接访问：</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Symbol</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">ProductName</td>
+<td align="left">要安装的产品的名称，在config.xml中定义的</td>
+</tr>
+
+<tr>
+<td align="left">ProductVersion</td>
+<td align="left">要安装的产品的版本号，在config.xml中所定义</td>
+</tr>
+
+<tr>
+<td align="left">Title</td>
+<td align="left">安装程序的标题，在config.xml中定义</td>
+</tr>
+
+<tr>
+<td align="left">Publisher</td>
+<td align="left">安装程序的发布者，如config.xml中所定义</td>
+</tr>
+
+<tr>
+<td align="left">Url</td>
+<td align="left">产品URL，如config.xml中所定义</td>
+</tr>
+
+<tr>
+<td align="left">StartMenuDir</td>
+<td align="left">开始菜单组，如config.xml中所定义。 仅在Windows上可用</td>
+</tr>
+
+<tr>
+<td align="left">TargetDir</td>
+<td align="left">目标安装目录，由用户选择</td>
+</tr>
+
+<tr>
+<td align="left">DesktopDir</td>
+<td align="left">用户桌面目录名(路径)。<br>仅在Windows上可用</td>
+</tr>
+
+<tr>
+<td align="left">os</td>
+<td align="left">当前平台:&ldquo;X11&rdquo;,&ldquo;Win&rdquo;或&rdquo;Mac&rdquo;。<br>不建议使用此变量：请改用systemInfo</td>
+</tr>
+
+<tr>
+<td align="left">RootDir</td>
+<td align="left">文件系统根目录</td>
+</tr>
+
+<tr>
+<td align="left">HomeDir</td>
+<td align="left">当前用户的home目录</td>
+</tr>
+
+<tr>
+<td align="left">ApplicationsDir</td>
+<td align="left">应用程序目录。<br>例如,Windows上的<code>C:\Program Files</code>,Linux上<code>/opt</code>以及OS X上<code>/Applications</code></td>
+</tr>
+
+<tr>
+<td align="left">InstallerDirPath</td>
+<td align="left">包含安装程序可执行文件的目录</td>
+</tr>
+
+<tr>
+<td align="left">InstallerFilePath</td>
+<td align="left">安装程序可执行文件的文件路径</td>
+</tr>
+
+<tr>
+<td align="left">UserStartMenuProgramsPath</td>
+<td align="left">包含在(当前)用户的开始菜单中的项目文件夹的路径。<br>例如：<code>C:\Users\USERNAME\AppData\Roaming\Microsoft\Windows\Start Menu\Programs</code>。仅在Windows上可用</td>
+</tr>
+
+<tr>
+<td align="left">AllUsersStartMenuProgramsPath</td>
+<td align="left">包含在所有用户的开始菜单中的项目文件夹的路径。<br>例如：<code>C:\ProgramData\Microsoft\Windows\Start Menu\Programs</code>。仅在Windows上可用</td>
+</tr>
+</tbody>
+</table>
+
+<p>变量可以通过调用<a href="http://doc.qt.io/qtinstallerframework/scripting-installer.html#value-method"><code>installer::value(string key, string defaultValue = &quot;&quot;)</code></a>来解析。如果嵌入在&rsquo;@&lsquo;中，它们也可以作为安装操作的参数传递字符串的一部分：</p>
+
+<pre><code class="language-js">if (installer.value(&quot;os&quot;) === &quot;win&quot;) {
+    component.addOperation(&quot;CreateShortcut&quot;, &quot;@TargetDir@/MyApp.exe&quot;, &quot;@StartMenuDir@/MyApp.lnk&quot;);
+}
+</code></pre>
+
+<h2 id="span-id-7-5-操作-operations-span"><span id="7_5">操作 Operations</span></h2>
+
+<p>操作由组件和控制器脚本提供并由安装程序执行。</p>
+
+<p>注意：操作是线性执行的。</p>
+
+<p>在内部，每个操作具有包含用于安装程序的指令的<code>DO步骤</code>和包含用于卸载程序的指令的<code>UNDO步骤</code>。</p>
+
+<h3 id="操作概要-summary-of-operations">操作概要 Summary of Operations</h3>
+
+<p>下表总结了可用的操作及其语法。</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Operation</th>
+<th align="left">语法</th>
+<th align="left">用法</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">Copy</td>
+<td align="left">&ldquo;Copy&rdquo; source target</td>
+<td align="left">从source复制一个文件到target</td>
+</tr>
+
+<tr>
+<td align="left">Move</td>
+<td align="left">&ldquo;Move&rdquo; source target</td>
+<td align="left">从source移动一个文件到target</td>
+</tr>
+
+<tr>
+<td align="left">SimpleMoveFile</td>
+<td align="left">&ldquo;SimpleMoveFile&rdquo; source target</td>
+<td align="left">从source移动一个文件到target</td>
+</tr>
+
+<tr>
+<td align="left">Delete</td>
+<td align="left">&ldquo;Delete&rdquo; filename</td>
+<td align="left">删除filename.指定的文件</td>
+</tr>
+
+<tr>
+<td align="left">Mkdir</td>
+<td align="left">&ldquo;Mkdir&rdquo; path</td>
+<td align="left">创建path目录</td>
+</tr>
+
+<tr>
+<td align="left">Rmdir</td>
+<td align="left">&ldquo;Rmdir&rdquo; path</td>
+<td align="left">删除path目录</td>
+</tr>
+
+<tr>
+<td align="left">CopyDirectory</td>
+<td align="left">&ldquo;CopyDirectory&rdquo; sourcePath targetPath</td>
+<td align="left">复制sourcePath目录到targetPath</td>
+</tr>
+
+<tr>
+<td align="left">AppendFile</td>
+<td align="left">&ldquo;AppendFile&rdquo; filename text</td>
+<td align="left">将text追加到filename指定的文件。text被视为ASCII文本</td>
+</tr>
+
+<tr>
+<td align="left">PrependFile</td>
+<td align="left">&ldquo;PrependFile&rdquo; filename text</td>
+<td align="left">将text添加到filename指定的文件。text被视为ASCII文本</td>
+</tr>
+
+<tr>
+<td align="left">Replace</td>
+<td align="left">&ldquo;Replace&rdquo; file search replace</td>
+<td align="left">打开文件去查找search字符串，并替换为replace字符串</td>
+</tr>
+
+<tr>
+<td align="left">LineReplace</td>
+<td align="left">&ldquo;LineReplace&rdquo; file search replace</td>
+<td align="left">打开文件以查找以search字符串开头的行，并用replace字符串替换它。Lines are trimmed before the search.</td>
+</tr>
+
+<tr>
+<td align="left">Execute</td>
+<td align="left">&ldquo;Execute&rdquo; [{exitcodes}] command [parameter1 [parameter&hellip; [parameter10]]]</td>
+<td align="left">执行命令指定的命令。 最多可以传递10个参数。 如果这还不够，可以使用JavaScript字符串数组。<br>可选，您可以在大括号<code>{}</code>中传递以逗号分隔的退出代码列表作为第一个参数，以指定成功执行的退出代码。 默认为<code>{0}</code>。<br>其它可选的命名参数是：<code>&quot;workingdirectory=&lt;your_working_dir&gt;&quot;</code>; <code>&quot;errormessage=&lt;your_custom_errormessage&gt;&quot;</code><br>此外，一个特殊的参数<code>UNDOEXECUTE</code>将操作的DO步骤与UNDO步骤分开。<br>示例:<code>component.addOperation(&quot;Execute&quot;, &quot;touch&quot;, &quot;test.txt&quot;, &quot;UNDOEXECUTE&quot;, &quot;rm&quot;, &quot;test.txt&quot;)</code></td>
+</tr>
+
+<tr>
+<td align="left">CreateShortcut</td>
+<td align="left">&ldquo;CreateShortcut&rdquo; filename linkname [arguments]</td>
+<td align="left">为filename指定的文件创建一个名为linkname的快捷方式。<br>在Windows上，将创建一个可带参数的 <strong>.lik</strong> 文件。<br>在Unix上，将创建一个符号链接</td>
+</tr>
+
+<tr>
+<td align="left">CreateDesktopEntry</td>
+<td align="left">&ldquo;CreateDesktopEntry&rdquo; filename &ldquo;key=value[ key2=value2[ key3=value3]]]&rdquo;</td>
+<td align="left">创建一个<code>.desktop</code>初始化文件，如<a href="https://www.freedesktop.org">freedesktop.org</a>指定的。<br>如果filename是绝对路径，则桌面条目存储在那里。 否则，它存储在<code>$XDG_DATA_DIRS/applications</code>或<code>$XDG_DATA_HOME/applications</code>中指定的位置，包括由freedesktop.org定义的两者的默认路径。<br>键值对将写入文件。<br>该文件设置为使用UTF-8编码</td>
+</tr>
+
+<tr>
+<td align="left">InstallIcons</td>
+<td align="left">&ldquo;InstallIcons&rdquo; directory [Vendorprefix]</td>
+<td align="left">将目录的内容安装到由freedesktop.org指定的位置。<br>也就是<code>$XDG_DATA_DIRS/icons</code>，<code>/usr/share/icons</code>或<code>$HOME/.icons</code>。 文件将从其初始位置删除。请确保在从归档中提取文件的操作之后添加此操作。<br>如果您提供<code>Vendorprefix</code>，它会替换所有字符，直到遇到 <strong>带有此前缀</strong> 的图标文件名中的第一个破折号<code>-</code></td>
+</tr>
+
+<tr>
+<td align="left">Extract</td>
+<td align="left">&ldquo;Extract&rdquo; archive targetdirectory</td>
+<td align="left">提前archive内容到targetdirectory</td>
+</tr>
+
+<tr>
+<td align="left">GlobalConfig</td>
+<td align="left">&ldquo;GlobalConfig&rdquo; company application key value <br>或<br>&ldquo;GlobalConfig&rdquo; scope company application key value<br>或<br>&ldquo;GlobalConfig&rdquo; filename key value</td>
+<td align="left">在配置文件中存储键的值。 <br>配置文件由文件名(使用<a href="http://doc.qt.io/qt-5/qsettings.html#Format-enum">QSettings::NativeFormat</a>，可能是Windows注册表)或应用程序和公司名称指定。将范围设置为<code>SystemScope</code>以在系统范围中创建条目。<br> <strong>注意：</strong> 该操作当前使用<a href="http://doc.qt.io/qt-5/qsettings.html"><code>QSettings</code></a>来存储键值对。<code>QSettings</code>始终将反斜杠视为特殊字符，并且不提供用于读取或写入此类条目的API。<br>不要在段落或键名称中使用斜杠（<code>/</code>和<code>''</code>）; 反斜杠字符用于分隔子键。 在Windows中，<code>''</code>被QSettings转换为<code>/</code>，这使它们相同。 因为QSettings使用反斜杠字符来分隔子键，所以 <strong>无法读取或写入包含斜杠或反斜杠的Windows注册表项</strong> 。 如果需要，您应该使用本机Windows API。</td>
+</tr>
+
+<tr>
+<td align="left">EnvironmentVariable</td>
+<td align="left">&ldquo;EnvironmentVariable&rdquo; key value [persistent [system]]</td>
+<td align="left">设置环境变量key为value<br>如果persistent设置为true，那么将永久设置该变量。目前仅支持Windows。<br>如果system设置为true，则该变量设置在系统范围内有效，而不是仅对当前用户</td>
+</tr>
+
+<tr>
+<td align="left">RegisterFileType</td>
+<td align="left">&ldquo;RegisterFileType&rdquo; extension command [description [contentType [icon]]]</td>
+<td align="left">注册要通过命令打开的扩展名的文件类型。 可选，你可以指定描述(description)、内容类型(contentType)和图标(icon)。当前仅支持Windows</td>
+</tr>
+
+<tr>
+<td align="left">ConsumeOutput</td>
+<td align="left">&ldquo;ConsumeOutput&rdquo; installerKeyName executablePath processArguments</td>
+<td align="left">保存运行带有参数<code>processArguments</code>的<code>executablePath</code>的可执行文件的输出到<code>installerKeyName</code>指定的安装程序键。 可以传递其他参数</td>
+</tr>
+
+<tr>
+<td align="left">CreateLink</td>
+<td align="left">&ldquo;CreateLink&rdquo; linkPath targetPath</td>
+<td align="left">创建从linkPath指定的位置到由targetPath指定的位置的链接</td>
+</tr>
+
+<tr>
+<td align="left">CreateLocalRepository</td>
+<td align="left">&ldquo;CreateLocalRepository&rdquo; binaryPath repoPath</td>
+<td align="left">创建一个本地存储库在repoPath指定的目录。<br>对于离线安装程序，将二进制数据存储在binaryPath指定的目录</td>
+</tr>
+
+<tr>
+<td align="left">FakeStopProcessForUpdate</td>
+<td align="left">&ldquo;FakeStopProcessForUpdate&rdquo; processlist</td>
+<td align="left">在卸载期间匹配运行进程与<code>processlist</code>中的条目(逗号分隔)。 如果找到匹配，则显示一个消息框，要求用户在继续之前停止这些进程</td>
+</tr>
+
+<tr>
+<td align="left">License</td>
+<td align="left">&ldquo;License&rdquo; licenses</td>
+<td align="left">将licenses指定的许可证文件复制到目标目录中名为Licenses的子文件夹。<br>对于在包描述文件中声明<Licenses>的包，将自动添加此操作</td>
+</tr>
+
+<tr>
+<td align="left">MinimumProgress</td>
+<td align="left">&ldquo;MinimumProgress&rdquo;</td>
+<td align="left">将进度值增加1</td>
+</tr>
+
+<tr>
+<td align="left">SelfRestart</td>
+<td align="left">&ldquo;SelfRestart&rdquo; core</td>
+<td align="left">重新启动由core指定的updater或软件包管理器</td>
+</tr>
+
+<tr>
+<td align="left">Settings</td>
+<td align="left">&ldquo;Settings&rdquo; path method key aValue</td>
+<td align="left">根据method的值：<code>set</code>、<code>remove</code>、<code>add_array_value</code>和<code>remove_array_value</code>，来设置或删除位于path的settings文件或注册表中<code>key</code>的值<code>aValue</code></td>
+</tr>
+</tbody>
+</table>
+
+<p>对于匹配的组建，<code>Extract</code>、<code>License</code>和<code>MinimumProgress</code>操作是自动添加非重写的<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#createOperations-method">component::createOperations()</a>方法。另请参见<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#autoCreateOperations-prop">component::autoCreateOperations</a></p>
+
+<p>如果发生错误，您可以使用<code>devtool</code>手动测试操作。 但是，变量不会解析，因此您需要使用绝对值。</p>
+
+<p>例如，要测试复制文件：</p>
+
+<pre><code class="language-shell">devtool --operation DO,Copy,&lt;source&gt;,&lt;target&gt;
+</code></pre>
+
+<h2 id="工具-tools">工具 Tools</h2>
+
+<h2 id="span-id-7-7-脚本api-scripting-api-span"><span id="7_7">脚本API Scripting API</span></h2>
+
+<h2 id="c-api">C++ API</h2>
+
+<p>Known Issues</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

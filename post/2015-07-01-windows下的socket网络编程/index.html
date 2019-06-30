@@ -1,0 +1,474 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> windows下的socket网络编程 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>windows下的socket网络编程</h1>
+          <span class="post-date">2015年07月01日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/01/4613296.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/01/4613296.html</a>
+<h1 id="windowssocket">windows下的socket网络编程</h1>
+<div class="toc">
+<ul>
+<li><a href="#windowssocket">windows下的socket网络编程</a></li>
+<li><a href="#clinetc">clinet.c 客户端</a></li>
+<li><a href="#serverc">server.c 服务器端</a></li>
+<li><a href="#udp">UDP通信的实现</a></li>
+<li><a href="#_1">代码如下</a></li>
+</ul>
+</div>
+<p>已经很久没有在windows下编程了，这次因为需要做一个跨平台的网络程序，就先写了个简单的<code>winSocket</code>网路通信的例子，以便以后用到的时候有个参考。</p>
+<p>windows下使用<code>winsock</code>编程与<code>linux/unix</code>的区别在于windows下需要先有一个<code>初始化</code>的操作，结束的时候需要一个<code>清理</code>的操作。还有windows下编译的时候需要连接<code>ws32_lib</code>库。</p>
+<p>大致过程如下</p>
+<ul>
+<li>
+<p>1、初始化</p>
+<p><code>/<em>加载Winsock DLL</em>/</code><br />
+<code>WSADATA wsd;</code><br />
+<code>if (WSAStartup(MAKEWORD(2 , 2) , &amp;wsd) != 0) {</code><br />
+<code>printf(&ldquo;Winsock 初始化失败!\n&rdquo;);</code><br />
+<code>return 1;</code><br />
+<code>}</code></p></p>
+
+<p></li>
+<li>
+<p>2、socket相关函数调用</p>
+<p><code>socket(&hellip;)</code><br />
+<code>bind(&hellip;)</code><br />
+<code>listen(&hellip;)</code><br />
+<code>connect(&hellip;)</code><br />
+<code>accept(&hellip;)</code><br />
+<code>send/sendto</code><br />
+<code>recv/recvfrom</code></p></p>
+
+<p></li>
+<li>
+<p>3、清理<br />
+<code>WSACleanup();</code></p></p>
+
+<p></li></p>
+
+<p></ul>
+<h2 id="clinetc">clinet.c 客户端</h2>
+<p>客户端的流程很简单。</p>
+<ul>
+<li>1、先是使用<code>socket</code>函数产生一个打开的<code>socket</code>文件描述符。</li>
+<li>2、使用<code>connect</code>函数去连接服务端</li>
+<li>3、使用<code>read/recv</code>等读文件函数从服务端接收数据，使用<code>write/send</code>等写文件的函数向服务端发送数据</li></p>
+
+<p></ul>
+<p>上面是典型的<code>TCP</code>编程流程，如果是<code>UDP</code>的话不需要<code>connect</code>去连接服务端直接使用<code>sendto</code>函数来发送数据，使用recvfrom接收来自服务器的数据</p>
+<h2 id="serverc">server.c 服务器端</h2>
+<p>服务器端的流程比客户端稍微复杂一点</p>
+<ul>
+<li>1、调用<code>socket</code>打开一个socket句柄</li>
+<li>2、调用<code>bind</code>来绑定socket句柄到一个网口的某个端口</li>
+<li>3、调用<code>listen</code>来设置(启用)监听</li>
+<li>4、调用<code>accept</code>来等待客户端的连接</li></p>
+
+<p></ul>
+<p>上面是典型的<code>TCP</code>编程流程，如果是<code>UDP</code>的，那么不需要<code>3,4</code>这两部，直接使用<code>recvfrom</code>来接收客户端发过来的数据即可。</p>
+<h2 id="udp">UDP通信的实现</h2>
+<p><span style="text-decoration: line-through;">我这里没有写<code>TCP</code>的，因为都是局域网内，就简单的写了个。</span><br />
+这里是在虚拟机里面测试的截图，代码见最后。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/011505142037387.png" alt="" /></p>
+<p>&nbsp;</p>
+<h2>代码如下</h2>
+<p>这是TCP的，UDP的就不贴了。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('1e94834d-e0a9-44b9-9da3-7ba34e495b7e')"><img id="code_img_closed_1e94834d-e0a9-44b9-9da3-7ba34e495b7e" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_1e94834d-e0a9-44b9-9da3-7ba34e495b7e" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('1e94834d-e0a9-44b9-9da3-7ba34e495b7e',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_1e94834d-e0a9-44b9-9da3-7ba34e495b7e" class="cnblogs_code_hide">
+<pre>#include &lt;winsock2.h&gt;<span style="color: #000000;">
+#include </span>&lt;stdio.h&gt;<span style="color: #000000;">
+#include </span>&lt;stdlib.h&gt;</p>
+
+<p><span style="color: #0000ff;">#pragma</span> comment(lib , &ldquo;ws2_32.lib&rdquo;)</p>
+
+<p><span style="color: #0000ff;">#define</span> BUFSIZE 4096 /<em>缓冲区大小</em>/</p>
+
+<p><span style="color: #0000ff;">int</span> main_client(<span style="color: #0000ff;">int</span> argc , <span style="color: #0000ff;">char</span> *<span style="color: #000000;">argv[])
+{
+    WSADATA wsd;
+    SOCKET sClient;
+    </span><span style="color: #0000ff;">char</span><span style="color: #000000;"> Buffer[BUFSIZE];
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> ret;
+    </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> sockaddr_in server;
+    unsigned </span><span style="color: #0000ff;">short</span><span style="color: #000000;"> port;
+    </span><span style="color: #0000ff;">struct</span> hostent *host =<span style="color: #000000;"> NULL;</p>
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (argc &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;3&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Usage:%s IP Port\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , argv[&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;]);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; -&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;加载Winsock DLL&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (WSAStartup(MAKEWORD(&lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt; , &lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;) , &amp;amp;wsd) != &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+    printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Winsock    初始化失败!\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;创建Socket&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+sClient &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; socket(AF_INET , SOCK_STREAM , IPPROTO_TCP);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (sClient ==&lt;span style=&quot;color: #000000;&quot;&gt; INVALID_SOCKET) {
+    printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;socket() 失败: %d\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; , WSAGetLastError());
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;指定服务器地址&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+server.sin_family &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; AF_INET;
+port &lt;/span&gt;= atoi(argv[&lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;]);
+server.sin_port &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; htons(port);
+server.sin_addr.s_addr &lt;/span&gt;= inet_addr(argv[&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;]);
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (server.sin_addr.s_addr ==&lt;span style=&quot;color: #000000;&quot;&gt; INADDR_NONE) {
+    host &lt;/span&gt;= gethostbyname(argv[&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;]);    &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;输入的地址可能是域名等&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (host ==&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+        printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;无法解析服务端地址: %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , argv[&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;]);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+    }
+    CopyMemory(&lt;/span&gt;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;server.sin_addr ,
+                host&lt;/span&gt;-&amp;gt;h_addr_list[&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;] ,
+                host&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;h_length);
+}
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;与服务器建立连接&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (connect(sClient , (&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt; sockaddr*)&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;server ,
+                &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(server)) ==&lt;span style=&quot;color: #000000;&quot;&gt; SOCKET_ERROR) {
+    printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;connect() 失败: %d\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; , WSAGetLastError());
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;发送、接收消息&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+
+&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; (;;) {
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;从标准输入读取要发送的数据
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;gets_s(Buffer,BUFSIZE);&lt;/span&gt;
+</code></pre>
+
+<p><span style="color: #000000;">        gets(Buffer);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">向服务器发送消息</span>
+        ret = send(sClient , Buffer , strlen(Buffer) , <span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (ret == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (ret ==<span style="color: #000000;"> SOCKET_ERROR) {
+            printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">send() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+            </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+        }
+        printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Send %d bytes\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , ret);
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">接收从服务器来的消息</span>
+        ret = recv(sClient , Buffer , BUFSIZE , <span style="color: #800080;">0</span><span style="color: #000000;">);
+        </span><span style="color: #0000ff;">if</span> (ret == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+            </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+        }
+        </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (ret ==<span style="color: #000000;"> SOCKET_ERROR) {
+            printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">recv() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+            </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;
+        }
+        Buffer[ret] </span>= <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+        printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Recv %d bytes:\n\t%s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , ret , Buffer);</p>
+
+<pre><code>}
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;用完了，关闭socket句柄(文件描述符)&lt;/span&gt;
+</code></pre>
+
+<p><span style="color: #000000;">    closesocket(sClient);
+    WSACleanup();    </span><span style="color: #008000;">//</span><span style="color: #008000;">清理</span>
+    <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+}</span></pre>
+</div>
+<span class="cnblogs_code_collapse">查看 clinet.c 代码</span></div>
+<div class="cnblogs_code" onclick="cnblogs_code_show('7da18713-e350-4dd8-9f14-676c544c784b')"><img id="code_img_closed_7da18713-e350-4dd8-9f14-676c544c784b" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_7da18713-e350-4dd8-9f14-676c544c784b" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('7da18713-e350-4dd8-9f14-676c544c784b',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_7da18713-e350-4dd8-9f14-676c544c784b" class="cnblogs_code_hide">
+<pre><span style="color: #008080;">  1</span> #include &lt;winsock2.h&gt;
+<span style="color: #008080;">  2</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;">  3</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;">  4</span>
+<span style="color: #008080;">  5</span> <span style="color: #0000ff;">#pragma</span> comment(lib , &ldquo;ws2_32.lib&rdquo;)
+<span style="color: #008080;">  6</span>
+<span style="color: #008080;">  7</span>
+<span style="color: #008080;">  8</span> <span style="color: #0000ff;">#define</span> DEFAULT_BUFFER 4096 /<em>缓冲区大小</em>/
+<span style="color: #008080;">  9</span>
+<span style="color: #008080;"> 10</span>
+<span style="color: #008080;"> 11</span> <span style="color: #008000;">/<em></span><span style="color: #008000;">与客户机通信的线程函数</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 12</span> <span style="color: #000000;">DWORD WINAPI ClientThread(LPVOID lpParam)
+</span><span style="color: #008080;"> 13</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 14</span>     SOCKET sock =<span style="color: #000000;"> (SOCKET)lpParam;
+</span><span style="color: #008080;"> 15</span>     <span style="color: #0000ff;">char</span><span style="color: #000000;"> Buffer[DEFAULT_BUFFER];
+</span><span style="color: #008080;"> 16</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> ret , nLeft , idx;
+</span><span style="color: #008080;"> 17</span>     <span style="color: #0000ff;">while</span> (<span style="color: #800080;">1</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 18</span>         <span style="color: #008000;">/<em></span><span style="color: #008000;">接收来自客户机的消息</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 19</span>         ret = recv(sock , Buffer , DEFAULT_BUFFER , <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 20</span>         <span style="color: #0000ff;">if</span> (ret == <span style="color: #800080;">0</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 21</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 22</span>         <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (ret ==<span style="color: #000000;"> SOCKET_ERROR) {
+</span><span style="color: #008080;"> 23</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">recv() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+</span><span style="color: #008080;"> 24</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 25</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 26</span>         Buffer[ret] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 27</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Recv: %s\n</span><span style="color: #800000;">&ldquo;</span> , Buffer);    <span style="color: #008000;">//</span><span style="color: #008000;">打印接收到的消息</span>
+<span style="color: #008080;"> 28</span>
+<span style="color: #008080;"> 29</span>
+<span style="color: #008080;"> 30</span>         nLeft =<span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 31</span>         idx = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 32</span>         <span style="color: #0000ff;">while</span> (nLeft &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 33</span>             <span style="color: #008000;">/<em></span><span style="color: #008000;">向客户机发送回应消息</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 34</span>             ret = send(sock , &amp;Buffer[idx] , nLeft , <span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 35</span>             <span style="color: #0000ff;">if</span> (ret == <span style="color: #800080;">0</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 36</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 37</span>             <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (ret ==<span style="color: #000000;"> SOCKET_ERROR) {
+</span><span style="color: #008080;"> 38</span>                 printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">send() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+</span><span style="color: #008080;"> 39</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 40</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;"> 41</span>             nLeft -=<span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 42</span>             idx +=<span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 43</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 44</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 45</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 46</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 47</span>
+<span style="color: #008080;"> 48</span> <span style="color: #0000ff;">int</span> main_server(<span style="color: #0000ff;">int</span> argc , <span style="color: #0000ff;">char</span> <strong><span style="color: #000000;">argv)
+</span><span style="color: #008080;"> 49</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 50</span> <span style="color: #000000;">    WSADATA        wsd;
+</span><span style="color: #008080;"> 51</span> <span style="color: #000000;">    HANDLE        hThread;
+</span><span style="color: #008080;"> 52</span> <span style="color: #000000;">    DWORD        dwThread;
+</span><span style="color: #008080;"> 53</span> <span style="color: #000000;">    SOCKET        sListen , sClient;
+</span><span style="color: #008080;"> 54</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;">            AddrSize;
+</span><span style="color: #008080;"> 55</span>     unsigned <span style="color: #0000ff;">short</span><span style="color: #000000;"> port;
+</span><span style="color: #008080;"> 56</span>     <span style="color: #0000ff;">struct</span><span style="color: #000000;"> sockaddr_in local , client;
+</span><span style="color: #008080;"> 57</span>
+<span style="color: #008080;"> 58</span>     <span style="color: #0000ff;">if</span> (argc &lt; <span style="color: #800080;">2</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 59</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Usage:%s Port\n</span><span style="color: #800000;">&ldquo;</span> , argv[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+</span><span style="color: #008080;"> 60</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 61</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 62</span>
+<span style="color: #008080;"> 63</span>     <span style="color: #008000;">/<em></span><span style="color: #008000;">加载Winsock DLL</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 64</span>     <span style="color: #0000ff;">if</span> (WSAStartup(MAKEWORD(<span style="color: #800080;">2</span> , <span style="color: #800080;">2</span>) , &amp;wsd) != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 65</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">WinSock 初始化失败!\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 66</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 67</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 68</span>
+<span style="color: #008080;"> 69</span>     <span style="color: #008000;">/<em></span><span style="color: #008000;">创建Socket</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 70</span>     sListen =<span style="color: #000000;"> socket(AF_INET , SOCK_STREAM , IPPROTO_IP);
+</span><span style="color: #008080;"> 71</span>     <span style="color: #0000ff;">if</span> (sListen ==<span style="color: #000000;"> SOCKET_ERROR) {
+</span><span style="color: #008080;"> 72</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">socket() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+</span><span style="color: #008080;"> 73</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 74</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 75</span>
+<span style="color: #008080;"> 76</span>     local.sin_family =<span style="color: #000000;"> AF_INET;
+</span><span style="color: #008080;"> 77</span>     local.sin_addr.s_addr =<span style="color: #000000;"> htonl(INADDR_ANY);
+</span><span style="color: #008080;"> 78</span>     port = atoi(argv[<span style="color: #800080;">1</span>]);    <span style="color: #008000;">//</span><span style="color: #008000;">获取端口值</span>
+<span style="color: #008080;"> 79</span>     local.sin_port =<span style="color: #000000;"> htons(port);
+</span><span style="color: #008080;"> 80</span>
+<span style="color: #008080;"> 81</span>     <span style="color: #008000;">/<em></span><span style="color: #008000;">绑定Socket</span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 82</span>     <span style="color: #0000ff;">if</span><span style="color: #000000;"> (bind(sListen ,
+</span><span style="color: #008080;"> 83</span>         (<span style="color: #0000ff;">struct</span> sockaddr<em>)&amp;<span style="color: #000000;">local ,
+</span><span style="color: #008080;"> 84</span>         <span style="color: #0000ff;">sizeof</span>(local)) ==<span style="color: #000000;"> SOCKET_ERROR) {
+</span><span style="color: #008080;"> 85</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">bind() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+</span><span style="color: #008080;"> 86</span>         <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 87</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 88</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">打开监听</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 89</span>     listen(sListen , <span style="color: #800080;">8</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 90</span>
+<span style="color: #008080;"> 91</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">在端口进行监听，一旦有客户机发起连接请示
+</span><span style="color: #008080;"> 92</span> <span style="color: #008000;">    就建立与客户机进行通信的线程</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 93</span>     <span style="color: #0000ff;">while</span> (<span style="color: #800080;">1</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 94</span>         AddrSize = <span style="color: #0000ff;">sizeof</span><span style="color: #000000;">(client);
+</span><span style="color: #008080;"> 95</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">监听是否有连接请求</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 96</span>         sClient =<span style="color: #000000;"> accept(sListen ,
+</span><span style="color: #008080;"> 97</span>                          (<span style="color: #0000ff;">struct</span> sockaddr</em>)&amp;<span style="color: #000000;">client ,
+</span><span style="color: #008080;"> 98</span>                          &amp;<span style="color: #000000;">AddrSize);
+</span><span style="color: #008080;"> 99</span>         <span style="color: #0000ff;">if</span> (sClient ==<span style="color: #000000;"> INVALID_SOCKET) {
+</span><span style="color: #008080;">100</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">accept() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , WSAGetLastError());
+</span><span style="color: #008080;">101</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">102</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">103</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">接受客户端连接: %s:%d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> ,
+</span><span style="color: #008080;">104</span> <span style="color: #000000;">               inet_ntoa(client.sin_addr) ,
+</span><span style="color: #008080;">105</span> <span style="color: #000000;">               ntohs(client.sin_port));
+</span><span style="color: #008080;">106</span>
+<span style="color: #008080;">107</span>         <span style="color: #008000;">//</span><span style="color: #008000;">创建一个线程去处理</span>
+<span style="color: #008080;">108</span>         hThread = CreateThread(NULL , <span style="color: #800080;">0</span><span style="color: #000000;"> , ClientThread ,
+</span><span style="color: #008080;">109</span>                                (LPVOID)sClient , <span style="color: #800080;">0</span> , &amp;<span style="color: #000000;">dwThread);
+</span><span style="color: #008080;">110</span>
+<span style="color: #008080;">111</span>         <span style="color: #0000ff;">if</span> (hThread ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">112</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">CreateThread() 失败: %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , GetLastError());
+</span><span style="color: #008080;">113</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">114</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">115</span>         <span style="color: #008000;">//</span><span style="color: #008000;">处理完后关闭</span>
+<span style="color: #008080;">116</span> <span style="color: #000000;">        CloseHandle(hThread);
+</span><span style="color: #008080;">117</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">118</span> <span style="color: #000000;">    closesocket(sListen);
+</span><span style="color: #008080;">119</span>     WSACleanup();    <span style="color: #008000;">//</span><span style="color: #008000;">用完了要清理</span>
+<span style="color: #008080;">120</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">121</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">查看 server.c 代码</span></div>
+<p>测试代码(main)</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('d0d9262e-bed0-440b-8bd3-a993932d6171')"><img id="code_img_closed_d0d9262e-bed0-440b-8bd3-a993932d6171" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_d0d9262e-bed0-440b-8bd3-a993932d6171" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('d0d9262e-bed0-440b-8bd3-a993932d6171',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_d0d9262e-bed0-440b-8bd3-a993932d6171" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span> main_client(<span style="color: #0000ff;">int</span> , <span style="color: #0000ff;">char</span></strong><span style="color: #000000;">);
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span> main_server(<span style="color: #0000ff;">int</span> , <span style="color: #0000ff;">char</span><strong><span style="color: #000000;">);
+</span><span style="color: #008080;"> 3</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">int</span> main(<span style="color: #0000ff;">int</span> c , <span style="color: #0000ff;">char</span></strong><span style="color: #000000;"> v)
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">if</span> (c == <span style="color: #800080;">3</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">        main_client(c , v);
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">        main_server(c , v);
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">12</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">13</span>
+<span style="color: #008080;">14</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">查看 test 代码</span></div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

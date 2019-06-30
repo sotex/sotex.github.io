@@ -1,0 +1,285 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> QT 信号与槽connect &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>QT 信号与槽connect</h1>
+          <span class="post-date">2015年07月17日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/17/4653770.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/17/4653770.html</a>
+<h1 id="qt-connect">QT 信号与槽connect</h1>
+<div class="toc">
+<ul>
+<li><a href="#qt-connect">QT 信号与槽connect</a>
+<ul>
+<li><a href="#connect">connect函数调用几个限制</a></li>
+<li><a href="#connect_1">connect函数代码</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>QT中信号与槽的连接使用的<code>connect</code>函数是一个静态函数，在类<code>QObject</code>中定义。这里说的是<code>QT5</code>环境下。更详细的介绍可以看这里<a href="http://www.devbean.net/2012/12/how-qt-signals-and-slots-work-qt5/">http://www.devbean.net/2012/12/how-qt-signals-and-slots-work-qt5/</a></p>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="connect">connect函数调用几个限制</h2>
+<ul>
+<li>
+<p><strong>1.</strong> 信号的发送者必须是<code>QObject</code>的派生类对象。不然会出现<code>error: invalid conversion from &lsquo;XXX<em>&rsquo; to &lsquo;const QObject</em>&rsquo; [-fpermissive]&hellip;</code>的错误。</p></p>
+
+<p></li>
+<li>
+<p><strong>2.</strong> 回调槽函数的对象必须是<code>QObject</code>的派生类对象。不然会出现<code>error: no matching function for call to &lsquo;QObject::connect(XXX*,</code>的错误。这里要注意一点，信号函数无论存在与否，都不会报错的。但是如果信号的发送者是<code>NULL</code>，那么会在运行的时候提示<code>QObject::connect: Cannot connect (null)::信号函数() to 接收者::槽函数()</code>的问题。</p></p>
+
+<p></li>
+<li>
+<p>对于<code>1,2</code>两点，在<code>connect</code>函数调用的时候强转类型也可以通过编译，但是运行的时候会提示<code>No such slot QObject::</code>的问题。</p></p>
+
+<p></li>
+<li>
+<p><strong>3.</strong> 槽函数所在的类的定义中必须添加宏<code>Q_OBJECT</code>，不然会出现<code>QObject::connect: No such slot &hellip;</code>的错误。</p>
+<p>这里必须和第<code>2</code>点联系起来，如果添加了<code>Q_OBJECT</code>宏的类不是从<code>QObject</code>派生的，<code>moc</code>生成中间文件的时候会报错<code>Error: Class contains Q_OBJECT macro but does not inherit from QObject</code>。</p>
+<p>如果添加了<code>Q_OBJECT</code>宏之后编译出现了<code>undefined reference to &lsquo;vtable for&hellip;</code>的错误，请删除<code>build</code>目录下的<code>Makefile</code>文件，再重新生成。</p></p>
+
+<p></li>
+<li>
+<p><strong>4.</strong> 信号函数的<code>signals</code>修饰和槽函数的<code>slots</code>修饰其实是必须的。虽然生成的中间代码中会去除掉。</p></p>
+
+<p></li>
+<li><strong>5.</strong>如果槽函数是<span style="color: #ff0000;"><strong>on_控件名_信号名</strong></span>那么不需要主动调用connnect进行连接。</li></p>
+
+<p></ul>
+<table>
+<thead>
+<tr><th align="left">问题</th><th align="left">原因</th></tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left"><code>error: no matching function for call to &lsquo;QObject::connect(XXX*,</code></td>
+<td align="left">信号的发送者和接受者必须是<code>QObject</code>的派生类对象。</td></p>
+
+<p></tr>
+<tr>
+<td align="left"><code>QObject::connect: No such slot &hellip;</code></td>
+<td align="left">满足面的条件后，还必须满足槽函数所在类的定义中添加(使用)了<code>Q_OBJECT</code>宏</td></p>
+
+<p></tr>
+<tr>
+<td align="left"><code>Error: Class contains Q_OBJECT macro but does not inherit from QObject</code></td>
+<td align="left">添加了<code>Q_OBJECT</code>宏的类不是从<code>QObject</code>派生的</td></p>
+
+<p></tr>
+<tr>
+<td align="left"><code>undefined reference to &lsquo;vtable for&hellip;</code></td>
+<td align="left">这是在添加了<code>Q_OBJECT</code>宏之后编译出现，原因是没有更新<code>Makefile</code>文件。请删除<code>build</code>目录下的<code>Makefile</code>文件，再使用<code>qmake</code>重新生成。</td></p>
+
+<p></tr>
+<tr>
+<td align="left"><code>No matching signal for on_XXXXX_XXXXX()</code></td>
+<td align="left">槽函数是<span style="color: #ff0000;"><strong>on_控件名_信号名</strong></span>形式，又显示的调用了connect进行连接，就会在运行时出现这个，但是没有什么关系。</td>
+</tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h2 id="connect_1">connect函数代码</h2>
+<p>connect是一个模板函数，但是对参数的类型是有要求的。<br />
+这个函数的返回值是<code>QMetaObject::Connection</code>类型的。<code class="cpp"></p>
+
+<p></code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">Connect a signal to a pointer to qobject member function
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;">连接一个信号到 qobject 成员函数的指针</span>
+<span style="color: #008080;"> 3</span>
+<span style="color: #008080;"> 4</span> template &lt;typename Func1, typename Func2&gt;
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">static</span><span style="color: #000000;"> inline QMetaObject::Connection connect(
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">const</span> typename QtPrivate::FunctionPointer&lt;Func1&gt;::Object *<span style="color: #000000;">sender,
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    Func1 signal,
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">const</span> typename QtPrivate::FunctionPointer&lt;Func2&gt;::Object *<span style="color: #000000;">receiver,
+</span><span style="color: #008080;"> 9</span>     Func2 slot,Qt::ConnectionType type =<span style="color: #000000;"> Qt::AutoConnection
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    )
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">12</span>     typedef QtPrivate::FunctionPointer&lt;Func1&gt;<span style="color: #000000;"> SignalType;
+</span><span style="color: #008080;">13</span>     typedef QtPrivate::FunctionPointer&lt;Func2&gt;<span style="color: #000000;"> SlotType;
+</span><span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span>     <span style="color: #008000;">//</span><span style="color: #008000;">检查信号类是否有Q_OBJECT宏</span>
+<span style="color: #008080;">16</span>     Q_STATIC_ASSERT_X(QtPrivate::HasQ_OBJECT_Macro&lt;typename SignalType::Object&gt;<span style="color: #000000;">::Value,
+</span><span style="color: #008080;">17</span>                       <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">No Q_OBJECT in the class with the signal</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">18</span>
+<span style="color: #008080;">19</span>     <span style="color: #008000;">//</span><span style="color: #008000;">compilation error if the arguments does not match.
+</span><span style="color: #008080;">20</span>     <span style="color: #008000;">//</span><span style="color: #008000;">如果参数不匹配的编译错误。
+</span><span style="color: #008080;">21</span>     <span style="color: #008000;">//</span><span style="color: #008000;">槽函数需要的参数比信号函数提供多。</span>
+<span style="color: #008080;">22</span>     Q_STATIC_ASSERT_X(<span style="color: #0000ff;">int</span>(SignalType::ArgumentCount) &gt;= <span style="color: #0000ff;">int</span><span style="color: #000000;">(SlotType::ArgumentCount),
+</span><span style="color: #008080;">23</span>                       <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">The slot requires more arguments than the signal provides.</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">24</span>     <span style="color: #008000;">//</span><span style="color: #008000;">信号函数和槽函数的参数不是兼容的。</span>
+<span style="color: #008080;">25</span>     Q_STATIC_ASSERT_X((QtPrivate::CheckCompatibleArguments&lt;typename SignalType::Arguments, typename SlotType::Arguments&gt;<span style="color: #000000;">::value),
+</span><span style="color: #008080;">26</span>                       <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Signal and slot arguments are not compatible.</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">27</span>     <span style="color: #008000;">//</span><span style="color: #008000;">信号函数返回类型是槽函数的不兼容的返回类型。</span>
+<span style="color: #008080;">28</span>     Q_STATIC_ASSERT_X((QtPrivate::AreArgumentsCompatible&lt;typename SlotType::ReturnType, typename SignalType::ReturnType&gt;<span style="color: #000000;">::value),
+</span><span style="color: #008080;">29</span>                       <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Return type of the slot is not compatible with the return type of the signal.</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">30</span>
+<span style="color: #008080;">31</span>     <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> *types = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">32</span>     <span style="color: #0000ff;">if</span> (type == Qt::QueuedConnection || type ==<span style="color: #000000;"> Qt::BlockingQueuedConnection)
+</span><span style="color: #008080;">33</span>         types = QtPrivate::ConnectionTypes&lt;typename SignalType::Arguments&gt;<span style="color: #000000;">::types();
+</span><span style="color: #008080;">34</span>
+<span style="color: #008080;">35</span>     <span style="color: #008000;">//</span><span style="color: #008000;">QObject::connectImpl是用于执行连接的私有内部函数。
+</span><span style="color: #008080;">36</span>     <span style="color: #008000;">//</span><span style="color: #008000;">槽函数的包装器，用于辅助调用该槽函数。</span>
+<span style="color: #008080;">37</span>     <span style="color: #0000ff;">return</span> connectImpl(sender, reinterpret_cast&lt;<span style="color: #0000ff;">void</span> **&gt;(&amp;<span style="color: #000000;">signal),
+</span><span style="color: #008080;">38</span>                        receiver, reinterpret_cast&lt;<span style="color: #0000ff;">void</span> **&gt;(&amp;<span style="color: #000000;">slot),
+</span><span style="color: #008080;">39</span>                        <span style="color: #0000ff;">new</span> QtPrivate::QSlotObject&lt;Func2, typename QtPrivate::List_Left&lt;typename SignalType::Arguments, SlotType::ArgumentCount&gt;<span style="color: #000000;">::Value,
+</span><span style="color: #008080;">40</span>                        typename SignalType::ReturnType&gt;<span style="color: #000000;">(slot),
+</span><span style="color: #008080;">41</span>                        type, types, &amp;<span style="color: #000000;">SignalType::Object::staticMetaObject);
+</span><span style="color: #008080;">42</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,309 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> OpenCV学习代码记录—— Snake轮廓 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>OpenCV学习代码记录—— Snake轮廓</h1>
+          <span class="post-date">2018年04月05日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/04/05/8722010.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/04/05/8722010.html</a>
+很久之前学习过一段时间的OpenCV，当时没有做什么笔记，但是代码都还在，这里把它贴出来做个记录。
+代码放在码云上，地址在这里<a href="https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest">https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest</a></p>
+
+<h2 id="效果">效果</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180813205628231-1509747319.jpg" alt="" /></p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-cpp">#include &lt;opencv2/core.hpp&gt;
+#include &lt;opencv2/highgui.hpp&gt;
+#include &lt;opencv2/imgproc.hpp&gt;
+#include &lt;opencv2/legacy/legacy.hpp&gt;	// cvSnakeImage
+
+// http://blog.csdn.net/hongxingabc/article/details/51606520
+//http://wiki.opencv.org.cn/index.php/Snake%E8%BD%AE%E5%BB%93%E4%BE%8B%E5%AD%90
+
+static cv::Mat	src, src_bak;	// 原始图像及其备份
+
+static int	thresholdness = 128;	// 阈值
+// 下面的参数用于滑块的值传出
+static int ialpha = 20;	// alpha代表点相互靠拢的权值(0-1.0)
+static int ibeta  = 20;	// beta表示弯曲能量（越小越容易弯曲）(0-1.0)
+static int igamma = 20;	// gamma表示整体能量(0-1.0)
+
+void on_change(int pos,void*);
+
+int snakeContour()
+{
+	// 创建窗口
+	cv::namedWindow(&quot;win&quot;, 0);
+	// 添加四个进度条(滑块条)
+	cv::createTrackbar(&quot;Thd&quot;, &quot;win&quot;, &amp;thresholdness, 255, on_change);
+	cv::createTrackbar(&quot;alpha&quot;, &quot;win&quot;, &amp;ialpha, 100, on_change);
+	cv::createTrackbar(&quot;beta&quot;, &quot;win&quot;, &amp;ibeta, 100, on_change);
+	cv::createTrackbar(&quot;gamma&quot;, &quot;win&quot;, &amp;igamma, 100, on_change);
+	
+	cv::resizeWindow(&quot;win&quot;, 640, 480);
+	// 调用一次on_change，以便显示出窗口
+	on_change(0,NULL);
+
+	while (true){
+		if (cv::waitKey(40) == 27) {
+			cv::destroyWindow(&quot;win&quot;);
+			break;	// 按下ESC键就退出
+		}
+		// 显示图像到窗口
+		cv::imshow(&quot;win&quot;, src_bak);
+	}
+
+	return 0;
+}
+
+void on_change(int,void*)
+{
+	// 读取原图像
+	src_bak = cv::imread(&quot;../Image/sisy.jpg&quot;, 1);
+	// 转换为灰度图像
+	cv::cvtColor(src_bak, src, CV_BGR2GRAY);
+
+	// 对单通道数组应用固定阈值操作。该函数的典型应用是对灰度图像进行阈值操作得到二值图像。
+	// 二值化操作
+	cv::threshold(src/*原始图像(单通道)*/,
+		src/*目标图像(与原始图像类型一致)*/,
+		thresholdness/*二值化控制阈值*/,
+		255/*使用 CV_THRESH_BINARY 和 CV_THRESH_BINARY_INV 的最大值*/,
+		CV_THRESH_BINARY/*阈值类型*/);
+	// CV_THRESH_BINARY:如果 src(x, y)&gt;threshold, dst(x, y) = max_value; 否则, dst（x, y） = 0;
+	// CV_THRESH_BINARY_INV:如果 src(x, y)&gt;threshold, dst(x, y) = 0; 否则, dst(x, y) = max_value.
+	// CV_THRESH_TRUNC:如果 src(x, y)&gt;threshold，dst(x, y) = max_value; 否则dst(x, y) = src(x, y).
+	// CV_THRESH_TOZERO:如果src(x, y)&gt;threshold，dst(x, y) = src(x, y); 否则 dst(x, y) = 0。
+	// CV_THRESH_TOZERO_INV:如果 src(x, y)&gt;threshold，dst(x, y) = 0; 否则dst(x, y) = src(x, y).
+	
+	std::vector&lt;std::vector&lt;cv::Point&gt; &gt; contours;
+
+	// http://www.360doc.com/content/12/1028/14/6408986_244247418.shtml
+	// 寻找初始化轮廓
+	cv::findContours(src/*输入图像(2值单通道图像)*/,
+		contours/*传出检测的轮廓点数组*/,
+		CV_RETR_EXTERNAL/*轮廓检测模式*/,
+		CV_CHAIN_APPROX_SIMPLE/*轮廓近似方式*/,
+		cv::Point(0, 0)/*轮廓点偏移量*/);
+
+	if (contours.empty()) {
+		return;	//没有检测到轮廓
+	}
+
+	// 绘制轮廓线(绘制到备份的图像上)
+	cv::drawContours(src_bak, contours, -1, cv::Scalar(0, 0, 255), 2, 8);
+
+	{
+	// 获取alpha、beta、gamma三个值
+		float alpha = ialpha / 100.0f;
+		float beta = ibeta / 100.0f;
+		float gamma = igamma / 100.0f;
+
+		// 改变轮廓位置使得它的能量最小
+		// 因为没有C++的接口，所以这里使用C的接口
+		IplImage ipl_src = IplImage(src);
+		
+		// 每个点用于搜索最小值的邻域尺寸，两个 win.width 和 win.height 都必须是奇数
+		CvSize size;
+		size.width = 3; size.height = 3;
+		// 终止条件
+		CvTermCriteria criteria;
+		criteria.type = CV_TERMCRIT_ITER;
+		criteria.max_iter = 1000;
+		criteria.epsilon = 0.1;
+		// 梯度符号。如果非零，函数为每一个图像象素计算梯度幅值，且把它当成能量场，否则考虑输入图像本身。
+		int calc_gradient = 1;
+
+		std::vector&lt;CvPoint&gt; point_arr;	// 用于获取一个轮廓环的特征点
+		for (int nline = 0; nline &lt; contours.size(); ++nline) {
+			// 当前轮廓线点数
+			int point_count = contours[nline].size();
+			if (point_count &gt; 2) {	// 低于3个点的时候，会出错
+				point_arr.resize(point_count);
+			} else {
+				continue;
+			}
+			// 拷贝特征点
+			for (int npt = 0; npt &lt; contours[nline].size(); ++npt) {
+				point_arr[npt] = contours[nline][npt];
+			}
+			// 执行改变轮廓位置使得它的能量最小
+			cvSnakeImage(&amp;ipl_src/*输入图像或外部能量域*/,
+				point_arr.data()/*传入传出轮廓点*/,
+				point_count/*传入轮廓点数组大小*/,
+				&amp;alpha/*连续性能量的权 Weight[s]，单个浮点数或长度为 length 的浮点数数组，每个轮廓点有一个权*/,
+				&amp;beta/*曲率能量的权 Weight[s]，与 alpha 类似*/,
+				&amp;gamma/*图像能量的权 Weight[s]，与 alpha 类似*/,
+				CV_VALUE/*前面三个参数的不同使用方法*/,
+				/*CV_VALUE 表示每个 alpha, beta, gamma 都是指向为所有点所用的一个单独数值;
+				CV_ARRAY 表示每个 alpha, beta, gamma 是一个指向系数数组的指针，snake 上面各点的系数都不相同。
+				因此，各个系数数组必须与轮廓具有同样的大小。所有数组必须与轮廓具有同样大小*/
+				size, criteria, calc_gradient);
+
+			// 显示曲线(蓝色)
+			for (int prev = 0; prev &lt; point_count; ++prev) {
+				int next = (prev + 1) % point_count;
+				// 绘线，蓝色
+				cv::line(src_bak, point_arr[prev], point_arr[next], cv::Scalar(255, 0, 0), 2, 8, 0);
+			}
+		}
+	}
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,347 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Proj.4库的编译及使用 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Proj.4库的编译及使用</h1>
+          <span class="post-date">2016年07月15日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/07/15/5672837.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/07/15/5672837.html</a>
+#Proj.4库的编译及使用</p>
+
+<p>Proj.4是开源GIS最著名的地图投影库，GRASS GIS, MapServer, PostGIS, Thuban, OGDI, Mapnik, TopoCad, GDAL/OGR等软件的投影都直接或间接的使用Proj.4。
+Proj.4的功能主要有经纬度坐标与地理坐标的转换，坐标系的转换，包括基准变换等，下面以命令行方式和编程方式来说明经纬度坐标与地理坐标转换功能的使用。</p>
+
+<p>##Proj.4的下载和编译</p>
+
+<p>使用<code>git</code>进行下载。</p>
+
+<pre><code class="language-shell">git clone https://github.com/OSGeo/proj.4.git
+</code></pre>
+
+<p>###Linux下的编译和安装</p>
+
+<p>下载之后，使用<code>cmake</code>生成<code>Makefile</code>进行编译。</p>
+
+<pre><code class="language-shell">mkdir -p build &amp;&amp;cd build	#进入proj.4工程目录后，创建一个构建目录，并进入
+# 使用cmake生成Makefile,指定安装路径和生成库类型为静态库
+cmake  -DCMAKE_INSTALL_PREFIX=./install -DBUILD_LIBPROJ_SHARED=OFF ..
+# 编译
+make
+# 安装，安装的目录是之前指定的目录，就是当前目录下的install目录
+make install
+</code></pre>
+
+<p>安装完成之后进入<code>install</code>目录，可以看到对应的头文件和库文件。</p>
+
+<pre><code class="language-shell">&gt; tree
+.
+├── bin
+│   ├── cs2cs
+│   ├── geod
+│   ├── nad2bin
+│   └── proj
+├── include
+│   ├── geodesic.h
+│   ├── proj_api.h
+│   └── projects.h
+├── lib
+│   └── libproj.a
+└── share
+    ├── cmake
+    │   └── PROJ4
+    │       ├── proj4-config.cmake
+    │       ├── proj4-config-version.cmake
+    │       ├── proj4-targets.cmake
+    │       └── proj4-targets-release.cmake
+    ├── man
+    │   ├── man1
+    │   │   ├── cs2cs.1
+    │   │   ├── geod.1
+    │   │   └── proj.1
+    │   └── man3
+    │       ├── geodesic.3
+    │       └── pj_init.3
+    └── proj
+        ├── CH
+        ├── epsg
+        ├── esri
+        ├── esri.extra
+        ├── GL27
+        ├── IGNF
+        ├── nad27
+        ├── nad83
+        ├── nad.lst
+        ├── ntf_r93.gsb
+        ├── null
+        ├── nzgd2kgrid0005.gsb
+        ├── other.extra
+        ├── proj_def.dat
+        └── world
+
+10 directories, 34 files
+</code></pre>
+
+<p>###Windows下使用VS2013进行编译
+先使用cmake生成VS工程</p>
+
+<pre><code class="language-bat">cd build	# 先进入build目录
+# 下面设置了安装目录和编译参数等
+cmake -DCMAKE_INSTALL_PREFIX=D:/proj.4 -DBUILD_LIBPROJ_SHARED=OFF -G&quot;Visual Studio 12 Win64&quot; ..
+</code></pre>
+
+<p>打开<code>VS2013 x64本机命令行工具</code>，然后进入<code>build目录</code>，执行下面命令</p>
+
+<pre><code>msbuild ALL_BUILD.vcxproj /p:Configuration=&quot;Release&quot;
+msbuild INSTALL.vcxproj /p:Configuration=&quot;Release&quot;
+</code></pre>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201608/693958-20160808120208168-1244623012.png" alt="VS2013下编译" /></p>
+
+<p>编译安装完成后，可以进入<code>D:\Proj.4</code>目录查看输出的头文件和库文件(以及share目录下的一些数据文件)。</p>
+
+<p>##使用Proj.4库</p>
+
+<p>使用以下代码来做测试</p>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &quot;proj_api.h&quot;
+
+
+int main()
+{
+	// 定义一个北京54的横轴墨卡托投影坐标系
+	// +proj=lcc	投影类型：横轴墨卡托投影
+	// +ellps=krass	椭球体
+	// +lat_1=25n +lat_2=47n	维度范围(标准纬线)
+	// +lon_0=117e	中央经度为东经117度
+	// +x_0=20500000	X轴(东)方向偏移量
+	// +y_0=0			Y轴(北)方向偏移量
+	// +units=m			单位
+	// +k=1.0			比率
+
+	const char* beijing1954=&quot;+proj=lcc +ellps=krass +lat_1=25n +lat_2=47n +lon_0=117e +x_0=20500000 +y_0=0 +units=m +k=1.0&quot;;
+	//如果你想转换到WGS84基准 
+	//&quot;+towgs84=22,-118,30.5,0,0,0,0&quot;
+
+	projPJ pj;	// 坐标系对象指针
+	// 初始化坐标系对象
+	if (!(pj = pj_init_plus(beijing1954))){
+		exit(-1);	// 初始化失败，退出程序
+	}
+
+	// 待转换的坐标(投影坐标)
+        // 注意坐标系定义中的+x_0=20500000，坐标值应该也是带有带号的
+	projUV parr[4] = {
+		{20634500.0,4660000.0},
+		{20635000.0,4661000.0},
+		{20635500.0,4659000.0},
+		{20634000.0,4662000.0}
+	};
+
+	printf(&quot;DEG_TO_RAD = %f  (1度=%f弧度)\n&quot;,DEG_TO_RAD,DEG_TO_RAD);
+
+	// 逐点转换
+	for(int i=0; i&lt;4; i++)
+	{
+		printf(&quot;\n--------------转换第%d点---------------\n&quot;,i+1);
+		projUV p;
+		
+		p = pj_inv(parr[i],pj);	// 投影逆变换(投影坐标转经纬度坐标)
+		printf(&quot;北京54投影  坐标:%10lf,%10lf\n&quot;,parr[i].u,parr[i].v);
+		printf(&quot;北京54经纬度坐标:%10lf,%10lf\n&quot;,p.u/DEG_TO_RAD,p.v/DEG_TO_RAD);	// 输出的时候，将弧度转换为度
+
+		p = pj_fwd(p,pj);		// 投影正变换(经纬度坐标转投影坐标)
+		printf(&quot;北京54投影  坐标:%10lf,%10lf\n&quot;,p.u,p.v);
+	}
+
+	// 释放投影对象内存
+	pj_free(pj);
+	return 0;
+}
+</code></pre>
+
+<p>编译的时候，需要链接<code>pthread</code>和<code>m</code>两个库，因为前面编译的时候，生成的是静态库。如果生成的是动态库，则是不需要的。
+<code>test.c</code>在<code>install</code>目录下写的，所以指定的路径是如下的。</p>
+
+<pre><code class="language-shell">gcc test.c -Iinclude -Llib -lproj -lpthread -lm -o test
+</code></pre>
+
+<p>运行结果如下：</p>
+
+<pre><code class="language-shell">&gt; ./test
+DEG_TO_RAD = 0.017453  (1度=0.017453弧度)
+
+--------------转换第1点---------------
+北京54投影  坐标:20634500.000000,4660000.000000
+北京54经纬度坐标:118.611065, 40.462077
+北京54投影  坐标:20634500.000000,4660000.000000
+
+--------------转换第2点---------------
+北京54投影  坐标:20635000.000000,4661000.000000
+北京54经纬度坐标:118.617253, 40.471148
+北京54投影  坐标:20635000.000000,4661000.000000
+
+--------------转换第3点---------------
+北京54投影  坐标:20635500.000000,4659000.000000
+北京54经纬度坐标:118.622841, 40.452777
+北京54投影  坐标:20635500.000000,4659000.000000
+
+--------------转换第4点---------------
+北京54投影  坐标:20634000.000000,4662000.000000
+北京54经纬度坐标:118.605475, 40.480447
+北京54投影  坐标:20634000.000000,4662000.000000
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

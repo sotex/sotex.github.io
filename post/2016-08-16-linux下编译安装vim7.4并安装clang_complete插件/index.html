@@ -1,0 +1,242 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译安装vim7.4并安装clang_complete插件 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译安装vim7.4并安装clang_complete插件</h1>
+          <span class="post-date">2016年08月16日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/16/5775421.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/08/16/5775421.html</a>
+#linux下编译安装vim7.4并安装clang_complete插件
+因为debian里软件仓库中下载安装的<code>vim</code>是不支持<code>python</code>写的插件的(可以打开vim,在命令模式先输入<code>:py</code>测试一下)，导致<code>clang complete</code>插件无法使用，所以需要自己进行编译一个支持<code>python</code>插件的版本。</p>
+
+<p>##1、准备工作
+先下载<code>vim7.4</code>源码</p>
+
+<pre><code class="language-shell">#直接使用git克隆
+git clone git clone https://github.com/vim/vim.git
+#下载源码包
+wget ftp://ftp.vim.org/pub/vim/unix/vim-7.4.tar.bz2
+tar -xjvf vim-7.4.tar.bz2
+</code></pre>
+
+<p>因为编译起还需要<code>python-dev</code>包的支持，所以先安装一下。</p>
+
+<pre><code class="language-shell">sudo apt install python-dev python3-dev
+</code></pre>
+
+<p>##2、生成Makefile并编译
+执行<code>configure</code>程序，生成<code>Makefile</code>文件</p>
+
+<pre><code class="language-shell">./configure --prefix=/home/xxx/programs/vim74 --enable-pythoninterp --enable-python3interp --enable-gui=no --enable-cscope --enable-multibyte --enable-fontset
+</code></pre>
+
+<p>生成<code>Makefile</code>成功后，执行<code>make</code>命令进行编译。编译完成之后，执行<code>make install</code>进行安装。
+安装完成后可以进入<code>/home/xxx/programs/vim74</code>查看(安装目录是前面&ndash;prefix参数指定的)。</p>
+
+<p>如果你之前已经使用<code>apt</code>安装了<code>vim</code>，可以将<code>/usr/bin/vim</code>这个软链接删除，然后再创建一个新的过去。</p>
+
+<pre><code class="language-shell"># 查看一下vim这个命令
+$ ls -l /usr/bin/vim
+lrwxrwxrwx 1 root root 21 8月  12 22:14 /usr/bin/vim -&gt; /etc/alternatives/vim
+# 修改这个软链接
+sudo rm -f /usr/bin/vim
+sudo ln -s home/xxx/programs/vim74/bin/vim /usr/bin/vim
+# 如果你习惯用vi，也可以一并修改了
+sudo rm -f /usr/bin/vi
+sudo ln -s home/xxx/programs/vim74/bin/vim /usr/bin/vi
+</code></pre>
+
+<p>可以使用下面命令，简单的全修改掉</p>
+
+<pre><code class="language-shell">ls /home/xxx/programs/vim74/bin|xargs -I{} sudo rm /usr/bin/{}
+ls /home/xxx/programs/vim74/bin|xargs -I{} sudo ln -s /home/o/program/vim74/bin/{}  /usr/bin/{}
+</code></pre>
+
+<p>##3、安装clang complete插件
+先去下载插件源码</p>
+
+<pre><code class="language-shell">git clone https://github.com/Rip-Rip/clang_complete.git
+</code></pre>
+
+<p>下载完成之后，进入源码目录，执行下面命令进行安装</p>
+
+<pre><code class="language-shell">make 
+make install
+</code></pre>
+
+<p>安装完成后，可以测试一下。
+可以输入<code>::</code>或者在类对象后输入<code>.</code>等，测试一下代码提示功能。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201608/693958-20160816103012781-254624396.png" alt="测试一" /></p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201608/693958-20160816103033328-1086848112.png" alt="测试二" /></p>
+
+<p>##4、出现问题及解决办法</p>
+
+<p>打开vim的时候出现如下提示
+    Loading libclang failed, completion won&rsquo;t be available. Consider setting g:clang_library_path.
+这里需要先安装一下<code>libclang</code></p>
+
+<pre><code class="language-shell">sudo apt install libclang-dev
+</code></pre>
+
+<p>安装完成之后，应该在<code>/usr/lib/llvm-3.8/lib</code>(因为我安装的是3.8版本的，也许你的是llvm-3.6/llvm-3.7等)目录下有<code>libclang.so</code>这个文件。
+需要把这个路径，加入到<code>clang_complete</code>的配置文件中去。</p>
+
+<pre><code class="language-shell">vi ~/.vim/plugin/clang_complete.vim
+#在ClangCompleteInit函数之前加入下面两句
+let g:clang_use_library = 1
+let g:clang_library_path = '/usr/lib/llvm-3.8/lib/libclang.so'
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

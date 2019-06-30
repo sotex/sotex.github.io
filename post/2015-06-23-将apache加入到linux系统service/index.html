@@ -1,0 +1,321 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 将Apache加入到linux系统service &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>将Apache加入到linux系统service</h1>
+          <span class="post-date">2015年06月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595142.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595142.html</a>
+#将Apache加入到linux系统service
+将apache加入到linux系统服务，用service命令来控制apache的启动和停止。
+<a href="ttp://www.cnblogs.com/oloroso">本文由乌合之众瞎写<code>http://www.cnblogs.com/oloroso</code></a>
+##1.生成Apache服务控制脚本
+###1.1提取/usr/local/apache2/bin/apachectl脚本有效内容
+<code>grep -v &quot;#&quot;</code>表示提取不是以#开头的hang</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ grep -v &quot;#&quot; /usr/local/apache2/bin/apachectl &gt;apache.txt
+</code></pre>
+
+<p>###1.2在<code>/etc/init.d</code>目录下创建控制脚本</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sudo cat apache.txt &gt;/etc/init.d/apache
+bash: /etc/init.d/apache: 权限不够
+</code></pre>
+
+<p>提示权限不够，因为这个目录root账户也没有写权限。
+这是我的系统的原因，别的系统不一定默认就是没有写权限的。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ stat /etc/init.d/
+  文件：&quot;/etc/init.d/&quot;
+  大小：4096      	块：8          IO 块：4096   目录
+设备：803h/2051d	Inode：2233490     硬链接：2
+权限：(0755/drwxr-xr-x)  Uid：(    0/    root)   Gid：(    0/    root)
+最近访问：2015-05-28 12:27:07.617607855 +0800
+最近更改：2015-05-28 09:36:16.162085700 +0800
+最近改动：2015-05-28 09:36:16.162085700 +0800
+创建时间：-
+</code></pre>
+
+<p><code>chmod</code>修改权限，然后写入</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sudo chmod a+w /etc/init.d
+o@o-pc:~/work$ stat /etc/init.d/
+  文件：&quot;/etc/init.d/&quot;
+  大小：4096      	块：8          IO 块：4096   目录
+设备：803h/2051d	Inode：2233490     硬链接：2
+权限：(0777/drwxrwxrwx)  Uid：(    0/    root)   Gid：(    0/    root)
+最近访问：2015-05-28 12:27:07.617607855 +0800
+最近更改：2015-05-28 09:36:16.162085700 +0800
+最近改动：2015-05-28 16:38:31.203252031 +0800
+创建时间：-
+o@o-pc:~/work$ sudo cat apache.txt &gt;/etc/init.d/apache
+</code></pre>
+
+<p>###1.3编辑/etc/init.d/apache文件</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sudo vi /etc/init.d/apache 
+</code></pre>
+
+<p>在文件最前面插入下面的行，指示这个脚本使用的解释器
+&gt;　　#!/bin/sh</p>
+
+<p>下面是<strong>不再使用</strong>的，这里简单介绍
+还可以添加一下内容使其支持<a href="http://www.cnblogs.com/panjun-Donet/archive/2010/08/10/1796873.html">chkconfig</a>命令：
+&gt;　　# chkconfig: 2345 85 15
+　　# description: Apache is a World Wide Web server.</p>
+
+<p><strong>chkconfig</strong> 命令主要是用来更新（启动或停止）和查询系统服务的运行级信息。谨记chkconfig不是立即自动禁止或激活一个服务，它只是简单的改变了符号连接。
+<strong>使用语法：</strong>
+&gt; chkconfig [&ndash;add][&ndash;del][&ndash;list][系统服务] 或 chkconfig [&ndash;level &lt;等级代号&gt;][系统服务][on/off/reset]</p>
+
+<p><strong>对应脚本修改</strong>
+每个被chkconfig管理的服务需要在对应的init.d下的脚本加上两行或者更多行的注释。第一行告诉chkconfig缺省启动的运行级以及启动和停止的优先级。如果某服务缺省不在任何运行级启动，那么使用 - 代替运行级。第二行对服务进行描述，可以用\ 跨行注释。
+例如，random.init包含三行：
+&gt;    # chkconfig: 2345 20 80
+    # description: Saves and restores system entropy pool for <br />
+    # higher quality random number generation.</p>
+
+<p>##2.为Apache控制脚本添加执行权限</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ chmod  +x  /etc/init.d/apache
+</code></pre>
+
+<p>##3.使用sysv-rc-conf工具将Apache服务加入到系统服务
+###3.1添加Apache服务到系统服务**
+chkconfig命令在ubuntu10.04之后就不再提供了，可以手动下载。
+这里使用另外两个命令来配置ubuntu的启动服务，<a href="http://blog.csdn.net/dante_k7/article/details/7213151"><strong>sysv-rc-conf</strong>和<strong>update-rc.d</strong></a>
+<strong>先安装sysv-rc-conf工具</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sudo apt-get install sysv-rc-conf
+</code></pre>
+
+<p><strong>使用sysv-rc-conf工具</strong>
+这里要注意权限问题</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sysv-rc-conf 
+Can't create /var/lib/sysv-rc-conf : 权限不够 at /usr/sbin/sysv-rc-conf line 454.
+</code></pre>
+
+<p>××sysv-rc-conf**操作简单，简洁的操作界面，你可以使用鼠标点击，也可以使用键盘操作，<code>空格键</code>代表选择，“X”表示开启服务，<code>Ctrl+N</code>下一页，<code>Ctrl+P</code>上一页，<code>Q</code>退出。</p>
+
+<p>我们为其设置运行级别为<code>2/3/5</code>，且不让它开机启动<em>(为什么？我这是在自己的笔记本上弄的，不是在服务器)</em>
+还是来一张图片，会比较好看一点
+<img src="http://i1.tietuku.com/90d6b021e7349750.png" alt="sysv-rc-conf运行界面" /></p>
+
+<pre><code>┌ SysV Runlevel Config   -: stop service  =/+: start service  h: help  q: quit ┐
+│                                                                              │
+│ service      1       2       3       4       5       0       6       S       │
+│ ---------------------------------------------------------------------------- │
+│ acpid       [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ anacron     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ apache      [ ]     [X]     [X]     [ ]     [X]     [ ]     [ ]     [ ]      │
+│ apparmor    [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [X]      │
+│ apport      [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ avahi-dae$  [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ bluetooth   [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ brltty      [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [X]      │
+│ console-s$  [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ cron        [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│ cups        [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]     [ ]      │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────────┐
+│ Use the arrow keys or mouse to move around.      ^n: next pg     ^p: prev pg │
+│                        space: toggle service on / off                        │
+└──────────────────────────────────────────────────────────────────────────────┘
+</code></pre>
+
+<p><strong>解释一下运行级别</strong>
+<strong>运行级别：</strong>Linux系统任何时候都运行在一个指定的运行级上，并且不同的运行级程序和服务都不同，所要完成的工作和要达到的目的也不同，系统可以在这些运行级之间进行切换，来完成不同的工作。</p>
+
+<table>
+<thead>
+<tr>
+<th>运行级别等级</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>0</td>
+<td>系统停机状态</td>
+</tr>
+
+<tr>
+<td>1</td>
+<td>单用户模式，只准许root用户对系统进系维护</td>
+</tr>
+
+<tr>
+<td>2～5</td>
+<td>多用户模式（其中3为字符界面、5为图形界面）</td>
+</tr>
+
+<tr>
+<td>6</td>
+<td>重启启动</td>
+</tr>
+</tbody>
+</table>
+
+<p>在这里需要注意的是，在Debian下（<strong>ubuntu</strong>其中之一）level2～5是没有任何区别的。
+**可以使用<code>runlevel</code>命令来查看当前系统的运行等级</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ runlevel
+N 2
+</code></pre>
+
+<p>###3.2检查是否成功</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

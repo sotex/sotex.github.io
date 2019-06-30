@@ -1,0 +1,319 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 32 GroupSock(AddressPortLookupTable)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>32 GroupSock(AddressPortLookupTable)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月08日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/08/4629201.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/08/4629201.html</a>
+<h2 id="32-groupsockaddressportlookuptablelive555">32 GroupSock(AddressPortLookupTable)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#32-groupsockaddressportlookuptablelive555">32 GroupSock(AddressPortLookupTable)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#addressportlookuptable">AddressPortLookupTable的定义</a></li>
+<li><a href="#addressportlookuptable_1">AddressPortLookupTable构造与析构</a></li>
+<li><a href="#add">Add方法(添加表项)</a></li>
+<li><a href="#remove">Remove方法(移除表项)</a></li>
+<li><a href="#lookup">Lookup方法(查找表项)</a></li>
+<li><a href="#addressportlookuptable_2">AddressPortLookupTable迭代器方法</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p><code>AddressPortLookupTable</code>地址端口查找表类<br />
+<code>AddressPortLookupTable</code>类内部定义了一个<code>HashTable* fTable</code>用于保存哈希表的地址。在构造函数中动态创建了一个哈希表对象给它。<code>AddressPortLookupTable</code>使用了<code>两个地址</code>和一个<code>端口号</code>组合作为一个<code>key</code>，<code>value</code>是<code>Add</code>方法的时候确定的。</p>
+<p><code>AddressPortLookupTable</code>类只提供了<code>增删查</code>三种操作，没有提供修改表项的操作。<br />
+使用哈希表的优点在于可以快速的查找<code>key</code>对应的<code>value</code>。</p>
+<h2 id="addressportlookuptable">AddressPortLookupTable的定义<code class="cpp">
+</code></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> A generic table for looking up objects by (address1, address2, port)
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 用于查找对象,通过一个通用表（地址1，地址2，端口）</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> AddressPortLookupTable {
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 5</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 为内部哈希表fTable创建对象，哈希表的key是3个元素的unsigned int数组</span>
+<span style="color: #008080;"> 6</span> <span style="color: #000000;">    AddressPortLookupTable();
+</span><span style="color: #008080;"> 7</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 释放内部哈希表fTable</span>
+<span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">AddressPortLookupTable();
+</span><span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 使用address1、address2、port组成key,value为值添加到哈希表
+</span><span style="color: #008080;">11</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 如果对应key的条目已经存在，返回旧的value，否则返回NULL</span>
+<span style="color: #008080;">12</span>     <span style="color: #0000ff;">void</span><em><span style="color: #000000;"> Add(netAddressBits address1, netAddressBits address2,
+</span><span style="color: #008080;">13</span>         Port port, <span style="color: #0000ff;">void</span></em><span style="color: #000000;"> value);
+</span><span style="color: #008080;">14</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Returns the old value if different, otherwise 0
+</span><span style="color: #008080;">15</span>
+<span style="color: #008080;">16</span>     <span style="color: #008000;">//</span><span style="color: #008000;">从哈希表中移除key对应的条目，对应条目存在返回true</span>
+<span style="color: #008080;">17</span> <span style="color: #000000;">    Boolean Remove(netAddressBits address1, netAddressBits address2,
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">        Port port);
+</span><span style="color: #008080;">19</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 从哈希表中查找key对应的value，没找到返回NULL</span>
+<span style="color: #008080;">20</span>     <span style="color: #0000ff;">void</span><em><span style="color: #000000;"> Lookup(netAddressBits address1, netAddressBits address2,
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">        Port port);
+</span><span style="color: #008080;">22</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Returns 0 if not found
+</span><span style="color: #008080;">23</span>
+<span style="color: #008080;">24</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Used to iterate through the entries in the table
+</span><span style="color: #008080;">25</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 用于遍历在表中的条目</span>
+<span style="color: #008080;">26</span>     <span style="color: #0000ff;">class</span><span style="color: #000000;"> Iterator {
+</span><span style="color: #008080;">27</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;">28</span>         Iterator(AddressPortLookupTable&amp;<span style="color: #000000;"> table);
+</span><span style="color: #008080;">29</span>         <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">Iterator();
+</span><span style="color: #008080;">30</span>
+<span style="color: #008080;">31</span>         <span style="color: #0000ff;">void</span></em> next(); <span style="color: #008000;">//</span><span style="color: #008000;"> NULL iff none</span>
+<span style="color: #008080;">32</span>
+<span style="color: #008080;">33</span>     <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">34</span>         HashTable::Iterator* fIter; <span style="color: #008000;">//</span><span style="color: #008000;">哈希表迭代器</span>
+<span style="color: #008080;">35</span> <span style="color: #000000;">    };
+</span><span style="color: #008080;">36</span>
+<span style="color: #008080;">37</span> <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">38</span>     friend <span style="color: #0000ff;">class</span><span style="color: #000000;"> Iterator;
+</span><span style="color: #008080;">39</span>     HashTable* fTable;      <span style="color: #008000;">//</span><span style="color: #008000;">哈希表</span>
+<span style="color: #008080;">40</span> };</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="addressportlookuptable_1">AddressPortLookupTable构造与析构</h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">AddressPortLookupTable在构造的时候创建哈希表
+</span><span style="color: #008080;"> 2</span>
+<span style="color: #008080;"> 3</span> <span style="color: #000000;">AddressPortLookupTable::AddressPortLookupTable()
+</span><span style="color: #008080;"> 4</span> : fTable(HashTable::create(<span style="color: #800080;">3</span>)) { <span style="color: #008000;">//</span><span style="color: #008000;"> three-word keys are used 键使用3个元素的unsigned int数组</span>
+<span style="color: #008080;"> 5</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #000000;">析构的时候释放哈希表
+</span><span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span> AddressPortLookupTable::~<span style="color: #000000;">AddressPortLookupTable() {
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">delete</span><span style="color: #000000;"> fTable;
+</span><span style="color: #008080;">11</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="add">Add方法(添加表项)</h2>
+<p><code>Add</code>方法使用<code>前三个参数</code>来组合作为一个<code>key</code>，第四个参数是<code>value</code>。创建一个表项添加到哈希表。<br />
+如果<code>key</code>对应的表项在哈希表中已经存在，那么返回值是已经存在表项的旧<code>value</code>，这个表项的<code>value</code>替换为参数<code>value</code>。如果不存在，那就返回<code>NULL</code>。(表项=条目)<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 使用address1、address2、port组成key,value为值添加到哈希表</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">void</span><em><span style="color: #000000;"> AddressPortLookupTable::Add(netAddressBits address1,
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    netAddressBits address2,
+</span><span style="color: #008080;"> 4</span>     Port port, <span style="color: #0000ff;">void</span></em><span style="color: #000000;"> value) {
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">int</span> key[<span style="color: #800080;">3</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 6</span>     key[<span style="color: #800080;">0</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address1;
+</span><span style="color: #008080;"> 7</span>     key[<span style="color: #800080;">1</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address2;
+</span><span style="color: #008080;"> 8</span>     key[<span style="color: #800080;">2</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)port.num();
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">return</span> fTable-&gt;Add((<span style="color: #0000ff;">char</span><em><span style="color: #000000;">)key, value);
+</span><span style="color: #008080;">10</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="remove">Remove方法(移除表项)</h2>
+<p><code>Remove</code>方法用于从哈希表中移除表项，这三个参数依然是用于组成<code>key</code>的。如果<code>key</code>在表中存在对应的表项，那么移除后函数返回<code>true</code>，否则返回<code>false</code>。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">从哈希表中移除key对应的条目，对应条目存在返回true</span>
+<span style="color: #008080;"> 2</span> <span style="color: #000000;">Boolean AddressPortLookupTable::Remove(netAddressBits address1,
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    netAddressBits address2,
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    Port port) {
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">int</span> key[<span style="color: #800080;">3</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 6</span>     key[<span style="color: #800080;">0</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address1;
+</span><span style="color: #008080;"> 7</span>     key[<span style="color: #800080;">1</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address2;
+</span><span style="color: #008080;"> 8</span>     key[<span style="color: #800080;">2</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)port.num();
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">return</span> fTable-&gt;Remove((<span style="color: #0000ff;">char</span></em><span style="color: #000000;">)key);
+</span><span style="color: #008080;">10</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="lookup">Lookup方法(查找表项)</h2>
+<p>这里说查找表项，不是很准确，应该是查找表项的<code>value</code>。如果<code>key</code>对应的表项不存在，那么就返回<code>NULL</code>。存在就返回表项的<code>value</code>。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 从哈希表中查找key对应的value，没找到返回NULL</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">void</span><em><span style="color: #000000;"> AddressPortLookupTable::Lookup(netAddressBits address1,
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">    netAddressBits address2,
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">    Port port) {
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">int</span> key[<span style="color: #800080;">3</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 6</span>     key[<span style="color: #800080;">0</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address1;
+</span><span style="color: #008080;"> 7</span>     key[<span style="color: #800080;">1</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)address2;
+</span><span style="color: #008080;"> 8</span>     key[<span style="color: #800080;">2</span>] = (<span style="color: #0000ff;">int</span><span style="color: #000000;">)port.num();
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">return</span> fTable-&gt;Lookup((<span style="color: #0000ff;">char</span></em><span style="color: #000000;">)key);
+</span><span style="color: #008080;">10</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="addressportlookuptable_2">AddressPortLookupTable迭代器方法</h2>
+<p><code>AddressPortLookupTable</code>迭代器还有三个方法，<code>构造</code>、<code>析构</code>和<code>next</code>。其实质是对<code>HashTable::Iterator</code>的操作。迭代器创建的时候指向哈希表的第一个条目。<br />
+构造函数，构造的时候必须绑定一个<code>AddressPortLookupTable</code>对象。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 创建迭代器，绑定地址端口查找表</span>
+<span style="color: #008080;"> 2</span> AddressPortLookupTable::Iterator::Iterator(AddressPortLookupTable&amp;<span style="color: #000000;"> table)
+</span><span style="color: #008080;"> 3</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 创建哈希表迭代器，绑定哈希表</span>
+<span style="color: #008080;"> 4</span> : fIter(HashTable::Iterator::create(<em><span style="color: #000000;">(table.fTable))) {
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #000000;">析构函数，删除迭代器HashTable::Iterator fIter。
+</span><span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span> AddressPortLookupTable::Iterator::~<span style="color: #000000;">Iterator() {
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">delete</span><span style="color: #000000;"> fIter;
+</span><span style="color: #008080;">11</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p><code>next</code>方法的返回值需要注意一下，返回的是当前迭代器指向表中条目的<code>value</code>。然后迭代器会走向下一个，如果走到哈希表的尾部元素之后，那么返回<code>NULL</code>。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 返回当前迭代器指向条目的value,迭代器走向下一个</span>
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">void</span></em><span style="color: #000000;"> AddressPortLookupTable::Iterator::next() {
+</span><span style="color: #008080;">3</span>     <span style="color: #0000ff;">char</span> <span style="color: #0000ff;">const</span>* key; <span style="color: #008000;">//</span><span style="color: #008000;"> dummy</span>
+<span style="color: #008080;">4</span>     <span style="color: #0000ff;">return</span> fIter-&gt;<span style="color: #000000;">next(key);
+</span><span style="color: #008080;">5</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

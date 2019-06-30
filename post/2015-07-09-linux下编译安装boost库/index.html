@@ -1,0 +1,261 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译安装boost库 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译安装boost库</h1>
+          <span class="post-date">2015年07月09日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/09/4632848.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/09/4632848.html</a>
+<h1 id="linuxboost">linux下编译安装boost库</h1>
+<div class="toc">
+<ul>
+<li><a href="#linuxboost">linux下编译安装boost库</a>
+<ul>
+<li><a href="#1boost-158">1、下载并解压boost 1.58 源代码</a>
+<ul>
+<li><a href="#_1">下载</a></li>
+<li><a href="#_2">解压</a></li>
+</ul>
+</li>
+<li><a href="#2bootstrapsh">2、运行bootstrap.sh</a></li>
+<li><a href="#3b2">3、使用b2进行构建</a>
+<ul>
+<li><a href="#_3">构建成功的提示</a></li>
+</ul>
+</li>
+<li><a href="#4boost">4、安装boost库到指定目录</a></li>
+<li><a href="#5">5、测试一下</a>
+<ul>
+<li><a href="#_4">代码</a></li>
+<li><a href="#_5">编译运行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>先看一下系统环境</p>
+<pre><code class="bash">Linux o-pc 3.19.0-22-generic #22-Ubuntu SMP Tue Jun 16 17:15:15 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux<br /></code></pre>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="1boost-158">1、下载并解压boost 1.58 源代码</h2>
+<p>可以去<code>boost</code>的官网下载，这里提供一个<a href="http://jaist.dl.sourceforge.net/project/boost/boost/1.58.0/boost_1_58_0.tar.bz2">下载地址</a></p>
+<h3 id="_1">下载</h3>
+<pre><code class="bash">wget <a href="http://jaist.dl.sourceforge.net/project/boost/boost/1.58.0/boost_1_58_0.tar.bz2">http://jaist.dl.sourceforge.net/project/boost/boost/1.58.0/boost_1_58_0.tar.bz2</a>
+</code></pre>
+<h3 id="_2">解压</h3>
+<pre><code class="bash">tar -xjf boost_1_58_0.tar.bz2
+</code></pre>
+<h2 id="2bootstrapsh">2、运行<code>bootstrap.sh</code></h2>
+<p><code>bootstrap.sh</code>是用来检查安装环境的，如果报错了，看一下是缺少了什么，安装一下即可(<code>g++</code>)。</p>
+<pre><code class="bash">./bootstrap.sh
+</code></pre>
+<p>运行完成之后会在当前目录生成一些文件，用于下一步安装。</p>
+<h2 id="3b2">3、使用<code>b2</code>进行构建</h2>
+<p><code>b2</code>是上一步成功后生成的，使用它来进行构建boost库。</p>
+<pre><code class="bash">sudo ./b2
+</code></pre>
+<p>这里也可能遇到错误，比如没有<code>bzlib.h</code>这个头文件的。</p>
+<pre><code class="bash">cc.compile.c++ bin.v2/libs/iostreams/build/gcc-4.9.2/release/link-static/threading-multi/bzip2.o
+libs/iostreams/src/bzip2.cpp:20:56: fatal error: bzlib.h: 没有那个文件或目录
+ #include &ldquo;bzlib.h&rdquo;  // Julian Seward&rsquo;s &ldquo;bzip.h&rdquo; header.
+                                                        ^
+compilation terminated.
+</code></pre>
+<p>解决办法也是很简单的，执行下面的语句(前提是debina系的linux发行版，或者安装了<code>apt-get</code>)</p>
+<pre><code class="bash"> sudo apt-get install libbz2-dev
+</code></pre>
+<h3 id="_3">构建成功的提示</h3>
+<pre><code class="bash">The Boost C++ Libraries were successfully built!</p>
+
+<p>The following directory should be added to compiler include paths:</p>
+
+<pre><code>/home/o/Boost库/boost_1_58_0
+</code></pre>
+
+<p>The following directory should be added to linker library paths:</p>
+
+<pre><code>/home/o/Boost库/boost_1_58_0/stage/lib
+</code></pre>
+
+<p></code></pre>
+<p>上面两句的意思是提示你编译使用了<code>boost</code>库的代码的时候指定的<code>include</code>目录和<code>lib</code>目录位置。</p>
+<h2 id="4boost">4、安装boost库到指定目录</h2>
+<p>第三步骤只是说了构建的情况，其实这已经可以用了。如果想安装<code>boost</code>库到指定目录，比如说<code>usr/local</code>目录，可以使用下面的命令来进行。</p>
+<pre><code class="bash">sudo ./b2 &ndash;prefix=/usr/local/boost install
+</code></pre>
+<p>安装以后编译代码的时候还是要指定目录，可以将它添加到环境变量<code>CPLUS_INCLUDE_PATH</code>和<code>LIBRARY_PATH</code>中去。</p>
+<pre><code class="bash">export CPLUS_INCLUDE_PATH=/usr/local/boost/include
+export LIBRARY_PATH=/usr/local/boost/lib
+</code></pre>
+<p>这只是临时的，乐意的可以写入<code>/etc/profile</code>文件中。</p>
+<h2 id="5">5、测试一下</h2>
+<p>先写一个简单的获取当前日期的小程序</p>
+<h4 id="_4">代码</h4>
+<pre><code class="cpp">#include &lt;boost/date_time/gregorian/gregorian.hpp&gt;
+#include &lt;iostream&gt;
+int main()
+{
+    boost::gregorian::date d(boost::gregorian::day_clock::local_day());
+    std::cout &lt;&lt; d.year() &lt;&lt; d.month() &lt;&lt;d.day() &lt;&lt; std::endl;
+}
+</code></pre>
+<h4 id="_5">编译运行</h4>
+<pre><code class="bash">g++ -I /usr/local/boost/include -L /usr/local/boost/lib boost.cpp -o boost</p>
+
+<p>./boost</p>
+
+<p>2015Jul9
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

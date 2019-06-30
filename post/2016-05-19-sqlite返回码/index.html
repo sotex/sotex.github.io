@@ -1,0 +1,398 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> SQLite返回码 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>SQLite返回码</h1>
+          <span class="post-date">2016年05月19日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/05/19/5508221.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/05/19/5508221.html</a>
+#SQLite返回码</p>
+
+<p>##返回码含义</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">宏</th>
+<th align="center">值</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">SQLITE_OK</td>
+<td align="center">0</td>
+<td align="left">返回成功</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_ERROR</td>
+<td align="center">1</td>
+<td align="left">SQL错误或数据库不存在</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_INTERNAL</td>
+<td align="center">2</td>
+<td align="left">SQLite内部逻辑错误</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_PERM</td>
+<td align="center">3</td>
+<td align="left">拒绝访问</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_ABORT</td>
+<td align="center">4</td>
+<td align="left">回调函数请求中止</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_BUSY</td>
+<td align="center">5</td>
+<td align="left">数据库文件被锁</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_LOCKED</td>
+<td align="center">6</td>
+<td align="left">数据库中的一个表被锁</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_NOMEM</td>
+<td align="center">7</td>
+<td align="left">malloc()分配内存失败</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_READONLY</td>
+<td align="center">8</td>
+<td align="left">试图对只读数据库进行写操作</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_INTERRUPT</td>
+<td align="center">9</td>
+<td align="left">操作被sqlie3_interrupt()中止</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_IOERR</td>
+<td align="center">10</td>
+<td align="left">磁盘I/O发生错误</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_CORRUPT</td>
+<td align="center">11</td>
+<td align="left">数据库磁盘映像格式不正确</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_NOTFOUND</td>
+<td align="center">12</td>
+<td align="left">(Internal Only)表或记录不存在<br>未知操作码在sqlite3_file_control()</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_FULL</td>
+<td align="center">13</td>
+<td align="left">插入失败，数据库已满</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_CANTOPEN</td>
+<td align="center">14</td>
+<td align="left">不能打开数据库文件</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_PROTOCOL</td>
+<td align="center">15</td>
+<td align="left">数据库锁定协议错误</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_EMPTY</td>
+<td align="center">16</td>
+<td align="left">(Internal Only)数据库为空</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_SCHEMA</td>
+<td align="center">17</td>
+<td align="left">数据库模式改变</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_TOOBIG</td>
+<td align="center">18</td>
+<td align="left">单行数据过多(字符串或BLOB超过大小限制)</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_CONSTRAINT</td>
+<td align="center">19</td>
+<td align="left">由于约束冲突而中止</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_MISMATCH</td>
+<td align="center">20</td>
+<td align="left">数据类型不匹配</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_MISUSE</td>
+<td align="center">21</td>
+<td align="left">数据库错误使用</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_NOLFS</td>
+<td align="center">22</td>
+<td align="left">使用主机操作系统不支持的特性</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_AUTH</td>
+<td align="center">23</td>
+<td align="left">非法授权</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_FORMAT</td>
+<td align="center">24</td>
+<td align="left">辅助数据库格式错误</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_RANGE</td>
+<td align="center">25</td>
+<td align="left">sqlite_bind第二个参数超出范围</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_NOTADB</td>
+<td align="center">26</td>
+<td align="left">打开的不是一个数据库文件</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_NOTICE</td>
+<td align="center">27</td>
+<td align="left">来自sqlite3_log()的通知</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_WARNING</td>
+<td align="center">28</td>
+<td align="left">来自sqlite3_log()的警告</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_ROW</td>
+<td align="center">100</td>
+<td align="left">sqlite_step() 有另一行准备就绪</td>
+</tr>
+
+<tr>
+<td align="left">SQLITE_DONE</td>
+<td align="center">101</td>
+<td align="left">sqlite_step() 执行完成</td>
+</tr>
+</tbody>
+</table>
+
+<p>##源代码(SQLite 3.12)</p>
+
+<pre><code class="language-C">#define SQLITE_OK           0   /* Successful result */
+/* beginning-of-error-codes */
+#define SQLITE_ERROR        1   /* SQL error or missing database */
+#define SQLITE_INTERNAL     2   /* Internal logic error in SQLite */
+#define SQLITE_PERM         3   /* Access permission denied */
+#define SQLITE_ABORT        4   /* Callback routine requested an abort */
+#define SQLITE_BUSY         5   /* The database file is locked */
+#define SQLITE_LOCKED       6   /* A table in the database is locked */
+#define SQLITE_NOMEM        7   /* A malloc() failed */
+#define SQLITE_READONLY     8   /* Attempt to write a readonly database */
+#define SQLITE_INTERRUPT    9   /* Operation terminated by sqlite3_interrupt()*/
+#define SQLITE_IOERR       10   /* Some kind of disk I/O error occurred */
+#define SQLITE_CORRUPT     11   /* The database disk image is malformed */
+#define SQLITE_NOTFOUND    12   /* Unknown opcode in sqlite3_file_control() */
+#define SQLITE_FULL        13   /* Insertion failed because database is full */
+#define SQLITE_CANTOPEN    14   /* Unable to open the database file */
+#define SQLITE_PROTOCOL    15   /* Database lock protocol error */
+#define SQLITE_EMPTY       16   /* Database is empty */
+#define SQLITE_SCHEMA      17   /* The database schema changed */
+#define SQLITE_TOOBIG      18   /* String or BLOB exceeds size limit */
+#define SQLITE_CONSTRAINT  19   /* Abort due to constraint violation */
+#define SQLITE_MISMATCH    20   /* Data type mismatch */
+#define SQLITE_MISUSE      21   /* Library used incorrectly */
+#define SQLITE_NOLFS       22   /* Uses OS features not supported on host */
+#define SQLITE_AUTH        23   /* Authorization denied */
+#define SQLITE_FORMAT      24   /* Auxiliary database format error */
+#define SQLITE_RANGE       25   /* 2nd parameter to sqlite3_bind out of range */
+#define SQLITE_NOTADB      26   /* File opened that is not a database file */
+#define SQLITE_NOTICE      27   /* Notifications from sqlite3_log() */
+#define SQLITE_WARNING     28   /* Warnings from sqlite3_log() */
+#define SQLITE_ROW         100  /* sqlite3_step() has another row ready */
+#define SQLITE_DONE        101  /* sqlite3_step() has finished executing */
+/* end-of-error-codes */
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

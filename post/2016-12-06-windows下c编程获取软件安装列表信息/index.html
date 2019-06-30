@@ -1,0 +1,296 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Windows下C编程获取软件安装列表信息 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Windows下C编程获取软件安装列表信息</h1>
+          <span class="post-date">2016年12月06日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/12/06/6136428.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/12/06/6136428.html</a>
+代码如下：</p>
+
+<pre><code class="language-C">#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+using namespace std;
+
+#ifndef MSVCR
+#define _T
+#define _tcscpy strcpy
+#define _stprintf sprintf
+#define _tcscmp strcmp
+#endif
+
+typedef struct SetupSoftInfo
+{
+    string displayName;        //软件名称
+    string publisher;            //发行商
+    string displayVersion;    //版本
+    string installDate;        //安装日期
+    string uninstallString;    //卸载命令及参数
+    void show()
+    {
+        cout&lt;&lt;&quot;\n=======================================================\n软件名称:&quot;
+            &lt;&lt;displayName&lt;&lt;&quot;\n发行商:&quot;&lt;&lt;publisher&lt;&lt;&quot;\n版本:&quot;&lt;&lt;displayVersion
+            &lt;&lt;&quot;\n安装日期:&quot;&lt;&lt;installDate&lt;&lt;&quot;\n卸载命令:&quot;&lt;&lt;uninstallString&lt;&lt;endl;
+    }
+}*PSetupSoftInfo;
+
+BOOL GetSetupSofts(vector&lt;SetupSoftInfo&gt;&amp;stupInfo)
+{
+    const int  MAX_LEG = 256 * sizeof(TCHAR);
+    HKEY hKey;
+    DWORD dwRegNum = MAX_LEG;
+    TCHAR regBufferName[MAX_LEG] = {0};
+    if( RegOpenKeyEx(HKEY_LOCAL_MACHINE, _T(&quot;SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall&quot;),
+        NULL, KEY_READ, &amp;hKey) == ERROR_SUCCESS    ) {
+
+        if( RegQueryInfoKey(hKey, NULL, NULL, NULL, &amp;dwRegNum, NULL, NULL, NULL, NULL, NULL, NULL, NULL)    ==    ERROR_SUCCESS ){
+            for( int i = 0; i &lt; (int)dwRegNum; i++ ) {
+                DWORD dwRegSize = MAX_LEG;
+                RegEnumKeyEx(hKey, i, regBufferName, &amp;dwRegSize, NULL, NULL,
+                    NULL, NULL);
+                DWORD dwType;
+                HKEY hSubKey;
+                if(    RegOpenKeyEx(hKey, regBufferName, NULL, KEY_READ, &amp;hSubKey) == ERROR_SUCCESS)
+                {
+                    SetupSoftInfo info;
+                    TCHAR regBufferValue[MAX_LEG] = {0};
+                    dwRegSize = MAX_LEG;
+                    RegQueryValueEx(hSubKey, _T(&quot;DisplayName&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize);
+                    info.displayName = regBufferValue;        //软件名称
+
+                    dwRegSize = MAX_LEG;
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    RegQueryValueEx(hSubKey, _T(&quot;Publisher&quot;), 0, &amp;dwType,(LPBYTE)regBufferValue, &amp;dwRegSize);
+                    info.publisher = regBufferValue;        //发行商
+
+                    dwRegSize = MAX_LEG;
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    RegQueryValueEx(hSubKey, _T(&quot;DisplayVersion&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize);
+                    info.displayVersion = regBufferValue;    //版本
+
+                    dwRegSize = MAX_LEG;
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    // 判断是否能在注册表中获取到安装时间, 否取子项创建时间
+                    if(RegQueryValueEx(hSubKey, _T(&quot;InstallDate&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize) == ERROR_SUCCESS )
+                    {
+                        info.installDate = regBufferValue;
+                    }
+                    else
+                    {
+                        FILETIME fileLastTime;
+                        RegQueryInfoKey(hSubKey, NULL, NULL, NULL, NULL, NULL, NULL, NULL,
+                            NULL, NULL, NULL, &amp;fileLastTime);
+                        SYSTEMTIME sTime, stLocal ;
+                        FileTimeToSystemTime(&amp;fileLastTime,&amp;sTime);
+                        SystemTimeToTzSpecificLocalTime(NULL, &amp;sTime, &amp;stLocal);
+                        TCHAR tchTime[MAX_LEG] = {0};
+                        _stprintf(tchTime,_T(&quot;%d%02d%02d&quot;),stLocal.wYear,stLocal.wMonth,stLocal.wDay);
+                        info.installDate = tchTime;
+                    }
+                    dwRegSize = MAX_LEG;
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    RegQueryValueEx(hSubKey, _T(&quot;UninstallString&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize);
+                    info.uninstallString = regBufferValue;//卸载命令及参数
+
+                    dwRegSize = MAX_LEG;
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    // 取ParentKeyName键值,判断是否是补丁信息, 是补丁信息键值为&quot;OperatingSystem&quot;
+                    RegQueryValueEx(hSubKey, _T(&quot;ParentKeyName&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize);
+                    TCHAR tchLocal[MAX_LEG] = {0};
+                    _tcscpy(tchLocal,regBufferValue);
+
+                    _tcscpy(regBufferValue,_T(&quot;&quot;));
+                    dwRegSize = MAX_LEG;
+                    RegQueryValueEx(hSubKey, _T(&quot;QuietUninstallString&quot;), 0, &amp;dwType, (LPBYTE)regBufferValue, &amp;dwRegSize);
+                    if( _tcscmp(regBufferValue,_T(&quot;&quot;) ) )
+                    {
+                        info.displayName = regBufferName;
+                        info.uninstallString = regBufferValue;
+                    }
+                    if( (info.displayName != _T(&quot;&quot;) )
+                        &amp;&amp;( _tcscmp( tchLocal,_T(&quot;OperatingSystem&quot;) ) )) //判断是否是补丁信息
+                    {
+                        stupInfo.push_back(info);
+                    }
+
+                }
+            }//end for(; ;)
+        }
+    }else {
+        return FALSE; //打开键失败
+    }
+    RegCloseKey(hKey);
+
+    return TRUE;
+}
+
+
+int main()
+{
+    cout &lt;&lt; &quot;开始输出!&quot; &lt;&lt; endl;
+    vector&lt;SetupSoftInfo&gt; stupInfo;
+    GetSetupSofts(stupInfo);
+
+    for(auto&amp; x:stupInfo){
+        x.show();
+    }
+
+
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

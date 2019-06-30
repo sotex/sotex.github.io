@@ -1,0 +1,179 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 17 任务调度相关类综述——Live555源码阅读(一)任务调度相关类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>17 任务调度相关类综述——Live555源码阅读(一)任务调度相关类</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599872.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599872.html</a>
+这是Live555源码阅读的第二部分，包括了任务调度相关的三个类。任务调度是Live555源码中很重要的部分。</p>
+
+<blockquote>
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+</blockquote>
+
+<p>任务调度是Live555源码中很重要的部分。前面介绍的基本组件类在这里都用到了。
+任务调度部分有三个类，其有继承关系。
+抽象基类<code>TaskScheduler</code> 派生出 <code>BasicTaskScheduler0</code>，<code>BasicTaskScheduler0</code> 再派生出<code>BasicTaskScheduler</code>。</p>
+
+<p>##TaskScheduler主要是一些接口的定义。</p>
+
+<p><code>BasicTaskScheduler0</code>主要实现了触发事件的管理。触发事件其主要有三个要素，分别是触发调用函数，数据参数，和等待触发掩码。其中触发调用函数地址保存在函数指针数组中(触发函数类型是：<code>void TaskFunc(void* clientData)</code>)，数据参数保存在数据参数指针数组里(void*),<code>等待触发掩码</code>是用于控制其在<code>doEventLoop</code>调用的<code>SingleStep</code>中是否被触发的标识。
+&gt;</p>
+
+<p><code>BasicTaskScheduler</code>是任务调度器的最终成果。它包含了上述两者，并加入了延时队列<code>DelayQueue</code>和处理程序链表<code>HandlerSet</code>成员。在<code>SingleStep</code>中使用了<code>select</code> 非阻塞I/O模型来进行处理<code>fHandlerSe</code>t链表中的处理程序对象。<code>fHandlerSet</code>中的链表节点成员是<code>HandlerDescriptor</code>对象类型，其有四个重要的成员<code>(socketNum/conditionSet/handlerProc/clientData)</code>，在前面介绍过，这里再提一下。<code>socketNum</code>用来标识节点，在这里应当会赋予一个网络<code>socket</code>套接口给它；<code>handlerProc</code>是调用的函数的地址，其类型是<code>TaskScheduler::BackgroundHandlerProc*</code>，而<code>BackgroundHandlerProc</code>的类型是<code>void BackgroundHandlerProc(void* clientData, int mask)</code>，所以其是一个类成员函数指针类型 。<code>clientData</code>和<code>conditionSet</code>都是其参数，其中<code>conditionSet</code>是用于<code>socketNum</code>的读、写、异常操作的的掩码。</p>
+
+<p><img src="http://i4.tietuku.com/fb4ff78eb14d82c8.png" alt="BasicTaskScheduler" title="图片保存在贴图库" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

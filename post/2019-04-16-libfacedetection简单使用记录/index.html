@@ -1,0 +1,392 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> libfacedetection简单使用记录 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>libfacedetection简单使用记录</h1>
+          <span class="post-date">2019年04月16日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2019/04/16/10716214.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/16/10716214.html</a></p>
+
+<h2 id="1-源码下载">1、源码下载</h2>
+
+<p>直接从github上克隆项目仓库。</p>
+
+<pre><code class="language-bash">git clone https://github.com/ShiqiYu/libfacedetection.git
+</code></pre>
+
+<h2 id="2-编译">2、编译</h2>
+
+<h3 id="2-1-linux">2.1、linux</h3>
+
+<p>这个项目使用了cmake脚本，先生成makefile。（我这里是在ArchLinux x86_64环境下测试的）</p>
+
+<pre><code class="language-bash">cmake -DENABLE_NEON=OFF -DCMAKE_BUILD_TYPE=RELEASE .
+</code></pre>
+
+<p>执行上面的命令成功后，执行下面语句进行编译</p>
+
+<pre><code class="language-bash">make -j4
+</code></pre>
+
+<p>编译完成后会同时生成动态库和静态库</p>
+
+<pre><code class="language-bash">[ 90%] Linking CXX static library libfacedetection.a
+[100%] Linking CXX shared library libfacedetection.so
+</code></pre>
+
+<h3 id="2-2-windows-mingw64">2.2、Windows MINGW64</h3>
+
+<p>这里和上面也是一样的。先使用<code>cmake</code>生产<code>Makefile</code>文件，然后执行编译即可。这里我指定了使用<code>g++</code>作为C++的编译器，因为如果不指定会使用<code>gcc</code>去链接，导致生成动态库的时候找不到<code>c++</code>标准库的一些定义。</p>
+
+<pre><code class="language-bash">cmake -DENABLE_NEON=OFF -DCMAKE_BUILD_TYPE=RELEASE  -DCMAKE_CXX_COMPILER=g++ .
+</code></pre>
+
+<p>其它的与上面linux的一致。</p>
+
+<p><strong>备注：我这里使用的是MSYS2环境，直接使用pacman命令安装的gcc/g++。</strong></p>
+
+<h3 id="2-3-vs2017-nmake编译">2.3、VS2017 NMake编译</h3>
+
+<p>因为就这么几个文件，生成一个庞大的VS工程实在有点多余，所以我简单写了一个<code>Makefile.vc</code>文件，使用<code>nmake</code>脚本来生成静态库（因为源码中并没有对函数接口进行export，所以只生成静态库）。</p>
+
+<p><strong>Makefile.vc 文件内容如下：</strong></p>
+
+<pre><code class="language-makefile"># 编译参数设置
+CXX           = cl
+DEFINES       = -DWIN32 -DWIN64 -DNDEBUG -D_WINDLL
+CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
+INCPATH       = -I.
+LIBEXE        = lib
+LIBFLAGS      = /NOLOGO 
+LIBS          =  kernel32.lib
+
+# 源文件
+SOURCES       = facedetectcnn.cpp			\
+				facedetectcnn-floatdata.cpp	\
+				facedetectcnn-int8data.cpp	\
+				facedetectcnn-model.cpp
+OBJECTS       = facedetectcnn.obj			\
+				facedetectcnn-floatdata.obj	\
+				facedetectcnn-int8data.obj	\
+				facedetectcnn-model.obj
+
+# 输出目标文件
+DESTDIR_TARGET = libfacedetection.lib
+
+# 编译规则
+.cpp.obj::
+    $(CXX) @&lt;&lt; -c $(CXXFLAGS) $(INCPATH) $&lt;
+&lt;&lt;
+
+all:	$(DESTDIR_TARGET)
+
+$(DESTDIR_TARGET):	$(OBJECTS)
+	$(LIBEXE) $(LIBFLAGS) /OUT:$(DESTDIR_TARGET) $(LIBS) $(OBJECTS)
+
+facedetectcnn.obj: facedetectcnn.cpp facedetectcnn.h
+facedetectcnn-floatdata.obj: facedetectcnn-floatdata.cpp facedetectcnn.h
+facedetectcnn-int8data.obj: facedetectcnn-int8data.cpp facedetectcnn.h
+facedetectcnn-model.obj: facedetectcnn-model.cpp facedetectcnn.h
+
+clean:
+	del /Q $(OBJECTS)
+</code></pre>
+
+<p>在<code>VS2017开发者命令行工具中</code>直接使用<code>nmake</code>命令来生成静态库</p>
+
+<pre><code class="language-cmd">nmake -f Makefile.vc
+</code></pre>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122605075-1040154334.png" alt="" /></p>
+
+<h2 id="3-简单测试程序">3、简单测试程序</h2>
+
+<p>使用Qt写了一个小程序，简单的测试了一下。</p>
+
+<p>测试的时候发现年龄始终是<code>0</code>，然后就看了一下源码，发现其并未对年龄和面部特征点进行输出，实际在代码中也没有进行检测，年龄和面部特征点相关的代码我没有找到(2019年4月16日)。</p>
+
+<h3 id="3-1-测试截图">3.1、测试截图</h3>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122627128-1046699870.png" alt="" /></p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122634652-774680793.png" alt="" /></p>
+
+<h3 id="3-2-测试代码如下">3.2、测试代码如下</h3>
+
+<pre><code class="language-cpp">/*****************************************************
+ *       project:libfacedetection 测试代码            *
+ *       anchor:ymwh@foxmail.com/solym@sohu.com      *
+ *       date:2019-4-16                              *
+ *****************************************************/
+
+#include &lt;facedetectcnn.h&gt;
+
+#include &lt;QApplication&gt;
+#include &lt;QWidget&gt;
+#include &lt;QLabel&gt;
+#include &lt;QLineEdit&gt;
+#include &lt;QPushButton&gt;
+#include &lt;QVBoxLayout&gt;
+#include &lt;QHBoxLayout&gt;
+#include &lt;QFileDialog&gt;
+#include &lt;QPainter&gt;
+#include &lt;QGraphicsView&gt;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    QImage srcImage;
+    // 创建窗口
+    QWidget widget;
+    // 添加控件
+    QGraphicsScene* gsViewScene = new QGraphicsScene();
+    gsViewScene-&gt;setItemIndexMethod(QGraphicsScene::NoIndex);
+    QGraphicsView* gvImageView = new QGraphicsView(&amp;widget);
+    gvImageView-&gt;setScene(gsViewScene);
+
+    QLineEdit* leImagePath = new QLineEdit(&amp;widget);
+    QPushButton* pbSelectFile = new QPushButton(QStringLiteral(&quot;选择文件&quot;),&amp;widget);
+    QPushButton* pbRunDetect = new QPushButton(QStringLiteral(&quot;执行检测&quot;),&amp;widget);
+    pbRunDetect-&gt;setEnabled(false);
+    QHBoxLayout* hbLayout = new QHBoxLayout;
+    // 设置布局
+    hbLayout-&gt;addWidget(leImagePath);
+    hbLayout-&gt;addWidget(pbSelectFile);
+    hbLayout-&gt;addWidget(pbRunDetect);
+    QVBoxLayout* vbLayout = new QVBoxLayout(&amp;widget);
+    vbLayout-&gt;addLayout(hbLayout);
+    vbLayout-&gt;addWidget(gvImageView);
+    // 添加处理操作
+    QObject::connect(pbSelectFile,&amp;QPushButton::clicked,
+                     [leImagePath,gvImageView,gsViewScene,pbRunDetect,&amp;srcImage,&amp;widget]()
+    {
+        static QString path;
+        path = QFileDialog::getOpenFileName(&amp;widget,
+                                            QStringLiteral(&quot;选择人像图&quot;),
+                                            path,
+                                            QString(&quot;Images (*.png *.jpg *.jpeg *.jfif)&quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+        // 图像太大的时候，执行太慢，先缩小一点
+        if(image.width() &gt; 2048){ image = image.scaledToWidth(2048); }
+        if(image.width() &gt; 1536){ image = image.scaledToWidth(1536); }
+
+        srcImage.swap(image);
+        leImagePath-&gt;setText(path);
+
+        gsViewScene-&gt;clear();
+        gsViewScene-&gt;setSceneRect(srcImage.rect());
+        gsViewScene-&gt;addPixmap(QPixmap::fromImage(srcImage));
+        gvImageView-&gt;fitInView(gvImageView-&gt;sceneRect());
+
+        pbRunDetect-&gt;setEnabled(true);
+    });
+
+    QObject::connect(pbRunDetect,&amp;QPushButton::clicked,
+                     [gvImageView,gsViewScene,&amp;srcImage]
+    {
+        // 转换为RGB24
+        QImage image = srcImage.convertToFormat(QImage::Format_RGB888);
+        int rows = image.height();
+        int cols = image.width();
+        int rowbytes = image.bytesPerLine();
+
+        uchar* pImgData = image.bits();
+        // RGB -&gt; BGR 因为facedetect_cnn函数要求传入图像为BGR三波段图像
+        for( int r = 0; r &lt; rows; ++r ){
+            uchar* pRow = pImgData + (r * rowbytes);
+            for(int c = 0; c &lt; cols; ++c ){
+                qSwap(pRow[c*3],pRow[c*3+2]);
+            }
+        }
+        // 进行检测
+        QByteArray buffer(0x20000,0);
+        int* pResults = facedetect_cnn((uchar*)buffer.data(),pImgData,cols,rows,rowbytes);
+        // 将检测结果画到图像上
+        QPixmap pixmap = QPixmap::fromImage(srcImage);
+        if(pResults != NULL) {
+            for(int i=0; i&lt; *pResults; ++i) {
+                short * p = ((short*)(pResults+1))+142*i;
+                int x = p[0];
+                int y = p[1];
+                int w = p[2];
+                int h = p[3];
+                int confidence = p[4];
+                // 查看源码可知，其并未进行人像框范围和置信率以外的数据赋值
+                int angle = p[5];
+                QPainter painter(&amp;pixmap);
+                // painter.setBrush(QBrush(QColor(255,0,0),));
+                painter.setPen(Qt::green);
+                // painter.drawEllipse(x,y,w,h);
+                painter.drawRect(x,y,w,h);
+                painter.drawText(x,y,w,h,Qt::AlignCenter,
+                                 QStringLiteral(&quot;置信:%1%\n年龄:%2&quot;).arg(confidence).arg(angle));
+            }
+        }
+
+        gsViewScene-&gt;clear();
+        gsViewScene-&gt;setSceneRect(pixmap.rect());
+        gsViewScene-&gt;addPixmap(pixmap);
+        gvImageView-&gt;fitInView(gvImageView-&gt;sceneRect());
+    });
+
+    widget.resize(1024,768);
+    widget.show();
+    return a.exec();
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

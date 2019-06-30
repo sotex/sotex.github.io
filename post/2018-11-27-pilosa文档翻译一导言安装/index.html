@@ -1,0 +1,423 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Pilosa文档翻译（一）导言、安装 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Pilosa文档翻译（一）导言、安装</h1>
+          <span class="post-date">2018年11月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/11/27/10027254.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/11/27/10027254.html</a></p>
+
+<h1 id="导言">导言</h1>
+
+<p><a href="https://www.pilosa.com/docs/latest/introduction/">原文地址</a>
+<code>Pilosa</code>是一个开源的分布式索引（搜索引擎）。它主要设计用于高速和可横向扩展的场景。如果您拥有<code>数十亿个对象</code>数据，这些对象数据可能具有<code>数百万个属性</code>，并且您想探索这些关系，Pilosa可以为您提供帮助。</p>
+
+<ul>
+<li>哪种属性最常见？</li>
+<li>哪些对象具有这些特定属性？</li>
+<li>哪些属性组经常出现在一起？
+<code>Pilosa</code>旨在实时应答这些类型的查询，适用具有于高速率数据流的使用，或为用户界面提供支持。
+一旦安装了<code>Pilosa</code>，入门指南将向您展示与<code>Pilosa</code>交互的基础知识，并为您提供更深入探索的一些指导。</li>
+</ul>
+
+<h1 id="安装">安装</h1>
+
+<p><a href="https://www.pilosa.com/docs/latest/installation/">原文地址</a>
+Pilosa目前适用于MacOS和Linux。</p>
+
+<h2 id="安装在macos">安装在MacOS</h2>
+
+<p>在<code>MacOS</code>上安装<code>Pilosa</code>的四种方法。</p>
+
+<h3 id="使用homebrew">使用HomeBrew</h3>
+
+<p>1、更新您的<a href="https://brew.sh/">HomeBrew</a></p>
+
+<pre><code class="language-bash">brew update
+</code></pre>
+
+<p>2、安装Pilosa</p>
+
+<pre><code class="language-bash">brew install pilosa
+</code></pre>
+
+<p>3、查看是否安装成功</p>
+
+<pre><code class="language-bash">pilosa
+</code></pre>
+
+<p>如果有如下形式输出，表示安装成功</p>
+
+<pre><code class="language-bash">Pilosa is a fast index to turbocharge your database.
+
+This binary contains Pilosa itself, as well as common
+tools for administering pilosa, importing/exporting data,
+backing up, and more. Complete documentation is available
+at https://www.pilosa.com/docs/.
+
+Version: v1.1.0
+Build Time: 2018-05-14T22:14:01+0000
+
+Usage:
+  pilosa [command]
+
+Available Commands:
+  check           Do a consistency check on a pilosa data file.
+  config          Print the current configuration.
+  export          Export data from pilosa.
+  generate-config Print the default configuration.
+  help            Help about any command
+  import          Bulk load data into pilosa.
+  inspect         Get stats on a pilosa data file.
+  server          Run Pilosa.
+
+Flags:
+  -c, --config string   Configuration file to read from.
+  -h, --help            help for pilosa
+
+Use &quot;pilosa [command] --help&quot; for more information about a command.
+</code></pre>
+
+<h3 id="下载二进制文件">下载二进制文件</h3>
+
+<p>1、下载最近发行版本压缩包文件</p>
+
+<pre><code class="language-bash">curl -L -O https://github.com/pilosa/pilosa/releases/download/v1.1.0/pilosa-v1.1.0-darwin-amd64.tar.gz
+</code></pre>
+
+<p>其他版本可从 Github 上的<a href="https://github.com/pilosa/pilosa/releases"><code>Releases</code></a>页面中下载。</p>
+
+<p>2、解压</p>
+
+<pre><code class="language-bash">tar xfz pilosa-v1.1.0-darwin-amd64.tar.gz
+</code></pre>
+
+<p>3、将二进制文件移动到PATH中，这样就可以在shell任何位置运行：</p>
+
+<pre><code class="language-bash">cp -i pilosa-v1.1.0-darwin-amd64/pilosa /usr/local/bin
+</code></pre>
+
+<p>4、查看是否安装成功</p>
+
+<pre><code class="language-bash">pilosa
+</code></pre>
+
+<p>安装成功输出与上面brew安装的输出一样。</p>
+
+<h3 id="从源码构建">从源码构建</h3>
+
+<blockquote>
+<p>有关从源构建的高级说明，请查看我们的<a href="https://github.com/pilosa/pilosa/blob/master/CONTRIBUTING.md">贡献者指南</a>。</p>
+</blockquote>
+
+<p>1、安装依赖
+- <a href="https://golang.org/doc/install">Go</a>请按照<a href="https://golang.org/doc/code.html#GOPATH">说明</a>设置<code>$GOPATH</code>和<code>$PATH</code>环境变量
+- <a href="https://git-scm.com/">Git</a></p>
+
+<p>2、克隆仓库</p>
+
+<pre><code class="language-bash">mkdir -p ${GOPATH}/src/github.com/pilosa &amp;&amp; cd $_
+git clone https://github.com/pilosa/pilosa.git
+</code></pre>
+
+<p>3、构建Pilosa仓库</p>
+
+<pre><code class="language-bash">cd $GOPATH/src/github.com/pilosa/pilosa
+make install-build-deps
+make install
+</code></pre>
+
+<p>4、查看是否安装成功</p>
+
+<pre><code class="language-bash">pilosa
+</code></pre>
+
+<p>安装成功输出与上面brew安装的输出一样。</p>
+
+<h3 id="使用docker">使用Docker</h3>
+
+<p>1、安装Mac版Docker
+2、确认 Docker 守护进程正在后台运行</p>
+
+<pre><code class="language-bash">docker version
+</code></pre>
+
+<p>如果您看不到列出的服务器，请启动 Docker 应用程序。</p>
+
+<p>3、从 Docker Hub 中提取官方 Pilosa 镜像</p>
+
+<pre><code class="language-bash">docker pull pilosa/pilosa:latest
+</code></pre>
+
+<p>4、确保已成功安装 Pilosa</p>
+
+<pre><code class="language-bash">docker run --rm pilosa/pilosa:latest help
+</code></pre>
+
+<h2 id="安装在linux">安装在Linux</h2>
+
+<p>在 Linux 上安装 Pilosa 的三种方法：下载二进制（推荐）、从源构建或使用 Docker。</p>
+
+<h3 id="下载二进制文件-1">下载二进制文件</h3>
+
+<p>1、要安装最新版本的Pilosa，请下载最新版本</p>
+
+<pre><code class="language-bash">curl -L -O https://github.com/pilosa/pilosa/releases/download/v1.1.0/pilosa-v1.1.0-linux-amd64.tar.gz
+</code></pre>
+
+<p><strong>注意：</strong>这里假定您正在使用<code>amd64</code>兼容体系结构。其他版本可以从Github上<a href="https://github.com/pilosa/pilosa/releases">Release</a>页面下载。</p>
+
+<p>2、解压</p>
+
+<pre><code class="language-bash">tar xfz pilosa-v1.1.0-linux-amd64.tar.gz
+</code></pre>
+
+<p>3、将二进制程序拷贝到您的<code>PATH</code>路径中，以便您可以shell从任何位置运行<code>pilosa</code>：</p>
+
+<pre><code class="language-bash">cp -i pilosa-v1.1.0-linux-amd64/pilosa /usr/local/bin
+</code></pre>
+
+<p>4、确保已成功安装Pilosa</p>
+
+<pre><code class="language-bash">pilosa
+</code></pre>
+
+<p>如果您看的类似的输出，则表示安装成功：</p>
+
+<pre><code class="language-bash">Pilosa is a fast index to turbocharge your database.
+
+This binary contains Pilosa itself, as well as common
+tools for administering pilosa, importing/exporting data,
+backing up, and more. Complete documentation is available
+at https://www.pilosa.com/docs/.
+
+Version: v1.1.0
+Build Time: 2018-05-14T22:14:01+0000
+
+Usage:
+  pilosa [command]
+
+Available Commands:
+  check           Do a consistency check on a pilosa data file.
+  config          Print the current configuration.
+  export          Export data from pilosa.
+  generate-config Print the default configuration.
+  help            Help about any command
+  import          Bulk load data into pilosa.
+  inspect         Get stats on a pilosa data file.
+  server          Run Pilosa.
+
+Flags:
+  -c, --config string   Configuration file to read from.
+  -h, --help            help for pilosa
+
+Use &quot;pilosa [command] --help&quot; for more information about a command.
+</code></pre>
+
+<h3 id="从源码构建-1">从源码构建</h3>
+
+<blockquote>
+<p>有关从源构建的高级说明，请查看我们的<a href="https://github.com/pilosa/pilosa/blob/master/CONTRIBUTING.md">贡献者指南</a>。</p>
+</blockquote>
+
+<p>1、安装依赖
+- <a href="https://golang.org/doc/install">Go</a>请按照<a href="https://golang.org/doc/code.html#GOPATH">说明</a>设置<code>$GOPATH</code>和<code>$PATH</code>环境变量
+- <a href="https://git-scm.com/">Git</a></p>
+
+<p>2、克隆仓库</p>
+
+<pre><code class="language-bash">mkdir -p ${GOPATH}/src/github.com/pilosa &amp;&amp; cd $_
+git clone https://github.com/pilosa/pilosa.git
+</code></pre>
+
+<p>3、构建Pilosa仓库</p>
+
+<pre><code class="language-bash">cd $GOPATH/src/github.com/pilosa/pilosa
+make install-build-deps
+make install
+</code></pre>
+
+<p>4、查看是否安装成功</p>
+
+<pre><code class="language-bash">pilosa
+</code></pre>
+
+<p>安装成功输出与上面二进制安装的输出一样。</p>
+
+<h3 id="使用docker-1">使用Docker</h3>
+
+<p>1、安装Docker
+2、确认Docker 守护进程正在后台运行</p>
+
+<pre><code class="language-bash">docker version
+</code></pre>
+
+<p>如果您看不到列出的服务器，请启动 Docker 应用程序。</p>
+
+<p>3、从 Docker Hub 中提取官方 Pilosa 镜像</p>
+
+<pre><code class="language-bash">docker pull pilosa/pilosa:latest
+</code></pre>
+
+<p>4、确保已成功安装 Pilosa</p>
+
+<pre><code class="language-bash">docker run --rm pilosa/pilosa:latest help
+</code></pre>
+
+<h2 id="接下来是什么">接下来是什么?</h2>
+
+<p>请访问<a href="https://www.pilosa.com/docs/latest/getting-started/">入门指南</a>，创建您的第一个Pilosa索引(Index)。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

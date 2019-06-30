@@ -1,0 +1,237 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 30 GroupSock(Port)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>30 GroupSock(Port)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月08日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/08/4629190.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/08/4629190.html</a>
+<h2 id="30-groupsockportlive555">30 GroupSock(Port)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#30-groupsockportlive555">30 GroupSock(Port)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#port">Port类的定义</a></li>
+<li><a href="#port_1">Port的构造与全局的 &lt;&lt; 运算符重载</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>端口类是用于保存网络端口的，计算机网络端口一般有两种含义，分别是物理意义上的网络设备接口和逻辑意义上的端口。这里指的就是逻辑意义上的端口(特指<code>TCP/IP</code>协议中端口)，端口的范围是<code>0</code>到<code>65535</code>(u_int16_t的表示范围)。</p>
+<p><code>Port</code>类只有一个数据成员<code>portNumBits fPortNum</code>，用于保存端口值。保存的是以网络字节序表示的(网络字节序是大端序)。<br />
+字节序在这里稍微提一下。字节序分为<code>大端序</code>和<code>小端序</code>。拿这里来说，<code>fPortNum</code>是<code>16bits</code>的，其占了两个字节。假如它代表的内存区块是<code>0x1000</code>和<code>0x1001</code>这两个字节，其保存的内容是0x5678，那么是那个字节表示<code>0x56</code>那个字节是<code>0x78</code>呢？这就涉及到字节序的问题了。通常把低地址保存低位，高地址保存高位的叫做小端序。反之为大端序。</p>
+<table>
+<thead>
+<tr><th align="center">内存地址</th><th align="center">小端序表示0x5678</th><th align="center">大端序表示 0x5678</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">0x1001</td>
+<td align="center">0x56</td>
+<td align="center">0x78</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0x1000</td>
+<td align="center">0x78</td>
+<td align="center">0x56</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h2 id="port">Port类的定义<code class="cpp">
+</code></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">typedef u_int16_t portNumBits;
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Port {
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 4</span>     Port(portNumBits num <span style="color: #008000;">/<em></span><span style="color: #008000;"> in host byte order </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 5</span>
+<span style="color: #008080;"> 6</span>     portNumBits num() <span style="color: #0000ff;">const</span> <span style="color: #008000;">//</span><span style="color: #008000;"> in network byte order</span>
+<span style="color: #008080;"> 7</span> <span style="color: #000000;">    {
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> fPortNum;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">12</span>     portNumBits fPortNum; <span style="color: #008000;">//</span><span style="color: #008000;"> stored in network byte order</span>
+<span style="color: #008080;">13</span> <span style="color: #000000;">#ifdef IRIX
+</span><span style="color: #008080;">14</span>     portNumBits filler; <span style="color: #008000;">//</span><span style="color: #008000;"> hack to overcome a bug in IRIX C++ compiler</span>
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">16</span> };</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="port_1">Port的构造与全局的 <code>&lt;&lt;</code> 运算符重载</h2>
+<p>构造就是对其内部的<code>fPortNum</code>进行赋值，注意赋值的时候是转换为了网络字节序。<code>htons</code>函数是<code>host to network,return short</code>的意思，将参数<code>num</code>从主机序转换到网络序(可能有的主机序和网络序一致)。所有传参的时候传正常使用的就是了，别传已经转换为网络序的。<code class="cpp"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> Port::Port(portNumBits num <span style="color: #008000;">/<em></span><span style="color: #008000;"> in host byte order </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">2</span>     fPortNum =<span style="color: #000000;"> htons(num);
+</span><span style="color: #008080;">3</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p>重载全局的<code>&lt;&lt;</code>是为了使用<code>BasicUsageEnvironmen</code>t对象来输出端口值的。这里的函数<code>ntohs</code>是<code>htons</code>的反操作，其将网络字节序转为主机字节序。<code class="cpp"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> UsageEnvironment&amp; <span style="color: #0000ff;">operator</span>&lt;&lt;(UsageEnvironment&amp; s, <span style="color: #0000ff;">const</span> Port&amp;<span style="color: #000000;"> p) {
+</span><span style="color: #008080;">2</span>     <span style="color: #0000ff;">return</span> s &lt;&lt;<span style="color: #000000;"> ntohs(p.num());
+</span><span style="color: #008080;">3</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,209 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> proj.4 线程安全 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>proj.4 线程安全</h1>
+          <span class="post-date">2016年12月29日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/12/29/6232710.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/12/29/6232710.html</a></p>
+
+<h1 id="proj-4-线程安全">proj.4 线程安全</h1>
+
+<p>本文翻译自proj.4开发者文档
+原文链接 <a href="http://proj4.org/development/threads.html">http://proj4.org/development/threads.html</a></p>
+
+<h2 id="线程安全关键问题">线程安全关键问题</h2>
+
+<p>全局变量<code>pj_error</code>是在线程之间共享的，使得它基本上不可能安全的处理错误(译注:这个和C的errno不一样)。通过引进执行上下文<code>projCtx</code>来解决这个问题。</p>
+
+<p>原点平移使用的网格文件，需要使用到全局共享的网格信息载入列表。proj 4.7.0版本中引入<code>mutex(互斥锁)</code>来保护这些存储结构(参见pj_mutex.c)，在4.7.0及后续版本中对此访问是线程安全的。</p>
+
+<h2 id="projctx">projCtx</h2>
+
+<p>为了避免将<code>pr_errno</code>作为全局变量，4.8.0版本中将<code>thread context(线程上下文)</code>结构引入到<code>PROJ.4 API</code>中。<code>pj_init()</code>和<code>pj_init_plus()</code>函数现在具有需要线程上下文变量的版本<code>pj_init_ctx()</code>和<code>pj_init_plus_ctx()</code>，采用投影上下文(projections context)。</p>
+
+<p>可以使用<code>pj_ctx_alloc()</code>创建投影上下文(projections context)，当应用程序不提供投影上下文的时候，会使用全局默认上下文。有一系列<code>pj_ctx_...</code>的函数用于<code>创建</code>、<code>操作</code>、<code>查询</code>和<code>销毁</code>上下文。上下文现在还可用来处理设置调试模式，并保持用于文本错误和调试消息的错误报告功能。API如下所示：</p>
+
+<pre><code class="language-c">projPJ pj_init_ctx( projCtx, int, char ** );
+projPJ pj_init_plus_ctx( projCtx, const char * );
+
+projCtx pj_get_default_ctx(void);
+projCtx pj_get_ctx( projPJ );
+void pj_set_ctx( projPJ, projCtx );
+projCtx pj_ctx_alloc(void);
+void    pj_ctx_free( projCtx );
+int pj_ctx_get_errno( projCtx );
+void pj_ctx_set_errno( projCtx, int );
+void pj_ctx_set_debug( projCtx, int );
+void pj_ctx_set_logger( projCtx, void (*)(void *, int, const char *) );
+void pj_ctx_set_app_data( projCtx, void * );
+void *pj_ctx_get_app_data( projCtx );
+</code></pre>
+
+<p>在多线程程序中应当使用<code>pj_ctx_alloc()</code>为每个线程创建<code>projCtx</code>。如果需要，上下文错误处理程序也许可以修改应用数据，但至少每个上下文都有一个内部错误值，使用<code>pj_ctx_get_errno()</code>访问，而不是查看<code>pj_errno</code>。</p>
+
+<p>注意，<code>pj_errno</code>依然存在，并且它由<code>pj_ctx_set_errno()</code>设置(以及设置上下文特定的错误数)，但<code>pj_errno</code>仍然受到线程之间的全局共享问题的困扰，不应该被多线程应用程序使用。</p>
+
+<p><strong>注意</strong> <code>pj_init_ctx()</code>和<code>pj_init_plus_ctx</code>会将<code>projCtx</code>分配给创建的<code>projPJ</code>对象。像是<code>pj_transform()</code>,<code>pj_fwd()</code>和<code>pj_inv()</code>等函数会对使用上下文的<code>projPJ</code>进行错误报告(会将错误信息报告到上下文)。</p>
+
+<h2 id="src-multistresstest-c">src/multistresstest.c</h2>
+
+<p>已经编写了一个小的多线程测试程序(<code>src/multistresstest.c</code>)用于测试PROJ.4的多线程使用。它执行一系列重投影来设置预期结果表，然后在多个线程中执行它们多次来确认结果是否一致。这个程序不会在构建proj4的时候构建，在类linux上可以使用如下命令构建：</p>
+
+<pre><code class="language-shell">gcc -g multistresstest.c .libs/libproj.so -lpthread -o multistresstest
+./multistresstest
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

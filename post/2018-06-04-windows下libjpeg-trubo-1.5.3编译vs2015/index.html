@@ -1,0 +1,196 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Windows下libjpeg-trubo-1.5.3编译（VS2015） &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Windows下libjpeg-trubo-1.5.3编译（VS2015）</h1>
+          <span class="post-date">2018年06月04日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/06/04/9132665.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/06/04/9132665.html</a></p>
+
+<h1 id="简述">简述</h1>
+
+<p><a href="https://libjpeg-turbo.org/">https://libjpeg-turbo.org/</a>的网站上是有已经编译好的版本下载的，但是VC下是使用的VC10.0编译的。虽然在VC14.0下也能用，但是我还是需要编译一个VC14.0版本的。</p>
+
+<h1 id="准备工作">准备工作</h1>
+
+<p>先去下载源码包<a href="https://jaist.dl.sourceforge.net/project/libjpeg-turbo/1.5.3/libjpeg-turbo-1.5.3.tar.gz">https://jaist.dl.sourceforge.net/project/libjpeg-turbo/1.5.3/libjpeg-turbo-1.5.3.tar.gz</a>
+然后需要安装一下NASM汇编工具，这个可以在<a href="https://www.nasm.us/">https://www.nasm.us/</a>网站找到。
+<a href="https://www.nasm.us/pub/nasm/releasebuilds/2.13.03/win32/nasm-2.13.03-installer-x86.exe">nasm-2.13.03-installer-x86.exe</a>
+<a href="https://www.nasm.us/pub/nasm/releasebuilds/2.13.03/win64/nasm-2.13.03-installer-x64.exe">nasm-2.13.03-installer-x64.exe</a></p>
+
+<h1 id="使用cmake生成vs工程">使用cmake生成VS工程</h1>
+
+<p>我使用的CMake命令如下：
+<strong>32位</strong></p>
+
+<pre><code>cmake -DCMAKE_CONFIGURATION_TYPES:STRING=&quot;Release&quot; -DCMAKE_LINKER:FILEPATH=&quot;C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/link.exe&quot; -DNASM:FILEPATH=&quot;C:/Program Files (x86)/NASM/nasm.exe&quot; -DCMAKE_C_FLAGS:STRING=&quot;/DWIN32 /D_WINDOWS /W3&quot; -DCMAKE_INSTALL_PREFIX:PATH=&quot;Z:/compiler/out/libjpeg-turbo&quot;  .
+</code></pre>
+
+<p><strong>64位</strong></p>
+
+<pre><code>cmake -DCMAKE_CONFIGURATION_TYPES:STRING=&quot;Release&quot; -DCMAKE_LINKER:FILEPATH=&quot;C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/x86_amd64/link.exe&quot; -DNASM:FILEPATH=&quot;C:/Program Files/NASM/nasm.exe&quot; -DCMAKE_C_FLAGS:STRING=&quot;/DWIN32 /D_WINDOWS /W3&quot; -DCMAKE_INSTALL_PREFIX:PATH=&quot;Z:/compiler/out/libjpeg-turbo64&quot; -DCMAKE_MODULE_LINKER_FLAGS_DEBUG:STRING=&quot;/debug /INCREMENTAL&quot; .
+</code></pre>
+
+<p>生成后直接VS打开编译或者进入工程目录使用下面命令进行编译</p>
+
+<pre><code>msbuild libjpeg-trurbo.sln
+</code></pre>
+
+<h1 id="编译好的文件">编译好的文件</h1>
+
+<p>64位版本 <a href="https://files.cnblogs.com/files/oloroso/libjpeg-turbo_v140x86.7z">libjpeg-turbo_v140x86.7z</a>
+32位版本 <a href="https://files.cnblogs.com/files/oloroso/libjpeg-turbo_v140x64.7z">libjpeg-turbo_v140x64.7z</a></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

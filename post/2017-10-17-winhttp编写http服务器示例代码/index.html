@@ -1,0 +1,910 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> WinHttp编写HTTP服务器示例代码 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>WinHttp编写HTTP服务器示例代码</h1>
+          <span class="post-date">2017年10月17日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/10/17/7684672.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/10/17/7684672.html</a>
+这是微软提供的示例程序，原文地址在此<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/aa364640(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/aa364640(v=vs.85).aspx</a></p>
+
+<h1 id="http-server示例程序">HTTP Server示例程序</h1>
+
+<p>以下示例应用程序展示如何使用<code>HTTP Server API</code>处理HTTP请求任务。第一个示例中包含的<code>precomp.h</code>文件包含示例所需的所有头文件，如下：</p>
+
+<pre><code class="language-c++">#ifndef UNICODE
+#define UNICODE
+#endif
+
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0600
+#endif
+
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+
+#include &lt;windows.h&gt;
+#include &lt;http.h&gt;
+#include &lt;stdio.h&gt;
+
+#pragma comment(lib, &quot;httpapi.lib&quot;)
+</code></pre>
+
+<h2 id="main-and-preliminaries-main和准备工作">Main and Preliminaries(main和准备工作)</h2>
+
+<pre><code class="language-c++">#include &quot;precomp.h&quot;
+
+//
+// Macros.初始化HTTP响应体宏
+//
+#define INITIALIZE_HTTP_RESPONSE( resp, status, reason )    \
+    do                                                      \
+    {                                                       \
+        RtlZeroMemory( (resp), sizeof(*(resp)) );           \
+        (resp)-&gt;StatusCode = (status);                      \
+        (resp)-&gt;pReason = (reason);                         \
+        (resp)-&gt;ReasonLength = (USHORT) strlen(reason);     \
+    } while (FALSE)
+
+#define ADD_KNOWN_HEADER(Response, HeaderId, RawValue)               \
+    do                                                               \
+    {                                                                \
+        (Response).Headers.KnownHeaders[(HeaderId)].pRawValue =      \
+                                                          (RawValue);\
+        (Response).Headers.KnownHeaders[(HeaderId)].RawValueLength = \
+            (USHORT) strlen(RawValue);                               \
+    } while(FALSE)
+
+#define ALLOC_MEM(cb) HeapAlloc(GetProcessHeap(), 0, (cb))
+
+#define FREE_MEM(ptr) HeapFree(GetProcessHeap(), 0, (ptr))
+
+//
+// Prototypes.原型
+//
+DWORD DoReceiveRequests(HANDLE hReqQueue);
+
+DWORD
+SendHttpResponse(
+    IN HANDLE        hReqQueue,
+    IN PHTTP_REQUEST pRequest,
+    IN USHORT        StatusCode,
+    IN PSTR          pReason,
+    IN PSTR          pEntity
+    );
+
+DWORD
+SendHttpPostResponse(
+    IN HANDLE        hReqQueue,
+    IN PHTTP_REQUEST pRequest
+    );
+
+
+/*******************************************************************++
+
+函数说明:
+    main函数
+
+参数:
+    argc - 命令行参数个数.
+    argv - 命令行参数.
+
+返回值:
+    Success/Failure
+
+--*******************************************************************/
+int __cdecl wmain(
+        int argc, 
+        wchar_t * argv[]
+        )
+{
+    ULONG           retCode;
+    HANDLE          hReqQueue      = NULL;
+    int             UrlAdded       = 0;
+    HTTPAPI_VERSION HttpApiVersion = HTTPAPI_VERSION_1;
+    
+    if (argc &lt; 2)
+    {
+        wprintf(L&quot;%ws: &lt;Url1&gt; [Url2] ... \n&quot;, argv[0]);
+        return -1;
+    }
+</code></pre>
+
+<h2 id="初始化http-service">初始化HTTP Service</h2>
+
+<pre><code class="language-c++">    //
+    // 初始化HTTP Server APIs
+    //
+    retCode = HttpInitialize( 
+                HttpApiVersion,
+                HTTP_INITIALIZE_SERVER,    // Flags
+                NULL                       // Reserved
+                );
+
+    if (retCode != NO_ERROR)
+    {
+        wprintf(L&quot;HttpInitialize failed with %lu \n&quot;, retCode);
+        return retCode;
+    }
+
+    //
+    // 创建请求队列句柄
+    //
+    retCode = HttpCreateHttpHandle(
+                &amp;hReqQueue,        // Req Queue
+                0                  // Reserved
+                );
+
+    if (retCode != NO_ERROR)
+    {    
+        wprintf(L&quot;HttpCreateHttpHandle failed with %lu \n&quot;, retCode);
+        goto CleanUp;
+    }
+</code></pre>
+
+<h2 id="注册urls进行监听">注册URLs进行监听</h2>
+
+<pre><code class="language-c++">    //
+    // 命令行参数指定要监听的URI。为每个URI调用HttpAddUrl。
+    //
+    // URI是一个完全合格的URI，必须包含终止字符(/)
+    //
+    for (int i = 1; i &lt; argc; i++)
+    {
+        wprintf(L&quot;listening for requests on the following url: %s\n&quot;, argv[i]);
+
+        retCode = HttpAddUrl(
+                    hReqQueue,    // Req Queue
+                    argv[i],      // Fully qualified URL
+                    NULL          // Reserved
+                    );
+
+        if (retCode != NO_ERROR)
+        {
+            wprintf(L&quot;HttpAddUrl failed with %lu \n&quot;, retCode);
+            goto CleanUp;
+        }
+        else
+        {
+            //
+            // Track the currently added URLs.
+            //
+            UrlAdded ++;
+        }
+    }
+</code></pre>
+
+<h2 id="调用程序以接收请求">调用程序以接收请求</h2>
+
+<pre><code class="language-c++">    DoReceiveRequests(hReqQueue);
+</code></pre>
+
+<h2 id="清理http-server-api">清理HTTP Server API</h2>
+
+<pre><code class="language-c++">CleanUp:
+
+    //
+    // 对所有添加的URI调用HttpRemoveUrl.
+    //
+    for(int i=1; i&lt;=UrlAdded; i++)
+    {
+        HttpRemoveUrl(
+              hReqQueue,     // Req Queue
+              argv[i]        // Fully qualified URL
+              );
+    }
+
+    //
+    // 关闭请求队列句柄.
+    //
+    if(hReqQueue)
+    {
+        CloseHandle(hReqQueue);
+    }
+
+    // 
+    // 调用HttpTerminate.
+    //
+    HttpTerminate(HTTP_INITIALIZE_SERVER, NULL);
+
+    return retCode;
+</code></pre>
+
+<h2 id="接收请求">接收请求</h2>
+
+<pre><code class="language-c++">/*******************************************************************++
+
+函数说明:
+    他的功能是接收一个请求。
+	该函数调用相应的函数来处理响应。
+
+参数:
+    hReqQueue - 请求队列句柄
+
+返回值:
+    Success/Failure.
+
+--*******************************************************************/
+DWORD DoReceiveRequests(
+    IN HANDLE hReqQueue
+    )
+{
+    ULONG              result;
+    HTTP_REQUEST_ID    requestId;
+    DWORD              bytesRead;
+    PHTTP_REQUEST      pRequest;
+    PCHAR              pRequestBuffer;
+    ULONG              RequestBufferLength;
+
+    //
+    // 分配一个2 KB缓冲区。 这个大小应该适用于大多数请求。 如果需要，
+	// 可以增加缓冲区大小。HTTP_REQUEST结构也需要空间。
+    //
+    RequestBufferLength = sizeof(HTTP_REQUEST) + 2048;
+    pRequestBuffer      = (PCHAR) ALLOC_MEM( RequestBufferLength );
+
+    if (pRequestBuffer == NULL)
+    {
+        return ERROR_NOT_ENOUGH_MEMORY;
+    }
+
+    pRequest = (PHTTP_REQUEST)pRequestBuffer;
+
+    //
+    // 等待一个新请求. 标记为一个NULL请求ID
+    //
+
+    HTTP_SET_NULL_ID( &amp;requestId );
+
+    for(;;)
+    {
+        RtlZeroMemory(pRequest, RequestBufferLength);
+
+        result = HttpReceiveHttpRequest(
+                    hReqQueue,          // Req Queue
+                    requestId,          // Req ID
+                    0,                  // Flags
+                    pRequest,           // HTTP request buffer
+                    RequestBufferLength,// req buffer length
+                    &amp;bytesRead,         // bytes received
+                    NULL                // LPOVERLAPPED
+                    );
+</code></pre>
+
+<h2 id="处理http请求">处理HTTP请求</h2>
+
+<pre><code class="language-c++">        if(NO_ERROR == result)
+        {
+            //
+            // Worked! 
+            // 
+            switch(pRequest-&gt;Verb)
+            {
+			    /* GET 请求处理 */
+                case HttpVerbGET:
+                    wprintf(L&quot;Got a GET request for %ws \n&quot;, 
+                            pRequest-&gt;CookedUrl.pFullUrl);
+
+                    result = SendHttpResponse(
+                                hReqQueue, 
+                                pRequest, 
+                                200,
+                                &quot;OK&quot;,
+                                &quot;Hey! You hit the server \r\n&quot;
+                                );
+                    break;
+
+			    /* POST 请求处理 */
+                case HttpVerbPOST:
+
+                    wprintf(L&quot;Got a POST request for %ws \n&quot;, 
+                            pRequest-&gt;CookedUrl.pFullUrl);
+
+                    result= SendHttpPostResponse(hReqQueue, pRequest);
+                    break;
+
+                default:
+                    wprintf(L&quot;Got a unknown request for %ws \n&quot;, 
+                            pRequest-&gt;CookedUrl.pFullUrl);
+
+                    result = SendHttpResponse(
+                                hReqQueue, 
+                                pRequest,
+                                503,
+                                &quot;Not Implemented&quot;,
+                                NULL
+                                );
+                    break;
+            }
+
+            if(result != NO_ERROR)
+            {
+                break;
+            }
+
+            //
+            // 重置请求ID用于处理下一个请求.
+            //
+            HTTP_SET_NULL_ID( &amp;requestId );
+        }
+        else if(result == ERROR_MORE_DATA)
+        {
+            //
+            // 输入缓冲区太小，无法容纳请求标头。增加缓冲区大小，再次调用API。
+            //
+            // 再次调用API时，通过传递RequestID来处理失败的请求。
+            //
+            // 该RequestID从旧缓冲区读取。
+            //
+            requestId = pRequest-&gt;RequestId;
+
+            //
+            // 释放旧的缓冲区并分配一个新的缓冲区。
+            //
+            RequestBufferLength = bytesRead;
+            FREE_MEM( pRequestBuffer );
+            pRequestBuffer = (PCHAR) ALLOC_MEM( RequestBufferLength );
+
+            if (pRequestBuffer == NULL)
+            {
+                result = ERROR_NOT_ENOUGH_MEMORY;
+                break;
+            }
+
+            pRequest = (PHTTP_REQUEST)pRequestBuffer;
+
+        }
+        else if(ERROR_CONNECTION_INVALID == result &amp;&amp; 
+                !HTTP_IS_NULL_ID(&amp;requestId))
+        {
+            // 当尝试使用更多缓冲区来处理请求时,TCP连接被对方破坏
+            // 继续下一个请求。
+            
+            HTTP_SET_NULL_ID( &amp;requestId );
+        }
+        else
+        {
+            break;
+        }
+
+    }
+
+    if(pRequestBuffer)
+    {
+        FREE_MEM( pRequestBuffer );
+    }
+
+    return result;
+}
+</code></pre>
+
+<h2 id="发送一个http响应">发送一个HTTP响应</h2>
+
+<pre><code class="language-c++">/*******************************************************************++
+
+函数说明:
+    这个函数用于发送一个HTTP响应
+
+参数:
+    hReqQueue     - 请求队列句柄
+    pRequest      - 解析出的HTTP请求
+    StatusCode    - Response状态码
+    pReason       - Response原因短语
+    pEntityString - Response实体主体
+
+返回值:
+    Success/Failure.
+--*******************************************************************/
+
+DWORD SendHttpResponse(
+    IN HANDLE        hReqQueue,
+    IN PHTTP_REQUEST pRequest,
+    IN USHORT        StatusCode,
+    IN PSTR          pReason,
+    IN PSTR          pEntityString
+    )
+{
+    HTTP_RESPONSE   response;
+    HTTP_DATA_CHUNK dataChunk;
+    DWORD           result;
+    DWORD           bytesSent;
+
+    //
+    // 初始化HTTP response结构体
+    //
+    INITIALIZE_HTTP_RESPONSE(&amp;response, StatusCode, pReason);
+
+    //
+    // 添加一个known header.
+    //
+    ADD_KNOWN_HEADER(response, HttpHeaderContentType, &quot;text/html&quot;);
+   
+    if(pEntityString)
+    {
+        // 
+        // 添加一个entity chunk.
+        //
+        dataChunk.DataChunkType           = HttpDataChunkFromMemory;
+        dataChunk.FromMemory.pBuffer      = pEntityString;
+        dataChunk.FromMemory.BufferLength = 
+                                       (ULONG) strlen(pEntityString);
+
+        response.EntityChunkCount         = 1;
+        response.pEntityChunks            = &amp;dataChunk;
+    }
+
+    // 
+    // 因为entity body在一个调用中发送，所以不需要指定Content-Length。
+    //
+    
+    result = HttpSendHttpResponse(
+                    hReqQueue,           // ReqQueueHandle
+                    pRequest-&gt;RequestId, // Request ID
+                    0,                   // Flags
+                    &amp;response,           // HTTP response
+                    NULL,                // pReserved1
+                    &amp;bytesSent,          // bytes sent  (OPTIONAL)
+                    NULL,                // pReserved2  (must be NULL)
+                    0,                   // Reserved3   (must be 0)
+                    NULL,                // LPOVERLAPPED(OPTIONAL)
+                    NULL                 // pReserved4  (must be NULL)
+                    ); 
+
+    if(result != NO_ERROR)
+    {
+        wprintf(L&quot;HttpSendHttpResponse failed with %lu \n&quot;, result);
+    }
+
+    return result;
+}
+</code></pre>
+
+<h2 id="发送一个http-post响应">发送一个HTTP POST响应</h2>
+
+<pre><code class="language-c++">#define MAX_ULONG_STR ((ULONG) sizeof(&quot;4294967295&quot;))
+
+/*******************************************************************++
+
+函数说明:
+    这个函数在读取entity body后发送HTTP响应
+
+参数:
+    hReqQueue     - 请求队列句柄
+    pRequest      - 解析出的HTTP request.
+
+返回值:
+    Success/Failure.
+--*******************************************************************/
+
+DWORD SendHttpPostResponse(
+    IN HANDLE        hReqQueue,
+    IN PHTTP_REQUEST pRequest
+    )
+{
+    HTTP_RESPONSE   response;
+    DWORD           result;
+    DWORD           bytesSent;
+    PUCHAR          pEntityBuffer;
+    ULONG           EntityBufferLength;
+    ULONG           BytesRead;
+    ULONG           TempFileBytesWritten;
+    HANDLE          hTempFile;
+    TCHAR           szTempName[MAX_PATH + 1];
+    CHAR            szContentLength[MAX_ULONG_STR];
+    HTTP_DATA_CHUNK dataChunk;
+    ULONG           TotalBytesRead = 0;
+
+    BytesRead  = 0;
+    hTempFile  = INVALID_HANDLE_VALUE;
+
+    //
+    // 为实体缓冲区分配空间。 缓冲区可按需增加。
+    //
+    EntityBufferLength = 2048;
+    pEntityBuffer      = (PUCHAR) ALLOC_MEM( EntityBufferLength );
+
+    if (pEntityBuffer == NULL)
+    {
+        result = ERROR_NOT_ENOUGH_MEMORY;
+        wprintf(L&quot;Insufficient resources \n&quot;);
+        goto Done;
+    }
+
+    //
+    // 初始化HTTP response结构体.
+    //
+    INITIALIZE_HTTP_RESPONSE(&amp;response, 200, &quot;OK&quot;);
+
+    //
+    // 对于POST，从客户端回显实体
+    //
+    // 注意: 如果HTTP_RECEIVE_REQUEST_FLAG_COPY_BODY标识通过HttpReceiveHttpRequest()
+	//       传递，则entity将是HTTP_REQUEST的一部分(使用pEntityChunks字段).因为此标识
+	//       未被传递，则entity不在HTTP_REQUEST中.
+    //
+   
+    if(pRequest-&gt;Flags &amp; HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS)
+    {
+        // 实体主体通过多个调用发送. 收集这些在一个文件并回发.创建一个临时文件
+        //
+
+        if(GetTempFileName(
+                L&quot;.&quot;, 
+                L&quot;New&quot;, 
+                0, 
+                szTempName
+                ) == 0)
+        {
+            result = GetLastError();
+            wprintf(L&quot;GetTempFileName failed with %lu \n&quot;, result);
+            goto Done;
+        }
+
+        hTempFile = CreateFile(
+                        szTempName,
+                        GENERIC_READ | GENERIC_WRITE, 
+                        0,                  // Do not share.
+                        NULL,               // No security descriptor.
+                        CREATE_ALWAYS,      // Overrwrite existing.
+                        FILE_ATTRIBUTE_NORMAL,    // Normal file.
+                        NULL
+                        );
+
+        if(hTempFile == INVALID_HANDLE_VALUE)
+        {
+            result = GetLastError();
+            wprintf(L&quot;Cannot create temporary file. Error %lu \n&quot;,
+                     result);
+            goto Done;
+        }
+
+        do
+        {
+            //
+            // 从请求中读取entity chunk.
+            //
+            BytesRead = 0; 
+            result = HttpReceiveRequestEntityBody(
+                        hReqQueue,
+                        pRequest-&gt;RequestId,
+                        0,
+                        pEntityBuffer,
+                        EntityBufferLength,
+                        &amp;BytesRead,
+                        NULL 
+                        );
+
+            switch(result)
+            {
+                case NO_ERROR:
+
+                    if(BytesRead != 0)
+                    {
+                        TotalBytesRead += BytesRead;
+                        WriteFile(
+                                hTempFile, 
+                                pEntityBuffer, 
+                                BytesRead,
+                                &amp;TempFileBytesWritten,
+                                NULL
+                                );
+                    }
+                    break;
+
+                case ERROR_HANDLE_EOF:
+
+                    //
+                    // The last request entity body has been read.
+                    // Send back a response. 
+                    //
+                    // To illustrate entity sends via 
+                    // HttpSendResponseEntityBody, the response will 
+                    // be sent over multiple calls. To do this,
+                    // pass the HTTP_SEND_RESPONSE_FLAG_MORE_DATA
+                    // flag.
+                    
+                    if(BytesRead != 0)
+                    {
+                        TotalBytesRead += BytesRead;
+                        WriteFile(
+                                hTempFile, 
+                                pEntityBuffer, 
+                                BytesRead,
+                                &amp;TempFileBytesWritten,
+                                NULL
+                                );
+                    }
+
+                    //
+                    // Because the response is sent over multiple
+                    // API calls, add a content-length.
+                    //
+                    // Alternatively, the response could have been
+                    // sent using chunked transfer encoding, by  
+                    // passimg &quot;Transfer-Encoding: Chunked&quot;.
+                    //
+
+                    // NOTE: Because the TotalBytesread in a ULONG
+                    //       are accumulated, this will not work
+                    //       for entity bodies larger than 4 GB. 
+                    //       For support of large entity bodies,
+                    //       use a ULONGLONG.
+                    // 
+
+                  
+                    sprintf_s(szContentLength, MAX_ULONG_STR, &quot;%lu&quot;, TotalBytesRead);
+
+                    ADD_KNOWN_HEADER(
+                            response, 
+                            HttpHeaderContentLength, 
+                            szContentLength
+                            );
+
+                    result = 
+                        HttpSendHttpResponse(
+                               hReqQueue,           // ReqQueueHandle
+                               pRequest-&gt;RequestId, // Request ID
+                               HTTP_SEND_RESPONSE_FLAG_MORE_DATA,
+                               &amp;response,       // HTTP response
+                               NULL,            // pReserved1
+                               &amp;bytesSent,      // bytes sent-optional
+                               NULL,            // pReserved2
+                               0,               // Reserved3
+                               NULL,            // LPOVERLAPPED
+                               NULL             // pReserved4
+                               );
+
+                    if(result != NO_ERROR)
+                    {
+                        wprintf(
+                           L&quot;HttpSendHttpResponse failed with %lu \n&quot;, 
+                           result
+                           );
+                        goto Done;
+                    }
+
+                    //
+                    // Send entity body from a file handle.
+                    //
+                    dataChunk.DataChunkType = 
+                        HttpDataChunkFromFileHandle;
+
+                    dataChunk.FromFileHandle.
+                        ByteRange.StartingOffset.QuadPart = 0;
+
+                    dataChunk.FromFileHandle.
+                        ByteRange.Length.QuadPart = 
+                                          HTTP_BYTE_RANGE_TO_EOF;
+
+                    dataChunk.FromFileHandle.FileHandle = hTempFile;
+
+                    result = HttpSendResponseEntityBody(
+                                hReqQueue,
+                                pRequest-&gt;RequestId,
+                                0,           // This is the last send.
+                                1,           // Entity Chunk Count.
+                                &amp;dataChunk,
+                                NULL,
+                                NULL,
+                                0,
+                                NULL,
+                                NULL
+                                );
+
+                    if(result != NO_ERROR)
+                    {
+                       wprintf(
+                          L&quot;HttpSendResponseEntityBody failed %lu\n&quot;, 
+                          result
+                          );
+                    }
+
+                    goto Done;
+
+                    break;
+                       
+
+                default:
+                  wprintf( 
+                   L&quot;HttpReceiveRequestEntityBody failed with %lu \n&quot;, 
+                   result);
+                  goto Done;
+            }
+
+        } while(TRUE);
+    }
+    else
+    {
+        // 此请求没有实体主体。
+        //
+        
+        result = HttpSendHttpResponse(
+                   hReqQueue,           // ReqQueueHandle
+                   pRequest-&gt;RequestId, // Request ID
+                   0,
+                   &amp;response,           // HTTP response
+                   NULL,                // pReserved1
+                   &amp;bytesSent,          // bytes sent (optional)
+                   NULL,                // pReserved2
+                   0,                   // Reserved3
+                   NULL,                // LPOVERLAPPED
+                   NULL                 // pReserved4
+                   );
+        if(result != NO_ERROR)
+        {
+            wprintf(L&quot;HttpSendHttpResponse failed with %lu \n&quot;,
+                    result);
+        }
+    }
+
+Done:
+
+    if(pEntityBuffer)
+    {
+        FREE_MEM(pEntityBuffer);
+    }
+
+    if(INVALID_HANDLE_VALUE != hTempFile)
+    {
+        CloseHandle(hTempFile);
+        DeleteFile(szTempName);
+    }
+
+    return result;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

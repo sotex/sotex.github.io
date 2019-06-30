@@ -1,0 +1,760 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp子代理(SubAgent)编写详述 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp子代理(SubAgent)编写详述</h1>
+          <span class="post-date">2015年08月06日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/06/4708581.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/06/4708581.html</a>
+<h1 id="net-snmpsubagent">net-snmp子代理(SubAgent)编写</h1>
+<div class="toc">
+<ul>
+<li><a href="#net-snmpsubagent">net-snmp子代理(SubAgent)编写</a>
+<ul>
+<li><a href="#netsnmp_node_handler">Netsnmp_Node_Handler</a></li>
+<li><a href="#miboid">MIB/OID定义</a></li>
+<li><a href="#1testh">1、头文件test.h的编写</a></li>
+<li><a href="#2testc">2、test.c的编写</a>
+<ul>
+<li><a href="#init_test">init_test函数编写</a></li>
+<li><a href="#handle_readobject">handle_readObject函数实现(只读节点)</a></li>
+<li><a href="#handle_writeobject">handle_writeObject函数实现(读写节点)</a></li>
+</ul>
+</li>
+<li><a href="#3main">3、main函数的编写</a>
+<ul>
+<li><a href="#mainc">main.c完整代码</a></li>
+</ul>
+</li>
+<li><a href="#4makefile">4、写一个简单的makefile</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>可以使用<code>mib2c</code>生成子代理的代码来编写子代理程序，但是这个方式并不利于我们来学习这个开发过程。</p>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="netsnmp_node_handler">Netsnmp_Node_Handler</h2>
+<p>先来看一个类型定义</p>
+<p>在<code>net-snmp</code>源码目录<code>include/net-snmp/agent/</code>下的<code>agent_handler.h</code>文件中有如下定义：<code class="c"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> typedef <span style="color: #0000ff;">int</span> (Netsnmp_Node_Handler) (netsnmp_mib_handler <em><span style="color: #000000;">handler,
+</span><span style="color: #008080;">2</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">* pointer to registration struct </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">3</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">* 指针，指向注册结构体 </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">4</span>     netsnmp_handler_registration <em><span style="color: #000000;">reginfo,
+</span><span style="color: #008080;">5</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">* pointer to current transaction </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">6</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">* 指针，指向当前处理信息 </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">7</span>     netsnmp_agent_request_info *<span style="color: #000000;">reqinfo,
+</span><span style="color: #008080;">8</span>     netsnmp_request_info <em>requests);</pre>
+</div>
+<p>这个类型就是一个函数指针，它是用来声明<code>OID</code>对应的<code>handler</code>函数的。</p>
+<h2 id="miboid">MIB/OID定义</h2>
+<p>先假设我们的<code>MIB</code>定义为以下形式</p>
+<p>可以看这里面的<a title="http://www.cnblogs.com/oloroso/p/4599501.html" href="http://www.cnblogs.com/oloroso/p/4599501.html" target="_blank"><a href="http://www.cnblogs.com/oloroso/p/4599501.html">http://www.cnblogs.com/oloroso/p/4599501.html</a></a></p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201508/061725099403288.jpg" alt="" /><br /><code class="bash"></code></p>
+<div class="cnblogs_code">
+<pre>+&ndash;test(<span style="color: #800080;">77587</span><span style="color: #000000;">)
+   </span>|
+   +&ndash; -R&ndash; Integer32 readObject(<span style="color: #800080;">1</span><span style="color: #000000;">)
+   </span>+&ndash; -RW- OctStr    writeObject(<span style="color: #800080;">2</span>)</pre>
+</div>
+<p>&nbsp;</p>
+<p>这只是举个例子，这个<code>test</code>节点下面有两个节点，分别是只读的<code>readObject</code>和读写的<code>writeObject</code>。我们要实现的就是这个两个节点的<code>agent</code>程序。</p>
+<h2 id="1testh">1、头文件<code>test.h</code>的编写</h2>
+<p>先写头文件，这是比较机械的过程。</p>
+<p>具体过程是：</p>
+<ul>
+<li>1、声明<code>init_xxx</code>函数(初始化)</li>
+<li>2、声明<code>handle_xxx</code>函数(处理请求)</li>
+</ul>
+<p><code>test.h</code>源代码如下:<code class="c"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">#ifndef <strong>TEST_H</strong>
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">#define</span> <strong>TEST_H</strong>
+<span style="color: #008080;"> 3</span>
+<span style="color: #008080;"> 4</span> <span style="color: #008000;">//</span><span style="color: #008000;">1、声明init函数</span>
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">void</span> init_test(<span style="color: #0000ff;">void</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span> <span style="color: #008000;">//</span><span style="color: #008000;">2、声明两个OID对应的handler函数</span>
+<span style="color: #008080;"> 7</span> <span style="color: #000000;">Netsnmp_Node_Handler handle_readObject;
+</span><span style="color: #008080;"> 8</span> <span style="color: #000000;">Netsnmp_Node_Handler handle_writeObject;
+</span><span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span> <span style="color: #0000ff;">#endif</span> <span style="color: #008000;">//</span><span style="color: #008000;">!<strong>TEST_H</strong></span></pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="2testc">2、<code>test.c</code>的编写</h2>
+<p><code>test.c</code>的编写是为了实现<code>test.h</code>中定义的三个函数。</p>
+<h3 id="init_test">init_test函数编写</h3>
+<p><code>init_test</code>函数主要用来<code>注册</code>相关<code>OID</code>的处理程序。这个函数将在main函数中被调用。<code class="c"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">void</span>
+<span style="color: #008080;"> 2</span> init_test(<span style="color: #0000ff;">void</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 4</span>     <span style="color: #008000;">//</span><span style="color: #008000;">oid可能是unsigned char类型，也可能是unsigned long类型
+</span><span style="color: #008080;"> 5</span>     <span style="color: #008000;">//</span><span style="color: #008000;">具体是那种类型，由宏定义EIGHBIT_SUBIDS控制
+</span><span style="color: #008080;"> 6</span>     <span style="color: #008000;">//</span><span style="color: #008000;">具体可见include/net-snmp/library目录下的oid.h文件</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">const</span> oid readObject_oid[] = { <span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,<span style="color: #800080;">6</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">4</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">77587</span>,<span style="color: #800080;">1</span><span style="color: #000000;"> };
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">const</span> oid writeObject_oid[] = { <span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,<span style="color: #800080;">6</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">4</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">77587</span>,<span style="color: #800080;">2</span><span style="color: #000000;"> };
+</span><span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span>     <span style="color: #008000;">//</span><span style="color: #008000;">这是debug消息输出的，具体可以看net-snmp源码目录下
+</span><span style="color: #008080;">11</span>     <span style="color: #008000;">//</span><span style="color: #008000;">的include/net-snmp/library/目录下的snmp_debug.h和
+</span><span style="color: #008080;">12</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> include/net-snmp/目录下的output_api.h文件</span>
+<span style="color: #008080;">13</span>     DEBUGMSGTL((<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Initializing\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">));
+</span><span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span>     <span style="color: #008000;">//</span><span style="color: #008000;">注册readObject节点的处理程序</span>
+<span style="color: #008080;">16</span> <span style="color: #000000;">    netsnmp_register_scalar(
+</span><span style="color: #008080;">17</span> <span style="color: #000000;">        netsnmp_create_handler_registration(
+</span><span style="color: #008080;">18</span>             <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span>,           <span style="color: #008000;">/</em></span><span style="color: #008000;">节点名</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">19</span>             handle_readObject,      <span style="color: #008000;">/</em></span><span style="color: #008000;">处理函数</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">20</span>             readObject_oid,     <span style="color: #008000;">/</em></span><span style="color: #008000;">oid字符串</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">21</span>             OID_LENGTH(readObject_oid), <span style="color: #008000;">/</em></span><span style="color: #008000;">节点长度</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">22</span>             HANDLER_CAN_RONLY   <span style="color: #008000;">/</em></span><span style="color: #008000;">读写权限-只读</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">23</span> <span style="color: #000000;">        ));
+</span><span style="color: #008080;">24</span>     <span style="color: #008000;">//</span><span style="color: #008000;">注册writeObject节点的处理程序</span>
+<span style="color: #008080;">25</span> <span style="color: #000000;">    netsnmp_register_scalar(
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">        netsnmp_create_handler_registration(
+</span><span style="color: #008080;">27</span>             <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">            handle_writeObject,
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">            writeObject_oid,
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">            OID_LENGTH(writeObject_oid),
+</span><span style="color: #008080;">31</span>             HANDLER_CAN_RWRITE  <span style="color: #008000;">/</em></span><span style="color: #008000;">读写权限</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">32</span> <span style="color: #000000;">    ));
+</span><span style="color: #008080;">33</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="handle_readobject">handle_readObject函数实现(只读节点)</h3>
+<p>对于只读节点，处理是比较简单。只需要从<code>reqinfo</code>参数中获取请求的类型，然后对<code>MODE_GET</code>类型的请求进行处理，将对应类型的值传出去即可。<code class="c"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> handle_readObject(
+        netsnmp_mib_handler </span></em><span style="color: #000000;">handler,
+        netsnmp_handler_registration </span><em><span style="color: #000000;">reginfo,
+        netsnmp_agent_request_info   </span></em><span style="color: #000000;">reqinfo,
+        netsnmp_request_info         </span>*<span style="color: #000000;">requests)
+{
+    </span><span style="color: #0000ff;">int</span> value = <span style="color: #800080;">1234</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">switch</span>(reqinfo-&gt;<span style="color: #000000;">mode) {</p>
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; MODE_GET:  &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;读取值模式&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+    &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这里将值传给snmpd,再由它组成snmp协议包发送出去&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    snmp_set_var_typed_value(
+    requests&lt;/span&gt;-&amp;gt;requestvb,&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;vb=&amp;gt;var bind变量绑定&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    ASN_INTEGER,    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;值类型&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+    &amp;amp;value,         &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;传出去的值&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;sizeof&lt;/span&gt;(value)   &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;传出去值的字节数&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    );
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;如果进入了这里，表明发生了非常严重的错误&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    snmp_log(LOG_ERR,   &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;日志类型&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+         &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;unknown mode (%d) in handle_readObject\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
+         reqinfo&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;mode );
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SNMP_ERR_GENERR;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; SNMP_ERR_NOERROR; &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;正常返回&lt;/span&gt;
+</code></pre>
+
+<p>}</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="handle_writeobject">handle_writeObject函数实现(读写节点)</h3>
+<p>读写节点的读取部分就不说了，这里只说说<code>set</code>操作的部分。<br />
+<code>set</code>操作主要是从<code>requests-&gt;requestvb-&gt;val</code>获取传过来的数据，关于<code>requests-&gt;requestvb-&gt;val</code>，这是一个<code>union netsnmp_vardata</code>类型。传过来值的长度可以从<code>requests-&gt;requestvb-&gt;val_len</code>中获取。<code class="c">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">typedef union {
+</span><span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">long</span>            *<span style="color: #000000;">integer;
+</span><span style="color: #008080;"> 3</span>     u_char          *<span style="color: #0000ff;">string</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 4</span>     oid             *<span style="color: #000000;">objid;
+</span><span style="color: #008080;"> 5</span>     u_char          *<span style="color: #000000;">bitstring;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">struct</span> counter64    *<span style="color: #000000;">counter64;
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">#ifdef NETSNMP_WITH_OPAQUE_SPECIAL_TYPES
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">float</span>       *<span style="color: #000000;">floatVal;
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">double</span>      *<span style="color: #000000;">doubleVal;
+</span><span style="color: #008080;">10</span> <span style="color: #0000ff;">#endif</span>  /*NETSNMP_WITH_OPAQUE_SPECIAL_TYPES <em>/
+<span style="color: #008080;">11</span> } netsnmp_vardata;</pre>
+</div>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre>typedef <span style="color: #0000ff;">struct</span><span style="color: #000000;"> variable_list {
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* NULL for last variable </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">struct</span> variable_list <em><span style="color: #000000;">next_variable;<br />
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* Object identifier of variable </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    oid            </span></em><span style="color: #000000;">name;<br />
+    </span><span style="color: #008000;">/<em></span><span style="color: #008000;"></em> number of subid&rsquo;s in name </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    size_t          name_length;<br />
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* ASN type of variable </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    u_char          type;<br />
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* value of variable </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    netsnmp_vardata val;
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* the length of the value to be copied into buf </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    size_t          val_len;
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* buffer to hold the OID </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    oid             name_loc[MAX_OID_LEN];<br />
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* 90 percentile &lt; 40. </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">
+    u_char          buf[</span><span style="color: #800080;">40</span><span style="color: #000000;">];
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* (Opaque) hook for additional data </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">void</span>           <em><span style="color: #000000;">data;
+    </span><span style="color: #008000;">/</em></span><span style="color: #008000;">* callback to free above </span><span style="color: #008000;">*/</span>
+    <span style="color: #0000ff;">void</span>            (*dataFreeHook)(<span style="color: #0000ff;">void</span> *<span style="color: #000000;">);<br />
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;">             index;
+} netsnmp_variable_list;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>具体内容可见net-snmp源码目录下的<code>include/net-snmp/agent/</code>目录下的<code>snmp_agent.h</code>文件和<code>include/net-snmp/</code>目录下的<code>types.h</code>文件。</p>
+<p>在<code>include/net-snmp/library</code>目录下的<code>snmp.h</code>文件中定义了大量的宏，包括一些错误处理的。</p>
+<p>关于<code>reqinfo-&gt;mode</code>中的几个<code>SET</code>相关的模式，在net-snmp源代码目录下<code>agent/mibgroup/agentx/</code>目录下的<code>subagent.c</code>文件中可以看到对其的处理。</p>
+<p>具体大致是这样的，如果<code>reqinfo-&gt;mode</code>的模式是<code>RESERVE1</code>或者<code>RESERVE2</code>模式，那么在这两个操作失败的时候就会将其修改为<code>FREE</code>模式并再调用函数。如果是<code>ACTION</code>模式，则失败时修改为<code>UNDO</code>模式并再调用函数。<br />
+一次普通的<code>snmpset</code>操作，会导致这个函数调用多次。一般的顺序是:</p>
+<ol>
+<li>第一此调用的的时候<code>reqinfo-&gt;mode</code>为<code>MODE_SET_RESERVE1</code></li>
+<li>第二次为<code>MODE_SET_RESERVE2</code><br />
+    如果前两个有一个失败了，那么将变为<code>MODE_SET_FREE</code>模式，并不再继续下面的调用。</li>
+<li>第三次为<code>MODE_SET_ACTION</code><br />
+    如果失败，将变为<code>MODE_SET_UNDO</code>模式。</li>
+<li>第四次为<code>MODE_SET_COMMIT</code></li></p>
+
+<p></ol>
+<p>上述过程中的出错，主要是指调用了<code>netsnmp_set_request_error</code>函数，并且该函数的最后一个参数不是<code>SNMP_ERR_NOERROR</code>(实际测试，值为<code>SNMP_ERR_COMMITFAILED</code>程序也是正常的，不会进入出错处理)<code class="c">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> handle_writeObject(
+</span><span style="color: #008080;"> 2</span>         netsnmp_mib_handler *<span style="color: #000000;">handler,
+</span><span style="color: #008080;"> 3</span>         netsnmp_handler_registration *<span style="color: #000000;">reginfo,
+</span><span style="color: #008080;"> 4</span>         netsnmp_agent_request_info   *<span style="color: #000000;">reqinfo,
+</span><span style="color: #008080;"> 5</span>         netsnmp_request_info         <em><span style="color: #000000;">requests)
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">用来接收set请求过来的值，当前给了一个初始值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">char</span> buf[<span style="color: #800080;">1024</span>] = <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">switch</span>(reqinfo-&gt;<span style="color: #000000;">mode) {
+</span><span style="color: #008080;">12</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">Get请求处理</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">13</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_GET:
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">        snmp_set_var_typed_value(
+</span><span style="color: #008080;">15</span>             requests-&gt;<span style="color: #000000;">requestvb,
+</span><span style="color: #008080;">16</span>             ASN_OCTET_STR,  <span style="color: #008000;">/</em></span><span style="color: #008000;">OctStr类型</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">17</span>             buf,            <span style="color: #008000;">/</em></span><span style="color: #008000;">传出数据</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">            strlen(buf));
+</span><span style="color: #008080;">19</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">20</span>
+<span style="color: #008080;">21</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;"> SET REQUEST 下面都是Set请求相关的模式 </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">22</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_RESERVE1:
+</span><span style="color: #008080;">23</span>             <span style="color: #008000;">//</span><span style="color: #008000;">检查变量绑定类型</span>
+<span style="color: #008080;">24</span>             ret =<span style="color: #000000;"> netsnmp_check_vb_type(
+</span><span style="color: #008080;">25</span>                         requests-&gt;<span style="color: #000000;">requestvb,
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">                        ASN_OCTET_STR);
+</span><span style="color: #008080;">27</span>             <span style="color: #008000;">//</span><span style="color: #008000;">出错处理</span>
+<span style="color: #008080;">28</span>             <span style="color: #0000ff;">if</span> ( ret !=<span style="color: #000000;"> SNMP_ERR_NOERROR ) {
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">                netsnmp_set_request_error(reqinfo,
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">                                requests, ret );
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">32</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">33</span>
+<span style="color: #008080;">34</span>         <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_RESERVE2:
+</span><span style="color: #008080;">35</span>             <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">                netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">37</span> <span style="color: #000000;">                        SNMP_ERR_RESOURCEUNAVAILABLE);
+</span><span style="color: #008080;">38</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">39</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">40</span>
+<span style="color: #008080;">41</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_FREE:
+</span><span style="color: #008080;">42</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">释放在RESERVE1或RESERVE2下分配的资源</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">43</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">或者在某些地方出错的情况</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">44</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">45</span>
+<span style="color: #008080;">46</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_ACTION:
+</span><span style="color: #008080;">47</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">在这里执行对set请求处理的操作，来获取传过来的值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">48</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">直接将requests-&gt;requestvb-&gt;val中的数据拷贝到buf</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">49</span>         <span style="color: #0000ff;">if</span>(requests-&gt;requestvb-&gt;val_len &gt; <span style="color: #800080;">1023</span><span style="color: #000000;">){
+</span><span style="color: #008080;">50</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">太长了，不要</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">51</span>             ret = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">52</span>         }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(requests-&gt;requestvb-&gt;val.string ==<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;">53</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">val指向NULL也不能要</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">54</span>             ret = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">55</span>         }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">56</span>             ret = requests-&gt;requestvb-&gt;<span style="color: #000000;">val_len;
+</span><span style="color: #008080;">57</span>             memcpy(buf,requests-&gt;requestvb-&gt;<span style="color: #000000;">val.string,ret);
+</span><span style="color: #008080;">58</span>             buf[ret] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">59</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">60</span>         <span style="color: #0000ff;">if</span> ( ret == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">61</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">set 请求出错</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">62</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">63</span>                      SNMP_ERR_BADVALUE);<span style="color: #008000;">/</em></span><span style="color: #008000;">坏值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">64</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">65</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">66</span>
+<span style="color: #008080;">67</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_COMMIT:
+</span><span style="color: #008080;">68</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">这里用于删除临时存储数据</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">69</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #008000;">/</em></span><span style="color: #008000;"> XXX: error? </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">70</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">71</span> <span style="color: #000000;">                    SNMP_ERR_COMMITFAILED);
+</span><span style="color: #008080;">72</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">73</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">74</span>
+<span style="color: #008080;">75</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_UNDO:
+</span><span style="color: #008080;">76</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">撤消并返回到对象以前的值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">77</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #008000;">/</em></span><span style="color: #008000;"> XXX: error? </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">78</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">79</span> <span style="color: #000000;">                    SNMP_ERR_UNDOFAILED);
+</span><span style="color: #008080;">80</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">81</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">82</span>
+<span style="color: #008080;">83</span>     <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;">84</span> <span style="color: #000000;">        snmp_log(LOG_ERR,
+</span><span style="color: #008080;">85</span>                 <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">unknown mode (%d) in handle_writeObject\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">86</span>                 reqinfo-&gt;<span style="color: #000000;">mode );
+</span><span style="color: #008080;">87</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> SNMP_ERR_GENERR;
+</span><span style="color: #008080;">88</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">89</span>
+<span style="color: #008080;">90</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> SNMP_ERR_NOERROR;
+</span><span style="color: #008080;">91</span> }</pre>
+</div>
+<p>完整的代码如下</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('028317af-4456-461a-89d2-3e753e058383')"><img id="code_img_closed_028317af-4456-461a-89d2-3e753e058383" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_028317af-4456-461a-89d2-3e753e058383" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('028317af-4456-461a-89d2-3e753e058383',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_028317af-4456-461a-89d2-3e753e058383" class="cnblogs_code_hide">
+<pre><span style="color: #008080;">  1</span> <span style="color: #008000;">/</em></span>
+<span style="color: #008080;">  2</span> <span style="color: #008000;"> * Note: this file originally auto-generated by mib2c using
+</span><span style="color: #008080;">  3</span> <span style="color: #008000;"> *        $
+</span><span style="color: #008080;">  4</span>  <span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">  5</span>
+<span style="color: #008080;">  6</span> #include &lt;net-snmp/net-snmp-config.h&gt;
+<span style="color: #008080;">  7</span> #include &lt;net-snmp/net-snmp-includes.h&gt;
+<span style="color: #008080;">  8</span> #include &lt;net-snmp/agent/net-snmp-agent-includes.h&gt;
+<span style="color: #008080;">  9</span> #include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #008080;"> 10</span>
+<span style="color: #008080;"> 11</span> <span style="color: #008000;">/</em></span><span style="color: #008000;">* Initializes the test module </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;"> 12</span> <span style="color: #0000ff;">void</span>
+<span style="color: #008080;"> 13</span> init_test(<span style="color: #0000ff;">void</span><span style="color: #000000;">)
+</span><span style="color: #008080;"> 14</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 15</span>     <span style="color: #0000ff;">const</span> oid readObject_oid[] = { <span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,<span style="color: #800080;">6</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">4</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">77587</span>,<span style="color: #800080;">1</span><span style="color: #000000;"> };
+</span><span style="color: #008080;"> 16</span>     <span style="color: #0000ff;">const</span> oid writeObject_oid[] = { <span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,<span style="color: #800080;">6</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">4</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">77587</span>,<span style="color: #800080;">2</span><span style="color: #000000;"> };
+</span><span style="color: #008080;"> 17</span>
+<span style="color: #008080;"> 18</span>   DEBUGMSGTL((<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Initializing\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">));
+</span><span style="color: #008080;"> 19</span>
+<span style="color: #008080;"> 20</span> <span style="color: #000000;">    netsnmp_register_scalar(
+</span><span style="color: #008080;"> 21</span>         netsnmp_create_handler_registration(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, handle_readObject,
+</span><span style="color: #008080;"> 22</span> <span style="color: #000000;">                               readObject_oid, OID_LENGTH(readObject_oid),
+</span><span style="color: #008080;"> 23</span> <span style="color: #000000;">                               HANDLER_CAN_RONLY
+</span><span style="color: #008080;"> 24</span> <span style="color: #000000;">        ));
+</span><span style="color: #008080;"> 25</span> <span style="color: #000000;">    netsnmp_register_scalar(
+</span><span style="color: #008080;"> 26</span>         netsnmp_create_handler_registration(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, handle_writeObject,
+</span><span style="color: #008080;"> 27</span> <span style="color: #000000;">                               writeObject_oid, OID_LENGTH(writeObject_oid),
+</span><span style="color: #008080;"> 28</span> <span style="color: #000000;">                               HANDLER_CAN_RWRITE
+</span><span style="color: #008080;"> 29</span> <span style="color: #000000;">        ));
+</span><span style="color: #008080;"> 30</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 31</span>
+<span style="color: #008080;"> 32</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;"> 33</span> handle_readObject(netsnmp_mib_handler *<span style="color: #000000;">handler,
+</span><span style="color: #008080;"> 34</span>                           netsnmp_handler_registration *<span style="color: #000000;">reginfo,
+</span><span style="color: #008080;"> 35</span>                           netsnmp_agent_request_info   *<span style="color: #000000;">reqinfo,
+</span><span style="color: #008080;"> 36</span>                           netsnmp_request_info         <em><span style="color: #000000;">requests)
+</span><span style="color: #008080;"> 37</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 38</span>     <span style="color: #0000ff;">int</span> value = <span style="color: #800080;">1234</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 39</span>     <span style="color: #0000ff;">switch</span>(reqinfo-&gt;<span style="color: #000000;">mode) {
+</span><span style="color: #008080;"> 40</span>
+<span style="color: #008080;"> 41</span>     <span style="color: #0000ff;">case</span> MODE_GET:  <span style="color: #008000;">/</em></span><span style="color: #008000;">读取值模式</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 42</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">这里将值传给snmpd,再由它组成snmp协议包发送出去</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 43</span> <span style="color: #000000;">        snmp_set_var_typed_value(
+</span><span style="color: #008080;"> 44</span>         requests-&gt;requestvb,<span style="color: #008000;">/</em></span><span style="color: #008000;">vb=&gt;var bind变量绑定</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 45</span>         ASN_INTEGER,    <span style="color: #008000;">/</em></span><span style="color: #008000;">值类型</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 46</span>         &amp;value,         <span style="color: #008000;">/</em></span><span style="color: #008000;">传出去的值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 47</span>         <span style="color: #0000ff;">sizeof</span>(value)   <span style="color: #008000;">/</em></span><span style="color: #008000;">传出去值的字节数</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 48</span> <span style="color: #000000;">        );
+</span><span style="color: #008080;"> 49</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 50</span>     <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 51</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">如果进入了这里，表明发生了非常严重的错误</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 52</span>         snmp_log(LOG_ERR,   <span style="color: #008000;">/</em></span><span style="color: #008000;">日志类型</span><span style="color: #008000;">*/</span>
+<span style="color: #008080;"> 53</span>              <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">unknown mode (%d) in handle_readObject\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;"> 54</span>              reqinfo-&gt;<span style="color: #000000;">mode );
+</span><span style="color: #008080;"> 55</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> SNMP_ERR_GENERR;
+</span><span style="color: #008080;"> 56</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 57</span>
+<span style="color: #008080;"> 58</span>     <span style="color: #0000ff;">return</span> SNMP_ERR_NOERROR; <span style="color: #008000;">//</span><span style="color: #008000;">正常返回</span>
+<span style="color: #008080;"> 59</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 60</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> handle_writeObject(
+</span><span style="color: #008080;"> 61</span>         netsnmp_mib_handler *<span style="color: #000000;">handler,
+</span><span style="color: #008080;"> 62</span>         netsnmp_handler_registration *<span style="color: #000000;">reginfo,
+</span><span style="color: #008080;"> 63</span>         netsnmp_agent_request_info   *<span style="color: #000000;">reqinfo,
+</span><span style="color: #008080;"> 64</span>         netsnmp_request_info         <em><span style="color: #000000;">requests)
+</span><span style="color: #008080;"> 65</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 66</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 67</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">用来接收set请求过来的值，当前给了一个初始值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 68</span>     <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">char</span> buf[<span style="color: #800080;">1024</span>] = <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 69</span>
+<span style="color: #008080;"> 70</span>     <span style="color: #0000ff;">switch</span>(reqinfo-&gt;<span style="color: #000000;">mode) {
+</span><span style="color: #008080;"> 71</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;">Get请求处理</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 72</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_GET:
+</span><span style="color: #008080;"> 73</span> <span style="color: #000000;">        snmp_set_var_typed_value(
+</span><span style="color: #008080;"> 74</span>             requests-&gt;<span style="color: #000000;">requestvb,
+</span><span style="color: #008080;"> 75</span>             ASN_OCTET_STR,  <span style="color: #008000;">/</em></span><span style="color: #008000;">OctStr类型</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 76</span>             buf,            <span style="color: #008000;">/</em></span><span style="color: #008000;">传出数据</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 77</span> <span style="color: #000000;">            strlen(buf));
+</span><span style="color: #008080;"> 78</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 79</span>
+<span style="color: #008080;"> 80</span>     <span style="color: #008000;">/</em></span><span style="color: #008000;"> SET REQUEST 下面都是Set请求相关的模式 </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;"> 81</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_RESERVE1:
+</span><span style="color: #008080;"> 82</span>             <span style="color: #008000;">//</span><span style="color: #008000;">检查变量绑定类型</span>
+<span style="color: #008080;"> 83</span>             ret =<span style="color: #000000;"> netsnmp_check_vb_type(
+</span><span style="color: #008080;"> 84</span>                         requests-&gt;<span style="color: #000000;">requestvb,
+</span><span style="color: #008080;"> 85</span> <span style="color: #000000;">                        ASN_OCTET_STR);
+</span><span style="color: #008080;"> 86</span>             <span style="color: #008000;">//</span><span style="color: #008000;">出错处理</span>
+<span style="color: #008080;"> 87</span>             <span style="color: #0000ff;">if</span> ( ret !=<span style="color: #000000;"> SNMP_ERR_NOERROR ) {
+</span><span style="color: #008080;"> 88</span> <span style="color: #000000;">                netsnmp_set_request_error(reqinfo,
+</span><span style="color: #008080;"> 89</span> <span style="color: #000000;">                                requests, ret );
+</span><span style="color: #008080;"> 90</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;"> 91</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 92</span>
+<span style="color: #008080;"> 93</span>         <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_RESERVE2:
+</span><span style="color: #008080;"> 94</span>             <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 95</span> <span style="color: #000000;">                netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;"> 96</span> <span style="color: #000000;">                        SNMP_ERR_RESOURCEUNAVAILABLE);
+</span><span style="color: #008080;"> 97</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;"> 98</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 99</span>
+<span style="color: #008080;">100</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_FREE:
+</span><span style="color: #008080;">101</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">释放在RESERVE1或RESERVE2下分配的资源</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">102</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">或者在某些地方出错的情况</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">103</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">104</span>
+<span style="color: #008080;">105</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_ACTION:
+</span><span style="color: #008080;">106</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">在这里执行对set请求处理的操作，来获取传过来的值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">107</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">直接将requests-&gt;requestvb-&gt;val中的数据拷贝到buf</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">108</span>         <span style="color: #0000ff;">if</span>(requests-&gt;requestvb-&gt;val_len &gt; <span style="color: #800080;">1023</span><span style="color: #000000;">){
+</span><span style="color: #008080;">109</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">太长了，不要</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">110</span>             ret = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">111</span>         }<span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(requests-&gt;requestvb-&gt;val ==<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;">112</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">val指向NULL也不能要</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">113</span>             ret = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">114</span>         }<span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">115</span>             ret = requests-&gt;requestvb-&gt;<span style="color: #000000;">val_len;
+</span><span style="color: #008080;">116</span>             memncpy(buf,requests-&gt;requestvb-&gt;<span style="color: #000000;">val,ret);
+</span><span style="color: #008080;">117</span>             buf[ret] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">118</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">119</span>         <span style="color: #0000ff;">if</span> ( ret == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">120</span>             <span style="color: #008000;">/</em></span><span style="color: #008000;">set 请求出错</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">121</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">122</span>                      SNMP_ERR_BADVALUE);<span style="color: #008000;">/</em></span><span style="color: #008000;">坏值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">123</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">124</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">125</span>
+<span style="color: #008080;">126</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_COMMIT:
+</span><span style="color: #008080;">127</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">这里用于删除临时存储数据</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">128</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #008000;">/</em></span><span style="color: #008000;"> XXX: error? </span><span style="color: #008000;"><em>/</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">129</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">130</span> <span style="color: #000000;">                    SNMP_ERR_COMMITFAILED);
+</span><span style="color: #008080;">131</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">132</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">133</span>
+<span style="color: #008080;">134</span>     <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_UNDO:
+</span><span style="color: #008080;">135</span>         <span style="color: #008000;">/</em></span><span style="color: #008000;">撤消并返回到对象以前的值</span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">136</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span><span style="color: #008000;">/</em></span><span style="color: #008000;"> XXX: error? </span><span style="color: #008000;">*/</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">137</span> <span style="color: #000000;">            netsnmp_set_request_error(reqinfo, requests,
+</span><span style="color: #008080;">138</span> <span style="color: #000000;">                    SNMP_ERR_UNDOFAILED);
+</span><span style="color: #008080;">139</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">140</span>         <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">141</span>
+<span style="color: #008080;">142</span>     <span style="color: #0000ff;">default</span><span style="color: #000000;">:
+</span><span style="color: #008080;">143</span> <span style="color: #000000;">        snmp_log(LOG_ERR,
+</span><span style="color: #008080;">144</span>                 <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">unknown mode (%d) in handle_writeObject\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">145</span>                 reqinfo-&gt;<span style="color: #000000;">mode );
+</span><span style="color: #008080;">146</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> SNMP_ERR_GENERR;
+</span><span style="color: #008080;">147</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">148</span>
+<span style="color: #008080;">149</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> SNMP_ERR_NOERROR;
+</span><span style="color: #008080;">150</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">test.c</span></div>
+<p>&nbsp;</p>
+<h2 id="3main">3、main函数的编写</h2>
+<p>写完上面两个文件，其实就可以使用<code>net-snmp-conf</code>工具来生成带有<code>main</code>函数的文件了，但是这里不说这种方式。</p>
+<p>简述一下这个<code>main</code>函数的流程，当然，这只是最基本的，还可以添加一些自己需要的。</p>
+<ol>
+<li>声明本程序是一个子代理<code>SubAgent</code><br />
+    调用函数<code>netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID, NETSNMP_DS_AGENT_ROLE, 1);</code>来实现。</li>
+<li>如果有必要，先初始化<code>socket</code>函数库，这是在windows下需要的。<br />
+<code>SOCK_STARTUP;</code></li>
+<li>初始化net-snmp的<code>agent</code>库<br />
+<code>init_agent(app_name);</code>//app_name是一个字符串，通常使用程序的名称。你可以自定义一个名称。这个是用于给<code>snmpd</code>进程作为标识子代理程序使用的。如果没有这个操作，<code>snmpd</code>进程将不知道子代理程序的存在。</li>
+<li>初始化我们自己的<code>mib</code>代码<br />
+    这个就简单了，就是调用我们前面写的<code>init_test()</code>函数即可</li>
+<li>调用<code>init_snmp(&ldquo;test&rdquo;)</code>函数<br />
+    这个函数声明在<code>include/net-snmp/library/snmp_api.h</code>文件中，定义在<code>snmplib/snmp_api.c</code>中。<br />
+    如果没有调用这个函数，<code>snmpd</code>将不知道这个子代理的存在。<br />
+    这里有一个注释<code>test will be used to read test.conf files.</code>测试将用于读取<code>test.conf</code>文件。但是其实质的意思我也不知道。这个函数的参数，也可以自定义填写，貌似也会正常运行。</li>
+<li>无限循环，等待处理请求<br />
+    使用<code>while(1){agent_check_and_process(1);}</code>来处理请求</li>
+<li>告知<code>snmpd</code>，子代理结束了<br />
+    这里是告知<code>snmpd</code>，本程序将退出了。调用函数<code>snmp_shutdown(app_name);</code>来操作。<br />
+    这里还要说明一点，通常这个程序还应该捕捉三个信号，来进行退出前的处理。一个是<code>SIGTREM</code>，kill默认。第二个是<code>SIGINT</code>，这个不用说了，软中断信号，结束代理。第三个是<code>SIGHUP</code>信号，这个也是一样，防止退出终端时调用其默认处理(退出进程)。<br />
+    如果进程捕捉到了前两个个信号，则认为<code>snmpd</code>结束了，那么就可以退出了。如果是后一个，那么可以按需处理。</li>
+<li>程序结束前的清理工作<br />
+    先调用<code>shutdown_agent();</code>来结束<code>agent</code>库使用。<br />
+    再调用<code>SOCK_CLEANUP;</code>来清理<code>Socket</code>库调用。</li></p>
+
+<p></ol>
+<h4 id="mainc">main.c完整代码<code class="c">
+</code></h4>
+<div class="cnblogs_code" onclick="cnblogs_code_show('640d6a1c-d2ce-46ce-966b-3b0329d7cb92')"><img id="code_img_closed_640d6a1c-d2ce-46ce-966b-3b0329d7cb92" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_640d6a1c-d2ce-46ce-966b-3b0329d7cb92" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('640d6a1c-d2ce-46ce-966b-3b0329d7cb92',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_640d6a1c-d2ce-46ce-966b-3b0329d7cb92" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> #include &lt;net-snmp/net-snmp-config.h&gt;
+<span style="color: #008080;"> 2</span> #include &lt;signal.h&gt;
+<span style="color: #008080;"> 3</span> #include &lt;net-snmp/net-snmp-includes.h&gt;
+<span style="color: #008080;"> 4</span> #include &lt;net-snmp/agent/net-snmp-agent-includes.h&gt;
+<span style="color: #008080;"> 5</span> #include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #008080;"> 6</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *app_name = <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> reconfig = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> netsnmp_running;
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span> <span style="color: #000000;">#ifdef <strong>GNUC</strong>
+</span><span style="color: #008080;">12</span> <span style="color: #0000ff;">#define</span> UNUSED <strong>attribute</strong>((unused))
+<span style="color: #008080;">13</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">#define</span> UNUSED
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">16</span>
+<span style="color: #008080;">17</span> <span style="color: #000000;">RETSIGTYPE
+</span><span style="color: #008080;">18</span> stop_server(UNUSED <span style="color: #0000ff;">int</span><span style="color: #000000;"> a) {
+</span><span style="color: #008080;">19</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">捕捉到信号 SIGTERM/SIGINT</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">20</span>     netsnmp_running = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">22</span>
+<span style="color: #008080;">23</span> <span style="color: #000000;">#ifdef SIGHUP
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">RETSIGTYPE
+</span><span style="color: #008080;">25</span> hup_handler(<span style="color: #0000ff;">int</span><span style="color: #000000;"> sig)
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">27</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">捕捉到信号 SIGHUP</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">28</span>     reconfig = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">    signal(SIGHUP, hup_handler);
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">31</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">32</span>
+<span style="color: #008080;">33</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> reg_sig()
+</span><span style="color: #008080;">34</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">35</span> <span style="color: #000000;">#ifdef SIGTERM
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">    signal(SIGTERM, stop_server);
+</span><span style="color: #008080;">37</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">38</span> <span style="color: #000000;">#ifdef SIGINT
+</span><span style="color: #008080;">39</span> <span style="color: #000000;">    signal(SIGINT, stop_server);
+</span><span style="color: #008080;">40</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">41</span> <span style="color: #000000;">#ifdef SIGHUP
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">    signal(SIGHUP, hup_handler);
+</span><span style="color: #008080;">43</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">44</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">45</span>
+<span style="color: #008080;">46</span> <span style="color: #0000ff;">int</span>
+<span style="color: #008080;">47</span> main (<span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> *<em><span style="color: #000000;">argv)
+</span><span style="color: #008080;">48</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">49</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> arg;
+</span><span style="color: #008080;">50</span>     <span style="color: #0000ff;">char</span></em> cp =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">51</span>     <span style="color: #0000ff;">int</span> dont_fork = <span style="color: #800080;">0</span>, do_help = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">52</span>
+<span style="color: #008080;">53</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 1 we are a subagent</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">54</span> <span style="color: #000000;">    netsnmp_ds_set_boolean(NETSNMP_DS_APPLICATION_ID,
+</span><span style="color: #008080;">55</span>                 NETSNMP_DS_AGENT_ROLE, <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">56</span>
+<span style="color: #008080;">57</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">2 initialize tcpip, if necessary</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">58</span> <span style="color: #000000;">    SOCK_STARTUP;
+</span><span style="color: #008080;">59</span>
+<span style="color: #008080;">60</span>
+<span style="color: #008080;">61</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">3 initialize the agent library</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">62</span> <span style="color: #000000;">    init_agent(app_name);
+</span><span style="color: #008080;">63</span>
+<span style="color: #008080;">64</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">4 initialize your mib code here</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">65</span> <span style="color: #000000;">    init_test();
+</span><span style="color: #008080;">66</span>
+<span style="color: #008080;">67</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">5 test will be used to read test.conf files</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">68</span>     init_snmp(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">69</span>
+<span style="color: #008080;">70</span>
+<span style="color: #008080;">71</span>     <span style="color: #008000;">/<em></span><span style="color: #008000;"> In case we received a request to stop (kill -TERM or kill -INT) </span><span style="color: #008000;"></em>/</span>
+<span style="color: #008080;">72</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">设置信号捕捉函数(SIGINT/SIGTERM/SIGHUP)</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">73</span> <span style="color: #000000;">    reg_sig();
+</span><span style="color: #008080;">74</span>
+<span style="color: #008080;">75</span>     netsnmp_running = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">76</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">6 main loop here&hellip;</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">77</span>     <span style="color: #0000ff;">while</span><span style="color: #000000;">(netsnmp_running) {
+</span><span style="color: #008080;">78</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;"> (reconfig) {
+</span><span style="color: #008080;">79</span> <span style="color: #000000;">            free_config();
+</span><span style="color: #008080;">80</span> <span style="color: #000000;">            read_configs();
+</span><span style="color: #008080;">81</span>             reconfig = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">82</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">83</span>         agent_check_and_process(<span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">84</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">85</span>
+<span style="color: #008080;">86</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">7 at shutdown time</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">87</span> <span style="color: #000000;">    snmp_shutdown(app_name);
+</span><span style="color: #008080;">88</span>
+<span style="color: #008080;">89</span>     puts(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">8 shutdown the agent library</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">90</span> <span style="color: #000000;">    shutdown_agent();
+</span><span style="color: #008080;">91</span> <span style="color: #000000;">    SOCK_CLEANUP;
+</span><span style="color: #008080;">92</span>     exit(<span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">93</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">main.c</span></div>
+<p>&nbsp;</p>
+<h2 id="4makefile">4、写一个简单的makefile</h2>
+<p>注意，下面代码中的<code>INDIR</code>和<code>LIBSDIR</code>需要根据实际路径填写<code class="makefile"> </code></p>
+<div class="cnblogs_code">
+<pre>CFLAGS=-fno-strict-aliasing -g -O2 -Ulinux -Dlinux=linux  -D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fwrapv -fno-strict-aliasing -pipe -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=<span style="color: #800080;">64</span><span style="color: #000000;">
+INDIR</span>=-I/usr/local/include -I. -I/usr/local/net-snmp/include -I/usr/lib/x86_64-linux-gnu/<span style="color: #0000ff;">perl</span>/<span style="color: #800080;">5.20</span>/<span style="color: #000000;">CORE
+LIBSDIR</span>=-L/usr/local/net-snmp/<span style="color: #000000;">lib
+LIBS</span>=-lnetsnmpmibs -lnetsnmpagent -lnetsnmp -lnetsnmpmibs -ldl  -lnetsnmpagent  -Wl,-E -<span style="color: #000000;">lnetsnmp</p>
+
+<p>CC</span>=<span style="color: #0000ff;">gcc</span><span style="color: #000000;"></p>
+
+<p>test:main.c  test.c
+    ${CC} ${CFLAGS} ${INDIR} </span>-o $@ $^ ${LIBSDIR} ${LIBS}</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

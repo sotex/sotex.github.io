@@ -1,0 +1,233 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 31 GroupSock(AddressString)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>31 GroupSock(AddressString)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月08日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/08/4629193.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/08/4629193.html</a>
+<h2 id="31-groupsockaddressstringlive555">31 GroupSock(AddressString)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#31-groupsockaddressstringlive555">31 GroupSock(AddressString)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#addressstring">AddressString类定义</a></li>
+<li><a href="#addressstringinit">AddressString::init方法</a></li>
+<li><a href="#addressstring_1">AddressString构造与析构</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p><code>AddressString</code>类是用于以点分十进制的C风格字符串形式保存的<code>IP</code>地址，这是为了替换<code>&ldquo;inet_ntoa()&rdquo;</code>,因为它不是线程安全的。这里就不介绍什么是线程安全了，<code>inet_ntoa</code>内部存在静态变量，在不同的线程中调用可能会导致混乱。<br />
+<code>AddressString</code>类定义了一个数据成员<code>fVal</code>用于动态申请内存来保存数据，注意这个类目前只能用于<code>IPv4</code>的地址保存，对于<code>IPv6</code>还未做支持。</p>
+<h2 id="addressstring">AddressString类定义<code class="cpp">
+</code></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> A mechanism for displaying an IPv4 address in ASCII.  This is intended to replace &ldquo;inet_ntoa()&ldquo;, which is not thread-safe.
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 一种机制，用于ASCII码显示IPv4地址。这是为了替换&rdquo;inet_ntoa()&ldquo;,因为这是不是线程安全的。</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> AddressString {
+</span><span style="color: #008080;"> 4</span> <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 5</span>     AddressString(<span style="color: #0000ff;">struct</span> sockaddr_in <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> addr);
+</span><span style="color: #008080;"> 6</span>     AddressString(<span style="color: #0000ff;">struct</span> in_addr <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> addr);
+</span><span style="color: #008080;"> 7</span>     AddressString(netAddressBits addr); <span style="color: #008000;">//</span><span style="color: #008000;"> &ldquo;addr&rdquo; is assumed to be in host byte order here</span>
+<span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">AddressString();
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">char</span> <span style="color: #0000ff;">const</span>* val() <span style="color: #0000ff;">const</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> fVal; }
+</span><span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span> <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">14</span>     <span style="color: #0000ff;">void</span> init(netAddressBits addr); <span style="color: #008000;">//</span><span style="color: #008000;"> used to implement each of the constructors</span>
+<span style="color: #008080;">15</span>
+<span style="color: #008080;">16</span> <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">17</span>     <span style="color: #0000ff;">char</span>* fVal; <span style="color: #008000;">//</span><span style="color: #008000;"> The result ASCII string: allocated by the constructor; deleted by the destructor
+</span><span style="color: #008080;">18</span>     <span style="color: #008000;">//</span><span style="color: #008000;">其结果是ASCII码字符串：由构造函数分配;在析构函数中删除</span>
+<span style="color: #008080;">19</span> };</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="addressstringinit">AddressString::init方法</h2>
+<p><code>AddressString::init</code>方法是一个<code>private</code>权限方法，是用于实现构造对象的时候初始化的，其<code>只被构造函数</code>调用。<br />
+这里在<code>sprintf</code>之前调用<code>htonl</code>将地址转为网络字节序，是为了方便<code>sprintf</code>的操作。因为一块内存空间的首地址是低地址，网络字节序是大端序，低地址保存高位。这里确保我们有一个准确的字节序。</p>
+<pre><code class="cpp">void AddressString::init(netAddressBits addr) {
+    //针对的是IPv4类型，16byte足够,IPv6需要46Byte
+    fVal = new char[16]; // large enough for &ldquo;abc.def.ghi.jkl&rdquo;
+    //转为网络字节序
+    netAddressBits addrNBO = htonl(addr); // make sure we have a value in a known byte order: big endian
+    //转为点分十进制表示
+    sprintf(fVal, &ldquo;%u.%u.%u.%u&rdquo;, (addrNBO &gt;&gt; 24) &amp; 0xFF, (addrNBO &gt;&gt; 16) &amp; 0xFF, (addrNBO &gt;&gt; 8) &amp; 0xFF, addrNBO &amp; 0xFF);
+    }
+</code></pre>
+<h2 id="addressstring_1">AddressString构造与析构</h2>
+<p>构造没什么好说的，都是调用的<code>init</code>方法，只需要注意在<code>init</code>中为成员<code>fVal</code>申请了内存空间。</p>
+<pre><code class="cpp">AddressString::AddressString(struct sockaddr_in const&amp; addr) {
+    init(addr.sin_addr.s_addr);
+}
+</code></pre>
+<pre><code class="cpp">AddressString::AddressString(struct in_addr const&amp; addr) {
+    init(addr.s_addr);
+}
+</code></pre>
+<pre><code class="cpp">AddressString::AddressString(netAddressBits addr) {
+    init(addr);
+}
+</code></pre>
+<p>析构的时候<code>释放init方法中申请的内存</code>空间。</p>
+<pre><code class="cpp">AddressString::~AddressString() {
+    delete[] fVal;
+}
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

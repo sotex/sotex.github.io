@@ -1,0 +1,621 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 我的Vim配置(自动补全/树形文件浏览) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>我的Vim配置(自动补全/树形文件浏览)</h1>
+          <span class="post-date">2015年07月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/23/4670165.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/23/4670165.html</a>
+<h2>配置文件的下载路径在这里 &nbsp;<span class="cnblogs_code">http:<span style="color: #008000;">//</span><span style="color: #008000;">files.cnblogs.com/files/oloroso/vim.configure.xz.gz</span></span>&nbsp;</h2>
+<p>这实际上是一个&nbsp;<span class="cnblogs_code">xz</span> 格式的文件，添加的&nbsp;<span class="cnblogs_code">gz</span> 文件后缀是因为博客园上传文件的限制</p>
+<p>&nbsp;</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/231249507561195.png" alt="" /></p>
+<p>&nbsp;</p>
+<h2>.vimrc文件的内容如下</h2>
+<div class="cnblogs_code">
+<pre><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   基本显示设置   ==================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 行号与标尺</span>
+set ruler                   <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 右下角显示光标位置的状态行</span>
+set number                  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 显示行号</span>
+set cursorline              <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 突出显示当前行</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">设置行号的颜色和背景(这在设置了colorscheme可能会无效)</span>
+<span style="color: #0000ff;">if</span> has(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">gui_running</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">)
+    highlight LineNr guifg</span>=red        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> gui模式下字体颜色设置</span>
+    highlight LineNr guibg=white    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> gui模式下背景颜色设置</span>
+<span style="color: #0000ff;">else</span><span style="color: #000000;">
+    highlight LineNr ctermfg</span>=yellow    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 彩色终端下字体颜色设置</span>
+    highlight LineNr ctermbg=blue    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 彩色终端下背景颜色设置</span>
+<span style="color: #000000;">endif</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 制表符(设置所有的tab和缩进为4个空格)</span>
+set tabstop=<span style="color: #800080;">4</span>               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置tab键的宽度</span>
+set shiftwidth=<span style="color: #800080;">4</span>            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 换行时行间交错使用4个空格</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> set cindent shiftwidth=4   </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 自动缩进4空格
+set softtabstop</span>=<span style="color: #800080;">4</span>
+<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> set expandtab               </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 使用空格来替换tab
+set smarttab                </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 开启新行时使用智能 tab 缩进</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> set list                     </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 显示Tab符，
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> set listchars=tab:|\ ,      </span><span style="color: #800000;">&ldquo;</span> 使用一高亮竖线代替 把符号显示为 |
+<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> set listchars=tab:&gt;-,trail:-</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> set listchars=tab:|\ ,nbsp:%,trail:-</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> match LeaderTab /\t/        </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 匹配行首tab</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 缩进</span>
+set autoindent              <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置自动缩进(即每行的缩进值与上一行相等)</span>
+set smartindent             <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置智能缩进</span>
+<span style="color: #000000;">
+set cindent            </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 使用 C/C++ 语言的自动缩进方式</span>
+set cinoptions={<span style="color: #800080;">0</span>,1s,t0,n-<span style="color: #800080;">2</span>,p2s,(03s,=.5s,&gt;1s,=1s,:1s     <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">设置C/C++语言的具体缩进方式</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 行控制</span>
+set linebreak               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 英文单词在换行时不被截断</span>
+set nocompatible            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置不兼容VI</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set textwidth=80           </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 设置每行80个字符自动换行，加上换行符
+set wrap                   </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置自动折行</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set nowrap                    </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 设置不自动折行</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 命令行与状态行</span>
+set laststatus=<span style="color: #800080;">2</span>                          <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 开启状态栏信息</span>
+set cmdheight=<span style="color: #800080;">1</span>                           <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 命令行的高度，默认为1，这里设为2</span>
+set showcmd                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">状态栏显示当前输入命令</span>
+set showmode            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">命令行显示vim当前模式</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 状态行显示的内容 [包括系统平台、文件类型、坐标、所占比例、时间等]</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> set statusline=%{fugitive#statusline()}\ %F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %y%r%m%*%=\ %{strftime(\&ldquo;%d/%m/%y\ -\ %H:%M\&ldquo;)}</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> set statusline=%F%m%r%h%w\ [FORMAT=%{&amp;ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v]\ [%p%%]\ [LEN=%L]</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> line color</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> now set it up to change the status line based on mode</span>
+<span style="color: #0000ff;">if</span> version &gt;= <span style="color: #800080;">700</span><span style="color: #000000;">
+    au InsertEnter </span>* hi StatusLine term=reverse ctermbg=<span style="color: #800080;">5</span> gui=undercurl guisp=<span style="color: #000000;">Magenta
+    au InsertLeave </span>* hi StatusLine term=reverse ctermfg=<span style="color: #800080;">0</span> ctermbg=<span style="color: #800080;">2</span> gui=<span style="color: #000000;">bold,reverse
+endif</p>
+
+<p></span><span style="color: #0000ff;">function</span>!<span style="color: #000000;"> InsertStatuslineColor(mode)
+    </span><span style="color: #0000ff;">if</span> a:mode == <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">i</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">
+        hi statusline guibg</span>=<span style="color: #000000;">magenta
+    elseif a:mode </span>== <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">r</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">
+        hi statusline guibg</span>=<span style="color: #000000;">blue
+    </span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+        hi statusline guibg</span>=<span style="color: #000000;">red
+    endif
+endfunction</p>
+
+<p>au InsertEnter </span><em><span style="color: #000000;"> call InsertStatuslineColor(v:insertmode)
+au InsertChange </span></em><span style="color: #000000;"> call InsertStatuslineColor(v:insertmode)
+au InsertLeave </span>* hi statusline guibg=<span style="color: #000000;">green</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">括号配对</span>
+set showmatch               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 显示括号配对情况</span>
+set iskeyword+=_,$,@,%,#,-  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 带有如下符号的单词不要被换行分割</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set wildmenu </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">打开 wildmenu 选项，启动具有菜单项提示的命令行自动完成。
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set matchpairs=(:),{:},[:],&lt;:&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set whichwrap=b,s,&lt;,&gt;,[,]</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 配色方案</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">colorscheme default         </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 配色方案</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   基本使用增强设置   ===============================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 搜索</span>
+set hlsearch                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 开启高亮显示结果</span>
+set incsearch               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 开启实时搜索功能(输入字符串就跳到匹配位置)</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set noincsearch            </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 关闭显示查找匹配过程
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set magic                  </span><span style="color: #800000;">&ldquo;</span> Set magic on, <span style="color: #0000ff;">for</span><span style="color: #000000;"> regular expressions
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set showmatch              </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> Show matching bracets when text indicator is over them
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set mat=2                  </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> How many tenths of a second to blink
+set ignorecase              </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 搜索时无视大小写</span>
+set nowrapscan              <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 搜索到文件两端时不重新搜索</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 备份与缓存</span>
+<span style="color: #000000;">set nobackup
+set nowb
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set noswapfile</span>
+set writebackup             <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置无备份文件</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 自动完成</span>
+set complete=.,<span style="color: #0000ff;">w</span><span style="color: #000000;">,b,k,t,i
+set completeopt</span>=longest,menu <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 只在下拉菜单中显示匹配项目，并且会自动插入所有匹配项目的相同文本</span>
+set autoread                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 当文件在外部被修改，自动更新该文件</span>
+<span style="color: #000000;">
+set autowrite        </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 自动把内容写回文件: 如果文件被修改过，在每个 :next、:rewind、:last、:first、:previous、:stop、:suspend、:tag、:!、:make、CTRL-] 和 CTRL-^命令时进行；用 :buffer、CTRL-O、CTRL-I、&rsquo;{A-Z0-9} 或 `{A-Z0-9} 命令转到别的文件时亦然。</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 鼠标和退格键</span>
+set backspace=<span style="color: #800080;">2</span>             <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置退格键可用</span>
+<span style="color: #0000ff;">if</span> has(<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">mouse</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">)
+    set mouse</span>=a                 <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 鼠标可用</span>
+<span style="color: #000000;">endif
+set ve</span>=block                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">光标可以定位在没有实际字符的地方</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set fullscreen             </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 启动后自动全屏</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 工作目录和剪贴板</span>
+set nocompatible            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 关闭vi兼容模式</span>
+set hidden                  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 允许在有未保存的修改时切换缓冲区</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set relativenumber          </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 行标跟随
+set clipboard</span>+=unnamed      <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 共享外部剪贴板</span>
+set autochdir               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设定文件浏览器目录为当前目录</span>
+<span style="color: #000000;"></p>
+
+<p>set history</span>=<span style="color: #800080;">80</span>              <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">保存80条历史记录</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">让vim记忆文件上次编辑的位置</span>
+autocmd BufReadPost *<span style="color: #000000;">
+        \ </span><span style="color: #0000ff;">if</span> line(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&lsquo;\&rdquo;</span><span style="color: #800000;">&ldquo;</span>)&gt;<span style="color: #800080;">0</span>&amp;&amp;line(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&lsquo;\&rdquo;</span><span style="color: #800000;">&ldquo;</span>)&lt;=line(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">$</span><span style="color: #800000;">&ldquo;</span>) |<span style="color: #000000;">
+        \ exe </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">normal g&rsquo;\&rdquo;</span><span style="color: #800000;">&ldquo;</span> |<span style="color: #000000;">
+        \ endif</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   文件相关配置   ==================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 文件类型相关</span>
+filetype indent on          <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 针对不同的文件类型采用不同的缩进格式</span>
+filetype plugin on          <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 针对不同的文件类型加载对应的插件</span>
+<span style="color: #000000;">filetype plugin indent on
+filetype on                 </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> for taglist</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 默认为 UTF-8 编码</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>
+<span style="color: #0000ff;">if</span> has(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">multi_byte</span><span style="color: #800000;">&ldquo;</span>)    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">判断是否支持多字节</span>
+    set encoding=utf-<span style="color: #800080;">8</span>    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">设置编码为utf-8</span>
+    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> English messages only</span>
+    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">language messages zh_CN.utf-8</span>
+    set fillchars+=<span style="color: #000000;">stl:\ ,stlnc:</p>
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; has(&lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;win32&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;)        &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;windows下&lt;/span&gt;
+</code></pre>
+
+<p><span style="color: #000000;">        language english
+        let </span>&amp;termencoding=&amp;encoding <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 处理consle输出乱码</span>
+<span style="color: #000000;">    endif</p>
+
+<pre><code>set fencs&lt;/span&gt;=utf-&lt;span style=&quot;color: #800080;&quot;&gt;8&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,gbk,chinese,latin1
+set formatoptions&lt;/span&gt;+=&lt;span style=&quot;color: #000000;&quot;&gt;mM
+set nobomb &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt; 不使用 Unicode 签名&lt;/span&gt;
+
+&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; v:lang =~? &lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;^\(zh\)\|\(ja\)\|\(ko\)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;'&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+    set ambiwidth&lt;/span&gt;=&lt;span style=&quot;color: #0000ff;&quot;&gt;double&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+endif
+</code></pre>
+
+<p></span><span style="color: #0000ff;">else</span><span style="color: #000000;">
+    echoerr </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Sorry, this version of (g)vim was not compiled with +multi_byte</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">
+endif</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 编码设置</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set fileencoding=utf-8</span>
+set encoding=utf-<span style="color: #800080;">8</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">缓冲编码</span>
+set fileencodings=utf-<span style="color: #800080;">8</span>,cp936,gb18030,big5,gbk,euc-<span style="color: #000000;">jp,latin1
+set fileencoding</span>=utf-<span style="color: #800080;">8</span><span style="color: #000000;">
+set termencoding</span>=utf-<span style="color: #800080;">8</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">编码转换</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set fileformats=unix</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 换行符设置(win/unix)</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 将指定文件的换行符转换成 UNIX 格式</span>
+autocmd FileType php,javascript,html,css,python,vim,vimwiki  set ff=<span style="color: #000000;">unix</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 自动载入VIM配置文件</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> autocmd! bufwritepost vimrc source $MYVIMRC</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   代码折叠与语法高亮   =============================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> Floding 折叠</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">set foldmethod=syntax </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 选择代码折叠类型
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">set foldlevel=100 </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 禁止自动折叠
+</span><span style="color: #800000;">&ldquo;
+</span>set foldenable <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> Enables folding.</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 折叠方法  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> manual    手工折叠  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> indent    使用缩进表示折叠  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> expr      使用表达式定义折叠  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> syntax    使用语法定义折叠  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> diff      对没有更改的文本进行折叠  </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> marker    使用标记进行折叠, 默认标记是 {{{ 和 }}} </span>
+set foldmethod=manual <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> Set fold method to &lsquo;manual&rsquo;.</span><span style="color: #800000;">
+&ldquo;&rdquo;</span>set fdc=<span style="color: #800080;">0</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> Show where folds start and end, when they are opened.</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">nnoremap @=((foldclosed(line(&lsquo;.&rsquo;)) &lt; 0 )? &lsquo;zc&rsquo;:&lsquo;zo&rsquo;)</span>
+<span style="color: #000000;">
+set foldtext</span>=<span style="color: #000000;">MyFoldText()
+</span><span style="color: #0000ff;">function</span>!<span style="color: #000000;"> MyFoldText()
+    let line </span>=<span style="color: #000000;"> getline(v:foldstart)
+    let sub </span>= substitute(line, <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">/*|*/|{{{\d\=</span><span style="color: #800000;">&lsquo;</span>, <span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">g</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">)
+    return v:folddashes . sub
+endfunction</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 语法高亮 </span>
+syntax enable               <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 打开语法高亮</span>
+syntax on                   <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 开启文件类型侦测</span>
+autocmd BufRead,BufNewFile <em>.txt setlocal ft=<span style="color: #000000;">txt
+autocmd BufRead,BufNewFile </span></em>.tpl setlocal ft=smarty         <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 支持 Smarty</span>
+autocmd BufRead,BufNewFile *.as setlocal ft=actionscript    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 支持 ActionScript</span>
+autocmd BufRead,BufNewFile <em>.mxml set filetype=<span style="color: #000000;">mxml
+autocmd BufRead,BufNewFile jquery.</span></em>.js set ft=javascript syntax=<span style="color: #000000;">jquery
+autocmd BufRead,BufNewFile </span><em>.txtfmt set filetype=<span style="color: #000000;">txtfmt
+autocmd BufRead,BufNewFile </span></em>.php set filetype=<span style="color: #000000;">php
+autocmd BufRead,BufNewFile </span><em>.c set filetype=<span style="color: #000000;">c
+autocmd BufRead,BufNewFile </span></em>.go set filetype=<span style="color: #000000;">go
+autocmd BufRead,BufNewFile </span>*.md set filetype=<span style="color: #000000;">markdown</p>
+
+<p>autocmd BufNewFile,BufRead,BufEnter,WinEnter,FileType </span><em>.m,</em>.h setf objc  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 增加 Objective-C 语法支持</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 为qml文件添加语法高亮</span>
+autocmd BufNewFile,BufRead *.qml set filetype=<span style="color: #000000;">JavaScript</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> fencview 自动编码识别     :FencView   查看文件编码和更改文件编码</span>
+let g:fencview_autodetect=<span style="color: #800080;">1</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 高亮字典dict</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 后面对应的是字典文件的路径</span>
+autocmd FileType javascript set dictionary=~/.vim/dict/<span style="color: #000000;">javascript.dict
+autocmd FileType css        set dictionary</span>=~/.vim/dict/<span style="color: #000000;">css.dict</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   快捷键设置   ====================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 设置&rsquo;,&lsquo;为leader快捷键</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> let mapleader = </span><span style="color: #800000;">&ldquo;</span>,<span style="color: #800000;">&ldquo;
+&ldquo;</span><span style="color: #800000;"> let g:mapleader = </span><span style="color: #800000;">&ldquo;</span>,<span style="color: #800000;">&ldquo;
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span> Ctrl +<span style="color: #000000;"> S 保存文件
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> map  &lt;C-s&gt; &lt;ESC&gt;:w &lt;CR&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> imap &lt;C-s&gt; &lt;ESC&gt;:w &lt;CR&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> vmap &lt;C-s&gt; &lt;ESC&gt;:w &lt;CR&gt;</span><span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span> Ctrl +<span style="color: #000000;"> C 选中状态下复制
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> vnoremap &lt;C-c&gt; </span><span style="color: #800000;">&ldquo;</span>+<span style="color: #000000;">y
+</span><span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span> Ctrl +<span style="color: #000000;"> V 粘贴剪切板中的内容
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> map  &lt;C-v&gt; </span><span style="color: #800000;">&ldquo;</span>+<span style="color: #000000;">p
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> imap &lt;C-v&gt; &lt;esc&gt;</span><span style="color: #800000;">&ldquo;</span>+<span style="color: #000000;">pa
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> vmap &lt;C-v&gt; d</span><span style="color: #800000;">&ldquo;</span>+<span style="color: #000000;">P
+</span><span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 内容全选快捷键
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> map &lt;C-a&gt; gg0vG$&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span> nmap &lt;C-t&gt;   :tabnew&lt;cr&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span> nmap &lt;C-p&gt;   :tabprevious&lt;cr&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span> nmap &lt;C-n&gt;   :tabnext&lt;cr&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span> nmap &lt;C-k&gt;   :tabclose&lt;cr&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span> nmap &lt;C-Tab&gt; :tabnext&lt;cr&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 选中一段文字并全文搜索这段文字
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> vnoremap  *  y/&lt;C-h&gt;=escape(@</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\/.<em>$^~[]</span><span style="color: #800000;">&lsquo;</span>)&lt;CR&gt;&lt;CR&gt;
+<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> vnoremap  #  y?&lt;C-h&gt;=escape(@</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\/.</em>$^~[]</span><span style="color: #800000;">&lsquo;</span>)&lt;CR&gt;&lt;CR&gt;
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 对齐字体
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> nnoremap &lt;leader&gt;av :&rsquo;&lt;,&rsquo;&gt;Align =&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nnoremap &lt;leader&gt;al :&rsquo;&lt;,&rsquo;&gt;left&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nnoremap &lt;leader&gt;ac :&rsquo;&lt;,&rsquo;&gt;center&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nnoremap &lt;leader&gt;ar :&rsquo;&lt;,&rsquo;&gt;right&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 设置快速保存和退出
+</span><span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 快速保存为,s
+</span><span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span> 快速退出（保存）为,<span style="color: #0000ff;">w</span>
+<span style="color: #800000;">&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 快速退出（不保存）为,q
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> nmap &lt;leader&gt;s :w!&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nmap &lt;leader&gt;w :wq!&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nmap &lt;leader&gt;q :q!&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> inoremap &lt;expr&gt; &lt;leader&gt;x </span><span style="color: #800000;">&ldquo;</span>&amp;lt;C-X&gt;&lt;C-O&gt;<span style="color: #800000;">&ldquo;
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> plugins: markdown index
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> nnoremap &lt;leader&gt;m :TocdownToggle&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">
+&ldquo;</span> <span style="color: #800000;">&ldquo;</span><span style="color: #000000;">切换buffer
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> nmap bn :bn&lt;cr&gt;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> nmap bp :bp&lt;cr&gt;</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">\\\\\\\\\\\\   插件相关的配置   ///////////////////////////////</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   Powerline   ====================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">设置powerline状态栏主题</span>
+set guifont=PowerlineSymbols\ <span style="color: #0000ff;">for</span><span style="color: #000000;">\ Powerline
+set nocompatible
+set t_Co</span>=<span style="color: #800080;">256</span>        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">设置256色</span>
+let g:Powerline_symbols = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">fancy</span><span style="color: #800000;">&lsquo;</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   TagList   ======================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> TagList 键入:Tlist开启</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> if MySys() == </span><span style="color: #800000;">&ldquo;</span>windows<span style="color: #800000;">&ldquo;</span>                <span style="color: #800000;">&ldquo;</span><span style="color: #000000;">设定windows系统中ctags程序的位置
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">     let Tlist_Ctags_Cmd = &lsquo;ctags&rsquo;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> elseif MySys() == </span><span style="color: #800000;">&ldquo;</span>linux<span style="color: #800000;">&ldquo;</span>              <span style="color: #800000;">&ldquo;</span><span style="color: #000000;">设定windows系统中ctags程序的位置
+let Tlist_Ctags_Cmd </span>= <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">/usr/bin/ctags</span><span style="color: #800000;">&lsquo;</span>
+<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> endif</span>
+map &lt;F4&gt; :TlistToggle&lt;cr&gt;<span style="color: #000000;">
+let Tlist_Show_One_File </span>= <span style="color: #800080;">1</span>            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">不同时显示多个文件的tag，只显示当前文件的</span>
+let Tlist_Compact_Format = <span style="color: #800080;">1</span>            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 使用小窗口.</span>
+let Tlist_Exit_OnlyWindow = <span style="color: #800080;">1</span>          <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">如果taglist窗口是最后一个窗口，则退出vim</span>
+let Tlist_Enable_Fold_Column = <span style="color: #800080;">0</span>        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 使taglist插件不显示左边的折叠行</span>
+let Tlist_Use_Right_Window = <span style="color: #800080;">1</span>         <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">在右侧窗口中显示taglist窗口</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">let Tlist_Use_Left_Window = 1          </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> Split to the left side of the screen.
+let Tlist_GainFocus_On_ToggleOpen </span>= <span style="color: #800080;">1</span><span style="color: #000000;">
+let Tlist_Inc_Winwidth </span>= <span style="color: #800080;">0</span>                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 防止taglist改变终端窗口的大小</span>
+let Tlist_WinWidth = <span style="color: #800080;">25</span>                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> taglist窗口宽度</span>
+let Tlist_Sort_Type = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">name</span><span style="color: #800000;">&lsquo;</span>           <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 排序 name.</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> &mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> Plugin: </span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   ctags 文件加载    ===============================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span>
+<span style="color: #000000;">
+set tags</span>=<span style="color: #000000;">tags
+set tags</span>+=./tags    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 添加当前工作目录下的ctags</span>
+set tags+=/usr/include/c++/cpptags    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">这是在系统的include目录下生成的</span>
+<span style="color: #000000;">
+set tags</span>+=/usr/include/qt5/qt5tags  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">qt5的</span>
+set tags+=~/pragrom_files/Qt5.<span style="color: #800080;">4.1</span>/<span style="color: #800080;">5.4</span>/gcc_64/<span style="color: #000000;">include</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 按下F5重新生成tag文件，并更新taglist</span>
+ map &lt;F5&gt; :!ctags -R &ndash;c++-kinds=+p &ndash;fields=+iaS &ndash;extra=+q .&lt;CR&gt;&lt;CR&gt; :TlistUpdate&lt;CR&gt;<span style="color: #000000;">
+ imap </span>&lt;F5&gt; &lt;ESC&gt;:!ctags -R &ndash;c++-kinds=+p &ndash;fields=+iaS &ndash;extra=+q .&lt;CR&gt;&lt;CR&gt; :TlistUpdate&lt;CR&gt;</p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> ctags 生成c++ tags文件的命令</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> ctags -R &ndash;sort=1 &ndash;c++-kinds=+p &ndash;fields=+iaS &ndash;extra=+q &ndash;language-force=C++ -f cpptags</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   omnicppcomplete   ==============================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 按下F3自动补全代码，注意该映射语句后不能有其他字符，包括tab；否则按下F3会自动补全一些乱码</span>
+imap &lt;F3&gt; &lt;C-X&gt;&lt;C-O&gt;
+<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 按下F2根据头文件内关键字补全</span>
+imap &lt;F2&gt; &lt;C-X&gt;&lt;C-I&gt;<span style="color: #000000;">
+set completeopt</span>=menu,menuone <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 关掉智能补全时的预览窗口</span>
+let OmniCpp_MayCompleteDot = <span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">  在&rsquo;.&lsquo;号后是否自动运行omnicppcomplete给出提示信息。0/1, 缺省为1</span>
+let OmniCpp_MayCompleteArrow = <span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 在</span><span style="color: #800000;">&ldquo;</span>-&gt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">后是否自动运行omnicppcomplete给出提示信息。0/1, 缺省为1</span>
+let OmniCpp_MayCompleteScope = <span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">  在域标识符</span><span style="color: #800000;">&ldquo;</span>::<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">后是否自动运行omnicppcomplete给出提示信息。0/1, 缺省为0</span>
+let OmniCpp_SelectFirstItem = <span style="color: #800080;">2</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">  是否自动选择第一个匹配项。仅当</span><span style="color: #800000;">&ldquo;</span>completeopt<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">不为</span><span style="color: #800000;">&ldquo;</span>longest<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">时有效。</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 0 : 不选择第一项(缺省)</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 1 : 选择第一项并插入到光标位置</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 2 : 选择第一项但不插入光标位置</span>
+let OmniCpp_NamespaceSearch = <span style="color: #800080;">2</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 命名空间查找控制。0 : 禁止查找命名空间</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 1 : 查找当前文件缓冲区内的命名空间(缺省)</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 2 : 查找当前文件缓冲区和包含文件中的命名空间</span>
+let OmniCpp_ShowPrototypeInAbbr = <span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 是否是补全提示缩略信息中显示函数原型。0 : 不显示(缺省) 1 : 显示原型</span>
+let OmniCpp_GlobalScopeSearch=<span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 全局查找控制。0:禁止；1:允许(缺省)</span>
+let OmniCpp_DisplayMode=<span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 类成员显示控制(是否显示全部公有(public)私有(private)保护(protected)成员)。  0 : 自动  1 : 显示所有成员</span>
+let OmniCpp_DefaultNamespaces=[<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">std</span><span style="color: #800000;">&ldquo;</span>] <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 默认命名空间列表，项目间使用&rsquo;,&lsquo;隔开。</span>
+let OmniCpp_ShowScopeInAbbr=<span style="color: #800080;">1</span>    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 选项用来控制匹配项所在域的显示位置。缺省情况下，omni显示的补全提示菜单中总是将匹配项所在域信息显示在缩略信息最后一列。</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 0 : 信息缩略中不显示匹配项所在域(缺省)</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 1 : 显示匹配项所在域，并移除缩略信息中最后一列</span>
+let OmniCpp_ShowAccess=<span style="color: #800080;">1</span>        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">是否显示访问控制信息(&lsquo;+&rsquo;, &lsquo;-&rsquo;, &lsquo;#&rsquo;)。0/1, 缺省为1(显示)</span>
+let OmniCpp_LocalSearchDecl=<span style="color: #800080;">1</span>        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">使用Vim标准查找函数/本地(local)查找函数。</span>
+                                <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Vim内部用来在函数中查找变量定义的函数需要函数括号位于文本的第一列，而本地查找函数并不需要。</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 提示类型加载</span>
+autocmd FileType python set omnifunc=<span style="color: #000000;">pythoncomplete#Complete
+autocmd FileType javascript set omnifunc</span>=<span style="color: #000000;">javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc</span>=<span style="color: #000000;">htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc</span>=<span style="color: #000000;">csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc</span>=<span style="color: #000000;">xmlcomplete#CompleteTags
+autocmd FileType php set omnifunc</span>=<span style="color: #000000;">phpcomplete#CompletePHP
+autocmd FileType c set omnifunc</span>=<span style="color: #000000;">ccomplete#Complete</p>
+
+<p></span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">==========================================================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">=======================   NERDTree   =====================================</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">==========================================================================</span></p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> plugin - NERD_tree.vim 以树状方式浏览系统中的文件和目录</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> :NERDtree 打开NERD_tree         :NERDtreeClose    关闭NERD_tree</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> o 打开关闭文件或者目录         t 在标签页中打开</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> T 在后台标签页中打开           ! 执行此文件</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> p 到上层目录                   P 到根目录</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> K 到第一个节点                 J 到最后一个节点</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> u 打开上层目录                 m 显示文件系统菜单（添加、删除、移动操作）</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> r 递归刷新当前目录             R 递归刷新当前根目录</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span>
+let NERDTreeShowBookmarks=<span style="color: #800080;">1</span>                        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 一直显示书签</span>
+let loaded_netrwPlugin = <span style="color: #800080;">0</span>                         <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 不启动netrw</span>
+let NERDTreeCaseSensitiveSort=<span style="color: #800080;">1</span>                    <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 让文件排列更有序</span>
+let NERDTreeHijackNetrw = <span style="color: #800080;">0</span>                        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 输入:e filename不再显示netrw,而是显示nerdtree</span>
+let NERDTreeChDirMode = <span style="color: #800080;">2</span>                          <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 改变tree目录的同时不改变工程的目录</span>
+let NERDTreeWinPos = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">left</span><span style="color: #800000;">&lsquo;</span>                        <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> NERDTree显示位置在窗口右侧</span>
+let NERDTreeWinSize = <span style="color: #800080;">25</span>                           <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> NERDTREE的大小</span>
+let NERDTreeIgnore = [ <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">^.svn$</span><span style="color: #800000;">&lsquo;</span>,<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">^.git$</span><span style="color: #800000;">&lsquo;</span>,<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">~$</span><span style="color: #800000;">&lsquo;</span> ] <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 忽略.svn .git的显示</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> F3 NERDTree 切换</span>
+map &lt;F3&gt; :NERDTreeToggle&lt;CR&gt;<span style="color: #000000;">
+imap </span>&lt;F3&gt; &lt;ESC&gt;:NERDTreeToggle&lt;CR&gt;</p>
+
+<p><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> Plugin: miniBufExplorer 多个文件切换 可使用鼠标双击相应文件名进行切换</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> 在 Bufe 内</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> &lt;Tab&gt;   向前循环切换到每个buffer名上</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> &lt;S-Tab&gt; 向后循环切换到每个buffer名上</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> &lt;Enter&gt; 在打开光标所在的buffer</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> d       删除光标所在的buffer</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> let g:miniBufExplorerMoreThanOne=0      </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> 只显示一个,否则多窗口容易出错
+</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> let g:miniBufExplMapWindowNavVim = 1    </span><span style="color: #800000;">&ldquo;</span> 允许 MinBuf 使用 ctrl-<span style="color: #000000;">h,j,k,l 来上下左右选择窗口
+let g:miniBufExplMapWindowNavArrows </span>= <span style="color: #800080;">1</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 允许 MinBuf 使用 C-箭头来切换上下左右窗口</span>
+let g:miniBufExplMapCTabSwitchBufs = <span style="color: #800080;">1</span>  <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> 允许 MiniBuf 使用 Ctrl-Tab 和 Ctrl-S-Tab来向前向后切换标签</span><span style="color: #800000;">
+&ldquo;</span><span style="color: #800000;"> let g:miniBufExplModSelTarget = 1</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

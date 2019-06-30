@@ -1,0 +1,287 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 一个按比特位拷贝数据的函数copybits &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>一个按比特位拷贝数据的函数copybits</h1>
+          <span class="post-date">2015年06月30日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/30/4610120.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/30/4610120.html</a>
+<div class="BlogContent">
+<h2 id="-">一个按比特位拷贝数据的函数</h2>
+<p>没有进行特别的优化。其实还可以在拷贝源开始位置和目标开始位置是2的整数倍位置的时候进行优化。</p>
+<h3 id="-">说明</h3>
+<p>这个函数用于从src数组首地址跳过sbb个字节，又跳过ssb个比特位，拷贝nbits个比特位的数据到dest数组首地址跳过dbb个字节，又跳过dsb个比特位位置。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/301301259626702.jpg" alt="" /></p>
+<h3>代码如下</h3>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">  1</span> include &lt;stdio.h&gt;
+<span style="color: #008080;">  2</span> #include &lt;stdlib.h&gt;
+<span style="color: #008080;">  3</span> #include &lt;<span style="color: #0000ff;">string</span>.h&gt;
+<span style="color: #008080;">  4</span> #include &lt;assert.h&gt;
+<span style="color: #008080;">  5</span>
+<span style="color: #008080;">  6</span> <span style="color: #008000;">//</span><span style="color: #008000;">二进制打印输出</span>
+<span style="color: #008080;">  7</span> <span style="color: #0000ff;">void</span> Bp(unsigned <span style="color: #0000ff;">char</span><span style="color: #000000;"> n)<br />
+</span><span style="color: #008080;">  8</span> <span style="color: #000000;">{<br />
+</span><span style="color: #008080;">  9</span>   <span style="color: #0000ff;">int</span><span style="color: #000000;"> i;
+</span><span style="color: #008080;"> 10</span>   <span style="color: #0000ff;">for</span> (i=<span style="color: #800080;">7</span>;i&gt;=<span style="color: #800080;">0</span>;i&ndash;<span style="color: #000000;">)<br />
+</span><span style="color: #008080;"> 11</span> <span style="color: #000000;">  {<br />
+</span><span style="color: #008080;"> 12</span>     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%u</span><span style="color: #800000;">&ldquo;</span>,(n&gt;&gt;i)&amp;<span style="color: #800080;">1</span><span style="color: #000000;">);<br />
+</span><span style="color: #008080;"> 13</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 14</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 15</span>
+<span style="color: #008080;"> 16</span> <span style="color: #008000;">//</span><span style="color: #008000;">按比特位拷贝
+</span><span style="color: #008080;"> 17</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 从src数组首地址跳过sbb个字节，又跳过ssb个比特位，拷贝nbits个比特位的数据到
+</span><span style="color: #008080;"> 18</span> <span style="color: #008000;">//</span><span style="color: #008000;">   dest数组首地址跳过dbb个字节，又跳过dsb个比特位位置</span>
+<span style="color: #008080;"> 19</span> <span style="color: #0000ff;">int</span> copybits(<span style="color: #0000ff;">const</span> unsigned <span style="color: #0000ff;">char</span>* src,<span style="color: #0000ff;">int</span> sbb<span style="color: #008000;">/<em></span><span style="color: #008000;">source begin byte</span><span style="color: #008000;"></em>/</span>,<span style="color: #0000ff;">int</span> ssb<span style="color: #008000;">/<em></span><span style="color: #008000;">source skip bit</span><span style="color: #008000;"></em>/</span><span style="color: #000000;">,
+</span><span style="color: #008080;"> 20</span>       unsigned <span style="color: #0000ff;">char</span>* dest,<span style="color: #0000ff;">int</span> dbb<span style="color: #008000;">/<em></span><span style="color: #008000;">dest begin byte</span><span style="color: #008000;"></em>/</span>,<span style="color: #0000ff;">int</span> dsb<span style="color: #008000;">/<em></span><span style="color: #008000;">dest skip bit</span><span style="color: #008000;"></em>/</span>,<span style="color: #0000ff;">int</span><span style="color: #000000;"> nbits)
+</span><span style="color: #008080;"> 21</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 22</span>   <span style="color: #008000;">//</span><span style="color: #008000;"> assert(src &amp;&amp; dest &amp;&amp; sbb&gt;=0 &amp;&amp; ssb&gt;=0 &amp;&amp; dbb&gt;=0 &amp;&amp; dsb&gt;=0 &amp;&amp; nbits&gt;=0);</span>
+<span style="color: #008080;"> 23</span>   <span style="color: #0000ff;">if</span>(src ==NULL || dest == NULL)<span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 24</span>   <span style="color: #0000ff;">if</span>(sbb &lt; <span style="color: #800080;">0</span> || ssb &lt; <span style="color: #800080;">0</span> || dbb &lt; <span style="color: #800080;">0</span> || dsb &lt;<span style="color: #800080;">0</span>)<span style="color: #0000ff;">return</span> -<span style="color: #800080;">2</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 25</span>   <span style="color: #0000ff;">if</span>(nbits==<span style="color: #800080;">0</span>)<span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 26</span>
+<span style="color: #008080;"> 27</span>   <span style="color: #0000ff;">if</span>(ssb ==<span style="color: #000000;"> dsb){
+</span><span style="color: #008080;"> 28</span>     <span style="color: #008000;">//</span><span style="color: #008000;">边界对其情况
+</span><span style="color: #008080;"> 29</span>     <span style="color: #008000;">//</span><span style="color: #008000;">1拷贝对齐部分</span>
+<span style="color: #008080;"> 30</span>     <span style="color: #0000ff;">int</span> copybyte=(nbits -(<span style="color: #800080;">8</span>-ssb))/<span style="color: #800080;">8</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 31</span>     memmove(dest+dbb+<span style="color: #800080;">1</span>,src+sbb+<span style="color: #800080;">1</span><span style="color: #000000;">,copybyte);
+</span><span style="color: #008080;"> 32</span>     <span style="color: #008000;">//</span><span style="color: #008000;">2拷贝前端不完整字节</span>
+<span style="color: #008080;"> 33</span>     <span style="color: #0000ff;">if</span>(ssb != <span style="color: #800080;">0</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 34</span>       unsigned <span style="color: #0000ff;">char</span> s=<span style="color: #000000;">src[sbb];
+</span><span style="color: #008080;"> 35</span>       s &amp;= <span style="color: #800080;">0xFF</span>&gt;&gt;<span style="color: #000000;">ssb;
+</span><span style="color: #008080;"> 36</span>       dest[dbb] &amp;= <span style="color: #800080;">0xFF</span>&lt;&lt;(<span style="color: #800080;">8</span>-<span style="color: #000000;">ssb);
+</span><span style="color: #008080;"> 37</span>       dest[dbb] |=<span style="color: #000000;"> s;
+</span><span style="color: #008080;"> 38</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 39</span>     <span style="color: #008000;">//</span><span style="color: #008000;">拷贝后端不完整字节</span>
+<span style="color: #008080;"> 40</span>     <span style="color: #0000ff;">int</span> endbit=(nbits - (<span style="color: #800080;">8</span>- ssb))%<span style="color: #800080;">8</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 41</span>     <span style="color: #0000ff;">if</span>(endbit != <span style="color: #800080;">0</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 42</span>       unsigned <span style="color: #0000ff;">char</span> s=src[sbb+<span style="color: #800080;">1</span>+<span style="color: #000000;">copybyte];
+</span><span style="color: #008080;"> 43</span>       s &amp;= <span style="color: #800080;">0xFF</span>&lt;&lt;(<span style="color: #800080;">8</span>-<span style="color: #000000;">endbit);
+</span><span style="color: #008080;"> 44</span>       dest[dbb+<span style="color: #800080;">1</span> + copybyte] &amp;= <span style="color: #800080;">0xFF</span>&gt;&gt;<span style="color: #000000;">endbit;
+</span><span style="color: #008080;"> 45</span>       dest[dbb+<span style="color: #800080;">1</span> + copybyte] |=<span style="color: #000000;"> s;<br />
+</span><span style="color: #008080;"> 46</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 47</span>     <span style="color: #0000ff;">return</span> (<span style="color: #800080;">8</span> -<span style="color: #000000;"> endbit);
+</span><span style="color: #008080;"> 48</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 49</span>   <span style="color: #008000;">//</span><span style="color: #008000;">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</span>
+<span style="color: #008080;"> 50</span>
+<span style="color: #008080;"> 51</span>   <span style="color: #0000ff;">int</span> sbgb = sbb<em><span style="color: #800080;">8</span> + ssb;  <span style="color: #008000;">//</span><span style="color: #008000;">源开始的比特位置</span>
+<span style="color: #008080;"> 52</span>   <span style="color: #0000ff;">int</span> dbgb = dbb</em><span style="color: #800080;">8</span> + dsb;  <span style="color: #008000;">//</span><span style="color: #008000;">目标开始比特位置</span>
+<span style="color: #008080;"> 53</span>   <span style="color: #0000ff;">int</span><span style="color: #000000;"> i,ret;
+</span><span style="color: #008080;"> 54</span>   <span style="color: #0000ff;">int</span><span style="color: #000000;"> k1,m1,k2,m2;
+</span><span style="color: #008080;"> 55</span>   unsigned <span style="color: #0000ff;">char</span><span style="color: #000000;"> s;
+</span><span style="color: #008080;"> 56</span>   <span style="color: #0000ff;">if</span>(((dest - src)*<span style="color: #800080;">8</span>+dbgb) &lt;<span style="color: #000000;"> sbgb  ){
+</span><span style="color: #008080;"> 57</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 目标开始位置在源开始位置左边</span>
+<span style="color: #008080;"> 58</span>     <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;nbits;++<span style="color: #000000;">i){
+</span><span style="color: #008080;"> 59</span>       <span style="color: #008000;">//</span><span style="color: #008000;">拷贝某个位
+</span><span style="color: #008080;"> 60</span>       <span style="color: #008000;">//</span><span style="color: #008000;">1、源位置      目标位置</span>
+<span style="color: #008080;"> 61</span>       k1=(sbgb+i)&gt;&gt;<span style="color: #800080;">3</span>;    k2=(dbgb+i)&gt;&gt;<span style="color: #800080;">3</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 62</span>       m1=(sbgb+i)&amp;<span style="color: #800080;">0x7</span>;  m2=(dbgb+i)&amp;<span style="color: #800080;">0x7</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 63</span>       s=<span style="color: #000000;">src[k1];
+</span><span style="color: #008080;"> 64</span>       s &amp;= <span style="color: #800080;">0x80</span>&gt;&gt;m1;  <span style="color: #008000;">//</span><span style="color: #008000;">获取源比特位</span>
+<span style="color: #008080;"> 65</span>       <span style="color: #0000ff;">if</span>(m1!=m2){  <span style="color: #008000;">//</span><span style="color: #008000;">偏移位</span>
+<span style="color: #008080;"> 66</span>         s = m1&lt;m2? (s&gt;&gt;(m2-m1)):(s&lt;&lt;(m1-<span style="color: #000000;">m2));
+</span><span style="color: #008080;"> 67</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;"> 68</span>       dest[k2] &amp;= (~(<span style="color: #800080;">0x80</span>&gt;&gt;m2));  <span style="color: #008000;">//</span><span style="color: #008000;">目标位置0</span>
+<span style="color: #008080;"> 69</span>       dest[k2] |= s;  <span style="color: #008000;">//</span><span style="color: #008000;">目标位赋值</span>
+<span style="color: #008080;"> 70</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 71</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 72</span>   <span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;"> 73</span>     <span style="color: #0000ff;">for</span>(i=nbits-<span style="color: #800080;">1</span>; i &gt;=<span style="color: #800080;">0</span> ;&ndash;<span style="color: #000000;">i){
+</span><span style="color: #008080;"> 74</span>       <span style="color: #008000;">//</span><span style="color: #008000;">拷贝某个位
+</span><span style="color: #008080;"> 75</span>       <span style="color: #008000;">//</span><span style="color: #008000;">1、源位置      目标位置</span>
+<span style="color: #008080;"> 76</span>       k1=(sbgb+i)&gt;&gt;<span style="color: #800080;">3</span>;    k2=(dbgb+i)&gt;&gt;<span style="color: #800080;">3</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 77</span>       m1=(sbgb+i)&amp;<span style="color: #800080;">0x7</span>;  m2=(dbgb+i)&amp;<span style="color: #800080;">0x7</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 78</span>       s=<span style="color: #000000;">src[k1];
+</span><span style="color: #008080;"> 79</span>       s &amp;= <span style="color: #800080;">0x80</span>&gt;&gt;m1;  <span style="color: #008000;">//</span><span style="color: #008000;">获取源比特位</span>
+<span style="color: #008080;"> 80</span>       <span style="color: #0000ff;">if</span>(m1!=m2){  <span style="color: #008000;">//</span><span style="color: #008000;">偏移位</span>
+<span style="color: #008080;"> 81</span>         s = m1&lt;m2? (s&gt;&gt;(m2-m1)):(s&lt;&lt;(m1-<span style="color: #000000;">m2));
+</span><span style="color: #008080;"> 82</span> <span style="color: #000000;">      }
+</span><span style="color: #008080;"> 83</span>       dest[k2] &amp;= (~(<span style="color: #800080;">0x80</span>&gt;&gt;m2));  <span style="color: #008000;">//</span><span style="color: #008000;">目标位置0</span>
+<span style="color: #008080;"> 84</span>       dest[k2] |= s;  <span style="color: #008000;">//</span><span style="color: #008000;">目标位赋值</span>
+<span style="color: #008080;"> 85</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 86</span>
+<span style="color: #008080;"> 87</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 88</span>   <span style="color: #0000ff;">return</span> (<span style="color: #800080;">8</span> - (dbgb+nbits)%<span style="color: #800080;">8</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 89</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 90</span>
+<span style="color: #008080;"> 91</span>
+<span style="color: #008080;"> 92</span>
+<span style="color: #008080;"> 93</span>
+<span style="color: #008080;"> 94</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+</span><span style="color: #008080;"> 95</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 96</span>   <span style="color: #0000ff;">int</span><span style="color: #000000;"> i;
+</span><span style="color: #008080;"> 97</span>   unsigned <span style="color: #0000ff;">char</span> src[<span style="color: #800080;">10</span>]={<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>,<span style="color: #800080;">0xff</span>};<span style="color: #008000;">//</span><span style="color: #008000;">{0,0x1F,0x0F,0x0F,0x70,0,0,1,1};</span>
+<span style="color: #008080;"> 98</span>   unsigned <span style="color: #0000ff;">char</span> dst[<span style="color: #800080;">10</span>]={<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span>,<span style="color: #800080;">0</span><span style="color: #000000;">};
+</span><span style="color: #008080;"> 99</span>
+<span style="color: #008080;">100</span>   printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%d\n</span><span style="color: #800000;">&ldquo;</span>,copybits(src,<span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,dst,<span style="color: #800080;">0</span>,<span style="color: #800080;">5</span>,<span style="color: #800080;">24</span><span style="color: #000000;">));
+</span><span style="color: #008080;">101</span>
+<span style="color: #008080;">102</span>   <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;<span style="color: #800080;">10</span>;++<span style="color: #000000;">i){
+</span><span style="color: #008080;">103</span>     <span style="color: #008000;">//</span><span style="color: #008000;">printf(&rdquo;\t%2x\t%2x\n&rdquo;,src[i],dst[i]);</span>
+<span style="color: #008080;">104</span> <span style="color: #000000;">    Bp(src[i]);
+</span><span style="color: #008080;">105</span>     putchar(<span style="color: #800000;">&lsquo;</span> <span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">106</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;">107</span>   putchar(<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">108</span>   <span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;<span style="color: #800080;">10</span>;++<span style="color: #000000;">i){
+</span><span style="color: #008080;">109</span>     <span style="color: #008000;">//</span><span style="color: #008000;">printf(&rdquo;\t%2x\t%2x\n&rdquo;,src[i],dst[i]);</span>
+<span style="color: #008080;">110</span> <span style="color: #000000;">    Bp(dst[i]);
+</span><span style="color: #008080;">111</span>     putchar(<span style="color: #800000;">&lsquo;</span> <span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">112</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;">113</span>   putchar(<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">114</span>   <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">115</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</div></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

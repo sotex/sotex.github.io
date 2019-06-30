@@ -1,0 +1,361 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> INI文件的读取(C语言:GetPrivateProfileString/GetPrivateProfileInt) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>INI文件的读取(C语言:GetPrivateProfileString/GetPrivateProfileInt)</h1>
+          <span class="post-date">2015年07月08日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/08/4630120.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/08/4630120.html</a>
+<h2>INI文件格式说明</h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">/*</span><span style="color: #008000;">********************************************
+  ini文件说明
+  ini文件是文本文件，由节点(Section)和键值对(key=value)组成
+  以&rsquo;;&lsquo;开头的行为注释
+  一般形式如下所示:
+  +&mdash;&mdash;&mdash;&mdash;&mdash; test.ini &mdash;&mdash;&mdash;&mdash;&mdash;&ndash;+
+  |  [Section1]                              |
+  |    key1=value1                           |
+  |    key2=value2                           |
+  |  ;这是注释                               |
+  |  [Section2]                              |
+  |    key3=value3                           |
+  +&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;+
+ *******************************************<em></span><span style="color: #008000;"></em>/</span></pre>
+</div>
+<p><a href="http://blog.chinaunix.net/uid-25885064-id-3327199.html" target="_blank">更详细的介绍可见<a href="http://blog.chinaunix.net/uid-25885064-id-3327199.html">http://blog.chinaunix.net/uid-25885064-id-3327199.html</a></a></p>
+<p>&nbsp;</p>
+<h2>GetPrivateProfileString 从INI文件中读取String值</h2>
+<p>辅助函数&nbsp;<span class="cnblogs_code">dupFile</span>&nbsp;</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('7cb5c911-4fd4-4534-ba8e-3d9f74f9c462')"><img id="code_img_closed_7cb5c911-4fd4-4534-ba8e-3d9f74f9c462" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_7cb5c911-4fd4-4534-ba8e-3d9f74f9c462" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('7cb5c911-4fd4-4534-ba8e-3d9f74f9c462',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_7cb5c911-4fd4-4534-ba8e-3d9f74f9c462" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">读取文件内容，保存到在heap区上申请的内存中
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;">成功返回内存地址，失败返回NULL
+</span><span style="color: #008080;"> 3</span> <span style="color: #008000;">//</span><span style="color: #008000;">参数fsize用于传出文件的内存区域的大小</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">char</span>* dupFile(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>* FileName,<span style="color: #0000ff;">long</span><em><span style="color: #000000;"> fsize)
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">char</span></em> buf =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">long</span> size = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;">读取文件，因为ini文件通常都很小，所以一次全部读取了</span>
+<span style="color: #008080;"> 9</span>     FILE* fp = fopen(FileName,<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">r</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">do</span><span style="color: #000000;">{
+</span><span style="color: #008080;">11</span>         <span style="color: #0000ff;">if</span>(fp == NULL){    <span style="color: #008000;">//</span><span style="color: #008000;">打开文件失败
+</span><span style="color: #008080;">12</span>             <span style="color: #008000;">//</span><span style="color: #008000;">puts(&ldquo;打开文件失败&rdquo;);</span>
+<span style="color: #008080;">13</span>             <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">15</span>         <span style="color: #008000;">//</span><span style="color: #008000;">获取文件大小</span>
+<span style="color: #008080;">16</span>         <span style="color: #0000ff;">if</span>(fseek(fp,<span style="color: #800080;">0</span><span style="color: #000000;">,SEEK_END)){
+</span><span style="color: #008080;">17</span>             <span style="color: #0000ff;">break</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">fseek失败</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">19</span>         size = ftell(fp);    <span style="color: #008000;">//</span><span style="color: #008000;">获取当前偏移(文件长度)</span>
+<span style="color: #008080;">20</span>         <span style="color: #0000ff;">if</span>(size&lt;<span style="color: #800080;">0</span>){<span style="color: #0000ff;">break</span><span style="color: #000000;">;}
+</span><span style="color: #008080;">21</span>
+<span style="color: #008080;">22</span>         <span style="color: #008000;">//</span><span style="color: #008000;">读取文件</span>
+<span style="color: #008080;">23</span>         fseek(fp,<span style="color: #800080;">0</span><span style="color: #000000;">,SEEK_SET);
+</span><span style="color: #008080;">24</span>         buf = (<span style="color: #0000ff;">char</span>*)<span style="color: #0000ff;">malloc</span>(size+<span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">25</span>         <span style="color: #0000ff;">if</span>(buf == NULL){<span style="color: #0000ff;">break</span><span style="color: #000000;">;}
+</span><span style="color: #008080;">26</span>         <span style="color: #0000ff;">if</span>(size == fread(buf,<span style="color: #800080;">1</span>,size,fp)){    <span style="color: #008000;">//</span><span style="color: #008000;">fread是阻塞模式，=</span>
+<span style="color: #008080;">27</span>             buf[size] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">28</span>             <span style="color: #008000;">//</span><span style="color: #008000;">文件已经读取完成了</span>
+<span style="color: #008080;">29</span>         }<span style="color: #0000ff;">else</span>{    <span style="color: #008000;">//</span><span style="color: #008000;">万一失败了呢？</span>
+<span style="color: #008080;">30</span>             <span style="color: #0000ff;">free</span><span style="color: #000000;">(buf);
+</span><span style="color: #008080;">31</span>             buf =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">32</span>             size = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">33</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">34</span>     }<span style="color: #0000ff;">while</span>(<span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;">35</span>     fclose(fp);    <span style="color: #008000;">//</span><span style="color: #008000;">关闭文件</span>
+<span style="color: #008080;">36</span>     <span style="color: #0000ff;">if</span>(fsize != NULL){*fsize =<span style="color: #000000;"> size;}
+</span><span style="color: #008080;">37</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> buf;
+</span><span style="color: #008080;">38</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">dupFile</span></div>
+<p>&nbsp;</p>
+<p>下面代码注释中写的不区分大小写是不对的，是区分大小写的。</p>
+<p>/*函数说明:从FileName指定的ini文件中读取section节点下key键对应的value值(字符串)<br />&nbsp;<em>参数说明:&nbsp;&nbsp; &nbsp;Section:&nbsp;&nbsp; &nbsp;节点名(不<span style="background-color: #ffff00;"><strong>区分</strong></span>大小写)<br />&nbsp;</em>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Key:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;键名(不<strong><span style="background-color: #ffff00;">区分</span></strong>大小写)<br />&nbsp;<em>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;Default:&nbsp;&nbsp; &nbsp;没有找到对应的value时的默认值<br />&nbsp;</em>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;ReturnedString:&nbsp;&nbsp; &nbsp;接收找到的value的缓冲区<br />&nbsp;<em>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;nSize:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;缓冲区的大小<br />&nbsp;</em>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;FileName:&nbsp;&nbsp; &nbsp;ini文件路径<br />&nbsp;<em>返回值:读取成功返回读取到的value的字符数。如果缓冲区不够大，value会被截断,返回nSize-1<br />&nbsp;</em>/</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('7c20dd26-e87e-4546-b533-99750c8301a5')"><img id="code_img_closed_7c20dd26-e87e-4546-b533-99750c8301a5" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_7c20dd26-e87e-4546-b533-99750c8301a5" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('7c20dd26-e87e-4546-b533-99750c8301a5',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_7c20dd26-e87e-4546-b533-99750c8301a5" class="cnblogs_code_hide">
+<pre><span style="color: #008080;">  1</span> <span style="color: #008000;">/*</span><span style="color: #008000;">函数说明:从FileName指定的ini文件中读取section节点下key键对应的value值(字符串)
+</span><span style="color: #008080;">  2</span> <span style="color: #008000;"> *参数说明:    Section:    节点名(不区分大小写)
+</span><span style="color: #008080;">  3</span> <span style="color: #008000;"> *            Key:        键名(不区分大小写)
+</span><span style="color: #008080;">  4</span> <span style="color: #008000;"> *            Default:    没有找到对应的value时的默认值
+</span><span style="color: #008080;">  5</span> <span style="color: #008000;"> *            ReturnedString:    接收找到的value的缓冲区
+</span><span style="color: #008080;">  6</span> <span style="color: #008000;"> *            nSize:        缓冲区的大小
+</span><span style="color: #008080;">  7</span> <span style="color: #008000;"> *            FileName:    ini文件路径
+</span><span style="color: #008080;">  8</span> <span style="color: #008000;"> <em>返回值:读取成功返回读取到的value的字符数。如果缓冲区不够大，value会被截断,返回nSize-1
+</span><span style="color: #008080;">  9</span>  <span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 10</span>
+<span style="color: #008080;"> 11</span> unsigned <span style="color: #0000ff;">long</span><span style="color: #000000;"> GetPrivateProfileString(
+</span><span style="color: #008080;"> 12</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        Section,        <span style="color: #008000;">//</span><span style="color: #008000;">节点</span>
+<span style="color: #008080;"> 13</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        Key,            <span style="color: #008000;">//</span><span style="color: #008000;">键</span>
+<span style="color: #008080;"> 14</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        Default,        <span style="color: #008000;">//</span><span style="color: #008000;">默认值</span>
+<span style="color: #008080;"> 15</span>             <span style="color: #0000ff;">char</span>*            ReturnedString,    <span style="color: #008000;">//</span><span style="color: #008000;">接收获取值的目标缓冲区</span>
+<span style="color: #008080;"> 16</span>             unsigned <span style="color: #0000ff;">long</span>    nSize,            <span style="color: #008000;">//</span><span style="color: #008000;">目标缓冲区大小</span>
+<span style="color: #008080;"> 17</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        FileName        <span style="color: #008000;">//</span><span style="color: #008000;">ini文件路径</span>
+<span style="color: #008080;"> 18</span> <span style="color: #000000;">            )
+</span><span style="color: #008080;"> 19</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 20</span>     FILE*    fp;    <span style="color: #008000;">//</span><span style="color: #008000;">文件指针</span>
+<span style="color: #008080;"> 21</span>     <span style="color: #0000ff;">long</span>    fsize;    <span style="color: #008000;">//</span><span style="color: #008000;">文件大小</span>
+<span style="color: #008080;"> 22</span>     <span style="color: #0000ff;">long</span>    len;    <span style="color: #008000;">//
+</span><span style="color: #008080;"> 23</span>     <span style="color: #0000ff;">char</span>*    buf;    <span style="color: #008000;">//</span><span style="color: #008000;">用于保存文件内容</span>
+<span style="color: #008080;"> 24</span>     <span style="color: #0000ff;">char</span>*    psec;    <span style="color: #008000;">//</span><span style="color: #008000;">保存节点位置</span>
+<span style="color: #008080;"> 25</span>     <span style="color: #0000ff;">char</span>*    pkey;    <span style="color: #008000;">//</span><span style="color: #008000;">指向文件中key位置</span>
+<span style="color: #008080;"> 26</span>     <span style="color: #0000ff;">char</span>*    pval;    <span style="color: #008000;">//</span><span style="color: #008000;">指向文件中value的位置</span>
+<span style="color: #008080;"> 27</span>     <span style="color: #0000ff;">int</span>        iscomment;    <span style="color: #008000;">//</span><span style="color: #008000;">用于判读是否是注释</span>
+<span style="color: #008080;"> 28</span>     <span style="color: #0000ff;">do</span><span style="color: #000000;">{
+</span><span style="color: #008080;"> 29</span>         <span style="color: #008000;">//</span><span style="color: #008000;">获取文件内容</span>
+<span style="color: #008080;"> 30</span>         buf = dupFile(FileName,&amp;<span style="color: #000000;">fsize);
+</span><span style="color: #008080;"> 31</span>         <span style="color: #0000ff;">if</span>(buf == NULL){<span style="color: #0000ff;">break</span><span style="color: #000000;">;}
+</span><span style="color: #008080;"> 32</span>
+<span style="color: #008080;"> 33</span>         <span style="color: #008000;">//</span><span style="color: #008000;">查找节点位置</span>
+<span style="color: #008080;"> 34</span>         <span style="color: #0000ff;">char</span> sbuf[<span style="color: #800080;">1024</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 35</span>         sprintf(sbuf,<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">[%s]</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,Section);
+</span><span style="color: #008080;"> 36</span>         psec = strstr(buf,sbuf);    <span style="color: #008000;">//</span><span style="color: #008000;">查找节点</span>
+<span style="color: #008080;"> 37</span>         <span style="color: #0000ff;">if</span>(psec ==<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;"> 38</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">没有找到节点 %s \n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,sbuf);
+</span><span style="color: #008080;"> 39</span>             <span style="color: #0000ff;">break</span>;<span style="color: #008000;">//</span><span style="color: #008000;">没有找到节点</span>
+<span style="color: #008080;"> 40</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 41</span>         <span style="color: #008000;">//</span><span style="color: #008000;">寻找key</span>
+<span style="color: #008080;"> 42</span>         pkey = psec;    <span style="color: #008000;">//</span><span style="color: #008000;">查找的起点
+</span><span style="color: #008080;"> 43</span>
+<span style="color: #008080;"> 44</span>         <span style="color: #008000;">//</span><span style="color: #008000;">查找key</span>
+<span style="color: #008080;"> 45</span>         <span style="color: #0000ff;">while</span>((pkey = strstr(pkey,Key))!=<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;"> 46</span>             <span style="color: #008000;">//</span><span style="color: #008000;">找到了匹配的，进入
+</span><span style="color: #008080;"> 47</span>             <span style="color: #008000;">//</span><span style="color: #008000;">判断找到的key是否与传入的一致(避免传入的是找到的前缀)
+</span><span style="color: #008080;"> 48</span>             <span style="color: #008000;">//</span><span style="color: #008000;">如传入 &ldquo;abc&rdquo; 找到的是 &ldquo;abcdef\n&rdquo;</span>
+<span style="color: #008080;"> 49</span>             len =<span style="color: #000000;"> strlen(Key);
+</span><span style="color: #008080;"> 50</span>             pval =pkey + len;    <span style="color: #008000;">//</span><span style="color: #008000;">用pval指向pkey的尾部</span>
+<span style="color: #008080;"> 51</span>             <span style="color: #0000ff;">char</span> t = pval[<span style="color: #800080;">0</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 52</span>             <span style="color: #0000ff;">if</span>(t == <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">=</span><span style="color: #800000;">&lsquo;</span> || t==<span style="color: #800000;">&lsquo;</span> <span style="color: #800000;">&lsquo;</span> || t==<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\t</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 53</span>                 <span style="color: #0000ff;">break</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">找到了key,跳出本while</span>
+<span style="color: #008080;"> 54</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;"> 55</span>             <span style="color: #008000;">//</span><span style="color: #008000;">没有找到key,去查找下一个匹配的</span>
+<span style="color: #008080;"> 56</span>         }<span style="color: #008000;">//</span><span style="color: #008000;"> end while</span>
+<span style="color: #008080;"> 57</span>         <span style="color: #0000ff;">if</span>(pkey ==<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;"> 58</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">没有找到Key:%s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,Key);
+</span><span style="color: #008080;"> 59</span>             <span style="color: #0000ff;">break</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">没有找到key，跳出</span>
+<span style="color: #008080;"> 60</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 61</span>         <span style="color: #008000;">//</span><span style="color: #008000;">确定找到的key是当前节点的(查找key和当前节点之间还有无节点)</span>
+<span style="color: #008080;"> 62</span>         pkey[-<span style="color: #800080;">1</span>] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">从找到的key前截断</span>
+<span style="color: #008080;"> 63</span>         psec = strchr(psec,<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">]</span><span style="color: #800000;">&lsquo;</span>) +<span style="color: #800080;">1</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">当前节点之后开始找</span>
+<span style="color: #008080;"> 64</span>         <span style="color: #0000ff;">while</span>((psec=strchr(psec,<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">[</span><span style="color: #800000;">&lsquo;</span>)) !=<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;"> 65</span>             <span style="color: #008000;">//</span><span style="color: #008000;">判断该行是否是注释</span>
+<span style="color: #008080;"> 66</span>             <span style="color: #0000ff;">char</span>* pt = psec++;    <span style="color: #008000;">//</span><span style="color: #008000;">psec指向&rsquo;[&lsquo;的下一个去</span>
+<span style="color: #008080;"> 67</span>             <span style="color: #0000ff;">while</span>(*(&ndash;pt) != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">;</span><span style="color: #800000;">&lsquo;</span>&amp;&amp; *pt != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 68</span>             <span style="color: #0000ff;">if</span>(<em>pt == <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">;</span><span style="color: #800000;">&lsquo;</span>){    <span style="color: #0000ff;">continue</span>;}<span style="color: #008000;">//</span><span style="color: #008000;">是注释，下一个
+</span><span style="color: #008080;"> 69</span>             <span style="color: #008000;">//</span><span style="color: #008000;">不是注释，判断是否是合法节点([]存在，有内容且在同一行)</span>
+<span style="color: #008080;"> 70</span>             pt =<span style="color: #000000;"> psec;
+</span><span style="color: #008080;"> 71</span>             <span style="color: #0000ff;">while</span>(</em>(++pt) != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">]</span><span style="color: #800000;">&lsquo;</span> &amp;&amp; *pt != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 72</span>             <span style="color: #0000ff;">if</span>(*pt==<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">]</span><span style="color: #800000;">&lsquo;</span>){<span style="color: #008000;">//</span><span style="color: #008000;">当前行有&rsquo;]&lsquo;来闭合，说明Section和Key之间还有节点</span>
+<span style="color: #008080;"> 73</span>                 pval = NULL;    <span style="color: #008000;">//</span><span style="color: #008000;">设置为NULL,表示不用找了</span>
+<span style="color: #008080;"> 74</span>                 <span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 75</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;"> 76</span>         }<span style="color: #008000;">//</span><span style="color: #008000;">end while</span>
+<span style="color: #008080;"> 77</span>         <span style="color: #0000ff;">if</span>(pval ==<span style="color: #000000;"> NULL){
+</span><span style="color: #008080;"> 78</span>             <span style="color: #0000ff;">break</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">找到的key不是传入Section下的</span>
+<span style="color: #008080;"> 79</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 80</span>
+<span style="color: #008080;"> 81</span>         <span style="color: #008000;">//</span><span style="color: #008000;">确定了找到的key确实与传入的一致，查找value位置</span>
+<span style="color: #008080;"> 82</span>         <span style="color: #0000ff;">while</span>(*pval != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">=</span><span style="color: #800000;">&lsquo;</span> &amp;&amp; *pval != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\n</span><span style="color: #800000;">&lsquo;</span> &amp;&amp; *pval != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 83</span>             ++pval;    <span style="color: #008000;">//</span><span style="color: #008000;">查找&rsquo;=&lsquo;的位置(key=value必须在一行)</span>
+<span style="color: #008080;"> 84</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 85</span>         <span style="color: #0000ff;">if</span>(<em>pval != <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">=</span><span style="color: #800000;">&lsquo;</span>){<span style="color: #0000ff;">break</span>;}    <span style="color: #008000;">//</span><span style="color: #008000;">没有找到value</span>
+<span style="color: #008080;"> 86</span>         ++pval;    <span style="color: #008000;">//</span><span style="color: #008000;">现在pkey指向value(可能用空白，使用sscanf来去除)
+</span><span style="color: #008080;"> 87</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 找到 value 的情况，仅此一处</span>
+<span style="color: #008080;"> 88</span>         <span style="color: #0000ff;">if</span>((fsize - (pval - buf) - nSize) &gt; <span style="color: #800080;">0</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 89</span>             pval[nSize-<span style="color: #800080;">1</span>] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">避免value太长</span>
+<span style="color: #008080;"> 90</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;"> 91</span>         len = sscanf(pval,<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%s</span><span style="color: #800000;">&ldquo;</span>,ReturnedString);    <span style="color: #008000;">//</span><span style="color: #008000;">sscanf %s 遇到空格\n\t\0都结束</span>
+<span style="color: #008080;"> 92</span>         <span style="color: #0000ff;">free</span>(buf);    <span style="color: #008000;">//</span><span style="color: #008000;">释放buf</span>
+<span style="color: #008080;"> 93</span>         <span style="color: #0000ff;">return</span> len;    <span style="color: #008000;">//</span><span style="color: #008000;">返回拷贝的长度
+</span><span style="color: #008080;"> 94</span>
+<span style="color: #008080;"> 95</span>         <span style="color: #008000;">//</span><span style="color: #008000;">结束查找</span>
+<span style="color: #008080;"> 96</span>     }<span style="color: #0000ff;">while</span>(<span style="color: #800080;">0</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 97</span>
+<span style="color: #008080;"> 98</span>     <span style="color: #008000;">//</span><span style="color: #008000;">没有找到的情况</span>
+<span style="color: #008080;"> 99</span>     strncpy(ReturnedString,Default,nSize-<span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">100</span>     ReturnedString[nSize-<span style="color: #800080;">1</span>] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">101</span>     <span style="color: #0000ff;">free</span>(buf);    <span style="color: #008000;">//</span><span style="color: #008000;">释放buf</span>
+<span style="color: #008080;">102</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> strlen(ReturnedString);
+</span><span style="color: #008080;">103</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">GetPrivateProfileString</span></div>
+<p>&nbsp;</p>
+<h2>&nbsp;</h2>
+<h2>GetPrivateProfileInt从INI文件中读取Int值</h2>
+<div class="cnblogs_code" onclick="cnblogs_code_show('c3bf894c-259f-41bb-9367-f4c2764a015a')"><img id="code_img_closed_c3bf894c-259f-41bb-9367-f4c2764a015a" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_c3bf894c-259f-41bb-9367-f4c2764a015a" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('c3bf894c-259f-41bb-9367-f4c2764a015a',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_c3bf894c-259f-41bb-9367-f4c2764a015a" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">/</em></span><span style="color: #008000;">函数说明:从FileName指定的ini文件中读取section节点下key键对应的value值(整型数)
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;"> *参数说明:    Section:    节点名(不区分大小写)
+</span><span style="color: #008080;"> 3</span> <span style="color: #008000;"> *            Key:        键名(不区分大小写)
+</span><span style="color: #008080;"> 4</span> <span style="color: #008000;"> *            Default:    没有找到对应的value时的默认值
+</span><span style="color: #008080;"> 5</span> <span style="color: #008000;"> *            FileName:    ini文件路径
+</span><span style="color: #008080;"> 6</span> <span style="color: #008000;"> <em>返回值:读取成功返回找到的value值。没找到就返回Default
+</span><span style="color: #008080;"> 7</span>  <span style="color: #008000;"></em>/</span>
+<span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> GetPrivateProfileInt(
+</span><span style="color: #008080;">10</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        Section,    <span style="color: #008000;">//</span><span style="color: #008000;"> 指向包含 Section 名称的字符串地址 </span>
+<span style="color: #008080;">11</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        Key,        <span style="color: #008000;">//</span><span style="color: #008000;"> 指向包含 Key 名称的字符串地址 </span>
+<span style="color: #008080;">12</span>             <span style="color: #0000ff;">int</span>                Default,    <span style="color: #008000;">//</span><span style="color: #008000;"> 如果 Key 值没有找到，则返回缺省的值是多少 </span>
+<span style="color: #008080;">13</span>             <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*        FileName    <span style="color: #008000;">//</span><span style="color: #008000;"> ini 文件的文件名 </span>
+<span style="color: #008080;">14</span> <span style="color: #000000;">)
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">16</span>     <span style="color: #0000ff;">char</span> buf[<span style="color: #800080;">1024</span><span style="color: #000000;">];
+</span><span style="color: #008080;">17</span>     sprintf(&amp;buf[<span style="color: #800080;">512</span>],<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">%d</span><span style="color: #800000;">&ldquo;</span>,Default);    <span style="color: #008000;">//</span><span style="color: #008000;">获取默认值</span>
+<span style="color: #008080;">18</span>     GetPrivateProfileString(Section,Key,&amp;buf[<span style="color: #800080;">512</span>],buf,<span style="color: #800080;">512</span><span style="color: #000000;">,FileName);
+</span><span style="color: #008080;">19</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> atoi(buf);
+</span><span style="color: #008080;">20</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">GetPrivateProfileInt</span></div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

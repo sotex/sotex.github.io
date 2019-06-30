@@ -1,0 +1,356 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Windows下 VS2015编译RocksDB &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Windows下 VS2015编译RocksDB</h1>
+          <span class="post-date">2017年01月20日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/20/6323124.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/20/6323124.html</a>
+VS2015编译RocksDB</p>
+
+<p>RocksDB 是一个来自 facebook 的可嵌入式的支持持久化的 key-value 存储系统，也可作为 C/S 模式下的存储数据库，但主要目的还是嵌入式。RocksDB 基于 LevelDB 构建。</p>
+
+<h2 id="1-下载rocksdb源码">1、下载rocksdb源码</h2>
+
+<pre><code class="language-shell">git clone https://github.com/facebook/rocksdb.git
+</code></pre>
+
+<h2 id="2-使用cmake生成vs工程">2、使用CMAKE生成VS工程</h2>
+
+<p>打开cmd窗口(最好使用<code>VS2015开发人员命令提示</code>)，进入源码目录，执行下面命令</p>
+
+<pre><code class="language-shell">mkdir msvc14	# 创建构建目录
+cd msvc14		# 进入构建目录
+# 生成VS项目(D:\Libs\rocksdb是编译后安装路径)
+cmake -DCMAKE_INSTALL_PREFIX=D:\Libs\rocksdb -G &quot;Visual Studio 14 Win64&quot; ..
+</code></pre>
+
+<p><strong>实际上rocksdb源码目录中的<code>CMakeList.txt</code>文件中并没有写<code>INSTALL</code>段的内容，所以这里指定安装路径实际是无效的。</strong></p>
+
+<h2 id="3-编译rocksdb">3、编译RocksDB</h2>
+
+<p>打开<code>VS2015 x64 本机工具命令提示</code>(或VS2015开发人员命令提示)工具，执行下面命令进行编译64位release版本的RocksDB库</p>
+
+<pre><code class="language-shell">msbuild ALL_BUILD.vcproject /p:configuration=release /maxcpucount:8
+</code></pre>
+
+<p>因为test项目也都编译了，文件较多，所以这里使用了<code>/maxcpucount:8</code>指定使用的CPU核心数。
+如果只编译rocksdb(静态)库，可以使用<code>msbuild rocksdblib.vcproject /p:configuration=release</code>命令
+编译动态库使用<code>msbuild rocksdb.vcproject /p:configuration=release</code>命令</p>
+
+<p>编译完成后，通过的做法是使用下面命令进行安装</p>
+
+<pre><code class="language-shell">msbuild INSTALL.vcproject /p:configuration=release
+</code></pre>
+
+<p><strong>但是这里没有生成INSTALL.vcproject，所以这里的安装需要手动进行。</strong>
+直接拷贝<code>msvc14/Release</code>目录下的<code>rocksdblib.lib</code>文件和源码目录的<code>include</code>目录即可。</p>
+
+<h2 id="4-编译后续">4、编译后续</h2>
+
+<p>因为编译出来的是动态库，但是实际上<code>RocksDB</code>的代码中比没有使用<code>__declspec(dllexport)</code>导出函数和类接口，所以在使用的时候会遇到类似如下的问题</p>
+
+<pre><code class="language-bash">rocksdb_test.obj : error LNK2019: 无法解析的外部符号 &quot;public: __cdecl rocksdb::ColumnFamilyOptions::ColumnFamilyOptions(void)&quot; (??0ColumnFamilyOptions@rocksdb@@QEAA@XZ)，该符号在函数 &quot;public: __cdecl rocksdb::Options::Options(void)&quot; (??0Options@rocksdb@@QEAA@XZ) 中被引用
+rocksdb_test.obj : error LNK2019: 无法解析的外部符号 &quot;public: __cdecl rocksdb::DBOptions::DBOptions(void)&quot; (??0DBOptions@rocksdb@@QEAA@XZ)，该符号在函数 &quot;public: __cdecl rocksdb::Options::Options(void)&quot; (??0Options@rocksdb@@QEAA@XZ) 中被引用
+rocksdb_test.obj : error LNK2019: 无法解析的外部符号 &quot;public: __cdecl rocksdb::ReadOptions::ReadOptions(void)&quot; (??0ReadOptions@rocksdb@@QEAA@XZ)，该符号在函数 main 中被引用
+rocksdb_test.obj : error LNK2019: 无法解析的外部符号 &quot;public: static class rocksdb::Status __cdecl rocksdb::DB::Open(struct rocksdb::Options const &amp;,class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class std::allocator&lt;char&gt; &gt; const &amp;,class rocksdb::DB * *)&quot; (?Open@DB@rocksdb@@SA?AVStatus@2@AEBUOptions@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAPEAV12@@Z)，该符号在函数 main 中被引用
+rocksdb_test.exe : fatal error LNK1120: 4 个无法解析的外部命令
+</code></pre>
+
+<p>这里可以打开生成的VS工程，将配置类型改为静态库，然后再生成静态库即可。
+<img src="http://images2015.cnblogs.com/blog/693958/201703/693958-20170322114233690-788973321.png" alt="" /></p>
+
+<p>生成后即可使用了。但是还会遇到下面的问题</p>
+
+<pre><code class="language-bash">rocksdb.lib(env_win.obj) : error LNK2019: 无法解析的外部符号 __imp_RpcStringFreeA，该符号在函数 &quot;public: virtual class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class std::allocator&lt;char&gt; &gt; __cdecl rocksdb::Env::GenerateUniqueId(void)&quot; (?GenerateUniqueId@Env@rocksdb@@UEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) 中被引用
+rocksdb.lib(env_win.obj) : error LNK2019: 无法解析的外部符号 __imp_UuidCreateSequential，该符号在函数 &quot;public: virtual class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class std::allocator&lt;char&gt; &gt; __cdecl rocksdb::Env::GenerateUniqueId(void)&quot; (?GenerateUniqueId@Env@rocksdb@@UEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) 中被引用
+rocksdb.lib(env_win.obj) : error LNK2019: 无法解析的外部符号 __imp_UuidToStringA，该符号在函数 &quot;public: virtual class std::basic_string&lt;char,struct std::char_traits&lt;char&gt;,class std::allocator&lt;char&gt; &gt; __cdecl rocksdb::Env::GenerateUniqueId(void)&quot; (?GenerateUniqueId@Env@rocksdb@@UEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ) 中被引用
+rocksdb_test.exe : fatal error LNK1120: 3 个无法解析的外部命令
+</code></pre>
+
+<p>这些函数实际上是在<code>Rpcrt4.lib</code>这个库里面，所以需要链接上才行。可以在使用的时候在代码中添加<code>#pragma comment(lib,&quot;Rpcrt4.lib&quot;)</code>来引入。</p>
+
+<p>相关测试代码如下</p>
+
+<pre><code class="language-cpp">#include &lt;cassert&gt;  
+#include &lt;string&gt;  
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+
+#include &quot;rocksdb/db.h&quot;  
+
+#pragma comment(lib,&quot;Rpcrt4.lib&quot;)
+
+#define TEST_FREQUENCY	(10000)
+
+char* randomstr()
+{
+	static char buf[1024];
+	int len = rand() % 768 + 255;
+	for (int i = 0; i &lt; len; ++i) {
+		buf[i] = 'A' + rand() % 26;
+	}
+	buf[len] = '\0';
+	return buf;
+}
+
+int main() 
+{
+	rocksdb::DB* db;
+	rocksdb::Options options;
+	options.create_if_missing = true;
+
+	// 打开数据库
+	rocksdb::Status status = rocksdb::DB::Open(options, &quot;./testdb&quot;, &amp;db);
+	assert(status.ok());
+
+	srand(2017);
+	std::string k[TEST_FREQUENCY];
+	for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+		k[i] = (randomstr());
+	}
+	std::string v(&quot;壹贰叁肆伍陆柒捌玖拾&quot;);
+	v.append(v).append(v).append(v).append(v).append(v);
+
+	// 测试添加
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Put(rocksdb::WriteOptions(), k[i], v);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次添加耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	// 测试获取
+	{
+		auto start = std::chrono::system_clock::now();
+		std::string v2[TEST_FREQUENCY];
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Get(rocksdb::ReadOptions(), k[i], &amp;v2[i]);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次获取耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+		// 验证获取结果是否正确
+		std::string ss;
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			if (v2[i] != v) {
+				std::cout &lt;&lt; &quot;第 &quot; &lt;&lt; i &lt;&lt; &quot; 个结果不正确&quot; &lt;&lt; std::endl;
+				std::cout &lt;&lt; v2[i] &lt;&lt; std::endl;
+			}
+		}
+	}
+	// 测试修改
+	{
+		auto start = std::chrono::system_clock::now();
+		v.append(v);
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Put(rocksdb::WriteOptions(), k[i], v);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次修改耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+
+	// 测试删除
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Delete(rocksdb::WriteOptions(), k[i]);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次删除耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	delete db;
+	return 0;
+}
+</code></pre>
+
+<p>编译命令如下：</p>
+
+<pre><code class="language-bash"># Debug版本
+cl rocksdb_test.cpp /I ..\..\libs\vs140-x64\rocksdb\include  ..\..\libs\vs140-x64\rocksdb\Debug\rocksdb.lib /MDd /EHsc \
+/GF /TP /Zp8 /Od /Gy /W3 /D &quot;OS_WIN&quot; /D &quot;WIN32&quot; /D &quot;_WINDOWS&quot; /D &quot;NDEBUG&quot; /D &quot;ROCKSDB_LITE&quot; /D &quot;_MBCS&quot; /D &quot;WIN64&quot; /D &quot;NOMINMAX&quot; 
+
+# Release版本
+cl rocksdb_test.cpp /I ..\..\libs\vs140-x64\rocksdb\include  ..\..\libs\vs140-x64\rocksdb\Release\rocksdb.lib /MD /EHsc \
+/GF /TP /Zp8 /O2 /Gy /W3 /D &quot;OS_WIN&quot; /D &quot;WIN32&quot; /D &quot;_WINDOWS&quot; /D &quot;NDEBUG&quot; /D &quot;ROCKSDB_LITE&quot; /D &quot;_MBCS&quot; /D &quot;WIN64&quot; /D &quot;NOMINMAX&quot; 
+</code></pre>
+
+<p>注意上面使用了<code>/Zp8</code>和<code>/TP</code> <code>/GF</code>等选项。<strong>如果不设置<code>/Zp8(8字节对齐)</code>，在运行时候会抛出异常。因为VS编译64位程序的时候，默认就是8字节对齐，而我没有测试32位版本的，所以这里可能不是关键。</strong></p>
+
+<h2 id="后话">后话</h2>
+
+<p>Linux下的编译都比较简单，包括<code>LevelDB</code>等，都只需要直接<code>make</code>即可。Linux下编译的时候可能有某些依赖需要安装一下，包括<code>gflags</code>、<code>jemalloc</code>、<code>libsnappy</code>、<code>libbz2</code>、<code>liblz4</code>等。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

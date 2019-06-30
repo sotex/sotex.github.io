@@ -1,0 +1,433 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> windows下C语言编程获取磁盘(分区)使用情况 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>windows下C语言编程获取磁盘(分区)使用情况</h1>
+          <span class="post-date">2015年10月15日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/10/15/4881394.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/10/15/4881394.html</a>
+<h1 id="windows">windows下编程获取磁盘(分区)使用情况</h1>
+<div class="toc">
+<ul>
+<li><a href="#windows">windows下编程获取磁盘(分区)使用情况</a>
+<ul>
+<li><a href="#getlogicaldrivestrings">GetLogicalDriveStrings函数</a>
+<ul>
+<li><a href="#_1">使用示例</a>
+<ul>
+<li><a href="#_2">获取需要的缓冲区长度示例</a></li>
+<li><a href="#_3">获取所有驱动器号示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#getdrivetype">GetDriveType函数</a>
+<ul>
+<li><a href="#_4">使用示例</a></li>
+</ul>
+</li>
+<li><a href="#getdiskfreespaceex">GetDiskFreeSpaceEx 函数</a>
+<ul>
+<li><a href="#_5">使用示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>linux下可以使用命令<code>df -h</code>来获取各个(已加载)分区的使用情况。Windows下也有很多好的工具来获取，但是我没有发现windows下的<code>df</code>命令。</p>
+<p>在linux下使用<code>df -h</code>命令的输出如下</p>
+<pre><code class="bash">o@Neo-kylin:~/snmp$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       197G   14G  174G   8% /
+tmpfs           922M   76K  922M   1% /dev/shm
+/dev/sda5        61G  7.8G   50G  14% /media/sda5
+/dev/sda6       134G   29G   99G  23% /media/sda6
+</code></pre>
+<p>在windows下获取这些信息可以通过几个API函数来操作。</p>
+<hr />
+<h2 id="getlogicaldrivestrings">GetLogicalDriveStrings函数</h2>
+<p>Windows的API函数名称一般都很长，虽然不好记，但是描述的意思比较清晰。这个函数就是用于获取<code>逻辑驱动器字符串</code>。</p>
+<p><code>GetLogicalDriveStrings</code>实际上是一个宏，在没有定义<code>UNICODE</code>宏的条件下，它被替换为<code>GetLogicalDriveStringA</code>函数，在定义了<code>UNICODE</code>宏的条件下，它被替换为<code>GetLogicalDriveStringsW</code>函数。</p>
+<p>这两个函数的声明如下</p>
+<p><code class="C">DWORD GetLogicalDriveStringsA( DWORD nBufferLength, _Out_writes_to<em>opt</em>(nBufferLength, return + 1) LPSTR lpBuffer ); </code></p>
+<pre><code class="C">DWORD
+GetLogicalDriveStringsW(
+     DWORD nBufferLength,
+    _Out_writes_to<em>opt</em>(nBufferLength, return + 1) LPWSTR lpBuffer
+    );
+</code></pre>
+<p>这个的参数看起来很复杂，其实并没有。函数需要提供一个内存缓冲区<code>lpBuffer</code>来供它保存获取的逻辑驱动器的分区号（C:\ ,D:\等）信息。</p>
+<p>如果参数<code>nBufferLength</code>填写<code>0</code>，那么将缓冲区将不使用，函数返回保存所有数据所需要的字节数。这通常用户获取需要的缓冲区大小。</p>
+<p>应该总是比较返回值与参数<code>nBufferLength</code>的大小。</p>
+<p>如果函数成功，返回值是复制到缓冲区的字符串的长度， 不包括结束符<code>null</code>。注意，ansi-ascii的<code>null</code>字符用一个字节，但 Unicode（UTF-16）<code>null</code>字符用两个字节。</p>
+<p>如果缓冲区不够大，返回值是大于<code>nbufferlength</code>。它要求具有能够保持驱动字符串大小的缓冲区。</p>
+<p>如果函数失败，返回值是零。为了获得更多的错误信息，可以使用GetLastError函数。</p>
+<p>这里不讲<code>UNICODE</code>与多字节字符集的区别。指导一点就好，使用多字节字符集的时候，当作普通的C风格字符串来使用即可。</p>
+<h3 id="_1">使用示例</h3>
+<h4 id="_2">获取需要的缓冲区长度示例</h4>
+<pre><code class="C"> #include &lt;stdio.h&gt;
+ #include &lt;Windows.h&gt;
+int main()
+{
+ DWORD dw = GetLogicalDriveStrings(0,NULL);
+ printf(&ldquo;dw = %lu\n&rdquo;,dw); return 0;
+ }
+</code></pre>
+<p>编译后运行输出</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151015092423585-1653240201.png" alt="" /></p>
+<h4 id="_3">获取所有驱动器号示例</h4>
+<pre><code class="C">#include &lt;stdio.h&gt;
+#include &lt;Windows.h&gt;</p>
+
+<p>int main()
+{
+    DWORD dwSize = MAX_PATH;
+    char szLogicalDrives[MAX_PATH] = {0};
+    //获取逻辑驱动器号字符串
+    DWORD dwResult = GetLogicalDriveStrings(dwSize,szLogicalDrives);
+    //处理获取到的结果
+    if (dwResult &gt; 0 &amp;&amp; dwResult &lt;= MAX_PATH) {
+        char* szSingleDrive = szLogicalDrives;  //从缓冲区起始地址开始
+        while(*szSingleDrive) {
+            printf(&ldquo;Drive: %s\n&rdquo;, szSingleDrive);   //输出单个驱动器的驱动器号
+            // 获取下一个驱动器号起始地址
+            szSingleDrive += strlen(szSingleDrive) + 1;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>编译后运行输出</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151015092436054-658108156.png" alt="" /></p>
+<hr />
+<h2 id="getdrivetype">GetDriveType函数</h2>
+<p>GetDriveType函数用于判断一个磁盘驱动器的类型。<br />
+函数声明如下</p>
+<pre><code class="C">UINT WINAPI GetDriveType(
+  _In<em>opt</em> LPCTSTR lpRootPathName
+);
+</code></pre>
+<p>参数<code>lpRootPathName</code>包含了根目录路径的字符串指针。<br />
+如驱动器不能识别，则返回零。如指定的目录不存在，则返回1。如执行成功，则用下述任何一个常数指定驱动器类型</p>
+<table>
+<thead>
+<tr><th align="left">常数</th><th align="left">含义</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">DRIVE_UNKNOWN</td>
+<td align="left">未知的磁盘类型</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_NO_ROOT_DIR</td>
+<td align="left">说明lpRootPathName是无效的</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_REMOVABLE</td>
+<td align="left">可移动磁盘</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_FIXED</td>
+<td align="left">固定磁盘</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_REMOTE</td>
+<td align="left">网络磁盘</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_CDROM</td>
+<td align="left">光驱</td></p>
+
+<p></tr>
+<tr>
+<td align="left">DRIVE_RAMDISK</td>
+<td align="left">RAM映射磁盘</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="_4">使用示例</h3>
+<p>获取所有驱动器号及其所属磁盘类型示例</p>
+<p>输出逻辑驱动器类型函数</p>
+<pre><code class="C">#include &lt;stdio.h&gt;
+#include &lt;Windows.h&gt;</p>
+
+<p>void putDrivesType(const char* lpRootPathName)
+{
+    UINT uDriverType = GetDriveType(lpRootPathName);</p>
+
+<pre><code>switch(uDriverType) {
+case DRIVE_UNKNOWN  :puts(&quot;未知的磁盘类型&quot;); break;
+case DRIVE_NO_ROOT_DIR: puts(&quot;路径无效&quot;); break;
+case DRIVE_REMOVABLE: puts(&quot;可移动磁盘&quot;); break;
+case DRIVE_FIXED: puts(&quot;固定磁盘&quot;); break;
+case DRIVE_REMOTE: puts(&quot;网络磁盘&quot;); break;
+case DRIVE_CDROM: puts(&quot;光驱&quot;); break;
+case DRIVE_RAMDISK: puts(&quot;内存映射盘&quot;); break;
+default:
+    break;
+}
+</code></pre>
+
+<p>}
+</code></pre>
+<p>调用</p>
+<pre><code class="C">int main()
+{
+    DWORD dwSize = MAX_PATH;
+    char szLogicalDrives[MAX_PATH] = {0};
+    //获取逻辑驱动器号字符串
+    DWORD dwResult = GetLogicalDriveStrings(dwSize,szLogicalDrives);
+    //处理获取到的结果
+    if (dwResult &gt; 0 &amp;&amp; dwResult &lt;= MAX_PATH) {
+        char* szSingleDrive = szLogicalDrives;  //从缓冲区起始地址开始
+        while(*szSingleDrive) {
+            printf(&ldquo;Drive: %s\n&rdquo;, szSingleDrive);   //输出单个驱动器的驱动器号
+            putDrivesType(szSingleDrive);           //输出逻辑驱动器类型
+            // 获取下一个驱动器号起始地址
+            szSingleDrive += strlen(szSingleDrive) + 1;
+        }
+    }
+    return 0;
+}</p>
+
+<p></code></pre>
+<p>编译后运行输出</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151015092451522-2128521481.png" alt="" /></p>
+<hr />
+<h2 id="getdiskfreespaceex">GetDiskFreeSpaceEx 函数</h2>
+<p><code>GetDiskFreeSpaceEx</code>函数用户获取逻辑驱动器的容量信息。还有一个和它长得很像的函数<code>GetDiskFreeSpace</code>，但这个函数已经过时了，不推荐使用。</p>
+<p>函数声明如下</p>
+<pre><code class="C">BOOL WINAPI GetDiskFreeSpaceEx(
+  <em>In</em>  LPCTSTR lpRootPathName,
+  <em>Out</em> LPDWORD lpSectorsPerCluster,
+  <em>Out</em> LPDWORD lpBytesPerSector,
+  <em>Out</em> LPDWORD lpNumberOfFreeClusters,
+  <em>Out</em> LPDWORD lpTotalNumberOfClusters
+);
+</code></pre>
+<p>这个函数的参数要仔细的说明一下。</p>
+<table>
+<thead>
+<tr><th align="left">参数</th><th align="left">含义</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">lpDirectoryName</td>
+<td align="left">逻辑驱动器的名称(C/D/E等这些)</td>
+</tr>
+<tr>
+<td align="left">lpFreeBytesAvailableToCaller</td>
+<td align="left">用户(当前线程)可用的磁盘空间字节数</td>
+</tr>
+<tr>
+<td align="left">lpTotalNumberOfBytes</td>
+<td align="left">逻辑磁盘总的空间字节数</td>
+</tr>
+<tr>
+<td align="left">lpTotalNumberOfFreeBytes</td>
+<td align="left">逻辑磁盘空闲的空间字节数</td>
+</tr>
+</tbody>
+</table>
+<p>上面三个字节数的单位都是字节，数据类型都是64位无符号整型。</p>
+<p><code>GetDiskFreeSpaceEx</code>函数执行成功返回非0值，失败返回0。可以通过<code>GetLastError</code>函数获取失败信息。</p>
+<h3 id="_5">使用示例</h3>
+<p>获取磁盘容量信息示例</p>
+<p>下面的函数用来输出磁盘的容量信息。</p>
+<pre><code class="C">void putDrivesFreeSpace(const char* lpRootPathName)
+{
+    unsigned long long available,total,free;
+    if(GetDiskFreeSpaceEx(lpRootPathName,(ULARGE_INTEGER<em>)&amp;available,(ULARGE_INTEGER</em>)&amp;total,(ULARGE_INTEGER<em>)&amp;free)){
+        printf(&ldquo;Drives %s | total = %lld MB,available = %lld MB,free = %lld MB\n&rdquo;,
+                lpRootPathName,total&gt;&gt;20,available&gt;&gt;20,free&gt;&gt;20);
+    }else{
+        puts(&ldquo;获取容量信息失败&rdquo;);
+    }
+}
+</code></pre>
+<p>调用如下</p>
+<pre><code class="C">int main()
+{
+    DWORD dwSize = MAX_PATH;
+    char szLogicalDrives[MAX_PATH] = {0};
+    //获取逻辑驱动器号字符串
+    DWORD dwResult = GetLogicalDriveStrings(dwSize,szLogicalDrives);
+    //处理获取到的结果
+    if (dwResult &gt; 0 &amp;&amp; dwResult &lt;= MAX_PATH) {
+        char</em> szSingleDrive = szLogicalDrives;  //从缓冲区起始地址开始
+        while(*szSingleDrive) {
+            printf(&ldquo;Drive: %s\n&rdquo;, szSingleDrive);   //输出单个驱动器的驱动器号
+            putDrivesType(szSingleDrive);           //输出逻辑驱动器类型
+            putDrivesFreeSpace(szSingleDrive);
+            // 获取下一个驱动器号起始地址
+            szSingleDrive += strlen(szSingleDrive) + 1;
+        }
+    }
+    return 0;
+}
+</code></pre>
+<p>编译后运行输出<br />
+<img src="http://images2015.cnblogs.com/blog/693958/201510/693958-20151015092502476-106126181.png" alt="" /></p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

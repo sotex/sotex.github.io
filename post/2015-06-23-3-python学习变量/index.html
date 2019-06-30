@@ -1,0 +1,517 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 3-python学习——变量 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>3-python学习——变量</h1>
+          <span class="post-date">2015年06月23日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4594846.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4594846.html</a>
+变量是我所接触过的编程语言中都具有的一个概念，只是这个概念有的强有的弱罢了。</p>
+
+<p>##1、什么是python的变量</p>
+
+<p>变量这个东西怎么解释呢？不怎么好说。
+这么说吧，变量就相当于一个代名词，或者说是名字。
+计算机处理的都是二进制的数据，而变量就代表了一些二进制数据。
+例如变量<code>a</code>给它赋值为5，那么<code>a</code>就代表了一块内存区域，这块区域保存的数据是<code>5</code>。然后又让<code>a=&quot;nihao&quot;</code>，那么<code>a</code>就不在代表那块保存数据<code>5</code>的内存区域了，而改为代表保存了数据<code>&quot;nihao&quot;</code>的内存区域。</p>
+
+<p>##2、变量声明与赋值</p>
+
+<p><code>python</code>变量与<code>C/C++</code>这些<code>强类型</code>编程语言不同，它是<code>弱类型</code>的，也就是变量的类型并不是从一而终的(一次确定，终身不变)。</p>
+
+<p>-
+<code>python</code>的变量，与对应内存区域的关系是<code>可变的</code>。当重新给变量赋值的时候，如果新赋值的类型与当前保存数据的类型不同，将会重新分派内存区域。</p>
+
+<p>-
+我们并不需要显示的声明一个变量，实际上这也行不通。可以看下面</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; x
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name 'x' is not defined
+&gt;&gt;&gt; print(x)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name 'x' is not defined
+</code></pre>
+
+<p>我们这里想声明一个变量，但是会报错，原因是它不知道这个<code>x</code>是什么。</p>
+
+<p>###变量赋值</p>
+
+<p><strong>我们在声明变量的时候，必须给变量赋一个初始值。</strong>
+等号(=)来赋值给变量。</p>
+
+<h2 id="赋值方式以-变量-值-等于号-的左边是变量-右侧的是在变量中存储的值">赋值方式以  <code>变量</code> = <code>值</code>。等于号<code>=</code>的左边是变量，右侧的是在变量中存储的值。</h2>
+
+<p>举个例子
+下面什么了三个变量，然后输出了一下。
+再对<code>x</code>重新赋值为字符串<code>&quot;你好&quot;</code>，然后重新输出。
+对于中文字符串，这里输出的是十六进制的结果。如果在<code>python3.x</code>下，是可以正常输出中文的。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; x=123
+&gt;&gt;&gt; y=345
+&gt;&gt;&gt; z=x*y
+&gt;&gt;&gt; print(x,y,z)
+(123, 345, 42435)
+&gt;&gt;&gt; x=&quot;你好&quot;
+&gt;&gt;&gt; print(x,y,z)
+('\xe4\xbd\xa0\xe5\xa5\xbd', 345, 42435)
+</code></pre>
+
+<h3 id="多重赋值">多重赋值：</h3>
+
+<ul>
+<li><p>Python允许同时指定一个值给几个变量。例如：</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; a=b=c=123
+&gt;&gt;&gt; print(a,b,c)
+123 123 123
+</code></pre>
+
+<ul>
+<li>这里，整数对象创建的值1，并且所有三个变量被分配到相同的内存位置。您也可以将多个对象分别到多个变量。例如：
+<code>python
+&gt;&gt;&gt; a,b,c=1,&quot;你好&quot;,'X'
+&gt;&gt;&gt; print(a,b,c)
+1 你好 X
+</code></li>
+</ul></li>
+</ul>
+
+<p>###变量的删除
+变量的删除可以使用<code>del</code>来进行。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; str=&quot;操作系统:ubuntu-15.04&quot;
+&gt;&gt;&gt; print(str)
+操作系统:ubuntu-15.04
+&gt;&gt;&gt; del str
+&gt;&gt;&gt; print(str)
+&lt;class 'str'&gt;
+</code></pre>
+
+<p>##3、python变量的类型</p>
+
+<p>python能够表示的数据类型有五种</p>
+
+<ul>
+<li>数字</li>
+<li>字符串</li>
+<li>列表</li>
+<li>元组</li>
+<li>字典</li>
+</ul>
+
+<p>这里并不打算进行非常细致的分析，遵循够用就好的原则来进行说明。</p>
+
+<p>###数字</p>
+
+<p>数字是用于表示数值的类型，包括整数，浮点数，复数。</p>
+
+<ul>
+<li><p>浮点数就是实数，或者通俗点说就是有小数部分的数。</p></li>
+
+<li><p>整数又包括一般的有符号整数(int)和长整型数(long)，长整型数在表示的时候用一个后缀<code>L</code>或者<code>l</code>表示，通常使用大写的<code>L</code>，避免混淆。<strong>注意：这个在<code>python3.x</code>中行不通了，<code>python3.x</code>中整数都是<code>int</code>类型。</strong></p></li>
+
+<li><p>复数就是complex了，这里表示与我们在中学时候学习的可能有一点区别。中学时候学的是虚部加<code>i</code>表示，这里是虚部加<code>j</code>表示。也就是类似与<code>1+2j</code>的形式。</p></li>
+</ul>
+
+<p><code>python2.7</code>下的示例</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; a,b,c,d = 100 , 10.3, 10+5j, 9901L
+&gt;&gt;&gt; print(type(a),type(b),type(c),type(d))
+(&lt;type 'int'&gt;, &lt;type 'float'&gt;, &lt;type 'complex'&gt;, &lt;type 'long'&gt;)
+</code></pre>
+
+<p><code>python3.4</code>下的示例</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; a,b,c,d = 100 , 10.3, 10+5j, 99019999999999999999999999999999999
+&gt;&gt;&gt; print(a,b,c,d)
+100 10.3 (10+5j) 99019999999999999999999999999999999
+&gt;&gt;&gt; print(type(a),type(b),type(c),type(d))
+&lt;class 'int'&gt; &lt;class 'float'&gt; &lt;class 'complex'&gt; &lt;class 'int'&gt;
+</code></pre>
+
+<p>上面没有说负数和整数的进制的。python的数据类型是可以为负数的。整数也可以用十六进制或八进制来表示的。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; a,b,c = -15,-0x7f,80-5j
+&gt;&gt;&gt; print(a,b,c)
+-15 -127 (80-5j)
+&gt;&gt;&gt; print(a,hex(b),c)
+-15 -0x7f (80-5j)
+</code></pre>
+
+<p>###字符串</p>
+
+<ul>
+<li>字符串是被单引号或者双引号括起来的一串字符序列。</li>
+<li>对于字符串的整体的引用，直接使用变量名就是了。如果只是引用其中的部分，那么可以使用类似<code>name[n:m]</code>来表示。</li>
+<li>python的字符串也可以看做一个字符数组，下标是从<code>0</code>开始的。如果我们要引用其中的某个元素，可以使用<code>变量名[下标]</code>的方式。如果是想引用倒数第几个，那么使用负数就是了，倒数第一个的下标为<code>-1</code>。</li>
+</ul>
+
+<p>举个例子，先定义一个字符串<code>str</code>，然后输出它或者它中间的一部分。
+注意：使用中括号引用字符串中间的部分的时候如<code>name[n:m]</code>实际上代指的是字符串<code>name</code>中索引在半闭半开区间<code>[n,m)</code>的元素。<code>n</code>的默认值为<code>0</code>，<code>m</code>的的默认值为<code>-1</code>。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; str=&quot;0123456789&quot;
+&gt;&gt;&gt; print(str)
+0123456789
+&gt;&gt;&gt; print(str[:])  #中括号内不写数字，直接写冒号也是引用整个字符串
+0123456789
+&gt;&gt;&gt; print(str[2])  #输出索引为2的元素
+2
+&gt;&gt;&gt; print(str[2:4])  #输出索引从2开始，到索引为4之间的元素
+23
+&gt;&gt;&gt; print(str[2:-3])  #输出索引从2开始，到倒数第三之间的元素
+23456
+&gt;&gt;&gt; print(str[2:])  #输出索引从2开始，到最后的元素
+23456789
+&gt;&gt;&gt; print(str[:-3])  #输出索引从0开始，到倒数第三之间的元素
+0123456
+</code></pre>
+
+<ul>
+<li>字符串可进行加操作，其结果是两个字符串拼接起来的。字符串还可乘以一个正整数，其结果是该字符串重复多次拼接自身组成新字符串。（如果乘以一个负数，将变成空字符串）</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(list[-1])
+你好
+&gt;&gt;&gt; str=&quot;你好&quot;
+&gt;&gt;&gt; print(str+&quot;吗？&quot;)
+你好吗？
+&gt;&gt;&gt; print(str*3)
+你好你好你好
+</code></pre>
+
+<p>###列表</p>
+
+<ul>
+<li><p>列表是最通用的Python复合数据类型。列表中包含以逗号分隔，并在方括号（[]）包含的项目。</p></li>
+
+<li><p>列表和C语言的数组很像，但是列表的各个元素类型是可以不一致的。例如<code>list=[1,'c',&quot;234&quot;,3.5]</code>这个列表的元素类型不一致。</p></li>
+
+<li><p>上面说过的字符串可以看做列表的一种特殊形式。列表中的元素也有类似与字符串中元素那样的访问形式<code>list[n:m]</code>。这里就不详述了，看示例。</p></li>
+</ul>
+
+<p>注意下面的输出，有中括号的代表输出的是一个列表，没有的表示是一个元素。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; list=[1,2.3,&quot;你好&quot;]
+&gt;&gt;&gt; print(list)
+[1, 2.3, '你好']
+&gt;&gt;&gt; print(list[:])   #打印列表所有元素
+[1, 2.3, '你好']
+&gt;&gt;&gt; print(list[1])   #打印列表第二个元素(索引为1)
+2.3
+&gt;&gt;&gt; print(list[1:3])   #打印列表第2到第3个元素元素(索引为1-2)
+[2.3, '你好']
+&gt;&gt;&gt; print(list[-1])   #打印列表最后一个元素(索引为-1)
+你好
+</code></pre>
+
+<ul>
+<li>列表也可以进行加操作，其结果是两个列表的合并。也可以乘以一个正整数，结果是该列表重复多次。(如果乘以一个负数，其结果是一个空列表)</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(list*3)
+[1, 2.3, '你好', 1, 2.3, '你好', 1, 2.3, '你好']
+&gt;&gt;&gt; print(list+[&quot;+++&quot;,100,99.8])
+[1, 2.3, '你好', '+++', 100, 99.8]
+</code></pre>
+
+<ul>
+<li>列表中的元素是可以修改的。这么来说，列表中的元素是变量，列表其实就是多个变量的集合。</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(list)
+[1, 2.3, '你好']
+&gt;&gt;&gt; list[1]=&quot;请问&quot;
+&gt;&gt;&gt; print(list)
+[1, '请问', '你好']
+</code></pre>
+
+<ul>
+<li>列表不可以越界访问，否则将报错。</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; list[3]=&quot;？&quot;
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+IndexError: list assignment index out of range
+</code></pre>
+
+<ul>
+<li><p>列表的扩展可以使用<code>+=</code>来进行，并不能直接隐式扩展。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(list)
+[1, '请问', '你好']
+&gt;&gt;&gt; list+=[100]
+&gt;&gt;&gt; list+=[&quot;呵呵&quot;]
+&gt;&gt;&gt; print(list)
+[1, '请问', '你好', 100, '呵呵']
+</code></pre>
+
+<ul>
+<li>列表中元素的删除可以使用<code>del</code>来进行
+<code>python
+&gt;&gt;&gt; print(list)
+[1, 2, 100, 'da', 4, 5, 6]
+&gt;&gt;&gt; del list[2:4]
+&gt;&gt;&gt; print(list)
+[1, 2, 4, 5, 6]
+</code></li>
+</ul></li>
+</ul>
+
+<p>###元组
+- 元组是类似于列表中的序列数据类型。一个元组由数个逗号分隔的值。不同于列表，不过，元组圆括号括起来。</p>
+
+<ul>
+<li>列表和元组之间的主要区别是：列表使用中括号<code>[]</code>表示，而元组使用小括号<code>()</code>表示。列表中的元素是变量，而元组中的元素是常量，是不可以再改变的。但是元组是可以被重新赋值的，不能改变的只是其元素。要明白<code>python的变量是弱类型</code>的。(原因很简单，你可以给一个变量赋值100，然后又给它赋值为200，但是你不能给100赋值为200吧。<code>100=200</code>不好)</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; tuple=(100,&quot;头&quot;,&quot;牛&quot;)
+&gt;&gt;&gt; print(tuple)
+(100, '头', '牛')
+&gt;&gt;&gt; print(tuple[2])
+牛
+&gt;&gt;&gt; print(tuple[1:-1])	#输出元组，当输出的元组只有一个元素
+					#的时候，元素后会加逗号来标识为元组
+('头',)
+&gt;&gt;&gt; tuple[2]=&quot;猪&quot;	#视图改变元组的元素，报错
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item assignment
+&gt;&gt;&gt; tuple=(123,321)	#重赋值给这个变量tuple
+&gt;&gt;&gt; print(tuple)
+(123, 321)
+</code></pre>
+
+<ul>
+<li><p>不能从元组中删除元素。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; tuple=(1,2,3,4)
+&gt;&gt;&gt; del tuple[1:3]
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: 'tuple' object does not support item deletion
+&gt;&gt;&gt; tuple=tuple[1:3]
+&gt;&gt;&gt; print(tuple)
+(2, 3)
+</code></pre>
+
+<p>###字典</p>
+
+<ul>
+<li>字典，dictionary。这是很有用的一个数据结构。C++标准模板库（STL）中的map和这个很像。说白了就是键值对嘛。一个<code>key</code>对应一个<code>value</code>。</li>
+<li>字典的键通常用数字或者字符串（不可以用列表作为键，但元组可以。因为<code>key</code>必须是不可变的）。值也可以是python支持的任意类型。值有重复的，但是键都是唯一的。</li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; dict={1:&quot;你好&quot;,&quot;2&quot;:&quot;可以了&quot;,[0,9]:3.14159}
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+TypeError: unhashable type: 'list'	#用列表为键出现错误
+</code></pre></li>
+
+<li><p>字典是由花括号括号<code>{}</code>，可分配值，并用方括号（<code>dictionary[key]</code>）访问<code>value</code>。</p></li>
+</ul>
+
+<pre><code class="language-python">&gt;&gt;&gt; dict={1:&quot;你好&quot;,&quot;2&quot;:&quot;可以了&quot;,(0,9):3.14159}	#构建字典
+&gt;&gt;&gt; print(dict)
+{(0, 9): 3.14159, 1: '你好', '2': '可以了'}
+&gt;&gt;&gt; print(dict.keys())	#输出所有键key
+dict_keys([(0, 9), 1, '2'])
+&gt;&gt;&gt; print(dict.values())	#输出所有值value
+dict_values([3.14159, '你好', '可以了'])
+&gt;&gt;&gt; print(dict[&quot;2&quot;])	#引用key &quot;2&quot;对于的value
+可以了
+</code></pre>
+
+<ul>
+<li><p>字典可以添加元素，修改<code>key</code>对应的<code>value</code>。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(dict)
+{(0, 9): 3.14159, 1: '你好', '2': '可以了'}
+&gt;&gt;&gt; dict[(0,9)]={1:1,2:[123,345]}	#修改，值可以是一个字典
+&gt;&gt;&gt; print(dict)
+{(0, 9): {1: 1, 2: [123, 345]}, 1: '你好', '2': '可以了'}
+&gt;&gt;&gt; print(dict[(0,9)][2])	#引用key对于value
+[123, 345]
+&gt;&gt;&gt; dict[&quot;中国&quot;]=&quot;祖国&quot;	#添加元素
+&gt;&gt;&gt; print(dict)
+{(0, 9): {1: 1, 2: [123, 345]}, 1: '你好', '2': '可以了', '中国': '祖国'}
+</code></pre>
+
+<ul>
+<li>引用不存在的元素的时候，会报错。可以使用<code>in</code>来确定<code>key</code>是否存在。
+<code>python
+&gt;&gt;&gt; print(dict[&quot;猴子&quot;])
+Traceback (most recent call last):
+File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+KeyError: '猴子'
+&gt;&gt;&gt; &quot;猴子&quot; in dict
+False
+</code></li>
+</ul></li>
+
+<li><p>字典元素的删除，可以同样也是使用<code>del</code>操作。</p>
+
+<pre><code class="language-python">&gt;&gt;&gt; print(dict)
+{(0, 9): {1: 1, 2: [123, 345]}, 1: '你好', '2': '可以了', '中国': '祖国'}
+&gt;&gt;&gt; del dict[(0,9)]
+&gt;&gt;&gt; print(dict)
+{1: '你好', '2': '可以了', '中国': '祖国'}
+</code></pre></li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

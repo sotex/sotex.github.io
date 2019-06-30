@@ -1,0 +1,436 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> nc 局域网聊天&#43;文件传输(netcat) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>nc 局域网聊天&#43;文件传输(netcat)</h1>
+          <span class="post-date">2015年06月30日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/30/4610563.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/30/4610563.html</a>
+<h2 id="nc">nc 局域网聊天+文件传输</h2>
+<p><code>nc</code>的全程是<code>netcat</code>，这个工具非常好用。</p>
+<p>有时候我们需要在局域网内传送一些文本消息或者文件的时候，通常的做法是安装一些局域网通讯软件，然后来做。其实不必要这样，使用<code>nc</code>这个小工具就很好了。</p>
+<h2 id="nc_1">nc的一些参数</h2>
+<p>具体的参数，可以通过<code>nc -help</code>来获取。（注意此处只有一个<code>-</code>）<br />
+下面表格中的内容是用<code>google</code>翻译后修改来的，不是很好看，请原谅。<br />
+最常用的几个参数就是<code>-l</code>,<code>-u</code>,<code>-p</code>这几个参数。</p>
+<table>
+<thead>
+<tr><th align="left">参数</th><th align="left">说明</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">-4</td>
+<td align="left">使用IPv4</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-6</td>
+<td align="left">使用IPv6</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-b</td>
+<td align="left">允许广播</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-C</td>
+<td align="left">发送CRLF作为行结束</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-D</td>
+<td align="left">启用套接字调试选项</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-d</td>
+<td align="left">从标准输入分离</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-h</td>
+<td align="left">查看帮助信息</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-I length</td>
+<td align="left">TCP接收缓冲区长度</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-i secs</td>
+<td align="left">发送间隔/端口扫描的延时</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-j</td>
+<td align="left">使用巨型帧</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-k</td>
+<td align="left">保持套接字打开多个连接</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-l</td>
+<td align="left">监听模式,绑定端口,等待连接</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">禁止名称/端口的解析</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-O length</td>
+<td align="left">TCP发送缓冲区长度</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-P proxyuser</td>
+<td align="left">用户名代理验证</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-p port</td>
+<td align="left">指定用于远程连接的本地端口</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-q secs</td>
+<td align="left">quit after EOF on stdin and delay of secs</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">随机化远程端口</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-S</td>
+<td align="left">启用TCP MD5签名选项</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-s addr</td>
+<td align="left">本地源地址</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-T toskeyword</td>
+<td align="left">设置IP类型</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t</td>
+<td align="left">应答TELNET协商</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-U</td>
+<td align="left">使用UNIX域套接字</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-u</td>
+<td align="left">UDP模式</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-V rtable</td>
+<td align="left">指定备用路由表</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">详细</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-w secs</td>
+<td align="left">连接超时时间和最后网络读取</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-X proto</td>
+<td align="left">代理协议: &ldquo;4&rdquo;, &ldquo;5&rdquo; (SOCKS) 或 &ldquo;connect&rdquo;</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-x addr[:port]</td>
+<td align="left">指定代理服务器地址端口</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-Z</td>
+<td align="left">DCCP模式</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-z</td>
+<td align="left">Zero-I/O 模式 [用于扫描]</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h2 id="nc_2">nc 进行局域网内聊天</h2>
+<p>因为是局域网，所有这里使用<code>UDP</code>协议还是<code>TCP</code>协议是没多大关系的。<br />
+这是很简单的<code>C/S</code>模式，把其中一台机器当做服务器，另一台当做客户端就是了。</p>
+<p>对于服务器，使用这个命令<code>nc -l 9999</code>来监听<code>9999</code>端口，默认使用的是<code>TCP</code>协议，可以加<code>-u</code>参数来使用<code>UDP</code>协议。</p>
+<p>然后是客户端，客户端使用命令<code>nc 192.168.1.12 9999</code>，这里的<code>IP</code>地址是服务端的<code>IP</code>地址，端口是服务端监听的<code>9999</code>。</p>
+<p>下面测试一下。</p>
+<ul>
+<li>
+<p>1.在服务端输入命令</p>
+<p><code>fx@fx:~$ nc -l 9999</code></p></p>
+
+<p></li>
+<li>
+<p>2.在客户端输入命令，并输入要发送的数据<br />
+<code>o@o-pc:~$ nc 192.168.11.185 9999</code><br />
+    输入要发送的数据<br />
+<code>这里测试一下，发送数据能不能收到</code></p></p>
+
+<p></li>
+<li>3.现在去看一下服务端有没有收到数据<br />
+<code>fx@fx:~$ nc -l 9999</code><br />
+<code>这里测试发送能不能收到</code><br />
+    看到服务端收到了数据后，输入一条应答数据发送给客户端<br />
+<code>收到了数据</code></li>
+<li>4.看看客户端收到应答了没有<br />
+<code>o@o-pc:~$ nc 192.168.11.185 9999</code><br />
+<code>这里测试发送能不能收到</code><br />
+<code>收到了数据</code></li></p>
+
+<p></ul>
+<p>可以看到，一个简单局域网聊天工具就这么简单的完成了。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/301546168991233.png" alt="" /></p>
+<h2 id="nc_3">nc 局域网文件传输</h2>
+<p>这里就不详细的说了。<br />
+假设本机上有一个文件<code>a.txt</code>要传送给另一台机器。<br />
+传输文件步骤如下</p>
+<ul>
+<li>1.在本机上执行命令<br />
+<code>nc -l 9999 &lt; a.txt</code></li>
+<li>2.在接收文件的机器上执行命令<br />
+<code>nc 192.168.1.12 9999 &gt; a.txt</code></li></p>
+
+<p></ul>
+<p>这个的原理就是和前面局域网聊天的原理是差不多的，区别在与聊天的时候发送的数据来自<code>标准输入</code>，接收的数据写入<code>标准输出</code>。而这里将其重定向到了文件。</p>
+<h3 id="_1">压缩传输的数据</h3>
+<p>虽然是局域网，但有时候要传输的数据是比较大的<code>文本文件</code>，可以有比较大的压缩比的时候，可以压缩传输。(一个几个G的密码字典，可以压缩到几十M)</p>
+<p>这时候可以借用<code>tar</code>或者<code>gzip</code>来做压缩。具体操作可以见下面<br />
+这里使用的是<code>gzip</code>压缩，也可使用<code>-j</code>等来使用<code>bzip</code>等压缩方式。</p>
+<ul>
+<li>1.在本机上执行命令<br />
+<code>tar -cz a.txt | nc -l 9999</code></li>
+<li>2.在接收文件的机器上执行命令<br />
+<code>nc 192.168.1.12 9999 | tar -xz</code></li></p>
+
+<p></ul>
+<h2 id="_2">传输目录或多个文件</h2>
+<h3 id="_3">传输目录</h3>
+<p>传输目录这个很好办，还是借助归档工具<code>tar</code>来进行。<br />
+这里传输的目录结构如下</p>
+<pre><code class="bash">o@o-pc:~$ tree book
+book
+├── APUE.pdf
+├── C++_STL参考.chm
+├── C语言参考.pdf
+├── linux网络编程.pdf
+├── 或者.txt
+└── 名著
+    ├── 百年孤独.txt
+    ├── 红楼梦.txt
+    ├── 三国演义.txt
+    ├── 水浒传.txt
+    └── 西游记.txt</p>
+
+<p>1 directory, 10 files
+</code></pre>
+<p>下面来看传输的过程</p>
+<ul>
+<li>1.在本机上执行命令<br />
+<code>tar -c book |nc -l 9999</code></li>
+<li>2.在接收文件的机器上执行命令<br />
+<code>nc 192.168.1.12 9999 | tar -x</code></li></p>
+
+<p></ul>
+<p>看一下接收后的情况</p>
+<pre><code class="bash">fx@fx:~$ nc 192.168.11.38 9999|tar -x
+fx@fx:~$ ls -R book
+book:
+APUE.pdf  C++_STL参考.chm  C语言参考.pdf  linux网络编程.pdf  或者.txt  名著</p>
+
+<p>book/名著:
+百年孤独.txt  红楼梦.txt  三国演义.txt  水浒传.txt  西游记.txt
+</code></pre>
+<h3 id="_4">传输多个文件</h3>
+<p>这个和传输目录的方式是一样的，也是利用<code>tar</code>先<code>打包</code>，再<code>发送</code>。接收端先<code>接收</code>，再<code>解包</code>。<br />
+这里传输的文件是 <code>APUE.pdf</code>，<code>linux网络编程.pdf</code>，<code>C++_STL参考.chm</code>。</p>
+<ul>
+<li>1.在本机上执行命令<br />
+<code>tar -c APUE.pdf linux网络编程.pdf C++_STL参考.chm |nc -l 9999</code></li>
+<li>2.在接收文件的机器上执行命令<br />
+<code>nc 192.168.11.38 9999|tar -x</code></li></p>
+
+<p></ul>
+<p>接收成功了之后可以看到传输的文件。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

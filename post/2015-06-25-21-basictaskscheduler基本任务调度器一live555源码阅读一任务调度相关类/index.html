@@ -1,0 +1,274 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 21 BasicTaskScheduler基本任务调度器（一）——Live555源码阅读(一)任务调度相关类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>21 BasicTaskScheduler基本任务调度器（一）——Live555源码阅读(一)任务调度相关类</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599996.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599996.html</a>
+<div class="toc">
+<ul>
+<li><a href="#21_basictaskschedulerlive555">21_BasicTaskScheduler基本任务调度器（一）&mdash;&mdash;Live555源码阅读(一)任务调度相关类</a>
+<ul>
+<li><a href="#basictaskscheduler">BasicTaskScheduler基本任务调度器</a></li>
+<li></li>
+<li><a href="#basictaskscheduler_1">BasicTaskScheduler基本任务调度器的定义</a></li>
+<li><a href="#basictaskscheduler_2">BasicTaskScheduler的构造与析构</a>
+<ul>
+<li><a href="#schedulerticktask">下面来介绍一下schedulerTickTask函数(调度滴答任务)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>这是Live555源码阅读的第二部分，包括了任务调度相关的三个类。任务调度是Live555源码中很重要的部分。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code><a href="http://www.cnblogs.com/oloroso/">http://www.cnblogs.com/oloroso/</a></code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p></p>
+
+<dl>
+<dt><pre><span style="color: #000000;">BasicTaskScheduler::BasicTaskScheduler()</dt>
+<dd><p>fMaxNumSockets(</span><span style="color: #800080;">0</span><span style="color: #000000;">) {
+FD_ZERO(</span>&amp;<span style="color: #000000;">fReadSet);
+FD_ZERO(</span>&amp;<span style="color: #000000;">fWriteSet);
+FD_ZERO(</span>&amp;<span style="color: #000000;">fExceptionSet);</p>
+
+<p>schedulerTickTask(</span><span style="color: #0000ff;">this</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> ensures that we handle events frequently</span>
+}</pre>
+</div>
+<pre></pre>
+<p>&nbsp;</p>
+<pre><span style="color: #000000; font-size: 13px;"><span style="color: #0000ff;"><span style="color: #000000;">&nbsp;</span></span></span></pre>
+<h3 id="schedulerticktask">下面来介绍一下schedulerTickTask函数(调度滴答任务)</h3>
+<p>这个函数的作用就是将其参数转为<code>(BasicTaskScheduler<em>)</code>类型，然后调用<code>scheduleDelayedTask</code>来调度(创建)一个延时任务。有意思的是，<code>这个延时任务程序就是这个函数自身</code>，延时任务程序的参数也是其参数。延时时间是<code>10毫秒</code>。<br />
+这有点像是函数递归调用了。与之不同的是，如果不去调度任务，递归就是无效的。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">#define</span> MAX_SCHEDULER_GRANULARITY 10000 <span style="color: #008000;">//</span><span style="color: #008000;"> 10 microseconds: We will return to the event loop at least this often</span>
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> schedulerTickTask(<span style="color: #0000ff;">void</span></em><span style="color: #000000;"> clientData) {
+((BasicTaskScheduler</span>*)clientData)-&gt;<span style="color: #000000;">scheduleDelayedTask(MAX_SCHEDULER_GRANULARITY, schedulerTickTask, clientData);
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>析构函数是空的，就不说了。只要知道，在析构的时候会调用基类的析构函数。</p></p></dd>
+</dl>
+
+<dl>
+<dd>#008080;&ldquo;&gt; 2</span> <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">static</span> BasicTaskScheduler<em><span style="color: #000000;"> createNew();
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">BasicTaskScheduler();
+</span><span style="color: #008080;"> 5</span>
+<span style="color: #008080;"> 6</span> <span style="color: #0000ff;">protected</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    BasicTaskScheduler();
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> called only by &ldquo;createNew()&rdquo;</span>
+<span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span> <span style="color: #0000ff;">protected</span><span style="color: #000000;">:
+</span><span style="color: #008080;">11</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Redefined virtual functions:</span>
+<span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span>     <span style="color: #008000;">/</em></span>
+<span style="color: #008080;">14</span> <span style="color: #008000;">    *    设置select的超时时间为maxDelayTime(&lt;=0 或大于一百万秒 时1百万秒)
+</span><span style="color: #008080;">15</span> <span style="color: #008000;">    *    调用int selectResult = select(fMaxNumSockets, &amp;readSet, &amp;writeSet, &amp;exceptionSet, &amp;tv_timeToDelay);
+</span><span style="color: #008080;">16</span> <span style="color: #008000;">    *    如果select出错返回，打印出错信息，并调用 internalError函数
+</span><span style="color: #008080;">17</span> <span style="color: #008000;">    *    从处理程序描述链表中查找fLastHandledSocketNum代表的 处理程序描述对象指针，如果没找到，就在后面的while的时候从链表的头开始,否则从找到的位置开始
+</span><span style="color: #008080;">18</span> <span style="color: #008000;">    *    从链表中取出处理程序描述节点对象，并调用其内部保存的处理程序
+</span><span style="color: #008080;">19</span> <span style="color: #008000;">    *    设置fTriggersAwaitingHandling
+</span><span style="color: #008080;">20</span> <span style="color: #008000;">    *    调用fDelayQueue.handleAlarm();
+</span><span style="color: #008080;">21</span>     <span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">22</span>     <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> SingleStep(unsigned maxDelayTime);
+</span><span style="color: #008080;">23</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 添加到后台处理</span>
+<span style="color: #008080;">24</span>     <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">void</span> setBackgroundHandling(<span style="color: #0000ff;">int</span> socketNum, <span style="color: #0000ff;">int</span> conditionSet, BackgroundHandlerProc</em> handlerProc, <span style="color: #0000ff;">void</span>*<span style="color: #000000;"> clientData);
+</span><span style="color: #008080;">25</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 从后台处理移出</span>
+<span style="color: #008080;">26</span>     <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">void</span> moveSocketHandling(<span style="color: #0000ff;">int</span> oldSocketNum, <span style="color: #0000ff;">int</span><span style="color: #000000;"> newSocketNum);
+</span><span style="color: #008080;">27</span>
+<span style="color: #008080;">28</span> <span style="color: #0000ff;">protected</span><span style="color: #000000;">:
+</span><span style="color: #008080;">29</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> To implement background operations: 实施后台操作</span>
+<span style="color: #008080;">30</span>     <span style="color: #0000ff;">int</span> fMaxNumSockets;     <span style="color: #008000;">//</span><span style="color: #008000;">最大的socket数,select调用时提高效率</span>
+<span style="color: #008080;">31</span>     fd_set fReadSet;        <span style="color: #008000;">//</span><span style="color: #008000;">监控读操作的集合</span>
+<span style="color: #008080;">32</span>     fd_set fWriteSet;       <span style="color: #008000;">//</span><span style="color: #008000;">监控写操作的集合</span>
+<span style="color: #008080;">33</span>     fd_set fExceptionSet;   <span style="color: #008000;">//</span><span style="color: #008000;">监控有异常的集合</span>
+<span style="color: #008080;">34</span> };</pre>
+</div>
+<p>&nbsp;</p>
+<hr />
+<h2 id="basictaskscheduler_2">BasicTaskScheduler的构造与析构</h2>
+<pre><span style="color: #000000; font-size: 13px;">BasicTaskScheduler的构造函数是protected权限的，其只在静态方法createNew中被调用。
+创建的时候清零了四个成员，并调用了schedulerTickTask(<span style="color: #0000ff;">this<span style="color: #000000;">)。<br /></span></span></span></pre>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">BasicTaskScheduler::BasicTaskScheduler()</dd>
+<dd><p>fMaxNumSockets(</span><span style="color: #800080;">0</span><span style="color: #000000;">) {
+FD_ZERO(</span>&amp;<span style="color: #000000;">fReadSet);
+FD_ZERO(</span>&amp;<span style="color: #000000;">fWriteSet);
+FD_ZERO(</span>&amp;<span style="color: #000000;">fExceptionSet);</p>
+
+<p>schedulerTickTask(</span><span style="color: #0000ff;">this</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> ensures that we handle events frequently</span>
+}</pre>
+</div>
+<pre></pre>
+<p>&nbsp;</p>
+<pre><span style="color: #000000; font-size: 13px;"><span style="color: #0000ff;"><span style="color: #000000;">&nbsp;</span></span></span></pre>
+<h3 id="schedulerticktask">下面来介绍一下schedulerTickTask函数(调度滴答任务)</h3>
+<p>这个函数的作用就是将其参数转为<code>(BasicTaskScheduler<em>)</code>类型，然后调用<code>scheduleDelayedTask</code>来调度(创建)一个延时任务。有意思的是，<code>这个延时任务程序就是这个函数自身</code>，延时任务程序的参数也是其参数。延时时间是<code>10毫秒</code>。<br />
+这有点像是函数递归调用了。与之不同的是，如果不去调度任务，递归就是无效的。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">#define</span> MAX_SCHEDULER_GRANULARITY 10000 <span style="color: #008000;">//</span><span style="color: #008000;"> 10 microseconds: We will return to the event loop at least this often</span>
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> schedulerTickTask(<span style="color: #0000ff;">void</span></em><span style="color: #000000;"> clientData) {
+((BasicTaskScheduler</span>*)clientData)-&gt;<span style="color: #000000;">scheduleDelayedTask(MAX_SCHEDULER_GRANULARITY, schedulerTickTask, clientData);
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>析构函数是空的，就不说了。只要知道，在析构的时候会调用基类的析构函数。</p></p></dd>
+</dl>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

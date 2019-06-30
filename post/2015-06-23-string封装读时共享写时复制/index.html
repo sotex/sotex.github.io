@@ -1,0 +1,272 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> String封装——读时共享，写时复制 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>String封装——读时共享，写时复制</h1>
+          <span class="post-date">2015年06月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4594868.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4594868.html</a>
+碰到过一位一直怀疑C++标准库（STL）效率的人，他说STL效率太低，企业开发根本不会用。我是持反对意见的。
+说这话的人，肯定没有做过大量的调查。没有调查就没有发言权。
+STL的效率是不低的，足够满足现在的绝大部分需求了。特别是当前的操作系统和硬件都以页为内存的基本管理单位，并且32位的系统(嵌入式还挺多的，但是嵌入式对内存的需求很大的比较少吧)的已经不是很多了。内存碎片的问题也就并不明显了。</p>
+
+<p>前面说的与这里要说的是无关的，这里指向说一说String封装中的读共享，写复制。</p>
+
+<p>学习过linux/unix系统编程的人，应该对读共享，写复制这个概念有一个比较清晰的了解，这个可见APUE的进程相关的章节。</p>
+
+<p>##实现原理</p>
+
+<p>这个实现原理其实很简单，如果学习了<code>shared_ptr</code>智能指针，那应该是可以猜得到的。</p>
+
+<p>其实关键的地方就是<code>引用计数</code>了。如果在<code>string</code>对象拷贝构造或者赋值(用已有对象)的时候，不进行拷贝，而只是进行引用计数的增加，数据采用共享方式。而在需要进行写操作的时候，才进行真正的拷贝操作。</p>
+
+<p>##代码实现</p>
+
+<p>这里只是一个简单的实现，来说明这个原理，并没有多少实用价值。并且没有做到多线程安全。现在一般的也不会采取这种做法，因为现在内存都比较富裕了，还要解决多线程安全问题。VC6还是采用的COW技术，现在编译器自带的STL基本都不在采用，而改用(忘记名字了，原理就是内部使用一个数组，只有创建的字符串长度超过这个数组的时候，才进行内存分配)。</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+struct shared_ptr{
+	char*	data;	//数据
+	int		ref;	//引用计数
+};
+
+class String{
+	public:
+		String(const char* str=NULL):iswrite(false)
+		{
+			p = new shared_ptr;
+			if( str != NULL){
+				p-&gt;data = new char[strlen(str)+1];
+				strcpy(p-&gt;data,str);
+			}
+			else{
+				p-&gt;data = new char[1];
+				p-&gt;data[0]='\0';
+			}
+			p-&gt;ref = 1;
+		}
+		String(const String&amp; s):iswrite(false)
+		{
+			p = s.p;
+			p-&gt;ref += 1;
+		}
+		~String()
+		{
+			if(p-&gt;ref == 1){
+				delete p-&gt;data;
+				delete p;
+			}
+			else{
+				p-&gt;ref -=1;
+			}
+		}
+
+		String&amp; erase(int first,int last)
+		{
+			if(first &lt; 0 ||last &gt; strlen(p-&gt;data))return *this;
+
+			if(!iswrite){	//如果不是可写状态
+				shared_ptr* t=p;
+				p = new shared_ptr;	//拷贝数据
+				p-&gt;data = new char[strlen(t-&gt;data)+1];
+				strcpy(p-&gt;data,t-&gt;data);
+				p-&gt;ref = 1;
+				t-&gt;ref -=1;	//原指向结构体引用计数减一
+			}
+			//擦除操作
+			int len = strlen(p-&gt;data);
+			for(int i = 0;i&lt;len-last+1;++i){
+				p-&gt;data[first + i] = p-&gt;data[last + i];
+			}
+			return *this;
+		}
+		void show() const
+		{
+			printf(&quot;ref = %d,data:%s\n&quot;,p-&gt;ref,p-&gt;data);
+		}
+	private:
+		shared_ptr* p;	//数据
+		bool		iswrite;//可写？
+};
+
+int main()
+{
+
+	String s1(&quot;hello world&quot;);
+	String s2(s1);
+	String s3(s2);
+	s1.show();
+	s2.show();
+	s3.show();
+
+	s2.erase(5,10);
+	s1.show();
+	s2.show();
+	s3.show();
+	return 0;
+}
+</code></pre>
+
+<p>##运行结果</p>
+
+<pre><code class="language-shell">ref = 3,data:hello world
+ref = 3,data:hello world
+ref = 3,data:hello world
+ref = 2,data:hello world
+ref = 1,data:hellod
+ref = 2,data:hello world
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

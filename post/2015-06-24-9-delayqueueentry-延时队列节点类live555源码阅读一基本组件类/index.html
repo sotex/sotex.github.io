@@ -1,0 +1,225 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 9 DelayQueueEntry 延时队列节点类——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>9 DelayQueueEntry 延时队列节点类——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月24日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/24/4596849.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/24/4596849.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a></p>
+
+<p>##DelayQueueEntry 延时队列节点类
+entry的意思如下
+&gt; entry n.进入，入场; 入口处，门口; 登记，记录; 参加比赛的人;</p>
+
+<p>为什么说是节点类呢？这个通过阅读代码就可以知道了。
+<code>DelayQueueEntry</code>类含有四个数据成员，其中<code>fNext</code>和<code>fPrev</code>说明了其是一个链表的节点。<code>fToken</code>是节点的标识，<code>DelayInterval  fDeltaTimeRemaining</code>成员是一个代表时间间隔的量，在后面任务调度器调度任务的时候会使用到。</p>
+
+<p>9_DelayQueueEntry.png
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240930024399097.png" alt="" /></p>
+
+<p>还有一个静态的成员<code>static intptr_t tokenCounter</code>用来作为<code>token</code>标识的不重复的初始化;注意，静态成员不是对象的成员，而是类的成员。(所有的对象共享这一个)
+这里可以看到，其<code>构造函数是protected权限</code>的，而<code>析构函数是public权限</code>的。且没有了别的构造相关方法，也就是说这个类对象只能由其派生类来创建，但是销毁是对外开放的。其派生类有两个<code>AlarmHandler</code>和<code>DelayQueue</code>。</p>
+
+<pre><code class="language-cpp">///// DelayQueueEntry /////
+// 延时队列记录(节点)   entry n.进入，入场; 入口处，门口; 登记，记录; 参加比赛的人;
+class DelayQueueEntry {
+public:
+  virtual ~DelayQueueEntry();
+  intptr_t token() {
+    return fToken;
+  }
+protected: // abstract base class
+  DelayQueueEntry(DelayInterval delay);
+  // delete this;
+  virtual void handleTimeout();
+private:
+  friend class DelayQueue;
+  DelayQueueEntry* fNext;	//下一个节点
+  DelayQueueEntry* fPrev;	//上一个节点
+  DelayInterval fDeltaTimeRemaining;	//延时剩余的时间
+
+  intptr_t fToken;	//标识，等指针宽度的int型
+  static intptr_t tokenCounter;	//标识计数(注意此处是static 变量)
+};
+</code></pre>
+
+<hr />
+
+<p>##DelayQueueEntry的构造</p>
+
+<p><code>DelayQueueEntry</code>的构造是很简单的，其只有一个参数，就是<code>延时间隔时间</code>。这里的构造与前面说的HandlerDescriptor略有不同，因为它没有把自身加入到链表中，而是把<code>fNext和fPrev都指向this</code>。</p>
+
+<p>这里要说的就是fToken的初始化赋值，是根据静态成员<code>tockenCounter</code>自增来的。这里便保证了在一个指针表示的范围内，fToken是不会重复的。这里说一下为什么<code>fToken</code>的类型是<code>intptr_t</code>。<code>intptr_t</code>是一个等指针宽度的<code>int</code>型。我们知道指针是用来寻址的，指针的宽度代表了最大的寻址空间。32位的指针能够寻址的范围是4G大小。这里<code>DelayQueueEntry</code>对象的大小显然不是<code>1Byte</code>，就是把内存占满的情况下，<code>fToken也不会重复</code>。(不可能让它占满)</p>
+
+<pre><code class="language-cpp">DelayQueueEntry::DelayQueueEntry(DelayInterval delay)
+  : fDeltaTimeRemaining(delay) {
+  fNext = fPrev = this;
+  fToken = ++tokenCounter;
+}
+</code></pre>
+
+<hr />
+
+<p>##handleTimeout方法</p>
+
+<p>这个方法异常简单，就是销毁自身。这里要说的是它的方法名，意思很简单，处理超时。顺便说一下，DelayQueueEntry的析构是空函数，什么也没有做。</p>
+
+<pre><code class="language-cpp">void DelayQueueEntry::handleTimeout() {
+  delete this;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,253 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> mingw 构建 gdal 2.1.2 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>mingw 构建 gdal 2.1.2</h1>
+          <span class="post-date">2018年10月11日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/10/11/6856910.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/10/11/6856910.html</a></p>
+
+<p>前两日有人在oschian上问我mingw编译gdal的一些问题，然后我简单的编译了一次，记录下编译过程。
+此文是2017年5月写的，当时存在草稿箱，今天才看到。也许已经不适用于当前最新的版本了。</p>
+
+<h2 id="1-准备">1、准备</h2>
+
+<p>1、安装mingw，我安装的是mingw-w64的<code>x86_64-7.1.0-win32-seh-rt_v5-rev0</code>版本。
+2、准备一个类UNIX模拟运行环境。我这里直接使用了git自带的msys，你也可以下载cygwin。
+3、下载并解压GDAL源码</p>
+
+<p><strong>注意：</strong>mingw的安装路径必须没有空格，如果有，后面编译的时候会找不到编译器（必须强制指定绝对路径，路径需要用引号括起来）。GDAL的源码解压路径也不要有空格。</p>
+
+<h2 id="2-生成makefile">2、生成Makefile</h2>
+
+<p>在msys环境下，进入<code>gdal-2.1.2</code>源码目录，运行一下命令生成GNUMakefile文件</p>
+
+<pre><code class="language-bash"># 将mingw的路径导入环境变量PATH
+export PATH=$PATH:/c/mingw-w64/x86_64-7.1.0-win32-seh-rt_v5-rev0/mingw64/bin
+# 生成Makefile文件
+./configure --prefix=/z/gdal_2.1.2_mingw64 --without-libtool
+## --prefix 指定安装路径
+## --without-libtool 不使用libtool（因为我当前环境没有）
+## 默认是静态库和动态库都生成，使用libtool可能只能生成静态库，因为它不知道在当前平台如何生成动态库。
+</code></pre>
+
+<p><strong>注意</strong>
+上述过程没有错误的话，会正常生成<code>GNUMakefile</code>和<code>GDALmake.opt</code>文件。
+因为我们安装的<code>mingw64</code>并不能识别<code>/c/xxx</code>这样的路径（这是msys下的路径），所以需要修改<code>GDALmake.opt</code>文件，将其中的<code>GDAL_ROOT</code>的值修改为<code>C:\xxx</code>这种形式。</p>
+
+<h2 id="3-编译">3、编译</h2>
+
+<p>运行下面命令编译</p>
+
+<pre><code class="language-bash">mingw32-make
+</code></pre>
+
+<h2 id="4-编译遇到错误及解决办法">4、编译遇到错误及解决办法</h2>
+
+<p>编译过程中出现了下面错误</p>
+
+<h3 id="1-生成静态库时候-ar-提示参数列表太长">1、生成静态库时候<code>ar</code>提示参数列表太长</h3>
+
+<pre><code class="language-bash">ar r Z:/gdal-2.1.2/libgdal.a Z:/gdal-2.1.2/frmts/o/*.o Z:/gdal-2.1.2/gcore/*.o Z:/gdal-2.1.2/port/*.o Z:/gdal-2.1.2/alg/*.o Z:/gdal-2.1.2/apps/commonutils.o Z:/gdal-2.1.2/apps/gdalinfo_lib.o Z:/gdal-2.1.2/apps/gdal_translate_lib.o Z:/gdal-2.1.2/apps/gdalwarp_lib.o Z:/gdal-2.1.2/apps/ogr2ogr_lib.o Z:/gdal-2.1.2/apps/gdaldem_lib.o Z:/gdal-2.1.2/apps/nearblack_lib.o Z:/gdal-2.1.2/apps/gdal_grid_lib.o Z:/gdal-2.1.2/apps/gdal_rasterize_lib.o Z:/gdal-2.1.2/apps/gdalbuildvrt_lib.o Z:/gdal-2.1.2/ogr/ogrsf_frmts/o/*.o ./ogr/ogrgeometryfactory.o ./ogr/ogrpoint.o ./ogr/ogrcurve.o ./ogr/ogrlinestring.o ./ogr/ogrlinearring.o ./ogr/ogrpolygon.o ./ogr/ogrutils.o ./ogr/ogrgeometry.o ./ogr/ogrgeometrycollection.o ./ogr/ogrmultipolygon.o ./ogr/ogrsurface.o ./ogr/ogrmultipoint.o ./ogr/ogrmultilinestring.o ./ogr/ogrcircularstring.o ./ogr/ogrcompoundcurve.o ./ogr/ogrcurvepolygon.o ./ogr/ogrcurvecollection.o ./ogr/ogrmulticurve.o ./ogr/ogrmultisurface.o ./ogr/ogr_api.o ./ogr/ogrfeature.o ./ogr/ogrfeaturedefn.o ./ogr/ogrfeaturequery.o ./ogr/ogrfeaturestyle.o ./ogr/ogrfielddefn.o ./ogr/ogrspatialreference.o ./ogr/ogr_srsnode.o ./ogr/ogr_srs_proj4.o ./ogr/ogr_fromepsg.o ./ogr/ogrct.o ./ogr/ogr_opt.o ./ogr/ogr_srs_esri.o ./ogr/ogr_srs_pci.o ./ogr/ogr_srs_usgs.o ./ogr/ogr_srs_dict.o ./ogr/ogr_srs_panorama.o ./ogr/ogr_srs_ozi.o ./ogr/ogr_srs_erm.o ./ogr/swq.o ./ogr/swq_expr_node.o ./ogr/swq_parser.o ./ogr/swq_select.o ./ogr/swq_op_registrar.o ./ogr/swq_op_general.o ./ogr/ogr_srs_validate.o ./ogr/ogr_srs_xml.o ./ogr/ograssemblepolygon.o ./ogr/ogr2gmlgeometry.o ./ogr/gml2ogrgeometry.o ./ogr/ogr_expat.o ./ogr/ogrpgeogeometry.o ./ogr/ogrgeomediageometry.o ./ogr/ogr_geocoding.o ./ogr/osr_cs_wkt.o ./ogr/osr_cs_wkt_parser.o ./ogr/ogrgeomfielddefn.o ./ogr/ograpispy.o
+/usr/bin/sh: /c/mingw-w64/x86_64-7.1.0-win32-seh-rt_v5-rev0/mingw64/bin/ar: Argument list too long
+GNUmakefile:47: recipe for target 'Z:/gdal-2.1.2/libgdal.a' failed
+mingw32-make[1]: *** [Z:/gdal-2.1.2/libgdal.a] Error 126
+</code></pre>
+
+<p>这个问题可以修改<code>GNUMakefile</code>文件中的<code>GDAL_OBJ</code>变量来进行，只需要将原本的一个<code>GDAL_OBJ</code>拆分为多个，然后对<code>GDAL_SLIB</code>目标的动作进行修改，改为生成多个静态库，然后合成一个即可。
+因为这个修改量比较大，我就不修改了，直接在外面使用命令生成<code>libgdal.a</code>。我这里源码目录是<code>Z:/gdal-2.1.2</code>。</p>
+
+<pre><code class="language-bash"># 先将其分作四部分，生成四个静态库
+# 注意 ar 生成这四个静态库的参数是 sr
+ar sr  basepart.a Z:/gdal-2.1.2/frmts/o/*.o Z:/gdal-2.1.2/gcore/*.o Z:/gdal-2.1.2/port/*.o Z:/gdal-2.1.2/alg/*.o 
+
+ar sr  appspart.a Z:/gdal-2.1.2/apps/commonutils.o Z:/gdal-2.1.2/apps/gdalinfo_lib.o Z:/gdal-2.1.2/apps/gdal_translate_lib.o Z:/gdal-2.1.2/apps/gdalwarp_lib.o Z:/gdal-2.1.2/apps/ogr2ogr_lib.o Z:/gdal-2.1.2/apps/gdaldem_lib.o Z:/gdal-2.1.2/apps/nearblack_lib.o Z:/gdal-2.1.2/apps/gdal_grid_lib.o Z:/gdal-2.1.2/apps/gdal_rasterize_lib.o Z:/gdal-2.1.2/apps/gdalbuildvrt_lib.o
+
+ar sr ogrpart1.a Z:/gdal-2.1.2/ogr/ogrsf_frmts/o/*.o ./ogr/ogrgeometryfactory.o ./ogr/ogrpoint.o ./ogr/ogrcurve.o ./ogr/ogrlinestring.o ./ogr/ogrlinearring.o ./ogr/ogrpolygon.o ./ogr/ogrutils.o ./ogr/ogrgeometry.o ./ogr/ogrgeometrycollection.o ./ogr/ogrmultipolygon.o ./ogr/ogrsurface.o ./ogr/ogrmultipoint.o ./ogr/ogrmultilinestring.o ./ogr/ogrcircularstring.o ./ogr/ogrcompoundcurve.o ./ogr/ogrcurvepolygon.o ./ogr/ogrcurvecollection.o ./ogr/ogrmulticurve.o ./ogr/ogrmultisurface.o ./ogr/ogr_api.o ./ogr/ogrfeature.o ./ogr/ogrfeaturedefn.o ./ogr/ogrfeaturequery.o ./ogr/ogrfeaturestyle.o ./ogr/ogrfielddefn.o ./ogr/ogrspatialreference.o ./ogr/ogr_srsnode.o ./ogr/ogr_srs_proj4.o ./ogr/ogr_fromepsg.o ./ogr/ogrct.o 
+
+ar sr ogrpart2.a ./ogr/ogr_opt.o ./ogr/ogr_srs_esri.o ./ogr/ogr_srs_pci.o ./ogr/ogr_srs_usgs.o ./ogr/ogr_srs_dict.o ./ogr/ogr_srs_panorama.o ./ogr/ogr_srs_ozi.o ./ogr/ogr_srs_erm.o ./ogr/swq.o ./ogr/swq_expr_node.o ./ogr/swq_parser.o ./ogr/swq_select.o ./ogr/swq_op_registrar.o ./ogr/swq_op_general.o ./ogr/ogr_srs_validate.o ./ogr/ogr_srs_xml.o ./ogr/ograssemblepolygon.o ./ogr/ogr2gmlgeometry.o ./ogr/gml2ogrgeometry.o ./ogr/ogr_expat.o ./ogr/ogrpgeogeometry.o ./ogr/ogrgeomediageometry.o ./ogr/ogr_geocoding.o ./ogr/osr_cs_wkt.o ./ogr/osr_cs_wkt_parser.o ./ogr/ogrgeomfielddefn.o ./ogr/ograpispy.o
+
+# 然后合成一个
+ar r Z:/gdal-2.1.2/libgdal.a basepart.a appspart.a ogrpart1.a ogrpart2.a
+</code></pre>
+
+<p><strong>注意：</strong>前面生成四个静态库的时候使用的参数是<code>sr</code>，这表示生成的是一个<code>ranlib</code>（仅打包<code>.o</code>文件，而不处理.o中的符号表）。后面生成<code>libgdal.a</code>的时候，使用的是<code>r</code>参数，表示打包后还将对静态库的成员<code>__.SYMDEF</code>进行更新。</p>
+
+<h3 id="2-生成动态库时候-g-提示参数列表太长">2、生成动态库时候<code>g++</code>提示参数列表太长</h3>
+
+<pre><code class="language-bash">g++ -shared   Z:/gdal-2.1.2/frmts/o/*.o Z:/gdal-2.1.2/gcore/*.o Z:/gdal-2.1.2/port/*.o Z:/gdal-2.1.2/alg/*.o Z:/gdal-2.1.2/apps/commonutils.o Z:/gdal-2.1.2/apps/gdalinfo_lib.o Z:/gdal-2.1.2/apps/gdal_translate_lib.o Z:/gdal-2.1.2/apps/gdalwarp_lib.o Z:/gdal-2.1.2/apps/ogr2ogr_lib.o Z:/gdal-2.1.2/apps/gdaldem_lib.o Z:/gdal-2.1.2/apps/nearblack_lib.o Z:/gdal-2.1.2/apps/gdal_grid_lib.o Z:/gdal-2.1.2/apps/gdal_rasterize_lib.o Z:/gdal-2.1.2/apps/gdalbuildvrt_lib.o Z:/gdal-2.1.2/ogr/ogrsf_frmts/o/*.o ./ogr/ogrgeometryfactory.o ./ogr/ogrpoint.o ./ogr/ogrcurve.o ./ogr/ogrlinestring.o ./ogr/ogrlinearring.o ./ogr/ogrpolygon.o ./ogr/ogrutils.o ./ogr/ogrgeometry.o ./ogr/ogrgeometrycollection.o ./ogr/ogrmultipolygon.o ./ogr/ogrsurface.o ./ogr/ogrmultipoint.o ./ogr/ogrmultilinestring.o ./ogr/ogrcircularstring.o ./ogr/ogrcompoundcurve.o ./ogr/ogrcurvepolygon.o ./ogr/ogrcurvecollection.o ./ogr/ogrmulticurve.o ./ogr/ogrmultisurface.o ./ogr/ogr_api.o ./ogr/ogrfeature.o ./ogr/ogrfeaturedefn.o ./ogr/ogrfeaturequery.o ./ogr/ogrfeaturestyle.o ./ogr/ogrfielddefn.o ./ogr/ogrspatialreference.o ./ogr/ogr_srsnode.o ./ogr/ogr_srs_proj4.o ./ogr/ogr_fromepsg.o ./ogr/ogrct.o ./ogr/ogr_opt.o ./ogr/ogr_srs_esri.o ./ogr/ogr_srs_pci.o ./ogr/ogr_srs_usgs.o ./ogr/ogr_srs_dict.o ./ogr/ogr_srs_panorama.o ./ogr/ogr_srs_ozi.o ./ogr/ogr_srs_erm.o ./ogr/swq.o ./ogr/swq_expr_node.o ./ogr/swq_parser.o ./ogr/swq_select.o ./ogr/swq_op_registrar.o ./ogr/swq_op_general.o ./ogr/ogr_srs_validate.o ./ogr/ogr_srs_xml.o ./ogr/ograssemblepolygon.o ./ogr/ogr2gmlgeometry.o ./ogr/gml2ogrgeometry.o ./ogr/ogr_expat.o ./ogr/ogrpgeogeometry.o ./ogr/ogrgeomediageometry.o ./ogr/ogr_geocoding.o ./ogr/osr_cs_wkt.o ./ogr/osr_cs_wkt_parser.o ./ogr/ogrgeomfielddefn.o ./ogr/ograpispy.o Z:/gdal-2.1.2/libgdal.a     -lodbc32 -lodbccp32 -lz -lpthread -lm  -lws2_32              -liconv      \
+        -o Z:/gdal-2.1.2/libgdal.so
+/usr/bin/sh: /c/mingw-w64/x86_64-7.1.0-win32-seh-rt_v5-rev0/mingw64/bin/g++: Argument list too long
+GNUmakefile:52: recipe for target 'Z:/gdal-2.1.2/libgdal.so' failed
+mingw32-make[1]: *** [Z:/gdal-2.1.2/libgdal.so] Error 126
+</code></pre>
+
+<p>这里的错误与生成静态库原因一样，解决办法也与上面类似。
+可以看生成目标<code>GDAL_LIB</code>的动作，使用到的变量（依赖的.o和.a）与生成<code>GDAL_SLIB</code>是一致的。因为我们前面已经生成了<code>basepart.a</code>、<code>appspart.a</code>、<code>ogrpart1.a</code>、<code>ogrpart2.a</code>，所以这里直接创建动态库即可(后缀名被我改为dll)。</p>
+
+<pre><code class="language-bash">g++ -shared basepart.a appspart.a ogrpart1.a ogrpart2.a -lodbc32 -lodbccp32 -lz -lpthread -lm  -lws2_32 -liconv -o Z:/gdal-2.1.2/libgdal.dll
+</code></pre>
+
+<p><strong>注意：</strong>因为前面创建<code>basepart.a</code>等文件的时候，ar使用的参数是<code>sr</code>，才能成功。如果使用的参数是<code>r</code>，则会报下面错误：</p>
+
+<pre><code class="language-bash">basepart.a: error adding symbols: Archive has no index; run ranlib to add one
+</code></pre>
+
+<p>还要注意，上面链接的时候使用了<code>-liconv</code>参数，如果生成的Makefile中没有，则会报以下错误</p>
+
+<pre><code class="language-bash">undefined reference to `_imp__GetACP@0
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

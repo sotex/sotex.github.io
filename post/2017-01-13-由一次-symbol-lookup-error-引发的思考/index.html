@@ -1,0 +1,229 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 由一次 symbol lookup error 引发的思考 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>由一次 symbol lookup error 引发的思考</h1>
+          <span class="post-date">2017年01月13日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/13/6283248.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/13/6283248.html</a>
+开发一个跨平台的项目的时候，大部分时候都是在VS下进行编码，所以也就使用了VS的解决方案来管理项目。
+因为要跨平台，当时网上看<code>scons</code>这个工具不错，所以在linux下就使用了<code>scons</code>来作为编译脚本。</p>
+
+<p>linux(gcc)下与windows(vs)下的对于链接这一步稍有不同。当目标文件是一个(共享)库的时候，VS会在链接的时候就去解析所有用到的符号，而gcc则不会，只有在生成最终可执行程序的时候才会去解析。
+所以在VS下，一直都没有问题。linux下进行测试的时候也没有问题(因为不是所有的代码都被调用了)。</p>
+
+<p>这几天在一次移植过程中出现了如下的问题</p>
+
+<pre><code class="language-shell">/a.out: symbol lookup error: ./uds_file_storage_module.so: undefined symbol: _ZN8unispace13us_ini_config9from_fileERKNS_10us_ustringEPS0_
+</code></pre>
+
+<p>错误很简单，就是<code>us_ini_config::from_file</code>这个函数没有找到，说明没有将其添加到动态导出符号表中。（uds_file_storage_module.so是运行时动态加载的，所以编译的时候没有提示错误）</p>
+
+<p>VC中导出符号需要使用到<code>dllexport</code>，而gcc下则默认是不需要。所以这个问题很是疑惑。</p>
+
+<p>考虑用的<code>gcc</code>版本比较高，是不是它将<code>-fvisibility</code>的参数默认设置为<code>hidden</code>呢？查看了gnu的wiki之后也没有发现这个。</p>
+
+<p><a href="https://gcc.gnu.org/wiki/Visibility">https://gcc.gnu.org/wiki/Visibility</a></p>
+
+<p>这里还是有收获的，看到一段好的跨平台代码。</p>
+
+<pre><code class="language-cpp">#if defined _WIN32 || defined __CYGWIN__
+  #ifdef BUILDING_DLL
+    #ifdef __GNUC__
+      #define DLL_PUBLIC __attribute__ ((dllexport))
+    #else
+      #define DLL_PUBLIC __declspec(dllexport) // 注记:实际上gcc似乎也支持这种语法。
+    #endif
+  #else
+    #ifdef __GNUC__
+      #define DLL_PUBLIC __attribute__ ((dllimport))
+    #else
+      #define DLL_PUBLIC __declspec(dllimport) // 注记:实际上gcc似乎也支持这种语法。
+    #endif
+  #endif
+  #define DLL_LOCAL
+#else
+  #if __GNUC__ &gt;= 4
+    #define DLL_PUBLIC __attribute__ ((visibility (&quot;default&quot;)))
+    #define DLL_LOCAL  __attribute__ ((visibility (&quot;hidden&quot;)))
+  #else
+    #define DLL_PUBLIC
+    #define DLL_LOCAL
+  #endif
+#endif
+
+extern &quot;C&quot; DLL_PUBLIC void function(int a);
+class DLL_PUBLIC SomeClass
+{
+   int c;
+   DLL_LOCAL void privateMethod();  // Only for use within this DSO
+public:
+   Person(int _c) : c(_c) { }
+   static void foo(int a);
+};
+</code></pre>
+
+<p>然后添加了<code>__attribute__((visibility(&quot;default&quot;)))</code>进行修饰，发现编译的结果没有改变(md5sun判断)。</p>
+
+<p>然后又在链接的时候添加<code>-rdynamic</code>参数，将所有符号都添加到动态符号表，编译结果也没有变。</p>
+
+<p>在仔细查看了<code>SConstruct</code>脚本之后，发现问题在于没有将对应的源文件添加到脚本中。也就是编译的时候完全就没有编译<code>us_ini_config::from_file</code>所在的源文件。
+这样问题就很清晰明了了，修改脚本之后重新编译就可以了。</p>
+
+<hr />
+
+<p>说到这里，就该反思一下了。
+这个项目早期确实是直接写的<code>Makefile</code>来进行编译的，使用<code>SOURCES = $(shell find $(SRC_DIR)$(PROJECT)/ -name &quot;*.cpp&quot;)</code>来自动发现cpp文件，这本来是很好的。对于贸然使用自己不熟悉的<code>scons</code>，又没有进行有效的学习，这是很不好的。
+对于这个项目，还是直接使用<code>qmake</code>来做跨平台的编译脚本比较好。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

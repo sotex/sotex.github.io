@@ -1,0 +1,274 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> ubuntu15.10下编译安装wine1.8 rc4 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>ubuntu15.10下编译安装wine1.8 rc4</h1>
+          <span class="post-date">2015年12月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/12/23/5070065.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/12/23/5070065.html</a>
+<h1 id="ubuntu1510wine18rc4">ubuntu15.10下编译安装wine1.8rc4</h1>
+<p>Wine （&ldquo;Wine Is Not an Emulator&rdquo; 的递归缩写）是一个能够在多种 POSIX-compliant 操作系统（诸如 Linux，Mac OSX 及 BSD 等）上运行 Windows 应用的兼容层。另外英语单词wine是葡萄酒的意思。</p>
+<p>Wine1.8在2015年12月19日已经正式发布了。相关的信息参考<a href="https://www.winehq.org/">https://www.winehq.org/</a></p>
+<h2 id="1wine18-rc4">1、下载wine1.8 rc4源码</h2>
+<p>源码直接到官网下载即可。</p>
+<pre><code class="bash">wget <a href="https://dl.winehq.org/wine/source/1.8/wine-1.8.tar.bz2">https://dl.winehq.org/wine/source/1.8/wine-1.8.tar.bz2</a>
+</code></pre>
+<p>下载之后解压，这就不说了。（tar -xjf &hellip;）</p>
+<h2 id="2">2、安装编译环境</h2>
+<p>编译环境是需要安装好，不然 <code>./configure</code> 的时候就通不过。这里说的编译环境主要是指<code>gcc</code>编译工具链。</p>
+<pre><code class="bash">sudo apt-get install gcc g++
+</code></pre>
+<p>然后安装32位开发环境（gcc的32位开发库）</p>
+<pre><code class="bash">sudo apt-get install lib32gcc-5-dev  lib32stdc++6 lib32gfortran-5-dev-s390x-cross lib32stdc++6-s390x-cross lib32readline6-dev
+</code></pre>
+<p>如果没有安装，那么 <code>./configure</code> 的时候报的错如下</p>
+<div id="highlighter_709666" class="syntaxhighlighter  bash">
+<div class="toolbar"><span><a class="toolbar_item command_help help" href="#">?</a></span></div>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash plain">checking&nbsp;whether&nbsp;gcc&nbsp;-m32&nbsp;works&hellip;&nbsp;no</code></div>
+<div class="line number2 index1 alt1"><code class="bash plain">configure:&nbsp;error:&nbsp;Cannot&nbsp;build&nbsp;a&nbsp;32-bit&nbsp;program,&nbsp;you&nbsp;need&nbsp;to&nbsp;</code><code class="bash functions">install</code>&nbsp;<code class="bash plain">32-bit&nbsp;development&nbsp;libraries.</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="2">3、安装依赖库</h2>
+<p>安装依赖库的时候，具体要安装哪些可以看 <code>./configure</code> 的报错信息，我这里安装的如下</p>
+<div id="highlighter_404538" class="syntaxhighlighter  bash">
+<div class="toolbar"><span><a class="toolbar_item command_help help" href="#">?</a></span></div>
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="gutter">
+<div class="line number1 index0 alt2">1</div>
+<div class="line number2 index1 alt1">2</div>
+<div class="line number3 index2 alt2">3</div>
+</td>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="bash functions">sudo</code>&nbsp;<code class="bash plain">apt-get&nbsp;</code><code class="bash functions">install</code>&nbsp;<code class="bash plain">flex&nbsp;bison&nbsp;&nbsp;libfreetype6-dev&nbsp;libjpeg-dev&nbsp;libpng-dev&nbsp;&nbsp;libxrender-dev&nbsp;libgl1-mesa-dev&nbsp;libglu1-mesa-dev&nbsp;freeglut3-dev&nbsp;prelink&nbsp;libasound2-dev&nbsp;libgnutls-dev</code></div>
+<div class="line number2 index1 alt1"><code class="bash comments">#下面是对应的32位库</code></div>
+<div class="line number3 index2 alt2"><code class="bash functions">sudo</code>&nbsp;<code class="bash plain">apt-get&nbsp;</code><code class="bash functions">install</code>&nbsp;<code class="bash plain">flex&nbsp;bison&nbsp;&nbsp;libfreetype6-dev:i386&nbsp;libjpeg-dev:i386&nbsp;libpng-dev:i386&nbsp;&nbsp;libxrender-dev:i386&nbsp;libgl1-mesa-dev:i386&nbsp;libglu1-mesa-dev:i386&nbsp;freeglut3-dev:i386&nbsp;prelink&nbsp;libasound2-dev:i386&nbsp;libgnutls-dev:i386</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我这里还会报两个警告，但是这不能安装了。不用管它，可以编译。</p>
+<pre><code class="bash">configure: WARNING: libxml2 32-bit development files not found (or too old), XML won&rsquo;t be supported.</p>
+
+<p>configure: WARNING: libxslt 32-bit development files not found, xslt won&rsquo;t be supported.</p>
+
+<p>configure: Finished.  Do &lsquo;make&rsquo; to compile Wine.
+</code></pre>
+<h2 id="4makefile">4、生成Makefile</h2>
+<p>先在源码目录建一个<code>build</code>的目录，然后进入目录。再使用<code>../configure</code>来生成<code>Makefile</code>。<br />
+<em>如果没有建build目录，./configure的时候会提示的</em></p>
+<pre><code class="bash">../configure &ndash;prefix=/home/o/pragram/wine1.8 &ndash;exec-prefix=/home/o/pragram/wine1.8/exec &ndash;with-x &ndash;disable-win16
+</code></pre>
+<p><code>&ndash;prefix</code>用于指定wine的安装文件依赖文件等的存放目录(include、share)<br />
+<code>&ndash;exec-prefix</code>用于指定wine的安装目录，相关的执行文件都在此。<br />
+更详细的参数可以使用<code>../configure &ndash;help</code>来查看。</p>
+<h2 id="5">5、编译安装</h2>
+<p>编译和安装的过程很简单。直接<code>make</code>编译，然后<code>sudo make install</code>。</p>
+<h2 id="6">6、安装完成后的设置</h2>
+<p>首先要添加<code>wine</code>的执行文件目录到<code>PATH</code>环境变量。（这个方法有很多，可以不添加）</p>
+<p>如果不想修改环境变量，可以用下面的方式。<br />
+在启动<code>.exe</code>程序的时候先<code>export</code>导入路径到环境变量。这个可以写在脚本里面来启动。</p>
+<p>运行<code>winecfg</code>程序来设置相关的参数，建议选定Windows版本为<code>Windows 7</code>。<br />
+其他的相关参数，根据自己的喜好来选定吧。</p>
+<p>如果<code>winecfg</code>运行的时候，窗口上的文字都是 <strong>||(||!)</strong> 之类的，那么要做一下第7步<br />
+<img src="http://images2015.cnblogs.com/blog/693958/201512/693958-20151223152313452-82577899.png" alt="" /></p>
+<h2 id="7">7、中文语言的支持</h2>
+<p>详细设置请参考<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=72933">http://forum.ubuntu.org.cn/viewtopic.php?t=72933</a><br />
+1、复制windows下的<code>simsun.ttc</code>字体到<code>～/.wine/drive-c/windows/fonts/</code>目录下。<br />
+2、新建一个<code>zh.reg</code>文件，然后打开它，输入以下内容。然后回答命令行，使用<code>regedit zh.reg</code>来导入到注册表。</p>
+<pre><code class="reg">REGEDIT4
+[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]
+&ldquo;Arial&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Arial CE,238&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Arial CYR,204&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Arial Greek,161&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Arial TUR,162&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Courier New&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Courier New CE,238&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Courier New CYR,204&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Courier New Greek,161&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Courier New TUR,162&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;FixedSys&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Helv&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Helvetica&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;MS Sans Serif&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;MS Shell Dlg&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;MS Shell Dlg 2&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;System&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Tahoma&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Times&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Times New Roman CE,238&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Times New Roman CYR,204&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Times New Roman Greek,161&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Times New Roman TUR,162&rdquo;=&ldquo;simsun&rdquo;
+&ldquo;Tms Rmn&rdquo;=&ldquo;simsun&rdquo;
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

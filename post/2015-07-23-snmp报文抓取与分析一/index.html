@@ -1,0 +1,385 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> SNMP报文抓取与分析(一) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>SNMP报文抓取与分析(一)</h1>
+          <span class="post-date">2015年07月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/23/4671184.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/23/4671184.html</a>
+<h1 id="snmp">SNMP报文抓取与分析(一)</h1>
+<h2 id="1snmp">1、抓取SNMP报文</h2>
+<p>SNMP报文的形式大致如下图所示</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/231749231783085.gif" alt="" /></p>
+<p>我们这里使用<code>netcat</code>这个工具来抓取<code>snmp</code>的<code>PDU</code>（协议数据单元）。（因为我们并不需要前面的<code>IP</code>和<code>UDP</code>首部）</p>
+<p>关于<code>netcat</code>的一些基本使用可以看这里<a href="http://www.cnblogs.com/oloroso/p/4610563.html">http://www.cnblogs.com/oloroso/p/4610563.html</a></p>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h3 id="netcatsnmp">netcat获取snmp报文</h3>
+<h4 id="1-snmpwalkget-next-request">1 先获取<code>snmpwalk</code>发出的(<code>get-next-request</code>)</h4>
+<p>我们使用<code>nc</code>来监听<code>161</code>端口，然后把输出重定向到文件<code>a.hex</code>。因为监听的是161端口，所以这里必须以root权限运行。</p>
+<pre><code class="bash">sudo nc -u -l 161 &gt;a.hex
+</code></pre>
+<p>这样之后使用<code>snmpwalk</code>这个工具来向这个<code>&ldquo;受控端&rdquo;</code>发送命令。</p>
+<pre><code class="bash">snmpwalk -c public -v 2c localhost 1.3.6.1.4.201566.1.1
+</code></pre>
+<h4 id="2-get-response">2 再获取代理程序发回的(<code>get-response</code>)</h4>
+<p>我们先要打开代理程序Agent，然后使用下面的命令将<code>a.hex</code>的内容发给代理程序，并将接收到的返回保存到<code>b.hex</code></p>
+<pre><code>o@o-pc:~/snmpPUD$ nc -u 127.0.0.1 161 &lt;a.hex &gt;b.hex
+^C
+o@o-pc:~/snmpPUD$
+</code></pre>
+<p>下图是针对SNMPv1版本的。目前比较通用的是SNMP v2c/v3版本，具有八种PDU类型。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/240854381316561.gif" alt="" /></p>
+<h3 id="_1">分析获取到的报文</h3>
+<p>先使用<code>hexdump</code>来查看一下获取到的报文内容。（hexdump是一个很好用的十六进制分析工具）</p>
+<pre><code class="bash">o@o-pc:~/snmpPUD$ hexdump -C a.hex
+00000000  30 2c 02 01 01 04 06 70  75 62 6c 69 63 a1 1f 02  |0,&hellip;..public&hellip;|
+00000010  04 22 70 8b d4 02 01 00  02 01 00 30 11 30 0f 06  |.&ldquo;p&hellip;&hellip;..0.0..|
+00000020  0b 2b 06 01 04 01 8c a6  5e 01 01 01 05 00        |.+&hellip;&hellip;^&hellip;..|
+0000002e
+</code></pre>
+<pre><code>o@o-pc:~/snmpPUD$ hexdump -C b.hex
+00000000  30 30 02 01 01 04 06 70  75 62 6c 69 63 a2 23 02  |00&hellip;..public.#.|
+00000010  04 22 70 8b d4 02 01 00  02 01 00 30 15 30 13 06  |.&ldquo;p&hellip;&hellip;..0.0..|
+00000020  0e 2b 06 01 04 01 8c a6  5e 01 01 01 01 01 00 02  |.+&hellip;&hellip;^&hellip;&hellip;.|
+00000030  01 2b                                             |.+|
+00000032</p>
+
+<p></code></pre>
+<h3 id="_2">报文分析结果</h3>
+<p>先看结果，然后再慢慢分析</p>
+<h4 id="get-next-requestahex"><code>get-next-request</code>报文示例分析(a.hex)</h4>
+<table>
+<thead>
+<tr><th align="left">十六进制数据</th><th align="left">解释</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">30</td>
+<td align="left">表示SNMP协议报文(整个报文是一个SEQUENCE)</td>
+</tr>
+<tr>
+<td align="left">2c</td>
+<td align="left">消息长度44字节(表示后面还有44个字节的内容)</td>
+</tr>
+<tr>
+<td align="left">02 01 01</td>
+<td align="left">协议版本(2c)(前两个字节02表示INTEGER类型01是指1个字节长度，最后的01是值01)</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">参数类型(OCTSTR)</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">群体(community)名长度</td>
+</tr>
+<tr>
+<td align="left">70 75 62 6c 69 63</td>
+<td align="left">群体名public的assic码值</td>
+</tr>
+<tr>
+<td align="left">a1</td>
+<td align="left">PUD类型get-next-request</td>
+</tr>
+<tr>
+<td align="left">1f</td>
+<td align="left">snmp pdu的长度为31个OctStr(后面的内容31字节)</td>
+</tr>
+<tr>
+<td align="left">02 04 22 70 8b d4</td>
+<td align="left">请求标识符Request ID</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-state为0</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-index为0</td>
+</tr>
+<tr>
+<td align="left">30 11</td>
+<td align="left">表示后面变量绑定是SEQUENCE类型17个字节长度</td>
+</tr>
+<tr>
+<td align="left">30 0f</td>
+<td align="left">表示(变量名1</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">表示该字段是OID类型</td>
+</tr>
+<tr>
+<td align="left">0b</td>
+<td align="left">OID长度11字节</td>
+</tr>
+<tr>
+<td align="left">2b 06 01 04 01</td>
+<td align="left">1.3.6.1.4.1(标识1.3被合并为2B)</td>
+</tr>
+<tr>
+<td align="left">8c a6 5e</td>
+<td align="left">201566 (这也是根据规则转换得到的)</td>
+</tr>
+<tr>
+<td align="left">01 01 01</td>
+<td align="left">1.1.1</td>
+</tr>
+<tr>
+<td align="left">05 00</td>
+<td align="left">表示NULL</td>
+</tr>
+</tbody>
+</table>
+<h4 id="get-responsebhex"><code>get-response</code>报文示例分析(b.hex)</h4>
+<table>
+<thead>
+<tr><th align="left">十六进制数据</th><th align="left">解释</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">30</td>
+<td align="left">表示SNMP协议报文(整个报文是一个SEQUENCE)</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">消息长度48字节(表示后面还有48个字节的内容)</td>
+</tr>
+<tr>
+<td align="left">02 01 01</td>
+<td align="left">协议版本(2c)(前两个字节02 01 表示INTEGER类型)</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">参数类型(OCTSTR)</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">群体(community)名长度</td>
+</tr>
+<tr>
+<td align="left">70 75 62 6c 69 63</td>
+<td align="left">群体名public的assic码值</td>
+</tr>
+<tr>
+<td align="left">a2</td>
+<td align="left">PUD类型get-response</td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">snmp pdu的长度为35个OctStr(后面的内容31字节)</td>
+</tr>
+<tr>
+<td align="left">02 04 22 70 8b d4</td>
+<td align="left">请求标识符Request ID</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-state为0</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-index为0</td>
+</tr>
+<tr>
+<td align="left">30 11</td>
+<td align="left">表示后面变量绑定是SEQUENCE类型17个字节长度</td>
+</tr>
+<tr>
+<td align="left">30 0f</td>
+<td align="left">表示(变量名1</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">表示该字段是OID类型</td>
+</tr>
+<tr>
+<td align="left">0b</td>
+<td align="left">OID长度11字节</td>
+</tr>
+<tr>
+<td align="left">2b 06 01 04 01</td>
+<td align="left">1.3.6.1.4.1(标识1.3被合并为2B)</td>
+</tr>
+<tr>
+<td align="left">8c a6 5e</td>
+<td align="left">201566 (这也是根据规则转换得到的)</td>
+</tr>
+<tr>
+<td align="left">01 01 01</td>
+<td align="left">1.1.1</td>
+</tr>
+<tr>
+<td align="left">00</td>
+<td align="left">表示.0 即第一个实例&lt;/td&gt;
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">(下面的值实际是节点1.3.6.1.4.1.201566.1.1.1.0的)</td>
+</tr>
+<tr>
+<td align="left">02 01 2b</td>
+<td align="left">02 01 表示INTEGER类型1个字节，2b表示值(43)</td>
+</tr>
+<tr>
+<td align="left">05 00</td>
+<td align="left">表示NULL</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>下面是使用<code>snmpwalk</code>命令获取的结果</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/231749566622088.png" alt="" /></p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

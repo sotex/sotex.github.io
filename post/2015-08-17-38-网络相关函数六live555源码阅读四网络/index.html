@@ -1,0 +1,289 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 38 网络相关函数(六)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>38 网络相关函数(六)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月17日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/17/4736793.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/17/4736793.html</a>
+<h1 id="38-live555">38 网络相关函数(六)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#38-live555">38 网络相关函数(六)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#12makesocketnonblockingmakesocketblocking">12)makeSocketNonBlocking和makeSocketBlocking套接口阻塞属性设置</a></li>
+<li><a href="#13setupstreamsocket">13)setupStreamSocket设置流式套接口</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="12makesocketnonblockingmakesocketblocking">12)makeSocketNonBlocking和makeSocketBlocking套接口阻塞属性设置</h2>
+<p><code>makeSocketNonBlocking</code>函数用于为参数<code>sock</code>代表的套接口添加<code>O_NONBLOCK</code>非阻塞属性。</p>
+<pre><code class="cpp">// 设置sock为非阻塞模式
+Boolean makeSocketNonBlocking(int sock) {
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+    unsigned long arg = 1;
+    return ioctlsocket(sock, FIONBIO, &amp;arg) == 0;
+#elif defined(VXWORKS)
+    int arg = 1;
+    return ioctl(sock, FIONBIO, (int)&amp;arg) == 0;
+#else
+    int curFlags = fcntl(sock, F_GETFL, 0);
+    return fcntl(sock, F_SETFL, curFlags|O_NONBLOCK) &gt;= 0;
+#endif
+}
+</code></pre>
+<p><code>makeSocketBlocking</code>函数用于为参数<code>sock</code>代表的套接口去除<code>O_NONBLOCK</code>非阻塞属性。</p>
+<pre><code class="cpp">// 设置sock为阻塞模式
+Boolean makeSocketBlocking(int sock) {
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+    unsigned long arg = 0;
+    return ioctlsocket(sock, FIONBIO, &amp;arg) == 0;
+#elif defined(VXWORKS)
+    int arg = 0;
+    return ioctl(sock, FIONBIO, (int)&amp;arg) == 0;
+#else
+    int curFlags = fcntl(sock, F_GETFL, 0);
+    return fcntl(sock, F_SETFL, curFlags&amp;(~O_NONBLOCK)) &gt;= 0;
+#endif
+}
+</code></pre>
+<h2 id="13setupstreamsocket">13)setupStreamSocket设置流式套接口</h2>
+<p><code>setupStreamSocket</code>和<code>setupDatagramSocket</code>的功能很像，区别在于这里返回的是一个流式套接口。<br />
+<code>makeNonBlocking</code>参数用于控制创建的套接口是否是阻塞的。</p>
+<pre><code class="cpp">// 设置流式套接字
+int setupStreamSocket(UsageEnvironment&amp; env,
+    Port port, Boolean makeNonBlocking) {
+    if (!initializeWinsockIfNecessary()) {
+        socketErr(env, &ldquo;Failed to initialize &lsquo;winsock&rsquo;: &ldquo;);
+        return -1;
+    }</p>
+
+<pre><code>int newSocket = createSocket(SOCK_STREAM);
+if (newSocket &amp;lt; 0) {
+    socketErr(env, &quot;unable to create stream socket: &quot;);
+    return newSocket;
+}
+
+int reuseFlag = groupsockPriv(env)-&amp;gt;reuseFlag;
+reclaimGroupsockPriv(env);
+if (setsockopt(newSocket, SOL_SOCKET, SO_REUSEADDR,
+    (const char*)&amp;amp;reuseFlag, sizeof reuseFlag) &amp;lt; 0) {
+    socketErr(env, &quot;setsockopt(SO_REUSEADDR) error: &quot;);
+    closeSocket(newSocket);
+    return -1;
+}
+
+// SO_REUSEPORT doesn't really make sense for TCP sockets, so we
+// normally don't set them.  However, if you really want to do this
+// #define REUSE_FOR_TCP
+</code></pre>
+
+<p>#ifdef REUSE_FOR_TCP
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+    // Windoze doesn&rsquo;t properly handle SO_REUSEPORT
+#else
+#ifdef SO_REUSEPORT
+    if (setsockopt(newSocket, SOL_SOCKET, SO_REUSEPORT,
+        (const char*)&amp;reuseFlag, sizeof reuseFlag) &lt; 0) {
+        socketErr(env, &ldquo;setsockopt(SO_REUSEPORT) error: &ldquo;);
+        closeSocket(newSocket);
+        return -1;
+    }
+#endif
+#endif
+#endif</p>
+
+<pre><code>// Note: Windoze requires binding, even if the port number is 0
+</code></pre>
+
+<p>#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+#else
+    if (port.num() != 0 || ReceivingInterfaceAddr != INADDR_ANY) {
+#endif
+        MAKE_SOCKADDR_IN(name, ReceivingInterfaceAddr, port.num());
+        if (bind(newSocket, (struct sockaddr*)&amp;name, sizeof name) != 0) {
+            char tmpBuffer[100];
+            sprintf(tmpBuffer, &ldquo;bind() error (port number: %d): &ldquo;,
+                ntohs(port.num()));
+            socketErr(env, tmpBuffer);
+            closeSocket(newSocket);
+            return -1;
+        }
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+#else
+    }
+#endif
+    // 根据参数设置是否为非阻塞
+    if (makeNonBlocking) {
+        if (!makeSocketNonBlocking(newSocket)) {
+            socketErr(env, &ldquo;failed to make non-blocking: &ldquo;);
+            closeSocket(newSocket);
+            return -1;
+        }
+    }</p>
+
+<pre><code>return newSocket;
+</code></pre>
+
+<p>}
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

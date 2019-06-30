@@ -1,0 +1,295 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 28 GroupSock(NetAddress)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>28 GroupSock(NetAddress)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月01日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/01/4613341.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/01/4613341.html</a>
+<h2 id="28-groupsocknetaddresslive555">28 GroupSock(NetAddress)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#28-groupsocknetaddresslive555">28 GroupSock(NetAddress)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#1-netaddress">1) NetAddress网络地址类简述</a></li>
+<li><a href="#_2">下面是其定义</a></li>
+<li><a href="#assign">assign方法(分配空间)</a></li>
+<li><a href="#netaddress">NetAddress的构造</a></li>
+<li><a href="#clean">clean方法(清理)与析构</a></li>
+<li><a href="#operate">operate= 重载赋值操作</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>使用Socket进行的网络连接，网络地址一般由地址(<code>IP</code>)和端口(<code>port</code>)组成。<br />
+live555中定义了一些数据类型，表明了目前所支持的网络地址类型。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> Definition of a type representing a low-level network address.
+</span><span style="color: #008080;">2</span> <span style="color: #008000;">//</span><span style="color: #008000;"> At present, this is 32-bits, for IPv4.  Later, generalize it,
+</span><span style="color: #008080;">3</span> <span style="color: #008000;">//</span><span style="color: #008000;"> to allow for IPv6.
+</span><span style="color: #008080;">4</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 一种代表底层网络地址定义。目前，默认它32位，IPv4。将来，可扩展支持IPv6。</span>
+<span style="color: #008080;">5</span> <span style="color: #000000;">typedef u_int32_t netAddressBits;
+</span><span style="color: #008080;">6</span> typedef u_int16_t portNumBits;</pre>
+</div>
+<p>定义在文件<code>live555sourcecontrol\groupsock\include\NetAddress.hh</code></p>
+<h2 id="1-netaddress">1) NetAddress网络地址类简述</h2>
+<p><code>NetAddress</code>是一个用于保存网络地址的类，它不是对<code>struct sockaddr</code>的封装。其内部定义了两个数据成员，分别是用于保存地址数据的<code>u_int8_t* fData</code>和用于指示地址长度的<code>unsigned fLength</code>。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201507/011519363123474.png" alt="" /></p>
+<h2 id="_2">下面是其定义</h2>
+<div class="cnblogs_code" onclick="cnblogs_code_show('60345ddd-5b92-41f0-bcfe-98e2c45250d6')"><img id="code_img_closed_60345ddd-5b92-41f0-bcfe-98e2c45250d6" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_60345ddd-5b92-41f0-bcfe-98e2c45250d6" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('60345ddd-5b92-41f0-bcfe-98e2c45250d6',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_60345ddd-5b92-41f0-bcfe-98e2c45250d6" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> NetAddress {
+</span><span style="color: #008080;"> 2</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 3</span>     NetAddress(u_int8_t <span style="color: #0000ff;">const</span><em><span style="color: #000000;"> data,
+</span><span style="color: #008080;"> 4</span>            unsigned length = <span style="color: #800080;">4</span> <span style="color: #008000;">/</em></span><span style="color: #008000;"> default: 32 bits IPv4</span><span style="color: #008000;"><em>/</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 5</span>     NetAddress(unsigned length = <span style="color: #800080;">4</span>); <span style="color: #008000;">//</span><span style="color: #008000;"> sets address data to all-zeros</span>
+<span style="color: #008080;"> 6</span>     NetAddress(NetAddress <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> orig);
+</span><span style="color: #008080;"> 7</span>     NetAddress&amp; <span style="color: #0000ff;">operator</span>=(NetAddress <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> rightSide);
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">virtual</span> ~<span style="color: #000000;">NetAddress();
+</span><span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span>     unsigned length() <span style="color: #0000ff;">const</span> { <span style="color: #0000ff;">return</span><span style="color: #000000;"> fLength; }
+</span><span style="color: #008080;">11</span>     u_int8_t <span style="color: #0000ff;">const</span></em> data() <span style="color: #0000ff;">const</span> <span style="color: #008000;">//</span><span style="color: #008000;"> always in network byte order</span>
+<span style="color: #008080;">12</span>         { <span style="color: #0000ff;">return</span><span style="color: #000000;"> fData; }
+</span><span style="color: #008080;">13</span>
+<span style="color: #008080;">14</span>     <span style="color: #0000ff;">private</span><span style="color: #000000;">:
+</span><span style="color: #008080;">15</span>     <span style="color: #0000ff;">void</span> assign(u_int8_t <span style="color: #0000ff;">const</span><em><span style="color: #000000;"> data, unsigned length);
+</span><span style="color: #008080;">16</span>     <span style="color: #0000ff;">void</span><span style="color: #000000;"> clean();
+</span><span style="color: #008080;">17</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">    unsigned fLength;
+</span><span style="color: #008080;">19</span>     u_int8_t</em><span style="color: #000000;"> fData;
+</span><span style="color: #008080;">20</span> };</pre>
+</div>
+<span class="cnblogs_code_collapse">NetAddress 的定义</span></div>
+<p>&nbsp;</p>
+<h2 id="assign">assign方法(分配空间)</h2>
+<p>先说这个而不是构造函数，是因为这个方法是一个关键方法。构造函数也要用到它。<br />
+<code>assign</code>为<code>fData</code>成员动态分配内存空间和拷贝数据。通过参数<code>length</code>来确定分配空间的大小，而参数<code>data</code>用于作为数据源拷贝到申请的新空间。要注意的是这个方法的权限是<code>private</code>的，所以没有检查<code>data==NULL</code>也是可以的。<br />
+这里提一个C++的有意思的地方，就是<code>new分配失败不是返回NULL</code>，而是<code>抛出异常(std::bad_alloc e)</code>。除非是重载的new或者使用无抛出的<code>new (std::nothrow)</code>。但是早期一些C++编译器的实现可能是new与malloc行为一致，都是返回NULL。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">为fDate申请length字节内存空间，并将data指向内容拷贝到新空间</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">void</span> NetAddress::assign(u_int8_t <span style="color: #0000ff;">const</span><em><span style="color: #000000;"> data, unsigned length) {
+</span><span style="color: #008080;"> 3</span>   fData = <span style="color: #0000ff;">new</span><span style="color: #000000;"> u_int8_t[length];
+</span><span style="color: #008080;"> 4</span>   <span style="color: #0000ff;">if</span> (fData ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 5</span>     fLength = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span>   <span style="color: #0000ff;">for</span> (unsigned i = <span style="color: #800080;">0</span>; i &lt; length; ++i) fData[i] =<span style="color: #000000;"> data[i];
+</span><span style="color: #008080;">10</span>   fLength =<span style="color: #000000;"> length;
+</span><span style="color: #008080;">11</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="netaddress">NetAddress的构造</h2>
+<p><code>NetAddress</code>定义了三个构造函数，两个普通的带参构造和一个拷贝构造(拷贝构造也是带参构造的一种)。<br />
+三个构造函数一致的特点就是都为<code>fData</code>成员动态申请了内存空间。代码很简单，不详述了。</p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('9f9708e8-c8de-4d8f-a677-2faab1903ecd')"><img id="code_img_closed_9f9708e8-c8de-4d8f-a677-2faab1903ecd" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_9f9708e8-c8de-4d8f-a677-2faab1903ecd" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('9f9708e8-c8de-4d8f-a677-2faab1903ecd',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_9f9708e8-c8de-4d8f-a677-2faab1903ecd" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">构造函数，为fDate申请length字节内存空间，并将data指向内容拷贝到新空间</span>
+<span style="color: #008080;"> 2</span> NetAddress::NetAddress(u_int8_t <span style="color: #0000ff;">const</span></em><span style="color: #000000;"> data, unsigned length) {
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">  assign(data, length);
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">}
+</span><span style="color: #008080;"> 5</span> <span style="color: #008000;">//</span><span style="color: #008000;">为fDate申请length字节内存空间，并将新空间清零</span>
+<span style="color: #008080;"> 6</span> <span style="color: #000000;">NetAddress::NetAddress(unsigned length) {
+</span><span style="color: #008080;"> 7</span>   fData = <span style="color: #0000ff;">new</span><span style="color: #000000;"> u_int8_t[length];
+</span><span style="color: #008080;"> 8</span>   <span style="color: #0000ff;">if</span> (fData ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 9</span>     fLength = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span>   <span style="color: #0000ff;">for</span> (unsigned i = <span style="color: #800080;">0</span>; i &lt; length; ++i) fData[i] = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span>   fLength =<span style="color: #000000;"> length;
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">16</span>
+<span style="color: #008080;">17</span> <span style="color: #008000;">//</span><span style="color: #008000;">拷贝构造</span>
+<span style="color: #008080;">18</span> NetAddress::NetAddress(NetAddress <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> orig) {
+</span><span style="color: #008080;">19</span> <span style="color: #000000;">  assign(orig.data(), orig.length());
+</span><span style="color: #008080;">20</span> }</pre>
+</div>
+<span class="cnblogs_code_collapse">构造函数</span></div>
+<h2 id="clean">clean方法(清理)与析构</h2>
+<p><code>clean</code>方法用于将<code>fData</code>指向的内存空间进行释放。就是将<code>NetAddress</code>对象保存的<code>数据给清理掉</code>了，注意这个方法是<code>private</code>权限。</p>
+<p>题外话：clean和clear的意思还是有一点区别的。<code class=" hljs cpp"></code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;">清除地址数据</span>
+<span style="color: #008080;">2</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> NetAddress::clean() {
+</span><span style="color: #008080;">3</span>   <span style="color: #0000ff;">delete</span>[] fData; fData =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">4</span>   fLength = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">5</span> }</pre>
+</div>
+<p>析构就是对clean的调用。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;">析构</span>
+<span style="color: #008080;">2</span> NetAddress::~<span style="color: #000000;">NetAddress() {
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">  clean();
+</span><span style="color: #008080;">4</span> }</pre>
+</div>
+<h2 id="operate">operate= 重载赋值操作</h2>
+<p>这个很简单，不详述了。<code class="cpp"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> <span style="color: #008000;">//</span><span style="color: #008000;">重载 = 赋值</span>
+<span style="color: #008080;">2</span> NetAddress&amp; NetAddress::<span style="color: #0000ff;">operator</span>=(NetAddress <span style="color: #0000ff;">const</span>&amp;<span style="color: #000000;"> rightSide) {
+</span><span style="color: #008080;">3</span>   <span style="color: #0000ff;">if</span> (&amp;rightSide != <span style="color: #0000ff;">this</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">    clean();
+</span><span style="color: #008080;">5</span> <span style="color: #000000;">    assign(rightSide.data(), rightSide.length());
+</span><span style="color: #008080;">6</span> <span style="color: #000000;">  }
+</span><span style="color: #008080;">7</span>   <span style="color: #0000ff;">return</span> *<span style="color: #0000ff;">this</span><span style="color: #000000;">;
+</span><span style="color: #008080;">8</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

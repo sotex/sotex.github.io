@@ -1,0 +1,376 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> TJpgDec—轻量级JPEG解码器 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>TJpgDec—轻量级JPEG解码器</h1>
+          <span class="post-date">2016年09月07日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/09/07/5851505.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/09/07/5851505.html</a>
+#TJpgDec—轻量级JPEG解码器</p>
+
+<p>本文由乌合之众lym瞎编，欢迎转载blog.cnblogs.net/oloroso
+下文中解码一词皆由<code>decompression/decompress</code>翻译而来。</p>
+
+<p>TJpgDec是一个为小型嵌入式系统高度优化的创建JPEG图像的解码模块。它工作时占用的内存非常低，以便它可以集成到微控芯片,如AVR, 8051, PIC, Z80, Cortex-M0等。</p>
+
+<p>##特性
+- 平台独立。使用ANSI-C编写
+- 易于使用的主操作模式
+- 完全可重入的体系结构
+    &gt;Very small memory footprint:
+- 非常小的内存占用
+    &gt;独立于图像尺寸的3K工作内存。
+    &gt;3.5-8.5KB的文本和常数ROM.
+- 输出格式:
+    &gt;缩放比例:1/1、1/2、1/4或1/8可选。
+    &gt;像素格式:RGB888或RGB565预配置。</p>
+
+<p>##API接口</p>
+
+<p>有两个函数用于分析和解码JPEG图像。</p>
+
+<p>###jd_prepare</p>
+
+<p><a href="http://elm-chan.org/fsw/tjpgd/en/prepare.html"><code>jd_prepare</code></a> - 准备解码JPEG图像</p>
+
+<p><code>jd_prepare</code>分析JPEG数据并创建一个解码对象(decompression object)用于随后的解码过程。</p>
+
+<pre><code class="language-c">JRESULT jd_prepare (
+			JDEC* jdec,            /* Pointer to blank decompression object */
+			UINT(*infunc)(JDEC*,BYTE*,UINT), /* Pointer to input function */
+			void* work,            /* Pointer to work area */
+			UINT sz_work,          /* Size of the work area */
+			void* device           /* Device identifier for the session */
+			);
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<ul>
+<li>jdec
+&gt;指定解码对象去初始化。这个解码对象是用于后续的解码操作。</li>
+<li>input
+&gt;指定用户定义的数据输入函数。<code>jd_prepare</code>和<code>jd_decomp</code>调用这个函数来从输入流读取JPEG数据.</li>
+<li>work
+&gt;指向此会话工作区域的指针。它应该与word边界对齐或者它可以导致一个异常。</li>
+<li>sz_work
+&gt;指定工作区域的字节数。TJpgDec至多需要3092字节的工作区域，这依赖于JPEG图像的内置参数表。通常情况下是3092字节工作区域.</li>
+<li>device
+&gt;指定用户定义的会话设备标识。它保存在解码对象的<code>device</code>成员中。它可以用于<code>I/O</code>函数去识别当前会话。当<code>I/O device</code>固定在project或者不需要这个功能，设置为NULL并忽略它。</li>
+</ul>
+
+<p><strong>返回值</strong></p>
+
+<ul>
+<li>JDR_OK
+&gt;Function succeeded and decompression object is valid.
+&gt;函数执行成功，且编码对象是有效的。</li>
+<li>JDR_INP
+&gt;An error occured in input function due to hard error or wrong stream termination.
+&gt;一个错误发生在input函数，由于硬件错误或者流终止。</li>
+<li>JDR_MEM1
+&gt;Insufficient work area for this JPEG image.
+&gt;工作区域不足解码这个JPEG图像。</li>
+<li>JDR_MEM2
+&gt;Insufficient input buffer for this JPEG image. JD_SZBUF may be too small.
+&gt;输入缓冲器不足读取这个JPEG图像，JD_SZBUF可能过小。</li>
+<li>JDR_PAR
+&gt;Parameter error. Given pointer to the work area is NULL.
+&gt;参数错误。传入的工作区指针为NULL。</li>
+<li>JDR_FMT1
+&gt;Data format error. The JPEG data can be collapted.
+&gt;数据格式错误。JPEG数据损坏。</li>
+<li>JDR_FMT2
+&gt;Right format but not supported. May be a grayscale image.
+&gt;格式正确，但不支持。也许是一个灰度图像。</li>
+<li>JDR_FMT3
+&gt;Not supported JPEG standard. May be a progressive JPEG image.
+&gt;不支持JPEG标准，也许是一个先进的JPEG图像。</li>
+</ul>
+
+<p><strong>描述</strong></p>
+
+<p><code>jd_prepare</code>函数是JPEG解码会话的第一阶段。它分析JPEG图像和创建解码参数表。函数成功后，会话准备好在<code>jd_decomp</code>函数解码JPEG图像。应用程序可以参考JPEG解码对象中存储的尺寸大小。这个信息将用于在后续的解码阶段配置输出设备(device)和参数。</p>
+
+<p>###jd_decomp</p>
+
+<p><a href="http://elm-chan.org/fsw/tjpgd/en/decomp.html"><code>jd_decomp</code></a>  - 执行解码JPEG图像</p>
+
+<p><code>jd_decomp</code>函数解码JPEG图像并输出<code>RGB</code>数据。</p>
+
+<pre><code class="language-c">JRESULT jd_decomp (
+			JDEC* jdec,             /* Pointer to valid decompressor object */
+			UINT(*outfunc)(JDEC*,void*,JRECT*), /* Pointer to output function */
+			BYTE scale              /* Scaling factor */
+			);
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<ul>
+<li>jdec
+&gt;指定有效的解码对象。</li>
+<li>outfunc
+&gt;指定用户定义的输出函数。<code>jd_decomp</code>调用这个函数去输出解码JPEG图像的RGB形式。</li>
+<li>scale
+&gt;指定输出比例因子N。输出图像的缩小比例为<code>1/2^N</code>(N = 0 to 3)。当缩放功能禁用时(JD_USE_SCALE == 0)，它必须是0.</li>
+</ul>
+
+<p><strong>返回值</strong></p>
+
+<ul>
+<li>JDR_OK
+&gt;Function succeeded.
+&gt;函数执行成功。</li>
+<li>JDR_INTR
+The decompression process is interrupted by output function.
+&gt;解码过程在输出函数中断。</li>
+<li>JDR_INP
+&gt;An error occured in input function due to hard error or wrong stream termination.
+&gt;一个错误发生在input函数，由于硬件错误或者流终止。</li>
+<li>JDR_PAR
+&gt;Parameter error. Given scale factor is invalid.
+&gt;参数错误。给定的缩放值无效。</li>
+<li>JDR_FMT1
+&gt;Data format error. The JPEG data can be collapted.
+&gt;数据格式错误。JPEG数据损坏。</li>
+</ul>
+
+<p><strong>描述</strong></p>
+
+<p><code>jd_decomp</code>是JPEG解码会话的第二阶段。它解码JPEG图像并通过用户定义的输出函数输出数据，在它之后，解码对象将不在有效。</p>
+
+<p>在解码时指定的比例因子，它将JPEG图像按1/2、1/4或1/8比例缩放尺寸。例如，当解码一个1024x768大小JPEG图像在1/4比例，它将输出256x192大小。相比不缩放，1/2和1/4的缩放由于求均值，解码速度略有下降。但是1/8缩放相比不缩放是2-3倍的速度输出，因为每个块IDCT和求均值可以跳过。这一特点适合创建缩略图。</p>
+
+<p>##I/O函数</p>
+
+<p>输入JPEG数据并输出解码后像素，TJpgDec需要用户定义两个<code>I/O</code>函数</p>
+
+<p>###Input Function</p>
+
+<p><a href="http://elm-chan.org/fsw/tjpgd/en/input.html"><code>Input funciotn</code></a>  - 从输入流读取JPEG数据</p>
+
+<p>用户定义的从输入流读取数据的输入函数。</p>
+
+<pre><code class="language-c">UINT in_func (
+			JDEC* jdec,    /* Pointer to the decompression object */
+			BYTE* buff,    /* Pointer to buffer to store the read data */
+			UINT ndata     /* Number of bytes to read */
+			);
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<ul>
+<li>jdec
+&gt;指定解码会话的解码对象。</li>
+<li>buff
+&gt;指定读缓冲器去保存读取数据。传入NULL将数据从输入流移除。</li>
+<li>ndata
+&gt;指定从输入流读取或移除的字节数。</li>
+</ul>
+
+<p><strong>返回值</strong></p>
+
+<p>返回读取或移除的字节数。若返回0，<code>jd_prepare</code>和<code>jd_decomp</code>函数将终止并返回<code>JDR_INP</code>。</p>
+
+<p><strong>描述</strong></p>
+
+<p>这个函数是TJpgDec模块的数据输入接口。可以通过指向设备标识符的指针来标识相应的解码会话。</p>
+
+<p>###Output Function
+<a href="http://elm-chan.org/fsw/tjpgd/en/output.html"><code>Output function</code></a> - 写像素数据到输出设备</p>
+
+<p>用户定义的输出函数，写解码像素到输出设备。</p>
+
+<pre><code class="language-c">UINT out_func (
+			JDEC* jdec,    /* Pointer to the decompression object */
+			void* bitmap,  /* RGB bitmap to be output */
+			JRECT* rect    /* Rectangular region to output */
+			);
+</code></pre>
+
+<p><strong>参数</strong></p>
+
+<ul>
+<li>jdec
+&gt;指定会话的解码对象。</li>
+<li>bitmap
+&gt;指定RGB位图(bitmap)用于输出。</li>
+<li>rect
+&gt;指定在图像中的矩形区域去输出RGB位图。</li>
+</ul>
+
+<p><strong>返回值</strong></p>
+
+<p>通常返回1，以便TJpgDec继续解码过程。当它返回0，<code>jd_decomp</code>函数终止并返回<code>JDR_INTR</code>，这在中断减压过程中有用。</p>
+
+<p><strong>描述</strong></p>
+
+<p>这个函数是TJpgDec模块的数据输出函数。可以通过指向设备标识符的指针来标识相应的解码会话，<code>jdec-&gt;device</code>通过<code>jd_prepare</code>函数第五个参数确定。</p>
+
+<p>在这个函数中，位图发送到帧缓冲或显示设备。第一个像素是位图矩形的左上角位置，最后一个像素是右下角位置。矩形的大小从<code>1x1</code>到<code>16x16</code>取决于图像的裁剪、缩放和采样因子。如果矩形是帧缓冲区，它将在函数中倍裁剪。
+像素格式取决于<code>JD_FORMAT</code>参数的配置选项。当它配置为<code>RGB888</code>，位图是一个字节数组，每3个字节保存一个RGB像素：<code>RRRRRRRR, GGGGGGGG, BBBBBBBB, RRRRRRRR, GGGGGGGG, BBBBBBBB, ...</code>；配置为<code>RGB565</code>时，位图是一个<code>WORD</code>数组，RGB数据1word每像素：<code>RRRRRGGGGGGBBBBB, RRRRRGGGGGGBBBBB, RRRRRGGGGGGBBBBB, ...</code>。</p>
+
+<p>##资源</p>
+
+<p>TJpgDec是一个免费软件，对教育、研究和开发开发。你可以使用、修改和重新分发它，对个人项目或商业产品没有任何限制和责任。</p>
+
+<ul>
+<li>先读: <a href="http://elm-chan.org/fsw/tjpgd/en/appnote.html">TJpgDec 应用笔记</a>2012年8月13日</li>
+<li>下载: <a href="http://elm-chan.org/fsw/tjpgd/tjpgd1b.zip">TJpgDec R0.01b</a> 2012年9月3日</li>
+<li>下载: <a href="http://elm-chan.org/fsw/tjpgd/tjsample.zip">TJpgDec 示例项目</a> (AVR, PIC24, LPC1114 and Win32)2012年2月19日</li>
+<li><a href="http://elm-chan.org/fsw/tjpgd/tjdemo.mp4">演示短片</a>(MP4/3MB)</li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

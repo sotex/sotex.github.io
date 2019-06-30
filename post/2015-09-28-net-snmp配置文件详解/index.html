@@ -1,0 +1,386 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp配置文件详解 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp配置文件详解</h1>
+          <span class="post-date">2015年09月28日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/09/28/4844907.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/09/28/4844907.html</a>
+<h1>net-snmp配置文件详解</h1>
+<p>net-snmp的配置文件是有一定的层次结构的，配置起来也很方便。网上找了很多资料，大概把这个配置文件的各个信息搞懂了一点。其实在net-snmp的EXAMPLE.conf文件中对齐有详细的描述，不过是英文的。</p>
+<h2>开启子代理模式</h2>
+<p>开发net-snmp子代理后，如果想要使用它，必须开启子代理功能。如果不开启，子代理运行的时候将会报错&nbsp;<span class="cnblogs_code">Warning: Failed to connect to the agentx master agent ([NIL])</span>&nbsp;</p>
+<h2>设置snmpd监听的地址端口</h2>
+<p>snmpd默认是监听本地所有的IP地址的&nbsp;<span class="cnblogs_code">UDP 161端口</span> 等待snmp请求。如果不希望使用默认的监听设置，可以使用自定义的选项</p>
+<div class="cnblogs_code">
+<pre>#  Listen <span style="color: #0000ff;">for</span><span style="color: #000000;"> connections from the local system only</p>
+
+<h1 id="只监听本地的连接">只监听本地的连接</h1>
+
+<p>agentAddress  udp:</span><span style="color: #800080;">127.0</span>.<span style="color: #800080;">0.1</span>:<span style="color: #800080;">161</span><span style="color: #000000;"></p>
+
+<h1 id="listen-span-span-style-color-0000ff-for-span-connections-on-all-interfaces-both-ipv4-and-span-style-color-000000-ipv6">Listen </span><span style="color: #0000ff;">for</span> connections on all interfaces (both IPv4 <em>and</em><span style="color: #000000;"> IPv6)</h1>
+
+<h1 id="监听所有接口的连接">监听所有接口的连接</h1>
+
+<p>#agentAddress udp:</span><span style="color: #800080;">161</span>,udp6:[::<span style="color: #800080;">1</span>]:<span style="color: #800080;">161</span></pre>
+</div>
+<h2>&nbsp;</h2>
+<h2>定义安全体名和共同体名称</h2>
+<p><span style="background-color: #ff6600;">共同体</span>这个是SNMPv2中的，如果只是使用SNMPv3协议，可以不需要。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">rocommunity    共同体名
+rwcommunity    共同体名</span></pre>
+</div>
+<p>使用&nbsp;<span class="cnblogs_code">rocommunity</span> 来定义一个<span style="background-color: #ff6600;">只读权限</span>的共同体，使用&nbsp;<span class="cnblogs_code">rwcommunity</span> 来定义一个读写权限的共同体。</p>
+<p>&nbsp;</p>
+<p>定义完共同体之后就要定义一个安全体，并把<span style="background-color: #ff6600;">共同体</span>映射到一个<span style="background-color: #ff6600;">安全体</span>中去。安全体用于控制外部访问的来源的。</p>
+<p>使用<span style="background-color: #ff6600;">com2sec</span>关键字来定义安全体。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">#            sec.name        souce            community
+com2sec        read            default                public
+com2sec        </span><span style="color: #0000ff;">write</span><span style="color: #000000;">            default                public
+com2sec        test            default                public</span></pre>
+</div>
+<div class="cnblogs_code">
+<pre># <span style="color: #800080;">1</span><span style="color: #000000;">. com2sec</p>
+
+<h1 id="命令格式一-com2sec-span-span-style-color-000000-cn-context-sec-name-source-community">命令格式一：com2sec   [</span>-<span style="color: #000000;">Cn context]   sec.name   source   community</h1>
+
+<h1 id="功能-map-an-snmpv1-or-snmpv2c-community-span-span-style-color-0000ff-string-span-span-style-color-000000-to-a-security-name-即将实体-community-字符串映射为安全的">功能： map an SNMPv1 or SNMPv2c community </span><span style="color: #0000ff;">string</span><span style="color: #000000;"> to a security name，即将实体(community)字符串映射为安全的</h1>
+
+<h1 id="名字-v1-和v2版本都是明文密码-也就无所谓安全性了-v3中增加了安全性">名字，v1 和v2版本都是明文密码，也就无所谓安全性了。v3中增加了安全性。</h1>
+
+<h1 id="参数说明-span-span-style-color-000000-cn-context-可选的-在v3版本中使用">参数说明：</span>-<span style="color: #000000;">Cn context：可选的，在v3版本中使用</h1>
+
+<h1 id="sec-name-内部映射的名字-字符串-后面用到">sec.name： 内部映射的名字，字符串，后面用到</h1>
+
+<h1 id="community-实体字符串-外部使用的名字">community：实体字符串，外部使用的名字</h1>
+
+<h1 id="source-可以访问的ip地址范围-默认值-span-span-style-color-800000-span-span-style-color-800000-default-rdquo-即任何ip都可以访问-span">source：可以访问的ip地址范围，默认值</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">default&rdquo;，即任何ip都可以访问。</span></h1>
+
+<h1 id="也可以限制ip范围-有两种方式-ip-mask和ip-span-style-color-000000-bits">也可以限制ip范围，有两种方式：IP/MASK和IP/<span style="color: #000000;">BITS</h1>
+
+<h1 id="ip-span-mask-span-style-color-800080-10-10-span-span-style-color-800080-10-0-span-span-style-color-800080-255-255-span-span-style-color-800080-255-0-span-span-style-color-000000">IP</span>/MASK：<span style="color: #800080;">10.10</span>.<span style="color: #800080;">10.0</span>/<span style="color: #800080;">255.255</span>.<span style="color: #800080;">255.0</span><span style="color: #000000;"></h1>
+
+<h1 id="ip-span-bits-span-style-color-800080-10-10-span-span-style-color-800080-10-0-span-span-style-color-800080-24-span-只有ip地址在10-span-style-color-800080-10-10-span-span-style-color-800080-0-span-span-style-color-000000">IP</span>/BITS ：<span style="color: #800080;">10.10</span>.<span style="color: #800080;">10.0</span>/<span style="color: #800080;">24</span>：只有ip地址在10.<span style="color: #800080;">10.10</span>.<span style="color: #800080;">0</span><span style="color: #000000;"></h1>
+
+<h1 id="mask为24个1-即255-span-span-style-color-800080-255-255-span-span-style-color-800080-0-span-span-style-color-000000">mask为24个1，即255.</span><span style="color: #800080;">255.255</span>.<span style="color: #800080;">0</span><span style="color: #000000;"></h1>
+
+<h1 id="命令格式二-com2sec6-span-span-style-color-000000-cn-context-sec-name-source-community">命令格式二：com2sec6  [</span>-<span style="color: #000000;">Cn context] sec.name source community</h1>
+
+<h1 id="针对ipv6-其他和com2sec相同">针对ipv6，其他和com2sec相同</h1>
+
+<h1 id="命令格式三-com2secunix-span-span-style-color-000000-cn-context-sec-name-sockpath-community">命令格式三：com2secunix [</span>-<span style="color: #000000;">Cn context] sec.name sockpath community</h1>
+
+<h1 id="只限本地socket可以访问">只限本地socket可以访问</h1>
+
+<p>#&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;
+#因为SNMPv3已经使用usm作为安全模型，使用，去掉共同体定义。
+#com2sec 是net</span>-snmp中定义安全体名字的关键字，表示这一行定义一个安全体名字。</pre>
+</div>
+<p>&nbsp;</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201509/693958-20150928192329980-543730065.png" alt="" /></p>
+<p>&nbsp;</p>
+<h2>定义安全组</h2>
+<p>定义完安全体之后，就要定义安全组了。安全体是用于控制访问的的来源的，<span style="background-color: #ff6600;">安全组</span>就是控制安全体中允许的来源的访问<span style="background-color: #ff6600;">授权模式</span>的。</p>
+<div class="cnblogs_code">
+<pre>#com2sec 是net-<span style="color: #000000;">snmp中定义安全体名字的关键字，表示这一行定义一个安全体名字。
+#第二步，定义安全组，将安全体名称加进一个安全组中
+#
+#groupName  安全组名称
+#securityModel 安全模型，可选值：v1，v2c，usm
+#securityName  安全体名称</p>
+
+<h1 id="groupname-securitymodel-securityname">groupName         securityModel         securityName</h1>
+
+<p>group        readgroup            usm                    read
+group        writegroup            usm                    </span><span style="color: #0000ff;">write</span><span style="color: #000000;">
+group        testgroup            usm                    test</p>
+
+<p>#group是定义安全组的关键字</p>
+
+<h1 id="span-span-style-color-800080-2-span-span-style-color-000000-group"></span><span style="color: #800080;">2</span><span style="color: #000000;">. group</h1>
+
+<h1 id="命令格式-group-groupname-securitymodel-sec-name">命令格式：group   groupName   securityModel   sec.name</h1>
+
+<h1 id="功能-将sec-name映射到一个group中-组中具有相同的存取权限-组中至少有两个">功能：将sec.name映射到一个group中，组中具有相同的存取权限。组中至少有两个</h1>
+
+<h1 id="sec-name-如果只有一个sec-name-也会被解释为两个-即有两个相同的">sec.name，如果只有一个sec.name，也会被解释为两个。即有两个相同的</h1>
+
+<h1 id="参数说明-groupname-组名">参数说明：groupName：组名</h1>
+
+<h1 id="securitymodel-v1-v2c-usm-tsm-ksm其一-span-pre">securityModel：v1、v2c、usm、tsm、ksm其一</span></pre></h1>
+
+<p></div>
+<p>&nbsp;</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201509/693958-20150928194616590-1594748090.png" alt="" /></p>
+<p>&nbsp;</p>
+<h2>定义视图，供安全组使用</h2>
+<p>定义完安全组后，需要定义一个视图。视图就是这个安全体的<span style="background-color: #ff6600;">可见范围</span>。</p>
+<p>对于每一个安全体，需要向其授权一些视图，视图确定了可以访问那些节点。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">#第三步，定义视图，供安全组使用
+#view.name  视图名
+#incl</span>/excl  对下面的MIB子树是包括还是排除(included/<span style="color: #000000;">excluded)
+#subtree    视图中所涉及的mib子树
+#mask(optional)  掩码</p>
+
+<h1 id="view-name-incl-span-span-style-color-000000-excl-subtree-mask">view.name    incl</span>/<span style="color: #000000;">excl       subtree                    [mask]</h1>
+
+<p>view    all            included        .</span><span style="color: #800080;">1</span><span style="color: #000000;"><br />
+view    test        included        system<br />
+view    test        included        system.sysLocation<br />
+#view    if2            included        .</span><span style="color: #800080;">1.3</span>.<span style="color: #800080;">6.1</span>.<span style="color: #800080;">2.1</span>.<span style="color: #800080;">2.2</span>.<span style="color: #800080;">1.0</span>.<span style="color: #800080;">2</span><span style="color: #000000;">   FFA0</p>
+
+<h1 id="此处定义的就是vacm中的视图子树和掩码-配置将出现在vacm相关表中">此处定义的就是VACM中的视图子树和掩码，配置将出现在VACM相关表中。</h1>
+
+<h1 id="此处对网络接口2定义了一个视图-将来作为一个独立的context-mask参见vacm">此处对网络接口2定义了一个视图，将来作为一个独立的context,mask参见VACM。</h1>
+
+<h1 id="view-是定义视图的关键字">view 是定义视图的关键字</h1>
+
+<h1 id="span-span-style-color-800080-3-span-span-style-color-000000-view"></span><span style="color: #800080;">3</span><span style="color: #000000;">. view</h1>
+
+<h1 id="命令格式-view-viewname-type-oid-mask">命令格式：view viewName type oid[mask]</h1>
+
+<h1 id="功能-定义一个view-表示整个oid树的子树-同一个子树可以定义多个view">功能：定义一个view，表示整个OID树的子树，同一个子树可以定义多个view</h1>
+
+<h1 id="参数说明-viewname-view名字">参数说明:    viewName：view名字</h1>
+
+<h1 id="type-有两个值-include-和-exclude">type：有两个值:include 和 exclude</h1>
+
+<h1 id="oid-可以访问的oid">oid：可以访问的oid</h1>
+
+<h1 id="mask-对oid的mask">[mask]：对oid的mask</h1>
+
+<h1 id="例如-view-all-include-span-span-style-color-800080-1-3-span-span-style-color-800080-6-1-span-span-style-color-800080-2-1-span-span-style-color-800080-4-span-span-style-color-800080-0xf0-span-span-style-color-000000">例如：view all include </span><span style="color: #800080;">1.3</span>.<span style="color: #800080;">6.1</span>.<span style="color: #800080;">2.1</span>.<span style="color: #800080;">4</span>  <span style="color: #800080;">0xf0</span><span style="color: #000000;"></h1>
+
+<h1 id="span-span-style-color-800080-0xf0-span-span-style-color-800080-1111-span-span-style-color-800080-0000-span-即访问的oid的前4位必须是1-span-style-color-800080-3-6-span-span-style-color-800080-1-span-span-style-color-000000-否则不能访问-即"></span><span style="color: #800080;">0xf0</span>：<span style="color: #800080;">1111</span> <span style="color: #800080;">0000</span>，即访问的oid的前4位必须是1.<span style="color: #800080;">3.6</span>.<span style="color: #800080;">1</span><span style="color: #000000;">，否则不能访问，即</h1>
+
+<h1 id="可以访问1-span-span-style-color-800080-3-6-span-1下所有的子oid-pre">可以访问1.</span><span style="color: #800080;">3.6</span>.1下所有的子oid</pre></h1>
+
+<p></div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201509/693958-20150928194845605-155128845.png" alt="" /></p>
+<h2>向安全组授权相应的视图</h2>
+<p>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">#第四步，向安全组授权相应的视图</p>
+
+<h1 id="group-安全组名">group 安全组名</h1>
+
+<h1 id="context-上下文v1-v2中始终为空">context 上下文v1，v2中始终为空</h1>
+
+<h1 id="sec-model-安全模型-可选值-v1-v2-usm">sec.model 安全模型，可选值：v1，v2，usm</h1>
+
+<h1 id="sec-level-安全级别-可选值-auth-noauth-priv-v1-v2c中只能为noauth">sec.level 安全级别  可选值：auth,noauth,priv,      v1,v2c中只能为noauth</h1>
+
+<h1 id="prefix-前缀-指定context如何与pdu中的context匹配-v3使用">prefix 前缀。指定context如何与PDU中的context匹配，V3使用</h1>
+
+<h1 id="read-授权的读视图">read   授权的读视图</h1>
+
+<h1 id="span-span-style-color-0000ff-write-span-span-style-color-000000-授权的写视图"></span><span style="color: #0000ff;">write</span><span style="color: #000000;">  授权的写视图</h1>
+
+<h1 id="notif-授权的trap视图">notif  授权的trap视图</h1>
+
+<h1 id="group-context-sec-model-sec-level-prefix-read-span-span-style-color-0000ff-write-span-span-style-color-000000-notif">group    context        sec.model    sec.level    prefix    read   </span><span style="color: #0000ff;">write</span><span style="color: #000000;">   notif</h1>
+
+<p>access  readgroup    </span><span style="color: #800000;">&rdquo;&rdquo;</span><span style="color: #000000;">            any        noauth        exact     all    none    none
+access  writegroup    </span><span style="color: #800000;">&rdquo;&rdquo;</span><span style="color: #000000;">            any        noauth        exact     all    none    none
+access  testgroup    </span><span style="color: #800000;">&rdquo;&rdquo;</span><span style="color: #000000;">            any        noauth        exact     all    none    none
+#acess  readgroup </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">interface2</span><span style="color: #800000;">&ldquo;</span>    usm        priv        exact     if2    if2        if2  <br /># 4. access<br /># 命令格式：access groupName context model level prefx read write notify<br /># 功能：设置访问某一个view的存取权限<br /># 参数说明:&nbsp;&nbsp; &nbsp;groupName：控制存取权限的组名<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;context：v1和v2c版本，context必须设置为&rdquo;&rdquo;<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;model：v1、v2c、usm、tsm、ksm<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;最后3中是v3版本的授权模式，usm（User-Based Security Model）是默认授权模式，tsm用于SSH or DTLS，ksm用于支持Kerberos<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;level：可以去3种值：noauth、auth、priv<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;noauth：允许无权限访问（v1，v2c使用）<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;auth：必须有权限才能访问<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;priv：强制加密访问<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;prefx：exact or prefix<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;read、write、notify：指明某一个view的权限是否可以GET*, SET*、<br /># &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;TRAP/INFORM，如果该view不能read，则置none  </pre>
+</div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201509/693958-20150928195121480-118311060.png" alt="" /></p>
+<h2>添加用户（仅限SNMPv3）</h2>
+<p>SNMPv3使用了用户加密鉴权的认证方式，所以需要创建相关的用户。这里也可以用<span style="background-color: #ccffcc;">net-snmp-config &ndash;create-snmpv3-user</span>来实现。</p>
+<p>创建用户使用createUser关键字来进行。后面的参数依次是<span style="background-color: #cc99ff;">用户名、验证方式、验证码、加密方式、加密码</span></p>
+<p>创建的用户需要指明用户的权限，使用关键字<span style="background-color: #cc99ff;">rouser</span>和<span style="background-color: #cc99ff;">rwuser</span>来操作。</p>
+<p><span style="background-color: #cc99ff;">rouser</span>用于指定用户的权限为只读，如果后面加上<span style="background-color: #cc99ff;">priv</span>来指明需要加密。可以使用<span style="background-color: #cc99ff;">auth</span>来指明需要认证。</p>
+<p>rwuser用于指定用户的权限为读写，其他的与上面一致。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;"># 第五步，添加用户</p>
+
+<h1 id="user-验证方式-验证码-加密方式-加密码">user    验证方式    验证码        加密方式    加密码</h1>
+
+<p>createUser  fx        MD5            </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">md5123456</span><span style="color: #800000;">&ldquo;</span>    DES            <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">des123456</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">
+createUser  fxr        MD5            </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">md5123456</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">
+#用户的权限设置
+rwuser　　　　fx　　priv　　#读写用户，用户名fx，指明需要加密
+rouser　　　　fxr　　　　　　#只读用户<br /></span></pre>
+<p align="left">#rouser [-s SECMODEL] USER [noauth|auth|priv [OID | -V VIEW [CONTEXT]]]</p>
+<p align="left">#rwuser [-s SECMODEL] USER [noauth|auth|priv [OID | -V VIEW [CONTEXT]]]</p>
+</div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201509/693958-20150928201505980-248351128.png" alt="" /></p>
+<h2>SNMP Trap发送目的地设置</h2>
+<p>以上都是对SNMP代理程序的外部请求的相关设置。SNMP代理还有一个重要的功能就是主动向网管端发送&ldquo;通知&rdquo;。</p>
+<p>对此需要指定网关端的目的地址。</p>
+<p>使用snmpsink来指定发送SNMPv1版本的Trap的目的地址和共同体名称</p>
+<p>使用snmp2sink来指定发送SNMPv2版本的Trap的目的地址和共同体名称</p>
+<p>使用informasink来指定发送INFORMs的目的地址和共同体名称</p>
+<p>使用trappsess来指定发送SNMPv3版本的Trap的相关信息。其中引擎ID和用户名，验证方式，验证码等都必须和接收trap的网关软件端设置的一致。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">#   发送 SNMPv1  traps
+trapsink     localhost public</p>
+
+<h1 id="发送-snmpv2c-traps">发送 SNMPv2c traps</h1>
+
+<p>trap2sink    localhost public</p>
+
+<h1 id="发送-snmpv2c-informs">发送 SNMPv2c INFORMs</h1>
+
+<p>informsink   localhost public<br />#   发送SNMPv3 traps<br />#trapsess -v 2 -u 用户名  -e  引擎ID       -a 验证方式 -A 验证码  -l  鉴权方式   目的IP<br />trapsess -v 3 -u myuser -e 0x010203040506 -a MD5 -A 111111111 -l authNoPriv 192.168.1.108<br /></span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

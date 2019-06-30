@@ -1,0 +1,336 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> GDAL多光谱与全色图像融合简单使用 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>GDAL多光谱与全色图像融合简单使用</h1>
+          <span class="post-date">2018年11月23日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/11/23/10005926.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/11/23/10005926.html</a></p>
+
+<h1 id="简述">简述</h1>
+
+<p>最近在GDAL的代码中看见了<a href="https://github.com/OSGeo/gdal/blob/master/gdal/alg/gdalpansharpen.cpp"><code>gdalpansharpen.cpp</code></a>，于是简单的尝试了一下。</p>
+
+<p>融合后的效果比较差，这应该是我对这个算法的使用还不熟悉，还有些地方没有弄清楚。这个代码比较新，是2.1版本才加上的，我在看的时候，代码还有一些小问题，已经在github上提交了issuse了。</p>
+
+<p>融合使用的数据是我在网上找到的高分一号的一景数据，先做了校正，形成<strong>全色波段TIFF(单波段)</strong>和<strong>多光谱波段TIFF(4波段)</strong>。</p>
+
+<p>相关知识参考：
+- <a href="https://blog.csdn.net/mihou_qust/article/details/78901738">遥感影像的“全色”与“多光谱”</a>
+- <a href="https://blog.csdn.net/arcgis_all/article/details/22043551">高分一号（GF-1）卫星影像数据介绍</a>
+- <a href="https://blog.csdn.net/gobitan/article/details/83651903">国内遥感卫星资源综述</a>
+- <a href="https://blog.csdn.net/bpwangxch/article/details/79182288">高分一号影像处理流程</a>
+- <a href="https://blog.csdn.net/cmfootball/article/details/78406366">遥感影像融合方法(英文)</a>
+- <a href="https://blog.csdn.net/broken_hook/article/details/78715308">ENVI 遥感图像融合</a>
+- <a href="https://blog.csdn.net/u013177494/article/details/73380204">为何全色影像分辨率高于多光谱影像分辨率</a>
+- <a href="https://pro.arcgis.com/zh-cn/pro-app/help/data/imagery/fundamentals-of-pan-sharpening-pro.htm">全色锐化的基础知识</a></p>
+
+<h1 id="c-代码">C++代码</h1>
+
+<p>代码基于当前<a href="https://github.com/OSGeo/gdal">https://github.com/OSGeo/gdal</a>仓库的master分支构建。</p>
+
+<pre><code class="language-cpp">// g++ gdal_pansharpen.cpp -o gdal_pansharpen -I../include -L../lib -lgdal
+
+#include &lt;gdalpansharpen.h&gt;
+#include &lt;cpl_auto_close.h&gt;
+#include &lt;cpl_error.h&gt;
+
+int main()
+{
+    GDALAllRegister();
+    // 打开全色波段(高分辨率)文件
+    GDALDatasetH hPanDset = GDALOpen(&quot;/mnt/data/GF1_PMS2_E116.5_N39.6_20130501_L1A0000127213-PAN2_rpc.tiff&quot;,GA_ReadOnly);
+    CPL_AUTO_CLOSE_WARP(hPanDset,GDALClose);
+    VALIDATE_POINTER1(hPanDset,&quot;Open Pansharpen file failed&quot;,1);
+    // 打开多光谱(低分辨率)文件
+    GDALDatasetH hMssDset = GDALOpen(&quot;/mnt/data/GF1_PMS2_E116.5_N39.6_20130501_L1A0000127213-MSS2_rpc.tiff&quot;,GA_ReadOnly);
+    CPL_AUTO_CLOSE_WARP(hMssDset,GDALClose);
+    VALIDATE_POINTER1(hPanDset,&quot;Open Spectral Band file failed&quot;,1);
+    int nSpectralBands = GDALGetRasterCount(hMssDset);
+
+    GDALPansharpenOptions opts;
+    opts.ePansharpenAlg = GDAL_PSH_WEIGHTED_BROVEY;     // 超分辨率贝叶斯法,当前仅支持brovery加权
+    opts.eResampleAlg    = GRIORA_Cubic;                 // 重采样至全色光谱波段分辨率的算法
+    opts.nBitDepth     = 0;                            // 多光谱波段位深度，0表示默认
+    opts.nWeightCount    = nSpectralBands;               // 权重系数数组元素个数(与输入多光谱波段数一致)
+    double* pWeightCount= static_cast&lt;double*&gt;(
+        CPLMalloc(opts.nWeightCount * sizeof(double))); // 权重系数数组
+    CPL_AUTO_CLOSE_WARP(pWeightCount,CPLFree);
+    opts.padfWeights = pWeightCount;
+    opts.padfWeights[0] = 0.334;    // 蓝
+    opts.padfWeights[1] = 0.333;    // 绿
+    opts.padfWeights[2] = 0.333;    // 红
+    opts.padfWeights[3] = 0.0;        // 近红外
+
+    // 设置全色波段(高分辨率)
+    opts.hPanchroBand = GDALGetRasterBand(hPanDset,1);
+    // 设置多光谱波段
+    opts.nInputSpectralBands = nSpectralBands;
+    GDALRasterBandH* pInputSpectralBands = static_cast&lt;GDALRasterBandH*&gt;(
+        CPLMalloc(sizeof(GDALRasterBandH) * nSpectralBands));
+    CPL_AUTO_CLOSE_WARP(pInputSpectralBands,CPLFree);
+    opts.pahInputSpectralBands = pInputSpectralBands;
+    // std::generatr
+    for(int i=0;i&lt; nSpectralBands;++i) {
+        opts.pahInputSpectralBands[i] = GDALGetRasterBand(hMssDset,i+1);
+    }
+    // 设置需要输出到全色波段分辨率的波段
+    opts.nOutPansharpenedBands = 4;
+    // 这个数组里面存的是pahInputSpectralBands里波段的索引值
+    int panOutPansharpenedBands[4] = { 2, 1, 0, 3}; // 红、绿、蓝、近红外
+    opts.panOutPansharpenedBands = panOutPansharpenedBands;
+
+    opts.bHasNoData = FALSE;   // 全色和多光谱波段是否具有无效值(NoData值)
+    opts.dfNoData   = 0.0;     // 全色和多光谱波段的无效值,也将作为输出的NoData值
+    opts.nThreads   = -1;      // 使用的线程数，-1表示使用CPU线程数
+    // 设置多光谱波段与全色波段在像素上的移位(保证地理空间位置对齐)
+    // 都是相对于全色波段的0,0像素的像素(全色波段像素大小)偏移
+    // 也就是两者的0,0像素的地理空间上的偏移量在全色波段分辨率相应的像素数
+    double adfGTPan[6];
+    GDALGetGeoTransform(hPanDset,adfGTPan);
+    double adfGTMss[6];
+    GDALGetGeoTransform(hPanDset,adfGTMss);
+    opts.dfMSShiftX = (adfGTPan[0] - adfGTMss[0]) / adfGTPan[1];
+    opts.dfMSShiftY = (adfGTPan[3] - adfGTMss[3]) / adfGTPan[5];
+
+    GDALPansharpenOperation operation;
+    CPLErr err = operation.Initialize(&amp;opts);
+    if(err != CE_None) {
+        return -2;
+    }
+    // 创建输出文件(和全色波段一样大)
+    int nOutXSize, nOutYSize;
+    nOutXSize = GDALGetRasterBandXSize(opts.hPanchroBand);
+    nOutYSize = GDALGetRasterBandYSize(opts.hPanchroBand);
+    GDALDataType eBufDataType = GDALGetRasterDataType(opts.pahInputSpectralBands[0]);
+    eBufDataType = GDT_Float64;
+    GDALDriverH hDriver = GDALGetDriverByName(&quot;GTiff&quot;);
+    CPLStringList CreateOption;
+    CreateOption.AddNameValue(&quot;TILED&quot;, &quot;YES&quot;);
+    CreateOption.AddNameValue(&quot;BIGTIFF&quot;, &quot;YES&quot;);
+    CreateOption.AddNameValue(&quot;INTERLEAVE&quot;, &quot;BAND&quot;);
+    CreateOption.AddNameValue(&quot;COMPRESS&quot;, &quot;LZW&quot;);   // 中度压缩
+    CreateOption.AddNameValue(&quot;ZLEVEL&quot;, &quot;6&quot;);
+
+    GDALDatasetH hOutDset = GDALCreate(hDriver,
+                &quot;/mnt/data/GF1_PMS2_E116.5_N39.6_20130501_L1A0000127213.tif&quot;,
+                nOutXSize, nOutYSize, nSpectralBands, GDT_UInt16,
+                CreateOption);
+    CPL_AUTO_CLOSE_WARP(hOutDset,GDALClose);
+    VALIDATE_POINTER1(hOutDset,&quot;Create Output file error&quot;, -3);
+
+    GDALSetGeoTransform(hOutDset, adfGTPan);
+    GDALSetProjection(hOutDset,GDALGetProjectionRef(hPanDset));
+
+     void* pData = CPLMalloc(256*256*GDALGetDataTypeSizeBytes(eBufDataType)*nSpectralBands);
+     CPL_AUTO_CLOSE_WARP(pData,CPLFree);
+
+    for(int nYOff = 0; nYOff &lt; nOutYSize; nYOff += 256) {
+        for(int nXOff = 0; nXOff &lt; nOutXSize; nXOff += 256) {
+            int nXSize = std::min(nOutXSize - nXOff,256);
+            int nYSize = std::min(nOutYSize - nYOff,256);
+            printf(&quot;Process[%6d,%6d,%6d,%6d]\r&quot;,nXOff,nYOff,nXOff+nXSize,nYOff+nYSize);
+
+            err = operation.ProcessRegion(nXOff,nYOff,nXSize,nYSize,pData,eBufDataType);
+            if(err == CE_Failure) {
+                CPLError(err,CPLE_AppDefined,&quot;operation.ProcessRegion&quot;);
+                return -4;
+            }
+            int panBandMap[4] = { 1, 2, 3, 4};
+            err = GDALDatasetRasterIO(hOutDset, GF_Write,
+                        nXOff,nYOff,nXSize,nYSize,
+                        pData,nXSize,nYSize,
+                        eBufDataType,
+                        4,panBandMap,
+                        0,0,nXSize*nYSize*GDALGetDataTypeSizeBytes(eBufDataType));
+        }
+    }
+    puts(&quot;\nPansharpen finished&quot;);
+
+    return 0;
+}
+
+</code></pre>
+
+<h1 id="效果对比">效果对比</h1>
+
+<h2 id="gdal融合效果和原始多光谱波段对比">GDAL融合效果和原始多光谱波段对比</h2>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123105019997-1139039361.png" alt="GDAL融合效果和原始多光谱波段对比" /></p>
+
+<h2 id="gdal融合效果和原始全色波段对比">GDAL融合效果和原始全色波段对比</h2>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123104929065-1321331215.png" alt="GDAL融合效果和原始全色波段对比" /></p>
+
+<h2 id="arcgis融合效果与原始全色和多光谱对比">ARCGIS融合效果与原始全色和多光谱对比</h2>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123105312637-428434967.png" alt="" /></p>
+
+<p>ArcGIS融合过程使用<code>工具箱--&gt;系统工具箱--&gt;Data Management Tools--&gt;栅格--&gt;栅格处理--&gt;创建全色锐化的栅格数据集</code>。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123105048574-967916917.png" alt="ARCGIS融合效果与原始全色" /></p>
+
+<p><strong>左边ArcGIS融合效果，右边原始多光谱影像</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123104849372-558263366.png" alt="ARCGIS融合效果与原始多光谱" /></p>
+
+<h2 id="gdal融合效果与arcgis融合效果对比">GDAL融合效果与ArcGIS融合效果对比</h2>
+
+<p><strong>左边GDAL融合效果，右边ArcGIS融合效果</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123105147579-562638217.png" alt="" /></p>
+
+<p><strong>左边ArcGIS融合效果，右边GDAL融合效果</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201811/693958-20181123105137141-1388044375.png" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

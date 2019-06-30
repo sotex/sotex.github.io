@@ -1,0 +1,367 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 27 GroupSock概述(一)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>27 GroupSock概述(一)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年07月01日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/01/4613329.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/01/4613329.html</a>
+<h2 id="27-groupsocklive555">27 GroupSock概述(一)&mdash;&mdash;live555源码阅读(四)网络</h2>
+<div class="toc">
+<ul>
+<li><a href="#27-groupsocklive555">27 GroupSock概述(一)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#1">1.网络通用数据类型定义</a></li>
+<li><a href="#2tunnel">2.Tunnel隧道封装</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>group是组/群的意思，socket是网络接口的代名词了。这个部分很庞大，主要是与网络相关的。而live555的网络模块很多都涉及到组播的概念。<br />
+作为一个跨平台的流媒体服务库，live555对网络的封装很全面，值得一看。</p>
+<h2 id="1">1.网络通用数据类型定义</h2>
+<p>因为live555跨平台的特点，需要定义一些在数据类型来适应各个平台环境。<br />
+这写代码在<code>live555sourcecontrol\groupsock\include\NetCommon.h</code>文件中</p>
+<pre><code class="cpp">#if defined(<strong>WIN32</strong>) || defined(_WIN32) || defined(_WIN32_WCE)
+/* Windows */
+#if defined(WINNT) || defined(_WINNT) || defined(<strong>BORLANDC</strong>) || defined(<strong>MINGW32</strong>) || defined(_WIN32_WCE)
+#define <em>MSWSOCK</em>
+#include &lt;winsock2.h&gt;
+#include &lt;ws2tcpip.h&gt;
+#endif
+#include &lt;windows.h&gt;
+#include &lt;string.h&gt;</p>
+
+<p>#define closeSocket closesocket     //关闭socket函数
+#define EWOULDBLOCK WSAEWOULDBLOCK  //10035L 可能会被阻塞
+#define EINPROGRESS WSAEWOULDBLOCK  //10035L 操作正在进行
+#define EAGAIN      WSAEWOULDBLOCK  //10035L 再试一次
+#define EINTR       WSAEINTR        //10004L 中断</p>
+
+<p>#if defined(_WIN32_WCE)
+#define NO_STRSTREAM 1
+#endif</p>
+
+<p>/* Definitions of size-specific types: 定义特定大小的类型*/
+typedef __int64 int64_t;
+typedef unsigned __int64 u_int64_t;
+typedef unsigned u_int32_t;
+typedef unsigned short u_int16_t;
+typedef unsigned char u_int8_t;
+// For &ldquo;uintptr_t&rdquo; and &ldquo;intptr_t&rdquo;, we assume that if they&rsquo;re not already defined, then this must be
+// &ldquo;uintptr_t&rdquo;和&ldquo;intptr_t&rdquo;，我们认为如果他们不是已经定义，那么这一定是
+// an old, 32-bit version of Windows: 一个老的，32位版本的Windows：
+#if !defined(_MSC_STDINT<em>H</em>) &amp;&amp; !defined(_UINTPTR_T_DEFINED) &amp;&amp; !defined(_UINTPTR_T_DECLARED) &amp;&amp; !defined(_UINTPTR_T)
+typedef unsigned uintptr_t;
+#endif
+#if !defined(_MSC_STDINT<em>H</em>) &amp;&amp; !defined(_INTPTR_T_DEFINED) &amp;&amp; !defined(_INTPTR_T_DECLARED) &amp;&amp; !defined(_INTPTR_T)
+typedef int intptr_t;
+#endif</p>
+
+<p>#elif defined(VXWORKS)
+/* VxWorks */
+#include &lt;time.h&gt;
+#include &lt;timers.h&gt;
+#include &lt;sys/times.h&gt;
+#include &lt;sockLib.h&gt;
+#include &lt;hostLib.h&gt;
+#include &lt;resolvLib.h&gt;
+#include &lt;ioLib.h&gt;</p>
+
+<p>typedef unsigned int u_int32_t;
+typedef unsigned short u_int16_t;
+typedef unsigned char u_int8_t;</p>
+
+<p>#else
+/* Unix */
+#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+#include &lt;sys/time.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;netdb.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;strings.h&gt;
+#include &lt;ctype.h&gt;
+#include &lt;stdint.h&gt;
+#if defined(_QNX4)
+#include &lt;sys/select.h&gt;
+#include &lt;unix.h&gt;
+#endif</p>
+
+<p>#define closeSocket close</p>
+
+<p>#ifdef SOLARIS
+#define u_int64_t uint64_t
+#define u_int32_t uint32_t
+#define u_int16_t uint16_t
+#define u_int8_t uint8_t
+#endif
+#endif</p>
+
+<p>#ifndef SOCKLEN_T
+#define SOCKLEN_T int
+#endif
+</code></pre>
+<h2 id="2tunnel">2.Tunnel隧道封装</h2>
+<p>这里代码里面已经注释得很明白了。这个首先需要了解以下什么是<code>Tunnel</code>(隧道)。(简单的说，它就像是披着羊皮的狼)</p>
+<p>tunnel中文译为隧道。网络隧道(Tunnelling)技术是个关键技术。网络隧道技术指的是利用一种网络协议来传输另一种网络协议，它主要利用网络隧道协议来实现这种功能。网络隧道技术涉及了三种网络协议，即网络隧道协议、隧道协议下面的承载协议和隧道协议所承载的被承载协议。</p>
+<p>这里实现的<code>TunnelEncapsulationTrailer</code>类是一个很特殊的类，它不应该被用来创建对象。<br />
+对于这一部分，这里先不多说，先看后面的。<br />
+其定义在<code>live555sourcecontrol\groupsock\include\TunnelEncaps.hh</code>文件中</p>
+<pre><code class="cpp">typedef u_int16_t Cookie;
+/* cookie（储存在用户本地终端上的数据）
+Cookie，有时也用其复数形式Cookies，指某些网站为了辨别用户身份、进行session跟踪而
+储存在用户本地终端上的数据（通常经过加密）。定义于RFC2109和2965都已废弃，最新规范是RFC6265 。
+*/</p>
+
+<p>/*tunnel中文译为隧道。网络隧道(Tunnelling)技术是个关键技术。网络隧道技术指的是利用一种网络协议来传输另一种网络协议，它主要利用网络隧道协议来实现这种功能。网络隧道技术涉及了三种网络协议，即网络隧道协议、隧道协议下面的承载协议和隧道协议所承载的被承载协议。
+*/</p>
+
+<p>// 这个类很有意思，它内部并无数据成员，其函数成员的返回都是以this为基准进行偏移
+// 后，转换这个偏移后的地址为相应的指针类型，再取指针指向内存的内容。
+// 所以这个类并不会用来创建对象，而是作为一种类型来使用。可能诸如以下代码
+// unsigned long long t= 0x1239874560864216L;
+//  cout &lt;&lt; ((TunnelEncapsulationTrailer*)&amp;t)-&gt;address() &lt;&lt; endl;
+//  cout &lt;&lt; 0x12398745 &lt;&lt; endl;</p>
+
+<p>class TunnelEncapsulationTrailer {
+    // The trailer is layed out as follows:
+    // bytes 0-1:   source &lsquo;cookie&rsquo;         源Cookie
+    // bytes 2-3:   destination &lsquo;cookie&rsquo;    目的Cookie
+    // bytes 4-7:   address                 地址
+    // bytes 8-9:   port                    端口
+    // byte 10:     ttl                     TTL
+    // byte 11:     command                 命令</p>
+
+<pre><code>    // Optionally, there may also be a 4-byte 'auxilliary address'
+    // 随意，也可能有一个4字节的&quot;辅助地址&quot;
+    // (e.g., for 'source-specific multicast' preceding this)
+    // （例如，&amp;ldquo;特定源组播&amp;rdquo;在此之前）
+    // bytes -4 through -1: auxilliary address
+    // -4到-1字节(this之前4个字节)，辅助地址
+
+public:
+Cookie&amp;amp; srcCookie()
+    { return *(Cookie*)byteOffset(0); }
+Cookie&amp;amp; dstCookie()
+    { return *(Cookie*)byteOffset(2); }
+u_int32_t&amp;amp; address()
+    { return *(u_int32_t*)byteOffset(4); }
+Port&amp;amp; port()
+    { return *(Port*)byteOffset(8); }
+u_int8_t&amp;amp; ttl()
+    { return *(u_int8_t*)byteOffset(10); }
+u_int8_t&amp;amp; command()
+    { return *(u_int8_t*)byteOffset(11); }
+
+    u_int32_t&amp;amp; auxAddress()
+            { return *(u_int32_t*)byteOffset(-4); }
+
+private:    
+//取this偏移charIndex
+inline char* byteOffset(int charIndex)
+    { return ((char*)this) + charIndex; }
+</code></pre>
+
+<p>};</p>
+
+<p>const unsigned TunnelEncapsulationTrailerSize = 12; // bytes隧道封装拖车尺寸
+const unsigned TunnelEncapsulationTrailerAuxSize = 4; // bytes辅助的尺寸
+const unsigned TunnelEncapsulationTrailerMaxSize    //最大尺寸
+    = TunnelEncapsulationTrailerSize + TunnelEncapsulationTrailerAuxSize;</p>
+
+<p>// Command codes:命令码
+// 0: unused
+const u_int8_t TunnelDataCmd = 1;           //隧道的数据命令
+const u_int8_t TunnelJoinGroupCmd = 2;      //隧道连接组命令
+const u_int8_t TunnelLeaveGroupCmd = 3;     //隧道离开组命令
+const u_int8_t TunnelTearDownCmd = 4;       //隧道拆除命令
+const u_int8_t TunnelProbeCmd = 5;          //隧道探针命令
+const u_int8_t TunnelProbeAckCmd = 6;       //隧道探针ACK命令
+const u_int8_t TunnelProbeNackCmd = 7;      //隧道探针NACK命令
+const u_int8_t TunnelJoinRTPGroupCmd = 8;   //隧道加入RTP组命令
+const u_int8_t TunnelLeaveRTPGroupCmd = 9;  //隧道离开RTP组命令</p>
+
+<p>// 0x0A through 0x10: currently unused.0x0a到0x10：目前未使用
+// a flag, not a cmd code一个标识，不是命令码。隧道扩展标识
+const u_int8_t TunnelExtensionFlag = 0x80;  //bits:1000 0000</p>
+
+<p>const u_int8_t TunnelDataAuxCmd         //隧道数据辅助命令
+    = (TunnelExtensionFlag|TunnelDataCmd);
+const u_int8_t TunnelJoinGroupAuxCmd    //隧道连接组辅助命令
+    = (TunnelExtensionFlag|TunnelJoinGroupCmd);
+const u_int8_t TunnelLeaveGroupAuxCmd   //隧道离开组辅助命令
+    = (TunnelExtensionFlag|TunnelLeaveGroupCmd);
+// Note: the TearDown, Probe, ProbeAck, ProbeNack cmds have no Aux version
+// 注意：TearDown(拆除),Probe(探针),ProbeAck(Ack探针),ProbeNack(NACK探针)没有辅助版命令
+// 0x84 through 0x87: currently unused.
+const u_int8_t TunnelJoinRTPGroupAuxCmd //隧道加入RTP组辅助命令
+    = (TunnelExtensionFlag|TunnelJoinRTPGroupCmd);
+const u_int8_t TunnelLeaveRTPGroupAuxCmd//隧道离开RTP组辅助命令
+    = (TunnelExtensionFlag|TunnelLeaveRTPGroupCmd);
+// 0x8A through 0xFF: currently unused
+    //判断参数cmd是否是辅助命令
+inline Boolean TunnelIsAuxCmd(u_int8_t cmd) {
+  return (cmd&amp;TunnelExtensionFlag) != 0;
+}
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

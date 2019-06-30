@@ -1,0 +1,468 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Qt Installer Framework 使用说明（一） &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Qt Installer Framework 使用说明（一）</h1>
+          <span class="post-date">2017年04月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/04/27/6775220.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2017/04/27/6775220.html</a></p>
+
+<h1 id="qt-installer-framework-使用说明">Qt Installer Framework 使用说明</h1>
+
+<p>这份教程是去年翻译的，有很多不准确或不正确的地方，请别介意。</p>
+
+<p>原文链接 <a href="http://doc.qt.io/
+qtinstallerframework/index.html">http://doc.qt.io/qtinstallerframework/index.html</a></p>
+
+<p>以下offline翻译为离线，online翻译为联机。widgets翻译为小部件。</p>
+
+<p>版本 2.0.3</p>
+
+<p>The Qt Installer Framework提供了一套工具和实用程序用于创建桌面Qt安装程序。支持的平台有: Linux, Microsoft
+Windows, 和 OS X.</p>
+
+<p>注意: 对于Qt Installer Framework中遇到的bug和错误可以通过<a href="https://bugreports.qt.io/browse/QTIFW">Qt
+Bugtracker(Qt错误追踪)</a>进行反馈。</p>
+
+<h1 id="1-qt-installer-framework概述">1、Qt Installer Framework概述</h1>
+
+<p>Qt安装程序框架提供了一组工具和实用程序，只需创建安装程序一次，无需改动源码，即可将它们部署在所有支持桌面QT的平台。 安装程序将在运行它们的平台上具有原生外观和感觉，支持：Linux，Microsoft Windows和OS X.</p>
+
+<p>Qt安装程序框架工具生成安装程序，其中包含一组在安装，更新或卸载过程中指导用户的页面。 您提供可安装的内容并指定有关它的信息，例如产品和安装程序的名称以及许可协议的文本。</p>
+
+<p>您可以通过向预定义的页面添加窗口小部件或添加整个页面来为用户提供其他选项来自定义安装程序。 您可以创建脚本以向安装程序添加操作。</p>
+
+<h2 id="选择安装包类型">选择安装包类型</h2>
+
+<p>你可以为最终用户提供一个<code>离线(offline)</code>或<code>联机(online)</code>安装包，或者同时支持。具体取决于您的使用情况。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170357350-1265925878.png" alt="安装类型说明图" /></p>
+
+<p>两个安装程序都安装了一个<code>维护工具(maintenance tool)</code>，以后可用于添加，更新和删除组件。 离线安装程序包含所有可安装的组件，并且在安装期间 <strong>不需要网络连接</strong> 。 联机安装程序仅安装维护工具，然后从Web服务器上的联机存储库下载和安装组件。 因此，在线安装程序二进制文件的大小较小，其下载时间比离线安装程序二进制文件的大。 如果最终用户没有安装所有可用的组件，则下载和运行联机安装程序所花费的总时间也可能短于下载和运行离线安装程序。</p>
+
+<p>最终用户可以在<code>初次安装</code>后使用<code>维护工具</code>从 <strong>服务器安装其他组件</strong> ，以及在服务器上发布更新后立即接收内容的自动更新。 但是，只有在离线安装程序配置中指定<code>存储库地址</code>或最终用户在维护工具设置中指定存储库地址时，这才适用于离线安装。</p>
+
+<p>创建离线安装程序以便用户可以直接下载安装软件包在介质上，稍后在计算机上进行安装。 例如，您还可以将安装软件包分发到CD-ROM或USB盘。
+创建联机安装程序以使用户始终安装最新版本的内容二进制文件。</p>
+
+<h2 id="促进更新">促进更新</h2>
+
+<p>使在线存储库可用于向安装产品的最终用户推广更新。 提供更新的最简单方法是重新创建存储库并将其上传到Web服务器。 对于大型存储库，只能更新已更改的组件。</p>
+
+<h2 id="提供安装内容">提供安装内容</h2>
+
+<p>您可以启用其他内容提供程序将组件作为附加组件添加到安装程序。 组件提供程序必须设置包含可安装组件的存储库，并将指向存储库的URL提供给最终用户。 最终用户必须在安装程序中配置URL。 该附加组件在包管理器中可见。</p>
+
+<h1 id="2-入门指南">2、入门指南</h1>
+
+<p>Qt安装程序框架是作为Qt项目的一部分开发的。 框架本身使用Qt。 但是，它可以用于创建安装所有类型应用程序的安装程序，包括（但不限于）使用Qt构建的应用程序。</p>
+
+<h2 id="支持的平台">支持的平台</h2>
+
+<p>您可以使用Qt Installer Framework为桌面Qt支持的所有平台创建安装程序。</p>
+
+<p><strong>安装程序已在以下平台上测试：</strong>
+- Microsoft Windows XP及更高版本
+- Ubuntu Linux 11.10及更高版本
+- OS X 10.7及更高版本</p>
+
+<h2 id="从源代码构建">从源代码构建</h2>
+
+<p>以下步骤描述如何自己构建Qt Installer Framework。 如果已下载框架的预构建(编译)版本，则可以跳过此步骤。
+最新的2.0.3 64位linux安装包下载地址<a href="http://download.qt.io/official_releases/qt-installer-framework/2.0.3/QtInstallerFramework-linux-x64.run">http://download.qt.io/official_releases/qt-installer-framework/2.0.3/QtInstallerFramework-linux-x64.run</a></p>
+
+<h3 id="支持的编译器">支持的编译器</h3>
+
+<p>Qt安装程序框架可以使用Microsoft Visual Studio 2013、GCC 4.7、Clang 3.1及其更高版本进行编译。</p>
+
+<h3 id="配置qt">配置Qt</h3>
+
+<p>如果使用静态构建Qt来构建Qt安装程序框架，则不必提供Qt库，这使您可以将安装程序作为一个文件进行分发。</p>
+
+<p><strong>所需的Qt版本最低为5.5。</strong></p>
+
+<h4 id="windows上配置qt">Windows上配置Qt</h4>
+
+<p>我们建议您在Windows配置Qt时使用以下选项：</p>
+
+<pre><code class="language-shell">configure -prefix %CD%\qtbase -release -static -static-runtime -target xp -accessibility -no-opengl -no-icu -no-sql-sqlite -no-qml-debug -nomake examples -nomake tests -skip qtactiveqt -skip qtenginio -skip qtlocation -skip qtmultimedia -skip qtserialport -skip qtquick1 -skip qtquickcontrols -skip qtscript -skip qtsensors -skip qtwebkit -skip qtwebsockets -skip qtxmlpatterns -skip qt3d
+</code></pre>
+
+<h4 id="linux上配置qt">Linux上配置Qt</h4>
+
+<p>我们建议您在Linux配置Qt时使用以下选项：</p>
+
+<pre><code class="language-shell">configure -prefix $PWD/qtbase -release -static -accessibility -qt-zlib -qt-libpng -qt-libjpeg -qt-xcb -qt-pcre -qt-freetype -no-glib -no-cups -no-sql-sqlite -no-qml-debug -no-opengl -no-egl -no-xinput -no-xinput2 -no-sm -no-icu -nomake examples -nomake tests -skip qtactiveqt -skip qtenginio -skip qtlocation -skip qtmultimedia -skip qtserialport -skip qtquick1 -skip qtquickcontrols -skip qtscript -skip qtsensors -skip qtwebkit -skip qtwebsockets -skip qtxmlpatterns -skip qt3d
+</code></pre>
+
+<h4 id="os-x上配置qt">OS X上配置Qt</h4>
+
+<p>我们建议您在OS X使用以下配置选项：</p>
+
+<pre><code class="language-shell">configure -prefix $PWD/qtbase -release -static -accessibility -qt-zlib -qt-libpng -qt-libjpeg -no-cups -no-sql-sqlite -no-qml-debug -nomake examples -nomake tests -skip qtactiveqt -skip qtenginio -skip qtlocation -skip qtmultimedia -skip qtserialport -skip qtquick1 -skip qtquickcontrols -skip qtscript -skip qtsensors -skip qtwebkit -skip qtwebsockets -skip qtxmlpatterns -skip qt3d
+</code></pre>
+
+<h3 id="设置qt安装程序框架">设置Qt安装程序框架</h3>
+
+<ol>
+<li>从<a href="http://code.qt.io/cgit/installer-framework/installer-framework.git">http://code.qt.io/cgit/installer-framework/installer-framework.git</a>仓库<code>clone</code>Qt安装框架工具源码。</li>
+<li>通过运行一个静态编译Qt的<code>qmake</code>来生成<code>Makefile</code>，然后通过<code>make</code>或<code>nmake</code>进行构建。</li>
+</ol>
+
+<p><strong>注意:</strong> 要向Qt Installer Framework提供补丁，请遵循标准的Qt流程和指南。 欲了解更多信息，请参阅贡献的Qt。</p>
+
+<h1 id="3-最终用户工作流程">3、最终用户工作流程</h1>
+
+<p>离线和在线安装程序的最终用户体验类似。 与您的应用程序一起，安装程序将安装一个维护工具，该工具由程序包管理器，更新程序和卸载程序组成。 最终用户可以使用维护工具添加，更新和删除组件。 维护工具连接到外部存储库以获取要添加或更新的组件。 您可以在配置文件中指定存储库，或者最终用户可以在维护工具设置中指定它。</p>
+
+<p>您可以支持以下最终用户工作流：</p>
+
+<h2 id="初次安装">初次安装</h2>
+
+<p>下图说明了安装应用程序的默认工作流程：
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170438819-1739476998.png" alt="默认工作流程" /></p>
+
+<p>本节使用在OS X上运行的应用程序安装程序示例说明最终用户的默认工作流程。 安装程序在每个受支持的桌面平台上具有原生外观，因此在Linux和Windows上运行时，它们的外观和感觉不同。</p>
+
+<p>示例文件存储在Qt Installer Framework存储库中的<code>examples\tutorial</code>目录中。 您可以使用<code>binarycreator</code>工具来创建应用程序安装程序。</p>
+
+<h3 id="启动安装程序">启动安装程序</h3>
+
+<p>当最终用户启动安装程序时，将打开介绍页面：
+<img src="Image/QtIFW/ifw-introduction-page.png" alt="介绍页面" /></p>
+
+<p>您可以在<code>config.xml</code>配置文件中指定安装程序的名称和要安装的产品。
+当最终用户选择继续时，将打开<code>目标目录</code>选择页面。</p>
+
+<h3 id="选择目标目录">选择目标目录</h3>
+
+<p>最终用户必须指定安装的目标目录。 您可以在<code>config.xml</code>配置文件中指定默认值。
+<img src="Image/QtIFW/ifw-target-directory-page.png" alt="目标目录选择" /></p>
+
+<p>当最终用户选择继续时，将打开组件选择页面。</p>
+
+<p>如果该目录已存在文件，将打开如下警告页面：
+<img src="Image/QtIFW/ifw-warning-existing-installation.png" alt="目标目录已存在文件警告" /></p>
+
+<h3 id="选择组件">选择组件</h3>
+
+<p>组件选择页面列出了 <strong>可用于安装的组件</strong> 以及每个组件的简短描述。 最终用户 <strong>选择要安装的组件</strong> 。 他们可以选择全选以选择所有组件，取消选择全部可取消选择它们，或选择默认以恢复为默认选择。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170516944-2002929746.png" alt="选择组件" /></p>
+
+<p>将可安装的组件添加到包目录中的<code>data</code>目录。 您可以在<code>meta</code>目录中的<code>package.xml</code>文件中指定有关组件的信息。</p>
+
+<p>您可以使用布尔运算符或脚本来指定是否默认选择组件。</p>
+
+<p>当最终用户选择继续时，将打开许可证检查页面。</p>
+
+<h3 id="接受许可协议">接受许可协议</h3>
+
+<p>在许可检查页面上，最终用户 <strong>必须接受许可协议</strong> 的条款才能继续安装。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170539303-38433567.png" alt="许可协议检查" /></p>
+
+<p>如果在package.xml文件中指定许可证文件并将文件复制到元目录，则会显示许可证检查页面。</p>
+
+<h3 id="选择windows程序组">选择Windows程序组</h3>
+
+<p>在Windows上，“开始”菜单目录选择页面 允许最终用户在Windows开始菜单中选择产品的 <strong>程序组</strong>。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170606740-1182353188.png" alt="win程序组" /></p>
+
+<p>您可以在<code>config.xml</code>配置文件中为程序组指定 <strong>默认值</strong> 。</p>
+
+<p>当最终用户选择<code>下一步</code>时，将打开<code>准备安装</code>页面。</p>
+
+<h3 id="安装组件">安装组件</h3>
+
+<p>在准备安装页面通知最终用户，当用户选择<code>安装</code>时，安装开始。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170623631-1863598746.png" alt="准备安装" /></p>
+
+<p>在安装过程中，执行安装页面显示有关安装进度的信息。 最终用户可以选择“显示详细信息”以查看更多信息。
+![安装中](<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170646240-791801012.png" alt="" /></p>
+
+<p>安装完成后，将打开安装完成页面。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170709006-854285744.png" alt="安装完成" /></p>
+
+<p>在此页面中，您可以添加选项以在 <strong>关闭安装程序时</strong> 启动已安装的产品。在<code>config.xml</code>配置文件中指定要启动的程序和显示的文本。</p>
+
+<h2 id="添加组件">添加组件</h2>
+
+<p>如果最终用户在<code>初次安装</code>期间未选择可用于安装的所有组件，则可以使用<code>软件包管理器(Package Manager)</code>稍后从存储库安装其余组件。 软件包管理器是在初次安装期间与应用程序一起安装的维护工具的一部分。 仅当包含组件的存储库可在本地或外部可用时，此操作才有效。</p>
+
+<p>下图说明了安装附加组件的默认工作流程：
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170732162-350129818.png" alt="附加工作流" /></p>
+
+<p>本节使用由在OS X上运行的Qt 5安装程序安装的<code>维护工具</code>作为最终用户在初次安装后<code>如何添加组件</code>实现的示例。 维护工具包含<code>程序包管理器</code>，<code>更新程序</code>和<code>卸载程序</code>。</p>
+
+<h3 id="启动程序包管理器">启动程序包管理器</h3>
+
+<p>当最终用户启动维护工具时，将打开介绍页面：
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170751506-1961719280.png" alt="添加组件介绍" /></p>
+
+<p>当最终用户选择<code>包管理器(Package Manager)</code>，然后单击<code>继续</code>时，将打开组件选择页面。</p>
+
+<h3 id="选择其他组件">选择其他组件</h3>
+
+<p>组件选择页面列出了可用于安装的组件以及每个组件的简短描述。 已安装的组件在列表中显示为已选择。 最终用户选择要安装的其他组件。 他们可以选择重置以再次显示当前安装的组件。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170808100-262976424.png" alt="添加组件选择" /></p>
+
+<p>当最终用户选择继续时，将打开准备更新页面。</p>
+
+<h3 id="安装所选组件">安装所选组件</h3>
+
+<p>准备更新页面通知最终用户，在用户选择 <code>更新(Update)</code> 时安装组件。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170841537-2114661372.png" alt="准备更新" /></p>
+
+<p>更新页面显示有关安装进度的信息。 最终用户可以选择“显示详细信息”以查看更多信息。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427170955522-1073513701.png" alt="更新中" /></p>
+
+<p>安装完成后，将打开更新完成页面。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171031475-1858291990.png" alt="更新完成" /></p>
+
+<h2 id="移除组件">移除组件</h2>
+
+<p>下图说明了删除全部或部分已安装组件的默认工作流程：
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171055475-1161344478.png" alt="用户删除组件流程" /></p>
+
+<p>本节使用在OS X上运行的Qt 5维护工具，作为最终用户如何删除选定或所有组件实现的示例。</p>
+
+<h3 id="删除所有组件">删除所有组件</h3>
+
+<p>当最终用户启动维护工具时，将打开介绍页面：
+![添加组件介绍](<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171123787-405556435.png" alt="" /></p>
+
+<p>最终用户可以选择<code>删除所有组件(Remove all components)</code>，然后单击<code>继续</code>以删除所有已安装的组件。</p>
+
+<p>准备卸载页面通知最终用户，当用户选择卸载时，可以开始 <strong>卸载</strong> 。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171143944-83716539.png" alt="准备卸载" /></p>
+
+<h3 id="删除所选组件">删除所选组件</h3>
+
+<p>最终用户可以选择<code>包管理器(Package Manager)</code>，然后选择 <strong>继续</strong> ，以在 <strong>组件选择页面</strong> 上选择要删除的组件：</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171223537-1243518342.png" alt="添加组件选择" /></p>
+
+<p>当最终用户取消要删除的组件的选中状态，然后选择继续时，将打开即将更新的页面。 它通知最终用户在用户选择 <code>更新(Update)</code>时删除组件。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171240850-1534908340.png" alt="准备更新" /></p>
+
+<p>更新页面显示有关安装进度的信息。 最终用户可以选择“显示详细信息”以查看更多信息。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171302772-1319108653.png" alt="更新中" /></p>
+
+<p>安装完成后，将打开更新完成页面。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171328006-859432810.png" alt="更新完成" /></p>
+
+<h2 id="更新组件">更新组件</h2>
+
+<p>下图说明了用于更新已安装组件的默认工作流程：
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171350022-396291776.png" alt="更新组件流程" /></p>
+
+<p>本节使用在OS X上运行的Qt 5维护工具，作为最终用户如何删除选定或所有组件实现的示例。</p>
+
+<h3 id="启动更新程序">启动更新程序</h3>
+
+<p>当最终用户启动维护工具时，将打开介绍页面：</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171417444-462526834.png" alt="更新组件介绍" /></p>
+
+<p>当最终用户选择<code>更新组件(Update components)</code>，然后单击<code>继续</code>时，将打开组件选择页面。</p>
+
+<h3 id="选择要更新的组件">选择要更新的组件</h3>
+
+<p>更新选择列表显示最终用户 <strong>可以选择</strong> 的 <strong>可用更新列表</strong> 。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171434537-485392204.png" alt="可更新组件" /></p>
+
+<p>当用户选择<code>继续</code>，将打开准备更新页面。</p>
+
+<h3 id="更新所选组件">更新所选组件</h3>
+
+<p>准备更新页面通知最终用户，选择<code>更新(Update)</code>进行组件更新。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171459225-306456724.png" alt="准备更新" /></p>
+
+<p>更新页面显示有关安装进度的信息。 最终用户可以选择“显示详细信息”以查看更多信息。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171521772-1610722883.png" alt="更新中" /></p>
+
+<p>安装完成后，将打开更新完成页面。
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171541756-1079011290.png" alt="更新完成" /></p>
+
+<h2 id="特定设置">特定设置</h2>
+
+<p>设置页面允许最终用户指定代理设置或安装附加组件。 最终用户在介绍页面上选择以进行指定设置。</p>
+
+<h3 id="指定代理设置">指定代理设置</h3>
+
+<p>默认情况下，安装程序不使用任何代理设置。 最终用户可以选择使用系统代理设置或手动指定代理设置。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171602303-1986716214.png" alt="设置网络代理" /></p>
+
+<h3 id="安装附加组件">安装附加组件</h3>
+
+<p>要安装附加组件，最终用户需选择<code>存储库(Repositories)</code>选项卡。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171620537-704251553.png" alt="设置存储库" /></p>
+
+<p>如果Web服务器需要身份验证，则最终用户可以添加其用户名和密码。 如要显示密码，最终用户可以选择显示密码。</p>
+
+<p>要将其自己的存储库添加到安装程序，最终用户可以选择添加并指定指向存储库的URL。</p>
+
+<p>临时存储库只能在初次安装时使用一次。 安装后，只有默认和用户定义的存储库可用。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

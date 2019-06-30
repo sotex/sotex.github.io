@@ -1,0 +1,279 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> GDALBuildVRT异构波段的支持 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>GDALBuildVRT异构波段的支持</h1>
+          <span class="post-date">2018年01月12日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/01/12/8275454.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/01/12/8275454.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p>GDALBuildVRT工具和函数默认都是不支持异构波段的（即要建立虚拟影像目录的文件中有波段与其它有异的，少于指定波段等特征的），公司一个项目中需要支持这个特性，不足的以第1波段替代（除非波段数为0，那这在影像质检的时候就已经检查完了），这里记录一下修改方式。</p>
+
+<h2 id="修改源码">修改源码</h2>
+
+<p>使用的GDAL版本是<code>2.2.3</code>，修改的源码文件为<code>gdal-2.2.3\apps\gdalbuildvrt_lib.cpp</code>。</p>
+
+<h3 id="1-修改datasetproperty结构体">1、修改DatasetProperty结构体</h3>
+
+<p>修改这个结构体，增加用于记录每个影像波段数的成员变量，修改结果如下</p>
+
+<p>大致在源文件的<code>75-90</code>行</p>
+
+<pre><code class="language-cpp">typedef struct
+{
+    int    isFileOK;
+    int    nRasterXSize;
+    int    nRasterYSize;
+    double adfGeoTransform[6];
+    int    nBlockXSize;
+    int    nBlockYSize;
+    GDALDataType firstBandType;
+    int*         panHasNoData;
+    double*      padfNoDataValues;
+    int    bHasDatasetMask;
+    int    nMaskBlockXSize;
+    int    nMaskBlockYSize;
+    int    nRasterBandCount;   /*新增，记录影像波段数*/
+} DatasetProperty;
+</code></pre>
+
+<h3 id="2-修改vrtbuilder-analyseraster函数">2、修改VRTBuilder::AnalyseRaster函数</h3>
+
+<p>大致在源文件的<code>406-789</code>行
+修改这个函数主要是去除对异构波段的检测，同时加上对来源影像波段数的记录。</p>
+
+<p>将以下代码
+大致在源文件的<code>543</code>行</p>
+
+<pre><code class="language-cpp">int _nBands = GDALGetRasterCount(hDS);
+</code></pre>
+
+<p>修改为如下，记录来源影像的波段数</p>
+
+<pre><code class="language-cpp">int _nBands = psDatasetProperties-&gt;nRasterBandCount =GDALGetRasterCount(hDS);
+</code></pre>
+
+<p>将以下代码注释掉，跳过波段数的检测
+大致在源文件的<code>685-690</code>行</p>
+
+<pre><code class="language-cpp">        if (!bSeparate)
+        {
+            // if (nMaxBandNo &gt; _nBands)
+            // {
+            //     CPLError(CE_Warning, CPLE_NotSupported,
+            //                 &quot;gdalbuildvrt does not support heterogeneous band numbers. Skipping %s&quot;,
+            //             dsFileName);
+            //     return FALSE;
+            // }
+</code></pre>
+
+<p>将以下代码注释，去掉对波段颜色特征信息的匹配
+大致在源文件的<code>695</code>行</p>
+
+<pre><code class="language-cpp">            for(j=0;j&lt;nMaxBandNo;j++)
+            {
+				int bandNo = j + 1;
+				if(bandNo &gt; _nBands){ bandNo = 1;}
+                GDALRasterBandH hRasterBand = GDALGetRasterBand( hDS, bandNo );
+                /*去掉对波段颜色特征信息的比对*/
+                if (/* pasBandProperties[j].colorInterpretation != GDALGetRasterColorInterpretation(hRasterBand) || */
+                    pasBandProperties[j].dataType != GDALGetRasterDataType(hRasterBand))
+                {
+</code></pre>
+
+<p>###3、修改VRTBuilder::CreateVRTNonSeparate函数
+因为我们不做每个影像单独一个波段的版本，所以这里只修改NonSeparate版本。
+这里主要修改VRT波段配置源(poVRTBand-&gt;ConfigureSource)时候的来源影像波段的选择，修改的地方不多，这里贴出稍微完整点的带注释的代码。
+大致在源文件的<code>950-978</code>行</p>
+
+<pre><code class="language-cpp">        for(int j=0;j&lt;nBands;j++)
+        {
+           /* 获取VRT的第j+1波段 */
+            VRTSourcedRasterBandH hVRTBand =
+                    (VRTSourcedRasterBandH)GDALGetRasterBand(hVRTDS, j + 1);
+            /* Place the raster band at the right position in the VRT 将栅格波段置于VRT中的正确位置 */
+           /* 获取源影像的波段索引，如果源影像的波段数小于j+1了，那就使用第一波段 */
+	    int sourceBandIndex = (j + 1) &gt; psDatasetProperties-&gt;nRasterBandCount ? 0 : j;
+            int nSelBand = panBandList[sourceBandIndex ] - 1;  // 修改的位置也就这两行
+
+            VRTSourcedRasterBand* poVRTBand = (VRTSourcedRasterBand*)hVRTBand;
+
+           /* 检测源影像的Nodata信息 */
+            VRTSimpleSource* poSimpleSource;
+            if (bAllowSrcNoData &amp;&amp; psDatasetProperties-&gt;panHasNoData[nSelBand])
+            {
+                poSimpleSource = new VRTComplexSource();
+                poSimpleSource-&gt;SetNoDataValue( psDatasetProperties-&gt;padfNoDataValues[nSelBand] );
+            }
+            else
+                poSimpleSource = new VRTSimpleSource();
+            if( pszResampling )
+                poSimpleSource-&gt;SetResampling(pszResampling);
+            /*对VRT波段配置正确的源信息*/
+            poVRTBand-&gt;ConfigureSource( poSimpleSource,
+                                        (GDALRasterBand*)GDALGetRasterBand((GDALDatasetH)hProxyDS, nSelBand + 1),
+                                        FALSE,
+                                        dfSrcXOff, dfSrcYOff,
+                                        dfSrcXSize, dfSrcYSize,
+                                        dfDstXOff, dfDstYOff,
+                                        dfDstXSize, dfDstYSize );
+            /*添加源*/
+            poVRTBand-&gt;AddSource( poSimpleSource );
+        }
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

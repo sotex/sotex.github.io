@@ -1,0 +1,211 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> VS2013编译Qt5.6.0静态库 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>VS2013编译Qt5.6.0静态库</h1>
+          <span class="post-date">2016年06月12日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/06/12/5577888.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/06/12/5577888.html</a>
+##获取qt5.6.0源码包</p>
+
+<p>直接去www.qt.io下载就好了，这里就不详细说了。</p>
+
+<p>这里是我已经编译好的** 链接:<a href="http://pan.baidu.com/s/1pLb6wVT">http://pan.baidu.com/s/1pLb6wVT</a> 密码: <code>ak7y</code> **</p>
+
+<p>##configure配置</p>
+
+<p>1、进入源码目录下的<code>qtbase\mkspecs\win32-msvc2013</code>目录，打开文件<code>qmake.conf</code>文件。添加</p>
+
+<pre><code>QMAKE_CFLAGS_RELEASE    = -O2 -MT -Zc:strictStrings
+QMAKE_CFLAGS_RELEASE_WITH_DEBUGINFO += -O2 -MT -Zi -Zc:strictStrings
+QMAKE_CFLAGS_DEBUG      = -Zi -MTd
+</code></pre>
+
+<p>上面其实不做也可以，我就没有做。</p>
+
+<p>2、进入解压后的源码目录，打开命令行界面，执行</p>
+
+<pre><code class="language-shell">configure -prefix 安装目录 -platform win32-msvc2013 -opensource -release -static -qt-sql-sqlite -qt-sql-mysql -qt-zlib -qt-libjpeg -qt-libpng -skip qtquickcontrols -skip qtquickcontrols2 -skip qtsensors -skip qtdoc -confirm-license -c++std c++11
+</code></pre>
+
+<p>详细的配置选项可以看这里<a href="http://www.cnblogs.com/oloroso/p/5407779.html">http://www.cnblogs.com/oloroso/p/5407779.html</a></p>
+
+<p>2016年11月24日 11:42:31
+做个备注，这个地址<a href="http://www.npcglib.org/~stathis/blog/precompiled-qt4-qt5/">http://www.npcglib.org/~stathis/blog/precompiled-qt4-qt5/</a>有更多下载。</p>
+
+<p>##编译与安装
+执行<code>configure</code>成功后，会提示运行<code>nmake</code>。
+打开<code>VS2013</code>安装目录下的<code>\Common7\Tools\Shortcuts</code>目录，双击执行<code>VS2013 x64 本机工具命令提示</code>。
+切换工作目录到<code>Qt5.6.0</code>的源码目录，执行<code>nmake</code>。</p>
+
+<p>##问题与解决办法</p>
+
+<p>下面问题出现的时候，由于我没有记录下报错信息，所以只能靠自己的记忆来描述了。</p>
+
+<p>问题1：找不到编译生成的<code>.obj</code>
+这是在编译<code>qtimageformats</code>模块的时候出现的问题。由于编译时指定的生成路径太长，文件无法写入导致的。打开qt5.6.0源码目录下的<code>qtimageformats\src\imageformats\Makefile.release</code>文件，将生成路径中的<code>.obj\release\qt...省略很多级目录...</code>改为一个比较短的路径。</p>
+
+<p>问题2：编译adueditor时，链接出现的重定义问题
+打开文件<code>qtserialbus\examples\serialbus\modbus\adueditor\mainwindow.cpp</code>，将以下几行注释掉。</p>
+
+<pre><code class="language-CPP">QT_BEGIN_NAMESPACE
+Q_LOGGING_CATEGORY(QT_MODBUS, &quot;qt.modbus&quot;)
+Q_LOGGING_CATEGORY(QT_MODBUS_LOW, &quot;qt.modbus.lowlevel&quot;)
+QT_END_NAMESPACE
+</code></pre>
+
+<p>问题3：error LNK2019: 无法解析的外部符号 &ldquo;struct QStaticPlugin const __cdecl qt_static_plugin_AssimpParserPlugin(void)&rdquo;
+这个问题记录下来了，是因为这里编译的是静态库，这里加载插件的时候，没有链接它。
+打开源码目录下的<code>qt3d\examples\qt3d\qt3d.pro</code>文件。添加<code>qt3d\plugins\sceneparsers</code>目录下的两个<code>.lib</code>文件。添加后还要其他的未找到定义问题，再找相关的lib文件链接进来。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

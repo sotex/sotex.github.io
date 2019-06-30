@@ -1,0 +1,286 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 7 HandlerSet 处理程序链表类——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>7 HandlerSet 处理程序链表类——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月24日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/24/4596843.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/24/4596843.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##HandlerSet 处理程序链表类
+这里使用的Set这个单词，Set是集合的意思，这里实质上是一个双向循环链表。这个类比较重要，这里会详细的介绍。
+HandlerSet类只有一个数据成员，就是HandlerDescriptor fHandlers;这是作为链表的头结点而存在的。
+<img src="./HandlerSet_class_uml.png" alt="HandlerSet_class_uml.png" /></p>
+
+<h2 id="http-images0-cnblogs-com-blog2015-693958-201506-240926356746666-png"><img src="http://images0.cnblogs.com/blog2015/693958/201506/240926356746666.png" alt="" /></h2>
+
+<p><img src="./HandlerSet_2.png" alt="HandlerSet_2.png" />
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240926532676923.png" alt="" /></p>
+
+<hr />
+
+<p>###HandlerSet的定义，代码如下</p>
+
+<pre><code class="language-cpp">class HandlerSet {
+public:
+	//设置fHandlers的下一个和上一个指向fHandler自己
+	HandlerSet();
+	//逐个释放链表节点
+	virtual ~HandlerSet();
+	// 从链表中查找socketNum代表的HandlerDescriptor,如果没有找到就创建一个并加入到链表
+	void assignHandler(int socketNum, int conditionSet, TaskScheduler::BackgroundHandlerProc* handlerProc, void* clientData);
+	//从链表中查找socketNum对应的HandlerDescriptor，找到了就delete
+	void clearHandler(int socketNum);
+	// 从链表中查找oldSocketNum代表的HandlerDescriptor,找到了就将其sockerNum成员替换为newSocketNum
+	void moveHandler(int oldSocketNum, int newSocketNum);
+private:
+	// 从链表中查找socketNum代表的HandlerDescriptor，没找到返回NULL
+	HandlerDescriptor* lookupHandler(int socketNum);
+private:
+	friend class HandlerIterator;
+	HandlerDescriptor fHandlers;	//处理程序描述对象 链表头节点
+};
+</code></pre>
+
+<hr />
+
+<p>###HandlerSet的构造
+在其构造函数中，默认对头结点HandlerDescriptor fHandlers进行了初始化操作。</p>
+
+<pre><code class="language-cpp">HandlerSet::HandlerSet()
+  : fHandlers(&amp;fHandlers) {
+  fHandlers.socketNum = -1; // shouldn't ever get looked at, but in case...
+}
+</code></pre>
+
+<p>这里调用了HandlerDescriptor的构造，这个可以在之前的介绍中查看。这里可以看到，其将头结点的数据成员socketNum设置为了-1，之前我们说过，socketNum在链表中被用来标识节点，这里说明了其是一个特殊的存在，<strong>头结点不做为保存处理程序的节点。</strong></p>
+
+<hr />
+
+<p>###HandlerSet的析构
+析构函数就是释放链表，就是逐个释放除了头结点之外的节点。代码如下</p>
+
+<pre><code class="language-cpp">HandlerSet::~HandlerSet() {
+  // Delete each handler descriptor:
+  while (fHandlers.fNextHandler != &amp;fHandlers) {
+    delete fHandlers.fNextHandler; // changes fHandlers-&gt;fNextHandler
+  }
+}
+</code></pre>
+
+<hr />
+
+<p>###lookupHandler方法
+这里先说这个方法，因为后面的几个方法都用到了它。从方法名也可以看出来，这个方法是用来查找节点的。
+这里要说以下的就是，这里面用到了迭代器。方法中创建了一个迭代器，并将自身绑定给了迭代器。前面说过迭代器构造的时候会将其fNextPtr指向链表的头结点的下一个。也就是说会从第二个节点开始查找。如果本身就只有头节点呢？因为在只有头结点的情况下，下一个节点就是头结点，其socketNum为-1，这里是没问题的。</p>
+
+<pre><code class="language-cpp">HandlerDescriptor* HandlerSet::lookupHandler(int socketNum) {
+  HandlerDescriptor* handler;
+  HandlerIterator iter(*this);
+  while ((handler = iter.next()) != NULL) {
+    if (handler-&gt;socketNum == socketNum) break;
+  }
+  return handler;
+}
+</code></pre>
+
+<hr />
+
+<p>###assignHandler(分配处理程序)方法
+通过前面的描述可知，HandlerSet类都是在操作内部的一个双向链表。但是HandlerSet是没有一个addNode方法的，这个方法就由assignHandler来做了。
+assignHandler的参数有四个，对应了一个节点对象的四个数据成员** socketNum/conditionSet/handlerProc/clientData **。前面说过socketNum成员在链表中用来标识节点，在这个成员方法中就可以看出来。这个方法会在BasicTaskScheduler的setBackgroundHandling方法中被用到。其socketNum参数应该是传一个socket套接口给它。
+assignHandler方法先是从链表中查找socketNum标识的节点是否存在，如果不存在就new一个，并设置新节点的socketNum为参数的socketNum。这样链表中就存在了一个标识为参数socketNum的节点。然后把这个节点的 处理程序指针，客户端数据地址，条件集合都更新为参数中的。</p>
+
+<pre><code class="language-cpp">void HandlerSet::assignHandler(int socketNum, int conditionSet, TaskScheduler::BackgroundHandlerProc* handlerProc, void* clientData) {
+  // First, see if there's already a handler for this socket:
+  HandlerDescriptor* handler = lookupHandler(socketNum);
+  if (handler == NULL) { // No existing handler, so create a new descr:
+    handler = new HandlerDescriptor(fHandlers.fNextHandler);
+    handler-&gt;socketNum = socketNum;
+  }
+
+  handler-&gt;conditionSet = conditionSet;
+  handler-&gt;handlerProc = handlerProc;
+  handler-&gt;clientData = clientData;
+}
+</code></pre>
+
+<hr />
+
+<p>###clearHandler和moveHandler方法
+这两个方法比较类似，放在一起来说。
+clearHandler方法是从链表中找socketNum标识的节点，然后delete这个节点。有之前的描述可以知道，这里把找到的节点从链表中移除了。如果没有找到呢？ lookupHandler会返回NULL，delete NULL，是可以的。</p>
+
+<pre><code class="language-cpp">void HandlerSet::clearHandler(int socketNum) {
+  HandlerDescriptor* handler = lookupHandler(socketNum);
+  delete handler;
+}
+</code></pre>
+
+<p>-
+moveHandler则是从链表中找oldSocketNum标识的节点，找到了就将其标识替换为newSocketNum。如果没有找到就声明也不做了。这里和前面说的assignHandler方法来对比下。assignHandler是找到了就替换其他的三个数据成员，这里是找到了就替换标识。</p>
+
+<pre><code class="language-cpp">void HandlerSet::moveHandler(int oldSocketNum, int newSocketNum) {
+  HandlerDescriptor* handler = lookupHandler(oldSocketNum);
+  if (handler != NULL) {
+    handler-&gt;socketNum = newSocketNum;
+  }
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

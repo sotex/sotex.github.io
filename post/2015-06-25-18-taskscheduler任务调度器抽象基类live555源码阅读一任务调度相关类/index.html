@@ -1,0 +1,270 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 18 TaskScheduler任务调度器抽象基类——Live555源码阅读(一)任务调度相关类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>18 TaskScheduler任务调度器抽象基类——Live555源码阅读(一)任务调度相关类</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599955.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599955.html</a>
+这是Live555源码阅读的第二部分，包括了任务调度相关的三个类。任务调度是Live555源码中很重要的部分。</p>
+
+<blockquote>
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+</blockquote>
+
+<p>##TaskScheduler任务调度器抽象基类</p>
+
+<p><code>TaskScheduler</code>是一个抽象基类，其定义在<code>live555sourcecontrol\UsageEnvironment\include\UsageEnvironment.hh</code>文件中。
+TaskScheduler声明了很多纯虚接口，其实现一般在<code>class BasicTaskScheduler0</code>中。这里简要介绍一下。
+TaskScheduler的默认构造函数是<code>protected</code>权限的，也就是只能被其内部的或派生类的方法调用。
+这里先列出三个类型定义，这个在后面就不介绍了。在前面<code>AlarmHandler</code>中提过。</p>
+
+<pre><code class="language-cpp">typedef void TaskFunc(void* clientData);
+typedef void* TaskToken;	//token 标志
+typedef u_int32_t EventTriggerId;	//Trigger 触发
+</code></pre>
+
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/251444287991867.png" alt="TaskScheduler1" title="TaskScheduler1" /></p>
+
+<p>##TaskScheduler的定义如下</p>
+
+<pre><code class="language-cpp">//任务调度器
+class TaskScheduler {
+public:
+	virtual ~TaskScheduler();
+
+	/* 这是一个纯虚接口，在BasicTaskScheduler0中有一个实现*/
+	virtual TaskToken scheduleDelayedTask(int64_t microseconds, TaskFunc* proc,
+		void* clientData) = 0;
+	/* 这是一个纯虚接口，在BasicTaskScheduler0中有一个实现*/
+	virtual void unscheduleDelayedTask(TaskToken&amp; prevTask) = 0;
+	// 没有影响，如果 prevTask == NULL
+	// 完成之后将设置 prevTask 为NULL
+
+	// 虚接口，重新调度延时任务
+	// 先调用unscheduleDelayedTask(task);
+	// 在调用task = scheduleDelayedTask(microseconds, proc, clientData);
+	virtual void rescheduleDelayedTask(TaskToken&amp; task,
+		int64_t microseconds, TaskFunc* proc,
+		void* clientData);
+
+	// For handling socket operations in the background (from the event loop):
+	// 后台处理套接字操作类型（从事件循环）：注意，这是一个类型定义
+	typedef void BackgroundHandlerProc(void* clientData, int mask);
+	// 设置掩码位为mask,这是特意这样定义的，为了符合Tcl接口的一致性
+	// Tcl 是“工具控制语言（Tool Control Language）”的缩写。Tk 是 Tcl“图形工具箱”的扩展
+	// 它提供各种标准的 GUI 接口项，以利于迅速进行高级应用程序开发
+
+#define SOCKET_READABLE    (1&lt;&lt;1)	//readable  adj.易读的;   易懂的;   
+#define SOCKET_WRITABLE    (1&lt;&lt;2)	//writable  adj.可写下的，能写成文的; 
+#define SOCKET_EXCEPTION   (1&lt;&lt;3)	//exception n.例外，除外; 反对，批评;[法律]异议，反对;
+
+	//设置后台处理
+	virtual void setBackgroundHandling(int socketNum, int conditionSet, BackgroundHandlerProc* handlerProc, void* clientData) = 0;
+	//禁用后台处理
+	void disableBackgroundHandling(int socketNum) { setBackgroundHandling(socketNum, 0, NULL, NULL); }
+	virtual void moveSocketHandling(int oldSocketNum, int newSocketNum) = 0;
+	// Changes any socket handling for &quot;oldSocketNum&quot; so that occurs with &quot;newSocketNum&quot; instead.
+	// 改变任何套接字操作“oldsocketnum”，发生在“newsocketnum”代替。
+
+	virtual void doEventLoop(char* watchVariable = NULL) = 0;
+
+	//创建一个事件触发器
+	virtual EventTriggerId createEventTrigger(TaskFunc* eventHandlerProc) = 0;
+
+	//删除一个事件触发器
+	virtual void deleteEventTrigger(EventTriggerId eventTriggerId) = 0;
+
+	//触发事件
+	virtual void triggerEvent(EventTriggerId eventTriggerId, void* clientData = NULL) = 0;
+	//以下两个功能是过时的，并提供仅为了向后兼容
+	void turnOnBackgroundReadHandling(int socketNum, BackgroundHandlerProc* handlerProc, void* clientData) {
+		setBackgroundHandling(socketNum, SOCKET_READABLE, handlerProc, clientData);
+	}
+	void turnOffBackgroundReadHandling(int socketNum) { disableBackgroundHandling(socketNum); }
+	//内部错误
+	virtual void internalError(); // used to 'handle' a 'should not occur'-type error condition within the library.
+protected:
+	TaskScheduler(); // abstract base class 抽象基类
+};
+</code></pre>
+
+<hr />
+
+<p>##virtual void internalError()方法</p>
+
+<p>因为TaskScheduler只实现了两个方法，所以还是说一说了。这个方法调用了库函数abort()。abrot函数作用是引发不正常进程的终止。这是用于在发生了内部错误的情况下，不得作出终止当前进程的决定。
+在这个函数的实现处，有一行注释，翻译为中文大概意思是：<strong>默认情况下，我们处理的不应该发生的错误的类型调用abort()库函数。子类可以重新定义，如果需要的话。</strong></p>
+
+<pre><code class="language-cpp">// By default, we handle 'should not occur'-type library errors by calling abort().  Subclasses can redefine this, if desired.
+void TaskScheduler::internalError() {
+  abort();
+}
+</code></pre>
+
+<hr />
+
+<p>##rescheduleDelayedTask重新调度延时任务</p>
+
+<p>这个方法确实是在TaskScheduler中实现的，但是其调用的两个方法都是在其派生类中实现的。这个方法先取消一个任务的调度，然后重新调度这个任务。</p>
+
+<pre><code class="language-cpp">void TaskScheduler::rescheduleDelayedTask(TaskToken&amp; task,
+					  int64_t microseconds, TaskFunc* proc,
+					  void* clientData) {
+  unscheduleDelayedTask(task);
+  task = scheduleDelayedTask(microseconds, proc, clientData);
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

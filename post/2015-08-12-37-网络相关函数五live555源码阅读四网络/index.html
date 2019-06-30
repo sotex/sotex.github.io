@@ -1,0 +1,296 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 37 网络相关函数(五)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>37 网络相关函数(五)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月12日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/12/4724375.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/12/4724375.html</a>
+<h1 id="37-live555">37 网络相关函数(五)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#37-live555">37 网络相关函数(五)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#10make_sockaddr_insockaddr_in">10)MAKE_SOCKADDR_IN构建sockaddr_in结构体宏</a></li>
+<li><a href="#11setupdatagramsocket">11)setupDatagramSocket设置数据报套接口</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="10make_sockaddr_insockaddr_in">10)MAKE_SOCKADDR_IN构建sockaddr_in结构体宏<code class="cpp">
+</code></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #000000;">#ifdef HAVE_SOCKADDR_LEN
+</span><span style="color: #008080;"> 2</span> <span style="color: #0000ff;">#define</span> SET_SOCKADDR_SIN_LEN(var) var.sin_len = sizeof var
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">#define</span> SET_SOCKADDR_SIN_LEN(var)
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #008000;">//</span><span style="color: #008000;"> sockaddr_in var,使用adr和prt为其赋值(AF_INET)</span>
+<span style="color: #008080;"> 8</span> <span style="color: #0000ff;">#define</span> MAKE_SOCKADDR_IN(var,adr,prt) /<em>adr,prt must be in network order</em>/<br />
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">struct</span> sockaddr_in <span style="color: #0000ff;">var</span><span style="color: #000000;">;<br />
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">var</span>.sin_family =<span style="color: #000000;"> AF_INET;<br />
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">var</span>.sin_addr.s_addr =<span style="color: #000000;"> (adr);<br />
+</span><span style="color: #008080;">12</span>     <span style="color: #0000ff;">var</span>.sin_port =<span style="color: #000000;"> (prt);<br />
+</span><span style="color: #008080;">13</span>     SET_SOCKADDR_SIN_LEN(<span style="color: #0000ff;">var</span>);</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="11setupdatagramsocket">11)setupDatagramSocket设置数据报套接口</h2>
+<p><code>setupDatagramSocket</code>函数有两个参数<code>(UsageEnvironment&amp; env, Port port)</code>。根据<code>env</code>的<code>groupsockPriv</code>成员来确定重用标识。如果<code>groupsockPriv</code>为空则使用默认设置。</p>
+<p><code>setupDatagramSocket</code>创建一个数据报形式的<code>socket</code>套接口，如果端口<code>port  0<code>，且</code>ReceivingInterfaceAddrINADDR_ANY</code>的时候，不进行绑定(<code>bind</code>)。否则若<code>port==0</code>的时候，绑定<code>ReceivingInterfaceAddr</code>（不为<code>INADDR_ANY</code>）和端口<code>0</code>(内核选择端口)。不为<code>0</code>的时候绑定<code>INADDR_ANY</code>(内核选择<code>IP</code>)和端口<code>port</code>。</p>
+<p>绑定完成之后设置多播发生接口。如果全局的<code>SendingInterfaceAddr== INADDR_ANY</code>则不设置。<br />
+函数成功返回一个<code>socket</code>套接口句柄，失败返回<code>-1</code>。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;"> 设置数据报套接字</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">int</span> setupDatagramSocket(UsageEnvironment&amp;<span style="color: #000000;"> env, Port port) {
+</span><span style="color: #008080;"> 3</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 初始化网络</span>
+<span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">if</span> (!<span style="color: #000000;">initializeWinsockIfNecessary()) {
+</span><span style="color: #008080;"> 5</span>         socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Failed to initialize &lsquo;winsock&rsquo;: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 8</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 创建数据报套接字</span>
+<span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">int</span> newSocket =<span style="color: #000000;"> createSocket(SOCK_DGRAM);
+</span><span style="color: #008080;">10</span>     <span style="color: #0000ff;">if</span> (newSocket &lt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">11</span>         socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">unable to create datagram socket: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">12</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> newSocket;
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">14</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 获取env的groupsockPriv重新使用标识</span>
+<span style="color: #008080;">15</span>     <span style="color: #0000ff;">int</span> reuseFlag = groupsockPriv(env)-&gt;<span style="color: #000000;">reuseFlag;
+</span><span style="color: #008080;">16</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 根据需要，为env释放groupsockPriv成员指向对象</span>
+<span style="color: #008080;">17</span> <span style="color: #000000;">    reclaimGroupsockPriv(env);
+</span><span style="color: #008080;">18</span>
+<span style="color: #008080;">19</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 设置允许重用本地地址和端口，reuseFlag用来接受传出值</span>
+<span style="color: #008080;">20</span>     <span style="color: #0000ff;">if</span><span style="color: #000000;"> (setsockopt(newSocket, SOL_SOCKET, SO_REUSEADDR,
+</span><span style="color: #008080;">21</span>         (<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em>)&amp;reuseFlag, <span style="color: #0000ff;">sizeof</span> reuseFlag) &lt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">22</span>         socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">setsockopt(SO_REUSEADDR) error: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">        closeSocket(newSocket);
+</span><span style="color: #008080;">24</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">26</span>
+<span style="color: #008080;">27</span> <span style="color: #0000ff;">#if</span> defined(<strong>WIN32</strong>) || defined(_WIN32)
+<span style="color: #008080;">28</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Windoze doesn&rsquo;t properly handle SO_REUSEPORT or IP_MULTICAST_LOOP
+</span><span style="color: #008080;">29</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> win-doze 贬义,可能是由于操作系统BUG很多,而且运行速度慢,导致在运行的是后你会DOZE(打瞌睡)
+</span><span style="color: #008080;">30</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Windows无法正确的处理SO_REUSEPORT或 IP_MULTICAST_LOOP</span>
+<span style="color: #008080;">31</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">32</span> #ifdef SO_REUSEPORT     <span style="color: #008000;">//</span><span style="color: #008000;">在定义了重新使用端口宏下设置</span>
+<span style="color: #008080;">33</span>     <span style="color: #0000ff;">if</span><span style="color: #000000;"> (setsockopt(newSocket, SOL_SOCKET, SO_REUSEPORT,
+</span><span style="color: #008080;">34</span>         (<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span></em>)&amp;reuseFlag, <span style="color: #0000ff;">sizeof</span> reuseFlag) &lt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">35</span>         socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">setsockopt(SO_REUSEPORT) error: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">36</span> <span style="color: #000000;">        closeSocket(newSocket);
+</span><span style="color: #008080;">37</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">38</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">39</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">40</span>
+<span style="color: #008080;">41</span> #ifdef IP_MULTICAST_LOOP    <span style="color: #008000;">//</span><span style="color: #008000;">在定义了IP多播循环下设置</span>
+<span style="color: #008080;">42</span>     <span style="color: #0000ff;">const</span> u_int8_t loop = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">43</span>     <span style="color: #0000ff;">if</span><span style="color: #000000;"> (setsockopt(newSocket, IPPROTO_IP, IP_MULTICAST_LOOP,
+</span><span style="color: #008080;">44</span>         (<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em>)&amp;loop, <span style="color: #0000ff;">sizeof</span> loop) &lt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">45</span>         socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">setsockopt(IP_MULTICAST_LOOP) error: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">46</span> <span style="color: #000000;">        closeSocket(newSocket);
+</span><span style="color: #008080;">47</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">48</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">49</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">50</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">51</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Note: Windoze requires binding, even if the port number is 0
+</span><span style="color: #008080;">52</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Windows 需要绑定，即使端口号是0</span>
+<span style="color: #008080;">53</span>     netAddressBits addr = INADDR_ANY;   <span style="color: #008000;">//</span><span style="color: #008000;"> 设置绑定地址是任意网口IP</span>
+<span style="color: #008080;">54</span> <span style="color: #0000ff;">#if</span> defined(<strong>WIN32</strong>) || defined(_WIN32)
+<span style="color: #008080;">55</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">56</span>     <span style="color: #0000ff;">if</span> (port.num() != <span style="color: #800080;">0</span> || ReceivingInterfaceAddr !=<span style="color: #000000;"> INADDR_ANY) {
+</span><span style="color: #008080;">57</span>         <span style="color: #008000;">//</span><span style="color: #008000;">ReceivingInterfaceAddr是一个全局的定义，默认是INADDR_ANY</span>
+<span style="color: #008080;">58</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">59</span>         <span style="color: #0000ff;">if</span> (port.num() == <span style="color: #800080;">0</span>) addr =<span style="color: #000000;"> ReceivingInterfaceAddr;
+</span><span style="color: #008080;">60</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 组建sockaddr_in结构体</span>
+<span style="color: #008080;">61</span> <span style="color: #000000;">        MAKE_SOCKADDR_IN(name, addr, port.num());
+</span><span style="color: #008080;">62</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 绑定socket套接口和sockaddr地址</span>
+<span style="color: #008080;">63</span>         <span style="color: #0000ff;">if</span> (bind(newSocket, (<span style="color: #0000ff;">struct</span> sockaddr</em>)&amp;name, <span style="color: #0000ff;">sizeof</span> name) != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">64</span>             <span style="color: #0000ff;">char</span> tmpBuffer[<span style="color: #800080;">100</span><span style="color: #000000;">];
+</span><span style="color: #008080;">65</span>             sprintf(tmpBuffer, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">bind() error (port number: %d): </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+</span><span style="color: #008080;">66</span> <span style="color: #000000;">                ntohs(port.num()));
+</span><span style="color: #008080;">67</span> <span style="color: #000000;">            socketErr(env, tmpBuffer);
+</span><span style="color: #008080;">68</span> <span style="color: #000000;">            closeSocket(newSocket);
+</span><span style="color: #008080;">69</span>             <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">70</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">71</span> <span style="color: #0000ff;">#if</span> defined(<strong>WIN32</strong>) || defined(_WIN32)
+<span style="color: #008080;">72</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">73</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">74</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">75</span>
+<span style="color: #008080;">76</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> Set the sending interface for multicasts, if it&rsquo;s not the default:
+</span><span style="color: #008080;">77</span>     <span style="color: #008000;">//</span><span style="color: #008000;"> 设置多播发送接口，如果它不是默认的：</span>
+<span style="color: #008080;">78</span>     <span style="color: #0000ff;">if</span> (SendingInterfaceAddr !=<span style="color: #000000;"> INADDR_ANY) {
+</span><span style="color: #008080;">79</span>         <span style="color: #0000ff;">struct</span><span style="color: #000000;"> in_addr addr;
+</span><span style="color: #008080;">80</span>         addr.s_addr =<span style="color: #000000;"> SendingInterfaceAddr;
+</span><span style="color: #008080;">81</span>         <span style="color: #008000;">//</span><span style="color: #008000;"> 设置多播接口</span>
+<span style="color: #008080;">82</span>         <span style="color: #0000ff;">if</span><span style="color: #000000;"> (setsockopt(newSocket, IPPROTO_IP, IP_MULTICAST_IF,
+</span><span style="color: #008080;">83</span>             (<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>*)&amp;addr, <span style="color: #0000ff;">sizeof</span> addr) &lt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">84</span>             socketErr(env, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">error setting outgoing multicast interface: </span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+</span><span style="color: #008080;">85</span> <span style="color: #000000;">            closeSocket(newSocket);
+</span><span style="color: #008080;">86</span>             <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">87</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">88</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">89</span>
+<span style="color: #008080;">90</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> newSocket;
+</span><span style="color: #008080;">91</span> }</pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

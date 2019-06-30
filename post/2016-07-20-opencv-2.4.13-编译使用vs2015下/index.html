@@ -1,0 +1,242 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> OpenCV 2.4.13 编译使用(VS2015下) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>OpenCV 2.4.13 编译使用(VS2015下)</h1>
+          <span class="post-date">2016年07月20日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/07/20/5689987.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/07/20/5689987.html</a>
+#OpenCV2.4.13编译(VS2015)</p>
+
+<p>这里给出已经编译好的的下载路径。包括Win64的<code>debug</code>和<code>release</code>版本。
+<a href="http://pan.baidu.com/s/1qYnHOFM">OpenCV for MSVC14 Win64</a></p>
+
+<p>##1、下载OpenCV源码
+这里不啰嗦了，直接给出下载链接。</p>
+
+<p><a href="http://pilotfiber.dl.sourceforge.net/project/opencvlibrary/opencv-win/2.4.13/opencv-2.4.13.exe">OpenCV for windows</a></p>
+
+<p>这个是windows版的下载链接，下载之后进行解压。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224250904-1857209099.png" alt="OpenCV编译_1.png" /></p>
+
+<p>进入<code>sources</code>目录，这就是OpenCV的源码目录。</p>
+
+<p>##2、使用CMake生成VS工程
+在源码目录里面新建一个目录<code>build_msvc14</code>，然后进入这个目录。
+打开命令行窗口，使用下面的命令来生成工程。</p>
+
+<pre><code class="language-shell">cmake -DCMAKE_CONFIGURATION_TYPES=Release -DCMAKE_VERBOSE=Yes -DWITH_QT=Yes -DCMAKE_INSTALL_PREFIX=D:\OpenCV -G &quot;Visual Studio 14 Win64&quot; ..
+</code></pre>
+
+<pre><code>-DCMAKE_CONFIGURATION_TYPES=Release 编译Release版本
+-DCMAKE_VERBOSE=Yes                 
+-DWITH_QT=Yes                       QtGUI支持
+-DCMAKE_INSTALL_PREFIX=D:\OpenCV    安装路径
+</code></pre>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224320763-173267190.png" alt="" /></p>
+
+<p>这里实际编译的是<code>Debug</code>版本。
+使用<code>VS2015开发人员命令提示</code>环境进入<code>build_msvc14</code>目录，执行以下命令进行编译安装。</p>
+
+<pre><code class="language-shell">msbuild ALL_BUILD.vcxproj   #编译Debug版本(可以添加/property:Configuration=&quot;Release&quot;参数编译Release版本)
+msbuild INSTALL.vcxproj     #安装(若编译release版本，这里安装的时候也要添加上面的参数)
+</code></pre>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224340372-1584280760.png" alt="" />
+<img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224351466-1638923524.png" alt="" /></p>
+
+<p>安装完成后，进入之前指定的<code>D:\OpenCV</code>目录即可看到编译后的输出文件。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224407982-512573614.png" alt="" /></p>
+
+<p>##测试一下</p>
+
+<p>打开VS2015新建一个空项目，添加一个新文件<code>main.cpp</code>。输入以下代码</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &quot;opencv2/opencv.hpp&quot;
+
+using namespace std;
+
+int main()
+{
+    // 加载图片
+	cv::Mat img = cv::imread(&quot;D:\\OpenCV\\doc\\opencv-logo2.png&quot;);
+	if (img.empty()) {
+		cerr &lt;&lt; &quot;open image failed!!!&quot; &lt;&lt; endl;
+		return -1;
+	}
+    
+	// 在窗口显示图片
+	cv::imshow(&quot;opencv-logo2.png&quot;, img);
+	// 等待按任意键
+	cv::waitKey();
+	return 0;
+}
+</code></pre>
+
+<p>设置包含路径
+<img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224427794-2116446241.png" alt="" /></p>
+
+<p>设置库路径
+<img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224437732-2001923894.png" alt="" /></p>
+
+<p>添加库
+<img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224448966-1783722875.png" alt="" /></p>
+
+<p>运行测试
+<img src="http://images2015.cnblogs.com/blog/693958/201607/693958-20160720224459435-1509754564.png" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

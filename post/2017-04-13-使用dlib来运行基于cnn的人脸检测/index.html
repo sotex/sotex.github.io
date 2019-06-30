@@ -1,0 +1,279 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 使用Dlib来运行基于CNN的人脸检测 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>使用Dlib来运行基于CNN的人脸检测</h1>
+          <span class="post-date">2017年04月13日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/04/13/6703711.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/04/13/6703711.html</a>
+检测结果如下
+<img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170413141243298-393554728.png" alt="" /></p>
+
+<p>这个示例程序需要使用较大的内存，请保证内存足够。本程序运行速度比较慢，远不及OpenCV中的人脸检测。</p>
+
+<p>注释中提到的几个文件下载地址如下
+<a href="http://dlib.net/face_detection_ex.cpp.html">http://dlib.net/face_detection_ex.cpp.html</a>
+<a href="http://dlib.net/dnn_introduction_ex.cpp.html">http://dlib.net/dnn_introduction_ex.cpp.html</a>
+<a href="http://dlib.net/dnn_introduction2_ex.cpp.html">http://dlib.net/dnn_introduction2_ex.cpp.html</a>
+<a href="http://dlib.net/dnn_mmod_ex.cpp.html">http://dlib.net/dnn_mmod_ex.cpp.html</a></p>
+
+<pre><code class="language-cpp">/*
+    这个示例程序展示如何使用Dlib来运行基于CNN的人脸检测。示例程序加载现有训练模型数据，并使用它在图像中查找人脸。CNN模型在运行时比基于HOG模型的检测要精确很多，然而，只有在GPU上执行才能达到较快的速度。例如，在NVIDIA Titan X GPU上，此程序与face_detection_ex.cpp处理图像的速度相同。
+    另外，刚刚学习dlib深度学习API的用户应该阅读dnn_introduction_ex.cpp和dnn_introduction2_ex.cpp示例，来了解API的工作原理。有关对象检测方法的介绍，您应该阅读dnn_mmod_ex.cpp
+
+
+
+    训练模型 TRAINING THE MODEL
+        最后，有兴趣对面部检测器进行训练的用户，可以阅读dnn_mmod_ex.cpp示例程序。
+        应该注意的是，本示例程序中使用的面部检测器比dnn_mmod_ex.cpp中展示的具有更
+        大的训练数据集和更大的CNN架构，但是其他训练条件是相同的。如果和dnn_mmod_ex.cpp
+        代码中的net_type比较，可以看到它们非常相似，只是增加了参数的数量。
+
+        另外，训练中以下训练参数有所不同：
+        dnn_mmod_ex.cpp中有以下更改
+            mmod_options options(face_boxes_train,40*40)
+            trainer.set_iterations_without_progress_threshold(300);
+        在以下示例中使用训练数据中使用参数为:
+            mmod_options options(face_boxes_train, 80*80);
+            trainer.set_iterations_without_progress_threshold(8000);
+
+        此外，random_cropper保持默认设置，所以我们没有调用以下函数:
+            cropper.set_chip_dims(200, 200);
+            cropper.set_min_object_height(0.2);
+
+        用于训练的数据也可在下面地址中找到
+        http://dlib.net/files/data/dlib_face_detection_dataset-2016-09-30.tar.gz
+*/
+
+
+#include &lt;iostream&gt;
+#include &lt;dlib/dnn.h&gt;
+#include &lt;dlib/data_io.h&gt;
+#include &lt;dlib/image_processing.h&gt;
+#include &lt;dlib/gui_widgets.h&gt;
+
+
+using namespace std;
+using namespace dlib;
+
+// ----------------------------------------------------------------------------------------
+
+template &lt;long num_filters, typename SUBNET&gt; using con5d = con&lt;num_filters,5,5,2,2,SUBNET&gt;;
+template &lt;long num_filters, typename SUBNET&gt; using con5  = con&lt;num_filters,5,5,1,1,SUBNET&gt;;
+
+template &lt;typename SUBNET&gt; using downsampler  = relu&lt;affine&lt;con5d&lt;32, relu&lt;affine&lt;con5d&lt;32, relu&lt;affine&lt;con5d&lt;16,SUBNET&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;;
+template &lt;typename SUBNET&gt; using rcon5  = relu&lt;affine&lt;con5&lt;45,SUBNET&gt;&gt;&gt;;
+
+using net_type = loss_mmod&lt;con&lt;1,9,9,1,1,rcon5&lt;rcon5&lt;rcon5&lt;downsampler&lt;input_rgb_image_pyramid&lt;pyramid_down&lt;6&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;;
+
+// ----------------------------------------------------------------------------------------
+
+
+int main(int argc, char** argv) try
+{
+    argc = 3;
+    char* v[] = {
+        &quot;test&quot;,
+        &quot;D:\\Picture\\mmod_human_face_detector.dat&quot;, /*这是下载的训练数据*/
+        &quot;D:\\Picture\\222209_MIoI_1428332.jpg&quot; /*用于检测的文件*/
+    };
+    argv = v;
+
+    if (argc == 1)
+    {
+        cout &lt;&lt; &quot;程序的使用，通过类似如下命令:&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;./dnn_mmod_face_detection_ex mmod_human_face_detector.dat faces/*.jpg&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;\n你可以从下面的地址获取 mmod_human_face_detector.dat 文件:\n&quot;;
+        cout &lt;&lt; &quot;http://dlib.net/files/mmod_human_face_detector.dat.bz2&quot; &lt;&lt; endl;
+        return 0;
+    }
+
+
+    net_type net;
+    deserialize(argv[1]) &gt;&gt; net; // 将训练数据传递给检测器
+
+    image_window win;
+    for (int i = 2; i &lt; argc; ++i)
+    {
+        matrix&lt;rgb_pixel&gt; img;
+        load_image(img, argv[i]); // 加载图像
+
+        // 向上采样图像将使得我们能够检测较小的面孔，但会导致程序使用更多的内存，并运行时间更长。
+        while(img.size() &lt; 512*512)
+            pyramid_up(img);
+
+        // 注意，您可以一次处理std::vector中的一堆图像，并且这样运行速度更快，
+        // 因为这将形成小批量的图像，从而利用GPU硬件，获得更好的并行性。
+        //但是，所有图像的大小必须相同。为了避免相同尺寸的这一要求，我们在这个例子中单独处理每一张图像。
+
+        auto dets = net(img); // 获取检测结果
+        win.clear_overlay();  // 清除已经绘制的
+        win.set_image(img);   // 绘制图像
+        // 将检测结果绘制在窗口上
+        for (auto&amp;&amp; d : dets){
+            win.add_overlay(d);
+        }
+
+        // 按下enter键去处理下一个图像
+        cout &lt;&lt; &quot;Hit enter to process the next image.&quot; &lt;&lt; endl;
+        cin.get();
+    }
+    return 0;
+}
+catch(std::exception&amp; e)
+{
+    cout &lt;&lt; e.what() &lt;&lt; endl;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

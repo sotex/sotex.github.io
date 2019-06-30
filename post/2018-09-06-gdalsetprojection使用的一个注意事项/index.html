@@ -1,0 +1,273 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> GDALSetProjection使用的一个注意事项 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>GDALSetProjection使用的一个注意事项</h1>
+          <span class="post-date">2018年09月06日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/09/06/9597067.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/09/06/9597067.html</a></p>
+
+<h2 id="gdalsetprojection-简述">GDALSetProjection 简述</h2>
+
+<p><code>GDALSetProjection</code>是用来给<code>GDALDataset</code>设定投影信息(坐标系统)的接口，实际上是<code>GDALDataset::SetProjection</code>这个虚函数的转调而已。官网文档描述如下：
+   &gt; **CPLErr GDALDataset::SetProjection (const char *      pszProjection   ) **
+   &gt; Set the projection reference string for this dataset.
+   &gt; The string should be in OGC WKT or PROJ.4 format. An error may occur because of incorrectly specified projection strings, because the dataset is not writable, or because the dataset does not support the indicated projection. Many formats do not support writing projections.
+   &gt; This method is the same as the C <code>GDALSetProjection()</code> function.
+   &gt; <strong>Parameters</strong>
+   &gt;        pszProjection   projection reference string.
+   &gt;<strong>Returns</strong>
+   &gt;        CE_Failure if an error occurs, otherwise CE_None.</p>
+
+<p>按照这里描述的，传入的参数可以是<code>OGC WKT</code>或者<code>PROJ.4</code>格式的字符串，但是可能在写入坐标系信息的时候发生错误，因为数据集不可写。或者数据集不支持对应的坐标系，很多格式不支持写入。</p>
+
+<h2 id="注意事项">注意事项</h2>
+
+<p>这里要说的就是这个函数使用的时候要注意的地方，因为这是一个虚函数，在基类<code>GDALDataset</code>中的定义是直接返回<code>CE_Failure</code>的，派生出的各个格式有自己的实现。
+因为每个派生出的格式对<code>SetProjection</code>的实现可能都不一致，所以这里使用的时候就需要根据不同的格式传入不同的参数。
+例如<code>GTiff</code>就不支持<code>PROJ.4</code>格式的字符串，只能是<code>OGC WKT</code>格式的。
+又比如，<code>MBTiles</code>格式支持<code>EPSG:3857</code>，其他的就不支持了。
+又比如，<code>NTIF</code>格式，也仅支持<code>WKT</code>格式字符串传入，且只支持<code>WGS84</code>地理坐标或者<code>UTM</code>投影坐标。
+OGC出的<code>GeoPackage</code>格式是支持最好的，支持各种用户输入格式，支持各种坐标系，几乎没有限制。
+<code>HDF4</code>格式就很简单粗暴了，不做任何验证，传入什么就复制什么.</p>
+
+<p>下面贴出<code>GTiff</code>和<code>MBTiles</code>两种格式对<code>SetProjection</code>的实现。
+<strong>GDALDataset::SetProjection</strong></p>
+
+<pre><code class="language-cpp">CPLErr GDALDataset::SetProjection( CPL_UNUSED const char *pszProjection )
+{
+    if( !(GetMOFlags() &amp; GMO_IGNORE_UNIMPLEMENTED) )
+        ReportError(CE_Failure, CPLE_NotSupported,
+                    &quot;Dataset does not support the SetProjection() method.&quot;);
+    return CE_Failure;
+}
+</code></pre>
+
+<p><strong>GTiffDataset::SetProjection</strong></p>
+
+<pre><code class="language-cpp">CPLErr GTiffDataset::SetProjection( const char * pszNewProjection )
+
+{
+    if( bStreamingOut &amp;&amp; bCrystalized )
+    {
+        CPLError(
+            CE_Failure, CPLE_NotSupported,
+            &quot;Cannot modify projection at that point in &quot;
+            &quot;a streamed output file&quot; );
+        return CE_Failure;
+    }
+
+    LoadGeoreferencingAndPamIfNeeded();
+    LookForProjection();
+
+    if( !STARTS_WITH_CI(pszNewProjection, &quot;GEOGCS&quot;)
+        &amp;&amp; !STARTS_WITH_CI(pszNewProjection, &quot;PROJCS&quot;)
+        &amp;&amp; !STARTS_WITH_CI(pszNewProjection, &quot;LOCAL_CS&quot;)
+        &amp;&amp; !STARTS_WITH_CI(pszNewProjection, &quot;COMPD_CS&quot;)
+        &amp;&amp; !STARTS_WITH_CI(pszNewProjection, &quot;GEOCCS&quot;)
+        &amp;&amp; !EQUAL(pszNewProjection,&quot;&quot;) )
+    {
+        CPLError( CE_Failure, CPLE_AppDefined,
+                &quot;Only OGC WKT Projections supported for writing to GeoTIFF.  &quot;
+                &quot;%s not supported.&quot;,
+                  pszNewProjection );
+
+        return CE_Failure;
+    }
+
+    if( EQUAL(pszNewProjection, &quot;&quot;) &amp;&amp;
+        pszProjection != NULL &amp;&amp;
+        !EQUAL(pszProjection, &quot;&quot;) )
+    {
+        bForceUnsetProjection = true;
+    }
+
+    CPLFree( pszProjection );
+    pszProjection = CPLStrdup( pszNewProjection );
+
+    bGeoTIFFInfoChanged = true;
+
+    return CE_None;
+}
+</code></pre>
+
+<p><strong>MBTilesDataset::SetProjection</strong></p>
+
+<pre><code class="language-cpp">CPLErr MBTilesDataset::SetProjection( const char* pszProjection )
+{
+    if( eAccess != GA_Update )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                 &quot;SetProjection() not supported on read-only dataset&quot;);
+        return CE_Failure;
+    }
+
+    OGRSpatialReference oSRS;
+    if( oSRS.SetFromUserInput(pszProjection) != OGRERR_NONE )
+        return CE_Failure;
+    if( oSRS.GetAuthorityName(NULL) == NULL ||
+        !EQUAL(oSRS.GetAuthorityName(NULL), &quot;EPSG&quot;) ||
+        oSRS.GetAuthorityCode(NULL) == NULL ||
+        !EQUAL(oSRS.GetAuthorityCode(NULL), &quot;3857&quot;) )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                 &quot;Only EPSG:3857 supported on MBTiles dataset&quot;);
+        return CE_Failure;
+    }
+    return CE_None;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

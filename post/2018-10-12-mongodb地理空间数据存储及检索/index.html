@@ -1,0 +1,628 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> MongoDB地理空间数据存储及检索 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>MongoDB地理空间数据存储及检索</h1>
+          <span class="post-date">2018年10月12日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/10/12/9777141.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/10/12/9777141.html</a></p>
+
+<p>之前写过<a href="https://www.cnblogs.com/oloroso/p/9579720.html">MySQL空间索引简单使用</a>，测试也是可用的，当时没有测试效率问题，因为存储的矢量数据都只是一个四点的多边形而已。这次使用mongoDB来做一个行政区划检索的功能，记录一下使用的过程。</p>
+
+<p>参考资料：
+- <a href="https://docs.mongodb.com/manual/core/2dsphere/">MongDB二维球面索引(2dsphere Indexes)</a>
+- <a href="https://docs.mongodb.com/manual/geospatial-queries/">MongoDB地理相关问题(Geospatial Queries)</a>
+- <a href="https://docs.mongodb.com/manual/reference/geojson/">MongoDB存储geojson数据</a>
+- <a href="https://tools.ietf.org/html/rfc7946">GeoJSON规范文档</a></p>
+
+<h1 id="1-存入地理数据">1、存入地理数据</h1>
+
+<p>MongoDB存储的数据是<code>bson</code>结构，所以只要你的数据符合这个结构都是可以存储的，但是要支持空间索引，就必须按照它的规定来。
+早期版本的(2.6之前)仅仅支持简单的点数据的索引，也就是<code>filed:[x,y]</code>这样的结构，这个适用范围太有限了。现在的版本支持<code>GeoJSON</code>形式的数据类型，且支持<code>OCG</code>的空间数据查询模型，使用上非常方便。</p>
+
+<h2 id="geojson数据存入">GeoJSON数据存入</h2>
+
+<p>MongoDB要求把<code>GeoJSON</code>格式的数据以子文档的形式存入，但实际上并不是存入一个完整<code>GeoJSON</code>对象，只需要其中的<code>type</code>和<code>coordinates</code>两个字段就可以了。</p>
+
+<p>下面以存入一个含有地理空间数据的文档为例，把所有支持的<code>GeoJSON</code>对象类型都做个示例。
+这里假设存储一个县的信息，数据都以json格式表示。</p>
+
+<pre><code>{
+      &quot;xian&quot;:&quot;潜山县&quot;,
+      &quot;sheng&quot;:&quot;安徽&quot;
+}
+</code></pre>
+
+<h3 id="1-ponit-点数据">1、Ponit 点数据</h3>
+
+<p>现在假设为这个文档添加上中心点位置，那么这个文档就变成了如下样子：</p>
+
+<pre><code>{
+      &quot;xian&quot;:&quot;潜山县&quot;,
+      &quot;sheng&quot;:&quot;安徽&quot;
+      &quot;center&quot;:{ &quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[116.45,30.72]}
+}
+</code></pre>
+
+<h3 id="2-linestring-线数据-多段线">2、LineString 线数据(多段线)</h3>
+
+<p>现在加上一个到省会合肥的路径连线，那么文档就变成了如下样子：</p>
+
+<pre><code>{
+      &quot;xian&quot;:&quot;潜山县&quot;,
+      &quot;sheng&quot;:&quot;安徽&quot;
+      &quot;center&quot;:{ &quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[116.45,30.72]},
+      &quot;toShengHui&quot;:{
+          &quot;type&quot;:&quot;LineString&quot;,&quot;
+          coordinates&quot;:[[116.55944824218749,30.58827267102698],
+          [116.87667846679689,30.791396195188927],[116.96594238281249,31.038815104128687],
+          [117.18292236328124,31.264465555752835],[117.22412109375,31.819230730326613]]}
+}
+</code></pre>
+
+<h3 id="3-polygon-多边形数据">3、 Polygon 多边形数据</h3>
+
+<p>多边形是当前地理信息领域应用的比较多的数据类型。
+多边形描述的是一个面对象，其由两部分组成，一个外壳<code>shell</code>和0或多个內洞<code>holes</code>。
+外壳和內洞的表示都是一个闭合的线环(LinearRing)，表示一个闭合曲面。外壳包括的区域表示在多边形内的区域，內洞表示的区域则是从外壳表示的区域中排除的区域，如下图所示的样子，蓝色的是外壳，绿色部分的是內洞。
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181012111916410-1793333843.png" alt="" /></p>
+
+<p>因为行政边界的涉及到的点太多，所以这里就只添加一个外包框作为示例：
+<strong>因为GeoJSON中使用bbox字段(四个double值的数组)来描述范围外包框，所以这里不能使用bbox来存储一个多边形，否则将报错<code>error inserting documents: location object expected, location array not in correct format</code>。但奇怪的是，这个<code>bbox</code>用于搜索的时候却是无效的。</strong>
+这里就不使用內洞了，有內洞的情况就是<code>coordinates</code>数组中后面加上线环即可。</p>
+
+<pre><code>{
+      &quot;xian&quot;:&quot;潜山县&quot;,
+      &quot;sheng&quot;:&quot;安徽&quot;
+      &quot;center&quot;:{ &quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[116.45,30.72]},
+      &quot;toShengHui&quot;:{
+          &quot;type&quot;:&quot;LineString&quot;,&quot;
+          coordinates&quot;:[[116.55944824218749,30.58827267102698],
+          [116.87667846679689,30.791396195188927],[116.96594238281249,31.038815104128687],
+          [117.18292236328124,31.264465555752835],[117.22412109375,31.819230730326613]]},
+      &quot;box&quot;:{
+         &quot;type&quot;:&quot;Polygon&quot;,
+         &quot;coordinates&quot;:[[[116.40701293945311,30.454001045389525],
+         [116.77505493164062,30.454001045389525],[116.77505493164062,30.76248901825541],
+         [116.40701293945311,30.76248901825541],[116.40701293945311,30.454001045389525]]]}
+}
+</code></pre>
+
+<h3 id="4-multipoint多点-multilinestring多线-multipolygon多多边形">4、MultiPoint多点、MultiLineString多线、MultiPolygon多多边形</h3>
+
+<p>对于多点、多线和多多边形，与单个的区别，也就是将<code>coordinates</code>成员改为一个数组形式，存入多个单个形式的坐标数据。</p>
+
+<h3 id="5-geometrycollection-几何集合">5、GeometryCollection 几何集合</h3>
+
+<p>几何集合就是多个几何对象的集合，就是一个数组里面放多个几何对象。</p>
+
+<h3 id="6-全国区县行政区划入库示例">6、全国区县行政区划入库示例</h3>
+
+<p>1、首先下载全国的性质边界矢量数据，这个可以从<a href="https://www.gadm.org/download_country_v3.html">https://www.gadm.org/download_country_v3.html</a>下载。因为中国的矢量数据中没有台湾和香港澳门的数据，可以下在后合成一个。这份数据还有一些其他的小问题，这里就不提了。这也是我能找到的免费数据中较好的一份。</p>
+
+<p>2、下载的数据可以使用GDAL或QGIS工具将其转换为<code>geojson</code>格式文档，也可以转换，直接写程序来读取。我把转换后的程序再经过了一次简化，因为所有的边界线都是<code>MutilPolygon</code>，而大多数边界是仅仅一个<code>Polygon</code>的，所以我把能转换的都转换成了<code>Polygon</code>。</p>
+
+<p>3、因为<code>MongoDB</code>中存储字段<code>bbox</code>为GeoJSON中的数组形式在查询的时候会有问题，所以我把它改为了多边形。但<code>bbox</code>字段又不支持多边形，所以改为以<code>box</code>字段来存储。因为县级行政区划的边界都比较复杂，点比较多，在查询的时候会比较慢，所以使用<code>$and</code>来先查询<code>box</code>在查询<code>geometry</code>会比较快。</p>
+
+<p>处理好的数据可以在这里下载 链接: <a href="https://pan.baidu.com/s/1f2c9FEQhkfDzC1dZHn6XmA">https://pan.baidu.com/s/1f2c9FEQhkfDzC1dZHn6XmA</a>  密码:5a2u</p>
+
+<p>4、处理完成之后把所有的<code>json</code>对象按行写入了到了(县级边界.json.txt)文件中，因为每行都是一个json对象，可以使用<code>mongoimport</code>将其导入数据库中。但是直接导入会有一个问题，就是数据量太大，无法一次写入。所以我先拆分成了几个小文件。</p>
+
+<pre><code class="language-bash">split -l 512 县级边界.json.txt -d -a 1 中国县级行政边界_
+</code></pre>
+
+<p>执行上面命令后生成了5个小文件，然后逐个导入到mongodb即可。</p>
+
+<pre><code class="language-bash">mongoimport --host 192.168.0.28 --db us --collection xzbj --file 中国县级行政边界_0
+2018-10-12T14:14:45.165+0800	connected to: 192.168.0.28
+2018-10-12T14:14:47.386+0800	imported 512 documents
+mongoimport --host 192.168.0.28 --db us --collection xzbj --file 中国县级行政边界_1
+mongoimport --host 192.168.0.28 --db us --collection xzbj --file 中国县级行政边界_2
+mongoimport --host 192.168.0.28 --db us --collection xzbj --file 中国县级行政边界_3
+mongoimport --host 192.168.0.28 --db us --collection xzbj --file 中国县级行政边界_4
+</code></pre>
+
+<p><strong>bbox只能以数组的形式存在，如图所示，我在处理的时候已经改用box多边形表示了。</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181012141227074-302027115.png" alt="bbox存在的形式" /></p>
+
+<h1 id="2-创建地理索引">2、创建地理索引</h1>
+
+<p>MongoDB的空间索引有三种，<a href="https://docs.mongodb.com/manual/core/2dsphere/"><code>2dsphere</code></a>、<a href="https://docs.mongodb.com/manual/core/2d/"><code>2d</code></a>、<a href="https://docs.mongodb.com/manual/core/geohaystack/"><code>geoHaystack</code></a>。</p>
+
+<p>对于某些地理空间查询操作，<strong>必须有相应的索引才行</strong>。</p>
+
+<h2 id="2-1-2dsphere索引">2.1、2dsphere索引</h2>
+
+<p>官网文档：<a href="https://docs.mongodb.com/manual/core/2dsphere/">https://docs.mongodb.com/manual/core/2dsphere/</a></p>
+
+<p>2dsphere索引支持查询球面几何实体对象。2dsphere是MongoDB地理空间索引支持所有查询：用于查询、交点和接近。地理空间查询的更多信息，参见地理空间查询。
+<code>2dsphere</code>索引支持点数据（包括传统点数据方式和GeoJSON的Point方式）。<code>2dsphere</code>索引由于是球面索引，所以仅仅支持经纬度数据，坐标系为<code>WGS84</code>。
+版本2以后的MongoDB支持附加GeoJSON对象包括MultiPoint、MultiLineString、MultiPolygon和 GeometryCollection，具体的参考官方文档。</p>
+
+<p>创建一个2dsphere索引的语句如下：</p>
+
+<pre><code class="language-js">db.collection.createIndex( { &lt;location field&gt; : &quot;2dsphere&quot; } )
+</code></pre>
+
+<p>这里有一个问题，就是创建的时候，有<code>MultiPolygon</code>等不支持的几何类型的时候会出现错误<code>&quot;errmsg&quot; : &quot;Can't extract geo keys...</code>，但看官网文档，这个是可以附加的类型，但目前没有找到相关的文档。</p>
+
+<h2 id="2-2-2d索引">2.2、2d索引</h2>
+
+<p>官网文档：<a href="https://docs.mongodb.com/manual/core/2d/">https://docs.mongodb.com/manual/core/2d/</a></p>
+
+<p>2d索引对存储为二维平面上的点的数据使用。 2d索引适用于MongoDB 2.2及更早版本中使用的旧坐标对。</p>
+
+<pre><code>应对仅在下列情况下使用2d索引
+    您的数据库具有MongoDB 2.2或更早版本的遗留遗留坐标对，以及
+    您不打算将任何位置数据存储为GeoJSON对象。
+</code></pre>
+
+<p>创建一个2d索引的语句如下：</p>
+
+<pre><code class="language-js">db.collection.createIndex( { &lt;location field&gt; : &quot;2d&quot; } )
+</code></pre>
+
+<p>要在具有非简单排序规则的集合上创建2d索引，必须在创建索引时显式指定<code>{collation：{locale：“simple”}}</code>。</p>
+
+<h2 id="2-3-geohaystacks索引">2.3、geoHaystacks索引</h2>
+
+<p>官网文档：<a href="https://docs.mongodb.com/manual/core/geohaystack/">https://docs.mongodb.com/manual/core/geohaystack/</a></p>
+
+<p><code>geoHaystack</code>索引是一种特殊索引，优化小面积内的返回结果。<code>geoHaystack</code>索引可提高在平面进行几何(geometry)查询的性能。
+对于使用球面的几何查询，<code>2dsphere</code>索引是一个比<code>geoHaystack</code>索引更好的选择。<code>2dsphere</code>索引允许字段重新排序。
+<code>geoHaystack</code>索引要求第一个字段为<code>location</code>字段。此外，<code>geoHaystack</code>索引仅可通过命令使用，因此始终一次返回所有结果。</p>
+
+<h1 id="3-检索地理数据">3、检索地理数据</h1>
+
+<p>检索这个也是看官方的文档比较快，这里只是一个简单的介绍。
+官方文档：<a href="https://docs.mongodb.com/manual/reference/operator/query-geospatial/">Geospatial Query Operators</a></p>
+
+<h2 id="3-1地理空间模型">3.1地理空间模型</h2>
+
+<p>MongoDB的地理空间查询可以实现球面或平面几何实体对象的查询。
+- <code>2dsphere</code>索引仅仅支持球面查询(即把点坐标数据当做球面经纬度处理)。
+- <code>2d</code>索引支持平面查询(即将点坐标数据当做平面直角坐标系点坐标处理)和一些球面查询，虽然<code>2d</code>索引支持一些球面查询，但是对这些球面查询使用<code>2d</code>索引可能会导致错误，这样的数据尽量优先使用<code>2dsphere</code>索引。</p>
+
+<p><strong>下面列出每个地理空间操作使用的地理空间查询运算符，支持的查询和相关说明：</strong></p>
+
+<p>|操作符|参数类型|索引|支持查询|说明|
+|:&mdash;|:&mdash;|:&mdash;|:&mdash;|
+|\$near<br>邻近查询|GeoJSON质心点在这个line和下一个line,|2dsphere|球面|另请参阅\$ nearSphere运算符，该运算符在与GeoJSON和2dsphere索引一起使用时提供相同的功能|
+|\$near|legacy coordinates|2d|平面||
+|\$nearSphere|GeoJSON点|2dsphere|球面|提供与使用GeoJSON点和2dsphere索引的\$near操作相同的功能<br>对于球面查询，可能最好使用\$nearSphere，它明确指定名称中的球形查询而不是\$near运算符|
+|\$nearSphere|legacy coordinates|2d|球面|使用GeoJSON的点来代替|
+|\$geoWithin<br>内部查询|GeoJSON几何对象<br>{ \$geometry: … }||球面|查询完全在参数指定地理空间内的文档|
+|\$geoWithin|{ \$box: … }|2d|平面|只能查询box框住的点|
+|\$geoWithin|{ \$polygon: … }|2d|平面|同上|
+|\$geoWithin|{ \$center: … }|2d|平面|同上，点加半径(弧度值)<br><code>$geoWithin: { $center: [ [ &lt;x&gt;, &lt;y&gt; ] , &lt;radius&gt; ] }</code>|
+|\$geoWithin|{ \$centerSphere: … }|2d/2dsphere|球面|支持查询框住的GeoJSON对象|
+|\$geoIntersects<br>相交查询|{ \$geometry: … }<br>多边形或多多边形||球面|查询与参数给定几何对象有相交关系的文档|</p>
+
+<p>还有<code>$geoNear</code>这个操作符，这里就不摘录了，直接去官网看好了。
+因为这些操作符都比较简单，这里只单独介绍一下最有用的<code>$geoIntersects</code>操作符。</p>
+
+<p><strong><a href="https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/">\$geoIntersects操作符使用</a></strong>
+选择地理空间数据与指定GeoJSON对象相交的文档; 即数据和指定对象的交集是非空的。
+<code>$geoIntersects</code>运算符使用<code>$geometry</code>运算符来指定一个GeoJSON对象作为参数，使用默认坐标系（CRS）指定GeoJSON多边形或多边形的使用语法如下：</p>
+
+<pre><code class="language-js">{
+     空间数据字段名: {
+     $geoIntersects: {
+        $geometry: {
+           type: &quot;&lt;GeoJSON对象类型&gt;&quot; ,
+           coordinates: [ &lt;coordinates&gt; ]
+        }
+     }
+  }
+}
+</code></pre>
+
+<p>对于<code>$geoIntersects</code>查询,当指定的GeoJSON的几何对象大于半个球面时，使用默认的坐标系(CRS)会导致互补的几何对象在查询结果中。
+3.0版中的新功能：要指定单环的GeoJSON多边形使用自定义MongoDB CRS，使用以下语法在<code>$geometry</code>表达式中指定自定义MongoDB CRS：</p>
+
+<pre><code class="language-js">{
+  &lt;location field&gt;: {
+     $geoIntersects: {
+        $geometry: {
+           type: &quot;Polygon&quot; ,
+           coordinates: [ &lt;coordinates&gt; ],
+           crs: {
+              type: &quot;name&quot;,
+              properties: { name: &quot;urn:x-mongodb:crs:strictwinding:EPSG:4326&quot; }
+           }
+        }
+     }
+  }
+}
+</code></pre>
+
+<p>自定义MongoDB CRS使用逆时针顺序包覆，并允许<code>$geoIntersects</code>支持具有单环GeoJSON多边形的查询，该多边形的面积大于或等于单个半球。如果指定的多边形小于单个半球，则带有MongoDB CRS的<code>$ geoIntersects</code>的行为与默认的CRS相同。<a href="https://docs.mongodb.com/manual/reference/operator/query/geoIntersects/#geointersects-big-poly">“Big” Polygons参考</a></p>
+
+<pre><code>如果指定纬度和经度坐标，请先列出经度然后列出纬度：
+    有效经度值介于-180和180之间（包括两者）。
+    有效纬度值介于-90和90之间（包括两者）。
+</code></pre>
+
+<h2 id="3-2-查询示例-使用全国县级行政边界数据">3.2、查询示例（使用全国县级行政边界数据）</h2>
+
+<p>上面的数据导入之后，写几个查询的例子来测试一下。</p>
+
+<h3 id="3-2-1-使用-geointersects查询相交的区域">3.2.1、使用\$geoIntersects查询相交的区域</h3>
+
+<p><code>$geoIntersects</code>用于查询与给定参数有相交区域的记录，只能查询<code>geojson</code>形式表示的位置字段，有没有索引都可以查，速度与几何对象复杂程度有关。</p>
+
+<p>查询代码如下</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').find({
+    &quot;geometry&quot;: {
+        &quot;$geoIntersects&quot;: {
+            &quot;$geometry&quot;: {
+                &quot;type&quot;: &quot;Polygon&quot;,
+                &quot;coordinates&quot;: [[[116.24633789062499, 40.168380093142446], [116.17492675781251, 40.15998434802335], [116.1199951171875, 40.057052221322], [116.09527587890624, 40.002371935876475], [116.1474609375, 39.890772566959534], [116.10626220703124, 39.70929962338767], [116.3177490234375, 39.69662085337441], [116.57592773437499, 39.7642140375156], [116.6912841796875, 39.86969567045658], [116.69677734375, 39.99605985169435], [116.62261962890624, 40.094882122321145], [116.6143798828125, 40.13899044275822], [116.43310546875, 40.15788524950653], [116.28753662109375, 40.18097176388719], [116.24633789062499, 40.168380093142446]]]
+            }
+        }
+    }
+})
+</code></pre>
+
+<p>这些点是沿着北京六环线画的一个多边形，查询的速度比较慢，耗时达到<code>7.12</code>秒。
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181012151357517-871222344.png" alt="" /></p>
+
+<p>下面添加外包框过滤，在进行相交比较，加快查询速度。这里要注意我是要的<code>box</code>字段内存的也是一个<code>Polygon</code>而不是GeoJSON中的bbox。</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').find({
+    &quot;$and&quot;: [{
+        &quot;box&quot;: {
+            &quot;$geoIntersects&quot;: {
+                &quot;$geometry&quot;: {
+                    &quot;type&quot;: &quot;Polygon&quot;,
+                    &quot;coordinates&quot;: [[[116.0870361328125, 39.69873414348139], [116.71600341796874, 39.69873414348139], [116.71600341796874, 40.17257757632168], [116.0870361328125, 40.17257757632168], [116.0870361328125, 39.69873414348139]]]
+                }
+            }
+        }
+    },
+    {
+        &quot;geometry&quot;: {
+            &quot;$geoIntersects&quot;: {
+                &quot;$geometry&quot;: {
+                    &quot;type&quot;: &quot;Polygon&quot;,
+                    &quot;coordinates&quot;: [[[116.24633789062499, 40.168380093142446], [116.17492675781251, 40.15998434802335], [116.1199951171875, 40.057052221322], [116.09527587890624, 40.002371935876475], [116.1474609375, 39.890772566959534], [116.10626220703124, 39.70929962338767], [116.3177490234375, 39.69662085337441], [116.57592773437499, 39.7642140375156], [116.6912841796875, 39.86969567045658], [116.69677734375, 39.99605985169435], [116.62261962890624, 40.094882122321145], [116.6143798828125, 40.13899044275822], [116.43310546875, 40.15788524950653], [116.28753662109375, 40.18097176388719], [116.24633789062499, 40.168380093142446]]]
+                }
+            }
+        }
+    }]
+})
+</code></pre>
+
+<p>这样查询的速度就大大提升了，仅耗时41毫秒就完成了检索。<strong>经过测试，<code>$and</code>数组中的元素顺序对检索速度没有影响，不知道是不是与字段名的排序有关系。</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181012151726005-2123169091.png" alt="" /></p>
+
+<h3 id="3-2-3-使用-geowithin查询">3.2.3 使用\$geoWithin查询</h3>
+
+<p>使用上和<code>$geoIntersects</code>差不多，查询速度上也差不多。</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').find({
+    &quot;geometry&quot;: {
+        &quot;$geoWithin&quot;: {
+            &quot;$geometry&quot;: {
+                &quot;type&quot;: &quot;Polygon&quot;,
+                &quot;coordinates&quot;: [[[93.69140625, 28.76765910569123], [113.37890625, 28.76765910569123], [113.37890625, 39.30029918615029], [93.69140625, 39.30029918615029], [93.69140625, 28.76765910569123]]]
+            }
+        }
+    }
+})
+</code></pre>
+
+<p>可以指定参数几何对象的坐标系。</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').find({
+    &quot;box&quot;: {
+        &quot;$geoWithin&quot;: {
+            &quot;$geometry&quot;: {
+                &quot;type&quot;: &quot;Polygon&quot;,
+                &quot;coordinates&quot;: [[[93.69140625, 28.76765910569123], [113.37890625, 28.76765910569123], [113.37890625, 39.30029918615029], [93.69140625, 39.30029918615029], [93.69140625, 28.76765910569123]]],
+                &quot;crs&quot;: {
+                    &quot;type&quot;: &quot;name&quot;,
+                    &quot;properties&quot;: {
+                        &quot;name&quot;: &quot;urn:x-mongodb:crs:strictwinding:EPSG:4326&quot;
+                    }
+                }
+            }
+        }
+    }
+})
+</code></pre>
+
+<p>上面使用<code>Polygon</code>作为查询参数，没有索引也可以查。如果使用<code>$center</code>(中心点加半径)和<code>$box</code>查询，则仅有存在<code>2d</code>索引的情况才能查询。
+<strong>使用<code>$centerSphere</code>作为查询参数的时候，有没有索引都可以查，而且速度很快。可以查询GeoJSON表示的字段，没有类型限制。</strong>
+<code>$centerShpere</code>的参数也是一个<code>点</code>(先经度后纬度)加一个<code>弧度</code>，示例如下:</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').find({
+    &quot;box&quot;: {
+        &quot;$geoWithin&quot;: { &quot;$centerSphere&quot;: [ [116.3623809,39.9013085] ,0.008 ] }
+    }
+})
+</code></pre>
+
+<p>上的很快就搜索到了，因为我对<code>box</code>字段建了<code>2dSphere</code>索引。把搜索的字段换为<code>geometry</code>就比较慢了，因为没有建索引。</p>
+
+<h3 id="3-2-2-其他的">3.2.2 其他的</h3>
+
+<p>其他的这里就不记录了，需要的时候查询即可。</p>
+
+<hr />
+
+<p>下面是我对QGIS转出的geojson进行提取的代码，放在这里做个存档。因为这是简单的使用一次，没有处理各种错误异常等。</p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;rapidjson/filereadstream.h&gt;
+#include &lt;rapidjson/rapidjson.h&gt;
+#include &lt;rapidjson/document.h&gt;
+#include &lt;rapidjson/stringbuffer.h&gt;
+#include &lt;rapidjson/writer.h&gt;
+#include &lt;Poco/Net/HTTPClientSession.h&gt;
+#include &lt;Poco/Net/HTTPRequest.h&gt;
+#include &lt;Poco/Net/HTTPResponse.h&gt;
+#include &lt;Poco/URI.h&gt;
+#include &lt;Poco/StreamCopier.h&gt;
+
+int main()
+{
+
+	FILE* fp = fopen(&quot;./xianjie.geojson&quot;,&quot;rb&quot;);
+	char buffer[65536];
+	rapidjson::FileReadStream is(fp,buffer,sizeof(buffer));
+	rapidjson::Document doc;
+	doc.ParseStream(is);
+	if(doc.HasParseError()){
+		std::cout&lt;&lt;&quot;parse error:&quot;&lt;&lt; doc.GetParseError()&lt;&lt;std::endl;
+		return 0;
+	}
+
+	rapidjson::Value::ConstMemberIterator iter_features = doc.FindMember(&quot;features&quot;);
+	if(iter_features == doc.MemberEnd()){
+		std::cerr&lt;&lt;&quot;没有找到 iter_features&quot;&lt;&lt;std::endl;
+		return 0;
+	}
+	const auto&amp; features = iter_features-&gt;value.GetArray();
+	// std::cout&lt;&lt;&quot;features size = &quot;&lt;&lt; features.Size()&lt;&lt;std::endl;
+
+	for(size_t i =0;i&lt;features.Size();++i){
+		auto&amp; obj = features[i];
+		rapidjson::Value::ConstMemberIterator iter_properties = obj.FindMember(&quot;properties&quot;);
+		if(iter_properties == obj.MemberEnd()){
+			std::cout&lt;&lt;&quot;features[&quot;&lt;&lt;i&lt;&lt;&quot;] format error&quot;&lt;&lt;std::endl;
+			continue;
+		}
+		std::string sheng = iter_properties-&gt;value[&quot;NL_NAME_1&quot;].GetString();
+		size_t pos = sheng.rfind('|');
+		if(pos != std::string::npos){
+			sheng = sheng.substr(pos+1);
+		}
+		std::string di = iter_properties-&gt;value[&quot;NL_NAME_2&quot;].GetString();
+		pos = di.find('|');
+		if(pos != std::string::npos){
+			di = di.substr(0,pos);
+		}
+		
+		std::string xian = di;
+
+		if(iter_properties-&gt;value.HasMember(&quot;NL_NAME_3&quot;) &amp;&amp; iter_properties-&gt;value[&quot;NL_NAME_3&quot;].IsString()){
+			xian = iter_properties-&gt;value[&quot;NL_NAME_3&quot;].GetString();
+			pos = xian.find('|');
+			if(pos != std::string::npos){
+				xian = xian.substr(0,pos);
+			}
+		}
+		std::string fullname = sheng + &quot;-&quot; + di + &quot;-&quot; + x2;
+		rapidjson::Value::ConstMemberIterator iter_geometry = obj.FindMember(&quot;geometry&quot;);
+		if(iter_geometry == obj.MemberEnd()){
+			std::cout&lt;&lt;&quot;Failed &quot;&lt;&lt;fullname&lt;&lt;std::endl;
+			continue;
+		}
+		std::string geometry;
+		{
+			rapidjson::StringBuffer buffer;
+			rapidjson::Writer&lt;rapidjson::StringBuffer&gt; w(buffer);
+			if(iter_geometry-&gt;value[&quot;coordinates&quot;].GetArray().Size() == 1){
+				iter_geometry-&gt;value[&quot;coordinates&quot;].GetArray()[0].Accept(w);
+				geometry.append(&quot;{\&quot;type\&quot;:\&quot;Polygon\&quot;,\&quot;coordinates\&quot;:&quot;);
+				geometry.append(buffer.GetString(),buffer.GetSize());
+				geometry.append(&quot;}&quot;);
+			}
+			else{
+				obj.Accept(w);
+				geometry.assign(buffer.GetString(),buffer.GetSize());
+			}
+		}
+		double bbox[4];
+		{
+			bbox[0] = obj[&quot;bbox&quot;].GetArray()[0].GetDouble();
+			bbox[1] = obj[&quot;bbox&quot;].GetArray()[1].GetDouble();
+			bbox[2] = obj[&quot;bbox&quot;].GetArray()[2].GetDouble();
+			bbox[3] = obj[&quot;bbox&quot;].GetArray()[3].GetDouble();
+		}
+		std::cout&lt;&lt;&quot;{\&quot;name\&quot;:\&quot;&quot;&lt;&lt;fullname&lt;&lt;&quot;\&quot;,\&quot;type\&quot;:\&quot;Feature\&quot;,&quot;
+			&lt;&lt;&quot;\&quot;properties\&quot;:{\&quot;sheng\&quot;:\&quot;&quot;&lt;&lt;sheng&lt;&lt;&quot;\&quot;,\&quot;di\&quot;:\&quot;&quot;&lt;&lt;di&lt;&lt;&quot;\&quot;,\&quot;xian\&quot;:\&quot;&quot;&lt;&lt;xian
+			&lt;&lt;&quot;\&quot;},\&quot;box\&quot;:{\&quot;type\&quot;:\&quot;Polygon\&quot;,\&quot;coordinates\&quot;:[[&quot;
+			&lt;&lt;&quot;[&quot;&lt;&lt;bbox[0]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[1]&lt;&lt;&quot;],&quot;
+			&lt;&lt;&quot;[&quot;&lt;&lt;bbox[2]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[1]&lt;&lt;&quot;],&quot;
+			&lt;&lt;&quot;[&quot;&lt;&lt;bbox[2]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[3]&lt;&lt;&quot;],&quot;
+			&lt;&lt;&quot;[&quot;&lt;&lt;bbox[0]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[3]&lt;&lt;&quot;],&quot;
+			&lt;&lt;&quot;[&quot;&lt;&lt;bbox[0]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[1]&lt;&lt;&quot;]]]}&quot;
+			/*&lt;&lt;&quot;\&quot;},\&quot;bbox\&quot;:[&quot;&lt;&lt;bbox[0]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[1]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[2]&lt;&lt;&quot;,&quot;&lt;&lt;bbox[3]&lt;&lt;&quot;]&quot;*/
+			&lt;&lt;&quot;,\&quot;geometry\&quot;:&quot;&lt;&lt;geometry&lt;&lt;&quot;}\n&quot;;
+
+#ifdef CouchDB_Insert
+		Poco::Net::HTTPClientSession session(&quot;192.168.0.28&quot;,5984);
+		Poco::Net::HTTPRequest request(Poco::Net::HTTPRequest::HTTP_PUT ,&quot;/xzbj/&quot; + fullname);
+		request.setContentType(&quot;application/json&quot;);
+		request.setContentLength((int)geometry.size());
+		request.set(&quot;Authorization&quot;,&quot;Basic 用户名密码base64&quot;);
+		std::ostream&amp; ss = session.sendRequest(request);
+		ss.write(geometry.data(),geometry.size());
+		Poco::Net::HTTPResponse response;
+		std::istream&amp; rs = session.receiveResponse(response);
+		std::cout&lt;&lt;&quot;\n\n&quot;&lt;&lt;request.getURI()&lt;&lt;&quot;\t\t&quot;&lt;&lt;response.getStatus()&lt;&lt;std::endl;
+		Poco::StreamCopier copier;
+		copier.copyStream(rs,std::cout);
+#endif
+
+	}
+	return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,210 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 5 HandlerIterator处理程序迭代器类——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>5 HandlerIterator处理程序迭代器类——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月24日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/24/4596833.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/24/4596833.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##HandlerIterator处理程序迭代器类
+这里本应该先介绍HandlerDescriptor类的，因为这个类与它的关联比较大，就先介绍这个类。
+HandlerIterator是一个迭代器类，其有两个数据成员，分别是HandlerSet类对象的引用fOurSet，以及一个HandlerDescriptor对象指针fNextPtr。并且HandlerIterator同时是节点和链表的友元类。
+fOurSet是一个引用，就说明了HandlerIterator的初始化必须要绑定一个HandlerSet对象。而HandlerSet类的对象又是一个链表，其节点是HandlerDescriptor对象。<strong>迭代器对象仅在HandlerSet类中使用。</strong>
+<strong>迭代器构造的时候，会将其fNextPtr指向链表的头节点的下一个。</strong></p>
+
+<p><img src="./HandlerIterator_class_uml.png" alt="HandlerIterator_class_uml" />
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240923253301951.png" alt="" /></p>
+
+<p><img src="./HandlerIterator_2.png" alt="HandlerIterator_2.png" />
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240923376897840.png" alt="" /></p>
+
+<p>###下面是HandlerIterator类定义</p>
+
+<pre><code class="language-cpp">// 处理程序描述链表迭代器类
+class HandlerIterator {
+public:
+	// 必须绑定到一个处理程序描述链表对象，并调用reset()将fNextPtr赋值为handlerSet.fNextHandler
+	HandlerIterator(HandlerSet&amp; handlerSet);
+	virtual ~HandlerIterator();
+
+	// 返回fNextPtr,并将fNextPtr指向下一个处理程序描述对象
+	HandlerDescriptor* next(); // returns NULL if none
+	void reset();	//将 fNextPtr 指向链表的头结点的下一个
+private:
+	HandlerSet&amp; fOurSet;			//指向绑定链表的引用
+	HandlerDescriptor* fNextPtr;	//处理程序描述对象指针
+};
+</code></pre>
+
+<p>###next方法(获取链表节点，迭代器后移)
+这里返回的是当前迭代器指向的元素，但是迭代器会走向下一个。如果走到了末尾元素位置，迭代器将不会循环到第一个，而是停滞不前，并返回NULL。</p>
+
+<pre><code class="language-cpp">HandlerDescriptor* HandlerIterator::next() {
+	HandlerDescriptor* result = fNextPtr;
+	//要注意的是，这里是走到了最后一个，因为这是循环链表
+	if (result == &amp;fOurSet.fHandlers) { // no more
+		result = NULL;
+	}
+	else {
+		fNextPtr = fNextPtr-&gt;fNextHandler;
+	}
+
+	return result;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,1337 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://sotex.github.io/post/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-06-24-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87quantized-mesh%E6%A0%BC%E5%BC%8F/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-06-24-%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-06-24-%E5%B9%B2%E6%8E%89%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%BA%91%E4%BB%A3%E7%90%86sogoucloud.exe/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/</loc>
+    <lastmod>2019-06-24T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-06-21-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87heightmap%E6%A0%BC%E5%BC%8F/</loc>
+    <lastmod>2019-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-05-31-proj.4-%E5%8D%87%E7%BA%A7%E6%96%B0%E7%89%88%E6%9C%AC5.x%E5%92%8C6.x/</loc>
+    <lastmod>2019-05-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-05-29-sqlite-rtree-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-05-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-05-28-%E4%BD%BF%E7%94%A8-arcgis-desktop-%E5%88%87%E7%93%A6%E7%89%87/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-05-22-%E4%BD%BF%E7%94%A8hdfs-mount%E6%8C%82%E8%BD%BDhdfs/</loc>
+    <lastmod>2019-05-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-04-30-qt-multimedia-backends%E5%A4%9A%E5%AA%92%E4%BD%93%E5%90%8E%E7%AB%AF%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2019-04-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-04-23-minfiltermaxfilter%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95c&#43;&#43;%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2019-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-04-17-rgba-alpha-%E9%80%8F%E6%98%8E%E5%BA%A6%E6%B7%B7%E5%90%88%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%92%8C%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-04-16-libfacedetection%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2019-04-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-02-21-gdal%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E9%87%91%E5%AD%97%E5%A1%94%E7%9B%AE%E5%BD%95/</loc>
+    <lastmod>2019-02-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-02-13-%E5%9C%A8gdal%E4%B8%AD%E6%B7%BB%E5%8A%A0gdalrasterizegeometriesbuf%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2019-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-02-12-%E5%A4%9A%E6%97%B6%E7%9B%B8%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E7%AE%80%E5%8D%95%E8%AE%BE%E6%83%B3/</loc>
+    <lastmod>2019-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2019-01-08-%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8vs2015%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E7%9A%84%E5%8E%9F%E5%9B%A0%E6%9F%A5%E6%89%BEboost&#43;gdal/</loc>
+    <lastmod>2019-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-12-10-mongodb%E4%B8%8Bmap-reduce%E4%BD%BF%E7%94%A8%E7%AE%80%E5%8D%95%E7%BF%BB%E8%AF%91%E5%8F%8A%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2018-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-12-03-pilosa%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B8%89%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2018-12-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-11-28-pilosa%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%BA%8C%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</loc>
+    <lastmod>2018-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-11-27-pilosa%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91%E4%B8%80%E5%AF%BC%E8%A8%80%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2018-11-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-11-23-gdal%E5%A4%9A%E5%85%89%E8%B0%B1%E4%B8%8E%E5%85%A8%E8%89%B2%E5%9B%BE%E5%83%8F%E8%9E%8D%E5%90%88%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-11-08-%E5%BD%B1%E5%83%8F%E5%BF%AB%E9%80%9F%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2018-11-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-18-win10%E4%B8%80%E7%9B%B4%E5%BC%B9%E5%87%BA-%E7%94%A8%E6%88%B7%E8%B4%A6%E6%88%B7%E6%8E%A7%E5%88%B6-%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2018-10-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-12-mongodb%E5%9C%B0%E7%90%86%E7%A9%BA%E9%97%B4%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%8F%8A%E6%A3%80%E7%B4%A2/</loc>
+    <lastmod>2018-10-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-11-mingw-%E6%9E%84%E5%BB%BA-gdal-2.1.2/</loc>
+    <lastmod>2018-10-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-10-couchdb-%E7%AE%80%E5%8D%95http%E6%8E%A5%E5%8F%A3%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
+    <lastmod>2018-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-09-qgis-server%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-10-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-10-02-%E4%BD%BF%E7%94%A8tr%C3%A6f%C9%AAktraefik%E6%9D%A5%E5%8A%A0%E9%80%9Fqt%E5%9C%A8%E7%BA%BF%E6%9B%B4%E6%96%B0/</loc>
+    <lastmod>2018-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-29-git-rebase%E4%BF%AE%E6%94%B9%E5%8E%86%E5%8F%B2%E6%8F%90%E4%BA%A4%E5%86%85%E5%AE%B9/</loc>
+    <lastmod>2018-09-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-27-%E4%BD%BF%E7%94%A8quicklz%E7%BC%A9%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%BD%93%E7%A7%AF/</loc>
+    <lastmod>2018-09-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-19-%E6%8A%93%E5%8F%96epsg.io%E7%9A%84%E5%86%85%E5%AE%B9/</loc>
+    <lastmod>2018-09-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-18-html%E8%A7%A3%E6%9E%90%E5%BA%93gumbo%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-06-gdalsetprojection%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/</loc>
+    <lastmod>2018-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-04-%E5%A4%96%E7%BD%91ip%E7%9B%91%E6%B5%8B%E4%B8%8A%E6%8A%A5%E7%A8%8B%E5%BA%8F%E4%BD%BF%E7%94%A8poco%E5%BA%93%E7%9A%84smtpclientsession%E5%8F%91%E9%80%81%E9%82%AE%E4%BB%B6/</loc>
+    <lastmod>2018-09-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-03-mysql%E7%A9%BA%E9%97%B4%E7%B4%A2%E5%BC%95%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-03-libmongoc%E5%85%B3%E4%BA%8Epullall%E5%92%8Caddtoset%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-09-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-09-02-skintk%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2018-09-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-08-29-%E4%BF%AE%E6%94%B9qgis%E6%9D%A5%E6%94%AF%E6%8C%81dpi%E4%B8%BA96%E7%9A%84wmts.wms%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2018-08-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-08-23-linux%E4%B8%8B%E4%BD%BF%E7%94%A8mingw%E7%BC%96%E8%AF%91nsis-3.03/</loc>
+    <lastmod>2018-08-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-08-08-windows%E8%A7%86%E9%A2%91%E6%A1%8C%E9%9D%A2%E5%A3%81%E7%BA%B8%E5%AE%9E%E7%8E%B0libvlc%E7%B1%BB%E4%BC%BC%E4%BA%8Ewall-paper-engine%E6%95%88%E6%9E%9C/</loc>
+    <lastmod>2018-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-07-25-c&#43;&#43;-%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E7%BC%96%E8%AF%91%E6%97%B6%E9%97%B4/</loc>
+    <lastmod>2018-07-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-07-15-gdal%E5%AF%B9tif%E5%88%9B%E5%BB%BA%E5%86%85%E5%BB%BA%E9%87%91%E5%AD%97%E5%A1%94%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2018-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-06-06-%E4%BD%BF%E7%94%A8zlib%E5%BA%93%E8%BF%9B%E8%A1%8C%E7%9B%AE%E5%BD%95%E6%89%93%E5%8C%85/</loc>
+    <lastmod>2018-06-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-06-04-windows%E4%B8%8Blibjpeg-trubo-1.5.3%E7%BC%96%E8%AF%91vs2015/</loc>
+    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-06-01-%E4%BD%BF%E7%94%A8amalgamate%E5%B0%86c.c&#43;&#43;%E9%A1%B9%E7%9B%AE%E5%90%88%E5%B9%B6%E6%88%90%E4%B8%80%E4%B8%AA.h..cpp%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2018-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-05-02-%E5%88%A9%E7%94%A8fstream%E8%BF%9B%E8%A1%8C%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2018-05-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-25-gcc%E4%B8%8Binline%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2018-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-24-%E9%93%BE%E6%8E%A5%E9%80%89%E9%A1%B9-rpath%E7%9A%84%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-04-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-05-opencv%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95-snake%E8%BD%AE%E5%BB%93/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-05-opencv%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95hough%E7%BA%BF%E6%AE%B5%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-05-opencv%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95canny%E8%BE%B9%E7%BC%98%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-05-opencv%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-04-05-opencv%E5%AD%A6%E4%B9%A0%E4%BB%A3%E7%A0%81%E8%AE%B0%E5%BD%95%E8%BD%AE%E5%BB%93contour%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2018-04-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-03-15-msvc%E4%B8%8B%E4%BD%BF%E7%94%A8boost%E7%9A%84%E8%87%AA%E5%8A%A8%E9%93%BE%E6%8E%A5/</loc>
+    <lastmod>2018-03-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-03-09-xml%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90c&#43;&#43;%E4%BB%A3%E7%A0%81%E5%9F%BA%E4%BA%8Erapidxml/</loc>
+    <lastmod>2018-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-03-09-windows-10-%E6%9B%B4%E6%96%B0%E5%A4%B1%E8%B4%A5%E5%8F%8A%E5%BA%94%E7%94%A8%E5%95%86%E5%BA%97%E9%87%8D%E8%A3%85%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2018-03-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-03-06-xml%E6%96%87%E4%BB%B6%E7%94%9F%E6%88%90c&#43;&#43;%E4%BB%A3%E7%A0%81%E5%9F%BA%E4%BA%8Epugixml/</loc>
+    <lastmod>2018-03-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-02-06-cplseterrorhandlerex%E5%87%BD%E6%95%B0bug/</loc>
+    <lastmod>2018-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-01-22-arcgis%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%AE%9A%E4%B9%89%E6%8A%95%E5%BD%B1%E8%BD%AC%E6%8D%A2%E9%87%8D%E6%8A%95%E5%BD%B1/</loc>
+    <lastmod>2018-01-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-01-18-arcgis%E8%B0%83%E6%95%B4%E5%BD%B1%E5%83%8F%E9%A2%9C%E8%89%B2%E8%BE%93%E5%87%BA/</loc>
+    <lastmod>2018-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2018-01-12-gdalbuildvrt%E5%BC%82%E6%9E%84%E6%B3%A2%E6%AE%B5%E7%9A%84%E6%94%AF%E6%8C%81/</loc>
+    <lastmod>2018-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-12-25-cstring%E4%B8%8Eutf8%E4%BA%92%E8%BD%AC%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2017-12-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-12-21-std-accumulate%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E7%BB%86%E8%8A%82/</loc>
+    <lastmod>2017-12-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-12-20-windows%E4%B8%8Bvs2017%E7%BC%96%E8%AF%91opencv-3.4.0-rc/</loc>
+    <lastmod>2017-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-10-17-winhttp%E7%BC%96%E5%86%99http%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2017-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-09-18-%E5%90%84%E4%B8%AA%E7%89%88%E6%9C%ACvs%E7%BC%96%E8%AF%91%E5%A5%BD%E7%9A%84gdal%E5%BA%93%E4%B8%8B%E8%BD%BD/</loc>
+    <lastmod>2017-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-08-17-c&#43;&#43;%E9%AB%98%E6%80%A7%E8%83%BD%E8%BD%AC%E6%8D%A2%E5%A4%A7%E5%B0%8F%E5%86%99%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-08-04-vs%E7%BC%96%E8%AF%91-x64%E7%89%88%E6%9C%ACzlib%E5%BA%93/</loc>
+    <lastmod>2017-08-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-08-01-%E5%A6%82%E4%BD%95%E5%AF%BC%E5%87%BA%E6%A0%87%E5%87%86%E6%A8%A1%E6%9D%BF%E5%BA%93stl%E7%B1%BB%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%92%8C%E5%8C%85%E5%90%ABstl%E7%B1%BB%E5%AF%B9%E8%B1%A1%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E7%9A%84%E7%B1%BB/</loc>
+    <lastmod>2017-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-07-22-%E6%97%A9%E5%89%8D%E9%98%85%E8%AF%BBlive555%E6%BA%90%E7%A0%81%E5%81%9A%E7%9A%84%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2017-07-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-06-27-windows%E4%B8%8B-jemalloc%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-06-26-%E7%AE%80%E5%8D%95%E7%9A%84bson-oid%E7%94%9F%E6%88%90%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-06-13-qt5.9%E9%9D%99%E6%80%81%E5%BA%93%E7%BC%96%E8%AF%91vs2015-x64/</loc>
+    <lastmod>2017-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-17-mingw-%E6%9E%84%E5%BB%BA-mysql-connector-c-6.1.9%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2017-05-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-16-fnmatch%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2017-05-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-12-%E6%97%A0%E6%B3%95%E5%90%AF%E5%8A%A8%E6%AD%A4%E7%A8%8B%E5%BA%8F%E5%9B%A0%E4%B8%BA%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E4%B8%A2%E5%A4%B1-api-ms-win-crt-stdio-l1-1-0.dll-%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2017-05-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-10-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-msbuild.exe-%E7%94%9F%E6%88%90%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E4%B8%AD%E7%9A%84%E7%89%B9%E5%AE%9A%E7%9B%AE%E6%A0%87/</loc>
+    <lastmod>2017-05-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-04-mbtiles-1.2-%E8%A7%84%E8%8C%83%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2017-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-05-03-c&#43;&#43;-utf8%E5%92%8Cutf16%E4%BA%92%E8%BD%AC%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2017-05-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-27-qt-installer-framework-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%80/</loc>
+    <lastmod>2017-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-27-qt-installer-framework-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%B8%89/</loc>
+    <lastmod>2017-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-27-qt-installer-framework-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E4%BA%8C/</loc>
+    <lastmod>2017-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-25-mingw-%E6%9E%84%E5%BB%BA-geos/</loc>
+    <lastmod>2017-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-18-nmake%E6%9E%84%E5%BB%BAgeos%E5%BA%93/</loc>
+    <lastmod>2017-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-04-13-%E4%BD%BF%E7%94%A8dlib%E6%9D%A5%E8%BF%90%E8%A1%8C%E5%9F%BA%E4%BA%8Ecnn%E7%9A%84%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B/</loc>
+    <lastmod>2017-04-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-27-dlib-http-server%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-27-dlib%E5%8E%8B%E7%BC%A9%E8%A7%A3%E5%8E%8B%E7%A8%8B%E5%BA%8F%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-27-gdal%E6%B7%BB%E5%8A%A0ecw%E6%A0%BC%E5%BC%8F%E6%94%AF%E6%8C%81/</loc>
+    <lastmod>2017-03-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-23-dlib%E5%BA%93base64%E7%BC%96%E8%A7%A3%E7%A0%81%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-23-dlib%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8C%87%E5%8D%97%E5%9B%BE%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2017-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-21-dlib%E4%B8%89%E7%BB%B4%E7%82%B9%E4%BA%91%E7%A4%BA%E4%BE%8B/</loc>
+    <lastmod>2017-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-21-mingw%E7%BC%96%E8%AF%91dlib/</loc>
+    <lastmod>2017-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-03-14-%E4%BD%BF%E7%94%A8gprof2dot%E5%92%8Cgraphivz%E7%94%9F%E6%88%90%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E8%B0%83%E7%94%A8%E5%9B%BE/</loc>
+    <lastmod>2017-03-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-27-linux%E4%B8%8B%E7%BC%96%E8%AF%91zero-c-ice/</loc>
+    <lastmod>2017-02-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-24-qt-installer-framework-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
+    <lastmod>2017-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-24-qt%E5%AE%89%E8%A3%85%E6%A1%86%E6%9E%B6%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2017-02-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-20-linux%E4%B8%8B%E5%AE%89%E8%A3%85%E5%92%8C%E5%8D%B8%E8%BD%BDvmware%E4%BA%A7%E5%93%81/</loc>
+    <lastmod>2017-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-16-vs2017%E8%87%AA%E5%B8%A6vs2015%E7%BC%96%E8%AF%91%E5%99%A8%E7%AD%89%E5%9C%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8B%E6%97%A0%E6%B3%95%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-02-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-10-linux%E4%B8%8B%E6%8C%82%E8%BD%BDvhd%E7%AD%89%E8%99%9A%E6%8B%9F%E7%A3%81%E7%9B%98%E6%96%87%E4%BB%B6/</loc>
+    <lastmod>2017-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-09-windows-8.1-sdk%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-02-08-linux%E4%B8%8B%E7%BC%96%E8%AF%91upx-3.93/</loc>
+    <lastmod>2017-02-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-20-linux%E4%B8%8Brocksdbleveldbforestdb%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%AF%B9%E6%AF%94/</loc>
+    <lastmod>2017-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-20-windows%E4%B8%8B-vs2015%E7%BC%96%E8%AF%91rocksdb/</loc>
+    <lastmod>2017-01-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-19-leveldb%E5%92%8Cforestdb%E7%AE%80%E5%8D%95%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%90%AB%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2017-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-19-leveldb-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3/</loc>
+    <lastmod>2017-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-19-windows%E4%B8%8B-vs2015%E7%BC%96%E8%AF%91forestdb/</loc>
+    <lastmod>2017-01-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-18-windows%E4%B8%8B-vs2015%E7%BC%96%E8%AF%91leveldbnmake/</loc>
+    <lastmod>2017-01-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-17-libvlc_new-%E8%B0%83%E7%94%A8%E4%BA%A7%E7%94%9F%E6%AE%B5%E9%94%99%E8%AF%AF/</loc>
+    <lastmod>2017-01-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-13-%E7%94%B1%E4%B8%80%E6%AC%A1-symbol-lookup-error-%E5%BC%95%E5%8F%91%E7%9A%84%E6%80%9D%E8%80%83/</loc>
+    <lastmod>2017-01-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-11-%E8%BF%90%E8%A1%8C%E6%97%B6%E5%8A%A0%E8%BD%BD%E5%8A%A8%E6%80%81%E5%BA%93%E7%9A%84%E4%B8%80%E4%B8%AA%E5%B0%8F%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2017-01-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2017-01-03-visual-studio-%E9%BB%98%E8%AE%A4%E4%BF%9D%E5%AD%98%E4%B8%BAutf8%E7%BC%96%E7%A0%81/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-29-proj.4-%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/</loc>
+    <lastmod>2016-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-28-%E5%9F%BA%E4%BA%8Elibvlc%E5%92%8Cwxwidgets%E7%9A%84%E7%AE%80%E5%8D%95%E6%92%AD%E6%94%BE%E5%99%A8%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2016-12-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-20-c&#43;&#43;%E7%BC%96%E8%AF%91%E6%9C%9F%E9%97%B4%E5%AD%97%E8%8A%82%E5%BA%8F%E5%88%A4%E6%96%AD/</loc>
+    <lastmod>2016-12-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-15-cpuid%E6%8C%87%E4%BB%A4%E7%AE%80%E5%8D%95%E8%B0%83%E7%94%A8/</loc>
+    <lastmod>2016-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-09-linux-%E4%B8%8Bqt-webengine-%E7%A8%8B%E5%BA%8F%E6%89%93%E5%8C%85%E7%AE%80%E5%8D%95%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2016-12-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-12-06-windows%E4%B8%8Bc%E7%BC%96%E7%A8%8B%E8%8E%B7%E5%8F%96%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%88%97%E8%A1%A8%E4%BF%A1%E6%81%AF/</loc>
+    <lastmod>2016-12-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-11-23-qt%E6%8B%96%E6%8B%BD%E7%95%8C%E9%9D%A2-.ui-%E7%BC%A9%E6%94%BE%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/</loc>
+    <lastmod>2016-11-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-11-11-libvlc-api-%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E-%E8%BD%AC/</loc>
+    <lastmod>2016-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-11-10-windows%E4%B8%8B-vs2015%E7%BC%96%E8%AF%91boost1.62/</loc>
+    <lastmod>2016-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-11-10-qt%E6%B7%BB%E5%8A%A0cef%E5%BA%93%E5%B5%8C%E5%85%A5web-%E8%BD%AC/</loc>
+    <lastmod>2016-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-10-27-alisql%E7%9A%84%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2016-10-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-10-21-linux%E4%B8%8B%E7%BC%96%E8%AF%91gcc6.2.0/</loc>
+    <lastmod>2016-10-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-10-14-transmitfile%E5%87%BD%E6%95%B0%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2016-10-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-18-c&#43;&#43;11%E7%9A%84%E7%AE%80%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BB%A3%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2016-09-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-08-tjpgdec%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/</loc>
+    <lastmod>2016-09-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-07-tjpgdec%E8%BD%BB%E9%87%8F%E7%BA%A7jpeg%E8%A7%A3%E7%A0%81%E5%99%A8/</loc>
+    <lastmod>2016-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-06-ppm%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E5%8F%8A%E5%85%B6c%E8%AF%BB%E5%86%99%E4%BB%A3%E7%A0%81/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-06-linux%E4%B8%8Bvmware%E7%9A%84%E5%AE%89%E8%A3%85%E7%89%A9%E7%90%86%E5%88%86%E5%8C%BA%E4%BD%BF%E7%94%A8%E5%8F%8A%E5%8D%B8%E8%BD%BD/</loc>
+    <lastmod>2016-09-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-09-01-visual-stuido-%E8%B7%A8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%E8%B0%83%E8%AF%95/</loc>
+    <lastmod>2016-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-31-proj.4%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F%E5%88%9B%E5%BB%BA%E5%8F%82%E6%95%B0/</loc>
+    <lastmod>2016-08-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-30-gcc-%E7%BC%96%E8%AF%91%E4%BC%98%E5%8C%96%E6%8C%87%E5%8D%97%E8%BD%AC/</loc>
+    <lastmod>2016-08-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-26-proj.4-api-%E4%B8%AD%E6%96%87%E5%8F%82%E8%80%83/</loc>
+    <lastmod>2016-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-24-proj.4%E6%8A%95%E5%BD%B1%E5%8F%98%E6%8D%A2%E5%9B%BE%E7%A4%BA/</loc>
+    <lastmod>2016-08-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-20-mongodb_c_driver%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B2%E9%AB%98%E7%BA%A7%E8%BF%9E%E6%8E%A5/</loc>
+    <lastmod>2016-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-16-freeimage%E7%BC%96%E8%AF%91%E5%8F%8A%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-16-qt-stylesheet%E7%9A%AE%E8%82%A4css%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-16-linux%E4%B8%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85vim7.4%E5%B9%B6%E5%AE%89%E8%A3%85clang_complete%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2016-08-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-12-qt5.7%E4%B8%AD%E4%BD%BF%E7%94%A8mysql-driver/</loc>
+    <lastmod>2016-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-08-proj4%E5%88%9D%E6%8E%A2%E8%BD%AC%E5%B9%B6%E6%95%B4%E7%90%86%E6%A0%BC%E5%BC%8F/</loc>
+    <lastmod>2016-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-05-qt%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%9B%BE%E6%A0%87%E8%AE%BE%E7%BD%AE/</loc>
+    <lastmod>2016-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-05-mongo-c-driver%E4%BD%BF%E7%94%A8vs2013%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2016-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-08-03-mongodb-c-driver%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2016-08-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-07-20-opencv-2.4.13-%E7%BC%96%E8%AF%91%E4%BD%BF%E7%94%A8vs2015%E4%B8%8B/</loc>
+    <lastmod>2016-07-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-07-15-proj.4%E5%BA%93%E7%9A%84%E7%BC%96%E8%AF%91%E5%8F%8A%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2016-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-06-12-vs2013%E7%BC%96%E8%AF%91qt5.6.0%E9%9D%99%E6%80%81%E5%BA%93/</loc>
+    <lastmod>2016-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-06-01-6%E4%B8%AA%E5%8F%98%E6%80%81%E7%9A%84c%E8%AF%AD%E8%A8%80hello-world%E7%A8%8B%E5%BA%8F/</loc>
+    <lastmod>2016-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-06-01-c%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%8F%B2%E4%B8%8A%E6%9C%80%E6%84%9A%E8%A0%A2%E7%9A%84bug/</loc>
+    <lastmod>2016-06-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-05-19-sqlite%E8%BF%94%E5%9B%9E%E7%A0%81/</loc>
+    <lastmod>2016-05-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-05-18-vs2013-%E9%A2%84%E5%AE%9A%E4%B9%89%E7%9A%84%E5%AE%8F/</loc>
+    <lastmod>2016-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-05-05-%E5%BE%AE%E5%9E%8Bhttp%E6%9C%8D%E5%8A%A1%E5%99%A8tiny-http-server/</loc>
+    <lastmod>2016-05-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-05-04-tinyhttp%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E6%B3%A8%E9%87%8A/</loc>
+    <lastmod>2016-05-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-04-25-bson-1.0%E7%89%88%E6%9C%AC%E8%A7%84%E8%8C%83%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2016-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-04-19-linux%E4%B8%8B%E7%BC%96%E8%AF%91qt5.6.0%E9%9D%99%E6%80%81%E5%BA%93configure%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2016-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-04-18-linux-mount%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E5%8F%8A%E7%94%A8%E6%B3%95%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2016-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-04-18-linux%E4%B8%8B%E7%9A%84.dev.shm%E7%9B%AE%E5%BD%95/</loc>
+    <lastmod>2016-04-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-04-08-linux%E4%B8%8B%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E5%AE%89%E8%A3%85%E7%A6%85%E9%81%93%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2016-04-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-03-23-tfw%E6%A0%BC%E5%BC%8F%E5%9B%BE%E8%A7%A3/</loc>
+    <lastmod>2016-03-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-02-02-yaourt-a-pacman-frontendpacman%E5%89%8D%E7%AB%AF%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2016-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-01-26-opengl%E5%AE%98%E6%96%B9%E6%95%99%E7%A8%8B%E7%9D%80%E8%89%B2%E5%99%A8%E8%AF%AD%E8%A8%80%E6%A6%82%E8%BF%B0/</loc>
+    <lastmod>2016-01-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-01-15-%E7%BF%BB%E8%AF%91opengl%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B1/</loc>
+    <lastmod>2016-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-01-15-%E7%BF%BB%E8%AF%91opengl%E6%89%A9%E5%B1%95%E6%95%99%E7%A8%8B2/</loc>
+    <lastmod>2016-01-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-01-12-git-it%E5%AD%97%E5%85%B8%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2016-01-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2016-01-08-%E8%A7%A3%E5%86%B3-qtcreator-3.54.0%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2016-01-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-12-29-valgrind-3.11.0%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2015-12-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-12-23-ubuntu-linux-%E4%B8%8Bwine%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-12-23-ubuntu15.10%E4%B8%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85wine1.8-rc4/</loc>
+    <lastmod>2015-12-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-12-14-%E9%AA%8C%E8%AF%81%E7%A0%81%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2015-12-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-12-10-osc%E7%9A%84git%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2015-12-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-11-27-net-snmp%E6%BA%90%E7%A0%81vs2013%E7%BC%96%E8%AF%91%E6%B7%BB%E5%8A%A0%E5%8A%A0%E5%AF%86%E6%94%AF%E6%8C%81openssl/</loc>
+    <lastmod>2015-11-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-10-15-windows%E4%B8%8Bc%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B%E8%8E%B7%E5%8F%96%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA%E4%BD%BF%E7%94%A8%E6%83%85%E5%86%B5/</loc>
+    <lastmod>2015-10-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-10-13-linux%E4%B8%AD%E7%9A%84%E5%8A%A8%E6%80%81%E5%BA%93%E5%92%8C%E9%9D%99%E6%80%81%E5%BA%93.a..la..so..o/</loc>
+    <lastmod>2015-10-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-10-08-u%E7%9B%98%E5%AE%89%E8%A3%85%E4%B8%AD%E6%A0%87%E9%BA%92%E9%BA%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%B8%80-neokylin-6.5/</loc>
+    <lastmod>2015-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-10-08-u%E7%9B%98%E5%AE%89%E8%A3%85%E4%B8%AD%E6%A0%87%E9%BA%92%E9%BA%9F%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E4%BA%8C-neokylin-6.5/</loc>
+    <lastmod>2015-10-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-10-06-windows%E4%B8%8B%E7%9A%84getopt.getoptlong%E5%87%BD%E6%95%B0/</loc>
+    <lastmod>2015-10-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-09-28-net-snmp%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/</loc>
+    <lastmod>2015-09-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-09-16-net-snmp5.7.3%E7%A7%BB%E6%A4%8D%E5%88%B0arm-linux%E5%B9%B3%E5%8F%B0/</loc>
+    <lastmod>2015-09-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-09-07-net-snmp%E5%BC%80%E5%8F%91%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA/</loc>
+    <lastmod>2015-09-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-26-snmp%E5%B8%B8%E7%94%A8%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2015-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-17-38-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%85%ADlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-17-39-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E4%B8%83live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-17-40-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%85%ABlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-12-33-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E4%B8%80live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-12-34-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E4%BA%8Clive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-12-35-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E4%B8%89live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-12-36-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E5%9B%9Blive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-12-37-%E7%BD%91%E7%BB%9C%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0%E4%BA%94live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-08-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-10-snmp%E7%AE%80%E5%8D%95%E7%BD%91%E7%BB%9C%E7%AE%A1%E7%90%86%E5%8D%8F%E8%AE%AE%E8%BD%AC%E8%BD%BD/</loc>
+    <lastmod>2015-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-10-net-snmp%E9%85%8D%E7%BD%AE-snmp-v3%E7%9A%84%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2015-08-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-08-06-net-snmp%E5%AD%90%E4%BB%A3%E7%90%86subagent%E7%BC%96%E5%86%99%E8%AF%A6%E8%BF%B0/</loc>
+    <lastmod>2015-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-31-picturecutting%E5%9B%BE%E7%89%87%E6%89%B9%E9%87%8F%E8%A3%81%E5%88%87%E8%A3%81%E5%89%AA%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2015-07-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-30-gcc%E7%BC%96%E8%AF%91%E6%97%B6%E5%AF%B9xxxx%E6%9C%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E5%BC%95%E7%94%A8%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-30-linux%E4%B8%8Bqtcreator%E6%97%A0%E6%B3%95%E8%BE%93%E5%85%A5%E4%B8%AD%E6%96%87%E7%9A%84%E6%83%85%E5%86%B5/</loc>
+    <lastmod>2015-07-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-28-snmp%E6%8A%A5%E6%96%87%E6%8A%93%E5%8F%96%E4%B8%8E%E5%88%86%E6%9E%90%E4%BA%8C/</loc>
+    <lastmod>2015-07-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-23-snmp%E6%8A%A5%E6%96%87%E6%8A%93%E5%8F%96%E4%B8%8E%E5%88%86%E6%9E%90%E4%B8%80/</loc>
+    <lastmod>2015-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-23-%E6%88%91%E7%9A%84vim%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8.%E6%A0%91%E5%BD%A2%E6%96%87%E4%BB%B6%E6%B5%8F%E8%A7%88/</loc>
+    <lastmod>2015-07-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-21-u%E7%9B%98%E5%AE%89%E8%A3%85ubuntu-server-14.04/</loc>
+    <lastmod>2015-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-21-vim%E5%B8%AE%E5%8A%A9%E6%89%8B%E5%86%8C%E6%B1%89%E5%8C%96/</loc>
+    <lastmod>2015-07-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-17-qt-%E4%BF%A1%E5%8F%B7%E4%B8%8E%E6%A7%BDconnect/</loc>
+    <lastmod>2015-07-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-15-5-python%E5%AD%A6%E4%B9%A0%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/</loc>
+    <lastmod>2015-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-15-linux%E4%B8%8B%E4%B8%80%E4%B8%AA%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E9%97%AE%E9%A2%98%E6%96%87%E4%BB%B6%E5%90%8D%E4%BB%A5%E7%9F%AD%E5%88%92%E7%BA%BF%E6%88%96%E7%A9%BA%E6%A0%BC%E5%BC%80%E5%A4%B4/</loc>
+    <lastmod>2015-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-13-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BF%BB%E8%AF%91%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2015-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-09-linux%E4%B8%8B%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8libuuiduuid-generate/</loc>
+    <lastmod>2015-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-09-linux%E4%B8%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85boost%E5%BA%93/</loc>
+    <lastmod>2015-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-08-30-groupsockportlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-08-31-groupsockaddressstringlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-08-32-groupsockaddressportlookuptablelive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-08-ini%E6%96%87%E4%BB%B6%E7%9A%84%E8%AF%BB%E5%8F%96c%E8%AF%AD%E8%A8%80-getprivateprofilestring.getprivateprofileint/</loc>
+    <lastmod>2015-07-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-02-c.c&#43;&#43;%E7%9B%B8%E5%AF%B9%E8%AE%BAc&#43;&#43;%E4%B8%AD%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8%E5%BC%82%E5%B8%B8/</loc>
+    <lastmod>2015-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-02-getopt%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8%E5%88%86%E6%9E%90%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0/</loc>
+    <lastmod>2015-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-02-linux.windows%E4%B8%8B%E5%90%AF%E7%94%A8%E5%92%8C%E5%81%9C%E6%AD%A2vmware%E5%90%8E%E5%8F%B0%E6%9C%8D%E5%8A%A1%E7%9A%84%E8%84%9A%E6%9C%AC/</loc>
+    <lastmod>2015-07-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-01-27-groupsock%E6%A6%82%E8%BF%B0%E4%B8%80live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-01-28-groupsocknetaddresslive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-01-29-groupsocknetaddresslistlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E5%9B%9B%E7%BD%91%E7%BB%9C/</loc>
+    <lastmod>2015-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-01-linux%E4%B8%8Bvmware%E5%AE%89%E8%A3%85%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</loc>
+    <lastmod>2015-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-07-01-windows%E4%B8%8B%E7%9A%84socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</loc>
+    <lastmod>2015-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-23-%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83-usageenvironmentlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-24-usageenvironment%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%89usageenvironment/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-25-basicusageenvironment0%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83%E5%9F%BA%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%89usageenvironment/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-26-basicusageenvironment%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E7%8E%AF%E5%A2%83live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%89usageenvironment/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-nc-%E5%B1%80%E5%9F%9F%E7%BD%91%E8%81%8A%E5%A4%A9&#43;%E6%96%87%E4%BB%B6%E4%BC%A0%E8%BE%93netcat/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-%E4%B8%80%E4%B8%AA%E6%8C%89%E6%AF%94%E7%89%B9%E4%BD%8D%E6%8B%B7%E8%B4%9D%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%BD%E6%95%B0copybits/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-30-%E7%AE%80%E5%8D%95%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8%E5%AE%9E%E7%8E%B0-c%E8%AF%AD%E8%A8%80/</loc>
+    <lastmod>2015-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-26-%E5%85%B3%E4%BA%8Elinux%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2015-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-26-%E5%85%B3%E4%BA%8Eubuntukylin%E5%AE%89%E8%A3%85%E5%90%8E%E7%95%8C%E9%9D%A2%E4%B8%AD%E8%8B%B1%E6%96%87%E6%B7%B7%E6%9D%82%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2015-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-26-%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE%E5%8C%85%E5%8F%91%E9%80%81%E5%B7%A5%E5%85%B7packetsender%E4%B8%AD%E6%96%87%E6%BA%90%E7%A0%81/</loc>
+    <lastmod>2015-06-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-12-%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9B%B8%E5%85%B3%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-13-hashtable%E6%8A%BD%E8%B1%A1%E5%93%88%E5%B8%8C%E8%A1%A8%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-14-basichashtable%E5%9F%BA%E6%9C%AC%E5%93%88%E5%B8%8C%E8%A1%A8%E7%B1%BB%E4%B8%80live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-15-basichashtable%E5%9F%BA%E6%9C%AC%E5%93%88%E5%B8%8C%E8%A1%A8%E7%B1%BB%E4%BA%8Clive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-16-basichashtable%E5%9F%BA%E6%9C%AC%E5%93%88%E5%B8%8C%E8%A1%A8%E7%B1%BB%E4%B8%89live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-17-%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB%E7%BB%BC%E8%BF%B0live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-18-taskscheduler%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E6%8A%BD%E8%B1%A1%E5%9F%BA%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-19-basictaskscheduler0-%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%B1%BB%E5%9F%BA%E7%B1%BB%E4%B8%80live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-20-basictaskscheduler0-%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%B1%BB%E5%9F%BA%E7%B1%BB%E4%BA%8Clive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-21-basictaskscheduler%E5%9F%BA%E6%9C%AC%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E5%99%A8%E4%B8%80live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E7%9B%B8%E5%85%B3%E7%B1%BB/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-25-net-snmp%E7%9A%84mibs%E6%89%A9%E5%B1%95linux%E4%B8%8B/</loc>
+    <lastmod>2015-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-10-delayqueue-%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-11-alarmhandler%E5%AE%9A%E6%97%B6%E5%A4%84%E7%90%86%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-2-delayinterval%E5%BB%B6%E6%97%B6%E9%97%B4%E9%9A%94%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-3-eventtime-%E4%BA%8B%E4%BB%B6%E6%97%B6%E9%97%B4%E7%B1%BB%E5%92%8Ctimenow%E5%87%BD%E6%95%B0live555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-4-handler%E7%9B%B8%E5%85%B3%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-5-handleriterator%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E8%BF%AD%E4%BB%A3%E5%99%A8%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-6-handlerdescriptor-%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E6%8F%8F%E8%BF%B0%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-7-handlerset-%E5%A4%84%E7%90%86%E7%A8%8B%E5%BA%8F%E9%93%BE%E8%A1%A8%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-8-%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97%E7%9B%B8%E5%85%B3%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-9-delayqueueentry-%E5%BB%B6%E6%97%B6%E9%98%9F%E5%88%97%E8%8A%82%E7%82%B9%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-qt%E5%9B%BD%E9%99%85%E5%8C%96-%E4%B8%80-lupdate.linguits.lrelease/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-24-timeval%E7%B1%BBlive555%E6%BA%90%E7%A0%81%E9%98%85%E8%AF%BB%E4%B8%80%E5%9F%BA%E6%9C%AC%E7%BB%84%E4%BB%B6%E7%B1%BB/</loc>
+    <lastmod>2015-06-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-1-python%E5%AD%A6%E4%B9%A0python%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-2-python%E5%AD%A6%E4%B9%A0hello-world/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-3-python%E5%AD%A6%E4%B9%A0%E5%8F%98%E9%87%8F/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-4-python%E5%AD%A6%E4%B9%A0%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-linux%E4%B8%8B%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85apache-http-server/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-string%E5%B0%81%E8%A3%85%E8%AF%BB%E6%97%B6%E5%85%B1%E4%BA%AB%E5%86%99%E6%97%B6%E5%A4%8D%E5%88%B6/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-ubuntu14.04%E5%AE%89%E8%A3%85intel%E9%9B%86%E6%98%BE%E9%A9%B1%E5%8A%A8/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-linux%E5%9B%9E%E6%94%B6%E7%AB%99%E8%AE%BE%E8%AE%A1/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-net-snmp-5.7.3%E9%85%8D%E7%BD%AE%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-net-snmp%E7%9A%84dateandtime%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-qmake%E7%9A%84%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-ubuntu%E4%B8%8B%E7%BC%96%E8%AF%91vlc/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/post/2015-06-23-%E5%B0%86apache%E5%8A%A0%E5%85%A5%E5%88%B0linux%E7%B3%BB%E7%BB%9Fservice/</loc>
+    <lastmod>2015-06-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://sotex.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

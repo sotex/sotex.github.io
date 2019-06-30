@@ -1,0 +1,275 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux/windows下启用和停止VMware后台服务的脚本 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux/windows下启用和停止VMware后台服务的脚本</h1>
+          <span class="post-date">2015年07月02日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/02/4615798.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/02/4615798.html</a>
+<h2 id="linuxwindowsvmware">linux/windows下启用和停止VMware后台服务的脚本</h2>
+<div class="toc">
+<ul>
+<li><a href="#linuxwindowsvmware">linux/windows下启用和停止VMware后台服务的脚本</a>
+<ul>
+<li><a href="#linux">linux平台</a></li>
+<li><a href="#windows">windows平台</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="linux">linux平台</h2>
+<p>将以下代码保存为脚本。（适用于<code>debian</code>系）</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> #! /bin/<span style="color: #000000;">bash
+</span><span style="color: #008080;">2</span> <span style="color: #000000;">#停止vmware
+</span><span style="color: #008080;">3</span> <span style="color: #0000ff;">sudo</span><span style="color: #000000;"> service vmware stop
+</span><span style="color: #008080;">4</span> #停止vmware-<span style="color: #000000;">USBArbitrator
+</span><span style="color: #008080;">5</span> <span style="color: #0000ff;">sudo</span> service vmware-<span style="color: #000000;">USBArbitrator stop
+</span><span style="color: #008080;">6</span> #停止vmware-workstation-<span style="color: #000000;">server
+</span><span style="color: #008080;">7</span> <span style="color: #0000ff;">sudo</span> service vmware-workstation-<span style="color: #000000;">server stop
+</span><span style="color: #008080;">8</span> <span style="color: #000000;">#关闭相关进程
+</span><span style="color: #008080;">9</span> <span style="color: #0000ff;">sudo</span> <span style="color: #0000ff;">killall</span> vmware*</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="windows">windows平台</h2>
+<p>将下面的代码保存为<code>xxx.bat</code>。注意使用的时候要使用管理员权限运行。<code class="bat">
+</code></p>
+<div class="cnblogs_code" onclick="cnblogs_code_show('8f4f9712-1b45-4268-b31d-c1dcdc2290b6')"><img id="code_img_closed_8f4f9712-1b45-4268-b31d-c1dcdc2290b6" class="code_img_closed" src="http://images.cnblogs.com/OutliningIndicators/ContractedBlock.gif" alt="" /><img id="code_img_opened_8f4f9712-1b45-4268-b31d-c1dcdc2290b6" class="code_img_opened" style="display: none;" onclick="cnblogs_code_hide('8f4f9712-1b45-4268-b31d-c1dcdc2290b6',event)" src="http://images.cnblogs.com/OutliningIndicators/ExpandedBlockStart.gif" alt="" />
+<div id="cnblogs_code_open_8f4f9712-1b45-4268-b31d-c1dcdc2290b6" class="cnblogs_code_hide">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">@echo</span> <span style="color: #0000ff;">off</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">for</span> /f &ldquo;skip=3 tokens=4&rdquo; %%i in (&lsquo;sc query &ldquo;VMAuthdService&rdquo;&rsquo;) <span style="color: #0000ff;">do</span> <span style="color: #0000ff;">set</span> &ldquo;zt=%%i&rdquo; &amp;<span style="color: #0000ff;">goto</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;"> 3</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">if</span> /i &ldquo;%zt%&rdquo;==&ldquo;RUNNING&rdquo; (
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware Authorization Service正在运行
+</span><span style="color: #008080;"> 6</span> ) <span style="color: #0000ff;">else</span> (
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware Authorization Service已停止
+</span><span style="color: #008080;"> 8</span> )
+<span style="color: #008080;"> 9</span> <span style="color: #0000ff;">for</span> /f &ldquo;skip=3 tokens=4&rdquo; %%i in (&lsquo;sc query &ldquo;VMnetDHCP&rdquo;&rsquo;) <span style="color: #0000ff;">do</span> <span style="color: #0000ff;">set</span> &ldquo;zt=%%i&rdquo; &amp;<span style="color: #0000ff;">goto</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">10</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">11</span> <span style="color: #0000ff;">if</span> /i &ldquo;%zt%&rdquo;==&ldquo;RUNNING&rdquo; (
+<span style="color: #008080;">12</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware DHCP Service正在运行
+</span><span style="color: #008080;">13</span> ) <span style="color: #0000ff;">else</span> (
+<span style="color: #008080;">14</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware DHCP Service已停止
+</span><span style="color: #008080;">15</span> )
+<span style="color: #008080;">16</span> <span style="color: #0000ff;">for</span> /f &ldquo;skip=3 tokens=4&rdquo; %%i in (&lsquo;sc query &ldquo;VMware NAT Service&rdquo;&rsquo;) <span style="color: #0000ff;">do</span> <span style="color: #0000ff;">set</span> &ldquo;zt=%%i&rdquo; &amp;<span style="color: #0000ff;">goto</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">17</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">18</span> <span style="color: #0000ff;">if</span> /i &ldquo;%zt%&rdquo;==&ldquo;RUNNING&rdquo; (
+<span style="color: #008080;">19</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware NAT Service正在运行
+</span><span style="color: #008080;">20</span> ) <span style="color: #0000ff;">else</span> (
+<span style="color: #008080;">21</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware NAT Service已停止
+</span><span style="color: #008080;">22</span> )
+<span style="color: #008080;">23</span> <span style="color: #0000ff;">for</span> /f &ldquo;skip=3 tokens=4&rdquo; %%i in (&lsquo;sc query &ldquo;VMUSBArbService&rdquo;&rsquo;) <span style="color: #0000ff;">do</span> <span style="color: #0000ff;">set</span> &ldquo;zt=%%i&rdquo; &amp;<span style="color: #0000ff;">goto</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">24</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">25</span> <span style="color: #0000ff;">if</span> /i &ldquo;%zt%&rdquo;==&ldquo;RUNNING&rdquo; (
+<span style="color: #008080;">26</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware USB Arbitration Service正在运行
+</span><span style="color: #008080;">27</span> ) <span style="color: #0000ff;">else</span> (
+<span style="color: #008080;">28</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware USB Arbitration Service已停止
+</span><span style="color: #008080;">29</span> )
+<span style="color: #008080;">30</span> <span style="color: #0000ff;">for</span> /f &ldquo;skip=3 tokens=4&rdquo; %%i in (&lsquo;sc query &ldquo;VMwareHostd&rdquo;&rsquo;) <span style="color: #0000ff;">do</span> <span style="color: #0000ff;">set</span> &ldquo;zt=%%i&rdquo; &amp;<span style="color: #0000ff;">goto</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">31</span> <span style="color: #800000;">:next</span>
+<span style="color: #008080;">32</span> <span style="color: #0000ff;">if</span> /i &ldquo;%zt%&rdquo;==&ldquo;RUNNING&rdquo; (
+<span style="color: #008080;">33</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VVMware Workstation Server正在运行
+</span><span style="color: #008080;">34</span> ) <span style="color: #0000ff;">else</span> (
+<span style="color: #008080;">35</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 服务VMware Workstation Server已停止
+</span><span style="color: #008080;">36</span> )
+<span style="color: #008080;">37</span> <span style="color: #0000ff;">pause</span>
+<span style="color: #008080;">38</span> <span style="color: #0000ff;">echo</span> 1<span style="color: #000000;">：启用VM虚拟机服务（VMware Authorization Service、VMware DHCP Service、VMware NAT Service、VMware USB Arbitration Service、VMware Workstation Server）及网络连接（VMware Network
+</span><span style="color: #008080;">39</span> <span style="color: #000000;">Adapter VMnet1、VMware Network Adapter VMnet8）
+</span><span style="color: #008080;">40</span> <span style="color: #0000ff;">echo</span> 2<span style="color: #000000;">：禁用VM虚拟机服务（VMware Authorization Service、VMware DHCP Service、VMware NAT Service、VMware USB Arbitration Service、VMware Workstation Server）及网络连接（VMware Network
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">Adapter VMnet1、VMware Network Adapter VMnet8）
+</span><span style="color: #008080;">42</span> <span style="color: #0000ff;">choice</span> /c:12 /m &ldquo;根据选项请选择&hellip;&rdquo;
+<span style="color: #008080;">43</span> <span style="color: #0000ff;">if</span> <span style="color: #0000ff;">errorlevel</span> 2 <span style="color: #0000ff;">goto</span><span style="color: #000000;"> two
+</span><span style="color: #008080;">44</span> <span style="color: #0000ff;">if</span> <span style="color: #0000ff;">errorlevel</span> 1 <span style="color: #0000ff;">goto</span><span style="color: #000000;"> one
+</span><span style="color: #008080;">45</span> <span style="color: #800000;">:one</span>
+<span style="color: #008080;">46</span> <span style="color: #0000ff;">echo</span> 正在启用服务&hellip;
+<span style="color: #008080;">47</span> <span style="color: #0000ff;">net</span> <span style="color: #0000ff;">start</span> &ldquo;VMAuthdService&rdquo;
+<span style="color: #008080;">48</span> <span style="color: #0000ff;">net</span> <span style="color: #0000ff;">start</span> &ldquo;VMnetDHCP&rdquo;
+<span style="color: #008080;">49</span> <span style="color: #0000ff;">net</span> <span style="color: #0000ff;">start</span> &ldquo;VMware NAT Service&rdquo;
+<span style="color: #008080;">50</span> <span style="color: #0000ff;">net</span> <span style="color: #0000ff;">start</span> &ldquo;VMUSBArbService&rdquo;
+<span style="color: #008080;">51</span> <span style="color: #0000ff;">net</span> <span style="color: #0000ff;">start</span> &ldquo;VMwareHostd&rdquo;
+<span style="color: #008080;">52</span> <span style="color: #0000ff;">echo</span> 正在启用网络连接&hellip;
+<span style="color: #008080;">53</span> netsh interface <span style="color: #0000ff;">set</span> interface &ldquo;VMware Network Adapter VMnet1&rdquo;<span style="color: #000000;"> enable
+</span><span style="color: #008080;">54</span> netsh interface <span style="color: #0000ff;">set</span> interface &ldquo;VMware Network Adapter VMnet8&rdquo;<span style="color: #000000;"> enable
+</span><span style="color: #008080;">55</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 网络连接VMware Network Adapter VMnet1、VMware Network Adapter VMnet8启动成功
+</span><span style="color: #008080;">56</span> <span style="color: #0000ff;">echo</span> 按任意键退出&hellip;
+<span style="color: #008080;">57</span> <span style="color: #0000ff;">pause</span>&gt;<span style="color: #000000;">nul
+</span><span style="color: #008080;">58</span> C:\&ldquo;Program Files (x86)&rdquo;\VMware\&ldquo;VMware Workstation&rdquo;\vmware.<span style="color: #000000;">exe
+</span><span style="color: #008080;">59</span> <span style="color: #0000ff;">exit</span>
+<span style="color: #008080;">60</span> <span style="color: #800000;">:two</span>
+<span style="color: #008080;">61</span> <span style="color: #0000ff;">echo</span> 正在禁用服务服务&hellip;
+<span style="color: #008080;">62</span> <span style="color: #0000ff;">net</span> stop &ldquo;VMAuthdService&rdquo;
+<span style="color: #008080;">63</span> <span style="color: #0000ff;">net</span> stop &ldquo;VMnetDHCP&rdquo;
+<span style="color: #008080;">64</span> <span style="color: #0000ff;">net</span> stop &ldquo;VMware NAT Service&rdquo;
+<span style="color: #008080;">65</span> <span style="color: #0000ff;">net</span> stop &ldquo;VMUSBArbService&rdquo;
+<span style="color: #008080;">66</span> <span style="color: #0000ff;">net</span> stop &ldquo;VMwareHostd&rdquo;
+<span style="color: #008080;">67</span> <span style="color: #0000ff;">echo</span> 正在禁用网络连接&hellip;
+<span style="color: #008080;">68</span> netsh interface <span style="color: #0000ff;">set</span> interface &ldquo;VMware Network Adapter VMnet1&rdquo;<span style="color: #000000;"> disable
+</span><span style="color: #008080;">69</span> netsh interface <span style="color: #0000ff;">set</span> interface &ldquo;VMware Network Adapter VMnet8&rdquo;<span style="color: #000000;"> disable
+</span><span style="color: #008080;">70</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 网络连接VMware Network Adapter VMnet1、VMware Network Adapter VMnet8禁用成功
+</span><span style="color: #008080;">71</span> <span style="color: #0000ff;">echo</span><span style="color: #000000;"> 正在结束进程
+</span><span style="color: #008080;">72</span> taskkill /F /IM vmware-authd.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">73</span> taskkill /F /IM vmnetdhcp.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">74</span> taskkill /F /IM vmnat.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">75</span> taskkill /F /IM vmware-usbarbitrator64.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">76</span> taskkill /F /IM vmware-hostd.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">77</span> taskkill /F /IM vmware-tray.exe /<span style="color: #000000;">T
+</span><span style="color: #008080;">78</span> <span style="color: #0000ff;">echo</span> 按任意键退出&hellip;
+<span style="color: #008080;">79</span> <span style="color: #0000ff;">pause</span>&gt;<span style="color: #000000;">nul
+</span><span style="color: #008080;">80</span> <span style="color: #0000ff;">exit</span> </pre>
+</div>
+<span class="cnblogs_code_collapse">查看 xxx.bat</span></div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

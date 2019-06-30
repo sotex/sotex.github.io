@@ -1,0 +1,240 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 35 网络相关函数(三)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>35 网络相关函数(三)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月12日</span>
+          <dl>
+<dt>NoReuse::NoReuse(UsageEnvironment&amp;<span style="color: #000000;"> env)</dt>
+<dd>fEnv(env) {
+groupsockPriv(fEnv)</span>-&gt;reuseFlag = <span style="color: #800080;">0</span><span style="color: #000000;">;
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>只要<code>env.groupsockPriv-&gt;socketTable==NULL</code>成立，就释放<code>env.groupsockPriv</code>指向对象。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 若groupsockPriv对象的socketTable==NULL
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 析构的时候为env.groupsockPriv释放对象</span>
+NoReuse::~<span style="color: #000000;">NoReuse() {
+groupsockPriv(fEnv)</span>-&gt;reuseFlag = <span style="color: #800080;">1</span><span style="color: #000000;">;
+reclaimGroupsockPriv(fEnv);
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="6initializewinsockifnecessary-winsock">6)initializeWinsockIfNecessary 根据需要初始化winSock</h2>
+<p>这个函数只用于<code>windows</code>系列操作系统。<br />
+<code>windows</code>网络编程是一件麻烦事，其必须要先进行<code>一系列初始化</code>的操作。<br />
+如果不是windows平台，这个函数会被宏替换为<code>1</code>，就是说必然成功。<code class="cpp">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">#if</span> defined(<strong>WIN32</strong>) || defined(_WIN32)
+<span style="color: #008080;"> 2</span> <span style="color: #000000;">#ifndef IMN_PIM
+</span><span style="color: #008080;"> 3</span> <span style="color: #0000ff;">#define</span> WS_VERSION_CHOICE1 0x202/<em>MAKEWORD(2,2)</em>/
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">#define</span> WS_VERSION_CHOICE2 0x101/<em>MAKEWORD(1,1)</em>/
+<span style="color: #008080;"> 5</span> <span style="color: #0000ff;">int</span> initializeWinsockIfNecessary(<span style="color: #0000ff;">void</span><span style="color: #000000;">) {
+</span><span style="color: #008080;"> 6</span>     <span style="color: #008000;">/*</span><span style="color: #008000;"> We need to call an initialization routine before
+</span><span style="color: #008080;"> 7</span> <span style="color: #008000;">     * we can do anything with winsock.  (How fucking lame!):
+</span><span style="color: #008080;"> 8</span> <span style="color: #008000;">     我们需要调用初始化例程
+</span><span style="color: #008080;"> 9</span> <span style="color: #008000;">     之后我们可以用Winsock做任何事。（怎么他妈的没用的！）：
+</span><span style="color: #008080;">10</span>      <span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">11</span>     <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> _haveInitializedWinsock = <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">    WSADATA wsadata;
+</span><span style="color: #008080;">13</span>
+<span style="color: #008080;">14</span>     <span style="color: #0000ff;">if</span> (!<span style="color: #000000;">_haveInitializedWinsock) {
+</span><span style="color: #008080;">15</span>         <span style="color: #0000ff;">if</span> ((WSAStartup(WS_VERSION_CHOICE1, &amp;wsadata) != <span style="color: #800080;">0</span><span style="color: #000000;">)
+</span><span style="color: #008080;">16</span>             &amp;&amp; ((WSAStartup(WS_VERSION_CHOICE2, &amp;wsadata)) != <span style="color: #800080;">0</span><span style="color: #000000;">)) {
+</span><span style="color: #008080;">17</span>             <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>; <span style="color: #008000;">/</em></span><span style="color: #008000;"> error in initialization </span><span style="color: #008000;"><em>/</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">19</span>             <span style="color: #0000ff;">if</span> ((wsadata.wVersion !=<span style="color: #000000;"> WS_VERSION_CHOICE1)
+</span><span style="color: #008080;">20</span>                 &amp;&amp; (wsadata.wVersion !=<span style="color: #000000;"> WS_VERSION_CHOICE2)) {
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">                WSACleanup();
+</span><span style="color: #008080;">22</span>                 <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>; <span style="color: #008000;">/</em></span><span style="color: #008000;"> desired Winsock version was not available </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">23</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">24</span>         _haveInitializedWinsock = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">26</span>
+<span style="color: #008080;">27</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">29</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">30</span> <span style="color: #0000ff;">int</span> initializeWinsockIfNecessary(<span style="color: #0000ff;">void</span>) { <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">31</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">32</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">33</span> <span style="color: #0000ff;">#define</span> initializeWinsockIfNecessary() 1
+<span style="color: #008080;">34</span> <span style="color: #0000ff;">#endif</span></pre>
+</div>
+<p>&nbsp;</p></dd>
+</dl>
+
+<p>yle=&ldquo;color: #008000;&ldquo;&gt;<em>/</span>
+<span style="color: #008080;">18</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">19</span>             <span style="color: #0000ff;">if</span> ((wsadata.wVersion !=<span style="color: #000000;"> WS_VERSION_CHOICE1)
+</span><span style="color: #008080;">20</span>                 &amp;&amp; (wsadata.wVersion !=<span style="color: #000000;"> WS_VERSION_CHOICE2)) {
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">                WSACleanup();
+</span><span style="color: #008080;">22</span>                 <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span>; <span style="color: #008000;">/</em></span><span style="color: #008000;"> desired Winsock version was not available </span><span style="color: #008000;">*/</span>
+<span style="color: #008080;">23</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">24</span>         _haveInitializedWinsock = <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">26</span>
+<span style="color: #008080;">27</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">29</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">30</span> <span style="color: #0000ff;">int</span> initializeWinsockIfNecessary(<span style="color: #0000ff;">void</span>) { <span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">; }
+</span><span style="color: #008080;">31</span> <span style="color: #0000ff;">#endif</span>
+<span style="color: #008080;">32</span> <span style="color: #0000ff;">#else</span>
+<span style="color: #008080;">33</span> <span style="color: #0000ff;">#define</span> initializeWinsockIfNecessary() 1
+<span style="color: #008080;">34</span> <span style="color: #0000ff;">#endif</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,332 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 使用Amalgamate将C/C&#43;&#43;项目合并成一个.h/.c[pp]文件 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>使用Amalgamate将C/C&#43;&#43;项目合并成一个.h/.c[pp]文件</h1>
+          <span class="post-date">2018年06月01日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/06/01/9121728.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/06/01/9121728.html</a></p>
+
+<h1 id="简述">简述</h1>
+
+<p>C/C++开源库一般是一堆的头文件和源文件，做到声明和实现分离，减小单个模块大小，这在设计上是很好的，但是用起来稍显麻烦。在网上看到有好心人推荐了一个开源工具<a href="https://github.com/vinniefalco/Amalgamate.git">Amalgamate</a>，专门用来对C/C++的头文件和源文件进行合并用的，于是尝试了一下。
+编译过<a href="http://www.sqlite.org/amalgamation.html">sqlite源码</a>的应该知道，sqlite3源码包有一个是指包含<code>sqlite3.h</code>、<code>sqlite3_ext.h</code>、<code>sqlite.c</code>等为数不多几个代码文件的（也有分开的），嵌入到项目中非常方便。这就是用Amalgamate进行合并的。</p>
+
+<h1 id="下载并编译amalgamate">下载并编译Amalgamate</h1>
+
+<p>下载很简单，这里就不细述了</p>
+
+<pre><code>git clone https://github.com/vinniefalco/Amalgamate.git
+</code></pre>
+
+<p>编译也很简单，直接使用VS打开<code>Amalgamate\Builds\VisualStudio2010\Amalgamate.vcxproj</code>，然后编译生成即可。
+最后的示例下载中有我编译的程序。</p>
+
+<pre><code class="language-bash"># gcc 编译
+g++ Amalgamate.cpp juce_core_amalgam.cpp -o Amalgamate -lpthread -ldl
+# clang编译
+clang++ Amalgamate.cpp juce_core_amalgam.cpp -o Amalgamate -lpthread -ldl
+</code></pre>
+
+<p>具体的使用可以参考程序的帮助信息。</p>
+
+<h1 id="将libuv合并为单一头文件和源文件版本-windows下">将libuv合并为单一头文件和源文件版本(Windows下)</h1>
+
+<p>用于合并的模板文件编写可以参考<a href="https://github.com/vinniefalco/Amalgams.git">https://github.com/vinniefalco/Amalgams.git</a>中的几个。</p>
+
+<p>以<code>libuv</code>为例进行简单的说明。
+先下载<code>libuv</code>的源码，目录结构如下：
+<img src="https://images2018.cnblogs.com/blog/693958/201806/693958-20180601142948616-473242562.jpg" alt="" /></p>
+
+<h2 id="首先先合并头文件">首先先合并头文件</h2>
+
+<p>先编写一个头文件<code>uv_all.h</code>，里面把<code>libuv-v1.9.1\include</code>下的文件都<code>include</code>进来。
+源码如下：</p>
+
+<pre><code class="language-c">#include &quot;android-ifaddrs.h&quot;
+#include &quot;pthread-barrier.h&quot;
+#include &quot;stdint-msvc2008.h&quot;
+#include &quot;tree.h&quot;
+#include &quot;uv.h&quot;
+#include &quot;uv_all.h&quot;
+#include &quot;uv-errno.h&quot;
+#include &quot;uv-threadpool.h&quot;
+#include &quot;uv-version.h&quot;
+#include &quot;uv-win.h&quot;
+</code></pre>
+
+<p>一个简单的做法就是cygwin或msys下使用命令<code>ls *.h |xargs -I{} echo '#include &quot;{}&quot;'</code>直接输出。
+因为我这里只做windows平台的，所以把多余的都给删除了。
+实际上因为<code>uv.h</code>已经把需要的都包含上了，所以这里直接使用<code>uv.h</code>也就够了。
+运行下面命令生成合并后的头文件</p>
+
+<pre><code class="language-bash">Amalgamate.exe -i C:\Users\o\Documents\code\libuv-v1.9.1\include  -w &quot;*.h;*.c&quot;  C:\Users\o\Documents\code\libuv-v1.9.1\include\uv.h  uv.h
+</code></pre>
+
+<p>执行完上面命令后会在当前目录生成一个新的<code>uv.h</code>文件，也就是合并后的文件。上面参数中<code>-i</code>后面的是附加包含目录，也就是和gcc中使用的<code>-I</code>是一样的。最后的<code>uv.h</code>是输出文件名，前面的是输入的配置模板文件。</p>
+
+<h2 id="合并源码文件">合并源码文件</h2>
+
+<p>合并源码文件的做法和合并头文件的做法是一致的，先写一个配置文件<code>uv_win_all.h</code>（把src和src/win目录下所有文件都包含进来），内容如下：</p>
+
+<pre><code class="language-c">#include &quot;win/atomicops-inl.h&quot;
+#include &quot;win/handle-inl.h&quot;
+#include &quot;win/internal.h&quot;
+#include &quot;win/req-inl.h&quot;
+#include &quot;win/stream-inl.h&quot;
+#include &quot;win/winapi.h&quot;
+#include &quot;win/winsock.h&quot;
+
+#include &quot;heap-inl.h&quot;
+#include &quot;queue.h&quot;
+#include &quot;uv-common.h&quot;
+
+#include &quot;win/async.c&quot;
+#include &quot;win/core.c&quot;
+#include &quot;win/dl.c&quot;
+#include &quot;win/error.c&quot;
+#include &quot;win/fs.c&quot;
+#include &quot;win/fs-event.c&quot;
+#include &quot;win/getaddrinfo.c&quot;
+#include &quot;win/getnameinfo.c&quot;
+#include &quot;win/handle.c&quot;
+#include &quot;win/loop-watcher.c&quot;
+#include &quot;win/pipe.c&quot;
+#include &quot;win/poll.c&quot;
+#include &quot;win/process.c&quot;
+#include &quot;win/process-stdio.c&quot;
+#include &quot;win/req.c&quot;
+#include &quot;win/signal.c&quot;
+#include &quot;win/snprintf.c&quot;
+#include &quot;win/stream.c&quot;
+#include &quot;win/tcp.c&quot;
+#include &quot;win/thread.c&quot;
+#include &quot;win/timer.c&quot;
+#include &quot;win/tty.c&quot;
+#include &quot;win/udp.c&quot;
+#include &quot;win/util.c&quot;
+#include &quot;win/winapi.c&quot;
+#include &quot;win/winsock.c&quot;
+
+#include &quot;fs-poll.c&quot;
+#include &quot;inet.c&quot;
+#include &quot;threadpool.c&quot;
+#include &quot;uv-common.c&quot;
+#include &quot;version.c&quot;
+</code></pre>
+
+<p>然后执行下面命令进行合并</p>
+
+<pre><code>Amalgamate.exe -i C:\Users\o\Documents\code\libuv-v1.9.1\include -i C:\Users\o\Documents\code\libuv-v1.9.1\src  -w &quot;*.h;*.c&quot;   C:\Users\o\Documents\code\libuv-v1.9.1\src\uv_win_all.c uv_win.c
+</code></pre>
+
+<p>合并后的文件中会遇到一些问题，需要手动修改一下。比如多出遇到<code>uv_zero_</code>重定义的问题，这个需要把第一次定义之后出现的都全部注释掉。
+还有会遇到<code>error LNK2019: 无法解析的外部符号 _InterlockedOr，该符号在函数 _uv_tty_line_read_thread@4 中被引用</code>的问题，这个只需要使用VS2012之后的版本编译就没问题了。</p>
+
+<h2 id="合并后的源码及项目文件">合并后的源码及项目文件</h2>
+
+<p>这里不多说，直接放出下载链接 <a href="https://files.cnblogs.com/files/oloroso/libuv_webtest.7z">https://files.cnblogs.com/files/oloroso/libuv_webtest.7z</a></p>
+
+<p>测试的代码部分来自于<a href="https://github.com/liigo/tinyweb.git">https://github.com/liigo/tinyweb.git</a></p>
+
+<h1 id="amalgamate参数简单说明">Amalgamate参数简单说明</h1>
+
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">解释</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">-s</td>
+<td align="left">处理<code>#include &lt;xxx&gt;</code>的行，即处理包含在系统目录中的头文件（通常我们只需要处理双引号括起来的）</td>
+</tr>
+
+<tr>
+<td align="left">-w{wildcards}</td>
+<td align="left">指定要处理的文件类型(后缀名)，如果不是列表中指定的，那么即便使用#include包含也不会处理，默认设置是&rdquo;<em>.cpp;</em>.c;<em>.h;</em>.mm;*.m&rdquo;</td>
+</tr>
+
+<tr>
+<td align="left">-f  `{file</td>
+<td align="left">macro}`</td>
+</tr>
+
+<tr>
+<td align="left">-p `{file</td>
+<td align="left">macro}`</td>
+</tr>
+
+<tr>
+<td align="left">-d {name}={file}</td>
+<td align="left">如果宏{name}出现在include包含行中，使用{file}替代</td>
+</tr>
+
+<tr>
+<td align="left">-i {dir}</td>
+<td align="left">在处理include包含时，可以在指定的{dir}目录中搜索文件</td>
+</tr>
+
+<tr>
+<td align="left">-v</td>
+<td align="left">输出详细信息</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

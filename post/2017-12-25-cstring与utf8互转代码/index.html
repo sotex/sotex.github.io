@@ -1,0 +1,220 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> CString与UTF8互转代码 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>CString与UTF8互转代码</h1>
+          <span class="post-date">2017年12月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/12/25/8108477.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/12/25/8108477.html</a>
+这个代码网上很多，留在这里做个备份。</p>
+
+<pre><code class="language-cpp">static std::string ConvertCStringToUTF8( CString strValue )
+{
+	std::wstring wbuffer;
+#ifdef _UNICODE
+	wbuffer.assign( strValue.GetString(), strValue.GetLength() );
+#else
+	/*
+	 * 转换ANSI到UNICODE
+	 * 获取转换后长度
+	 */
+	int length = ::MultiByteToWideChar( CP_ACP, MB_ERR_INVALID_CHARS, (LPCTSTR) strValue, -1, NULL, 0 );
+	wbuffer.resize( length );
+	/* 转换 */
+	MultiByteToWideChar( CP_ACP, 0, (LPCTSTR) strValue, -1, (LPWSTR) (wbuffer.data() ), wbuffer.length() );
+#endif
+
+	/* 获取转换后长度 */
+	int length = WideCharToMultiByte( CP_UTF8, 0, wbuffer.data(), wbuffer.size(), NULL, 0, NULL, NULL );
+	/* 获取转换后内容 */
+	std::string buffer;
+	buffer.resize( length );
+
+	WideCharToMultiByte( CP_UTF8, 0, strValue, -1, (LPSTR) (buffer.data() ), length, NULL, NULL );
+	return(buffer);
+}
+
+
+static CString ConvertUTF8ToCString( std::string utf8str )
+{
+	/* 预转换，得到所需空间的大小 */
+	int nLen = ::MultiByteToWideChar( CP_UTF8, NULL,
+					  utf8str.data(), utf8str.size(), NULL, 0 );
+	/* 转换为Unicode */
+	std::wstring wbuffer;
+	wbuffer.resize( nLen );
+	::MultiByteToWideChar( CP_UTF8, NULL, utf8str.data(), utf8str.size(),
+			       (LPWSTR) (wbuffer.data() ), wbuffer.length() );
+
+#ifdef UNICODE
+	return(CString( wbuffer.data(), wbuffer.length() ) );
+#else
+	/*
+	 * 转换为ANSI
+	 * 得到转换后长度
+	 */
+	nLen = WideCharToMultiByte( CP_ACP, 0,
+				    wbuffer.data(), wbuffer.length(), NULL, 0, NULL, NULL );
+
+	std::string ansistr;
+	ansistr.resize( nLen );
+
+	/* 把unicode转成ansi */
+	WideCharToMultiByte( CP_ACP, 0, (LPWSTR) (wbuffer.data() ), wbuffer.length(),
+			     (LPSTR) (ansistr.data() ), ansistr.size(), NULL, NULL );
+	return(CString( ansistr.data(), ansistr.length() ) );
+#endif
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,251 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 33 网络相关函数(一)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>33 网络相关函数(一)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月12日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/12/4724021.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/12/4724021.html</a>
+<h1 id="33-live555">33 网络相关函数(一)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#33-live555">33 网络相关函数(一)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#1ismulticastaddress">1)IsMulticastAddress多播(组播)地址判断函数</a>
+<ul>
+<li><a href="#_2">多播简要说明</a></li>
+<li><a href="#_3">多播编程简述</a>
+<ul>
+<li><a href="#1">1.流程</a></li>
+<li><a href="#2setsockoptgetsockoptip">2.多播程序设计使用setsockopt()函数和getsockopt()函数来实现，组播的选项是IP层的。</a></li>
+<li><a href="#3setsockopt">3.setsockopt()的选项</a></li>
+<li><a href="#_4">实例：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="1ismulticastaddress">1)IsMulticastAddress多播(组播)地址判断函数</h2>
+<p><code>IsMulticastAddress</code>用于判断一个地址是否为多播(组播)地址，如果是的话返回<code>true</code>，否则返回<code>false</code>。</p>
+<p>声明在文件<code>live555sourcecontrol\groupsock\include\NetAddress.hh</code>中<br />
+　　　有些应用会有这样的要求：一些分布在各处的进程需要以组的方式协同工作，组中的进程通常要给其他所有的成员发送消息。即有这样的一种方法能够给一些明确定义的组发送消息，这些组的成员数量虽然很多，但是与整个网络规模相比却很小。给这样一个组发送消息称为多点点播送，简称多播。</p>
+<pre><code class="cpp">/ 判断参数释放是一个多播地址
+Boolean IsMulticastAddress(netAddressBits address) {
+    // Note: We return False for addresses in the range 224.0.0.0
+    // through 224.0.0.255, because these are non-routable
+    // 注意：我们在224.0.0.0到224.0.0.255范围地址返回false，因为这些是不可路由的
+    // Note: IPv4-specific #####
+    // 注：支持IPv4特定#####
+    netAddressBits addressInNetworkOrder = htonl(address);
+    return addressInNetworkOrder &gt; 0xE00000FF &amp;&amp;
+        addressInNetworkOrder &lt;= 0xEFFFFFFF;
+}
+</code></pre>
+<h3 id="_2">多播简要说明</h3>
+<p><code>IP多播</code>（也称多址广播或组播）技术，是一种允许一台或多台主机（多播源）发送单一数据包到多台主机（一次的，同时的）的<code>TCP/IP</code>网络技术。多播作为一点对多点的通信，是节省网络带宽的有效方法之一。在网络音频/视频广播的应用中，当需要将一个节点的信号传送到多个节点时，无论是采用重复点对点通信方式，还是采用广播方式，都会严重浪费网络带宽，只有多播才是最好的选择。多播能使一个或多个多播源只把数据包发送给特定的多播组，而只有加入该多播组的主机才能接收到数据包。目前，IP多播技术被广泛应用在网络音频/视频广播、AOD/VOD、网络视频会议、多媒体远程教育、<code>&ldquo;push&rdquo;</code>技术（如股票行情等）和虚拟现实游戏等方面。<br />
+<code>IP多播通信</code>必须依赖于<code>IP多播地址</code>，在<code>IPv4</code>中它是一个<code>D</code>类IP地址，范围从<code>224.0.0.0</code>到<code>239.255.255.255</code>，并被划分为局部链接多播地址、预留多播地址和管理权限多播地址三类。其中，局部链接多播地址范围在224.0.0.0~224.0.0.255，这是为路由协议和其它用途保留的地址，路由器并不转发属于此范围的IP包；预留多播地址为<code>224.0.1.0~238.255.255.255</code>，可用于全球范围（如Internet）或网络协议；管理权限多播地址为<code>239.0.0.0~239.255.255.255</code>，可供组织内部使用，类似于私有IP地址，不能用于Internet，可限制多播范围。<br />
+　　　使用同一个IP多播地址接收多播数据包的所有主机构成了一个主机组，也称为多播组。一个多播组的成员是随时变动的，一台主机可以随时加入或离开多播组，多播组成员的数目和所在的地理位置也不受限制，一台主机也可以属于几个多播组。此外，不属于某一个多播组的主机也可以向该多播组发送数据包。</p>
+<h3 id="_3">多播编程简述</h3>
+<h4 id="1">1.流程</h4>
+<p>1&gt;建立一个<code>socket</code>;<br />
+　　　2&gt;设置多播的参数，例如超时时间<code>TTL</code>，本地回环许可<code>LOOP</code>等<br />
+　　　3&gt;加入多播组<br />
+　　　4&gt;发送和接收数据<br />
+　　　5&gt;从多播组离开</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201508/121032264733542.jpg" alt="" /></p>
+<h4 id="2setsockoptgetsockoptip">2.多播程序设计使用<code>setsockopt()</code>函数和<code>getsockopt()</code>函数来实现，组播的选项是IP层的。</h4>
+<h4 id="3setsockopt">3.<code>setsockopt()</code>的选项</h4>
+<p>1&gt;IP_MULTICAST_TTL:设置多播组数据的TTL值（路由跳数），每跨过一个路由器，TTL值减一.范围为0~255之间的任何值。</p>
+<pre><code class="cpp">int  ttl;
+setsockopt(sock_fd,IPPROTO_IP,IP_MULTICAST_TTL,&amp;ttl,sizeof(ttl));
+</code></pre>
+<p>2&gt;<code>IP_MULTICAST_LOOP</code>:默认情况下，当本机发送组播数据到某个网络接口时，在IP层，数据会回送公道本地的回环接口，选项<code>IP_MULTICAST_LOOP</code>用于控制数据是否回送到本地的回环接口。</p>
+<pre><code class="cpp">int  loop;
+setsockopt(sock_fd,IPPROTO_IP,IP_MULTICAST_LOOP,&amp;loop,sizeof(loop));
+</code></pre>
+<p>参数<code>loop</code>设置为<code>0</code>表示禁止回送，设置为<code>1</code>允许回送。<br />
+3&gt;<code>IP_ADD_MEMBERSHIP</code>: 该选项通过对一个结构struct ip_mreq类型的变量进行控制而加入一个多播组。</p>
+<pre><code class="cpp">struct ip_mreq
+{
+       struct in_addr imr_multiaddr;/<em>加入的多播组IP地址</em>/
+       struct  in_addr imr_interface;/<em>加入的网络接口IP地址</em>/
+}；
+</code></pre>
+<p>选项<code>IP_ADD_MEMBESHIP</code>选项用于加入某个多播组，之后就可以向这个多播组发送数据或者从多播组接收数据。此选项的值为<code>mreq</code>结构，成员<code>imr_multiaddr</code>是需要加入的<code>多播组IP地址</code>，成员<code>imr_interface</code>是本机需要加入多播组的网络接口<code>IP</code>地址。</p>
+<pre><code class="cpp">struct ip_mreq  mreq;
+setsockopt(sock_fd,IPPROTO_IP,IP_ADD_MEMBERSHIP,&amp;mreq,sizeof(mreq));
+</code></pre>
+<p>使用<code>IP_ADD_MEMBERSHIP</code>选项每次只能加入一个网络接口的<code>IP</code>地址到多播组，但并不是一个多播组<code>仅允许一个</code>主机IP地址加入，可以多次调用<code>IP_ADD_MEMBERSHIP</code>选项来实现多个IP地址加入同一个多播组，或者同一个IP地址加入多个多播组。当<code>imr_interface</code>为<code>INADDR_ANY</code>时，选择的本地默认网口。<br />
+4&gt;<code>IP_DROP_MEMBERSHIP</code>:该选项用于从一个多播组中退出。</p>
+<pre><code class="cpp">struct ip_mreq  mreq;
+setsockopt(sock_fd,IPPROTP_IP,IP_DROP_MEMBERSHIP,&amp;merq,sizeof(sreq));
+</code></pre>
+<h4 id="_4">实例：</h4>
+<ul>
+<li>情景：</li>
+<li>服务器端每隔2秒向目的端口号为5000和目的多播地址为224.0.0.255发送数据welcome you to multicast socket programme。</li>
+<li>客户端从多播地址为224.0.0.255和端口号5000处接收5次多播数据。</li>
+</ul>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201508/121032366291306.jpg" alt="" /></p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

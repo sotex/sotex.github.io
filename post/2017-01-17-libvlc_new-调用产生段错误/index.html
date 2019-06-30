@@ -1,0 +1,188 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> libvlc_new 调用产生段错误 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>libvlc_new 调用产生段错误</h1>
+          <span class="post-date">2017年01月17日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/18/6295205.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/18/6295205.html</a>
+在调试程序的时候，碰到一个奇怪的段错误问题。只要链接的时候使用<code>-Wl,-rpath=./vlc/lib</code>就会产生段错误，如果链接的时候使用的是<code>-Wl,-rpath=../../tool/vlc/lib</code>则不会出现。</p>
+
+<p>机器是老旧的<code>NeoKylin 4.0</code>版本，没有安装gdb（实际上也不可能去安装）。无法调试，所以在程序里多添加了一些打印输出，终于定位到产生段错误的位置。</p>
+
+<p>代码
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170117232957640-2060322573.png" alt="" />
+输出
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170117233143406-1763775341.png" alt="" /></p>
+
+<p>查了一些资料
+<a href="http://www.videolan.org/developers/vlc/doc/doxygen/html/group__libvlc__core.html">http://www.videolan.org/developers/vlc/doc/doxygen/html/group<strong>libvlc</strong>core.html</a></p>
+
+<p>这里说 <strong>在POSIX系统上，<code>SIGCHLD</code>信号不能被忽略，即信号处理程序必须设置为<code>SIG_DFL</code>（默认处理）或函数指针，而不能是<code>SIG_IGN</code>（忽略）。</strong>
+还有 <strong>LibVLC可以创建线程。 因此，任何<code>线程不安全</code>的进程初始化必须在调用<code>libvlc_new()</code>之前执行。</strong></p>
+
+<p>但是这里没有说到重点，这些都不是产生段错误的原因。
+真正的原因是因为vlc存在插件缓存，需要刷新插件缓存才行。
+在<code>vlc/lib/vlc/plugins</code>下存在一个<code>plugins.bat</code>文件，cat这个文件可以发现其中大部分都是普通文本，少数是非文本内容。</p>
+
+<p>通过网络搜索，找到这篇文章，真正的说明了问题 <a href="http://blog.jianchihu.net/libvlc_new-return-null.html">http://blog.jianchihu.net/libvlc_new-return-null.html</a></p>
+
+<p>自己编译的vlc，<code>vlc-cache-gen</code>程序实际上在<code>vlc/lib/vlc/vlc-cache-gen</code>。执行下面命令即可</p>
+
+<pre><code class="language-shell">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./vlc/lib
+./vlc/lib/vlc/vlc-cache-gen ./vlc/lib/vlc/plugins/
+</code></pre>
+
+<p>然后就没有问题了</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

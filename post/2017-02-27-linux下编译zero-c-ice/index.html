@@ -1,0 +1,250 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译Zero C ICE &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译Zero C ICE</h1>
+          <span class="post-date">2017年02月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/02/27/6473334.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/02/27/6473334.html</a></p>
+
+<h2 id="0-简介">0、简介</h2>
+
+<p>ZeroC ICE 是指ZeroC公司<a href="www.zeroc.com">(www.zeroc.com)</a>的ICE（Internet Communications Engine）中间件平台。</p>
+
+<p>目前ICE平台中包括<code>Ice</code>，<code>Ice-E</code>，<code>Ice Touch</code>。
+<strong>Ice</strong>为主流平台设计，包括Windows和Linux，支持广泛的语言，包括C++，Java，C#（和其他.Net的语言，例如Visual Basic），Python，Ruby，PHP和ActionScript。也包括所有的ICE服务，例如Ice Grid，IceStorm等。
+<strong>Ice-E</strong>是Ice在资源受限的平台上的一个实现，支持C++和嵌入式操作系统，例如Windows CE，Linux。Ice-E本身不包含任何服务，但是可以利用在Ice上提供的各种服务。因此，通过Ice-E，移动设备也能无缝的集成到分布式系统中。
+<strong>Ice Touch</strong>是为iphone和ipod touch开发的版本，包括Object-C映射，支持Iphone OS，并为MAC OS X开发图形界面应用程序提供完整的Cocoa框架的访问。</p>
+
+<p>本文由乌合之众瞎写，如有错漏之处,敬请指正。<a href="http://www.cnblogs.com/oloroso/">http://www.cnblogs.com/oloroso/</a></p>
+
+<h2 id="1-下载源码">1、下载源码</h2>
+
+<pre><code class="language-shell">git clone https://github.com/zeroc-ice/ice.git
+</code></pre>
+
+<h2 id="2-编译和安装">2、编译和安装</h2>
+
+<p>先安装依赖项<code>libmcpp</code>、<code>openssl</code>、<code>lmdb</code>等。</p>
+
+<pre><code class="language-shell">sudo dnf install libmcpp-devel    openssl-devel lmdb-devel # defora下安装
+sudo apt install libmcpp-dev libssl-dev # debian系下安装
+</code></pre>
+
+<p><strong>编译并安装</strong></p>
+
+<pre><code class="language-shell">make -j4    # 编译(时间比较久，可以把Makefile中对test的编译注释掉)
+make prefix=/opt/zero-c-ice install
+</code></pre>
+
+<p>上面命令会编译所有支持语言的版本，如果不需要那么多，可以通过修改<code>config/Make.rules</code>来改变支持的语言。
+打开<code>config/Make.rules</code>文件，跳到最后，修改<code>supported-languages</code>的值。
+<strong>例如：</strong></p>
+
+<pre><code class="language-shell">supported-languages ?= cpp python
+</code></pre>
+
+<p>或者在编译的时候直接指定语言。</p>
+
+<pre><code class="language-shell">make supported-languages='cpp python java js'
+make supported-languages='cpp python java js' prefix=/opt/zero-c-ice install
+</code></pre>
+
+<hr />
+
+<p>如果需要支持<code>java</code>语言，在编译的时候会去下载<code>gradle</code>工具，所以需要确保能够正常访问<a href="https://gradle.org/">https://gradle.org/</a>
+如果需要支持<code>python</code>语言，需要安装<code>python开发包</code>(sudo dnf install python-devel)。
+如果需要支持<code>javascript</code>语言，需要安装<code>npm</code>的(sudo dnf install npm)，此处会安装libuv/nodejs等。这里也需要能够正常连接到外网。
+如果需要支持<code>ruby</code>语言，需要安装<code>ruby开发包</code>(sudo dnf install ruby-devel)。
+如果需要支持<code>php</code>语言，需要安装<code>php开发包</code>(sudo dnf install ruby-php)。</p>
+
+<h2 id="3-测试">3、测试</h2>
+
+<p>这里可以编写一个小的<code>slice</code>脚步测试一下。
+<strong>test.ice</strong></p>
+
+<pre><code class="language-ice">/*定义模块test*/
+module test{
+    /*定义自定义结构类型person*/
+    struct person{
+        /*字符串类型量 name*/
+        string    name;    // 名字
+        /*整型量 age*/
+        int        age;    // 年龄
+        /*浮点数 weight*/
+        float    weight;    // 体重
+    };
+    /*定义一个接口，打印person信息*/
+    interface print{
+        /*定义打印person的方法*/
+        void printperson(person p);
+    };
+};
+</code></pre>
+
+<p>使用<code>slice2cpp</code>来生成C++代码。</p>
+
+<pre><code class="language-shell">slice2cpp test.ice
+</code></pre>
+
+<p><code>slice2cpp</code>工具怎么用，可以使用<code>slice2cpp --help</code>来查看。</p>
+
+<h2 id="4-补充-windows下编译ice">4、补充 windows下编译ice</h2>
+
+<p>windows下编译比较简单。直接打开源码目录下的<code>cpp\msbuild</code>，找到对应版本的VS解决方案文件（例如我是使用的VS2015，则是<code>ice.v140.sln</code>），直接使用Visual Studio打开。然后直接编译即可。
+编译的时候需要下载对应的nuget包，所以可能需要联网才行。
+编译完成之后将在<code>cpp\lib</code>和<code>cpp\bin</code>目录下生成对应的库和可执行文件。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

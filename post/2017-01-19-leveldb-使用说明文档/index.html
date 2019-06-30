@@ -1,0 +1,537 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Leveldb 使用说明文档 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Leveldb 使用说明文档</h1>
+          <span class="post-date">2017年01月19日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/19/6307206.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/19/6307206.html</a></p>
+
+<h1 id="leveldb-使用说明文档">Leveldb 使用说明文档</h1>
+
+<p>原作者：Jeff Dean, Sanjay Ghemawat
+翻译：乌合之众solym@sohu.com</p>
+
+<p>英文原文地址<a href="https://rawgit.com/google/leveldb/master/doc/index.html">https://rawgit.com/google/leveldb/master/doc/index.html</a></p>
+
+<p>leveldb库提供持久性键值存储。 键和值可以是任意字节数组。 根据用户指定的比较函数，在键值存储器内对键进行排序。</p>
+
+<h1 id="打开一个数据库">打开一个数据库</h1>
+
+<p>leveldb打开数据库需要指定一个文件系统目录。 数据库的所有内容都存储在此目录中。 以下示例显示如何打开数据库，如有必要，可创建该数据库：</p>
+
+<pre><code class="language-cpp">  #include &lt;cassert&gt;
+  #include &quot;leveldb/db.h&quot;
+
+  leveldb::DB* db;
+  leveldb::Options options;
+  options.create_if_missing = true;
+  leveldb::Status status = leveldb::DB::Open(options, &quot;/tmp/testdb&quot;, &amp;db);
+  assert(status.ok());
+  ...
+</code></pre>
+
+<p>如果要在数据库 <strong>已存在时返回错误</strong> ，请在<code>leveldb::DB::Open</code>调用之前添加以下行：</p>
+
+<pre><code class="language-cpp">  options.error_if_exists = true;
+</code></pre>
+
+<h1 id="状态-status">状态 Status</h1>
+
+<p>你也许已经注意到了上面的<code>leveldb::Status</code>类型。leveldb中可能遇到错误的大多数函数都返回此类型的值。 您可以检查这样的结果是否正确，并打印相关的错误消息：</p>
+
+<pre><code class="language-cpp">   leveldb::Status s = ...;
+   if (!s.ok()) cerr &lt;&lt; s.ToString() &lt;&lt; endl;
+</code></pre>
+
+<h1 id="关闭数据库">关闭数据库</h1>
+
+<p>使用完数据库后，只需删除数据库对象。 例：</p>
+
+<pre><code>  ... open the db as described above ...
+  ... do something with db ...
+  delete db;
+</code></pre>
+
+<h1 id="读和写-reads-and-writes">读和写 Reads And Writes</h1>
+
+<p>数据库提供<code>Put</code>，<code>Delete</code>和<code>Get</code>方法来修改/查询数据库。 例如，以下代码将<code>key1</code>下存储的<code>值</code>移动到<code>key2</code>。</p>
+
+<pre><code class="language-cpp">  std::string value;
+  leveldb::Status s = db-&gt;Get(leveldb::ReadOptions(), key1, &amp;value);
+  if (s.ok()) s = db-&gt;Put(leveldb::WriteOptions(), key2, value);
+  if (s.ok()) s = db-&gt;Delete(leveldb::WriteOptions(), key1);
+</code></pre>
+
+<h1 id="原子更新-atomic-updates">原子更新 Atomic Updates</h1>
+
+<p>注意，如果进程在Put Key2 之后、Delete key1之前结束(挂了)，会使得value被同时保存在多个key下。使用<code>WirteBatch</code>类进行原子更新一组操作，可以避免这些问题：</p>
+
+<pre><code class="language-cpp">  #include &quot;leveldb/write_batch.h&quot;
+  ...
+  std::string value;
+  leveldb::Status s = db-&gt;Get(leveldb::ReadOptions(), key1, &amp;value);
+  if (s.ok()) {
+    leveldb::WriteBatch batch;
+    batch.Delete(key1);
+    batch.Put(key2, value);
+    s = db-&gt;Write(leveldb::WriteOptions(), &amp;batch);
+  }
+</code></pre>
+
+<p><code>WriteBatch</code>保存对数据库进行的一系列编辑，该批次内的这些修改才能被应用。 注意，我们在Put之前调用Delete，因此如果key1与key2相同，我们不会错误的完全丢弃该值。</p>
+
+<p>除了它的原子性好处，<code>WriteBatch</code>也可以用于通过将<code>大量的单个操作</code>放入同一批次来加速批量更新。</p>
+
+<h1 id="异步写-synchronous-writes">异步写 Synchronous Writes</h1>
+
+<p>默认情况下，每次写入leveldb都是<code>异步</code>的：将写入从进程推送到操作系统后立即返回。从操作系统内存到底层持久存储的传输是异步的。 对于特定的写操作，可以<code>打开同步标志</code>，以使写操作不会返回，直到正在写入的数据真正写入永久存储器。 （在Posix系统上，这是通过在写操作返回之前调用<code>fsync</code>（&hellip;）或<code>fdatasync</code>（&hellip;）或<code>msync</code>（&hellip;，MS_SYNC）实现的。</p>
+
+<pre><code class="language-cpp">  leveldb::WriteOptions write_options;
+  write_options.sync = true;
+  db-&gt;Put(write_options, ...);
+</code></pre>
+
+<p>异步写操作通常比同步写操作快一千倍。 异步写入的缺点是，机器的崩溃可能导致最后几个更新丢失。 请注意，<strong>只是写入进程（即不是机器重新启动）的崩溃不会导致任何损失</strong> ，因为即使<code>sync</code>为<code>false</code>，更新从进程内存推送到操作系统在之后即认为完成。</p>
+
+<p>通常可以安全地使用异步写入。 例如，将大量数据加载到数据库中时，可以通过在崩溃后重新启动批量加载来处理丢失的更新。 混合方案也是可能的，其中每第N次写入是同步的，并且在崩溃的情况下，批量加载刚好在由前一次运行完成的最后同步写入之后重新启动。 （同步写入可以更新描述崩溃时重新启动位置的标记。）</p>
+
+<p>WriteBatch提供了异步写入的替代方法。 多个更新可以放置在同一<code>WriteBatch</code>中，并使用同步写入（即，<code>write_options.sync</code>设置为<code>true</code>）一起应用。 同步写入的额外成本将在批次中的所有写入之间摊销。</p>
+
+<h1 id="并发-concurrency">并发 Concurrency</h1>
+
+<p>数据库只能由一个进程一次打开。leveldb实现从操作系统获取<code>锁</code>以防止误用。 在单个进程中，同一个<code>leveldb::DB</code>对象可以安全地由多个并发线程共享。 即，不同的线程可以写入或获取迭代器或在没有任何外部同步的情况下在同一数据库上调用<code>Get</code>（leveldb实现将自动执行所需的同步）。
+<strong>但是其他对象（如<code>Iterator</code>和<code>WriteBatch</code>）可能需要外部同步</strong>。如果两个线程共享这样的对象，它们必须使用自己的锁定协议保护对它的访问。 更多详细信息在公共头文件中可用。</p>
+
+<h1 id="迭代器-iteration">迭代器 Iteration</h1>
+
+<p>以下示例演示如何在数据库中打印所有 <strong>键-值对</strong> 。</p>
+
+<pre><code class="language-cpp">  leveldb::Iterator* it = db-&gt;NewIterator(leveldb::ReadOptions());
+  for (it-&gt;SeekToFirst(); it-&gt;Valid(); it-&gt;Next()) {
+    cout &lt;&lt; it-&gt;key().ToString() &lt;&lt; &quot;: &quot;  &lt;&lt; it-&gt;value().ToString() &lt;&lt; endl;
+  }
+  assert(it-&gt;status().ok());  // Check for any errors found during the scan
+  delete it;
+</code></pre>
+
+<p>以下显示了如何仅处理范围[start，limit）中的键：</p>
+
+<pre><code class="language-cpp">  for (it-&gt;Seek(start);
+       it-&gt;Valid() &amp;&amp; it-&gt;key().ToString() &lt; limit;
+       it-&gt;Next()) {
+    ...
+  }
+</code></pre>
+
+<p>您还可以按相反的顺序处理条目。 （注意：反向迭代可能比前向迭代慢一些。）</p>
+
+<pre><code class="language-cpp">  for (it-&gt;SeekToLast(); it-&gt;Valid(); it-&gt;Prev()) {
+    ...
+  }
+</code></pre>
+
+<h1 id="快照-snapshots">快照 Snapshots</h1>
+
+<p>快照在键值存储的整个状态上提供一致的只读视图。<code>ReadOptions::snapshot</code>可能是非<code>NULL</code>的，表示<code>read</code>操作应该在某个特定版本的DB状态。 如果<code>ReadOptions::snapshot</code>为NULL，则读取操作将对当前状态的<code>隐式快照</code>进行操作</p>
+
+<p>快照由DB::GetSnapshot() 方法创建:</p>
+
+<pre><code class="language-cpp">  leveldb::ReadOptions options;
+  options.snapshot = db-&gt;GetSnapshot();
+  ... apply some updates to db ...
+  leveldb::Iterator* iter = db-&gt;NewIterator(options);
+  ... read using iter to view the state when the snapshot was created ...
+  delete iter;
+  db-&gt;ReleaseSnapshot(options.snapshot);
+</code></pre>
+
+<p>请注意，当不再需要快照时，应使用DB :: ReleaseSnapshot接口释放快照。这允许实现排除维护状态，只支持从该快照读取。</p>
+
+<h1 id="分片-slice">分片 Slice</h1>
+
+<p>上面<code>it-&gt;key()</code>和<code>it-&gt;value()</code>调用的返回值是<code>leveldb::Slice</code>类型。Slice是一个简单的结构，包含一个长度和一个指向外部字节数组的指针。返回<code>Slice</code>是比返回<code>std::string</code>的更廉价替代方法，因为我们不需要复制潜在的大<code>key</code>和<code>value</code>。此外，leveldb方法不返回以null结束的C风格字符串，因为leveldb键和值允许包含<code>\0</code>字节。</p>
+
+<p>C++ std::string和以null结尾的C风格字符串可以很容易地转换为Slice：</p>
+
+<pre><code class="language-cpp">   leveldb::Slice s1 = &quot;hello&quot;;
+
+   std::string str(&quot;world&quot;);
+   leveldb::Slice s2 = str;
+</code></pre>
+
+<p>一个Slice可以很容易的转换回一个C++ string:</p>
+
+<pre><code class="language-cpp">   std::string str = s1.ToString();
+   assert(str == std::string(&quot;hello&quot;));
+</code></pre>
+
+<p>使用Slice时要小心，因为它取决于调用者，以确保在Slice使用时，Slice所指向的外部字节数组保持有效。 例如，以下是buggy：</p>
+
+<pre><code class="language-cpp">   leveldb::Slice slice;
+   if (...) {
+     std::string str = ...;
+     slice = str;	// str是一个临时对象，会被析构
+   }
+   Use(slice);
+</code></pre>
+
+<p>当出if语句范围时，<code>str</code>将被销毁，<code>slice</code>的内指针指向的内存将被释放。</p>
+
+<h1 id="比较器-comparators">比较器 Comparators</h1>
+
+<p>前面的例子使用了key的默认排序函数，它<code>按字节顺序排列</code>。 然而，您可以在打开数据库时提供自定义比较器。 例如，假设每个数据库键由两个数字组成，我们应该按第一个数字排序，用第二个数字断开关系(这里实际上就是按这两个数字组合比较大小)。 首先，定义一个表示这些规则的<code>leveldb::Comparator</code>的适当子类：</p>
+
+<pre><code class="language-cpp">  class TwoPartComparator : public leveldb::Comparator {
+   public:
+    // 三种比较结果:
+    //   if a &lt; b: 结果为负
+    //   if a &gt; b: 结果为正
+    //   else: 结果为0
+    int Compare(const leveldb::Slice&amp; a, const leveldb::Slice&amp; b) const {
+      int a1, a2, b1, b2;
+      ParseKey(a, &amp;a1, &amp;a2);
+      ParseKey(b, &amp;b1, &amp;b2);
+      if (a1 &lt; b1) return -1;
+      if (a1 &gt; b1) return +1;
+      if (a2 &lt; b2) return -1;	// a1==b1
+      if (a2 &gt; b2) return +1;	// a1==b1
+      return 0;
+    }
+
+    // Ignore the following methods for now:
+    const char* Name() const { return &quot;TwoPartComparator&quot;; }
+    void FindShortestSeparator(std::string*, const leveldb::Slice&amp;) const { }
+    void FindShortSuccessor(std::string*) const { }
+  };
+</code></pre>
+
+<p>现在创建一个数据库，使用自定义的比较器comparator:</p>
+
+<pre><code class="language-cpp">  TwoPartComparator cmp;
+  leveldb::DB* db;
+  leveldb::Options options;
+  options.create_if_missing = true;
+  options.comparator = &amp;cmp;
+  leveldb::Status status = leveldb::DB::Open(options, &quot;/tmp/testdb&quot;, &amp;db);
+  ...
+</code></pre>
+
+<h1 id="后向兼容性-backwards-compatibility">后向兼容性 Backwards compatibility</h1>
+
+<p>比较器的<code>Name</code>方法的结果在创建时附加到数据库，并在每次后续数据库打开时检查。 如果<code>Name</code>更改，<code>leveldb::DB::Open</code>调用将失败。
+因此，当且仅当新的<code>key格式</code>和<code>比较函数</code>(comparison function)与现有数据库不兼容,并且<code>可以丢弃</code>所有现有数据库的内容时，可对<code>Name</code>修改。</p>
+
+<p>然而，您仍然可以通过一些预先计划逐渐演变您的key格式。例如，您可以在每个键的末尾存储一个版本号（一个字节应该足矣满足大多数用途）。
+当您希望切换到新的键格式（例如，在TwoPartComparator处理的键添加一个可选的第三部分），
+    （a）保持相同的比较器名称
+    （b）增加新键的版本号
+    （c）更改比较器函数，以便它根据在key中找到的版本号决定如何解析它们。</p>
+
+<h1 id="性能-performance">性能 Performance</h1>
+
+<p>性能可以通过改变在<code>include/leveldb/options.h</code>定义的类型的默认值进行调整。</p>
+
+<h2 id="块大小-block-size">块大小 Block size</h2>
+
+<p><code>leveldb</code>将<code>相邻的键</code>组合在一起成为同一个块，并且这样的块访问持久存储器的传送单元（一次读写大小）。
+默认块大小约为<code>4096</code>个未压缩字节。 如果应用程序主要对数据库内容进行批量扫描，可能希望增加此大小。性能测量表明有改进，那么对<code>小value</code>进行大量定位读取的应用程序可能希望切换到较小的块大小。 使用小于1KB或大于几MB的块没有太大的好处。 还要注意，压缩对于更大的块大小将更有效。</p>
+
+<h2 id="压缩-compression">压缩 Compression</h2>
+
+<p>每个块在被写入永久存储器之前被单独压缩。 压缩默认情况下处于打开状态，因为默认压缩方法非常快，并且会自动禁用不可压缩数据。 在极少数情况下，如果应用程序可能希望完全禁用压缩，应该这样做，基准显示性能改进：</p>
+
+<pre><code class="language-cpp">  leveldb::Options options;
+  options.compression = leveldb::kNoCompression;
+  ... leveldb::DB::Open(options, name, ...) ....
+</code></pre>
+
+<h2 id="缓存-cache">缓存 Cache</h2>
+
+<p>数据库的内容存储在文件系统中的一组文件中，并且每个文件存储压缩块的序列。 如果options.cache为非NULL，它用于缓存常用的未压缩块内容。</p>
+
+<pre><code class="language-cpp">  #include &quot;leveldb/cache.h&quot;
+
+  leveldb::Options options;
+  options.cache = leveldb::NewLRUCache(100 * 1048576);  // 100MB cache
+  leveldb::DB* db;
+  leveldb::DB::Open(options, name, &amp;db);
+  ... use the db ...
+  delete db
+  delete options.cache;
+</code></pre>
+
+<p>请注意，高速缓存保存未压缩数据，因此应根据应用程序级数据大小确定大小，而压缩不会对其产生任何影响。（压缩块的缓存由操作系统缓冲区缓存或客户端提供的自定义Env实现）。</p>
+
+<p>当执行批量读取时，应用程序可能希望禁用高速缓存，使得由批量读取处理的数据不会最终取代大部分高速缓存的内容。 设置每个迭代器选项可以实现这一点：</p>
+
+<pre><code class="language-cpp">  leveldb::ReadOptions options;
+  options.fill_cache = false;
+  leveldb::Iterator* it = db-&gt;NewIterator(options);
+  for (it-&gt;SeekToFirst(); it-&gt;Valid(); it-&gt;Next()) {
+    ...
+  }
+</code></pre>
+
+<h2 id="键布局-key-layout">键布局 Key Layout</h2>
+
+<p>注意，磁盘传输和高速缓存以一个块(<code>Block</code>)为单位。 相邻的键（根据数据库排序顺序）通常放置在同一个块中。 因此，应用程序可以通过放置彼此靠近在一起的键，并将不常使用的键放置在键空间的单独区域中来提高其性能。</p>
+
+<p>例如，假设我们在leveldb之上实现一个简单的文件系统。 我们可能希望存储的条目的类型是：</p>
+
+<pre><code class="language-cpp">   filename -&gt; permission-bits, length, list of file_block_ids
+   file_block_id -&gt; data
+</code></pre>
+
+<p>我们可能需要用一个字母前缀标识文件名<code>keys</code>（比如<code>/</code>），并用不同的字母标识<code>file_block_id</code>的<code>keys</code>（比如<code>0</code>），以便只扫描元数据而不强迫我们提取和缓存庞大的文件内容。</p>
+
+<h2 id="过滤器-filters">过滤器 Filters</h2>
+
+<p>由于leveldb数据在磁盘上的组织方式，单个<code>Get()</code>调用可能涉及从磁盘多次读取。 可选的<code>FilterPolicy</code>机制可用于显着减少磁盘读取数。</p>
+
+<pre><code class="language-cpp">   leveldb::Options options;
+   options.filter_policy = NewBloomFilterPolicy(10);
+   leveldb::DB* db;
+   leveldb::DB::Open(options, &quot;/tmp/testdb&quot;, &amp;db);
+   ... use the database ...
+   delete db;
+   delete options.filter_policy;
+</code></pre>
+
+<p>上述代码将基于<code>BoolmFilter</code>的过滤策略与数据库相关联。 基于Boolm过滤器的过滤依赖于在每个<code>Key</code>的存储器中<code>保持一些数量的数据bits</code>（在这种情况下每个密钥是10位，因为这是我们传递给NewBloomFilterPolicy的参数）。 此过滤器将<code>Get()</code>调用所需的 <strong>不必要磁盘读取次数</strong> 减少大约100倍。增加每个键的bits位将导致更大的减少，但是以更多的内存使用为代价。我们建议不适合将工作集放置在内存中的应用程序，多设置一些随机读取过滤策略。</p>
+
+<p>如果您使用自定义比较器，则应确保您使用的过滤器策略与比较器兼容。 例如，考虑一个比较器，在比较键时忽略尾随空格。 <code>NewBloomFilterPolicy</code>不能与这样的比较器一起使用。 因此，应用程序也应提供一个也忽略尾部空格的自定义过滤器策略。 例如：</p>
+
+<pre><code class="language-cpp">  class CustomFilterPolicy : public leveldb::FilterPolicy {
+   private:
+    FilterPolicy* builtin_policy_;
+   public:
+    CustomFilterPolicy() : builtin_policy_(NewBloomFilterPolicy(10)) { }
+    ~CustomFilterPolicy() { delete builtin_policy_; }
+
+    const char* Name() const { return &quot;IgnoreTrailingSpacesFilter&quot;; }
+
+    void CreateFilter(const Slice* keys, int n, std::string* dst) const {
+      // 删除尾随空格后使用内置bloom filter代码
+      std::vector&lt;Slice&gt; trimmed(n);
+      for (int i = 0; i &lt; n; i++) {
+        trimmed[i] = RemoveTrailingSpaces(keys[i]);
+      }
+      return builtin_policy_-&gt;CreateFilter(&amp;trimmed[i], n, dst);
+    }
+
+    bool KeyMayMatch(const Slice&amp; key, const Slice&amp; filter) const {
+      // 删除尾随空格后使用内置bloom filter代码
+      return builtin_policy_-&gt;KeyMayMatch(RemoveTrailingSpaces(key), filter);
+    }
+  };
+</code></pre>
+
+<p>Advanced应用程序可以提供不使用Bloom过滤器，但使用一些其他的机制来总结一组键的过滤策略。 有关详细信息，请参阅<code>leveldb/filter_policy.h</code>。</p>
+
+<h1 id="检验和-checksums">检验和 Checksums</h1>
+
+<p>leveldb将校验和与其存储在文件系统中的所有数据相关联。 提供了两个单独的控件来对这些校验进行主动验证：</p>
+
+<ul>
+<li><code>ReadOptions::verify_checksums</code>   可以设置为<code>true</code>，以强制代表特定读取从文件系统读取的所有数据的校验和验证。 默认情况下，不进行此类验证。</li>
+<li><code>Options::paranoid_checks</code>        可以在打开数据库之前设置为true，以使数据库实现在检测到内部损坏时立即引发错误。 根据数据库的哪个部分已损坏，可能在打开数据库时或稍后由另一个数据库操作引发错误。 默认情况下，<code>paranoid</code>检查关闭，以便即使数据库的持久存储器的部分已损坏也可以使用数据库。</li>
+<li>如果数据库损坏(或者当打开<code>paranoid checking</code>时失败)，<code>leveldb::RepairDB</code>函数可以用于尽可能多地恢复数据。</li>
+</ul>
+
+<h1 id="大致大小-approximate-sizes">大致大小 Approximate Sizes</h1>
+
+<p><code>GetApproximateSizes</code>方法可用于获取一个或多个<code>key</code>范围使用的文件系统空间的大致字节数。</p>
+
+<pre><code class="language-cpp">   leveldb::Range ranges[2];
+   ranges[0] = leveldb::Range(&quot;a&quot;, &quot;c&quot;);
+   ranges[1] = leveldb::Range(&quot;x&quot;, &quot;z&quot;);
+   uint64_t sizes[2];
+   leveldb::Status s = db-&gt;GetApproximateSizes(ranges, 2, sizes);
+</code></pre>
+
+<p>前面的调用会将size[0]和size [1]设置为<code>key</code>范围[a..c)和[x..z)使用的文件系统空间的大致字节数。</p>
+
+<h1 id="环境-environment">环境 Environment</h1>
+
+<p>由<code>leveldb</code>实现发出的所有文件操作（和其他操作系统调用）都通过一个<code>leveldb::Env</code>对象进行转调。老练的客户可能希望提供自己的<code>Env</code>实现以获得更好的控制。 例如，应用程序可以在文件IO调用中引入人工延迟，以限制<code>leveldb</code>对系统中的其他活动的影响。</p>
+
+<pre><code class="language-cpp">  class SlowEnv : public leveldb::Env {
+    .. implementation of the Env interface ...
+  };
+
+  SlowEnv env;
+  leveldb::Options options;
+  options.env = &amp;env;
+  Status s = leveldb::DB::Open(options, ...);
+</code></pre>
+
+<h1 id="移植-porting">移植 Porting</h1>
+
+<p>leveldb可以通过提供由<code>leveldb/port/port.h</code>导出特定平台的<code>types/methods/functions</code>实现而被移植到新的平台。相关更多详细信息，请参阅<code>leveldb/port/port_example.h</code></p>
+
+<p>此外，新平台可能需要一个新的默认<code>leveldb::Env</code>实现。 有关示例，请参见<code>leveldb/util/env_posix.h</code>。</p>
+
+<h1 id="其它信息-other-information">其它信息 Other Information</h1>
+
+<p>有关leveldb实现的细节可以在以下文档中找到：</p>
+
+<ul>
+<li><a href="https://rawgit.com/google/leveldb/master/doc/impl.html">实现注意事项</a></li>
+<li><a href="https://rawgit.com/google/leveldb/master/doc/table_format.txt">不可变表文件的格式</a></li>
+<li><a href="https://rawgit.com/google/leveldb/master/doc/log_format.txt">日志文件格式</a></li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,348 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp5.7.3移植到arm-linux平台 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp5.7.3移植到arm-linux平台</h1>
+          <span class="post-date">2015年09月16日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/09/16/4814467.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/09/16/4814467.html</a>
+<h1 id="net-snmp573arm-linux">net-snmp5.7.3移植到arm-linux平台</h1>
+<p>本次交叉编译在ubuntu 15.04 64位系统下进行。</p>
+<h2 id="_1">准备工作</h2>
+<p>在编译移植前有几项准备工作需要完成。</p>
+<ul>
+<li>1下载net-snmp 5.7.3源码包</li>
+<li>2安装交叉编译环境(arm-linux-gnueabi-gcc)<br />
+    使用命令<code>sudo apt-get install gcc-arm-linux-gnueabi</code>安装即可。</li></p>
+
+<p></ul>
+<h2 id="_2">编译配置</h2>
+<p>解压net-snmp源码包，然后进入源码包目录</p>
+<pre><code class="bash"> unzip net-snmp-5.7.3.zip
+ cd net-snmp-5.7.3/
+</code></pre>
+<p>可以使用<code>./configure &ndash;help</code>查看一下配置选项有那些。这里不贴了，直接给出。</p>
+<table>
+<thead>
+<tr><th>选项</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr>
+<td>&ndash;host=arm-linux</td>
+<td>运行平台</td>
+</tr>
+<tr>
+<td>&ndash;target=arm-linux</td>
+<td>目标平台</td>
+</tr>
+<tr>
+<td>&ndash;build=i686-linux</td>
+<td>编译平台</td>
+</tr>
+<tr>
+<td>&ndash;with-cc=arm-linux-gcc</td>
+<td>交叉编译工具</td>
+</tr>
+<tr>
+<td>&ndash;with-ar=arm-linux-ar</td>
+<td>使用的打包工具</td>
+</tr>
+<tr>
+<td>&ndash;prefix=/usr/local/net-snmp</td>
+<td>安装目录</td>
+</tr>
+<tr>
+<td>&ndash;disable-shared</td>
+<td>不编译共享库</td>
+</tr>
+<tr>
+<td>&ndash;disable-scripts</td>
+<td>不要安装mib2c等脚本</td>
+</tr>
+<tr>
+<td>&ndash;with-endianness=little</td>
+<td>指定小端模式</td>
+</tr>
+<tr>
+<td>-enable-mini-agent</td>
+<td>最小化构建agent</td>
+</tr>
+<tr>
+<td>&ndash;disable-deprecated</td>
+<td>不编译弃用的功能</td>
+</tr>
+<tr>
+<td>&ndash;without-logfile</td>
+<td>指定snmpd不输出日志文件(可以使用&ndash;with-logfile指定默认日志文件位置)</td>
+</tr>
+<tr>
+<td>&ndash;disable-minimalist</td>
+<td><span class="ordinary-span-edit">删除所有非基本的代码功能</span></td>
+</tr>
+<tr>
+<td>&ndash;enable-debugging</td>
+<td>打开调试信息</td>
+</tr>
+<tr>
+<td>&ndash;disable-testing-code</td>
+<td>不使用测试代码(某些代码不被使用)</td>
+</tr>
+<tr>
+<td>&ndash;with-openssl=/opt/hardhat</td>
+<td>openssl库路径(用于支持加密等)</td>
+</tr>
+<tr>
+<td>&ndash;disable-ipv6</td>
+<td>不使用IPv6</td>
+</tr>
+<tr>
+<td>&ndash;disable-manuals</td>
+<td>不安装manpage说明页</td>
+</tr>
+<tr>
+<td>&ndash;disable-ucd-snmp-compatibility</td>
+<td>不需要兼容ucd-snmp</td>
+</tr>
+<tr>
+<td>&ndash;disable-snmptrapd-subagent</td>
+<td>不用支持snmptrapd的子代理</td>
+</tr>
+<tr>
+<td>&ndash;disable-embedded-perl</td>
+<td>在SNMP代理和snmptrapd禁用嵌入式Perl。默认启用</td>
+</tr>
+<tr>
+<td>&ndash;disable-applications</td>
+<td>是否关闭snmpget等功能，根据自己的需要选择</td>
+</tr>
+<tr>
+<td><span style="font-family: Tahoma,Arial,STHeiti,SimSun; font-size: 14px; color: #000000;"> &ndash;with-default-snmp-version=&ldquo;3&rdquo;</span></td>
+<td>指定默认协议版本</td>
+</tr>
+<tr>
+<td><span style="font-family: Tahoma,Arial,STHeiti,SimSun; font-size: 14px; color: #000000;">&ndash;enable-as-needed </span></td>
+<td>仅链接需要库，不链接不必要的库（如果只使用其他方法行不通,链接libperl针对应用而非Net-SNMP库。）</td>
+</tr>
+</tbody>
+</table>
+<p>下面是我使用的配置</p>
+<h3 id="configure">configure</h3>
+<pre><code>./configure &ndash;host=arm-linux &ndash;target=arm-linux &ndash;build=i686-linux  &ndash;with-cc=arm-linux-gnueabi-gcc-4.9 &ndash;with-ar=arm-linux-gnueabi-gcc-ar-4.9 &ndash;prefix=/usr/local/net-snmp &ndash;disable-shared &ndash;disable-scripts &ndash;with-endianness=little -enable-mini-agent &ndash;disable-ipv6 &ndash;disable-manuals  &ndash;disable-ucd-snmp-compatibility &ndash;enable-as-needed
+</code></pre>
+<p>配置的时候你可以指定一个空目录来作为安装目录，比如<code>/home/o/123</code>。那么<code>make</code>成功后可以<code>make install</code>来安装。移植到<code>arm</code>开发板上的时候可以直接将这个目录打包拷贝过去。</p>
+<h3 id="configre">configre成功输出的信息</h3>
+<pre><code>&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</p>
+
+<h2 id="net-snmp-configuration-summary">Net-SNMP configuration summary:</h2>
+
+<p>SNMP Versions Supported:    1 2c 3
+  Building for:               linux
+  Net-SNMP Version:           5.7.3
+  Network transport support:  Callback Unix Alias TCP UDP IPv4Base SocketBase TCPBase UDPIPv4Base UDPBase
+  SNMPv3 Security Modules:     usm
+  Agent MIB code:            default_modules =&gt;  snmpv3mibs mibII/snmp_mib mibII/system_mib mibII/sysORTable mibII/vacm_vars mibII/vacm_conf
+  MYSQL Trap Logging:         unavailable
+  Embedded Perl support:      disabled
+  SNMP Perl modules:          building &ndash; not embeddable
+  SNMP Python modules:        disabled
+  Crypto support from:        internal
+  Authentication support:     MD5 SHA1
+  Encryption support:         DES AES
+  Local DNSSEC validation:    disabled</p>
+
+<hr />
+
+<p></code></pre>
+<h2 id="_3">编译</h2>
+<p>配置成功后使用<code>make</code>命令编译一下。<br />
+编译成功后将输出下面两行。</p>
+<pre><code>chmod a+x net-snmp-config
+touch net-snmp-config-x
+</code></pre>
+<p>编译完成后可以进入agent文件夹，看是否输出了<code>snmpd</code>文件。</p>
+<pre><code>o@o-pc:~/snmp/net-snmp-5.7.3/agent$ ll snmpd
+-rwxrwxr-x 1 o o 3029820  9月 16 20:31 snmpd*</p>
+
+<p>o@o-pc:~/snmp/net-snmp-5.7.3/agent$ file snmpd
+snmpd: ELF 32-bit LSB executable, ARM, EABI5 version 1 (SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.32, BuildID[sha1]=735ab05f48664e1af99c639e6519893be9413d2b, not stripped
+</code></pre>
+<h3 id="_4">压缩可执行文件</h3>
+<p>编译完成之后是可以直接拿过去用的，但是也可以先压缩一下来节约空间。使用<code>arm-linux-gnueabi-strip</code>程序来压缩</p>
+<pre><code>o@o-pc:~/snmp/net-snmp-5.7.3/agent$ arm-linux-gnueabi-strip snmpd
+o@o-pc:~/snmp/net-snmp-5.7.3/agent$ ll snmpd
+-rwxrwxr-x 1 o o 703836  9月 16 20:51 snmpd*
+</code></pre>
+<p>可以看出，压缩之后可执行文件的大小由接近<code>3MB</code>降到了不到<code>700KB</code>。</p>
+<h2 id="_5">安装到目标平台</h2>
+<p>编译成功后就可以安装到目标平台了。首先拷贝出<code>agent</code>目录下的<code>snmpd</code>文件到目标机器。<br />
+然后再在目标机器上创建<code>snmpd.conf</code>配置文件，具体怎么配置，可以参考<a href="http://www.cnblogs.com/oloroso/p/4595123.html">http://www.cnblogs.com/oloroso/p/4595123.html</a>的第五部分。<br />
+然后就可以启动试试了。</p>
+<pre><code>sudo ./snmpd -c snmpd.conf  &ndash;f &ndash;Le &ndash;d
+</code></pre>
+<h2 id="_6">出现的问题与解决方法</h2>
+<h3 id="perl">没有perl库的问题</h3>
+<p>编译的时候出现找不到perl库的问题，这个问题其实也好解决，编译一个就是嘛。但是呢，没有这个必要，麻烦。</p>
+<pre><code>/usr/lib/gcc-cross/arm-linux-gnueabi/4.9/../../../../arm-linux-gnueabi/bin/ld: cannot find -lperl
+collect2: error: ld returned 1 exit status
+Makefile:484: recipe for target &lsquo;libnetsnmpagent.la&rsquo; failed
+make[1]: *** [libnetsnmpagent.la] Error 1
+make[1]: Leaving directory &lsquo;/home/o/snmp/net-snmp-5.7.3/agent&rsquo;
+Makefile:656: recipe for target &lsquo;subdirs&rsquo; failed
+make: *** [subdirs] Error 1
+</code></pre>
+<p><strong>解决办法</strong><br />
+其实很简单，将之前<code>configure</code>配置的时候加上一个参数<code>&ndash;disable-embedded-perl</code>，然后再次<code>make</code>就可以了。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

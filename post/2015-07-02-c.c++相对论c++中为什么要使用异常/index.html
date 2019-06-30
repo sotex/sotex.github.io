@@ -1,0 +1,298 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> C/C&#43;&#43;相对论——C&#43;&#43;中为什么要使用异常? &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>C/C&#43;&#43;相对论——C&#43;&#43;中为什么要使用异常?</h1>
+          <span class="post-date">2015年07月02日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/02/4616502.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/02/4616502.html</a>
+<h2 id="c">C++中为什么要使用异常?</h2>
+<p>很多人也许知道C++中的异常机制，很多人也许不知道。很多人知道C中常用的<code>assert</code>，也知道在编译时候指定<code>NODEBUG</code>来忽略它。</p>
+<p>对于C语言，使用正常的<code>if-else</code>即是很好的选择，而在C++中，如果使用了面向对象的编程，最好还是使用<code>Exception</code>机制。这主要设计对象能否正确的析构的问题。</p>
+<h2 id="csetjmplongjmp">C中的出错跳转<code>setjmp</code>和<code>longjmp</code></h2>
+<p>C语言中常用的用于处理异常的方法。它不像<code>abort</code>或者<code>assert</code>或者<code>exit</code>那样直接退出，也不像<code>goto</code>语句仅仅局限在函数内部。<br />
+它是用于一种长跳转的方式。可以从一个函数跳到这个函数上层的调用函数中。<br />
+举个例子</p>
+<ol>
+<li>函数 A 中调用了<code>setjmp</code>设置了一个跳转位，然后函数A调用了函数B。</li>
+<li>函数 B 中调用了<code>longjmp</code>，那么会使得程序条到 函数 A中调用<code>setjmp</code>的位置继续执行。</li></p>
+
+<p></ol>
+<p>这不是本文的重点。</p>
+<p>使用<code>setjmp</code>和<code>longjmp</code>最大的缺点是可能会跳过某些对象的构造或者析构。<br />
+还有，在C中使用<code>goto</code>可以跳过某些变量的定义，但是这不会出什么问题。可以试试下面的代码。注意，是<code>C</code>语言，你要是用<code>C++</code>的编译器来编译，应该是会报错的。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> #include &lt;stdio.h&gt;
+<span style="color: #008080;"> 2</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">int</span> main(<span style="color: #0000ff;">int</span> argc,<span style="color: #0000ff;">char</span>*<em><span style="color: #000000;"> argv)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">if</span>(argc &gt; <span style="color: #800080;">1</span><span style="color: #000000;">){
+</span><span style="color: #008080;"> 6</span>         <span style="color: #0000ff;">goto</span><span style="color: #000000;"> nodef;
+</span><span style="color: #008080;"> 7</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">int</span> a = <span style="color: #800080;">102</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">nodef:
+</span><span style="color: #008080;">10</span>     printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;"> a = %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,a);
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="csetjmplongjmp_1">C++中使用<code>setjmp</code>和<code>longjmp</code>造成的不良后果</h2>
+<p>我们先看代码</p>
+<h3 id="_1">无法正常析构对象的代码</h3>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> #include &lt;iostream&gt;
+<span style="color: #008080;"> 2</span> #include &lt;csetjmp&gt;
+<span style="color: #008080;"> 3</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> std::cout;
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> std::endl;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Test{
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 9</span>         Test(){ cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Test 构造</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;}
+</span><span style="color: #008080;">10</span>         ~Test(){cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Test 析构</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;}
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">};
+</span><span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span> jmp_buf jbuf;   <span style="color: #008000;">//</span><span style="color: #008000;">用于setjmp保存当前相关信息</span>
+<span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> calljmp()
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">17</span>     Test t; <span style="color: #008000;">//</span><span style="color: #008000;">测试能够正确调用析构</span>
+<span style="color: #008080;">18</span>     cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">call longjmp(jbuf,3721)</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">19</span>     longjmp(jbuf,<span style="color: #800080;">3721</span><span style="color: #000000;">);
+</span><span style="color: #008080;">20</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">21</span>
+<span style="color: #008080;">22</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+</span><span style="color: #008080;">23</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">24</span>     <span style="color: #0000ff;">int</span> ret=<span style="color: #800080;">0</span><span style="color: #000000;">;
+</span><span style="color: #008080;">25</span>     <span style="color: #0000ff;">if</span>( <span style="color: #800080;">0</span> == (ret=<span style="color: #000000;">setjmp(jbuf))){
+</span><span style="color: #008080;">26</span>         cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">call setjmp(jbuf) resuces</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">        calljmp();
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">29</span>     <span style="color: #0000ff;">else</span><span style="color: #000000;">{
+</span><span style="color: #008080;">30</span>         cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">call setjmp(jbuf) failed   ret = </span><span style="color: #800000;">&ldquo;</span>&lt;&lt; ret &lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">32</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="_2">编译执行看看</h3>
+<p>可以看到，对象构造了，但是没有正常的调用析构。<code class="bash"> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;">1</span> o@o-pc:~/code<em>/exception$ g++ setjmp.<span style="color: #0000ff;">cpp</span> -<span style="color: #000000;">o setjmp
+</span><span style="color: #008080;">2</span> o@o-pc:~/code</em>/exception$ ./<span style="color: #000000;">setjmp
+</span><span style="color: #008080;">3</span> <span style="color: #000000;">call setjmp(jbuf) resuces
+</span><span style="color: #008080;">4</span> <span style="color: #000000;">Test 构造
+</span><span style="color: #008080;">5</span> call longjmp(jbuf,<span style="color: #800080;">3721</span><span style="color: #000000;">)
+</span><span style="color: #008080;">6</span> call setjmp(jbuf) failed   ret = <span style="color: #800080;">3721</span></pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="c_1">C++中使用异常处理的情况</h2>
+<p>C++中使用异常机制的好处之一，就是能够正确的去析构对象。</p>
+<h3 id="_3">使用了异常处理机制的代码</h3>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> #include &lt;iostream&gt;
+<span style="color: #008080;"> 2</span> #include &lt;csetjmp&gt;
+<span style="color: #008080;"> 3</span>
+<span style="color: #008080;"> 4</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> std::cout;
+</span><span style="color: #008080;"> 5</span> <span style="color: #0000ff;">using</span><span style="color: #000000;"> std::endl;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span> <span style="color: #0000ff;">class</span><span style="color: #000000;"> Test{
+</span><span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">public</span><span style="color: #000000;">:
+</span><span style="color: #008080;"> 9</span>         Test(){ cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Test 构造</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;}
+</span><span style="color: #008080;">10</span>         ~Test(){cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Test 析构</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;}
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">};
+</span><span style="color: #008080;">12</span>
+<span style="color: #008080;">13</span> jmp_buf jbuf;   <span style="color: #008000;">//</span><span style="color: #008000;">用于setjmp保存当前相关信息</span>
+<span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">void</span><span style="color: #000000;"> calljmp()
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">17</span>     Test t; <span style="color: #008000;">//</span><span style="color: #008000;">测试能够正确调用析构</span>
+<span style="color: #008080;">18</span>     cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">call longjmp(jbuf,3721)</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">19</span>     <span style="color: #008000;">//</span><span style="color: #008000;">longjmp(jbuf,3721);</span>
+<span style="color: #008080;">20</span>     <span style="color: #0000ff;">throw</span> <span style="color: #800080;">3721</span><span style="color: #000000;">;
+</span><span style="color: #008080;">21</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">22</span>
+<span style="color: #008080;">23</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+</span><span style="color: #008080;">24</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">25</span>     <span style="color: #0000ff;">try</span><span style="color: #000000;">{
+</span><span style="color: #008080;">26</span>         cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">调用calljmp 尝试抛出异常</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">27</span> <span style="color: #000000;">        calljmp();
+</span><span style="color: #008080;">28</span>     }<span style="color: #0000ff;">catch</span>(<span style="color: #0000ff;">int</span><span style="color: #000000;"> t){
+</span><span style="color: #008080;">29</span>         cout&lt;&lt;<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">捕获到异常值:</span><span style="color: #800000;">&ldquo;</span>&lt;&lt;t&lt;&lt;<span style="color: #000000;">endl;
+</span><span style="color: #008080;">30</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">31</span>     <span style="color: #008000;">/</em></span>
+<span style="color: #008080;">32</span> <span style="color: #008000;">    int ret=0;
+</span><span style="color: #008080;">33</span> <span style="color: #008000;">    if( 0 == (ret=setjmp(jbuf))){
+</span><span style="color: #008080;">34</span> <span style="color: #008000;">        cout&lt;&lt;&ldquo;call setjmp(jbuf) resuces&rdquo;&lt;&lt;endl;
+</span><span style="color: #008080;">35</span> <span style="color: #008000;">        calljmp();
+</span><span style="color: #008080;">36</span> <span style="color: #008000;">    }
+</span><span style="color: #008080;">37</span> <span style="color: #008000;">    else{
+</span><span style="color: #008080;">38</span> <span style="color: #008000;">        cout&lt;&lt;&ldquo;call setjmp(jbuf) failed   ret = &ldquo;&lt;&lt; ret &lt;&lt;endl;
+</span><span style="color: #008080;">39</span> <span style="color: #008000;">    }
+</span><span style="color: #008080;">40</span>     <span style="color: #008000;">*/</span>
+<span style="color: #008080;">41</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="_4">编译运行试试</h3>
+<p>可以看到这次正常调用了析构函数<code class="cpp"> </code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/code<em>/exception$ g++ exception.<span style="color: #0000ff;">cpp</span> -<span style="color: #000000;">o exception
+o@o</span>-pc:~/code</em>/exception$ ./<span style="color: #000000;">exception
+调用calljmp 尝试抛出异常
+Test 构造
+call longjmp(jbuf,</span><span style="color: #800080;">3721</span><span style="color: #000000;">)
+Test 析构
+捕获到异常值:</span><span style="color: #800080;">3721</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

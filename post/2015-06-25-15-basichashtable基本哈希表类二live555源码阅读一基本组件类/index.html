@@ -1,0 +1,407 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 15 BasicHashTable基本哈希表类(二)——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>15 BasicHashTable基本哈希表类(二)——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月25日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599556.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599556.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##BasicHashTable的辅助方法</p>
+
+<p>这里介绍的是一些用来对哈希表进行一些基本的哈希操作的函数。</p>
+
+<p>##randomIndex(uintptr_t i) const方法</p>
+
+<p><code>randomIndex(uintptr_t i) const</code>方法是这个<code>BasicHashTable</code>的<code>散列算法</code>。它将各个<code>TableEntry</code>对象的<code>key</code>散列到<code>不同的桶</code>中去，就是获取<code>key</code>对应桶的<code>索引</code>。</p>
+
+<p>下面代码中的注释已经比较清楚了，稍微再解释一下。
+&gt;
+我们之前已经说过了，<code>一个桶</code>可能会有<code>多个条目</code>相关联。哈希表的特点就是要<code>快速查找</code>，那么一个<code>key</code>对应到一个桶，然后从桶中查找条目就加快了速度。这个<code>i * 1103515245</code>就是一个用来<code>产生伪随机数</code>的操作。这个函数在<code>key类型</code>不为字符串的时候会使用到。因为是伪随机数，所以<code>只要i不变</code>，<code>结果就不变</code>。在使用的时候会使用<code>key</code>来替代<code>i</code>。所以只要<code>key</code>相同，会<code>散列到同一个桶</code>中。</p>
+
+<p><code>fDownShift</code>是用来<code>降档移位</code>的。如果 <code>i=123</code>,那么<code>i * 1103515245</code>的结果是 <code>135732375135</code> 转为二进制就是</p>
+
+<pre><code>1001 1010 0100 0111 1010 1110 0101 1111		这里只看32位，溢出的部分不要了，然后将其左移 fDownShift =28 位
+0000 0000 0000 0000 0000 0000 0000 1001		这也一来就只剩下了最后四位有效了，其余的都被清零了。然后&amp;fMask=0x3
+0000 0000 0000 0000 0000 0000 0000 0001		因为0x3的二进制形式为 0011（前面28位皆为0），所以相当于就是清零了
+											前面的30位，只留下最低两位。之前说过默认的桶数是4个，而两个二进制位
+											能表示的是 0、1、2、3四种可能，刚刚好。
+</code></pre>
+
+<p>如果<code>重建桶</code>，那么<code>fDownShift</code>和<code>fMask</code>的值必须有相应的改变。这个在后面会介绍。这里补充一下，上面所做的二进制表示都是在<code>小端序</code>的情况下的。</p>
+
+<pre><code class="language-cpp">//随机化索引，其实并非随机。产生一个与i有关的随机值，这是单向不可逆的
+	unsigned randomIndex(uintptr_t i) const {
+		//1103515245这个数很有意思，rand函数线性同余算法中用来溢出的
+		//这个函数的作用就是返回一个随机值，因为默认fMask(0x3)，也就是只保留两位
+		//为什么只要保留2位，也就是0 1 2 3 这四种结果咯，因为桶默认只有四个
+		// fDownShift用来移位，其默认是28，每次调整哈希表大小的时候会减2
+		return (unsigned)(((i * 1103515245) &gt;&gt; fDownShift) &amp; fMask);
+	}
+
+</code></pre>
+
+<hr />
+
+<p>##hashIndexFromKey(char const* key) const方法
+<code>hashIndexFromKey</code>方法将一个<code>key</code>值散列得到一个<code>index</code>索引值。</p>
+
+<p>这里不多解释了，代码很明白。根据<code>key的类型</code>，进行不同方式的散列，得到<code>index索引</code>返回。这个方法是用于实现后面将介绍的多个方法的关键。</p>
+
+<pre><code class="language-cpp">unsigned BasicHashTable::hashIndexFromKey(char const* key) const {
+  unsigned result = 0;
+  //如果键的类型是字符串
+  if (fKeyType == STRING_HASH_KEYS) {
+    while (1) {
+      char c = *key++;	//从key指向字符串一个一个取字符
+      if (c == 0) break;
+	  //转换为数字型的索引
+      result += (result&lt;&lt;3) + (unsigned)c;
+    }
+    result &amp;= fMask;	//掩码留位操作
+  } else if (fKeyType == ONE_WORD_HASH_KEYS) {
+    result = randomIndex((uintptr_t)key);
+  } else {
+    unsigned* k = (unsigned*)key;
+    uintptr_t sum = 0;
+    for (int i = 0; i &lt; fKeyType; ++i) {
+      sum += k[i];
+    }
+    result = randomIndex(sum);
+  }
+  return result;
+}
+</code></pre>
+
+<hr />
+
+<p>##rebuild重新建表方法</p>
+
+<p>重新建表的时候，会动态申请一个是<code>原本桶数组</code>大小<code>四倍</code>的<code>新桶数组</code>。然后将原哈希表中的条目<code>重新散列</code>到新表，因为新表的大小与原本的不同了，<code>fDownShift</code>和<code>fMask</code>必须改变来适应新的桶数组，因此必须重新散列
+-。</p>
+
+<h2 id="每一次重建表的时候-因为桶的个数是原来的四倍-所以散列的时候-保留的位数-必须得到相应的改变-我们可以计算得到-每次保留的位数必须是在-原来基础上增加两位-因为2位可以表示4种可能-就是总的表示范围扩大了4倍-所以-fdownshift-每次-减去2-而-fmask-每次右移两位然后-按位或0x3-操作">每一次重建表的时候，因为桶的个数是原来的四倍，所以散列的时候<code>保留的位数</code>必须得到相应的改变。我们可以计算得到，每次保留的位数必须是在<code>原来基础上增加两位</code>，因为2位可以表示4种可能，就是总的表示范围扩大了4倍。所以<code>fDownShift</code>每次<code>减去2</code>，而<code>fMask</code>每次右移两位然后<code>按位或0x3</code>操作。</h2>
+
+<p>这是一个<code>private权限</code>的方法，在<code>Add方法</code>中调用。</p>
+
+<pre><code class="language-cpp">void BasicHashTable::rebuild() {
+  // Remember the existing table size:
+  unsigned oldSize = fNumBuckets;
+  TableEntry** oldBuckets = fBuckets;
+
+  // Create the new sized table:
+  fNumBuckets *= 4;
+  fBuckets = new TableEntry*[fNumBuckets];
+  for (unsigned i = 0; i &lt; fNumBuckets; ++i) {
+    fBuckets[i] = NULL;
+  }
+  fRebuildSize *= 4;
+  fDownShift -= 2;
+  fMask = (fMask&lt;&lt;2)|0x3;
+  // Rehash the existing entries into the new table:
+  // 重新散列，把现有的条目加入到新表
+  for (TableEntry** oldChainPtr = oldBuckets; oldSize &gt; 0;
+       --oldSize, ++oldChainPtr) {
+    for (TableEntry* hPtr = *oldChainPtr; hPtr != NULL;
+	 hPtr = *oldChainPtr) {
+      *oldChainPtr = hPtr-&gt;fNext;
+
+      unsigned index = hashIndexFromKey(hPtr-&gt;key);
+
+      hPtr-&gt;fNext = fBuckets[index];
+      fBuckets[index] = hPtr;
+    }
+  }
+  // Free the old bucket array, if it was dynamically allocated:
+  // 释放旧的桶数组，如果它是动态申请的
+  if (oldBuckets != fStaticBuckets) delete[] oldBuckets;
+}
+</code></pre>
+
+<hr />
+
+<p>##deleteKey和deleteEntry方法</p>
+
+<p><code>deleteKey</code>方法将一个条目的<code>key</code>删除。这个方法用于实现<code>deleteEntry</code>方法。</p>
+
+<pre><code class="language-cpp">void BasicHashTable::deleteKey(TableEntry* entry) {
+  // The way we delete the key depends upon its type:
+  if (fKeyType == ONE_WORD_HASH_KEYS) {
+    entry-&gt;key = NULL;
+  } else {
+    delete[] (char*)entry-&gt;key;
+    entry-&gt;key = NULL;
+  }
+}
+</code></pre>
+
+<p>-
+<code>deleteEntry</code>用于从哈希表中<code>删除一个条目</code>，并且这个条目<code>会被回收</code>。这里有一个参数<code>index</code>，这个参数指明了这个<code>entry</code>从哪一个桶中查找。这个方法的权限是<code>private</code>的，所以这里不用担心<code>index</code>传错了的情况，这个在调用的时候会根据条目<code>entry的key</code>来确定的。如果没有找到，那也没有关系，本来就是要从哈希表中移除的，没有就等于是已经移除了。</p>
+
+<pre><code class="language-cpp">void BasicHashTable::deleteEntry(unsigned index, TableEntry* entry) {
+  TableEntry** ep = &amp;fBuckets[index];
+
+  Boolean foundIt = False;
+  while (*ep != NULL) {
+    if (*ep == entry) {
+      foundIt = True;
+      *ep = entry-&gt;fNext;
+      break;
+    }
+ep = &amp;((*ep)-&gt;fNext);		//找到了就从hashTable中移除
+}
+  if (!foundIt) { // shouldn't happen
+#ifdef DEBUG
+    fprintf(stderr, &quot;BasicHashTable[%p]::deleteEntry(%d,%p): internal error - not found (first entry %p&quot;, this, index, entry, fBuckets[index]);
+    if (fBuckets[index] != NULL) fprintf(stderr, &quot;, next entry %p&quot;, fBuckets[index]-&gt;fNext);
+fprintf(stderr, &quot;)\n&quot;);
+#endif
+}
+  --fNumEntries;
+  deleteKey(entry);
+  delete entry;
+}
+</code></pre>
+
+<hr />
+
+<p>##assignKey方法</p>
+
+<p><code>assignKey</code>方法用于给条目<code>*entry的key</code>成员分配一个与参数<code>key</code> <code>等大小的空间</code>，<code>并拷贝其指向的内容</code>。简单的说就是使用参数<code>key</code>给条目<code>entry</code>创建<code>key</code>。这个方法用与实现<code>insertNewEntry</code>方法。函数<code>strDup</code>在<code>strDup.cpp</code>中实现，其作用是在堆上分配一个刚好可以保存<code>key</code>指向的字符串的空间，然后拷贝<code>key</code>指向字符串内容到新的空间，返回新空间地址。</p>
+
+<pre><code class="language-cpp">void BasicHashTable::assignKey(TableEntry* entry, char const* key) {
+  // The way we assign the key depends upon its type:
+  if (fKeyType == STRING_HASH_KEYS) {
+    entry-&gt;key = strDup(key);	//给条目的key成员分配空间
+  } else if (fKeyType == ONE_WORD_HASH_KEYS) {
+    entry-&gt;key = key;
+  } else if (fKeyType &gt; 0) {
+    unsigned* keyFrom = (unsigned*)key;
+    unsigned* keyTo = new unsigned[fKeyType];
+    for (int i = 0; i &lt; fKeyType; ++i) keyTo[i] = keyFrom[i];
+
+    entry-&gt;key = (char const*)keyTo;
+  }
+}
+</code></pre>
+
+<hr />
+
+<p>##insertNewEntry方法(插入新条目)</p>
+
+<p><code>insertNewEntry</code>方法用于使用key创建一个新条目，然后将这个新条目插入到<code>index</code>桶的位置。这是链表的头插法。这也是<code>private</code>权限的，在调用的时候<code>index</code>会根据<code>key</code>来生成。注意的是，目前这个条目的<code>value未赋值</code>。</p>
+
+<pre><code class="language-cpp">BasicHashTable::TableEntry* BasicHashTable
+::insertNewEntry(unsigned index, char const* key) {
+  TableEntry* entry = new TableEntry();
+  entry-&gt;fNext = fBuckets[index];
+  fBuckets[index] = entry;
+
+  ++fNumEntries;
+  assignKey(entry, key);
+
+  return entry;
+}
+</code></pre>
+
+<hr />
+
+<p>##keyMatches方法(键比较)</p>
+
+<p><code>keyMatches</code>方法用于比较两个<code>key</code>是否一致。这个方法用于实现<code>lookupKey</code>方法。</p>
+
+<pre><code class="language-cpp">Boolean BasicHashTable
+::keyMatches(char const* key1, char const* key2) const {
+  // The way we check the keys for a match depends upon their type:
+  if (fKeyType == STRING_HASH_KEYS) {
+    return (strcmp(key1, key2) == 0);
+  } else if (fKeyType == ONE_WORD_HASH_KEYS) {
+    return (key1 == key2);
+  } else {
+    unsigned* k1 = (unsigned*)key1;
+    unsigned* k2 = (unsigned*)key2;
+
+    for (int i = 0; i &lt; fKeyType; ++i) {
+      if (k1[i] != k2[i]) return False; // keys differ
+    }
+    return True;
+  }
+}
+</code></pre>
+
+<hr />
+
+<p>##lookupKey方法(查找条目)</p>
+
+<p><code>lookupKey</code>使用<code>key</code>来确定<code>index</code>和要查找的条目。注意参数<code>index</code>是一个<code>引用</code>，是作为<code>传出参数</code>的。如果查找失败，会返回<code>NULL</code>。
+与前面几个一样，这也是<code>private</code>权限的。这几个方法主要用于实现<code>BasicHashTable</code>从类<code>HashTable</code>中<code>继承的几个虚函数</code>。即对哈希表的增删查改。</p>
+
+<pre><code class="language-cpp">BasicHashTable::TableEntry* BasicHashTable
+::lookupKey(char const* key, unsigned&amp; index) const {
+  TableEntry* entry;
+  index = hashIndexFromKey(key);	//确定在那个桶里
+  //因为一个桶代表一个链表，需要判断找到的条目的key是否对得上
+  for (entry = fBuckets[index]; entry != NULL; entry = entry-&gt;fNext) {
+if (keyMatches(key, entry-&gt;key)) break;
+}
+  return entry;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

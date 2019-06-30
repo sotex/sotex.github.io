@@ -1,0 +1,414 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 14 BasicHashTable基本哈希表类(一)——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>14 BasicHashTable基本哈希表类(一)——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月25日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599536.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599536.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##BasicHashTable基本哈希表类</p>
+
+<p>这个类搞的很复杂，实质上没什么东西，就是很难看。</p>
+
+<p>###先画一个简图</p>
+
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/251126523454511.png" alt="BasicHashTable" /></p>
+
+<p>###先说说这个BasicHashTable的设计吧。</p>
+
+<p>这个表的内部嵌套定义了一个<code>TableEntry</code>(表条目)的类，这个类有一个键<code>key</code>，一个值<code>value</code>，以及<code>指向同一个索引下一个条目的指针</code>(此处很有用，为什么要这么设置，后面会说到的)。这里的<code>key</code>是<code>char const*</code>类型，但其并不一定是如此，可以是<code>unsigned</code>类型等，这里只是一个代表。</p>
+
+<blockquote>
+</blockquote>
+
+<p><code>BasicHashTable</code>的内部定义了一个<code>TableEntry*</code>类型的数组<code>fStaticBuckets</code>，是用来保存表条目的，默认是<code>4</code>个元素。还有一个指向这个数组的指针<code>fBuckets</code>，为什么还要这个数组呢？因为可能<code>哈希表要扩展</code>，4个元素不够用。所以又定义了一个成员<code>fNumBuckets</code>来标识桶(Buckets)的数量，<code>一个桶就是一个数组元素空间</code>。除此之外还需要知道以及保存了多少个条目，于是又有了成员<code>fNumEntries</code>。还有一个就是条目的<code>键的类型</code>，这个在创建哈希表的时候就要确定，所以又增加了成员<code>fKeyType</code>。</p>
+
+<blockquote>
+</blockquote>
+
+<p>还有一个成员<code>fRebuildSize</code>，这个成员是用来确定什么时候该重建的。每次在<code>Add方法</code>调用的时候就会判断当前已有条目数是否达到了<code>fRebuildSize</code>，如果达到了就该重建了。它的值是<code>现有桶数的3倍</code>。前面说了，一个桶可以保存一个<code>TableEntry*</code>类型的变量，也就是一个条目的地址，而每一个<code>TableEntry</code>对象中，又含有一个<code>fNext</code>变量，指向下一个条目。因为<code>hash</code>是散列算法，那么不同的<code>key</code>可能会散列到同一个<code>index</code>，如何解决这种碰撞问题呢？很好办，用链表。即<code>把同一个散列到index的条目，用链表串联起来</code>。</p>
+
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/251127124866025.png" alt="BasicHashTable2" /></p>
+
+<p><img src="./14_BasicHashTable3.png" alt="" />
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/251127301425497.png" alt="BasicHashTable3" /></p>
+
+<p>另外两个成员<code>fDownShift</code>, <code>fMask</code>是用于产生索引<code>index</code>用的。</p>
+
+<p>##下面是类BasicHashTable的定义</p>
+
+<pre><code class="language-cpp">
+#define SMALL_HASH_TABLE_SIZE 4
+
+class BasicHashTable : public HashTable {
+private:
+	class TableEntry; // forward
+
+public:
+	/**
+	*	1、将fBuckets指向fStaticBuckets,初始化其他几个数据成员
+	*	2、将FStaticBuckets数值清零(全置为NULL)
+	*/
+	BasicHashTable(int keyType);
+	virtual ~BasicHashTable();
+
+//======== class iteratr =====================================
+	// Used to iterate through the members of the table:
+	class Iterator; friend class Iterator; // to make Sun's C++ compiler happy
+	class Iterator : public HashTable::Iterator {
+	public:
+		//绑定到table
+		Iterator(BasicHashTable&amp; table);
+
+	private: // implementation of inherited pure virtual functions
+		//设置key为下一个节点的key,返回下一个节点的value。如果下一个不存在，返回NULL
+		void* next(char const*&amp; key); // returns 0 if none
+
+	private:
+		BasicHashTable&amp; fTable;	//绑定一个哈希表
+		unsigned fNextIndex; // index of next bucket to be enumerated after this
+		TableEntry* fNextEntry; // next entry in the current bucket
+	};
+//===========================================================
+
+private: // implementation of inherited pure virtual functions
+		 //继承的纯虚函数的实现
+
+	virtual void* Add(char const* key, void* value);
+	// Returns the old value if different, otherwise 0
+// 如果不同的话返回旧值，否则为0
+	virtual Boolean Remove(char const* key);
+	virtual void* Lookup(char const* key) const;
+	// Returns 0 if not found
+//获取当前条目数
+	virtual unsigned numEntries() const;
+
+private:
+//======== class TableEntry =================================
+	class TableEntry {
+	public:
+		TableEntry* fNext;	//下一个指针
+		char const* key;	//键
+		void* value;		//值
+	};
+//===========================================================
+	
+	//使用key来确定index和要查找的条目
+	TableEntry* lookupKey(char const* key, unsigned&amp; index) const;
+	// returns entry matching &quot;key&quot;, or NULL if none
+	//返回“key”匹配的条目，如果没有找到返回null
+
+	//比较两个key是否一样
+	Boolean keyMatches(char const* key1, char const* key2) const;
+	// used to implement &quot;lookupKey()&quot;
+	// 用于实现 &quot;lookupKey()&quot;
+
+	//创建一个条目，将其放入到桶数组的index位置
+	TableEntry* insertNewEntry(unsigned index, char const* key);
+	// creates a new entry, and inserts it in the table
+	// 创建一个新条目，并插入到这个哈希表
+
+	//给一个条目entry的key成员赋值(绑定一个key)
+	void assignKey(TableEntry* entry, char const* key);
+	// used to implement &quot;insertNewEntry()&quot;
+	// 用于实现“insertNewEntry”
+
+	//从哈希表中找到entry，移除后销毁
+	void deleteEntry(unsigned index, TableEntry* entry);
+
+	//将条目entry的key删除
+	void deleteKey(TableEntry* entry);
+	// used to implement &quot;deleteEntry()&quot;
+	// 用于实现 &quot;deleteEntry()&quot;
+
+	//重建哈希表，重建的尺寸是以前的四倍
+	void rebuild(); // rebuilds the table as its size increases
+	//重建表作为它的尺寸的增加而增加
+
+	//从key散列索引,通过key来获取一个索引值
+	unsigned hashIndexFromKey(char const* key) const;
+	// used to implement many of the routines above
+	// 用于实现许多以上的程序
+
+	//随机索引，其实并非随机。产生一个与i有关的随机值，这是单向不可逆的
+	unsigned randomIndex(uintptr_t i) const {
+		//1103515245这个数很有意思，rand函数线性同余算法中用来溢出的
+		//这个函数的作用就是返回一个随机值，因为默认fMask(0x3)，也就是只保留两位
+		//为什么只要保留2位，也就是0 1 2 3 这四种结果咯，因为桶默认只有四个
+		return (unsigned)(((i * 1103515245) &gt;&gt; fDownShift) &amp; fMask);
+	}
+
+private:
+	TableEntry** fBuckets; // pointer to bucket array 指向 桶数组，桶中保存TableEntry对象地址
+	TableEntry* fStaticBuckets[SMALL_HASH_TABLE_SIZE];// used for small tables 用于小表
+	unsigned fNumBuckets/*桶数*/, fNumEntries/*节点数*/, fRebuildSize/*重建尺寸大小*/, 
+		fDownShift/*降档变速*/, fMask/*掩码*/;
+	int fKeyType;
+};
+
+</code></pre>
+
+<hr />
+
+<p>##迭代器BasicHashTable::Iterator</p>
+
+<p>这里把迭代器先分析了，这个迭代器是继承自<code>HashTable::Iterator</code>的。</p>
+
+<h2 id="通过看代码可知-其被-class-bascihashtable-声明为了-友元类">通过看代码可知，其被<code>class BasciHashTable</code>声明为了<code>友元类</code>。</h2>
+
+<p>成员<code>fTable</code>是一个<code>BasicHashTable</code>对象的引用，所以其构造的时候<code>必须绑定</code>一个<code>BasicHashTable</code>对象。成员<code>fNextEntry</code>和<code>fNextIndex</code>是用来查找<code>TableEntry</code>条目用的，这个在<code>next</code>方法中会详细介绍。</p>
+
+<pre><code class="language-cpp">	class Iterator; friend class Iterator; // to make Sun's C++ compiler happy
+	class Iterator : public HashTable::Iterator {
+	public:
+		//绑定到table
+		Iterator(BasicHashTable&amp; table);
+
+	private: // implementation of inherited pure virtual functions
+		//设置key为下一个节点的key,返回下一个节点的value。如果下一个不存在，返回NULL
+		void* next(char const*&amp; key); // returns 0 if none
+
+	private:
+		BasicHashTable&amp; fTable;	//绑定一个哈希表
+		unsigned fNextIndex; // index of next bucket to be enumerated after this
+		TableEntry* fNextEntry; // next entry in the current bucket
+	};
+</code></pre>
+
+<hr />
+
+<p>###BasicHashTable::Iterator的构造和析构
+<code>BasicHashTable::Iterator</code>在构造的时候，将<code>fNextIndex</code>置为了<code>0</code>，而<code>fNextEntry</code>置为<code>NULL</code>。仅仅是<code>绑定</code>了一个<code>table</code>。就是迭代器构建的时候，并没有指向一个条目。</p>
+
+<p>那么它的析构呢？答案是没有。<code>BasicHashTable::Iterator</code>并没有定义析构函数，其使用默认的析构。为什么呢？因为<code>BasicHashTable::Iterato</code>r迭代器对象<code>只会指向已经存在的条目</code>，而不会自己创造条目。不存在内存的手动申请释放问题。</p>
+
+<pre><code class="language-cpp">BasicHashTable::Iterator::Iterator(BasicHashTable&amp; table)
+  : fTable(table), fNextIndex(0), fNextEntry(NULL) {
+}
+</code></pre>
+
+<p>###BasicHashTable:: Iterator::next(char const*&amp; key)方法</p>
+
+<p>这个方法就重要了，这是在迭代器里面最重要方法了。它指示了迭代器的工作原理。
+前面已经说过了，<code>fNextEntry</code>指针在构造的时候初始化为<code>NULL</code>了，而<code>fNextIndex</code>初始化为<code>0</code>了。所以这里必须要先找到一个可以用于索引的条目。于是先从桶数组<code>fBuckets</code>的第一个桶开始找，遍历桶，直到找到一个有指向条目的桶，如果找遍了都没有找到，那就直接返回<code>NULL</code>咯。
+&gt;
+这里要注意的是<code>fNextIndex的重要性</code>，它保证了不会使得迭代器只用于一个桶所指向的链表，而是在走到链表尾部之后，会走向下一个可用桶去。
+&gt;
+如果迭代器不是刚刚构造的，或还<code>没有</code>走到<code>链表的尾部</code>。已经使用过了，那么<code>fNextEntry</code>不为<code>NULL</code>,就可以直接做后续的步骤了。
+如果迭代器指向了一个可用的<code>TableEntry</code>，那么就设置参数<code>key</code>(注意参数类型，是一个指针的引用)指向这个条目的<code>key</code>，同时返回这个条目的<code>value</code>。同时必须将<code>fNextEntry</code>指向下一个条目。</p>
+
+<pre><code class="language-cpp">void* BasicHashTable::Iterator::next(char const*&amp; key) {
+  while (fNextEntry == NULL) {
+	  //如果下一个索引值大于哈希表的桶数，返回NULL
+    if (fNextIndex &gt;= fTable.fNumBuckets) return NULL;
+	//fNextEntry指向对应的桶位置，fNextEntry后移
+    fNextEntry = fTable.fBuckets[fNextIndex++];
+  }
+
+  BasicHashTable::TableEntry* entry = fNextEntry;
+  fNextEntry = entry-&gt;fNext;
+
+  key = entry-&gt;key;	//设置key
+  return entry-&gt;value;	//返回值
+}
+</code></pre>
+
+<hr />
+
+<p>##BasicHashTable的构造</p>
+
+<p><code>BasicHashTable</code>的构造过程很简单，但是要注意的是其参数<code>keyType</code>，这说明了这个<code>BasicHashTable</code>中保存条目的<code>key</code>的类型是一致的。在<code>HashTable.hh</code>文件中定义了<code>两个const量</code>，如果不是这两个定义的，那么<code>key</code>会当作<code>unsigned int*</code>类型，<code>keyType</code>的值代表<code>key</code>指向的<code>内存空间元素个数</code>。</p>
+
+<pre><code class="language-cpp">int const STRING_HASH_KEYS = 0;		//字符串型key
+int const ONE_WORD_HASH_KEYS = 1;	//这个直接当作char*变量，实质是作为整数在用
+</code></pre>
+
+<p>还有<code>SMALL_HASH_TABLE_SIZE</code>这个值，这是一个<code>宏定义</code>，其是<code>4</code> 。另一个是<code>REBUILD_MULTIPLIER</code>(重建乘数)其是<code>3</code> 。这两个值确定了初始的时候桶<code>bucket</code>的个数，即桶数组<code>fBuckets</code>的大小。一个确定<code>重新建桶数组的临界条件</code>。在每次条目数到了桶数的3倍的时候就会重建桶，重建的桶数(<code>fNumBuckets</code>)是之前的4倍。
+&gt;
+<code>fDownShift</code>和<code>fMask</code>这两个值是用于将<code>key</code>散列到<code>index</code>时候用的。<code>fDownShift</code>在每次重建桶的时候会<code>减2</code>，所以<code>14次</code>重建桶其就为0了。但是基本不会有这么多次重建，7次重建之后，桶的数目就达到了4^8=65536个。
+&gt;
+初始化的时候，每个桶都被初始化为了<code>NULL</code>，这时候哈希表中还没有条目。</p>
+
+<pre><code class="language-cpp">BasicHashTable::BasicHashTable(int keyType)
+  : fBuckets(fStaticBuckets), fNumBuckets(SMALL_HASH_TABLE_SIZE),
+    fNumEntries(0), fRebuildSize(SMALL_HASH_TABLE_SIZE*REBUILD_MULTIPLIER),
+    fDownShift(28), fMask(0x3), fKeyType(keyType) {
+  for (unsigned i = 0; i &lt; SMALL_HASH_TABLE_SIZE; ++i) {
+    fStaticBuckets[i] = NULL;
+  }
+}
+</code></pre>
+
+<p>##BasicHashTable的析构</p>
+
+<p><code>BasicHashTable</code>的析构中用到了<code>deleteEntry</code>方法，后面会详细的说这个方法，这里简要的说一下其作用。这个方法将第二个参数<code>entry</code>指向的条目从哈希表中移除，并将其<code>delete</code>。
+<code>BasicHashTable</code>的析构会<code>释放整个哈希表</code>。逐个桶释放逐个条目链表。</p>
+
+<pre><code class="language-cpp">BasicHashTable::~BasicHashTable() {
+  // Free all the entries in the table:
+  for (unsigned i = 0; i &lt; fNumBuckets; ++i) {
+    TableEntry* entry;
+    while ((entry = fBuckets[i]) != NULL) {
+      deleteEntry(i, entry);
+    }
+  }
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

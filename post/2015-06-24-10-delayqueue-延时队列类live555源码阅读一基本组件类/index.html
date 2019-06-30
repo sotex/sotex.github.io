@@ -1,0 +1,392 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 10 DelayQueue 延时队列类——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>10 DelayQueue 延时队列类——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月24日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/24/4596854.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/24/4596854.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##DelayQueue 延时队列类</p>
+
+<p>这个类的设计不是很复杂，但是要清楚的知道其设计的思路。先给个图</p>
+
+<p>10_DelayQueue.png
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240932344559156.png" alt="" /></p>
+
+<p>这个链表的设计和前面不一样。其内部只有<code>一个EventTime fLastSyncTime</code>最后同步时间的数据成员。并不包含一个链表的头结点。但是<code>其本身是DelayQueueEntry的派生类，所以其本身就是一个链表头结点</code>。</p>
+
+<p>我们前面说了，<code>DealyQueueEntry</code>的构造函数是<code>protected权限</code>的，而DelayQueue是其友元。在后面说还会说到<code>AlarmHandler</code>类，这个类对象才是<code>真正的链表节点</code>（头结点除外）。</p>
+
+<p><img src="./10_DelayQueue2.png" alt="" />
+<img src="http://images0.cnblogs.com/blog2015/693958/201506/240932538457598.png" alt="" /></p>
+
+<h2 id="delayqueue类的定义">DelayQueue类的定义</h2>
+
+<pre><code class="language-cpp">///// DelayQueue /////
+// 延时队列(链表)
+class DelayQueue: public DelayQueueEntry {
+public:
+	// 设置头结点的 延时剩余时间 为 永恒
+	// 设置最后同步时间为当前时间
+  DelayQueue();
+  virtual ~DelayQueue();
+  
+  //添加记录(节点)
+  void addEntry(DelayQueueEntry* newEntry); // returns a token for the entry
+  void updateEntry(DelayQueueEntry* entry, DelayInterval newDelay);
+  void updateEntry(intptr_t tokenToFind, DelayInterval newDelay);
+  void removeEntry(DelayQueueEntry* entry); // but doesn't delete it
+  DelayQueueEntry* removeEntry(intptr_t tokenToFind); // but doesn't delete it
+
+  // 获取头结点的 延时剩余时间
+  DelayInterval const&amp; timeToNextAlarm();
+  //判断头结点的 延时剩余时间 是否为 DELAY_ZERO 是的话从链表中移除
+  // 并由头结点调用handleTimeout方法(delete this)
+  void handleAlarm();
+private:
+  DelayQueueEntry* head() { return fNext; }
+  DelayQueueEntry* findEntryByToken(intptr_t token);
+  //把“剩余时间”域更新。
+  //    设置最后同步时间为当前时间
+  //    从链表头节点开始，遍历，看节点的延时时间是否到了,到了的设置为 DELAY_ZERO
+  //	从这里可以看出来，链表中节点保存的 延时剩余时间 是与前一个节点有关系的
+  //	 当前节点 总的延时时间，应该是当前节点的 延时剩余时间 加上前一个节点的 总的延时时间
+  void synchronize(); // bring the 'time remaining' fields up-to-date
+  EventTime fLastSyncTime;	//最后同步时间
+};
+</code></pre>
+
+<p>##DelayQueue的构造与析构</p>
+
+<p>构造的时候，将调用了基类的构造。前面说过基类的构造就是初始化了<code>fDeltaTimeRemaining</code>成员(延时剩余时间)，并初始化了<code>fToken</code>为一个不与其他节点重复的整数，同时将节点的<code>fNext</code>和<code>fPrev</code>指针指向this。</p>
+
+<p>这里的参数<code>ETERNITY</code>是<code>const DelayInterval ETERNITY(INT_MAX, MILLION-1); //最大的时间(永恒)</code> 的定义，其可能在不同平台有不同值，但肯定是一个非常大的数。也就是说头结点的延时剩余时间是一个特殊的值，正常情况下不会有比它更大的了。
+这里还设置了<code>最后同步时间为当前时间</code>。</p>
+
+<pre><code class="language-cpp">DelayQueue::DelayQueue()
+  : DelayQueueEntry(ETERNITY) {
+  fLastSyncTime = TimeNow();
+}
+</code></pre>
+
+<p>-
+析构函数做的时间就比较多了，它负责了释放链表的操作。</p>
+
+<pre><code class="language-cpp">DelayQueue::~DelayQueue() {
+  while (fNext != this) {
+    DelayQueueEntry* entryToRemove = fNext;
+    removeEntry(entryToRemove);
+    delete entryToRemove;
+  }
+}
+</code></pre>
+
+<p>##removeEntry方法</p>
+
+<p>这个方法在析构函数中用到了，就是把节点从链表中移除。要注意的是，其只是把节点移出了链表，<code>并没有销毁</code>哦。
+这里注意看这一句<code>entry-&gt;fNext-&gt;fDeltaTimeRemaining += entry-&gt;fDeltaTimeRemaining</code>;</p>
+
+<p>移除节点的下一个节点的延时间隔剩余时间增加了移除节点的延时剩余时间。这里说明了这个队列的<code>节点的延时间隔剩余时间不是其成员fDeltaTimeRemaining所表示的值，而是其与其之前所有节点的fDeltaTimeRemaining之和才是真的延时剩余时间</code>。这一点很重要，后面的其他方法中要知道这个设计才行。</p>
+
+<pre><code class="language-cpp">void DelayQueue::removeEntry(DelayQueueEntry* entry) {
+  if (entry == NULL || entry-&gt;fNext == NULL) return;
+
+  entry-&gt;fNext-&gt;fDeltaTimeRemaining += entry-&gt;fDeltaTimeRemaining;
+  entry-&gt;fPrev-&gt;fNext = entry-&gt;fNext;
+  entry-&gt;fNext-&gt;fPrev = entry-&gt;fPrev;
+  entry-&gt;fNext = entry-&gt;fPrev = NULL;
+  // in case we should try to remove it again
+}
+</code></pre>
+
+<p>其还有一个<code>重载DelayQueueEntry* DelayQueue::removeEntry(intptr_t tokenToFind)</code>相当于是先查找，再移除。</p>
+
+<p>##findEntryByToken方法</p>
+
+<p>这个方法用于查找节点，找到了返回节点的地址，没找到返回<code>NULL</code>。</p>
+
+<pre><code class="language-cpp">DelayQueueEntry* DelayQueue::findEntryByToken(intptr_t tokenToFind) {
+  DelayQueueEntry* cur = head();
+  while (cur != this) {
+    if (cur-&gt;token() == tokenToFind) return cur;
+    cur = cur-&gt;fNext;
+  }
+  return NULL;
+}
+</code></pre>
+
+<p>##synchronize方法</p>
+
+<p>这是<code>DelayQueue</code>中非常重要的一个方法，并且这个方法是<code>private权限</code>的，只能在类内部调用。</p>
+
+<p>1.先获取当前时间，然后比较当前时间与最后一次同步的时间。如果当前时间在最后一次同步时间之后，做下面的步骤
+2.计算出自上次同步之后，又经过了多长时间。时间差为timeSinceLastSync，设置最后同步时间为当前时间。
+3.从头结点的下一个开始，判断其<code>延时剩余时间</code> 是否比<code>已经过去的时间</code> <fontcolor="#FF0000">短</font>，如果是将其延时剩余时间设置为0 。并将<code>timeSinceLastSync</code>减去 这个节点的延时剩余时间，因为<code>实际的延时剩余实际是与前一个节点相关的</code>。
+4.当找到 <code>延时剩余时间</code>比<code>timeSinceLastSync</code>长的节点的时候，说明当前节点的延时还得继续，操作到此，将其延时剩余时间减去timeSinceLastSync。同步至此完成</p>
+
+<hr />
+
+<p>可以看出这个方法的作用就是判断节点的延时是否到了，进行的一次更新。</p>
+
+<pre><code class="language-cpp">void DelayQueue::synchronize() {
+  // First, figure out how much time has elapsed since the last sync:
+	// 首先，计算出自上次同步时间后又过了多少时间：
+  EventTime timeNow = TimeNow();
+  if (timeNow &lt; fLastSyncTime) {
+    // The system clock has apparently gone back in time; reset our sync time and return:
+	  //系统时钟显然已经回到了过去；重置我们的最后同步时间并返回：
+    fLastSyncTime  = timeNow;
+    return;
+  }
+  DelayInterval timeSinceLastSync = timeNow - fLastSyncTime;
+  fLastSyncTime = timeNow;
+
+  // Then, adjust the delay queue for any entries whose time is up:
+  // 然后，调整延迟队列中的任何项的时间到了：(从链表头节点开始，遍历，看节点的延时时间是否到了)
+  DelayQueueEntry* curEntry = head();
+  while (timeSinceLastSync &gt;= curEntry-&gt;fDeltaTimeRemaining) {
+    timeSinceLastSync -= curEntry-&gt;fDeltaTimeRemaining;
+    curEntry-&gt;fDeltaTimeRemaining = DELAY_ZERO;
+    curEntry = curEntry-&gt;fNext;
+  }
+  curEntry-&gt;fDeltaTimeRemaining -= timeSinceLastSync;
+}
+</code></pre>
+
+<p>##addEntry方法
+<code>addEntry</code>是添加节点的方法，这个节点必须是已经存在的。我们之前说明，节点的创建是由<code>AlarmHandler</code>来完成的。为什么这么肯定呢？因为<code>DelayQueue类中没有任何方法创建了DelayQueueEntry对象</code>。这里有一个问题就是，如果参数newEntry为NULL呢？</p>
+
+<p>-</p>
+
+<p>这里先是更新了一下同步剩余时间，然后在链表中找到合适的位置，插入节点。查找的时候实际上也更新了延时剩余时间。</p>
+
+<pre><code class="language-cpp">void DelayQueue::addEntry(DelayQueueEntry* newEntry) {
+  synchronize();
+//这里应该判断一下 newEntry == NULL的情况
+  DelayQueueEntry* cur = head();
+  while (newEntry-&gt;fDeltaTimeRemaining &gt;= cur-&gt;fDeltaTimeRemaining) {
+    newEntry-&gt;fDeltaTimeRemaining -= cur-&gt;fDeltaTimeRemaining;
+    cur = cur-&gt;fNext;
+  }
+
+  cur-&gt;fDeltaTimeRemaining -= newEntry-&gt;fDeltaTimeRemaining;
+
+  // Add &quot;newEntry&quot; to the queue, just before &quot;cur&quot;:
+  newEntry-&gt;fNext = cur;
+  newEntry-&gt;fPrev = cur-&gt;fPrev;
+  cur-&gt;fPrev = newEntry-&gt;fPrev-&gt;fNext = newEntry;
+}
+</code></pre>
+
+<p>##updateEntry方法</p>
+
+<p><code>updateEntry</code>实现将节点的延时剩余时间更新。<code>先找出节点</code>，然后<code>从链表移出</code>，<code>更新延时剩余时间</code>，再把它<code>添加到链表</code>。</p>
+
+<pre><code class="language-cpp">void DelayQueue::updateEntry(DelayQueueEntry* entry, DelayInterval newDelay) {
+  if (entry == NULL) return;
+
+  removeEntry(entry);
+  entry-&gt;fDeltaTimeRemaining = newDelay;
+  addEntry(entry);
+}
+</code></pre>
+
+<p>其还有重载形式<code>void DelayQueue::updateEntry(intptr_t tokenToFind, DelayInterval newDelay)</code></p>
+
+<p>##timeToNextAlarm方法</p>
+
+<p><code>timeToNextAlarm</code>方法返回<code>第一个节点的延时剩余时间</code>。注意这里说的第一个节点<code>不是头结点</code>哦。</p>
+
+<p>-</p>
+
+<p>这里判断一下第一个节点延时剩余时间是否为0很有必要，如果不为0要更新一次。因为当前时间可能不是最后一次同步时间。如果为0，可以不用更新，提升效率。</p>
+
+<pre><code class="language-cpp">DelayInterval const&amp; DelayQueue::timeToNextAlarm() {
+  if (head()-&gt;fDeltaTimeRemaining == DELAY_ZERO) return DELAY_ZERO; // a common case
+
+  synchronize();
+  return head()-&gt;fDeltaTimeRemaining;
+}
+</code></pre>
+
+<p>##handleAlarm方法</p>
+
+<p>这个方法很重要，为什么呢？我们知道每一个节点都是<code>一个AlarmHandler对象</code>，这个对象的<code>handleTimeout</code>方法做了一件事情，就是使用了一个<code>函数指针</code>调用了一个函数，想一想前面的HandlerDescriptor类，是不是处理任务了呢！</p>
+
+<p>-</p>
+
+<p>本来应先说<code>AlarmHandler</code>类的，因为它们不在一个文件中，所以放在后面说。
+<code>handleAlarm</code>方法中将<code>延时等待时间已经到了</code>的(也就是延时剩余时间已经为0的)对象<code>从链表中移出</code>，并调用其<code>handleTimeout</code>方法去处理任务。</p>
+
+<pre><code class="language-cpp">void DelayQueue::handleAlarm() {
+  if (head()-&gt;fDeltaTimeRemaining != DELAY_ZERO) synchronize();
+
+  if (head()-&gt;fDeltaTimeRemaining == DELAY_ZERO) {
+    // This event is due to be handled:
+	  // 这事件是由于要处理：
+    DelayQueueEntry* toRemove = head();
+    removeEntry(toRemove); // do this first, in case handler accesses queue
+
+    toRemove-&gt;handleTimeout();
+  }
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

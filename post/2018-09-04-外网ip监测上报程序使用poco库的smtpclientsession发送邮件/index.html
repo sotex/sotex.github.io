@@ -1,0 +1,216 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 外网IP监测上报程序(使用Poco库的SMTPClientSession发送邮件) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>外网IP监测上报程序(使用Poco库的SMTPClientSession发送邮件)</h1>
+          <span class="post-date">2018年09月04日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/09/04/9583854.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/09/04/9583854.html</a></p>
+
+<h1 id="ipreport">IPReport</h1>
+
+<p>代码地址<a href="https://gitee.com/solym/IPReport">https://gitee.com/solym/IPReport</a></p>
+
+<h2 id="项目介绍">项目介绍</h2>
+
+<p>外网IP变动自动上报工具。
+写这个工具的目的是为了监测一台服务器的外网IP的变动情况。之前办理的电信宽带是有外网IP的，因此把一台小服务器上的ut管理端口开放出来，以便随时都能添加下载任务。
+但是这个外网IP不是固定的，大概每周都会变动一次，变动的时间不固定，所以写了个程序来检测它，改变的时候主动发送信息给我。</p>
+
+<h2 id="编译说明">编译说明</h2>
+
+<p>程序依赖于<a href="https://pocoproject.org/"><code>Poco</code></a>库，需要自己准备。
+因为我的服务器装的是<code>ArchLinux</code>，所以直接使用<code>pacman -Syu poco</code>安装就好了。
+如果是<code>Windows</code>可以直接使用<code>vcpkg</code>来编译安装<code>poco</code>库。</p>
+
+<p><strong>linux</strong>下直接使用<code>make</code>编译即可。</p>
+
+<h2 id="安装使用说明">安装使用说明</h2>
+
+<p>无需安装，编译之后可以直接运行。
+<strong>linux</strong>下可以使用<code>nohup ./IPReport 2&gt;&amp;1 1&gt;/dev/null &amp;</code>来放在后台运行。
+<strong>Windows</strong>下你可以在VS工程<code>属性页-&gt;链接器-&gt;系统</code>里面选择子系统为<code>窗口(SUBSYSTEM:WINDOWS)</code>来生成一个无窗口的窗口应用，就可以无控制台运行了。</p>
+
+<h2 id="获取外网ip方式">获取外网IP方式</h2>
+
+<p>外网IP可以通过访问淘宝的<a href="https://www.taobao.com/help/getip.php">https://www.taobao.com/help/getip.php</a>获取。</p>
+
+<h2 id="邮件发送关键代码">邮件发送关键代码</h2>
+
+<pre><code class="language-cpp">		// 发送邮件通知
+		// 发送的消息内容
+		Poco::Net::MailMessage message;
+		message.setSubject(&quot;外网IP地址改变通知&quot;);
+		message.setDate(Poco::DateTime().timestamp());
+		message.addContent(new StringPartSource(lastResult,&quot;text/plain&quot;));
+		message.setSender(mailuser);
+		message.addRecipient(MailRecipient(MailRecipient::PRIMARY_RECIPIENT,mailrecipient));
+		// 开始发送邮件
+		// 第一个是非SSL连接的，第二个是SSL连接的
+		//Poco::Net::SMTPClientSession smtpSession(mailhost);
+		Poco::Net::SecureSMTPClientSession smtpSession(mailhost);
+		smtpSession.open();
+		// 下面两行是SSL连接必须的
+		smtpSession.login();
+		smtpSession.startTLS();
+		// 登录邮件服务
+		smtpSession.login(Poco::Net::SMTPClientSession::LoginMethod::AUTH_LOGIN, mailuser, mailpasswd);
+		// 发送出邮件内容
+	        smtpSession.sendMessage(message);
+		// 发送后关闭会话
+		smtpSession.close();
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

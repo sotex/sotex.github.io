@@ -1,0 +1,283 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux 下Qt WebEngine 程序打包简单记录 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux 下Qt WebEngine 程序打包简单记录</h1>
+          <span class="post-date">2016年12月09日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/12/09/6149000.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/12/09/6149000.html</a>
+本次记录仅作参考。</p>
+
+<h2 id="程序说明">程序说明：</h2>
+
+<p>程序是一个编解码器控制管理的工具，使用到的库有：Qt的<code>WebEngine</code>、<code>OpenGL</code>模块、<code>poco</code>库、<code>libmicrohttpd</code>、<code>libcurl</code>、<code>libvlc</code>。同时程序间接的依赖libssl/libxml2等库。</p>
+
+<p>其中<code>poco</code>/<code>libcurl</code>/<code>libmicrohttpd</code>等都编译为了静态库，<code>libvlc</code>/<code>Qt</code>库都是动态库。这里主要解决动态库的问题。</p>
+
+<p>Qt官方文档中关于Qt在X11下的依赖情况 <a href="http://doc.qt.io/qt-5/linux-requirements.html">http://doc.qt.io/qt-5/linux-requirements.html</a></p>
+
+<h2 id="打包过程">打包过程：</h2>
+
+<pre><code>首先在QtCreator中编译运行程序，没有问题。
+重新手动使用`qmake`生成`Makefile`编译后，运行程序出错。
+</code></pre>
+
+<h3 id="错误及解决">错误及解决：</h3>
+
+<h4 id="错误1">错误1：</h4>
+
+<pre><code>        /home/x/program/qt-5.6.0/5.6/gcc_64/libexec/QtWebEngineProcess: error while loading shared libraries: libQt5WebEngineCore.so.5: cannot open shared object file: No such file or directory
+</code></pre>
+
+<p>这个错误是因为Qt库的原因，这里可以现看一下生成程序的最后一步<code>链接</code>的相关信息</p>
+
+<pre><code class="language-shell">g++ -Wl,-O1 -Wl,-z,origin -Wl,-rpath,\$ORIGIN -Wl,-rpath,/home/x/program/qt-5.6.0/5.6/gcc_64/lib -Wl,-rpath-link,/home/x/program/qt-5.6.0/5.6/gcc_64/lib -o WebCS main.o widget.o ActiveTasks.o Business.o CommonUtil.o JsonConfig.o NMUDPServer.o SocketUtil.o TCPLongConnection.o TCPServer.o UDPLongConnection.o UDPServer.o CharsetConvert.o CharsetConvertMFC.o CharsetConvertSTD.o FileAnywhereManager.o FileAnywhereObserver.o FileAnywhereTaskParameter.o InterfaceProcessTask.o InterfaceProtocolSpecific.o InterfaceServer.o UUID.o CBusinessEvent.o MircoHttpdInit.o VlcPlayer.o moc_widget.o moc_VlcPlayer.o   -L/home/x/work/work/WebCS/Depends/libs -lmicrohttpd -lcurl -lNCX -lTaskModel -lPocoNet -lPocoJSON -lPocoXML -lPocoUtil -lPocoFoundation -lz -luuid -L/home/x/work/vlc-build/lib/ -lvlc -lvlccore -lssl -lcrypto -L/home/x/program/qt-5.6.0/5.6/gcc_64/lib -lQt5WebEngineWidgets -lQt5WebEngineCore -lQt5Quick -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5WebChannel -lQt5Core -lGL -lpthread
+</code></pre>
+
+<p>链接中有<code>-Wl,-rpath,\$ORIGIN -Wl,-rpath,/home/x/program/qt-5.6.0/5.6/gcc_64/lib -Wl,-rpath-link,/home/x/program/qt-5.6.0/5.6/gcc_64/lib</code>指定了Qt库文件的路径，已经运行时候的查找路径。</p>
+
+<pre><code>-rpath-link：这个也是用于“链接”的时候的，例如你显示指定的需要 FOO.so，但是 FOO.so 本身是需要 BAR.so 的，后者你并没有指定，而是 FOO.so 引用到它，这个时候，会先从 -rpath-link 给的路径里找。
+ 
+-rpath: “运行”的时候，去找的目录。运行的时候，要找 .so 文件，会从这个选项里指定的地方去找。对于交叉编译，交叉编译链接器需已经配置 --with-sysroot 选项才能起作用。也就是说，-rpath指定的路径会被记录在生成的可执行程序中，用于运行时查找需要加载的动态库。-rpath-link 则只用于链接时查找。
+</code></pre>
+
+<p>因为这里我们要打包，所以这里也不能直接使用绝对路径。而<code>QtWebEngineProcess</code>这个程序是程序运行时候加载运行的，所以这个程序也要带上。
+其实Qt的很多文件都需要带上，这里就不啰嗦了。直接拷贝过来，要拷贝的内容如下。(使用cp命令的时候带上<code>-d</code>选项，避免跟踪符号链接)</p>
+
+<pre><code class="language-shell">[x@localhost build]$ cd /home/x/program/qt-5.6.0/5.6/gcc_64/
+[x@localhost gcc_64]$ ls -p
+bin/          include/      libexec/      phrasebooks/  qml/          .tag          
+doc/          lib/          mkspecs/      plugins/      resources/    translations/ 
+[x@localhost gcc_64]$ cp -d -R lib libexec phrasebooks plugins resources translations ~/work/work/WebCS/build/
+
+# ~/work/work/WebCS/build/ 是我程序的编译生成目录
+# plugins resources translations 这几个都需要，不然WebEngine运行不起来
+</code></pre>
+
+<p>拷贝之后，使用下面的命令来重新链接生成程序</p>
+
+<pre><code class="language-shell">[x@localhost build]$ g++ -Wl,-O1 -Wl,-z,origin -Wl,-rpath,\$ORIGIN -Wl,-rpath,./lib -Wl,-rpath-link,./lib -o WebCS main.o widget.o ActiveTasks.o Business.o CommonUtil.o JsonConfig.o NMUDPServer.o SocketUtil.o TCPLongConnection.o TCPServer.o UDPLongConnection.o UDPServer.o CharsetConvert.o CharsetConvertMFC.o CharsetConvertSTD.o FileAnywhereManager.o FileAnywhereObserver.o FileAnywhereTaskParameter.o InterfaceProcessTask.o InterfaceProtocolSpecific.o InterfaceServer.o UUID.o CBusinessEvent.o MircoHttpdInit.o VlcPlayer.o moc_widget.o moc_VlcPlayer.o   -L/home/x/work/work/WebCS/Depends/libs -lmicrohttpd -lcurl -lNCX -lTaskModel -lPocoNet -lPocoJSON -lPocoXML -lPocoUtil -lPocoFoundation -lz -luuid -L/home/x/work/vlc-build/lib/ -lvlc -lvlccore -lssl -lcrypto -L./lib -lQt5WebEngineWidgets -lQt5WebEngineCore -lQt5Quick -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5WebChannel -lQt5Core -lGL -lpthread
+</code></pre>
+
+<p>注意，这里将原本的绝对路径改为了相对路径。
+然后进入将<code>lib</code>目录下的文件都创建软链接到<code>libexec</code>目录。</p>
+
+<pre><code class="language-shell"># 进入lib目录
+[x@localhost build]$ cd lib
+# 删除多余的文件(这些是不需要的，还有一些没有用上的Qt模块也可以删掉)
+[x@localhost lib]$ rm *.la *.prl
+# 创建软连接
+[x@localhost lib]$ ls *.so|xargs -I{} ln -s ../lib/{} ../libexec/{}
+[x@localhost lib]$ ls *.so|xargs -I{} ln -s ../lib/{} ../libexec/{}.5
+[x@localhost lib]$ ls *.so|xargs -I{} ln -s ../lib/{} ../libexec/{}.5.6
+[x@localhost lib]$ ls *.so|xargs -I{} ln -s ../lib/{} ../libexec/{}.5.6.0
+# libcui的库，也要创建软链接
+[x@localhost lib]$ ls *.so.56*|xargs -I{} ln -s ../lib/{} ../libexec/{}
+
+# 上面五条命令其实可以直接使用 ls *.so*|xargs -I{} ln -s ../lib/{} ../libexec/{} 来实现
+</code></pre>
+
+<p>然后在当前<code>build/libexec</code>目录下新建<code>qt.conf</code>文件，内容如下</p>
+
+<pre><code class="language-shell">[Paths]
+Prefix=..
+</code></pre>
+
+<p>然后在当前<code>build</code>目录下新建<code>qt.conf</code>文件，内容如下</p>
+
+<pre><code class="language-shell">[Paths]
+Prefix=.
+</code></pre>
+
+<p>再运行就没有Qt库相关的问题了。</p>
+
+<h4 id="错误2">错误2：</h4>
+
+<pre><code>core libvlc error: No plugins found! Check your VLC installation.
+</code></pre>
+
+<p>这是因为不能正确读取VLC插件的原因。通过<code>strace</code>命令跟踪运行程序，可以找到其去读取的位置(搜索输出语句，往上一点找)，会发现它会在当前<code>build</code>目录中查找，而实际上是这些插件是在<code>vlc编译安装目录/lib/vlc</code>目录下。
+在最后链接的时候 <code>-L/home/x/work/vlc-build/lib/</code> 这一句只是指定了链接<code>libvlc</code><code>libvlccore</code>的目录，所以这里做一点小的修改。</p>
+
+<p>现把<code>libvlc</code>中需要的相关文件都拷贝到<code>build</code>目录下。</p>
+
+<pre><code class="language-shell">[x@localhost build]$ cp /home/x/work/vlc-build/lib/* lib/ -R
+</code></pre>
+
+<p>重新链接一下</p>
+
+<pre><code class="language-shell">[x@localhost build]$ g++ -Wl,-O1 -Wl,-z,origin -Wl,-rpath,\$ORIGIN -Wl,-rpath,./lib -Wl,-rpath-link,./lib -o WebCS main.o widget.o ActiveTasks.o Business.o CommonUtil.o JsonConfig.o NMUDPServer.o SocketUtil.o TCPLongConnection.o TCPServer.o UDPLongConnection.o UDPServer.o CharsetConvert.o CharsetConvertMFC.o CharsetConvertSTD.o FileAnywhereManager.o FileAnywhereObserver.o FileAnywhereTaskParameter.o InterfaceProcessTask.o InterfaceProtocolSpecific.o InterfaceServer.o UUID.o CBusinessEvent.o MircoHttpdInit.o VlcPlayer.o moc_widget.o moc_VlcPlayer.o   -L/home/x/work/work/WebCS/Depends/libs -lmicrohttpd -lcurl -lNCX -lTaskModel -lPocoNet -lPocoJSON -lPocoXML -lPocoUtil -lPocoFoundation -lz -luuid -L./lib -lvlc -lvlccore -lssl -lcrypto -L./lib -lQt5WebEngineWidgets -lQt5WebEngineCore -lQt5Quick -lQt5Widgets -lQt5Gui -lQt5Qml -lQt5Network -lQt5WebChannel -lQt5Core -lGL -lpthread
+</code></pre>
+
+<p>再次编译运行，没有问题了。但是考虑到别的机器可能没有安装<code>openssl</code>、<code>libuuid</code>、<code>zlib</code>等，所以这里需要使用<code>ldd</code>看一下程序还有那些依赖的动态库是没有打包进来的，除了<code>libc.so.*</code>等这种基础的库，都可以拷贝到<code>build/lib</code>目录下。</p>
+
+<h4 id="错误3">错误3：</h4>
+
+<p>报了一个OpenGL函数没有实现的错误。</p>
+
+<pre><code>OpenGL Warning: glXCreatePbuffer not implemented by Chromium
+OpenGL Warning: glXCreatePbuffer not implemented by Chromium
+OpenGL Warning: glXCreatePbuffer not implemented by Chromium
+OpenGL Warning: glXCreatePbuffer not implemented by Chromium
+js: Synchronous XMLHttpRequest on the main thread is deprecated because of its detrimental effects to the end user's experience. For more help, check http://xhr.spec.whatwg.org/.
+OpenGL Warning: glXCreatePbuffer not implemented by Chromium
+QOpenGLFramebufferObject: Unsupported framebuffer format.
+QOpenGLFramebufferObject: Unsupported framebuffer format.
+</code></pre>
+
+<p>这个问题是在给Virtual Box虚拟机中系统安装了增强功能之后出现的，原本程序会链接到<code>libGL.so*</code>，现在会链接到<code>VBoxOGLcrutil.so</code>。
+对于这个问题，直接关闭虚拟机的<code>启用3D加速</code>就可以了。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

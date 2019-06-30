@@ -1,0 +1,328 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Valgrind 3.11.0编译安装 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Valgrind 3.11.0编译安装</h1>
+          <span class="post-date">2015年12月29日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/12/29/5085202.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/12/29/5085202.html</a>
+<h1 id="valgrind-3110">Valgrind 3.11.0编译安装</h1>
+<p>Valgrind是一款用于内存调试、内存泄漏检测以及性能分析的软件开发工具。<br />
+Valgrind遵守GNU通用公共许可证条款，是一款自由软件。<br />
+到3.3.0版本为止，Valgrind支持x86、x86-64以及PowerPC上的Linux。除此之外，还有一些其它非正式支持的类Unix平台（如FreeBSD、NetBSD以及Mac OS X）。</p>
+<h2 id="1valgrind-3110">1、下载Valgrind 3.11.0</h2>
+<p>直接下载源码包</p>
+<pre><code class="bash">wget <a href="http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2">http://valgrind.org/downloads/valgrind-3.11.0.tar.bz2</a>
+tar -xjvf valgrind-3.11.0.tar.bz2
+cd valgrind-3.11.0/
+</code></pre>
+<p>使用svn克隆一个</p>
+<pre><code class="bash">svn co svn://svn.valgrind.org/valgrind/trunk valgrind
+</code></pre>
+<h1 id="2makefile">2、生成Makefile并使用它进行编译</h1>
+<p>生成<code>Makefile</code>的步骤在<code>README</code>这个文件中有写。</p>
+<ul>
+<li><ol>
+<li>运行<code>./autogen.sh</code>来设置环境（你需要标准的<code>autoconf</code>工具）<br />
+        这个脚本其实是调用的<code>aclocal</code> <code>autoheader</code> <code>automake</code> <code>autoconf</code>，所以必须先安装好它，如果没有安装，在运行这个脚本的时候会提示你的。</li></p>
+
+<p></ol>
+</li>
+<li><ol>
+<li>运行<code>./configure</code>来生成<code>Makefile</code>文件<br />
+        这里你可以使用<code>./configure &ndash;help</code>来查看可以使用哪些参数设置。<br />
+        一般设置好安装路径即可<code>./configure &ndash;prefix=/usr/local/valgrind</code></li></p>
+
+<p></ol>
+</li>
+<li><ol>
+<li>运行<code>make</code>进行编译，运行<code>make install</code>进行安装。</li></p>
+
+<p></ol>
+</li></p>
+
+<p></ul>
+<p>下面是我编译时候的步骤<code class="bash">
+</code></p>
+<div class="cnblogs_code">
+<pre>#运行 autogen.<span style="color: #0000ff;">sh</span><span style="color: #000000;">
+ o@o</span>-pc:~/software/valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>$ ./autogen.<span style="color: #0000ff;">sh</span><span style="color: #000000;">
+running: aclocal
+running: autoheader
+running: automake </span>-<span style="color: #000000;">a
+running: autoconf</p>
+
+<p>#运行configure
+o@o</span>-pc:~/software/valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>$ ./configure &ndash;prefix=/usr/local/<span style="color: #000000;">valgrind
+checking </span><span style="color: #0000ff;">for</span> a BSD-compatible <span style="color: #0000ff;">install</span>&hellip; /usr/bin/<span style="color: #0000ff;">install</span> -<span style="color: #000000;">c
+   &hellip;.  &hellip;..
+config.status: executing depfiles commands</p>
+
+<pre><code>     Maximum build arch: amd64
+     Primary build arch: amd64
+   Secondary build arch: x86
+               Build OS: linux
+</code></pre>
+
+<p>&hellip;  &hellip;</p>
+
+<p>#运行make</p>
+
+<p>o@o</span>-pc:~/software/valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>$ <span style="color: #0000ff;">make</span>
+<span style="color: #0000ff;">echo</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"># This is a generated file, composed of the following suppression rules:</span><span style="color: #800000;">&ldquo;</span> &gt;<span style="color: #000000;"> default.supp
+</span><span style="color: #0000ff;">echo</span> <span style="color: #800000;">&ldquo;</span><span style="color: #800000;"># </span><span style="color: #800000;">&ldquo;</span> exp-sgcheck.supp xfree-<span style="color: #800080;">3</span>.supp xfree-<span style="color: #800080;">4</span>.supp glibc-<span style="color: #800080;">2</span>.X-drd.supp glibc-<span style="color: #800080;">2.34567</span>-NPTL-helgrind.supp glibc-<span style="color: #800080;">2</span>.X.supp  &gt;&gt;<span style="color: #000000;"> default.supp
+</span><span style="color: #0000ff;">cat</span> exp-sgcheck.supp xfree-<span style="color: #800080;">3</span>.supp xfree-<span style="color: #800080;">4</span>.supp glibc-<span style="color: #800080;">2</span>.X-drd.supp glibc-<span style="color: #800080;">2.34567</span>-NPTL-helgrind.supp glibc-<span style="color: #800080;">2</span>.X.supp &gt;&gt;<span style="color: #000000;"> default.supp
+</span><span style="color: #0000ff;">make</span>  all-<span style="color: #000000;">recursive
+&hellip; &hellip;
+#运行make </span><span style="color: #0000ff;">install</span><span style="color: #000000;">
+o@o</span>-pc:~/software/valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>$ <span style="color: #0000ff;">sudo</span> <span style="color: #0000ff;">make</span> <span style="color: #0000ff;">install</span><span style="color: #000000;">
+[</span><span style="color: #0000ff;">sudo</span><span style="color: #000000;">] o 的密码：
+</span><span style="color: #0000ff;">make</span>  <span style="color: #0000ff;">install</span>-<span style="color: #000000;">recursive
+&hellip; &hellip;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>3、测试一下<br />
+编译完成之后可以测试一下。<br />
+因为上面编译安装的时候指定了安装目录，所以还需要把<code>valgrind</code>的<code>bin</code>目录路径添加到环境变量<code>PATH</code>中。否则只能使用全路径来运行<code>valgrind</code><br />
+这里我把它写入到<code>~/.bashrc</code>文件中。打开<code>~/.bashrc</code>文件，然后在最后添加一行<code>PATH=${PATH}:/usr/local/valgrind/bin</code>，之后使用<code>source ~/.bashrc</code>来更新一下。</p>
+<p>真的测试一下哦(这是README里面给出的测试命令)<code class="bash">
+</code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/software$ valgrind <span style="color: #0000ff;">ls</span> -<span style="color: #000000;">l
+</span>==<span style="color: #800080;">4504</span>==<span style="color: #000000;"> Memcheck, a memory error detector
+</span>==<span style="color: #800080;">4504</span>== Copyright &copy; <span style="color: #800080;">2002</span>-<span style="color: #800080;">2015</span>, and GNU GPL<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">d, by Julian Seward et al.</span>
+==<span style="color: #800080;">4504</span>== Using Valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span> and LibVEX; rerun with -h <span style="color: #0000ff;">for</span> copyright <span style="color: #0000ff;">info</span>
+==<span style="color: #800080;">4504</span>== Command: <span style="color: #0000ff;">ls</span> -<span style="color: #000000;">l
+</span>==<span style="color: #800080;">4504</span>==<span style="color: #000000;">
+总用量 </span><span style="color: #800080;">11636</span><span style="color: #000000;">
+drwxrwxr</span>-x <span style="color: #800080;">26</span> o o     <span style="color: #800080;">4096</span> 12月 <span style="color: #800080;">29</span> <span style="color: #800080;">11</span>:<span style="color: #800080;">11</span> valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>
+-rw-rw-r&ndash;  <span style="color: #800080;">1</span> o o <span style="color: #800080;">11910809</span>  9月 <span style="color: #800080;">23</span> <span style="color: #800080;">18</span>:<span style="color: #800080;">53</span> valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span>.<span style="color: #0000ff;">tar</span><span style="color: #000000;">.bz2
+</span>==<span style="color: #800080;">4504</span>==
+==<span style="color: #800080;">4504</span>==<span style="color: #000000;"> HEAP SUMMARY:
+</span>==<span style="color: #800080;">4504</span>==     <span style="color: #0000ff;">in</span> use at exit: <span style="color: #800080;">19</span>,<span style="color: #800080;">436</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">8</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>==   total heap usage: <span style="color: #800080;">205</span> allocs, <span style="color: #800080;">197</span> frees, <span style="color: #800080;">86</span>,<span style="color: #800080;">286</span><span style="color: #000000;"> bytes allocated
+</span>==<span style="color: #800080;">4504</span>==
+==<span style="color: #800080;">4504</span>==<span style="color: #000000;"> LEAK SUMMARY:
+</span>==<span style="color: #800080;">4504</span>==    definitely lost: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>==    indirectly lost: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>==      possibly lost: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>==    still reachable: <span style="color: #800080;">19</span>,<span style="color: #800080;">436</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">8</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>==         suppressed: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4504</span>== Rerun with &ndash;leak-check=<span style="color: #000000;">full to see details of leaked memory
+</span>==<span style="color: #800080;">4504</span>==
+==<span style="color: #800080;">4504</span>== For counts of detected and suppressed errors, rerun with: -<span style="color: #000000;">v
+</span>==<span style="color: #800080;">4504</span>== ERROR SUMMARY: <span style="color: #800080;">0</span> errors from <span style="color: #800080;">0</span> contexts (suppressed: <span style="color: #800080;">1</span> from <span style="color: #800080;">1</span>)</pre>
+</div>
+<p>&nbsp;</p>
+<p>自己写一个内存访问越界和泄露的小例子来测试一下<code class="C">
+</code></p>
+<div class="cnblogs_code">
+<pre>#include &lt;stdlib.h&gt;
+<span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    ((</span><span style="color: #0000ff;">char</span>*)<span style="color: #0000ff;">malloc</span>(<span style="color: #800080;">10</span>))[<span style="color: #800080;">10</span>] = <span style="color: #800080;">100</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>使用下面的命令来检查</p>
+<pre><code class="bash"> valgrind &ndash;track-fds=yes &ndash;leak-check=full &ndash;undef-value-errors=yes  ./test
+</code></pre>
+<p>检查结果<code class="bash"> </code></p>
+<div class="cnblogs_code">
+<pre>==<span style="color: #800080;">4842</span>==<span style="color: #000000;"> Memcheck, a memory error detector
+</span>==<span style="color: #800080;">4842</span>== Copyright &copy; <span style="color: #800080;">2002</span>-<span style="color: #800080;">2015</span>, and GNU GPL<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">d, by Julian Seward et al.</span>
+==<span style="color: #800080;">4842</span>== Using Valgrind-<span style="color: #800080;">3.11</span>.<span style="color: #800080;">0</span> and LibVEX; rerun with -h <span style="color: #0000ff;">for</span> copyright <span style="color: #0000ff;">info</span>
+==<span style="color: #800080;">4842</span>== Command: ./<span style="color: #000000;">test
+</span>==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== Invalid <span style="color: #0000ff;">write</span> of size <span style="color: #800080;">1</span><span style="color: #000000;">   # 这里检测到了内存越界访问
+</span>==<span style="color: #800080;">4842</span>==    at <span style="color: #800080;">0x400548</span>: main (<span style="color: #0000ff;">in</span> /home/o/software/<span style="color: #000000;">test)
+</span>==<span style="color: #800080;">4842</span>==  Address <span style="color: #800080;">0x520204a</span> is <span style="color: #800080;">0</span> bytes after a block of size <span style="color: #800080;">10</span> alloc<span style="color: #800000;">&lsquo;</span><span style="color: #800000;">d</span>
+==<span style="color: #800080;">4842</span>==    at <span style="color: #800080;">0x4C2BC50</span>: malloc (vg_replace_malloc.c:<span style="color: #800080;">299</span><span style="color: #000000;">)
+</span>==<span style="color: #800080;">4842</span>==    by <span style="color: #800080;">0x400543</span>: main (<span style="color: #0000ff;">in</span> /home/o/software/<span style="color: #000000;">test)
+</span>==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== FILE DESCRIPTORS: <span style="color: #800080;">3</span><span style="color: #000000;"> open at exit.    #打开了三个文件描述符(标准输入输出错误)
+</span>==<span style="color: #800080;">4842</span>== Open <span style="color: #0000ff;">file</span> descriptor <span style="color: #800080;">2</span>: /dev/pts/<span style="color: #800080;">12</span>
+==<span style="color: #800080;">4842</span>==    &lt;inherited from parent&gt;
+==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== Open <span style="color: #0000ff;">file</span> descriptor <span style="color: #800080;">1</span>: /dev/pts/<span style="color: #800080;">12</span>
+==<span style="color: #800080;">4842</span>==    &lt;inherited from parent&gt;
+==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== Open <span style="color: #0000ff;">file</span> descriptor <span style="color: #800080;">0</span>: /dev/pts/<span style="color: #800080;">12</span>
+==<span style="color: #800080;">4842</span>==    &lt;inherited from parent&gt;
+==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>==<span style="color: #000000;"> HEAP SUMMARY:   #堆使用摘要
+</span>==<span style="color: #800080;">4842</span>==     <span style="color: #0000ff;">in</span> use at exit: <span style="color: #800080;">10</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">1</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==   total heap usage: <span style="color: #800080;">1</span> allocs, <span style="color: #800080;">0</span> frees, <span style="color: #800080;">10</span> bytes allocated #申请/<span style="color: #000000;">释放详情
+</span>==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== <span style="color: #800080;">10</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">1</span> blocks are definitely lost <span style="color: #0000ff;">in</span> loss record <span style="color: #800080;">1</span> of <span style="color: #800080;">1</span>
+==<span style="color: #800080;">4842</span>==    at <span style="color: #800080;">0x4C2BC50</span>: malloc (vg_replace_malloc.c:<span style="color: #800080;">299</span><span style="color: #000000;">)
+</span>==<span style="color: #800080;">4842</span>==    by <span style="color: #800080;">0x400543</span>: main (<span style="color: #0000ff;">in</span> /home/o/software/<span style="color: #000000;">test)
+</span>==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>==<span style="color: #000000;"> LEAK SUMMARY:   泄露摘要
+</span>==<span style="color: #800080;">4842</span>==    definitely lost: <span style="color: #800080;">10</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">1</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==    indirectly lost: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==      possibly lost: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==    still reachable: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==         suppressed: <span style="color: #800080;">0</span> bytes <span style="color: #0000ff;">in</span> <span style="color: #800080;">0</span><span style="color: #000000;"> blocks
+</span>==<span style="color: #800080;">4842</span>==
+==<span style="color: #800080;">4842</span>== For counts of detected and suppressed errors, rerun with: -<span style="color: #000000;">v
+</span>==<span style="color: #800080;">4842</span>== ERROR SUMMARY: <span style="color: #800080;">2</span> errors from <span style="color: #800080;">2</span> contexts (suppressed: <span style="color: #800080;">1</span> from <span style="color: #800080;">1</span>)</pre>
+</div>
+<p>&nbsp;</p>
+<p>可以看出上面检测到了内存越界访问和内存泄露。<br />
+一般写玩程序后都可以使用<code>valgrind</code>来检测一下，避免内存泄露的问题（还有文件打开情况）</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

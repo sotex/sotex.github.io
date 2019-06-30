@@ -1,0 +1,750 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> qt添加cef库嵌入web [转] &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>qt添加cef库嵌入web [转]</h1>
+          <span class="post-date">2016年11月10日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/11/10/6051631.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/11/10/6051631.html</a></p>
+
+<h1 id="qt-cef嵌入web">qt cef嵌入web</h1>
+
+<p>原文<a href="http://blog.sina.com.cn/s/blog_9e59cf590102vnfc.html">http://blog.sina.com.cn/s/blog_9e59cf590102vnfc.html</a></p>
+
+<p>最近项目需要，研究了下libcef库。</p>
+
+<h2 id="cef-chromium-embedded-framework-简述">Cef(Chromium Embedded Framework)简述</h2>
+
+<p>嵌入式Chromium框架(简称CEF) 是一个由Marshall Greenblatt在2008建立的开源项目，它主要目的是开发一个基于Google Chromium的Webbrowser控件。CEF支持一系列的编程语言和操作系统，并且能很容易地整合到新的或已有的工程中去。</p>
+
+<p>它的设计思想政治就是易用且兼顾性能。CEF基本的框架包含C/C++程序接口，通过本地库的接口来实现，而这个库则会隔离宿主程序和Chromium&amp;Webkit的操作细节。它在浏览器控件和宿主程序之间提供紧密的整合，它支持用户插件，协议，javascript对象以及javascript扩展，宿主程序可以随意地控件资源下载，导航和打印等，并且可以跟Google Chrome浏览器一起，支持高性能和Html5 技术。</p>
+
+<h2 id="cef使用">Cef使用</h2>
+
+<p>首先下载cef库的源码，源码有2个大的版本，cef1和cef3，我使用的是cef3，因此cef1我就不过多解释，其实我也不太了解。刚开始使用的时候一定不能怕，可能有些人看了源码之后会发现源码异常的复杂，这个时候我建议网上多差点儿资料，因为我学的时候也是在网上找到了不少好的文章。</p>
+
+<h3 id="下边是我在编译cef库的时候遇到的一些问题">下边是我在编译cef库的时候遇到的一些问题：</h3>
+
+<ul>
+<li><p>因为我的项目是基于qt的来做的，而qt的运行时库是MDd类型的，因此cef3编译的时候也应该遵循这个运行时库的编译方式</p></li>
+
+<li><p>我在网上也看到了不少介绍创建cef项目的办法，不过个人觉得好多都是只讲过程，不讲原理，其实使用这个库很简单，我直- 说debug模式，release照搬。首先拷贝exe执行所需资源文件和运行时库(Resources目录下的除include文件夹、Debug目录下所有动态库)，然后拷贝连接器的静态库(out/Debug/lib目录下的静态库、Debug目录下的所有静态库)</p></li>
+
+<li><p>根据个人使用工具的不同自行包含头文化和静态库，我使用的是vs2013，工程属性-&gt;配置属性-&gt;VC++目录，添加包含目录和库目录，在工程属性-&gt;配置属性-&gt;连接器-&gt;输入，页面附加依赖项添加依赖动态库</p></li>
+</ul>
+
+<p>以上这3项基本就满足了创建包含cef项目的所有注意事项，如果自己想定制更好使用的控件，则需要相应的代码级别操作，接下来，我就讲讲代码级别基本的操作，复杂的操作我现在也了解不多。</p>
+
+<ul>
+<li><p>注释：关于libCef库中每个类的作用，我就不多说了，自己网上随便一搜索一大堆，在这里我直说几个重要的，在我的项目里使用到的：</p></li>
+
+<li><p>CefDownloadHandler：下载回调类，当web页面上有文件下载的时候，会调用该类中的相应接口。注意一点，cef库默认是禁止了文件下载，如果想要响应这一事件，需要在OnBeforeDownload重写接口中加入代码：callback-&gt;Continue(suggested_name, true);</p></li>
+
+<li><p>CefClient：获取注册回调类</p></li>
+
+<li><p>CefDisplayHandler：地址、标题等改变调用接口，重写此类可以处理导航相关事件</p></li>
+
+<li><p>CefRenderProcessHandler：渲染进程，当浏览器创建的时候，该类中的接口会被调用，因此可是在该类的接口中注册方法或者对象到web。包含webkit初始化、导航、上下文创建等回调接口</p></li>
+
+<li><p>CefBrowserProcessHandler：浏览器进程，上下文初始化、渲染进程创建等回调接口</p></li>
+</ul>
+
+<h2 id="cef库嵌入已有工程步骤">cef库嵌入已有工程步骤：</h2>
+
+<p>1、首先需要自己集成QWidget，重写一个web窗口，如图1所示；</p>
+
+<p>2、main.cpp函数添加如图2所示方法，main方法中初始化Cef库，代码如下，退出时调用CefQuit();</p>
+
+<pre><code class="language-cpp">int result = CefInit(argc, argv);
+if (result &gt;= 0)
+{
+return result;
+}
+CefLoadPlugins(IsWow64());
+</code></pre>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110170558202-599845082.png" alt="图1" /></p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110170619139-1941522445.png" alt="图2" /></p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110170634327-1961533118.jpg" alt="图3" /></p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110170647795-1405960031.png" alt="图4" /></p>
+
+<p>3、QCefWebView，重写ClientApp::RenderDelegate的方法OnContextCreated，完成对象和方法的注册，代码如图3，图中CefMapV8handler是js在调用该接口时的回调类，该类继承自CefV8Handler，我们只需要重写该类中的Execute接口，然后根据参数name来获取js调用的是qt的哪个接口，如图4所示。</p>
+
+<p>4、最后也是最终的部分，我贴上cef库初始化和我自己封装的类文件源代码，当然了，有很大一部分代码也是从网上找的</p>
+
+<h2 id="相关代码如下">相关代码如下</h2>
+
+<p><strong>cefclient.h如下：</strong></p>
+
+<pre><code class="language-cpp">// Initialize CEF.
+int CefInit(int &amp;argc, char **argv);
+
+// Load web plugins.
+void CefLoadPlugins(bool isWow64);
+
+// Quit CEF.
+void CefQuit();
+
+// Quit CEF until all browser windows have closed.
+void CefQuitUntilAllBrowserClosed();
+
+// Returns the application working directory.
+QString AppGetWorkingDirectory();
+
+// Notify all browser windows have closed.
+void NotifyAllBrowserClosed();
+</code></pre>
+
+<p><strong>cefclient.cpp如下</strong></p>
+
+<pre><code class="language-cpp">namespace {
+    // Initialize the CEF settings.
+    void CefInitSettings(CefSettings&amp; settings)
+    {
+        // Make browser process message loop run in a separate thread.
+        settings.multi_threaded_message_loop = true;
+        // Store cache data will on disk.
+        std::string cache_path = QString2StdStr(AppGetWorkingDirectory()) + &quot;/.cache&quot;;
+        CefString(&amp;settings.cache_path) = CefString(cache_path);
+        // Completely disable logging.
+        settings.log_severity = LOGSEVERITY_DISABLE;
+        // The resources(cef.pak and/or devtools_resources.pak) directory.
+        CefString(&amp;settings.resources_dir_path) = CefString();
+        // The locales directory.
+        CefString(&amp;settings.locales_dir_path) = CefString();
+        // Enable remote debugging on the specified port.
+        settings.remote_debugging_port = 8088;
+        // Ignore errors related to invalid SSL certificates.
+        //settings.ignore_certificate_errors = true;
+    }
+
+}  // namespace
+
+CefRefPtr g_handler;
+CefRefPtr g_appHandler;
+
+int CefInit(int &amp;argc, char **argv)
+{
+    qDebug() &lt;&lt; __FUNCTION__;
+    HINSTANCE hInstance = (HINSTANCE)GetModuleHandle(NULL);
+
+    CefMainArgs main_args(hInstance);
+    g_appHandler = new ClientApp;
+    CefRefPtr app(g_appHandler);
+
+    // Execute the secondary process, if any.
+    int exit_code = CefExecuteProcess(main_args, app.get(), NULL);
+    if (exit_code &gt;= 0)
+        return exit_code;
+
+    CefSettings settings;
+    CefInitSettings(settings);
+
+#ifndef SUB_PROCESS_DISABLED
+    // Specify the path for the sub-process executable.
+    CefString(&amp;settings.browser_subprocess_path).FromASCII(&quot;cefclient_process.exe&quot;);
+#endif
+
+    settings.single_process = true;
+
+    settings.no_sandbox = true;
+    settings.multi_threaded_message_loop = true;
+
+    // Initialize CEF.
+    CefInitialize(main_args, settings, app.get(), NULL);
+
+    g_handler = new ClientHandler();
+
+    return -1;
+}
+
+void CefLoadPlugins(bool isWow64)
+{
+    CefString flash_plugin_dir = isWow64 ? &quot;C:\\Windows\\SysWOW64\\Macromed\\Flash&quot;
+        : &quot;C:\\Windows\\System32\\Macromed\\Flash&quot;;
+    CefAddWebPluginDirectory(flash_plugin_dir);
+
+    CefRefreshWebPlugins();
+}
+
+void CefQuit()
+{
+    qDebug() &lt;&lt; __FUNCTION__;
+    // Shut down CEF.
+    CefShutdown();
+}
+</code></pre>
+
+<p><strong>qcefwebview.h如下：</strong></p>
+
+<pre><code class="language-cpp">class QCefWebView : public QWidget
+    , public ClientHandler::Listener
+    , public ClientApp::RenderDelegate
+{
+    Q_OBJECT
+
+public:
+    enum BrowserState
+    {
+        kNone,
+        kCreating,
+        kCreated,
+    };
+
+    static const QString kUrlBlank;
+
+    QCefWebView(QWidget* parent = 0);
+    virtual ~QCefWebView();
+
+    void load(const QUrl&amp; url);
+    void setHtml(const QString&amp; html, const QUrl&amp; baseUrl = QUrl());
+    QUrl url() const;
+
+    public slots:
+    void back();
+    void forward();
+    void reload();
+    void stop();
+
+    QVariant evaluateJavaScript(const QString&amp; scriptSource);//执行js脚本
+
+signals:
+    void titleChanged(QString title);
+    void urlChanged(QUrl url);
+    void loadStarted();
+    void loadFinished(bool ok);
+    void webRequest(const QString &amp; title);
+
+    void navStateChanged(bool canGoBack, bool canGoForward);
+    void jsMessage(QString name, QVariantList args);
+
+protected:
+    virtual void resizeEvent(QResizeEvent*);
+    virtual void closeEvent(QCloseEvent*);
+    virtual void showEvent(QShowEvent*);
+    virtual void customEvent(QEvent*);
+    //ClientHandler::Listener 
+    virtual void OnAddressChange(const QString&amp; url);
+    virtual void OnTitleChange(const QString&amp; title);
+    virtual void SetLoading(bool isLoading);
+    virtual void SetNavState(bool canGoBack, bool canGoForward);
+    virtual void OnAfterCreated();
+    virtual void OnMessageEvent(MessageEvent* e);
+    virtual void OnWebRequest(const QString &amp; order);
+
+    //ClientApp::RenderDelegate
+    virtual void OnContextCreated(CefRefPtr app,
+        CefRefPtr browser,
+        CefRefPtr frame,
+        CefRefPtr context);
+private:
+    bool CreateBrowser(const QSize&amp; size);
+    CefRefPtr GetBrowser() const;
+    void ResizeBrowser(const QSize&amp; size);
+    bool BrowserLoadUrl(const QUrl&amp; url);
+
+    BrowserState browser_state_;
+    bool need_resize_;
+    bool need_load_;
+    QUrl url_;
+    QMutex mutex_;
+
+    Q_DISABLE_COPY(QCefWebView);
+    IMPLEMENT_REFCOUNTING(QCefWebView);
+};
+</code></pre>
+
+<p><strong>qcefwebview.cpp如下：</strong></p>
+
+<pre><code class="language-cpp">extern CefRefPtr g_handler;
+extern CefRefPtr g_appHandler;
+
+const QString QCefWebView::kUrlBlank = &quot;about:blank&quot;;
+
+QCefWebView::QCefWebView(QWidget* parent)
+    : QWidget(parent),
+    browser_state_(kNone),
+    need_resize_(false),
+    need_load_(false)
+{
+    setAttribute(Qt::WA_NativeWindow);
+    setAttribute(Qt::WA_DontCreateNativeAncestors);
+}
+
+QCefWebView::~QCefWebView()
+{
+}
+
+void QCefWebView::load(const QUrl&amp; url)
+{
+    url_ = url;
+    switch (browser_state_)
+    {
+    case kNone:
+        CreateBrowser(size()); break;
+    case kCreating:
+        // If resizeEvent()/showEvent() before you load a url, it will
+        // CreateBrowser() as soon as possible with &quot;about:blank&quot;.
+        need_load_ = true; break;
+    default:  // The browser should have been created.
+        BrowserLoadUrl(url);
+    }
+}
+
+void QCefWebView::setHtml(const QString&amp; html, const QUrl&amp; baseUrl)
+{
+    if (GetBrowser().get())
+    {
+        QUrl url = baseUrl.isEmpty() ? this-&gt;url() : baseUrl;
+        if (!url.isEmpty())
+        {
+            CefRefPtr frame = GetBrowser()-&gt;GetMainFrame();
+            frame-&gt;LoadString(CefString(html.toStdWString()),
+                CefString(url.toString().toStdWString()));
+        }
+    }
+}
+
+QUrl QCefWebView::url() const {
+    if (GetBrowser().get())
+    {
+        CefString url = GetBrowser()-&gt;GetMainFrame()-&gt;GetURL();
+        return QUrl(QString::fromStdWString(url.ToWString()));
+    }
+    return QUrl();
+}
+
+void QCefWebView::back()
+{
+    CefRefPtr browser = GetBrowser();
+    if (browser.get())
+        browser-&gt;GoBack();
+}
+
+void QCefWebView::forward()
+{
+    CefRefPtr browser = GetBrowser();
+    if (browser.get())
+        browser-&gt;GoForward();
+}
+
+void QCefWebView::reload()
+{
+    CefRefPtr browser = GetBrowser();
+    if (browser.get())
+        browser-&gt;Reload();
+}
+
+void QCefWebView::stop()
+{
+
+    CefRefPtr browser = GetBrowser();
+    if (browser.get())
+        browser-&gt;StopLoad();
+}
+
+QVariant QCefWebView::evaluateJavaScript(const QString&amp; scriptSource)
+{
+    if (GetBrowser().get())
+    {
+        CefString code(scriptSource.toStdWString());
+        GetBrowser()-&gt;GetMainFrame()-&gt;ExecuteJavaScript(code, &quot;&quot;, 0);
+        return true;
+    }
+    return false;
+}
+
+void QCefWebView::resizeEvent(QResizeEvent* e)
+{
+    switch (browser_state_)
+    {
+    case kNone:
+        CreateBrowser(e-&gt;size()); break;
+    case kCreating:
+        need_resize_ = true; break;
+    default:
+        ResizeBrowser(e-&gt;size());
+    }
+}
+
+void QCefWebView::closeEvent(QCloseEvent* e)
+{
+    if (g_handler.get() &amp;&amp; !g_handler-&gt;IsClosing())
+    {
+        CefRefPtr browser = g_handler-&gt;GetBrowser();
+        if (browser.get())
+        {
+            browser-&gt;GetHost()-&gt;CloseBrowser(false);
+        }
+    }
+    e-&gt;accept();
+}
+
+void QCefWebView::showEvent(QShowEvent* e)
+{
+    CreateBrowser(size());
+}
+
+void QCefWebView::customEvent(QEvent* e)
+{
+    if (e-&gt;type() == MessageEvent::MessageEventType)
+    {
+        MessageEvent* event = static_cast(e);
+        QString name = event-&gt;name();
+        QVariantList args = event-&gt;args();
+        emit jsMessage(name, args);
+    }
+}
+
+void QCefWebView::OnAddressChange(const QString&amp; url)
+{
+    if (url != &quot;about:blank&quot;)
+    {
+        emit urlChanged(QUrl(url));
+    }
+}
+
+void QCefWebView::OnTitleChange(const QString&amp; title)
+{
+    emit titleChanged(title);
+}
+
+void QCefWebView::SetLoading(bool isLoading)
+{
+    if (isLoading)
+    {
+        if (!need_load_ &amp;&amp; !url_.isEmpty())
+            emit loadStarted();
+    }
+    else
+    {
+        if (need_load_)
+        {
+            BrowserLoadUrl(url_);
+            need_load_ = false;
+        }
+        else if (!url_.isEmpty())
+        {
+            emit loadFinished(true);
+        }
+    }
+}
+
+void QCefWebView::SetNavState(bool canGoBack, bool canGoForward)
+{
+    emit navStateChanged(canGoBack, canGoForward);
+}
+
+void QCefWebView::OnAfterCreated()
+{
+    browser_state_ = kCreated;
+    if (need_resize_)
+    {
+        ResizeBrowser(size());
+        need_resize_ = false;
+    }
+}
+
+void QCefWebView::OnMessageEvent(MessageEvent* e)
+{
+    QCoreApplication::postEvent(this, e, Qt::HighEventPriority);
+}
+
+void QCefWebView::OnWebRequest(const QString &amp; order)
+{
+    emit webRequest(order);
+}
+
+bool QCefWebView::CreateBrowser(const QSize&amp; size)
+{
+    if (browser_state_ != kNone || size.isEmpty())
+    {
+        return false;
+    }
+    mutex_.lock();
+    if (browser_state_ != kNone)
+    {
+        mutex_.unlock();
+        return false;
+    }
+    RECT rect;
+    rect.left = 0;
+    rect.top = 0;
+    rect.right = size.width();
+    rect.bottom = size.height();
+
+    CefWindowInfo info;
+    CefBrowserSettings settings;
+
+    info.SetAsChild((HWND)this-&gt;winId(), rect);
+
+    g_handler-&gt;set_listener(this);
+    g_appHandler-&gt;insertMainRenderDelegate(this);
+
+    QString url = url_.isEmpty() ? kUrlBlank : url_.toString();
+    CefBrowserHost::CreateBrowser(info,
+        g_handler.get(),
+        CefString(url.toStdWString()),
+        settings,
+        NULL);
+
+    browser_state_ = kCreating;
+    mutex_.unlock();
+    return true;
+}
+
+CefRefPtr QCefWebView::GetBrowser() const
+{
+    CefRefPtr browser;
+    if (g_handler.get())
+        browser = g_handler-&gt;GetBrowser();
+    return browser;
+}
+
+void QCefWebView::ResizeBrowser(const QSize&amp; size)
+{
+    if (g_handler.get() &amp;&amp; g_handler-&gt;GetBrowser())
+    {
+        CefWindowHandle hwnd =
+            g_handler-&gt;GetBrowser()-&gt;GetHost()-&gt;GetWindowHandle();
+        if (hwnd)
+        {
+            HDWP hdwp = BeginDeferWindowPos(1);
+            hdwp = DeferWindowPos(hdwp, hwnd, NULL,
+                0, 0, size.width(), size.height(),
+                SWP_NOZORDER);
+            EndDeferWindowPos(hdwp);
+        }
+    }
+}
+
+bool QCefWebView::BrowserLoadUrl(const QUrl&amp; url)
+{
+    if (!url.isEmpty() &amp;&amp; GetBrowser().get())
+    {
+        CefString cefurl(url_.toString().toStdWString());
+        GetBrowser()-&gt;GetMainFrame()-&gt;LoadURL(cefurl);
+        return true;
+    }
+    return false;
+}
+
+void QCefWebView::OnContextCreated(CefRefPtr app
+    , CefRefPtr browser
+    , CefRefPtr frame
+    , CefRefPtr context)
+{
+    CefRefPtr object = context-&gt;GetGlobal();
+
+    CefRefPtr myV8Acc = new QCefV8Accessor;
+    CefRefPtr val = CefV8Value::CreateString(L&quot;videoHandler&quot;);
+    CefString cefException;
+    myV8Acc-&gt;Set(L&quot;videoHandler&quot;, object, val, cefException);
+    CefRefPtr pObjApp = CefV8Value::CreateObject(myV8Acc);
+    object-&gt;SetValue(L&quot;videoHandler&quot;, pObjApp, V8_PROPERTY_ATTRIBUTE_NONE);
+
+    CefRefPtr mapHandler = new CefMapV8Handler(g_appHandler);
+
+    CefRefPtr ExecuteRequestOrder =
+        CefV8Value::CreateFunction(&quot;ExecuteRequestOrder&quot;, mapHandler);
+
+    object-&gt;SetValue(&quot;ExecuteRequestOrder&quot;, ExecuteRequestOrder, V8_PROPERTY_ATTRIBUTE_NONE);
+}
+</code></pre>
+
+<p>注意：以上代码只提供了一个思路，还有部分处理代码我没有贴出来，但是在论述的时候我都已经提到了，有C++基础的就基本可以搞定了，上述功能完成后就基本可以实现嵌入web的功能了。</p>
+
+<h2 id="后续">后续</h2>
+
+<p>上述并不完美，因为如果需要在多个窗口上创建cef浏览器部件的话，在消息监听部分没有办法做区分多个浏览器事件，在这篇文章中我将会把上一篇相关文章中的程序结构稍作改动，以支持多个主浏览器窗口，主要是针对不同的浏览器产生事件时分发给不同的监听者，说到这儿，有的读者应该就能想到了，监听者肯定是一个数组了，而且 个数和浏览器数目一样多。</p>
+
+<p>在接着往一下看的时候，我默认大家都已经完成创建浏览器并可以成功监听事件。</p>
+
+<p>我先讲下思路：主要围绕<code>每一个窗口</code>创建一个<code>浏览器</code>，<code>每一个浏览器</code>同时又是一个<code>监听者</code>。当显示窗口的时候，创建浏览器，并把当前窗口的<code>id</code>和指针保存到<code>ClientHandler</code>对象中，在浏览器创建成功并回调<code>OnAfterCreated</code>接口时，使用当前浏览器句柄匹配保存在<code>ClientHandler</code>中的浏览器父窗口句柄，如果匹配成功，则把以监听者为键，以浏览器为值的简直对保存起来，这个键值对是作为后面<code>libcef</code>事件回调时通知指定监听者的依据。</p>
+
+<p>上面的思路可能理解起来有点儿绕，接下来我直接上关键性代码，希望大家能更好的理解</p>
+
+<pre><code class="language-cpp">typedef std::map ListenerHwnds; 
+
+ListenerHwnds listenerHwnds_;//浏览器父窗口、监听者对
+
+typedef std::map &gt; ListenerBrowserMap;
+
+ListenerBrowserMap m_MainBrowsers;//监听者、浏览器对
+</code></pre>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110171214311-1302772591.jpg" alt="图1" /></p>
+
+<p>图1 是浏览器创建成功后的回调，在该方法中添加监听者/浏览器对到<code>ClientHandler</code>中，当浏览器发生事件回调的时候，调用指定的监听者</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110171251436-752951747.jpg" alt="图2" /></p>
+
+<p>图2 的代码是设置是否进行加载，根据<code>ClientHanlder</code>中已经注册的监听者/浏览器对，把浏览器事件发送给指定监听者</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110171342124-1516361132.png" alt="图3" /></p>
+
+<p>图3 是有两个方法，方法1是保存监听者到CliendHandler对象中，在方法在浏览器创建之前调用；方法2是获取当前所有浏览器</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110171430655-2112705634.jpg" alt="﻿图4" /></p>
+
+<p>图4 是创建浏览器代码，在调用CreateVrowser方法创建浏览器之前需要保存窗口句柄和指针到ClientHandler对象中，以备图1所示代码所用，保存代码如上图中有下划线部分。
+由于在上一篇相关文档中已经可以成功创建出浏览器，故这篇文章跳跃性比较大，如果有不理解的地方可以去看上一篇文章。</p>
+
+<p>至此，文章都是个人理解，有问题请留言</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

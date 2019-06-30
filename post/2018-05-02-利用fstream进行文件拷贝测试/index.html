@@ -1,0 +1,248 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 利用fstream进行文件拷贝测试 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>利用fstream进行文件拷贝测试</h1>
+          <span class="post-date">2018年05月02日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/05/02/8979507.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/05/02/8979507.html</a>
+今天翻到一个早期写测试代码的目录，找到几个以前的测试代码，于是拿出来贴到博客中。（只是简单的测试，并不严谨。注意这里windows和linux的硬件环境不一样）</p>
+
+<p>这一个是使用fstream进行文件拷贝的代码，测试机器的环境大概如下（时间久了，机器有更新）</p>
+
+<pre><code>CPU： i7 低压版
+硬盘：两个60G的SSD，好像是建兴的
+内存：8G DDR3
+</code></pre>
+
+<p>当时仅在<code>Arch Linux</code>上做了测试，今天顺便在windows下做一个测试。
+<strong>CentOS7_gcc4.9.4.ova</strong>其实是虚拟机的镜像文件，1.8G大小。</p>
+
+<p>代码如下：</p>
+
+<pre><code class="language-cpp">#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;iterator&gt;
+#include &lt;algorithm&gt;
+
+bool copy_file(const char* src_file_path,const char* dst_file_path)
+{
+	// 检测目标文件是否存在
+	{
+		std::ifstream exsit(dst_file_path);
+		if(exsit){
+			std::cout&lt;&lt;&quot;目标文件 &quot;&lt;&lt; dst_file_path&lt;&lt; &quot; 已经存在&quot;&lt;&lt;std::endl;
+			return false;
+		}
+	}
+
+	std::ifstream fin(src_file_path,std::ios::binary);
+	std::ofstream fout(dst_file_path,std::ios::binary);
+	if(!fin || !fout){
+		std::cout&lt;&lt;&quot;打开源文件或目标文件失败&quot;&lt;&lt;std::endl;
+		return false;
+	}
+	// rdbuf返回streambuf*
+	// 速度比迭代器拷贝快太多
+	// Linux下测试结果
+        // time ./fstream_copy_file.exe CentOS7_gcc4.9.4.ova /mnt/data/CentOS7_gcc4.9.4.ova
+        //  0.23s user 8.15s system 10% cpu 1:16.98 total
+	fout &lt;&lt; fin.rdbuf();
+	return true;
+
+	/*
+	使用迭代器进行拷贝没有大问题，但是效率不高
+	// time ./fstream_copy_file.exe CentOS7_gcc4.9.4.ova /mnt/data/CentOS7_gcc4.9.4.ova
+        407.45s user 4.37s system 97% cpu 7:00.73 total
+
+	fin.unsetf(std::ios::skipws);	//输入流默认跳过空白字符，取消此设置
+	// 使用迭代器进行拷贝
+	std::copy(std::istream_iterator&lt;char&gt;(fin),
+			  std::istream_iterator&lt;char&gt;(),
+			  std::ostream_iterator&lt;char&gt;(fout,&quot;&quot;));
+	return true;
+	*/
+}
+
+int main(int c,char** v)
+{
+	if(c != 3){
+		printf(&quot;Usage:%s srcfile dstfile\n&quot;,v[0]);
+		return 0;
+	}
+	copy_file(v[1],v[2]);
+	return 0;
+}
+</code></pre>
+
+<p>测试结果如下：
+<strong>Windows 10</strong>
+Windows下使用VS2015编译，64位版本(time命令来自git-bash)
+Windows下硬盘是两个机械硬盘之间拷贝（1T 7200转希捷）</p>
+
+<pre><code class="language-bash"># 使用rdbuf拷贝，速度大概50M每秒
+$ time ./fstrean_copy_file.exe /g/CentOS7_gcc4.9.4.ova /d/CentOS7_gcc4.9.4.ova
+
+real    0m36.357s
+user    0m0.000s
+sys     0m0.015s
+
+# 使用std::copy拷贝，速度大概6M每秒
+$ time ./fstrean_copy_file.exe /g/CentOS7_gcc4.9.4.ova /d/CentOS7_gcc4.9.4.ova
+
+real    5m3.663s
+user    0m0.000s
+sys     0m0.015s
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

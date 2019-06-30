@@ -1,0 +1,233 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> SNMP常用数据操作 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>SNMP常用数据操作</h1>
+          <span class="post-date">2015年08月26日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/26/4759874.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/26/4759874.html</a>
+<h1 align="left">SNMP常用数据操作</h1>
+<p align="left">&nbsp;snmp编程中常见的数据类型基本上就是integer32/oct_str(字节数组)/counter64/timeticks/dateAndTime这些。很多其它的比如TruthValue这样的数据在编程的时候一般都比较少用，而且一般都有对应的替代。</p>
+<h2 align="left">Counter32类型</h2>
+<p align="left">Counter32其实对应C语言中的32位无符号整型(0~2^32-1)。在snmpv1中它的解释是：&ldquo;计数器是一个非负的整数，它递增至最大值，而后归零&rdquo;。</p>
+<p align="left">对counter32的操作，在32位机器上，其一般使用unsigned int来表示。是比较简单的数据类型，所以无需使用特别的操作。</p>
+<h2 align="left">Counter64类型</h2>
+<p align="left">Counter64对应64位的计数器，它表示的范围(0~2^64-1)就比counter32大多了，在net-snmp中提供了对它操作的相关函数。</p>
+<p align="left">Net-snmp中并没有直接使用C语言中的64位无符号整型，而是使用了一个结构体来表示</p>
+<div>
+<div class="cnblogs_code">
+<pre>    <span style="color: #0000ff;">struct</span><span style="color: #000000;"> counter64 {
+        u_long          high;
+        u_long          low;
+};</span></pre>
+</div>
+<p>&nbsp;</p>
+</div>
+<p align="left">为什么这么做呢？这个不好说，可能是为了操作方便吧。在snmp++中定义了一个类Counter64来提供对这个数据类型的操作，它也是如同此处将其分为高位部分(hipart)和低位(lopart)部分。</p>
+<p align="left">同时还定义了一些用于操作counter64数据类型的函数。</p>
+<div class="cnblogs_code">
+<pre> typedef <span style="color: #0000ff;">struct</span><span style="color: #000000;"> counter64 U64;</p>
+
+<p></span><span style="color: #0000ff;">#define</span> I64CHARSZ 21</p>
+
+<pre><code>&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            divBy10(U64, U64 *, unsigned &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            multBy10(U64, U64 *&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            incrByU16(U64 *, unsigned &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            incrByU32(U64 *, unsigned &lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+NETSNMP_IMPORT
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            zeroU64(U64 *&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;             isZeroU64(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt;);
+NETSNMP_IMPORT
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            printU64(&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt;);
+NETSNMP_IMPORT
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            printI64(&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;             read64(U64 *, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt;);
+NETSNMP_IMPORT
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            u64Subtract(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 * pu64one, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt; pu64two,
+                            U64 &lt;/span&gt;*&lt;span style=&quot;color: #000000;&quot;&gt; pu64out);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            u64Incr(U64 * pu64out, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt; pu64one);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            u64UpdateCounter(U64 * pu64out, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt; pu64one,
+                                 &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt; pu64two);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;void&lt;/span&gt;            u64Copy(U64 * pu64one, &lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; U64 *&lt;span style=&quot;color: #000000;&quot;&gt; pu64two);
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;             netsnmp_c64_check_for_32bit_wrap(U64 *old_val, U64 *&lt;span style=&quot;color: #000000;&quot;&gt;new_val,
+                                                 &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; adjust);
+NETSNMP_IMPORT
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt;             netsnmp_c64_check32_and_update(&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt; counter64 *&lt;span style=&quot;color: #000000;&quot;&gt;prev_val,
+                                               &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt; counter64 *&lt;span style=&quot;color: #000000;&quot;&gt;new_val,
+                                               &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;struct&lt;/span&gt; counter64 *&lt;span style=&quot;color: #000000;&quot;&gt;old_prev_val,
+                                               &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; *need_wrap_check);&lt;/pre&gt;
+</code></pre>
+
+<p></div>
+<p>&nbsp;</p>
+<p align="left">在net-snmp中对Counter64数据的操作应该使用下面的函数来进行，而不用直接使用unsigned long long等原生的数据类型。为什么要这么做呢？因为这涉及到将counter64数据的解析转换等操作。</p>
+<p align="left">具体可见asn_build_unsigned_int64函数，它在net-snmp-5.7.3\snmplib\asn1.c文件中。</p>
+<div class="cnblogs_code">
+<pre>u_char         <em><span style="color: #000000;">
+asn_build_unsigned_int64(u_char </span></em><span style="color: #000000;"> data,
+                         size_t </span>*<span style="color: #000000;"> datalength,
+                         u_char type,
+                         </span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">struct</span> counter64 * cp, size_t countersize)</pre>
+</div>
+<p>&nbsp;</p>
+<h2>time ticks类型</h2>
+<p align="left">time ticks：是一个时间单位，表示以0.01秒为单位计算的时间；</p>
+<p align="left">这其实就是一个32位无符号整型。这里要注意一下的是它的单位，在使用的时候应该进行单位换算。</p>
+<h2>DateAndTime类型</h2>
+<p>这是一个用来表示时间的数据类型，长度为11个字节。</p>
+<p>在snmp中有具体的规定，每一个字节表示什么。</p>
+<p>以前解释过它，这里就不详述的了。可用看这里<a href="http://www.cnblogs.com/oloroso/p/4595127.html">http://www.cnblogs.com/oloroso/p/4595127.html</a></p>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

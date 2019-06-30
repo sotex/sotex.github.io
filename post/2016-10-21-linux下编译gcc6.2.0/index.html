@@ -1,0 +1,229 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译gcc6.2.0 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译gcc6.2.0</h1>
+          <span class="post-date">2016年10月21日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/10/21/5984985.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/10/21/5984985.html</a>
+#linux下编译gcc6.2.0
+在archlinx的下gcc已经更新到6.2.1了，win10的WSL下还是gcc4.8。官方源没有比较新的版本，于是自己编译使用。</p>
+
+<p><strong>GCC6的几个新特性</strong>
+    GCC 6 现在的默认值是 C++ 14.  GCC 6 现在包括 C++ Concepts.
+    C++运行时库现在支持特殊的数学函数 (ISO/IEC 29124:2010)
+    支持 C++17 的实验功能</p>
+
+<p>##准备
+可以去gnu官网下载<code>gcc6.2.0</code>的源码，但国内访问速度比较慢。可以进中科大的镜像站去下载。</p>
+
+<p>下载并解压</p>
+
+<pre><code class="language-shell">wget http://mirrors.ustc.edu.cn/gnu/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2
+tar -xjvf gcc-6.2.0.tar.bz2
+</code></pre>
+
+<p>解压之后进入源码目录，运行下面命令下载依赖包</p>
+
+<pre><code class="language-shell">./contrib/download_prerequisites	#必须在源码根目录下运行此命令
+</code></pre>
+
+<p>编译gcc前需安装<code>build-essential</code>,<code>bison</code>,<code>flex</code>,<code>texinfo</code>。</p>
+
+<p>##生成Makefile
+在源码目录下建立一个<code>build</code>目录(也可以在别的目录下)，然后进入<code>build</code>目录运行<code>configure</code>脚本生成<code>Makefile</code>文件。</p>
+
+<pre><code class="language-shell">mkdir build &amp;&amp; cd build
+../configure --prefix=/usr/local/gcc6 --enable-checking=release --enable-languages=c,c++ --enable-threads=posix --disable-multilib
+# --prefix=/usr/local/gcc6	指定安装路径
+# --enable-languages=c,c++	支持的编程语言
+# --enable-threads=posix	使用POSIX/Unix98作为线程支持库
+# --disable-multilib 		取消多目标库编译(取消32位库编译)
+</code></pre>
+
+<p>下面是archlinux自带gcc的编译配置命令（gcc -v查看）。</p>
+
+<pre><code>--prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --disable-multilib --disable-werror --enable-checking=release
+</code></pre>
+
+<p>如果配置的时候出现<code>cannot find crt1.o</code> <code>cannot find crti.o</code> <code>cannot find crtn.o</code>的错误，那么需要指定<code>--build</code>的参数，比如<code>x86_64</code>。</p>
+
+<p>##编译安装
+上一步生成<code>Makefile</code>没有问题后，就可以直接编译安装了。</p>
+
+<pre><code class="language-shell">make -j8	#使用8个线程并行编译
+make install	#安装(可能需要root权限)
+</code></pre>
+
+<p>##错误与解决办法</p>
+
+<p>###makeinfo没有安装</p>
+
+<pre><code class="language-shell">/mnt/d/gcc/gcc-6.2.0/missing: 81: /mnt/d/gcc/gcc-6.2.0/missing: makeinfo: not found
+WARNING: 'makeinfo' is missing on your system.
+         You should only need it if you modified a '.texi' file, or
+         any other file indirectly affecting the aspect of the manual.
+         You might want to install the Texinfo package:
+         &lt;http://www.gnu.org/software/texinfo/&gt;
+         The spurious makeinfo call might also be the consequence of
+         using a buggy 'make' (AIX, DU, IRIX), in which case you might
+         want to install GNU make:
+         &lt;http://www.gnu.org/software/make/&gt;
+</code></pre>
+
+<p>解决办法</p>
+
+<pre><code>sudo apt-get install texinfo
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

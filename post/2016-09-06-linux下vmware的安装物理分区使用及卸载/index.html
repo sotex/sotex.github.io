@@ -1,0 +1,198 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下vmware的安装、物理分区使用及卸载 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下vmware的安装、物理分区使用及卸载</h1>
+          <span class="post-date">2016年09月06日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/09/06/5845227.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/09/06/5845227.html</a>
+#1、安装
+先下载安装文件<a href="https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle">VMware-Workstation-Full-12</a>
+在命令行下执行下载的文件安装即可(需要root权限)</p>
+
+<pre><code class="language-shell">wget https://download3.vmware.com/software/wkst/file/VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle
+sudo ./VMware-Workstation-Full-12.1.1-3770994.x86_64.bundle
+</code></pre>
+
+<p>安装后可尝试使用<code>5F29M-48312-8ZDF9-A8A5K-2AM0Z</code>进行注册。注册的时候可能会提示你输入密码(root密码)。</p>
+
+<p>#2、物理分区的使用
+使用物理分区作为虚拟磁盘，需要<code>root</code>权限启动<code>vmware</code></p>
+
+<pre><code class="language-shell">sudo /usr/bin/vmware
+</code></pre>
+
+<p>然后新建一个虚拟机，一路下一步，直到选择虚拟磁盘的位置。
+在这一步，选择<code>使用物理磁盘</code>，使用这个选择，虚拟机将直接访问本地磁盘。
+<img src="http://images2015.cnblogs.com/blog/693958/201609/693958-20160906115528316-1014798554.png" alt="" /></p>
+
+<p>然后进入下一步，选择你要使用的物理磁盘或者分区。这里右两个选项，要慎重选择。
+<img src="http://images2015.cnblogs.com/blog/693958/201609/693958-20160906115655254-1826987661.png" alt="" /></p>
+
+<p>上面图中的路径，可以使用下面的命令来看都有哪些可选项。</p>
+
+<pre><code class="language-shell">ls /dev/disk/by-id 
+ata-HL-DT-ST_DVD+_-RW_GHB0N_KEJFBBA4742  ata-ST1000DM003-1ER162_W4Y6RQQ7-part2  ata-ST1000DM003-1ER162_W4Y6RQQ7-part6  wwn-0x5000c5008fffdd0f-part2  wwn-0x5000c5008fffdd0f-part6
+ata-ST1000DM003-1ER162_W4Y6RQQ7          ata-ST1000DM003-1ER162_W4Y6RQQ7-part3  wwn-0x5000c5008fffdd0f                 wwn-0x5000c5008fffdd0f-part3  wwn-0x5001480000000000
+ata-ST1000DM003-1ER162_W4Y6RQQ7-part1    ata-ST1000DM003-1ER162_W4Y6RQQ7-part5  wwn-0x5000c5008fffdd0f-part1           wwn-0x5000c5008fffdd0f-part5
+</code></pre>
+
+<p>#3、卸载
+卸载比较简单，使用下面命令即可</p>
+
+<pre><code class="language-shell">sudo vmware-installer -u vmware-workstation
+</code></pre>
+
+<p>卸载需要<code>root</code>权限，默认保留用户配置文件。在卸载界面选择<code>no</code>可以不保留。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

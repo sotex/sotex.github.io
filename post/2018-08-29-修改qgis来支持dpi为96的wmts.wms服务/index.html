@@ -1,0 +1,218 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 修改QGIS来支持DPI为96的WMTS/WMS服务 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>修改QGIS来支持DPI为96的WMTS/WMS服务</h1>
+          <span class="post-date">2018年08月29日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/08/29/9553207.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/08/29/9553207.html</a></p>
+
+<h2 id="缘由">缘由</h2>
+
+<p>因为各种各种wmts地图客户端产品的标准的支持不一定是一致的，就像ArcGIS不同版本加载WMTS图层的时候计算的规则就有差别（米和经纬度之间转换系数的区别），导致会出现适应各个客户端而出的WMTS服务，里面的<code>ScaleDenominator</code>值有细微的差别。
+例如都是Google经纬度(天地图经纬度直投)，其切分规则是一样的，但其DPI不一致导致计算的<code>ScaleDenominator</code>是不一致的。
+虽然OGC标准里面对DPI大小的定义就是<code>90.714</code>，但是国内天地图使用的DPI标准为<code>96</code>，这里也有一个计算的差值。DPI不同对应的也就是每个像素的大小不一致，也就是分辨率不一致，造成瓦片的行列号计算有差异。</p>
+
+<p>QGIS是支持<code>OGC WMTS标准</code>的，其DPI的大小就是<code>90.714</code>(像素大小0.00028)。为了让QGIS能够支持DPI为<code>96</code>的WMTS服务，需要对QGIS进行一点修改。</p>
+
+<h2 id="解决过程">解决过程</h2>
+
+<p>为了解决这个问题，看了一下<code>QGIS</code>的源码，相关的定义如下：
+<strong>文件<a href="https://github.com/qgis/QGIS/blob/master/src/providers/wms/qgswmscapabilities.cpp">qgis\src\providers\wms\qgswmscapabilities.cpp</a>  1382行前后</strong></p>
+
+<pre><code class="language-cpp">      m.tileWidth    = e1.firstChildElement( QStringLiteral( &quot;TileWidth&quot; ) ).text().toInt();
+      m.tileHeight   = e1.firstChildElement( QStringLiteral( &quot;TileHeight&quot; ) ).text().toInt();
+      m.matrixWidth  = e1.firstChildElement( QStringLiteral( &quot;MatrixWidth&quot; ) ).text().toInt();
+      m.matrixHeight = e1.firstChildElement( QStringLiteral( &quot;MatrixHeight&quot; ) ).text().toInt();
+
+      // the magic number below is &quot;standardized rendering pixel size&quot; defined
+      // in WMTS (and WMS 1.3) standard, being 0.28 pixel
+      m.tres = m.scaleDenom * 0.00028 / metersPerUnit;
+
+      QgsDebugMsg( QString( &quot; %1: scale=%2 res=%3 tile=%4x%5 matrix=%6x%7 topLeft=%8&quot; )
+                   .arg( m.identifier )
+                   .arg( m.scaleDenom ).arg( m.tres )
+                   .arg( m.tileWidth ).arg( m.tileHeight )
+                   .arg( m.matrixWidth ).arg( m.matrixHeight )
+                   .arg( m.topLeft.toString() )
+                 );
+
+      s.tileMatrices.insert( m.tres, m );
+</code></pre>
+
+<p>这里可以看到通过<code>ScaleDenominator</code>计算瓦片分辨率的过程，这里使用的像素大小是<code>0.00028</code>。
+因为像素大小<code>0.00028</code>的计算是<code>0.0254/DPI</code>(这个原理网上搜就有了)，所以我们可以算出DPI为96时候的像素大小为<code>0.000264583</code>。
+如果这里我们把<code>0.00028</code>修改为<code>0.000264583</code>再编译就可以支持天地图的了。这里我不打算改它，因为编译太麻烦。</p>
+
+<p>这里我们直接改<code>QGIS</code>的二进制程序文件好了。
+使用十六进制编辑器打开<code>C:\Program Files\QGIS 3.0\apps\qgis\plugins</code>目录下在<code>wmsprovider.dll</code>(最好先备份)。
+然后搜索<code>0.00028</code></p>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180829110951077-275889507.jpg" alt="" /></p>
+
+<p>整个文件就这一处使用了<code>0.00028</code>这个数值，这里直接将其修改为<code>0.000264583</code>保存即可。</p>
+
+<p>再打开<code>QGIS</code>就可以按照96的DPI加载WMTS和WMS图层了。</p>
+
+<p>还可以保留着两个<code>dll</code>文件，写一个批处理来决定加载的时候使用哪一个来运行。</p>
+
+<h2 id="arcgis支持dpi-96">ArcGIS支持DPI 96</h2>
+
+<p>ARCGIS中一样没有找到相关的设置，猜测也是写到代码里面了。听闻国内某些单位购买的ArcGIS是支持96的DPI的，但我们没有。
+ArcGIS安装目录下找到<code>WMSLayer.dll</code>和<code>WMSService.dll</code>的文件，还是一样的套路，搜索<code>0.00028</code>修改为<code>0.000264583</code>即可。</p>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180829113223416-1750621936.jpg" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

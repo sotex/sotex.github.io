@@ -1,0 +1,322 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下挂载VHD等虚拟磁盘文件 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下挂载VHD等虚拟磁盘文件</h1>
+          <span class="post-date">2017年02月10日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/02/10/6385398.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/02/10/6385398.html</a></p>
+
+<h2 id="1-raw格式虚拟磁盘">1、RAW格式虚拟磁盘</h2>
+
+<p>linux下可以直接挂载raw格式的虚拟磁盘镜像文件。</p>
+
+<p>例如，这里先用dd命令创建一个文件，然后将其格式化为<code>ext4</code>格式(只有一个分区)，然后挂载到<code>/mnt</code>目录。
+下面的<code>raw.img</code>磁盘镜像文件就一个分区，所以没有使用<code>offset=</code>来指定偏移。如果有多个分区，则可以通过指定偏移来挂载。具体的可以查阅<code>mount</code>命令的相关参数信息。</p>
+
+<pre><code class="language-shell">&gt; dd if=/dev/zero of=raw.img bs=1M count=512
+记录了512+0 的读入
+记录了512+0 的写出
+536870912 bytes (537 MB, 512 MiB) copied, 0.207045 s, 2.6 GB/s
+
+/home/o [o@o-pc] [10:29]
+&gt; mkfs.ext4 -q raw.img 
+
+/home/o [o@o-pc] [10:30]
+&gt; sudo mount -o loop raw.img /mnt
+
+/home/o [o@o-pc] [10:30]
+&gt; df -h
+文件系统        容量  已用  可用 已用% 挂载点
+tmpfs           3.9G   79M  3.8G    2% /dev/shm
+/dev/sda4        30G  6.6G   24G   22% /
+tmpfs           3.9G  136K  3.9G    1% /tmp
+/dev/sda2        69G   26G   41G   39% /home
+tmpfs           794M   36K  794M    1% /run/user/1000
+/dev/loop0      488M  780K  452M    1% /mnt
+</code></pre>
+
+<h2 id="2-vhd-vhdx磁盘文件挂载">2、VHD/VHDX磁盘文件挂载</h2>
+
+<p>linux不能直接支持挂载VHD磁盘镜像文件。可以通过vmware的<code>vmware-mount</code>等工具来挂载。<code>vmware</code>没有直接提供这个工具，但在<code>vmware player</code>和<code>vmware workstation</code>中都有提供。但这里不打算使用这种方式。</p>
+
+<p><strong>这里使用qemu-nbd来挂载磁盘镜像文件。</strong></p>
+
+<h3 id="a-安装qemu">a)安装qemu</h3>
+
+<p>首先要安装一下<code>qemu-kvm</code>，我这里使用的是<code>Fedora 25</code>，安装命令如下</p>
+
+<pre><code class="language-bash">sudo dnf install qemu-kvm 
+</code></pre>
+
+<p>如果你是用的debian/ubuntu等，可以使用<code>sudo apt-get install qemu-kvm</code>进行安装。
+archlinux可以使用<code>sudo pacman -S qemu</code>进行安装。</p>
+
+<h3 id="b-加载nbd驱动">b)加载nbd驱动</h3>
+
+<p>NBD(Network Block Device)是<code>网络块设备</code>的缩写。这个模块可以将一个远程主机的磁盘空间（与挂载nfs有区别），当作一个本地块设备来使用。
+NBD是一个内核模块，大部分Linux发行版都已经包含它，这里不需要再安装了。</p>
+
+<p><strong>使用modprobe来加载nbd驱动</strong></p>
+
+<pre><code class="language-bash">/media/o/data [o@o-pc] [11:04]
+&gt; sudo modprobe nbd max_part=8
+</code></pre>
+
+<p><strong>加载完成后，可以使用modinfo命令来查看模块信息</strong></p>
+
+<pre><code class="language-bash">/media/o/data [o@o-pc] [11:05]
+&gt; modinfo nbd
+filename:       /lib/modules/4.9.6-200.fc25.x86_64/kernel/drivers/block/nbd.ko.xz
+license:        GPL
+description:    Network Block Device
+depends:        
+intree:         Y
+vermagic:       4.9.6-200.fc25.x86_64 SMP mod_unload 
+signat:         PKCS#7
+signer:         
+sig_key:        
+sig_hashalgo:   md4
+parm:           nbds_max:number of network block devices to initialize (default: 16) (int)
+parm:           max_part:number of partitions per device (default: 0) (int)
+</code></pre>
+
+<p>上面的信息说，初始化网络块设备的数目为16，说明其在<code>/dev/</code>下创建16个nbd设备。</p>
+
+<pre><code class="language-bash">/media/o/data [o@o-pc] [11:05]
+&gt; ls /dev/nbd*
+/dev/nbd0  /dev/nbd0p1  /dev/nbd1  /dev/nbd10  /dev/nbd11  /dev/nbd12  /dev/nbd13  /dev/nbd14  /dev/nbd15  /dev/nbd2  /dev/nbd3  /dev/nbd4  /dev/nbd5  /dev/nbd6  /dev/nbd7  /dev/nbd8  /dev/nbd9
+</code></pre>
+
+<h3 id="c-将vhdx文件连接到nbd设备">c)将vhdx文件连接到nbd设备</h3>
+
+<p>这里使用<code>qemu-nbd</code>来进行连接（使用-c参数为连接，使用-d参数断开连接）</p>
+
+<pre><code class="language-bash">/media/o/data [o@o-pc] [11:05]
+&gt; sudo qemu-nbd -c /dev/nbd0 VS2017RC-offline.vhdx 
+</code></pre>
+
+<p>连接上之后使用<code>fdisk</code>查看一下设备信息。</p>
+
+<pre><code>/media/o/data [o@o-pc] [11:05]
+&gt; sudo fdisk -l /dev/nbd0
+Disk /dev/nbd0：100 GiB，107374182400 字节，209715200 个扇区
+单元：扇区 / 1 * 512 = 512 字节
+扇区大小(逻辑/物理)：512 字节 / 512 字节
+I/O 大小(最小/最佳)：512 字节 / 512 字节
+磁盘标签类型：dos
+磁盘标识符：0xa373e501
+设备        启动  起点       末尾      扇区   大小 Id 类型
+/dev/nbd0p1      2048 209711103 209709056  100G  7 HPFS/NTFS/exFAT
+</code></pre>
+
+<p>实际上磁盘只有一个分区，分区格式为<code>exFAT</code>，磁盘大小为动态增长。</p>
+
+<h3 id="d-挂载分区">d)挂载分区</h3>
+
+<p>直接使用<code>mount</code>命令挂载<code>nbd0p1</code>即可</p>
+
+<pre><code class="language-bash">/media/o/data [o@o-pc] [11:36]
+&gt; sudo mount -t exfat -o rw  /dev/nbd0p1 /mnt
+[sudo] o 的密码：
+FUSE exfat 1.0.1
+
+/media/o/data [o@o-pc] [12:05]
+&gt; ls /mnt/
+'$RECYCLE.BIN'  'System Volume Information'  vs2017rc  安装说明.txt
+</code></pre>
+
+<h4 id="安装exfat支持">安装exFAT支持</h4>
+
+<p>因为分区是<code>exFAT</code>格式的，不能直接挂载。
+先安装一下<code>fuse-exfat</code>和<code>exfat-utils</code>。
+具体的安装过程简要的说一下
+先下载两个rpm源码包。</p>
+
+<pre><code class="language-bash">wget http://download1.rpmfusion.org/free/el/updates/6/SRPMS/exfat-utils-1.0.1-2.el6.src.rpm
+wget http://download1.rpmfusion.org/free/el/updates/6/SRPMS/exfat-utils-1.0.1-2.el6.src.rpm
+</code></pre>
+
+<p>然后安装<code>fuse-devel</code>和<code>rpmbuild</code>,并解压<code>src.rpm</code>包。</p>
+
+<pre><code class="language-bash">sudo dnf install fuse-devel rpmbuild
+sudo dnf install scons    # 构建exfat-utils需要
+rpm -ivh exfat-utils-1.0.1-2.el6.src.rpm exfat-utils-1.0.1-2.el6.src.rpm
+</code></pre>
+
+<p>解压完成之后可以在当前用户的<code>home</code>目录下看到<code>rpmbuild</code>目录，进入该目录下的<code>SPECS</code>目录。
+然后使用<code>rpmbuild</code>构建<code>rpm</code>包。</p>
+
+<pre><code class="language-bash">rpmbuild -ba exfat-utils.spec
+rpmbuild -ba fuse-exfat.spec
+</code></pre>
+
+<p>构建完成之后进入<code>rpmbuild/RPMS/x86_64</code>目录(这里x86_64与你的系统构架有关)，安装生成的<code>rpm</code>包。</p>
+
+<pre><code class="language-bash">/home/o/rpmbuild/RPMS/x86_64 [o@o-pc] [12:04]
+&gt; sudo rpm -ivh exfat-utils-1.0.1-2.fc25.x86_64.rpm fuse-exfat-1.0.1-1.fc25.x86_64.rpm 
+准备中...                          ################################# [100%]
+正在升级/安装...
+   1:fuse-exfat-1.0.1-1.fc25          ################################# [ 50%]
+   2:exfat-utils-1.0.1-2.fc25         ################################# [100%]
+</code></pre>
+
+<p>ubuntu上可以直接使用apt来安装<code>sudo apt install exfat-utils exfat-fuse</code></p>
+
+<h2 id="3-其它虚拟磁盘文件的挂载">3、其它虚拟磁盘文件的挂载</h2>
+
+<p>其它的就不再说了，与上面的VHD挂载是一样的，前提是要是支持的磁盘映像格式才行。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,233 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 16 BasicHashTable基本哈希表类(三)——Live555源码阅读(一)基本组件类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>16 BasicHashTable基本哈希表类(三)——Live555源码阅读(一)基本组件类</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599643.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599643.html</a>
+这是Live555源码阅读的第一部分，包括了时间类，延时队列类，处理程序描述类，哈希表类这四个大类。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##哈希表的增删查改</p>
+
+<p>这是BasicHashTable基本哈希表类源码分析的最后一个部分，即哈希表的基本操作方法。这里时间没有直接给出修改条目的方法，因为它包含在了<code>add</code>方法中。</p>
+
+<p>##Add方法(增加条目)</p>
+
+<p><code>Add</code>方法先从哈希表中查找参数<code>key</code>对应的条目是否存在，<code>存在</code>的话<code>替换value</code>,<code>不存在</code>就<code>创建一个条目</code>，并加入哈希表。如果加入后哈希表的条目过多了，就重建哈希表。其返回值为原来<code>key</code>对应条目的<code>value</code>，如果不存在，返回<code>NULL</code>。</p>
+
+<pre><code class="language-cpp">void* BasicHashTable::Add(char const* key, void* value) {
+  void* oldValue;
+  unsigned index;
+  TableEntry* entry = lookupKey(key, index);
+  if (entry != NULL) {
+    // There's already an item with this key
+    oldValue = entry-&gt;value;
+  } else {
+    // There's no existing entry; create a new one:
+    entry = insertNewEntry(index, key);
+    oldValue = NULL;
+  }
+entry-&gt;value = value;
+  // If the table has become too large, rebuild it with more buckets:
+ // 如果该表已经变得太大，重建更多的桶给它：
+if (fNumEntries &gt;= fRebuildSize) rebuild();
+  return oldValue;
+}
+</code></pre>
+
+<hr />
+
+<p>##Remove方法(删除条目)</p>
+
+<p><code>Remove</code>方法从哈希表中<code>移除key对应的条目</code>，并<code>进行回收</code>。如果<code>key</code>对应的条目在哈希表中存在，返回<code>true</code>，不存在返回<code>false</code>。</p>
+
+<pre><code class="language-cpp">Boolean BasicHashTable::Remove(char const* key) {
+  unsigned index;
+  TableEntry* entry = lookupKey(key, index);
+  if (entry == NULL) return False; // no such entry
+
+  deleteEntry(index, entry);
+
+  return True;
+}
+Lookup方法(查找条目)
+Lookup方法用于从哈希表中查找key对应的条目，如果存在，返回条目的value，如果不存在，返回NULL。
+void* BasicHashTable::Lookup(char const* key) const {
+  unsigned index;
+  TableEntry* entry = lookupKey(key, index);
+  if (entry == NULL) return NULL; // no such entry
+
+  return entry-&gt;value;
+}
+</code></pre>
+
+<hr />
+
+<p>##Lookup方法(查找条目)</p>
+
+<p>Lookup方法用于从哈希表中查找key对应的条目，如果存在，返回条目的value，如果不存在，返回NULL。</p>
+
+<pre><code class="language-cpp">void* BasicHashTable::Lookup(char const* key) const {
+  unsigned index;
+  TableEntry* entry = lookupKey(key, index);
+  if (entry == NULL) return NULL; // no such entry
+
+  return entry-&gt;value;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

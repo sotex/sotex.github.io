@@ -1,0 +1,304 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 20 BasicTaskScheduler0 基本任务调度类基类（二）——Live555源码阅读(一)任务调度相关类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>20 BasicTaskScheduler0 基本任务调度类基类（二）——Live555源码阅读(一)任务调度相关类</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599973.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599973.html</a>
+这是Live555源码阅读的第二部分，包括了任务调度相关的三个类。任务调度是Live555源码中很重要的部分。</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code>http://www.cnblogs.com/oloroso/</code></a>
+<a href="my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+
+<p>##scheduleDelayedTask方法(调度延时任务)</p>
+
+<p>scheduleDelayedTask方法有三个参数，分别是时间<code>microseconds</code>，任务<code>proc</code>，数据<code>clientData</code>。
+其使用这三个参数创建一个定时处理程序对象<code>AlarmHandler(proc, clientData, timeToDelay)</code>，并将这个对象添加到延时队列链表中管理起来。返回了一个这个对象的唯一标识token。</p>
+
+<pre><code class="language-cpp">TaskToken BasicTaskScheduler0::scheduleDelayedTask(int64_t microseconds,
+						 TaskFunc* proc,
+						 void* clientData) {
+  if (microseconds &lt; 0) microseconds = 0;
+  DelayInterval timeToDelay((long)(microseconds/1000000), (long)(microseconds%1000000));
+  AlarmHandler* alarmHandler = new AlarmHandler(proc, clientData, timeToDelay);
+  fDelayQueue.addEntry(alarmHandler);
+
+  return (void*)(alarmHandler-&gt;token());
+}
+unscheduleDelayedTask方法(取消调度延时任务)
+unscheduleDelayedTask方法将pervTask代表的节点从延时队列中移除，并销毁。参数类型TaskToKen实质是一个void*型。其应该传入的是一个AlarmHandler对象的token标识。
+void BasicTaskScheduler0::unscheduleDelayedTask(TaskToken&amp; prevTask) {
+  DelayQueueEntry* alarmHandler = fDelayQueue.removeEntry((intptr_t)prevTask);
+  prevTask = NULL;
+  delete alarmHandler;
+}
+</code></pre>
+
+<hr />
+
+<p>##doEventLoop方法(事件处理循环)</p>
+
+<p>这是一个死循环，在符合条件的时候，会不断调用<code>SingleStep</code>。这个方法是做一次事件轮询处理。参数<code>watchVariable</code>是用来控制是否继续循环的，如果它指向的地址的内容不是<code>’\0’</code>，那么就会跳出死循环，不再继续。
+SingleStep在派生类BasicTaskScheduler中实现。</p>
+
+<pre><code class="language-cpp">void BasicTaskScheduler0::doEventLoop(char* watchVariable) {
+	// Repeatedly loop, handling readble sockets and timed events:
+	// 反复循环，可读取套接字和定时事件的处理：
+	while (1) {
+		if (watchVariable != NULL &amp;&amp; *watchVariable != 0) break;
+		SingleStep();
+	}
+}
+</code></pre>
+
+<hr />
+
+<p>##createEventTrigger方法(创建事件触发器)
+这个方法将参数<code>eventHandlerProc</code>在数组<code>fTriggeredEventHandlers</code>还有空位的时候将其添加到数组中，然后返回一个指示其被添加到数组<code>fTriggeredEventHandlers</code>中的位置的的变量。</p>
+
+<pre><code class="language-cpp">EventTriggerId BasicTaskScheduler0::createEventTrigger(TaskFunc* eventHandlerProc) {
+	unsigned i = fLastUsedTriggerNum;	//最后使用的触发器在数组的下标
+	EventTriggerId mask = fLastUsedTriggerMask;	//bit位置
+
+	do {
+		i = (i + 1) % MAX_NUM_EVENT_TRIGGERS;	//0-31之间
+		mask &gt;&gt;= 1;		//向左移位，与下标同步
+		if (mask == 0) mask = 0x80000000;
+		//找到一个未使用的位置，就将事件处理程序地址保存到此处
+		if (fTriggeredEventHandlers[i] == NULL) {
+			// This trigger number is free; use it:
+			fTriggeredEventHandlers[i] = eventHandlerProc;
+			fTriggeredEventClientDatas[i] = NULL; // sanity
+			//更新这两个至
+			fLastUsedTriggerMask = mask;
+			fLastUsedTriggerNum = i;
+			//这个返回值可以求得上面的数组位置值
+			return mask;
+		}
+	} while (i != fLastUsedTriggerNum);
+
+	// All available event triggers are allocated; return 0 instead:
+	// 所有可用的事件触发都被分配；而返回0：
+	return 0;
+}
+</code></pre>
+
+<hr />
+
+<p>##deleteEventTrigger方法(删除事件触发器)</p>
+
+<p><code>deleteEventTrigger</code>方法将<code>eventTriggerId</code>标识的(非0位置)触发器从数组<code>fTriggeredEventHandlers</code>中移除。
+<code>fTriggersAwaitingHandling</code>在<code>triggeredEvent</code>方法中修改了。</p>
+
+<pre><code class="language-cpp">void BasicTaskScheduler0::deleteEventTrigger(EventTriggerId eventTriggerId) {
+	//fTriggersAwaitingHandling是等待触发处理位标识(标识数组fTriggeredEventHandlers已使用)
+	//那么这儿很好理解，就是eventTriggerId中不为0的位，在对应的fTriggersAwaitingHandling中清零
+	//相当于是标识fTriggeredEventHandlers相应的位置已经被释放了。
+	fTriggersAwaitingHandling &amp;= ~eventTriggerId;
+
+	if (eventTriggerId == fLastUsedTriggerMask) { // common-case optimization:
+		fTriggeredEventHandlers[fLastUsedTriggerNum] = NULL;
+		fTriggeredEventClientDatas[fLastUsedTriggerNum] = NULL;
+	}
+	else {
+		// &quot;eventTriggerId&quot; should have just one bit set.其可能是一个集合(要删除多个触发器)
+		// However, we do the reasonable thing if the user happened to 'or' together two or more &quot;EventTriggerId&quot;s:
+		//从将数组对应的位置清零
+		EventTriggerId mask = 0x80000000;
+		for (unsigned i = 0; i &lt; MAX_NUM_EVENT_TRIGGERS; ++i) {
+			if ((eventTriggerId&amp;mask) != 0) {
+				fTriggeredEventHandlers[i] = NULL;
+				fTriggeredEventClientDatas[i] = NULL;
+			}
+			mask &gt;&gt;= 1;
+		}
+	}
+}
+
+</code></pre>
+
+<hr />
+
+<p>##triggerEvent方法(触发事件)</p>
+
+<p><code>triggerEvent</code>并没有真正的触发事件，而是将参数<code>eventTriggerId</code>标识的位置，在<code>fTriggeredEventClientDatas</code>数组中对应的元素的值改为<code>clientData</code>。
+之前创建触发器的时候，将<code>fTriggeredEventClientDatas</code>数组的对应位置是置为NULL的。</p>
+
+<pre><code class="language-cpp">void BasicTaskScheduler0::triggerEvent(EventTriggerId eventTriggerId, void* clientData) {
+	// First, record the &quot;clientData&quot;:首先，记录“客户端数据”：
+	if (eventTriggerId == fLastUsedTriggerMask) { // common-case optimization:
+		fTriggeredEventClientDatas[fLastUsedTriggerNum] = clientData;
+	}
+	else {
+		EventTriggerId mask = 0x80000000;
+		for (unsigned i = 0; i &lt; MAX_NUM_EVENT_TRIGGERS; ++i) {
+			if ((eventTriggerId&amp;mask) != 0) {
+				fTriggeredEventClientDatas[i] = clientData;
+
+				fLastUsedTriggerMask = mask;
+				fLastUsedTriggerNum = i;
+			}
+			mask &gt;&gt;= 1;
+		}
+	}
+
+	// Then, note this event as being ready to be handled.
+	// (Note that because this function (unlike others in the library) can be called from an external thread, we do this last, to
+	//  reduce the risk of a race condition.)
+	//  将fTriggersAwaitingHandling中对应的位置1。
+	fTriggersAwaitingHandling |= eventTriggerId;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

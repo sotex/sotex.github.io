@@ -1,0 +1,293 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> [翻译]opengl扩展教程1 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>[翻译]opengl扩展教程1</h1>
+          <span class="post-date">2016年01月15日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/01/15/5133972.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/01/15/5133972.html</a>
+<h1 id="opengl1">[翻译]opengl扩展教程1</h1>
+<p>原文地址<a href="https://www.opengl.org/sdk/docs/tutorials/ClockworkCoders/extensions.php">https://www.opengl.org/sdk/docs/tutorials/ClockworkCoders/extensions.php</a></p>
+<div class="toc">
+<ul>
+<li><a href="#opengl1">[翻译]opengl扩展教程1</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#_2">检测扩展</a></li>
+<li><a href="#_3">使用扩展</a></li>
+<li><a href="#glew">GLEW入门</a>
+<ul>
+<li><a href="#_4">入门简介</a></li>
+<li><a href="#glew_1">初始化GLEW</a></li>
+<li><a href="#opengl">检测OpenGL版本</a></li>
+<li><a href="#_5">检测扩展</a></li>
+<li><a href="#_6">平台特定扩展</a></li>
+<li><a href="#_7">练习</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">简介</h2>
+<p><code>OpenGL</code>扩展是为了使用3D图形硬件的新功能。硬件厂商定义新的函数到OpenGL来支持新的或增强已有的特性。</p>
+<p>由单个厂商创建的扩展是<code>&ldquo;vendor-specific&rdquo;</code>(厂商特定)，有多个厂商共同窗口的扩展是<code>&ldquo;multivendor&rdquo;</code>(多厂商)。</p>
+<p>如果<code>&ldquo;vendor-specific&rdquo;</code>或<code>&ldquo;multivendor&rdquo;</code>扩展证明是一个好的增强功能，那么<code>OpenGL Architecture Review Board</code> (ARB是OpenGL管理机构的简称)也许会推进它成为一个<code>&ldquo;ARB approved&rdquo;</code>(ABR认可)扩展。</p>
+<p>如果这个扩展是非常好的，那么<code>ABR</code>也许会将其整合到OpenGL的<code>&ldquo;core feature&rdquo;</code>(核心特征)。一个非常好的例子就是<code>&ldquo;OpenGL Shading Language&rdquo;</code>(OpenGL着色器语言)现在已经是OpenGL2.0或更高版本的&rdquo;core feature&rdquo;的一部分。</p>
+<p>这个理念使得OpenGL变得非常强大，因为源代码保持向后兼容，10年前编写的OpenGL程序，现在还可以工作。</p>
+<h2 id="_2">检测扩展</h2>
+<p>在一个有效的OpenGL上下文环境中，你可以使用<code>glGetString(GL_EXTENSIONS)</code>来获取一个包含所有可用扩展的列表，它返回一个以空格分隔的长字符串。<br />
+所有的扩展形式：<code>GL_VENDOR_extension_name</code>，<code>VENDOR</code>(厂商)来自但不限于下表。</p>
+<table>
+<thead>
+<tr><th align="left">VENDOR</th><th align="left">描述</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">ARB</td>
+<td align="left">ABR认可的扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">EXT</td>
+<td align="left">多厂商扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">APPLE</td>
+<td align="left">苹果计算机公司的扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">ATI</td>
+<td align="left">ATI(AMD)科技公司的扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">HP</td>
+<td align="left">惠普公司的扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">NV</td>
+<td align="left">NVIDIA的扩展</td></p>
+
+<p></tr>
+<tr>
+<td align="left">SGIS</td>
+<td align="left">Silicon Graphics的扩展</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<p>也有一些前缀不是<code>GL</code>的扩展，它们是特定平台的。最著名的就是<code>WGL</code>前缀的，它们是Windows平台特定的扩展。以及<code>GLX</code>前缀的，它们是X-Window平台特定扩展。</p>
+<h2 id="_3">使用扩展</h2>
+<p>在C++代码中使用扩展是-不幸的-是特定于平台。函数 (函数指针) 的地址，必须从OpenGL执行 (例如硬件驱动程序)中检索。在Windows下这可以使用<code>wglGetProcAddress</code>来检索。</p>
+<p><strong>本行非原文翻译</strong>这里说一下，OpenGL的一些新增函数，往往不是直接使用源代码或者静态库链接到程序中去的，而是在程序运行的时候动态获取函数的指针，来调用函数的。<strong>本行非原文翻译</strong></p>
+<p>为了节省在多个平台处理所有函数指针和令牌的所有扩展的大量的时间，有一些好开源解决方案可用于简化此过程。其中之一是<code>GLEW</code>，可在<a href="http://glew.sourceforge.net">http://glew.sourceforge.net</a>。另一个实现是<code>Glee</code>，可在<a href="http://elf-stone.com/glee.php">http://elf-stone.com/glee.php</a>。都是好的处理扩展和修改的方法来,它们在BSD许可证下发布。(请务必阅读许可证的详细信息)。</p>
+<h2 id="glew">GLEW入门</h2>
+<p>我要使用<code>GLEW</code>，没有任何理由&mdash;&mdash;&mdash;&mdash;Glee是一样好。最新版本的 GLEW 是 1.3.5 并支持 OpenGL 2.1 核心功能和其他一些新的扩展。</p>
+<h3 id="_4">入门简介</h3>
+<p>可以把GLEW编译成静态库或者动态库。如果编译为静态库，请确保顶一个预处理的变量<code>GLEW_STATIC</code>(在Windows下)。另一种方式是直接把<code>glew.c</code>和<code>glew.h</code>文件复制到你的代码中(如果在windows下，也必须定义<code>GLEW_STATIC</code>)。这是我首选的方式，因为它使得跨平台编译和管理变得更简单。</p>
+<p>你可以在这里下载我的GLEW+FreeGLUT的简单示例工程：<br />
+下载:<a href="https://www.opengl.org/sdk/docs/tutorials/ClockworkCoders/downloads/OpenGL_Extensions_Tutorial.zip">OpenGL_Extensions_Tutorial.zip</a> (GLEW和FreeGLUT以及包含在内)</p>
+<p>它是一个Virtual Studio 7.1工程。它可以转换到8.0（速成版或更高）<br />
+<a href="mailto:（如果你创建一个不同平台[或编译器]的工程[或Makefile]，请发送到christen@clockworkcoders.com">（如果你创建一个不同平台[或编译器]的工程[或Makefile]，请发送到christen@clockworkcoders.com</a>，我将把它放在这里)</p>
+<h3 id="glew_1">初始化GLEW</h3>
+<p><code>GLEW</code>需要初始化。当你进行初始化的时候，必须具有有效可用的<code>OpenGL</code>渲染上下文。(在大多数情况下这意味着一个OpenGL窗口必须存在和激活)。</p>
+<pre><code class="c++">GLenum err = glewInit();
+if (GLEW_OK != err)
+{
+  // failed to initialize GLEW!
+}
+std::cout &ldquo;Using GLEW Version: &ldquo; glewGetString(GLEW_VERSION);
+</code></pre>
+<h3 id="opengl">检测OpenGL版本</h3>
+<p><code>GLEW</code>允许检查 如果某些<code>OpenGL</code>版本 (1.1、1.2、1.3、1.5、2.0、2.1)的所有核心扩展是否可用。如果你有安装<code>OpenGL 1.3</code>，那么 OpenGL 1.2和1.1的核心扩展也会检测。</p>
+<pre><code class="c++">if (GLEW_VERSION_1_5)
+{
+   std::cout &ldquo;Core extensions of OpenGL 1.1 to 1.5 are available!\n&rdquo;;
+}
+</code></pre>
+<h3 id="_5">检测扩展</h3>
+<p>有两种方式来检测一个扩展是否支持：使用<code>GLEW宏</code>&ndash;一个较慢的方式&ndash;使用名称字符串<br />
+GLEW宏方式</p>
+<pre><code class="c++">if (GLEW_ARB_vertex_program)
+{
+  &hellip;
+}
+</code></pre>
+<p>glewIsSupported函数方式</p>
+<pre><code class="c++">if (glewIsSupported(&ldquo;GL_ARB_vertex_program&rdquo;))
+{
+  &hellip;
+}
+</code></pre>
+<h3 id="_6">平台特定扩展</h3>
+<p>此外可以使用<code>GLEW</code>宏检测平台特定的扩展。或使用数<code>wglewIsSupported</code>或<code>glxglewIsSupported</code>)。要使用平台特定扩展，需要在inlcude &ldquo;glew.h&rdquo;之后include &ldquo;wglew.h&rdquo;或&rdquo;glxglew.h&rdquo;。</p>
+<pre><code class="c++">if (WGLEW_ARB_pbuffer)
+{
+  &hellip;
+}
+</code></pre>
+<h3 id="_7">练习</h3>
+<ol>
+<li>编写一个程序，它会检测您的计算机上安装的<code>OpenGL</code>核心版本并打印结果到控制台。(使用<code>GLEW</code>或<code>Glee</code>为此!)</li>
+<li>获取glGetString(GL_EXTENSIONS)返回的字符串最大长度?</li>
+</ol></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

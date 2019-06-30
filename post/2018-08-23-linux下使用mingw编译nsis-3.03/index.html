@@ -1,0 +1,310 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下使用mingw编译NSIS-3.03 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下使用mingw编译NSIS-3.03</h1>
+          <span class="post-date">2018年08月23日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/08/23/9523351.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/08/23/9523351.html</a></p>
+
+<h1 id="简述">简述</h1>
+
+<p>最近在研究使用<code>NSIS</code>做安装包，语法不算复杂，插件也很多，中文资料也不少，还挺好用的。先后用NSIS做出了安装和卸载需要输入密码，通过自定义页面实现安装时候选择多个目录、安装的时候输入配置文件信息，禁止在某些平台或环境下安装，检测是否已经安装或正在运行等，稍后将把这些都放出来，做个记录。</p>
+
+<p>有一个问题就是<code>NSIS</code>打包的文件可以直接使用<code>7zip</code>解压，安装过程做的事情就被跳过了。为了解决这个问题，我想修改一下<code>NSIS</code>的源码，来使得打包的程序无法使用<code>7zip</code>等软件解压。这里记录一下编译过程。</p>
+
+<p>修改过的文件及编译好的文件下载<a href="https://files.cnblogs.com/files/oloroso/nsis-3.03-src_%E4%BF%AE%E6%94%B9.7z">nsis-3.03-src_修改.7z</a></p>
+
+<h1 id="准备工作">准备工作</h1>
+
+<p>我是在<code>linux</code>下使用<code>mingw32</code>进行编译的，所以先要安装<code>mingw32</code>。</p>
+
+<p>然后是下载<code>zlib</code>库，我是在这里下载的<a href="https://jaist.dl.sourceforge.net/project/mingw/MinGW/Extension/zlib/zlib-1.2.3-1-mingw32/libz-1.2.3-1-mingw32-dev.tar.gz">https://jaist.dl.sourceforge.net/project/mingw/MinGW/Extension/zlib/zlib-1.2.3-1-mingw32/libz-1.2.3-1-mingw32-dev.tar.gz</a>，这个说不定哪天就过期了，这是项目的页面<a href="https://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/">https://sourceforge.net/projects/mingw/files/MinGW/Extension/zlib/</a>。</p>
+
+<p>下载之后解压，将其中<code>lib</code>目录下的文件拷贝到<code>/usr/lib/gcc/i686-w64-mingw32/6.3-win32/lib</code>目录下，将<code>include</code>目录下的文件拷贝到<code>/usr/lib/gcc/i686-w64-mingw32/6.3-win32/include</code>目录下。</p>
+
+<p>然后是下载<code>NSIS-3.03</code>的源码，地址在这里<a href="https://jaist.dl.sourceforge.net/project/nsis/NSIS 3/3.03/nsis-3.03-src.tar.bz2">https://jaist.dl.sourceforge.net/project/nsis/NSIS <sup>3</sup>&frasl;<sub>3</sub>.03/nsis-3.03-src.tar.bz2</a>，下载之后解压即可。</p>
+
+<p>因为<code>NSIS</code>使用<code>scons</code>进行构建，所以还需要安装<code>python2.7</code>和<code>scons</code>工具。</p>
+
+<h1 id="编译过程">编译过程</h1>
+
+<p>关于<code>NSIS</code>的编译，在这里<a href="http://nsis.sourceforge.net/Docs/AppendixG.html">Appendix G: Building NSIS</a>有部分介绍。</p>
+
+<p>准备工作做好后，使用下面命令进行构建。</p>
+
+<pre><code class="language-bash">scons SKIPSTUBS=all XGCC_W32_PREFIX=i686-w64-mingw32-    SKIPPLUGINS=all SKIPUTILS=all SKIPMISC=all NSIS_CONFIG_CONST_DATA_PATH=no PREFIX=./build
+</code></pre>
+
+<p>如果没有问题的话，正常会构建成功。但是会发现一个问题，<code>build/urelease/makensis</code>下面没有生成<code>makensis.exe</code>文件，只有一个<code>makensis</code>文件，而且使用<code>readelf</code>查看，这是一个<code>ELF</code>文件，而不是<code>PE</code>格式文件。
+使用PETool查看结果如下：
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823131434771-1419931166.jpg" alt="" /></p>
+
+<p>这个错误的原因在这里：
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823131651828-1729400071.png" alt="" /></p>
+
+<p>根据这个报错，查看了<code>Sconstruct</code>文件后，找到错误的原因，是因为其中一个环境变量没有设置对。
+打开<code>nsis-3.03-src/SCons/Config/gnu</code>文件，找到364行，在下面添加一行内容<code>makensis_env.Replace(CXX = stub_env['CXX'])</code>。</p>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823132023556-327324227.jpg" alt="" /></p>
+
+<p>然后重新执行构建命令。</p>
+
+<p>解决完<code>g++</code>的问题后，继续编译遇到下面的问题。</p>
+
+<p><strong>下面有些修改其实是因为<code>PLATFROM</code>没有识别或者设置为<code>win32</code>的原因。</strong></p>
+
+<h2 id="错误-source-scriptpp-cpp-1054-93-error-call-to-non-constexpr-function-size-t-wcslen-const-wchar-t">错误 Source/scriptpp.cpp:1054:93: error: call to non-constexpr function &lsquo;size_t wcslen(const wchar_t*)&rsquo;</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823132331657-1189255522.jpg" alt="" /></p>
+
+<pre><code class="language-bash">i686-w64-mingw32-g++ -o build/urelease/makensis/scriptpp.o -c -Wno-non-virtual-dtor -Wall -O2 -DNSISCALL= -D_UNICODE -DUNICODE -DMAKENSIS -D_WIN32_IE=0x0500 -Ibuild/urelease/config Source/scriptpp.cpp
+In file included from /usr/share/mingw-w64/include/minwindef.h:163:0,
+                 from /usr/share/mingw-w64/include/windef.h:8,
+                 from /usr/share/mingw-w64/include/windows.h:69,
+                 from Source/Platform.h:38,
+                 from Source/scriptpp.cpp:17:
+Source/scriptpp.cpp: In member function 'int CEXEBuild::pp_finalize(LineParser&amp;)':
+Source/scriptpp.cpp:1054:93: error: call to non-constexpr function 'size_t wcslen(const wchar_t*)'
+   newcmd = (struct postbuild_cmd*) (new BYTE[FIELD_OFFSET(struct postbuild_cmd, cmd[_tcsclen(cmdstr)+1])]);
+</code></pre>
+
+<p>这里<code>FIELD_OFFSET</code>宏的参数应该是<code>结构体的名称</code>和<code>成员的名称</code>，但这里明显不是，结合代码上下文来看，我把这里给修改为了</p>
+
+<pre><code class="language-cpp"> newcmd = (struct postbuild_cmd*) (new BYTE[FIELD_OFFSET(struct postbuild_cmd, cmd)* (_tcsclen(cmdstr)+1)]);
+</code></pre>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823143548030-2079299031.jpg" alt="" /></p>
+
+<p>没有仔细研究它的代码，所以这里就多分配一点了。</p>
+
+<p>继续编译。</p>
+
+<h2 id="错误-source-util-cpp-1072-11-error-jump-to-label-finalwrite-fpermissive">错误 Source/util.cpp:1072:11: error: jump to label &lsquo;finalwrite&rsquo; [-fpermissive]</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823133541480-362085863.jpg" alt="" /></p>
+
+<pre><code class="language-bash">i686-w64-mingw32-g++ -o build/urelease/makensis/util.o -c -Wno-non-virtual-dtor -Wall -O2 -DNSISCALL= -D_UNICODE -DUNICODE -DMAKENSIS -D_WIN32_IE=0x0500 -Ibuild/urelease/config Source/util.cpp
+Source/util.cpp: In function 'int RunChildProcessRedirected(LPCWSTR, LPCWSTR, bool)':
+Source/util.cpp:1072:11: error: jump to label 'finalwrite' [-fpermissive]
+         { finalwrite:
+           ^~~~~~~~~~
+Source/util.cpp:1085:25: note:   from here
+         if (cchwb) goto finalwrite; // End of stream without a ending newline, write out the remaining data.
+                         ^~~~~~~~~~
+Source/util.cpp:1033:17: note:   skips initialization of 'DWORD i'
+       for(DWORD i = 0; i &lt; cbRead;)
+                 ^
+Source/util.cpp: At global scope:
+Source/util.cpp:1159:15: warning: 'void* NSISRT_GetConsoleScreenHandle()' defined but not used [-Wunused-function]
+ static HANDLE NSISRT_GetConsoleScreenHandle()
+               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+scons: *** [build/urelease/makensis/util.o] Error 1
+scons: building terminated because of errors.
+</code></pre>
+
+<p>看来一下这里的代码，比较繁杂，就不改了，直接使用下面的命令先编译通过</p>
+
+<pre><code>i686-w64-mingw32-g++ -o build/urelease/makensis/util.o -c -fpermissive  -Wno-non-virtual-dtor -Wall -O2 -DNSISCALL= -D_UNICODE -DUNICODE -DMAKENSIS -D_WIN32_IE=0x0500 -Ibuild/urelease/config Source/util.cpp
+</code></pre>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823134315250-31373064.jpg" alt="" /></p>
+
+<p><strong>这里需要再次修改一下<code>nsis-3.03-src/SCons/Config/gnu</code>文件，在119行下添加一行<code>makensis_env.Append(CXXFLAGS = ['-fpermissive'])</code></strong>
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823134450904-1838861984.jpg" alt="" /></p>
+
+<p>修改直接继续编译。</p>
+
+<h2 id="错误-build-urelease-makensis-crc32-o-file-not-recognized-file-format-not-recognized">错误 build/urelease/makensis/crc32.o: file not recognized: File format not recognized</h2>
+
+<p>解决上面的错误之后，编译就没有问题了，一直到最后的链接这一步，又有点小问题了。</p>
+
+<pre><code class="language-bash">gcc -o build/urelease/makensis/crc32.o -c -Wall -O2 -DNSISCALL= -D_UNICODE -DUNICODE -DMAKENSIS -D_WIN32_IE=0x0500 -Ibuild/urelease/config Source/crc32.c
+i686-w64-mingw32-g++ -o build/urelease/makensis/makensis -Wl,-Map,build/urelease/makensis/makensis.map -s -pthread build/urelease/makensis/build.o build/urelease/makensis/clzma.o build/urelease/makensis/crc32.o build/urelease/makensis/DialogTemplate.o build/urelease/makensis/dirreader.o build/urelease/makensis/fileform.o build/urelease/makensis/growbuf.o build/urelease/makensis/icon.o build/urelease/makensis/lang.o build/urelease/makensis/lineparse.o build/urelease/makensis/makenssi.o build/urelease/makensis/manifest.o build/urelease/makensis/mmap.o build/urelease/makensis/Plugins.o build/urelease/makensis/ResourceEditor.o build/urelease/makensis/ResourceVersionInfo.o build/urelease/makensis/BinInterop.o build/urelease/makensis/script.o build/urelease/makensis/scriptpp.o build/urelease/makensis/ShConstants.o build/urelease/makensis/strlist.o build/urelease/makensis/tokens.o build/urelease/makensis/tstring.o build/urelease/makensis/utf.o build/urelease/makensis/util.o build/urelease/makensis/winchar.o build/urelease/makensis/writer.o build/urelease/makensis/bzip2/blocksort.o build/urelease/makensis/bzip2/bzlib.o build/urelease/makensis/bzip2/compress.o build/urelease/makensis/bzip2/huffman.o build/urelease/makensis/7zip/7zGuids.o build/urelease/makensis/7zip/7zip/Common/OutBuffer.o build/urelease/makensis/7zip/7zip/Common/StreamUtils.o build/urelease/makensis/7zip/7zip/Compress/LZ/LZInWindow.o build/urelease/makensis/7zip/7zip/Compress/LZMA/LZMAEncoder.o build/urelease/makensis/7zip/7zip/Compress/RangeCoder/RangeCoderBit.o build/urelease/makensis/7zip/Common/Alloc.o build/urelease/makensis/7zip/Common/CRC.o -lpthread -lz
+build/urelease/makensis/crc32.o: file not recognized: File format not recognized
+collect2: error: ld returned 1 exit status
+scons: *** [build/urelease/makensis/makensis] Error 1
+scons: building terminated because of errors.
+</code></pre>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823134745137-296995545.jpg" alt="" /></p>
+
+<p>看我选中的部分，这里编译<code>crc32.c</code>的时候使用的是<code>gcc</code>而不是<code>mingw32-gcc</code>，所以这里的<code>crc32.o</code>文件是不能被正常识别的。
+因为这是编译<code>makensis</code>部分出现的问题，所以这里还是环境没有设置对。
+这里再次修改<code>nsis-3.03-src/SCons/Config/gnu</code>文件，在之前改<code>CXX</code>变量的前面吧<code>CC</code>也改了。这里在一开始就应该想到两个都应该重新设置的。
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823135155988-1317011090.jpg" alt="" /></p>
+
+<p>修改之后继续编译。</p>
+
+<h2 id="错误-build-urelease-makensis-bininterop-o-bininterop-cpp-text-0xf5-undefined-reference-to-getfileversioninfosizew-8-等">错误 build/urelease/makensis/BinInterop.o:BinInterop.cpp:(.text+0xf5): undefined reference to &lsquo;GetFileVersionInfoSizeW@8&rsquo; 等</h2>
+
+<p>这是最后链接的一点小问题</p>
+
+<pre><code>build/urelease/makensis/BinInterop.o:BinInterop.cpp:(.text+0xf5): undefined reference to `GetFileVersionInfoSizeW@8'
+build/urelease/makensis/BinInterop.o:BinInterop.cpp:(.text+0x136): undefined reference to `GetFileVersionInfoW@16'
+build/urelease/makensis/BinInterop.o:BinInterop.cpp:(.text+0x183): undefined reference to `VerQueryValueW@16'
+</code></pre>
+
+<p>这三个函数找不到，其实是没有链接<code>versions.lib</code>的原因，这里手动添加一下，执行链接即可。
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823135706749-1482525367.jpg" alt="" /></p>
+
+<p>这里也可以修改<code>nsis-3.03-src/Source/SConscript</code>文件，在<code>libs</code>中添加<code>version</code>即可。
+<img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823143012714-1593711542.jpg" alt="" /></p>
+
+<p>这时候编译出来的<code>makensis</code>就是一个有效的<code>PE</code>文件了。</p>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180823135830720-1201061587.jpg" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

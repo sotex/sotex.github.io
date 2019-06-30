@@ -1,0 +1,284 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp配置:snmp v3的安全配置 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp配置:snmp v3的安全配置</h1>
+          <span class="post-date">2015年08月10日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/10/4718207.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/10/4718207.html</a>
+<h1 id="net-snmpsnmp-v3">net-snmp配置:snmp v3的安全配置</h1>
+<div class="toc">
+<ul>
+<li><a href="#net-snmpsnmp-v3">net-snmp配置:snmp v3的安全配置</a>
+<ul>
+<li><a href="#snmp-v3">增加snmp v3用户</a>
+<ul>
+<li><a href="#authpriv">增加 认证且加密只读账号(authPriv)</a></li>
+<li><a href="#_1">增加 认证且加密的读写账户</a></li>
+<li><a href="#authnopriv">增加 认证但不加密只读账户(authNoPriv)</a>
+<ul>
+<li><a href="#_2">参数说明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#snmpd">重新启动snmpd</a></li>
+<li><a href="#_3">测试一下</a>
+<ul>
+<li><a href="#fx">测试认证且加密只读账户fx</a></li>
+<li><a href="#fxw">测试认证且加密读写账户fxw</a></li>
+<li><a href="#fxa">测试认证不加密只读账户fxa</a></li>
+<li><a href="#_4">注意事项</a>
+<ul>
+<li><a href="#snmpwalk">snmpwalk权限设置导致的超时</a></li>
+<li><a href="#snmpset">snmpset安全等级设置与认证和加密设置不对等时候的报错</a></li>
+<li><a href="#snmpsetnoauthnopriv">snmpset使用noAuthNoPriv不认证不加密方式报错</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>可以参考这里：<a href="http://www.ttlsa.com/zabbix/snmp-v3-configuration/">http://www.ttlsa.com/zabbix/snmp-v3-configuration/</a></p>
+<h2 id="snmp-v3">增加snmp v3用户</h2>
+<h3 id="authpriv">增加 认证且加密只读账号(authPriv)</h3>
+<pre><code class="bash">o@o-pc:~$ sudo service snmpd stop   #停止snmpd服务
+o@o-pc:~$ sudo net-snmp-create-v3-user -ro -A auth123456 -X priv123456 -a MD5 -x DES fx     #创建snmpv3用户</p>
+
+<p>adding the following line to /var/net-snmp/snmpd.conf:
+   createUser fx MD5 &ldquo;auth123456&rdquo; DES priv123456
+adding the following line to /usr/local/net-snmp/share/snmp/snmpd.conf:
+   rouser fx
+</code></pre>
+<h3 id="_1">增加 认证且加密的读写账户</h3>
+<pre><code class="bash">o@o-pc:~$ sudo /usr/local/net-snmp/bin/net-snmp-create-v3-user  -A auth123456 -a MD5 -X priv123456 -x DES fxw
+adding the following line to /var/net-snmp/snmpd.conf:
+   createUser fxw MD5 &ldquo;auth123456&rdquo; DES priv123456
+adding the following line to /usr/local/net-snmp/share/snmp/snmpd.conf:
+   rwuser fxw
+</code></pre>
+<h3 id="authnopriv">增加 认证但不加密只读账户(authNoPriv)</h3>
+<pre><code class="bash">o@o-pc:~$ sudo net-snmp-create-v3-user -ro -A auth123456 -a MD5 fxa
+adding the following line to /var/net-snmp/snmpd.conf:
+   createUser fxa MD5 &ldquo;auth123456&rdquo; DES
+adding the following line to /usr/local/net-snmp/share/snmp/snmpd.conf:
+   rouser fxa
+</code></pre>
+<p>注意，这个操作会修改默认的<code>snmpd.conf</code>文件。</p>
+<h4 id="_2">参数说明</h4>
+<ul>
+<li><code>-ro</code>:用户读写权限，表示用户fx为只具有读权限</li>
+<li><code>fx</code>：用户名</li>
+<li><code>-a MD5</code>:认证方式，MD5散列方式</li>
+<li><code>-A auth123456</code>：设置认证密码，密码必须大于8个字符</li>
+<li><code>-x DES</code>:加密方式，这边支持AES、DES两种</li>
+<li><code>priv123456</code>：加密口令，必须大于8位</li>
+</ul>
+<p>备注：增加用户的时候，snmp必须关闭，否则有如下报错</p>
+<pre><code class="bash">Apparently at least one snmpd demon is already running.
+ You must stop them in order to use this command.
+Apparently at least one snmpd demon is already running.
+ You must stop them in order to use this command.
+</code></pre>
+<h2 id="snmpd">重新启动snmpd</h2>
+<pre><code class="bash">o@o-pc:~$ sudo service snmpd start
+</code></pre>
+<h2 id="_3">测试一下</h2>
+<h3 id="fx">测试认证且加密只读账户fx</h3>
+<pre><code class="bash">o@o-pc:~$   snmpwalk  -v3  -u fx -a MD5 -A auth123456 -x DES -X priv123456 -l authPriv 127.0.0.1 sysUpTime
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (93687) 0:15:36.87
+</code></pre>
+<h3 id="fxw">测试认证且加密读写账户fxw</h3>
+<p>注意，下面的节点<code>confNewVersion.0</code>是一个自定义的读写节点</p>
+<pre><code class="bash">#认证且加密方式set
+<code>bash
+$ snmpset -v3 -u fxw -a MD5 -A auth123456 -x DES -X priv123456 -l authPriv 127.0.0.1 confNewVersion.0 s &quot;12345&quot;
+SNMP-VC-MIB::confNewVersion.0 = STRING: &quot;12345&quot;
+#认证但不加密方式set
+</code>bash
+$ snmpset -v3 -u fxw -a MD5 -A auth123456  -l authNoPriv 127.0.0.1 confNewVersion.0 s &ldquo;12345&rdquo;
+SNMP54-VideoCommand-MIB::confNewVersion.0 = STRING: &ldquo;12345&rdquo;</p>
+
+<p></code></pre>
+<h3 id="fxa">测试认证不加密只读账户fxa</h3>
+<pre><code class="bash">o@o-pc:~$ snmpwalk  -v 3 -u fxa -a MD5 -A auth123456 -l authNoPriv 127.0.0.1 sysUpTime
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (8215) 0:01:22.15
+</code></pre>
+<h3 id="_4">注意事项</h3>
+<p>注意，对于<code>snmpget/set</code>操作，代理端配置的账户与管理端使用的时候可以不完全一致。但是对于<code>set</code>操作，不能使用<code>noAuthNoPriv</code>方式，否则报错。</p>
+<ul>
+<li>
+<p>对于认证且加密的账户，<code>snmpget/walk/get</code>可以使用三种级别的安全方式，分别为<code>noAuthNoPriv</code>（不认证也不加密）、<code>authNoPriv</code>（认证但是不加密）、<code>authPriv</code>（既认证又加密）</p>
+</li>
+<li>
+<p>对于认证但不加密的账户，<code>snmpget/walk/get</code>可以使用两种级别的安全方式，分别为noAuthNoPriv（不认证也不加密）、authNoPriv（认证但是不加密）</p>
+</li>
+</ul>
+<h4 id="snmpwalk">snmpwalk权限设置导致的超时</h4>
+<pre><code class="bash"><code>bash
+$ snmpwalk  -v 3 -u fxa -a MD5 -A auth123456 -x DES -X priv123456 -l authPriv 127.0.0.1 sysUpTime
+Timeout: No Response from 127.0.0.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;snmpset&quot;&gt;snmpset安全等级设置与认证和加密设置不对等时候的报错&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;</code>bash
+$ snmpset -v3 -u fxw -a MD5 -A auth123456  -l authPriv 127.0.0.1 confNewVersion.0 s &ldquo;12345&rdquo;snmpset: USM generic error (Sub-id not found: (top) -&gt; confNewVersion)
+</code></pre>
+<h4 id="snmpsetnoauthnopriv">snmpset使用noAuthNoPriv不认证不加密方式报错</h4>
+<pre><code class="bash">$ snmpset -v3 -u fxw  -l noAuthNoPriv 127.0.0.1 confNewVersion.0 s &ldquo;12345&rdquo;
+Error in packet.
+Reason: authorizationError (access denied to that object)
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

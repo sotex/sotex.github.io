@@ -1,0 +1,316 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> XML文件生成C&#43;&#43;代码(基于rapidxml) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>XML文件生成C&#43;&#43;代码(基于rapidxml)</h1>
+          <span class="post-date">2018年03月09日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/03/09/8532624.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/03/09/8532624.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p>与<a href="http://www.cnblogs.com/oloroso/p/8515466.html">XML文件生成C++代码(基于pugixml)</a>中的功能一致，只是这里改用的rapidxml来实现。就不多说了，直接放代码。</p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-cpp">#include &quot;rapidxml-1.13/rapidxml.hpp&quot;
+#include &quot;rapidxml-1.13/rapidxml_utils.hpp&quot;
+#include &quot;rapidxml-1.13/rapidxml_iterators.hpp&quot;
+#include &quot;rapidxml-1.13/rapidxml_print.hpp&quot;
+
+
+#include &lt;algorithm&gt;
+#include &lt;cstdio&gt;
+
+// XML节点名称中可以包含C++变量名不支持的字符
+// 需要将其规范化，使之能够正常作为C++变量名
+std::string normalVarName(std::string s)
+{
+    //    XML 元素必须遵循以下命名规则：
+    //        名称可以含字母、数字以及其他的字符
+    //        名称不能以数字或者标点符号开始
+    //        名称不能以字符 “xml”（或者 XML、Xml）开始
+    //        名称不能包含空格
+    //    可使用任何名称，没有保留的字词。
+    // 如果只需要C++编译通过，完全可以将s转换为base16表示的字符串即可
+    // 这里我只对 : . , ; 做一下处理，其它的就先不管了
+    for(std::size_t pos = s.find_first_of(&quot;:.,;&quot;);
+        pos != std::string::npos; pos = s.find_first_of(&quot;:.,;&quot;,pos+1)){
+        s[pos] = '_';
+    }
+    return s;
+}
+
+// 对于节点的值，它有可能包含需要转义的字符，需要进行转义(未考虑C++原始字面常量)
+std::string toEscape(const std::string&amp; s)
+{
+    std::string s2;
+    s2.reserve(s.size());
+    for(std::size_t i=0;i&lt;s.size();++i){
+        switch (s[i]) {
+        case '&quot;':
+        case '\\':
+            s2.push_back('\\');
+            break;
+        default:
+            break;
+        }
+        s2.push_back(s[i]);
+    }
+    return s2;
+}
+
+bool TraversalXml(rapidxml::xml_node&lt;char&gt;&amp; node,int level = 0)
+{
+    std::string s(level*4,32);
+    if(level == 0){ /*表明是root节点*/
+        puts(&quot;rapidxml::xml_document&lt;char&gt; xmldocObject;\n&quot;
+             &quot;rapidxml::xml_document&lt;char&gt;* xmldoc = &amp;xmldocObject;\n&quot;
+             &quot;{\n&quot;
+             &quot;    rapidxml::xml_node&lt;char&gt;* decl = \n&quot;
+             &quot;        xmldoc-&gt;allocate_node(rapidxml::node_pi,\n&quot;
+             &quot;             xmldoc-&gt;allocate_string(\&quot;xml version='1.0' encoding='utf-8'\&quot;));\n&quot;
+             &quot;    xmldoc-&gt;append_node(decl);\n&quot;
+             &quot;}&quot;);
+        puts(&quot;{&quot;);
+    }
+    // 获取节点名称
+    std::string nodeName(node.name(),node.name_size());
+    std::string nodeValue(node.value(),node.value_size());
+    std::string parentName;
+    if(node.parent() == NULL || node.parent()-&gt;name_size() == 0){
+        parentName = &quot;xmldoc&quot;;
+    } else {
+        parentName = std::string(node.parent()-&gt;name(),node.parent()-&gt;name_size());;
+    }
+
+    // pugixml这里有点问题，不知道是不是bug(我对XML规范和pugixml都不是很熟)
+    // 一个节点A没有子节点的时候，它也能获取到它的一个子节点，这个子节点的name是
+    // 空的,value与节点A相同，其它的属性信息也是没有的。
+    // 所以在这里一些地方写的会比较别扭
+    // 这里使用rapidxml的时候也有这个问题，所以我觉得可能是对于没有子节点的的节点
+    // 它的值就是它的子节点吧。这只是我的猜想，并未查阅相关规范。
+
+
+    if(!nodeName.empty()){
+        printf(&quot;%s{/*add %s*/\n&quot;,s.c_str(),nodeName.c_str());
+
+        // 输出添加子节点代码
+        if(nodeValue.empty()){
+            printf(&quot;%s    rapidxml::xml_node&lt;char&gt;* %s = xmldoc-&gt;allocate_node(\n&quot;
+                   &quot;%s        rapidxml::node_element,\&quot;%s\&quot;,NULL);\n&quot;,
+                   s.c_str(),normalVarName(nodeName).c_str(),
+                   s.c_str(),nodeName.c_str());
+        }else{
+            printf(&quot;%s    rapidxml::xml_node&lt;char&gt;* %s = xmldoc-&gt;allocate_node(\n&quot;
+                   &quot;%s        rapidxml::node_element,\&quot;%s\&quot;,\&quot;%s\&quot;);\n&quot;,
+                   s.c_str(),normalVarName(nodeName).c_str(),
+                   s.c_str(),nodeName.c_str(),toEscape(nodeValue).c_str());
+        }
+
+        // 输出添加子节点到父节点代码
+        printf(&quot;%s    %s-&gt;append_node(%s);\n&quot;,
+               s.c_str(),normalVarName(parentName).c_str(),
+               normalVarName(nodeName).c_str());
+
+        // 逐个输出属性信息添加代码
+        for(rapidxml::xml_attribute&lt;char&gt;* attr = node.first_attribute();
+            attr != NULL; attr = attr-&gt;next_attribute()){
+            // 输出属性信息添加代码
+            printf(&quot;%s    %s-&gt;append_attribute(\n&quot;
+                   &quot;%s        xmldoc-&gt;allocate_attribute(\&quot;%s\&quot;,\&quot;%s\&quot;));\n&quot;,
+                   s.c_str(),normalVarName(nodeName).c_str(),
+                   s.c_str(),attr-&gt;name(),attr-&gt;value());
+        }
+    }
+    // 遍历子节点
+    for(rapidxml::xml_node&lt;char&gt;* subnode = node.first_node();
+        subnode != NULL;subnode = subnode-&gt;next_sibling()){
+        TraversalXml(*subnode,level+1);
+    }
+    // 与前面匹配
+    if(!nodeName.empty()){
+        printf(&quot;%s}/*end %s*/\n\n&quot;,s.c_str(),nodeName.c_str());
+    }
+    // 与前面匹配
+    if(level == 0){
+        puts(&quot;}&quot;);
+    }
+    return true;
+}
+
+
+int main(int argc,char** argv)
+{
+    if(argc != 2){
+        puts(&quot;Usage:....&quot;);
+        return 0;
+    }
+    try{
+        rapidxml::file&lt;char&gt; xmlfile(argv[1]);
+        rapidxml::xml_document&lt;char&gt; doc;
+        doc.parse&lt;0&gt;(xmlfile.data());
+        TraversalXml(doc);
+    }
+    catch(std::exception&amp; e){
+        puts(e.what());
+    }
+
+    return 0;
+}
+
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

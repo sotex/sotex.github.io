@@ -1,0 +1,312 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> windows下 jemalloc编译 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>windows下 jemalloc编译</h1>
+          <span class="post-date">2017年06月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/06/27/7085648.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2017/06/27/7085648.html</a></p>
+
+<h2 id="1-准备">1、准备</h2>
+
+<p>Windows下使用VS2015进行编译，需要使用cmake构建版本。（如果有cygwin，在其中执行VS的vcvarsall.bat后使用<code>&quot;CC=cl ./autogen.sh&quot;</code>命令生成Makefile后编译也是可以的）
+下载源码</p>
+
+<pre><code class="language-bash">git clone https://github.com/jemalloc/jemalloc-cmake.git
+</code></pre>
+
+<p>请确保已经安装好<code>cmake</code>工具。</p>
+
+<p>还可以下载一个专门为win32修改的版本，支持VC6编译。</p>
+
+<pre><code class="language-bash">git clone https://github.com/BlzFans/jemalloc_win32.git
+</code></pre>
+
+<h2 id="2-编译">2、编译</h2>
+
+<p>分别使用VS2015和mingw编译。</p>
+
+<h3 id="vs2015编译jemalloc">VS2015编译jemalloc</h3>
+
+<p><strong>方式一</strong>
+直接使用VS2015打开源码目录下的<code>msvc</code>目录下的<code>jemalloc_vc2015</code>，然后进行编译即可。
+使用这种方式编译的时候有很多问题。首先是<strong>VS2015不支持C11的atomic，没有stdatomic.h头文件</strong>，这需要注释掉<code>JEMALLOC_C11ATOMICS</code>这个宏定义。然后是大量<code>__builtin_xxxxx</code>函数未定义，这个可以使用自己实现的。</p>
+
+<p><strong>方式二</strong>
+打开<code>VS2015 x64本机工具命令提示符</code>(VS2015 x64 Native Tools Command Prompt)。
+进入源码目录，创建一个目录<code>build</code>，进入<code>build</code>目录后执行下面命令。</p>
+
+<pre><code class="language-bat">Z:\jemalloc\jemalloc-cmake\build&gt;cmake -G&quot;Visual Studio 14 Win64&quot; -DCMAKE_INSTALL_PREFIX=Z:\vs140-64 ..
+</code></pre>
+
+<p>因为jemalloc的<code>CMakeLists.txt</code>文件中实际上没有写<code>install</code>部分(被注释掉)，所以指定安装目录是无效的。
+还可以直接执行<code>CMake_configure.cmd</code>来生成VS工程。</p>
+
+<p>如果没有问题，将在<code>build</code>目录下生成VS工程文件。
+执行下面命令进行编译(这里将只编译<code>Release</code>版本)</p>
+
+<pre><code class="language-bat">Z:\jemalloc\jemalloc-cmake\build&gt;msbuild /p:configuration=Release /maxcpucount:8 ALL_BUILD.vcxproj
+</code></pre>
+
+<p>生成的目标文件在<code>build/Release</code>目录下。</p>
+
+<p>也可以使用<code>CygWin</code>来生成<code>Makefile</code>文件，相关介绍在<code>ReadMe.txt</code>文件中有写。</p>
+
+<h3 id="mingw下编译jemalloc">MinGW下编译jemalloc</h3>
+
+<p>打开mingw命令行工具(或者msys2/cygwin等)进入源码目录，新建目录<code>build-mingw</code>并进入。
+运行下面命令生成Makefile文件</p>
+
+<pre><code class="language-bash">cmake -G&quot;MSYS Makefiles&quot; -DCMAKE_SYSTEM_NAME=Windows ..
+</code></pre>
+
+<p>生成过程中遇到以下错误
+<strong>错误1</strong></p>
+
+<pre><code class="language-bash">-- CMAKE_C_COMPILER_ID: GNU
+CMake Error at Utilities.cmake:778 (CHECK_C_COMPILER_FLAG):
+  Unknown CMake command &quot;CHECK_C_COMPILER_FLAG&quot;.
+Call Stack (most recent call first):
+  CMakeLists.txt:149 (JeCflagsAppend)
+
+
+-- Configuring incomplete, errors occurred!
+See also &quot;F:/compile/jemalloc-cmake/build/CMakeFiles/CMakeOutput.log&quot;.
+</code></pre>
+
+<p>这个直接注释掉<code>Utilities.cmake</code>的<code>778</code>行即可。</p>
+
+<p><strong>错误2</strong></p>
+
+<pre><code class="language-bash">CMake Error at Utilities.cmake:755 (message):
+  GetSystemPageSize failed compilation see
+  F:/compile/jemalloc-cmake/build/GetPageSize/getpagesize.log
+Call Stack (most recent call first):
+  CMakeLists.txt:464 (GetSystemPageSize)
+</code></pre>
+
+<p>这里可以查看<code>CMakeLists.txt</code>的<code>464</code>行前后，发现是系统分页大小没有获取到的原因，这里可以直接给它设置为<code>4096</code>(这个可以使用下面的代码获取)
+<strong>GetPageSize.c</strong></p>
+
+<pre><code class="language-C">#include &lt;windows.h&gt;
+#include &lt;stdio.h&gt;
+int main(int argc, const char** argv) {
+	int result;
+#ifdef _WIN32
+	SYSTEM_INFO si;
+	GetSystemInfo(&amp;si);
+	result = si.dwPageSize;
+#else
+	result = sysconf(_SC_PAGESIZE);
+#endif
+	printf(&quot;%d&quot;, result);
+	return 0;
+}
+</code></pre>
+
+<p>使用下面命令重新生成</p>
+
+<pre><code>cmake -G&quot;MSYS Makefiles&quot; -DCMAKE_SYSTEM_NAME=Windows -DLG_PAGE=4096 ..
+</code></pre>
+
+<p>不知道是什么原因，<code>LG_PAGE</code>设置4096就会失败(Please wait while we configure class sizes)，设置为<code>4</code>没有问题，不知道是不是单位的原因(Windows下分页应该是4MB)</p>
+
+<p>然后使用下面命令进行构建(必须指定<code>C_FLAGS</code>参数，因为生成的Makefile中使用的是VC编译器的参数)</p>
+
+<pre><code> make C_FLAGS=&quot;-D_WIN32 -DWIN32 -DWIN64 -O2&quot;
+</code></pre>
+
+<p>编译时出现如下错误
+<strong>错误1</strong></p>
+
+<pre><code class="language-bash">include/jemalloc/internal/spin.h:41:3: 错误：‘CPU_SPINWAIT’未声明(在此函数内第一次使用)
+   CPU_SPINWAIT;
+   ^~~~~~~~~~~~
+</code></pre>
+
+<p>这个只需要修改<code>include\jemalloc\internal\jemalloc_internal_defs.h</code>文件的第<code>23</code>行。修改为</p>
+
+<pre><code class="language-C">#define CPU_SPINWAIT _mm_pause()
+</code></pre>
+
+<p>更多类似的问题，可以通过拷贝cmake生成VS工程中的<code>jemalloc_internal_defs.h</code>覆盖原文件来解决。</p>
+
+<p><strong>错误2</strong></p>
+
+<pre><code class="language-bash">[  4%] Linking C shared library libjemallocso.dll
+gcc: 错误：/FC：No such file or directory
+gcc: 错误：/d2Zi+：No such file or directory
+gcc: 错误：/Zi：No such file or directory
+gcc: 错误：/FS：No such file or directory
+gcc: 错误：/nologo：No such file or directory
+gcc: 错误：/W3：No such file or directory
+gcc: 错误：/WX：No such file or directory
+gcc: 错误：/GS：No such file or directory
+gcc: 错误：/Zc:wchar_t：No such file or directory
+gcc: 错误：/Zc:forScope：No such file or directory
+gcc: 错误：/errorReport:queue：No such file or directory
+gcc: 错误：/wd4267：No such file or directory
+gcc: 错误：/wd4244：No such file or directory
+gcc: 错误：/wd4146：No such file or directory
+gcc: 错误：/wd4334：No such file or directory
+gcc: 错误：/wd4090：No such file or directory
+make[2]: *** [CMakeFiles/jemallocso.dir/build.make:798：libjemallocso.dll] 错误 1
+make[1]: *** [CMakeFiles/Makefile2:1510：CMakeFiles/jemallocso.dir/all] 错误 2
+make: *** [Makefile:95：all] 错误 2
+</code></pre>
+
+<p>直接打开<code>CMakeFiles/jemallocso.dir/build.make</code>文件，定位到798行，将其中的<code>/FC /d2Zi+</code>等删除即可。其他类似的问题都可以这样解决。（包括chunk、xallocx、thread_tcache_enabled、overflow、mallocx等等，如果不想一个个解决，可以使用-k参数跳过这些工具的编译。<strong>只需要jemallocso编译出来了就可以用了</strong>）</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

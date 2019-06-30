@@ -1,0 +1,710 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp的MIBs扩展（linux下） &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp的MIBs扩展（linux下）</h1>
+          <span class="post-date">2015年06月25日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/25/4599501.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/25/4599501.html</a>
+<h1 id="net-snmpmibs">net-snmp的MIBs扩展</h1>
+<div class="toc">
+<ul>
+<li><a href="#net-snmpmibs"> net-snmp的MIBs扩展 </a>
+<ul>
+<li><a href="#1-net-snmp"> 1 编译安装net-snmp </a></li>
+<li><a href="#2-mib"> 2 编写MIB文件 </a>
+<ul>
+<li><a href="#mib"> MIB文件描述 </a></li>
+<li><a href="#_1"> 一个简单的示例 </a></li>
+</ul>
+</li>
+<li><a href="#3-mib"> 3 使自定义的MIB文件生效 </a></li>
+<li><a href="#4-agent"> 4 实现agent代理程序 </a>
+<ul>
+<li><a href="#mib2cch"> 使用mib2c程序来生成.c和.h文件。 </a></li>
+<li><a href="#readobjectcreadobjecth"> 只读节点readObject.c和readObject.h的修改。 </a>
+<ul>
+<li><a href="#_2"> 编译一下 </a></li>
+<li><a href="#_3"> 运行测试一下 </a></li>
+</ul>
+</li>
+<li><a href="#writeobjectc"> 读写节点writeObject.c的修改 </a>
+<ul>
+<li><a href="#_4"> 编译运行测试一下 </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<ul>
+<li>
+<p> MIB的相关概念 <br />
+     在SNMP网络管理中，管理信息库MIB（Management Information Base）是对于通过网络管理协议可以访问的信息。这些信息更具体的理解为网管中被管资源，而网络管理中的资源是以对象来表示，每一个对象表示被管资源某一方面的属性，这些对象的集合形成管理信息库。
+    </p></p>
+
+<p></li>
+<li>
+<p>
+     先说一下系统环境
+&nbsp;&nbsp;&nbsp; <code class="shell">
+</code></p>
+</li>
+</ul>
+<div class="cnblogs_code">
+<pre>o@o-pc:~$ <span style="color: #0000ff;">uname</span> -<span style="color: #000000;">a
+Linux o</span>-pc <span style="color: #800080;">3.19</span>.<span style="color: #800080;">0</span>-<span style="color: #800080;">21</span>-generic #<span style="color: #800080;">21</span>-Ubuntu SMP Sun Jun <span style="color: #800080;">14</span> <span style="color: #800080;">18</span>:<span style="color: #800080;">31</span>:<span style="color: #800080;">11</span> UTC <span style="color: #800080;">2015</span> x86_64 x86_64 x86_64 GNU/Linux</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="1-net-snmp">1 编译安装net-snmp</h2>
+<p> 具体的就不说了，见此处： <a href="http://net-snmp-5.7.3配置编译安装http//www.cnblogs.com/oloroso/p/4595123.html">n</a><a title="et-snmp-5.7.3配置编译安装 http://www.cnblogs.com/oloroso/p/4595123.html" href="http://www.cnblogs.com/oloroso/p/4595123.html" target="_blank">et-snmp-5.7.3配置编译安装 <a href="http://www.cnblogs.com/oloroso/p/4595123.html">http://www.cnblogs.com/oloroso/p/4595123.html</a></a><br /></p>
+
+<p></p>
+<h2 id="2-mib">
+   2 编写MIB文件
+  </h2>
+<h3 id="mib">
+   MIB文件描述
+  </h3>
+<p>
+   MIB文件是用
+   <code>
+    ASN.1
+   </code>
+   语法来描述的，所以为了精确定义MIB中各管理对象，用户不得不参考一些ASN.1语法的有关文档如RFC1155、RFC1212等等来定义设备自己的MIB。ASN.1是抽象句法表示法一
+   <code>
+    （Abstract Syntax Notation One）
+   </code>
+   的简称，对于每个管理对象它都用文本来描述，一般文件的后缀名都用&ldquo;.mib&rdquo;。
+  </p>
+<p>
+   关于MIB文件示例，可以见编译安装后的net-snmp目录，一般是<span style="color: #ff0000;"><strong>
+   <code>
+    /usr/local/net-snmp/share/snmp/mibs/
+   </code>
+  </strong> </span>。
+&nbsp; <code class="shell">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">ls</span> /usr/local/net-snmp/share/snmp/mibs/<span style="color: #000000;">
+AGENTX</span>-MIB.txt                       IPV6-TCP-MIB.txt                     SNMP-NOTIFICATION-<span style="color: #000000;">MIB.txt
+&hellip;
+IPV6</span>-MIB.txt                         SNMP-MPD-MIB.txt                     UDP-MIB.txt</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="_1">一个简单的示例</h3>
+<p>这里我们写一个MIB文件，含有两个节点，一个是只读权限的，一个是读写权限的。然后把这个文件命名为<span style="color: #ff0000;"><strong> <code> myTest.mib </code> </strong></span>然后保存到 <strong><span style="color: #ff0000;"><code> /usr/local/net-snmp/share/snmp/mibs/ </code></span></strong> 目录。</p>
+<div class="cnblogs_code">
+<pre>&ndash;<span style="color: #000000;">开始
+TEST</span>-MIB DEFINITIONS ::=<span style="color: #000000;"> BEGIN</p>
+
+<p></span>&ndash;<span style="color: #000000;">引入部分
+IMPORTS
+    enterprises
+        FROM RFC1155</span>-<span style="color: #000000;">SMI<br />
+    Integer32,OBJECT</span>-<span style="color: #000000;">TYPE
+        FROM SNMPv2</span>-<span style="color: #000000;">SMI<br />
+    DisplayString
+        FROM SNMPv2</span>-<span style="color: #000000;">TC
+    TEXTUAL</span>-<span style="color: #000000;">CONVENTION
+        FROM SNMPv2</span>-TC; &ndash;<span style="color: #000000;">引用结束，用分号</p>
+
+<p></span>&ndash;<span style="color: #000000;">定义节点
+</span>&ndash;enterprises的OID是1.<span style="color: #800080;">3.6</span>.<span style="color: #800080;">1.4</span><span style="color: #000000;">
+ test OBJECT IDENTIFIER ::</span>= {enterprises <span style="color: #800080;">77587</span><span style="color: #000000;">}</p>
+
+<p>readObject  OBJECT IDENTIFIER ::</span>= {test <span style="color: #800080;">1</span><span style="color: #000000;">}<br />
+writeObject OBJECT IDENTIFIER ::</span>= {test <span style="color: #800080;">2</span><span style="color: #000000;">}</p>
+
+<pre><code>readobject  OBJECT&lt;/span&gt;-TYPE --&lt;span style=&quot;color: #000000;&quot;&gt;对象名称
+SYNTAX      Integer32   &lt;/span&gt;--&lt;span style=&quot;color: #000000;&quot;&gt;类型
+MAX&lt;/span&gt;-ACCESS read-only        --&lt;span style=&quot;color: #000000;&quot;&gt;访问方式
+STATUS      current     &lt;/span&gt;--&lt;span style=&quot;color: #000000;&quot;&gt;状态
+DESCRIPTION &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;test read&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; --&lt;span style=&quot;color: #000000;&quot;&gt;描述
+::&lt;/span&gt;= {test &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;}                --&lt;span style=&quot;color: #000000;&quot;&gt;父节点
+
+writeObject OBJECT&lt;/span&gt;-TYPE --&lt;span style=&quot;color: #000000;&quot;&gt;对象名称
+SYNTAX      DisplayString   &lt;/span&gt;--&lt;span style=&quot;color: #000000;&quot;&gt;类型
+MAX&lt;/span&gt;-ACCESS read-&lt;span style=&quot;color: #0000ff;&quot;&gt;write&lt;/span&gt;       --&lt;span style=&quot;color: #000000;&quot;&gt;访问方式
+STATUS      current     &lt;/span&gt;--&lt;span style=&quot;color: #000000;&quot;&gt;状态
+DESCRIPTION &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;test write&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;    --&lt;span style=&quot;color: #000000;&quot;&gt;描述
+::&lt;/span&gt;= {test &lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;}                --&lt;span style=&quot;color: #000000;&quot;&gt;父节点
+</code></pre>
+
+<p></span>&ndash;<span style="color: #000000;">结束定义
+END</span></pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="3-mib">3 使自定义的MIB文件生效</h2>
+<p> 要使得这个自定义的MIB生效，最简单的办法就是把它的内容添加到已有的某个MIB文件中就是了。比如 <code> cat myTest.mib &gt;&gt; 原有MIB文件 </code> ，然后重启一下 <code> snmpd </code> 服务就是了。不过这是一种投机的做法。 <br />
+   正常一点的做法是：
+  </p>
+<ul>
+<li>
+    将自定义的MIB文件的开始处定义的名称加入到环境变量
+<span style="color: #ff0000;">    <code>
+     MIBS
+    </code></span>
+    中，譬如这里
+<span style="color: #ff0000;">    <code>
+     TEST-MIB DEFINITIONS ::= BEGIN
+    </code></span>
+    中的<span style="color: #ff0000;">
+    <code>
+     TEST-MIB
+    </code></span>
+    。
+    <br />
+    还可以添加到
+    <code>
+     snmpd
+    </code>
+    的配置文件中。因为本机上是采取的添加到
+    <code>
+     bash
+    </code>
+    的环境变量中的，所以在
+    <code>
+     ～/.bashrc
+    </code>
+    文件中添加了一行
+    <br />
+    <code><span style="color: #ff0000;">
+     export MIBS=+TEST-MIB
+   </span> </code>
+   </li>
+<li>
+    杀死
+    <code>
+     snmpd
+    </code>
+    进程，然后重启它。
+   </li>
+<li>
+    使用
+<span style="color: #ff0000;">    <code>
+     snmptranslate
+    </code></span>
+    查看自定义的
+    <code>
+     TEST-MIB
+    </code>
+    是否被加载了。
+   </li></p>
+
+<p></ul>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ /usr/local/net-snmp/bin/snmptranslate -Tp -<span style="color: #000000;">IR test
+</span>+&ndash;test(<span style="color: #800080;">77587</span><span style="color: #000000;">)
+   </span>|
+   +&ndash; -R&ndash; Integer32 readObject(<span style="color: #800080;">1</span><span style="color: #000000;">)
+   </span>+&ndash; -RW- String    writeObject(<span style="color: #800080;">2</span><span style="color: #000000;">)
+            Textual Convention: DisplayString
+            Size: </span><span style="color: #800080;">0</span>..<span style="color: #800080;">255</span></pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="4-agent">4 实现agent代理程序</h2>
+<p> 我们可以先来获取一下前面定义的 <code> readObject </code> 节点的值试试。 <br />
+   因为
+   <code>
+    enterprises
+   </code>
+   的OID是
+   <code>
+    1.3.6.1.4
+   </code>
+   ，而
+   <code>
+    test
+   </code>
+   是
+   <code>
+    enterprises
+   </code>
+   的叶子(77585)，而
+   <code>
+    readObject
+   </code>
+   又是
+   <code>
+    test
+   </code>
+   的叶子节点(1)。所以其OID为
+   <code>
+    1.3.6.1.4.77585.1
+   </code>
+   。
+   <br />
+   下面使用snmpget来测试一下
+&nbsp; <code class="shell">
+</code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ /usr/local/net-snmp/bin/snmpget -c public -v 2c localhost <span style="color: #800080;">1.3</span>.<span style="color: #800080;">6.1</span>.<span style="color: #800080;">4.1</span>.<span style="color: #800080;">77587.1</span><span style="color: #000000;">
+TEST</span>-MIB::readObject = No Such Object available on this agent at this OID</pre>
+</div>
+<p>&nbsp;</p>
+<p>结果是<strong><span style="color: #ff0000;">No Such Object available on this agent at this OID</span></strong>，即</p>
+<h3 id="mib2cch">使用mib2c程序来生成 <code> .c </code> 和 <code> .h </code> 文件。</h3>
+<p>使用以下命令来生成，两条命令的 <code> -c </code> 后跟的配置文件可以是不同的，因为节点的类型可能不一样。第一个是(只读的)数字(integer32,counter,time)的配置，第二个是其它类型的。<code> </code></p>
+<div class="cnblogs_code">
+<pre>mib2c -<span style="color: #000000;">c mib2c.int_watch.conf readObject
+mib2c </span>-c mib2c.scalar.conf writeObject</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="readobjectcreadobjecth">只读节点readObject.c和readObject.h的修改。</h3>
+<p> readObject.h文件就不改了，这里没什么必要。 <br />
+   先来看一下readObject.c文件。（这里我把不重要的删掉了）
+   <br />
+   所做的修改就是在
+   <code>
+    init_readObject
+   </code>
+   函数中添加了一句
+   <code>
+    readObject = 12345;
+   </code>
+   。这个是随性而为的。我们只需要知道，当使用
+   <code>
+    snmpget
+   </code>
+   来获取
+   <code>
+    readObject
+   </code>
+   节点值的时候，获取的就是这个变量的值。这里还要注意一点，这个值一旦确定就不会再更改了。如果需要可以更改的，前面生成代码模板的时候应该使用&nbsp;<span class="cnblogs_code">mib2c -c mib2c.scalar.conf readObject</span>&nbsp;
+&nbsp; </p>
+<div class="cnblogs_code">
+<pre>#include &lt;net-snmp/net-snmp-config.h&gt;<span style="color: #000000;">
+#include </span>&lt;net-snmp/net-snmp-includes.h&gt;<span style="color: #000000;">
+#include </span>&lt;net-snmp/agent/net-snmp-agent-includes.h&gt;<span style="color: #000000;">
+#include </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject.h</span><span style="color: #800000;">&ldquo;</span></p>
+
+<p><span style="color: #008000;">//</span><span style="color: #008000;">这一句是mib2c生成的，默认值设为0</span>
+<span style="color: #0000ff;">long</span>    readObject = <span style="color: #800080;">0</span>;  <span style="color: #008000;">/<em></span><span style="color: #008000;"> XXX: set default value </span><span style="color: #008000;"></em>/</span></p>
+
+<p><span style="color: #0000ff;">void</span><span style="color: #000000;">
+init_readObject(</span><span style="color: #0000ff;">void</span><span style="color: #000000;">)
+{
+  netsnmp_handler_registration </span>*<span style="color: #000000;">reg;</p>
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; oid readObject_oid[] = { &lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;3&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;6&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;4&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;77587&lt;/span&gt;,&lt;span style=&quot;color: #800080;&quot;&gt;1&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; };
+</code></pre>
+
+<p></span><span style="color: #0000ff;">static</span><span style="color: #000000;"> netsnmp_watcher_info readObject_winfo;</p>
+
+<p>DEBUGMSGTL((</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Initializing the readObject module\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">));</p>
+
+<p></span><span style="color: #008000;">/*</span><span style="color: #008000;">***************************************************<em></span><span style="color: #008000;"></em>/</span>
+    <span style="color: #008000;">//</span><span style="color: #008000;">这里是我修改的，以便于验证其有效</span>
+    readObject = <span style="color: #800080;">12345</span><span style="color: #000000;">;</p>
+
+<p></span><span style="color: #008000;">/*</span><span style="color: #008000;">***************************************************<em></span><span style="color: #008000;"></em>/</span><span style="color: #000000;">
+    DEBUGMSGTL((</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+                </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Initializing readObject scalar integer.  Default value = %ld\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+                readObject));
+    reg </span>=<span style="color: #000000;"> netsnmp_create_handler_registration(
+             </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">, NULL,
+              readObject_oid, OID_LENGTH(readObject_oid),
+              HANDLER_CAN_RONLY);
+    netsnmp_init_watcher_info(</span>&amp;readObject_winfo, &amp;readObject, <span style="color: #0000ff;">sizeof</span>(<span style="color: #0000ff;">long</span><span style="color: #000000;">),
+                  ASN_INTEGER, WATCHER_FIXED_SIZE);
+</span><span style="color: #0000ff;">if</span> (netsnmp_register_watched_scalar( reg, &amp;readObject_winfo ) &lt; <span style="color: #800080;">0</span><span style="color: #000000;"> ) {
+        snmp_log( LOG_ERR, </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Failed to register watched readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> );
+    }</p>
+
+<p>DEBUGMSGTL((</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,
+              </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Done initalizing readObject module\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">));
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h4 id="_2">编译一下</h4>
+<p> 编译的时候需要使用到另一个工具 <span style="color: #ff0000;"><code> net-snmp-config </code></span> 。这个工具用来做两件事，一个是生成中间代码，然后使用gcc来编译它。 <br />
+   为什么要生成中间代码呢？你看上面的生存的
+   <code>
+    readObject.c
+   </code>
+   中没有main函数就知道了吧。
+   <br />
+   具体使用如下
+  </p>
+<pre><span style="color: #ff0000;"><code class="shell">net-snmp-config &ndash;compile-subagent readObject readObject.c
+</code></span></pre>
+<ul>
+<li>&ndash;compile-subagent的意思是编译为subagent程序。</li>
+<li>readObject是编译后输出程序名</li>
+<li>readObject.c是要编译的文件</li>
+</ul>
+<p>还可以加上 <code> &ndash;norm </code> 参数来阻止编译后删除生成的中间代码文件。我们可以试一下。<code class="shell"> </code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ net-snmp-config &ndash;compile-subagent &ndash;<span style="color: #000000;">norm readObject readObject.c
+generating the tmporary code </span><span style="color: #0000ff;">file</span>: netsnmptmp.<span style="color: #800080;">25506</span><span style="color: #000000;">.c
+void init_readObject(void);
+checking </span><span style="color: #0000ff;">for</span> init_readObject <span style="color: #0000ff;">in</span><span style="color: #000000;"> readObject.c
+init_readObject(void)
+checking </span><span style="color: #0000ff;">for</span> shutdown_readObject <span style="color: #0000ff;">in</span><span style="color: #000000;"> readObject.c
+running: </span><span style="color: #0000ff;">gcc</span>  -fno-strict-aliasing -g -O2 -Ulinux -Dlinux=linux  -D_REENTRANT -D_GNU_SOURCE -DDEBIAN -fwrapv -fno-strict-aliasing -pipe -I/usr/local/include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=<span style="color: #800080;">64</span>  -I/usr/lib/x86_64-linux-gnu/<span style="color: #0000ff;">perl</span>/<span style="color: #800080;">5.20</span>/CORE   -I. -I/usr/local/net-snmp/include -o readObject netsnmptmp.<span style="color: #800080;">25506</span>.c  readObject.c  -L/usr/local/net-snmp/lib -lnetsnmpmibs -lnetsnmpagent -lnetsnmp -lnetsnmpmibs -ldl  -lnetsnmpagent  -Wl,-E -<span style="color: #000000;">lnetsnmp<br />
+leaving the tmporary code </span><span style="color: #0000ff;">file</span>: netsnmptmp.<span style="color: #800080;">25506</span><span style="color: #000000;">.c
+subagent program readObject created</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>编译后我们可以看到，当前目录下出现了编译后的程序 <code> readObject </code> 和一个 <code> netsnmptmp.25506.c </code> 的文件。你把它打开，就可以看到这是一个具有 <code> main </code> 函数的.c源文件了。简化之后的代码如下了。</p>
+<div class="cnblogs_code">
+<pre>#include <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject.h</span><span style="color: #800000;">&ldquo;</span>
+<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span> *app_name = <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">;
+</span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> reconfig = <span style="color: #800080;">0</span><span style="color: #000000;">;</p>
+
+<p></span><span style="color: #0000ff;">extern</span> <span style="color: #0000ff;">int</span><span style="color: #000000;"> netsnmp_running;</p>
+
+<p></span><span style="color: #0000ff;">int</span><span style="color: #000000;">
+main (</span><span style="color: #0000ff;">int</span> argc, <span style="color: #0000ff;">char</span> **<span style="color: #000000;">argv)
+{
+    &hellip;
+  </span><span style="color: #0000ff;">while</span> ((arg = getopt(argc, argv, &hellip;)) !=<span style="color: #000000;"> EOF) {
+    &hellip;
+  }
+    &hellip;</p>
+
+<p></span><span style="color: #008000;">/*</span><span style="color: #008000;"> 初始化agent库 *
+  /<em>initialize the agent library </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">
+  init_agent(app_name);</p>
+
+<p></span><span style="color: #008000;">/<em></span><span style="color: #008000;"> i初始化你的mib代码 </span><span style="color: #008000;"></em>/</span>
+  <span style="color: #008000;">/<em></span><span style="color: #008000;"> initialize your mib code here </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">
+  init_readObject();</p>
+
+<p></span><span style="color: #008000;">/<em></span><span style="color: #008000;"> readObject will be used to read readObject.conf files. </span><span style="color: #008000;"></em>/</span>
+  <span style="color: #008000;">/<em></span><span style="color: #008000;"> readObject will be used to read readObject.conf files. </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">
+  init_snmp(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">readObject</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">);
+  &hellip;
+  exit(</span><span style="color: #800080;">0</span><span style="color: #000000;">);
+}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h4 id="_3">运行测试一下</h4>
+<p> 这里我们先启动这个 <span style="color: #ff0000;"><strong><code> readObject </code> </strong></span>的程序，然后再去重新 <code> snmpget </code> 获取节点 <code> readObeject </code> 的值。 <br />
+   注意，这个
+   <code>
+    readObject
+   </code>
+   默认是守护进程。
+   <br />
+   获取结果如下，可以看到成功获取了。
+&nbsp; <code class="shell">
+</code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ /usr/local/net-snmp/bin/snmpget -c public -v 2c localhost <span style="color: #800080;">1.3</span>.<span style="color: #800080;">6.1</span>.<span style="color: #800080;">4.1</span>.<span style="color: #800080;">77587.1</span><span style="color: #000000;">
+&hellip;</p>
+
+<p>TEST</span>-MIB::readObject.<span style="color: #800080;">0</span> = INTEGER: <span style="color: #800080;">12345</span></pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="writeobjectc">读写节点writeObject.c的修改</h3>
+<p>下面是修改后的writeObject.c文件</p>
+<div class="cnblogs_code">
+<pre>#include &lt;net-snmp/net-snmp-config.h&gt;<span style="color: #000000;">
+#include </span>&lt;net-snmp/net-snmp-includes.h&gt;<span style="color: #000000;">
+#include </span>&lt;net-snmp/agent/net-snmp-agent-includes.h&gt;<span style="color: #000000;">
+#include </span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject.h</span><span style="color: #800000;">&ldquo;</span></p>
+
+<p><span style="color: #008000;">//</span><span style="color: #008000;">这里是添加的，buf用于保存控制端设置的值，也用于返回。</span>
+<span style="color: #0000ff;">#define</span> BUFSIZE 1024
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">char</span> buf[BUFSIZE] = <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">test Write</span><span style="color: #800000;">&ldquo;</span>;    <span style="color: #008000;">//</span><span style="color: #008000;">给一个默认值</span></p>
+
+<p><span style="color: #008000;">/<em></span><span style="color: #008000;"></em> Initializes the writeObject module </span><span style="color: #008000;">*/</span>
+<span style="color: #0000ff;">void</span><span style="color: #000000;">
+init_writeObject(</span><span style="color: #0000ff;">void</span><span style="color: #000000;">)
+{
+    </span><span style="color: #0000ff;">const</span> oid writeObject_oid[] = { <span style="color: #800080;">1</span>,<span style="color: #800080;">3</span>,<span style="color: #800080;">6</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">4</span>,<span style="color: #800080;">1</span>,<span style="color: #800080;">77587</span>,<span style="color: #800080;">2</span><span style="color: #000000;"> };</p>
+
+<p>DEBUGMSGTL((</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">writeObject</span><span style="color: #800000;">&ldquo;</span>, <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">Initializing\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">));</p>
+
+<pre><code>netsnmp_register_scalar(
+    netsnmp_create_handler_registration(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;writeObject&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;, handle_writeObject,
+                           writeObject_oid, OID_LENGTH(writeObject_oid),
+                           HANDLER_CAN_RWRITE
+    ));
+</code></pre>
+
+<p>}</p>
+
+<p></span><span style="color: #0000ff;">int</span><span style="color: #000000;">
+handle_writeObject(netsnmp_mib_handler </span><em><span style="color: #000000;">handler,
+                          netsnmp_handler_registration </span></em><span style="color: #000000;">reginfo,
+                          netsnmp_agent_request_info   </span><em><span style="color: #000000;">reqinfo,
+                          netsnmp_request_info         </span></em><span style="color: #000000;">requests)
+{
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> ret;</p>
+
+<pre><code>&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;switch&lt;/span&gt;(reqinfo-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;mode) {
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;是获取操作&lt;/span&gt;
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; MODE_GET:
+        snmp_set_var_typed_value(requests&lt;/span&gt;-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;requestvb, ASN_OCTET_STR,
+         &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这里填buf,用于返回数据给控制端&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;      buf  &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: a pointer to the scalar's data &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,
+         &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这里是buf数据字节数，注意writeObject类型&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt; strlen(buf)  &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: the length of the data in bytes &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;
+     * SET REQUEST
+     *
+     * multiple states in the transaction.  See:
+     * &lt;/span&gt;&lt;span style=&quot;color: #008000; text-decoration: underline;&quot;&gt;http://www.net-snmp.org/tutorial-5/toolkit/mib_module/set-actions.jpg&lt;/span&gt;
+     &lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;下面是设置操作的，也就是snmpset&lt;/span&gt;
+
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; MODE_SET_RESERVE1: &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这个不管它&lt;/span&gt;
+            &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; or you could use netsnmp_check_vb_type_and_size instead &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+        ret &lt;/span&gt;= netsnmp_check_vb_type(requests-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;requestvb, ASN_OCTET_STR);
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ( ret !=&lt;span style=&quot;color: #000000;&quot;&gt; SNMP_ERR_NOERROR ) {
+            netsnmp_set_request_error(reqinfo, requests, ret );
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt; MODE_SET_RESERVE2: &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这个也不管它&lt;/span&gt;
+        &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX malloc &quot;undo&quot; storage buffer &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+        &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;我们不需要动态申请内存，直接略过&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; ( &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX if malloc, or whatever, failed: &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_RESOURCEUNAVAILABLE);
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; MODE_SET_FREE:
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: free resources allocated in RESERVE1 and/or
+           RESERVE2.  Something failed somewhere, and the states
+           below won't be called. &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+
+&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;**************************************************************&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+&lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;  这里是我们的重点，控制端传过来的数据就在这里获取&lt;/span&gt;
+
+    &lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; MODE_SET_ACTION:
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: perform the value change here &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+        &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; 获取控制端使用snmpset传来的数据 &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+        memcpy(buf,requests&lt;/span&gt;-&amp;gt;requestvb-&amp;gt;buf,requests-&amp;gt;requestvb-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;val_len);
+
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: error? &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;) {   &lt;span style=&quot;color: #008000;&quot;&gt;//&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;这个先不管了&lt;/span&gt;
+            netsnmp_set_request_error(reqinfo, requests, &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; some error &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+</code></pre>
+
+<p></span><span style="color: #008000;">//</span><span style="color: #008000;">下面的都不管了</span>
+        <span style="color: #0000ff;">case</span><span style="color: #000000;"> MODE_SET_COMMIT:
+            </span><span style="color: #008000;">/<em></span><span style="color: #008000;"> XXX: delete temporary storage </span><span style="color: #008000;"></em>/</span>
+            <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span> <span style="color: #008000;">/<em></span><span style="color: #008000;"> XXX: error? </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">) {
+                </span><span style="color: #008000;">/<em></span><span style="color: #008000;"> try _really<em>really</em> hard to never get to this point </span><span style="color: #008000;"></em>/</span><span style="color: #000000;">
+                netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_COMMITFAILED);
+            }
+            </span><span style="color: #0000ff;">break</span><span style="color: #000000;">;</p>
+
+<pre><code>    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;case&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; MODE_SET_UNDO:
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: UNDO and return to previous value for the object &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;
+        &lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (&lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt; &lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; XXX: error? &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;) {
+            &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; try _really_really_ hard to never get to this point &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+            netsnmp_set_request_error(reqinfo, requests, SNMP_ERR_UNDOFAILED);
+        }
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;break&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;default&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;:
+        &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;/*&lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt; we should never get here, so this is a really bad error &lt;/span&gt;&lt;span style=&quot;color: #008000;&quot;&gt;*/&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;
+        snmp_log(LOG_ERR, &lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;unknown mode (%d) in handle_writeObject\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;, reqinfo-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;mode );
+        &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SNMP_ERR_GENERR;
+}
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; SNMP_ERR_NOERROR;
+</code></pre>
+
+<p>}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h4 id="_4">编译运行测试一下</h4>
+<p> 编译还是和前面说的一样，就不详细说了。 <br />
+   一样运行后进行获取一次试试。这里使用的<span style="color: #ff0000;">snmpbulkget<span style="color: #000000;">(批量获取)</span></span>而不是<span style="color: #ff0000;">snmpget</span>。是因为任性而已。
+&nbsp; <code class="shell">
+</code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$  snmpbulkget -c public -v 2c localhost writeObject.<span style="color: #800080;">0</span><span style="color: #000000;">
+MY</span>-TEST-MIB::writeObject.<span style="color: #800080;">0</span> =<span style="color: #000000;"> STRING: test Write</p>
+
+<p>o@o</span>-pc:~/snmp/mibs$ snmpget -c public -v 2c localhost writeObject.<span style="color: #800080;">0</span><span style="color: #000000;">
+MY</span>-TEST-MIB::writeObject.<span style="color: #800080;">0</span> = STRING: test Write</pre>
+</div>
+<p>&nbsp;</p>
+<p>可以看大获取是没有问题的，那么设置一下试试。设置要使用到 <code> snmpset </code> 工具，使用方式和 <code> snmpget </code> 类似。只是需要在最后加上要设置的数据的类型和数据。</p>
+<pre><span style="color: #ff0000;"><code class="shell">snmpset -c public -v 2c localhost writeObject.0 s &ldquo;nihao&rdquo;
+</code></span></pre>
+<p>数据类型参数可以使用 <strong><span style="color: #ff0000;"><code> snmpset &ndash;help </code> </span></strong>来查看,其结果如下<code> </code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">  TYPE: one of i, u, t, a, o, s, x, d, b
+    i: INTEGER, u: unsigned INTEGER, t: TIMETICKS, a: IPADDRESS
+    o: OBJID, s: STRING, x: HEX STRING, d: DECIMAL STRING, b: BITS
+    U: unsigned int64, I: signed int64, F: </span><span style="color: #0000ff;">float</span>, D: <span style="color: #0000ff;">double</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>设置完成之后再次获取试试。<code class="shell"> </code></p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ snmpget -c public -v 2c localhost writeObject.<span style="color: #800080;">0</span><span style="color: #000000;">
+MY</span>-TEST-MIB::writeObject.<span style="color: #800080;">0</span> = STRING: nihao</pre>
+</div>
+<p>&nbsp;</p>
+<p>如果测试的时候碰到设置不成功的情况，检查一下snmpd的配置文件（通常是snmpd.conf）中权限设置的问题。</p>
+<div class="cnblogs_code">
+<pre>o@o-pc:~/snmp/mibs$ snmpset -c public -v 2c localhost writeObject.<span style="color: #800080;">0</span> s <span style="color: #800000;">&ldquo;</span><span style="color: #800000;">nihao</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">
+Error </span><span style="color: #0000ff;">in</span><span style="color: #000000;"> packet.
+Reason: noAccess
+Failed </span><span style="color: #0000ff;">object</span>: MY-TEST-MIB::writeObject.<span style="color: #800080;">0</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

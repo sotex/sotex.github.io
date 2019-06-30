@@ -1,0 +1,370 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Windows下 VS2015编译boost1.62 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Windows下 VS2015编译boost1.62</h1>
+          <span class="post-date">2016年11月10日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/11/10/6050596.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/11/10/6050596.html</a></p>
+
+<h1 id="vs2015编译boost1-62">VS2015编译boost1.62</h1>
+
+<p><code>Boost</code>库是一个可移植、提供源代码的C++库，作为标准库的后备，是C++标准化进程的开发引擎之一。 Boost库由C++标准委员会库工作组成员发起，其中有些内容有望成为下一代C++标准库内容。在C++社区中影响甚大，是不折不扣的“准”标准库。Boost由于其对跨平台的强调，对标准C++的强调，与编写平台无关。大部分boost库功能的使用只需包括相应头文件即可，少数（如正则表达式库，文件系统库等）需要链接库。但Boost中也有很多是实验性质的东西，在实际的开发中实用需要谨慎。</p>
+
+<p>在VS下，boost的头文件中会包含<code>#pragma comment(lib,xxx)</code>的语句，所以可以不用在项目中添加相关的库指定。
+boost中大部分库是仅有头文件，不用编译成库的。</p>
+
+<p>编译好的库可以到这里下载
+链接：<a href="http://share.weiyun.com/712e3d95bb73d7378a8c34d3518d12f3">http://share.weiyun.com/712e3d95bb73d7378a8c34d3518d12f3</a> （密码：2LNF）</p>
+
+<h2 id="1-源码">1、源码</h2>
+
+<p>源码的下载可以直接去<a href="http://www.boost.org/">http://www.boost.org/</a>网站下载。
+我下载的地址是<a href="http://jaist.dl.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.7z">http://jaist.dl.sourceforge.net/project/boost/boost/1.62.0/boost_1_62_0.7z</a></p>
+
+<h2 id="2-生成编译工具">2、生成编译工具</h2>
+
+<p>boost库自带了<code>bootstrap</code>脚本来生成一个构建工具<code>b2</code>。打开命令行直接执行即可。</p>
+
+<pre><code class="language-bat">D:\development_library\boost\boost_1_62_0&gt;bootstrap.bat --help
+Building Boost.Build engine
+
+Failed to build Boost.Build engine.
+Please consult bootstrap.log for further diagnostics.
+
+You can try to obtain a prebuilt binary from
+
+   http://sf.net/project/showfiles.php?group_id=7586&amp;package_id=72941
+
+Also, you can file an issue at http://svn.boost.org
+Please attach bootstrap.log in that case.
+</code></pre>
+
+<p>这里出现了<code>Failed to build Boost.Build engine.</code>错误，解决办法很简单，使用<code>VS 2015 命令行提示符</code>来执行即可。
+<img src="http://images2015.cnblogs.com/blog/693958/201611/693958-20161110110104014-1598526405.png" alt="" /></p>
+
+<h2 id="3-进行编译">3、进行编译</h2>
+
+<p><code>b2</code>工具的使用如下</p>
+
+<pre><code class="language-shell">b2 [options] [properties] [install|stage]
+#options		选项
+#properties		特性
+#install|stage	安装还是编译到指定位置
+</code></pre>
+
+<p><strong>编译命令如下</strong></p>
+
+<pre><code class="language-shell">#编译
+b2.exe --prefix=C:\Boost --build-type=complete --build-dir=build_tmp toolset=msvc-14.0 address-model=64 stage
+#安装
+b2.exe --prefix=C:\Boost --build-type=complete --build-dir=build_tmp toolset=msvc-14.0 address-model=64 install
+</code></pre>
+
+<h3 id="目标和相关选项">目标和相关选项：</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">install</td>
+<td align="left">安装头文件和编译后的库文件到配置的位置（如下）。</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;prefix=<code>&lt;PREFIX&gt;</code></td>
+<td align="left">平台架构无关的文件(include/doc等)的安装位置<br>win32默认在<code>C:\Boost</code><br>Unix/Linux默认在<code>/usr/local</code></td>
+</tr>
+
+<tr>
+<td align="left">&ndash;exec-prefix=<code>&lt;EPREFIX&gt;</code></td>
+<td align="left">安装平台架构相关的文件在这里<br>默认与<code>&lt;PREFIX&gt;</code>相同</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;libdir=<code>&lt;DIR&gt;</code></td>
+<td align="left">库文件安装目录<br>默认<code>&lt;EPREFIX&gt;/lib</code></td>
+</tr>
+
+<tr>
+<td align="left">&ndash;includedir=<code>&lt;HDRDIR&gt;</code></td>
+<td align="left">头文件安装目录<br>默认<code>&lt;PREFIX&gt;/include</code></td>
+</tr>
+
+<tr>
+<td align="left">stage</td>
+<td align="left">仅构建和安装编译的库文件到stage目录</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;stagedir=&lt;<code>STAGEDIR&gt;</code></td>
+<td align="left">安装编译的库文件目录<br>默认<code>./stage</code></td>
+</tr>
+</tbody>
+</table>
+
+<h4 id="其他选项">其他选项：</h4>
+
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">&ndash;build-type=<code>&lt;type&gt;</code></td>
+<td align="left">构建预定义的配置。<br>注意：构建哪些variants取决于各个库的支持。<br><code>minimal</code>(默认) 构建一个最小集(即只构建release版本。 在Windows上，构建debug和release模式下使用共享运行时的静态多线程库。 在Linux上，这些是release模式下的静态和共享多线程库)<br><code>complete</code>构建debug和release版本</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;build-dir=DIR</td>
+<td align="left">构建指定目录(默认中间文件会在源码目录下) 推荐!#</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;show-libraries</td>
+<td align="left">显示构建的Boost库列表在安装步骤，然后退出</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;layout=<code>&lt;layout&gt;</code></td>
+<td align="left">确定是否选择库名和头文件位置，一边可以在同一系统上使用多个版本的Boost库或多个编译器编译的。<br><code>versioned</code>版本名，会影响库文件名和头文件路径<code>&lt;HDRDIR&gt;</code><br><code>tagged</code>boost二进制文件的名称包括编译的构建属性（如variant和threading），但不包括编译器名称和版本或Boost版本。如果使用相同的编译器构建Boost的多个变体，此选项将非常有用。<br><code>system</code>二进制名称不包括Boost版本号或编译器的名称和版本号。 Boost头直接安装到<HDRDIR>中。此选项适用于构建分发软件包的系统集成商。<br>默认值在Windows上为“versioned”，在Unix上为“system”。</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;buildid=ID</td>
+<td align="left">将指定的ID添加到构建的库的名称。<br>默认是不添加任何东西。</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;python-buildid=ID</td>
+<td align="left">将指定的ID添加到依赖于Python的构建库的名称。<br>默认是不添加任何东西。 但指定了&ndash;buildid，还会添加此ID。</td>
+</tr>
+
+<tr>
+<td align="left">&ndash;help</td>
+<td align="left">显示相关选项说明信息</td>
+</tr>
+
+<tr>
+<td align="left"><code>--with-&lt;library&gt;</code></td>
+<td align="left">构建并安装指定的<library>。<br>如果使用此选项，将只构建使用此选项指定的库。</td>
+</tr>
+
+<tr>
+<td align="left"><code>--without-&lt;library&gt;</code></td>
+<td align="left">不要构建和安装指定的<library>。<br>默认是构建所有的。</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="特性">特性：</h3>
+
+<table>
+<thead>
+<tr>
+<th align="left">选项</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">toolset=toolset</td>
+<td align="left">指示要构建的平台工具集。(VS2015就是msvc-14.0)</td>
+</tr>
+
+<tr>
+<td align="left">variant=<code>debug/release</code></td>
+<td align="left">选择构建variant</td>
+</tr>
+
+<tr>
+<td align="left">link=<code>static/shared</code></td>
+<td align="left">构建静态或共享库</td>
+</tr>
+
+<tr>
+<td align="left">threading=<code>single/multi</code></td>
+<td align="left">构建单线程或多线程二进制程序库</td>
+</tr>
+
+<tr>
+<td align="left">runtime-link=<code>static/shared</code></td>
+<td align="left">静态还是动态链接到C和C ++运行时库</td>
+</tr>
+
+<tr>
+<td align="left">address-model=<code>32/64</code></td>
+<td align="left">寻址模式(生成32位还是64位库)</td>
+</tr>
+
+<tr>
+<td align="left">注意：表格中的<code>/</code>原本是`</td>
+<td align="left">`。</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

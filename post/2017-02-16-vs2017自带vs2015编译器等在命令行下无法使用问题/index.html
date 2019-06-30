@@ -1,0 +1,245 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> VS2017自带VS2015编译器等在命令行下无法使用问题 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>VS2017自带VS2015编译器等在命令行下无法使用问题</h1>
+          <span class="post-date">2017年02月16日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/02/16/6404475.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/02/16/6404475.html</a></p>
+
+<h2 id="1-起因">1、起因</h2>
+
+<p>早前把VS2015卸了，安装了VS2017。因为VS2017安装的时候可以选择安装VS2015编译套件，也就安装了。使用上一直没有什么问题，所以也没有注意到这个细节。
+后来使用cmake生成项目工程文件的时候，选择VS2015编译器，却提示找不到C编译器。</p>
+
+<pre><code class="language-shell">CMake Error at CMakeLists.txt:3 (project):
+  No CMAKE_CXX_COMPILER could be found.
+</code></pre>
+
+<h2 id="2-解决">2、解决</h2>
+
+<p>原本以为是环境变量没有设置好，查看了一下<code>VS140COMNTOOLS</code>的路径是对的。
+然后试着在<code>VS2015本机工具命令提示符</code>工具下试试<code>cmake</code>行不行。结果一打开VS2015本机工具命令提示符就提示让你安装<code>Visual Studio or C++ Build SKU</code></p>
+
+<pre><code class="language-bat">C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC&gt;vcvarsall.bat &quot;x86&quot; &quot;8.1&quot;
+Error in script usage. The correct usage is:
+    vcvarsall.bat [option]
+  or
+    vcvarsall.bat [option] store
+  or
+    vcvarsall.bat [option] [version number]
+  or
+    vcvarsall.bat [option] store [version number]
+where [option] is: x86 | amd64 | arm | x86_amd64 | x86_arm | amd64_x86 | amd64_arm
+where [version number] is either the full Windows 10 SDK version number or &quot;8.1&quot; to use the windows 8.1 SDK
+:
+The store parameter sets environment variables to support
+  store (rather than desktop) development.
+:
+For example:
+    vcvarsall.bat x86_amd64
+    vcvarsall.bat x86_arm store
+    vcvarsall.bat x86_amd64 10.0.10240.0
+    vcvarsall.bat x86_arm store 10.0.10240.0
+    vcvarsall.bat x64 8.1
+    vcvarsall.bat x64 store 8.1
+:
+Please make sure either Visual Studio or C++ Build SKU is installed.
+</code></pre>
+
+<p>问题看来就在这里，仔细查看了一下<code>C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\vcvarsall.bat</code>这个文件，发现了问题所在（见下面代码注释）。</p>
+
+<pre><code class="language-bat">@echo off
+
+REM VC command prompt depends on env. variable installed during VS. This causes VC command prompt to break for C++ Build SKU.
+REM So if VS is not installed and C++ Build SKU is installed, set appropriate environment for C++ Build SKU by calling into it's batch file.
+REM C++ Build SKU supports only desktop development environment.
+
+:: 上面是注释不用管，问题就出现在下面的两行
+:: 下面这一行检查devenv.exe这个文件，但是这里是没有的
+if exist &quot;%~dp0..\common7\IDE\devenv.exe&quot; goto setup_VS
+:: 检查到没有devenv.exe，也没有wdexpress.exe文件，就跳过去检查vs build tools了
+if not exist &quot;%~dp0..\common7\IDE\wdexpress.exe&quot; goto setup_buildsku
+
+:setup_VS
+if &quot;%1&quot; == &quot;&quot; goto x86
+if &quot;%2&quot; == &quot;&quot; goto check_platform
+echo &quot;1 is %1 2 is %2&quot;
+setlocal
+set _Argument2=%2
+if not &quot;%2&quot;==&quot;store&quot; if not &quot;%2&quot;==&quot;8.1&quot; if not &quot;%_Argument2:~0,3%&quot;==&quot;10.&quot;  goto usage
+endlocal
+
+.... 此处省略很多行
+
+:setup_buildsku
+if not exist &quot;%~dp0..\..\Microsoft Visual C++ Build Tools\vcbuildtools.bat&quot; goto usage
+set CurrentDir=%CD%
+call &quot;%~dp0..\..\Microsoft Visual C++ Build Tools\vcbuildtools.bat&quot; %1 %2
+cd /d %CurrentDir%
+goto :eof
+</code></pre>
+
+<p>这里解决的办法很简单，把多余的两行检查注释掉就行了。（可以拷贝了一份vcvarsall.bat，在副本里面进行修改）
+但是这样做只是在命令行下可以用了，<code>cmake</code>还是<code>No CMAKE_CXX_COMPILER</code>，检测不到编译器。
+查看了一下CMAKE安装目录下的<code>share\cmake-3.7\Modules\Compiler\MSVC-CXX.cmake</code>文件，也没有什么收获。
+但是可以通过直接指定编译器来使用，这是可以的。</p>
+
+<pre><code class="language-bat">cmake -DCMAKE_C_COMPILER=&quot;C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe&quot; -DCMAKE_CXX_COMPILER=&quot;C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/cl.exe&quot; .
+</code></pre>
+
+<p>在VS2017的安装目录下还有一份VS2015的编译环境。默认路径是<code>C:\Program Files (x86)\Microsoft Visual Studio\Shared\14.0\VC\bin</code></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

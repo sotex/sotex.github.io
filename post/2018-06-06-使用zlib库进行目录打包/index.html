@@ -1,0 +1,301 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 使用zlib库进行目录打包 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>使用zlib库进行目录打包</h1>
+          <span class="post-date">2018年06月06日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/06/06/9144776.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/06/06/9144776.html</a>
+代码很简单，具体过程就不写了。
+关于加密压缩，可以看<a href="http://www.zlib.net/zlib_faq.html#faq38">http://www.zlib.net/zlib_faq.html#faq38</a> 中的描述，说是不支持的，但是创建的时候可以传入密码进去，不过我还没有搞清楚这个密码要如何设置。</p>
+
+<p>压缩算法模式参数:
+      0 - 存储文件 (无压缩)
+      8 - 文件使用Deflated算法压缩
+      9 - 使用Deflate64&trade;压缩
+     10 - PKWARE数据压缩库
+     12 - 文件使用BZIP2算法压缩</p>
+
+<pre><code class="language-cpp">#include &quot;zlib.h&quot;
+#include &quot;zip.h&quot;
+#ifdef _WIN32
+#define USEWIN32IOAPI
+#include &quot;iowin32.h&quot;
+#endif
+
+#include &lt;QFile&gt;
+#include &lt;QDir&gt;
+#include &lt;QDateTime&gt;
+
+/*转换Qstring到utf8字符串*/
+inline std::string ToUtf8(const QString&amp; str)
+{
+    QByteArray u8 = str.toUtf8();
+    return std::string(u8.data(),u8.size());
+}
+
+
+QStringList FileListR(const QDir&amp; dir)
+{
+    QFileInfoList fileinfolist = dir.entryInfoList(
+                QDir::NoDotAndDotDot|QDir::Files|QDir::Dirs);
+    QStringList files;
+    for(int i=0;i&lt;fileinfolist.size();++i){
+        QFileInfo&amp; info = fileinfolist[i];
+        if(info.isDir()){
+            files.append(FileListR(QDir(info.filePath())));
+            continue;
+        }
+        files.append(info.filePath());
+    }
+    return files;
+}
+
+
+// zlib打包压缩测试
+void zlib_archive_compress(QString path,QString outpath)
+{
+    QDir dir(path);
+    QStringList entrylist = FileListR(dir);
+
+    int err = 0;
+    zipFile zipfile;
+
+#ifdef _WIN32
+    zlib_filefunc64_def ffunc64;
+    fill_win32_filefunc64W(&amp;ffunc64);
+    std::wstring wpath = outpath.toStdWString();
+
+    // APPEND_STATUS_CREATE              不存在就创建，存在就截断(清空)
+    // APPEND_STATUS_ADDINZIP            不存在打开失败，存在就追加(原本压缩包中的内容不清空)
+    // APPEND_STATUS_CREATEAFTER  不存在打开失败,存在就截断(清空)
+    zipfile = zipOpen2_64(wpath.c_str(),APPEND_STATUS_CREATE,NULL,&amp;ffunc64);
+#else
+    zipfile = zipOpen64(ToUtf8(path).c_str(),APPEND_STATUS_CREATE);
+#endif
+    if(zipfile == NULL){
+        qDebug()&lt;&lt;&quot;zipOpen64 error &quot; &lt;&lt; ZIP_ERRNO;
+        return;
+    }
+
+    // 逐个文件添加
+    for(int i=0;i&lt;entrylist.size();++i){
+        QFileInfo info(entrylist[i]);
+        QDateTime ctime = info.created();    // 获取文件创建时间
+        zip_fileinfo zipinfo;
+        zipinfo.tmz_date.tm_year = ctime.date().year();
+        zipinfo.tmz_date.tm_mon = ctime.date().month();
+        zipinfo.tmz_date.tm_mday = ctime.date().day();
+        zipinfo.tmz_date.tm_hour = ctime.time().hour();
+        zipinfo.tmz_date.tm_min = ctime.time().minute();
+        zipinfo.tmz_date.tm_sec = ctime.time().second();
+        zipinfo.dosDate = 0;
+        zipinfo.external_fa = zipinfo.internal_fa = 0;
+        
+        // 在zip包中打开一个新文件
+        err = zipOpenNewFileInZip3_64(
+                    zipfile,
+                    ToUtf8(info.filePath().remove(dir.path())).c_str(),/*在zip文件中的文件路径(我这里使用UTF8，可以根据需求自己抉择，文件名可以重复)*/
+                    &amp;zipinfo,
+                    NULL,0,NULL,0,NULL,
+                    Z_DEFLATED,Z_DEFAULT_COMPRESSION, /*压缩参数(默认参数)*/
+                    0,-MAX_WBITS,DEF_MEM_LEVEL,Z_DEFAULT_STRATEGY,
+                    NULL /*加密参数(不加密)*/ ,0 /*crc校验值*/,0 /*是否为zip64*/
+                    );
+       // 在zip包中添加新文件失败
+        if(err != ZIP_OK){
+            qDebug()&lt;&lt;QString::fromAscii(&quot;zipOpenNewFileInZip3_64 failed  &quot;)&lt;&lt;err;
+            zipCloseFileInZip(zipfile);
+           break;
+        }
+        QFile file(info.filePath());
+        if(!file.open(QIODevice::ReadOnly)){
+            qDebug()&lt;&lt;QString::fromAscii(&quot;OpenFile failed  &quot;)&lt;&lt;file.fileName();
+            zipCloseFileInZip(zipfile);
+            continue;
+        }
+        // 读取文件内容，写入zip包文件
+        qint64 filesize = file.size();
+        for(qint64 rbeg = 0;rbeg&lt;filesize;rbeg+=(4&lt;&lt;20)){
+            QByteArray buffer = file.read(4&lt;&lt;20);
+            err = zipWriteInFileInZip(zipfile,buffer.data(),buffer.size());
+            if(err &lt; 0){
+                qDebug()&lt;&lt;&quot;error : &quot;&lt;&lt;err;
+                break;
+            }
+        }
+        zipCloseFileInZip(zipfile);
+    }
+
+    err = zipClose(zipfile,NULL);
+    if(err &lt; 0){
+        qDebug()&lt;&lt;&quot;error : &quot;&lt;&lt;err;
+    }
+}
+
+
+
+int main(int argc, char *argv[])
+{
+    QTime time;
+    time.start();
+    zlib_archive_compress(
+                QString::fromLocal8Bit(&quot;Z:/Everything-SDK/src&quot;),
+                QString::fromLocal8Bit(&quot;Z:/Everything-SDK/srctest.zip&quot;));
+    int t = time.elapsed();
+    qDebug()&lt;&lt;t&lt;&lt;&quot; ms&quot;;
+    return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

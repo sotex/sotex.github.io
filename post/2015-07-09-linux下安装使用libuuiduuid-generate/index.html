@@ -1,0 +1,279 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下安装使用libuuid(uuid-generate) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下安装使用libuuid(uuid-generate)</h1>
+          <span class="post-date">2015年07月09日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/09/4633744.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/09/4633744.html</a>
+<h1 id="linuxlibuuiduuid-generate">linux下安装使用libuuid(uuid-generate)</h1>
+<div class="toc">
+<ul>
+<li><a href="#linuxlibuuiduuid-generate">linux下安装使用libuuid(uuid-generate)</a>
+<ul>
+<li><a href="#uuid">UUID简介</a></li>
+<li><a href="#libuuid">安装libuuid库</a></li>
+<li><a href="#_1">编写一个程序试一下</a>
+<ul>
+<li><a href="#_2">代码</a></li>
+<li><a href="#_3">编译运行</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="uuid">UUID简介</h2>
+<p>UUID含义是<code>通用唯一识别码</code>(Universally Unique Identifier)，这 是一个软件建构的标准，也是被开源软件基金会 (Open Software Foundation, OSF) 的组织应用在分布式计算环境 (Distributed Computing Environment, DCE) 领域的一部分。</p>
+<p>UUID是指在一台机器上生成的数字，它保证对在同一时空中的所有机器都是<code>唯一</code>的。通常平台会提供生成的API。按照开放软件基金会(OSF)制定的标准计算，用到了<code>以太网卡地址</code>、<code>纳秒级时间</code>、<code>芯片ID码</code>和许多可能的数字<br />
+UUID由以下几部分的组合：</p>
+<ol>
+<li>当前日期和时间，UUID的第一个部分与时间有关，如果你在生成一个UUID之后，过几秒又生成一个UUID，则第一个部分不同，其余相同。</li>
+<li>时钟序列。</li>
+<li>全局唯一的<code>IEEE</code>机器识别号，如果有网卡，从网卡<code>MAC</code>地址获得，没有网卡以其他方式获得。</li></p>
+
+<p></ol>
+<p>UUID的唯一缺陷在于生成的结果串会比较长。关于UUID这个标准使用最普遍的是<code>微软的GUID</code>(Globals Unique Identifiers)。在ColdFusion中可以用<code>CreateUUID()</code>函数很简单地生成UUID，其格式为：<code>xxxxxxxx-xxxx- xxxx-xxxxxxxxxxxxxxxx(8-4-4-16)</code>，其中每个<code>x</code>是<code>0-9  a-f</code> 范围内的一个十六进制的数字。而标准的UUID格式为：<code>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx (8-4-4-4-12)</code></p>
+<p><strong>在linux下生成<code>UUID</code>可以使用<code>libuuid</code>的<code>uuid-generate</code>函数</strong></p>
+<h2 id="libuuid">安装<code>libuuid</code>库</h2>
+<p><code>libuuid</code>是一个跨平台的开源的<code>uuid</code>操作库。一般的机器上默认是没有，先安装一下。</p>
+<pre><code class="bash">sudo apt-get install uuid-dev
+</code></pre>
+<p>也可以下载源码来安装，下载地址<a href="http://nchc.dl.sourceforge.net/project/libuuid/libuuid-1.0.3.tar.gz">http://nchc.dl.sourceforge.net/project/libuuid/libuuid-1.0.3.tar.gz</a></p>
+<p>安装之后可以使用<code>man uuid_generate</code>来查看一下使用方法<br />
+这里先说一下<code>uuid_t</code>这个类型。可以找到<code>uuid.h</code>这个头文件，里面有一行<code>typedef unsigned char uuid_t[16];</code><code class="c">
+</code></p>
+<div class="cnblogs_code">
+<pre>#include &lt;uuid.h&gt;
+    <span style="color: #0000ff;">void</span> uuid_generate(uuid_t <span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #0000ff;">void</span> uuid_generate_random(uuid_t <span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #0000ff;">void</span> uuid_generate_time(uuid_t <span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #0000ff;">int</span> uuid_generate_time_safe(uuid_t <span style="color: #0000ff;">out</span>);</pre>
+</div>
+<p>&nbsp;</p>
+<p>还有一些别的函数，也在这里列出来。看函数名就指定这些函数的意思了，就不多解释。不明白之处找<code>manpages</code>。<code class="c">
+</code></p>
+<div class="cnblogs_code">
+<pre>#include &lt;uuid.h&gt;
+    <span style="color: #008000;">//</span><span style="color: #008000;">比较两个uuid</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> uuid_compare(uuid_t uu1, uuid_t uu2)
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">拷贝src到dst</span>
+    <span style="color: #0000ff;">void</span><span style="color: #000000;"> uuid_copy(uuid_t dst, uuid_t src);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">清除uu内容(清零)</span>
+    <span style="color: #0000ff;">void</span><span style="color: #000000;"> uuid_clear(uuid_t uu);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">判读uu是否为null</span>
+    <span style="color: #0000ff;">int</span><span style="color: #000000;"> uuid_is_null(uuid_t uu);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">解析in指向的字符串形式内容到uu</span>
+    <span style="color: #0000ff;">int</span> uuid_parse( <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">in</span><span style="color: #000000;">, uuid_t uu);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">将uu内容解析为字符串，保存到out数组</span>
+    <span style="color: #0000ff;">void</span> uuid_unparse(uuid_t uu, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #0000ff;">void</span> uuid_unparse_upper(uuid_t uu, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #0000ff;">void</span> uuid_unparse_lower(uuid_t uu, <span style="color: #0000ff;">char</span> *<span style="color: #0000ff;">out</span><span style="color: #000000;">);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">将基于时间创建的uu在的时间部分解析出来</span>
+    time_t uuid_time(uuid_t uu, <span style="color: #0000ff;">struct</span> timeval *ret_tv)</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_1">编写一个程序试一下</h2>
+<h3 id="_2">代码<code class="c">
+</code></h3>
+<div class="cnblogs_code">
+<pre>#include &lt;stdio.h&gt;<span style="color: #000000;">
+#include </span>&lt;uuid/uuid.h&gt;</p>
+
+<p><span style="color: #008000;">//</span><span style="color: #008000;"> gcc uuid.c -luuid -o uuid</span></p>
+
+<p><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    </span><span style="color: #0000ff;">int</span><span style="color: #000000;"> i,n;
+    uuid_t uu[</span><span style="color: #800080;">4</span><span style="color: #000000;">];
+    </span><span style="color: #0000ff;">char</span> buf[<span style="color: #800080;">1024</span><span style="color: #000000;">];
+    </span><span style="color: #0000ff;">struct</span><span style="color: #000000;"> timeval tv;
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">1、</span>
+    uuid_generate(uu[<span style="color: #800080;">0</span><span style="color: #000000;">]);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">2、</span>
+    uuid_generate_random(uu[<span style="color: #800080;">1</span><span style="color: #000000;">]);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">3、</span>
+    uuid_generate_time(uu[<span style="color: #800080;">2</span><span style="color: #000000;">]);
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">4、</span>
+    n = uuid_generate_time_safe(uu[<span style="color: #800080;">3</span><span style="color: #000000;">]);
+    printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">n = %d\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,n);
+    </span><span style="color: #0000ff;">for</span>(i=<span style="color: #800080;">0</span>;i&lt;<span style="color: #800080;">4</span>;++<span style="color: #000000;">i){
+        uuid_unparse(uu[i],buf);
+        printf(</span><span style="color: #800000;">&ldquo;</span><span style="color: #800000;">uu[%d]\t\t%s\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;">,i,buf);
+    }</p>
+
+<pre><code>uuid_time(uu[&lt;/span&gt;&lt;span style=&quot;color: #800080;&quot;&gt;2&lt;/span&gt;],&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;tv);
+printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;tv s:%lx  u:%lx\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,tv.tv_sec,tv.tv_usec);
+
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+</code></pre>
+
+<p>}</span></pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="_3">编译运行<code class="bash">
+</code></h3>
+<div class="cnblogs_code">
+<pre>o@o-pc:~$ gcc uuid.c  -<span style="color: #000000;">luuid
+o@o</span>-pc:~$ ./a.<span style="color: #0000ff;">out</span><span style="color: #000000;">
+n </span>= <span style="color: #800080;">0</span><span style="color: #000000;">
+uu[</span><span style="color: #800080;">0</span>]       0867a44e-b481-4fde-9b3c-<span style="color: #000000;">1767b60702b6
+uu[</span><span style="color: #800080;">1</span>]       3f39e123-288b-4cf1-adf2-<span style="color: #000000;">77fb763530df
+uu[</span><span style="color: #800080;">2</span>]       b071a71e-261a-11e5-<span style="color: #800080;">8513</span>-<span style="color: #000000;">28d24473abc3
+uu[</span><span style="color: #800080;">3</span>]       b071a71f-261a-11e5-<span style="color: #800080;">8513</span>-<span style="color: #000000;">28d24473abc3
+tv s:559e3b19  u:</span><span style="color: #800080;">90543</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,201 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> OpenGL官方教程——着色器语言概述 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>OpenGL官方教程——着色器语言概述</h1>
+          <span class="post-date">2016年01月26日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/01/26/5159378.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/01/26/5159378.html</a>
+<h1 id="opengl">OpenGL官方教程&mdash;&mdash;着色器语言概述</h1>
+<div class="toc">
+<ul>
+<li><a href="#opengl">OpenGL官方教程&mdash;&mdash;着色器语言概述</a>
+<ul>
+<li><a href="#_1">可编程图形硬件管线(流水线)</a></li>
+<li><a href="#_2">可编程顶点处理器</a></li>
+<li><a href="#_3">可编程几何处理器</a></li>
+<li><a href="#_4">可编程片元处理器</a></li>
+<li><a href="#_5">语言</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="_1">可编程图形硬件管线(流水线)</h2>
+<pre><code>将       Pertransformed Vertices (每一个待转换顶点)
+传人  Programmable Vertex Processor (可编程的顶点处理器)
+得到      Transformed Vertices (转换的顶点)
+将       Transformed Vertices (转换的顶点)
+传入  Programmable Geometry Processor (可编程的几何处理器)
+得到      Assenbled Polygons,Lines,or Points (组装 多边形、线或点)
+进行  Clipping,Rasterization and Interpolation (裁剪，光栅化和插值)
+得到      Rasterized Pertransformed Fragments (光栅化待转换的片元[片段])
+传入  Programmable Fragment Processor (可编程的片元处理器)
+得到      Transformed Ftagment (转换的片元)
+进行  Raster Operations   (光栅运算)
+进行      Pixel Update    (像素更新)
+传入  Frame Buffer    (帧缓冲区)
+</code></pre>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201601/693958-20160126094643035-872784335.png" alt="" /></p>
+<h2 id="_2">可编程顶点处理器</h2>
+<p>顶点处理器是一个可编程的单元，该单元对传入的顶点属性，如位置、颜色、纹理坐标等进行操作。顶点处理器的目的是执行传统的图形操作，如顶点变换，法线变换/归一化，纹理坐标的生成，和纹理坐标变换。</p>
+<p>顶点处理器只有一个顶点作为输入，只写一个顶点作为输出。顶点的拓扑信息是不可用的。</p>
+<h2 id="_3">可编程几何处理器</h2>
+<p>几何处理器允许访问几何形状（线、三角形、四边形等），它甚至可以创建新的几何形状。然而，几何着色器并不是OpenGL着色器语言规范的一部分。这是一个多厂商的扩展(multivendor extension)，目前可用的(开发商)显卡是NVIDIA GeForce 8系列显卡。因为这是OpenGL着色器语言中非常重要的一个扩展，所以在这个教程提到它。（如果你不想或不能使用几何着色器，简单的忽略它，使用固定功能管线来做）</p>
+<h2 id="_4">可编程片元处理器</h2>
+<p>片元(片段)处理器的目的是用于执行一些传统的图形操作。例如计算插值、纹理访问、纹理应用、雾化、颜色求和等。</p>
+<h2 id="_5">语言</h2>
+<p>OpenGL着色器语言有点类似于C语言。顶点着色器、几何着色器和片元(片段)着色器都必须有一个入口函数<code>&ldquo;void main()&rdquo;</code>。</p>
+<p>我可以在这里写一个完整的语言规范，但我认为，更好的方法是看学习示例。在下一节中介绍了一个简单的着色源代码。每一段都有一个简单的源代码下载。下载那些例子和修改它是学习GLSL的一个很好的方式，你自己进行实践！</p>
+<p>你也应该下载官方GLSL语言规范。你可以<a href="https://www.opengl.org/registry/">点击这里获取</a>（在&rdquo;Miscellaneous Documents&rdquo;下面）。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

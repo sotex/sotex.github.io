@@ -1,0 +1,315 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> git rebase修改历史提交内容 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>git rebase修改历史提交内容</h1>
+          <span class="post-date">2018年09月29日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/09/29/9723783.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/09/29/9723783.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p>git提交历史中有一次提交的内容是有问题，因为每隔一段时间就要发一次版本，所以必须修改这次提交的内容，以便其不影响已经发布的版本。
+大概是这样子的</p>
+
+<pre><code>      A --- B ---- C ---- D ---- E  ----- F ------
+                  |        \              \
+                 有问题      \-----发布      \---- 发布
+</code></pre>
+
+<p>所以这里需要修改C这次提交的内容。</p>
+
+<h2 id="解决过程">解决过程</h2>
+
+<p>相关的操作可以参考<a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2">7.6 Git 工具 - 重写历史</a>
+这里我创建了一个新的仓库，用来描述解决这个问题的过程。</p>
+
+<p><strong>1、先看一下提交记录</strong></p>
+
+<pre><code class="language-bash">$ git log
+commit aa3f6b723abf030b1692f9b573092ec782600d91
+Author: solym &lt;solym@sohu.com&gt;
+Date:   Sat Sep 29 14:34:36 2018 +0800
+
+    第三次提交
+
+commit e186c75c5431a6eb683d4640ac30c4b8900ba0c1
+Author: solym &lt;solym@sohu.com&gt;
+Date:   Sat Sep 29 14:34:11 2018 +0800
+
+    第二次提交
+
+commit ebcd3120d30c52125593601f296607c5dcc520a3
+Author: solym &lt;solym@sohu.com&gt;
+Date:   Sat Sep 29 14:33:48 2018 +0800
+
+    第一次提交
+</code></pre>
+
+<p>这里假设是<code>第二次提交</code>的内容有问题，所以需要会到<code>e186c75c5431a6eb683d4640ac30c4b8900ba0c1</code>这个提交记录<strong>之前一次</strong>提交的位置来解决这个问题。</p>
+
+<p><strong>2、先将当前的修改用stash存储一下，后面解决完之后再释放出来</strong></p>
+
+<pre><code class="language-bash">$ git stash
+Saved working directory and index state WIP on master: aa3f6b7 第三次提交
+HEAD is now at aa3f6b7 第三次提交
+</code></pre>
+
+<p><strong>3、将 HEAD 通过rebase回退到有问题的位置前</strong></p>
+
+<pre><code class="language-bash"> git rebase e186c75c5431a6eb683d4640ac30c4b8900ba0c1^ --interactive
+warning: stopped at e186c75... 第二次提交
+You can amend the commit now, with
+
+  git commit --amend
+
+Once you are satisfied with your changes, run
+
+  git rebase --continue
+</code></pre>
+
+<p><strong>4、在出来的编辑界面，将有问题的提交前的<code>pick</code>改为<code>edit</code>，然后保存退出</strong></p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201809/693958-20180929150557120-774661110.jpg" alt="" /></p>
+
+<pre><code>#  p, pick = use commit  使用提交(即保留它，不做修改)
+#  r, reword = use commit, but edit the commit message 使用提交，但编辑提交的日志消息
+#  e, edit = use commit, but stop for amending 使用提交，但停下来修改（就是要修改提交的内容）
+#  s, squash = use commit, but meld into previous commit 使用提交，但融入此前的提交（就是与在此之前一个提交合并）
+#  f, fixup = like &quot;squash&quot;, but discard this commit's log message 类似于squash，但是丢弃此提交的日志消息
+#  x, exec = run command (the rest of the line) using shell 运行shell命令
+# d,drop = remove commit 删除提交
+</code></pre>
+
+<p><strong>5、修改有问题的文件，解决后重新提交。注意提交使用的参数是<code>--amend</code></strong></p>
+
+<pre><code class="language-bash">$ vim A.cpp
+$ git add A.cpp
+$ git commit --amend
+[detached HEAD 8b4daa5] 第二次提交
+ Date: Sat Sep 29 14:34:11 2018 +0800
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+ create mode 100644 B.cpp
+</code></pre>
+
+<p><strong>6、使用<code>git rebase --continue</code>逐步前进到最新的提交位置。</strong></p>
+
+<pre><code class="language-bash">$ git rebase --continue
+error: could not apply aa3f6b7... 第三次提交
+
+When you have resolved this problem, run &quot;git rebase --continue&quot;.
+If you prefer to skip this patch, run &quot;git rebase --skip&quot; instead.
+To check out the original branch and stop rebasing, run &quot;git rebase --abort&quot;.
+
+Could not apply aa3f6b7... 第三次提交
+Auto-merging A.cpp
+CONFLICT (content): Merge conflict in A.cpp
+</code></pre>
+
+<p>上面执行后因为有两处都有修改，需要解决冲突。</p>
+
+<pre><code class="language-bash">$ git status
+interactive rebase in progress; onto ebcd312
+Last commands done (2 commands done):
+   edit e186c75 第二次提交
+   pick aa3f6b7 第三次提交
+No commands remaining.
+You are currently rebasing branch 'master' on 'ebcd312'.
+  (fix conflicts and then run &quot;git rebase --continue&quot;)
+  (use &quot;git rebase --skip&quot; to skip this patch)
+  (use &quot;git rebase --abort&quot; to check out the original branch)
+
+Unmerged paths:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+  (use &quot;git add &lt;file&gt;...&quot; to mark resolution)
+
+        both modified:   A.cpp
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+</code></pre>
+
+<p>修改后再次提交即可</p>
+
+<pre><code class="language-bash">$ vim A.cpp
+$ git add A.cpp
+$ git commit -a
+[detached HEAD 8070ac2] 第三次提交
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+</code></pre>
+
+<p>然后重新执行</p>
+
+<pre><code>$ git rebase --continue
+Successfully rebased and updated refs/heads/master.
+</code></pre>
+
+<p>如果还有冲突，则重复执行上面两步骤。</p>
+
+<p><strong>7、最后将stash存储的内容释放出来，继续工作</strong></p>
+
+<pre><code class="language-bash">$ git stash pop
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   B.cpp
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)
+Dropped refs/stash@{0} (fc32de3118386c30047df86670371c8ab049e0e0)
+
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

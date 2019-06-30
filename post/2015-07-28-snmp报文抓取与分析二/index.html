@@ -1,0 +1,759 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> SNMP报文抓取与分析(二) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>SNMP报文抓取与分析(二)</h1>
+          <span class="post-date">2015年07月28日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/07/28/4682502.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/07/28/4682502.html</a>
+<h1 id="snmp">SNMP报文抓取与分析(二)</h1>
+<div class="toc">
+<ul>
+<li><a href="#snmp">SNMP报文抓取与分析(二)</a></li>
+<li><a href="#1snmp">1、SNMP报文表示简介</a>
+<ul>
+<li><a href="#ber">基本编码规则BER</a>
+<ul>
+<li><a href="#tag">标识域Tag表示</a></li>
+<li><a href="#length">长度域length表示</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2snmpget-response">2、SNMP报文详细分析(以一个get-response报文为例)</a>
+<ul>
+<li><a href="#21get-response">2.1、数据包分析结果(以get-response为例)</a>
+<ul>
+<li><a href="#get-responsebhex">get-response报文示例分析(b.hex)</a></li>
+</ul>
+</li>
+<li><a href="#21snmp">2.1、SNMP首部</a></li>
+<li><a href="#23snmp">2.3、SNMP版本表示</a></li>
+<li><a href="#24community">2.4、Community共同体表示</a></li>
+</ul>
+</li>
+<li><a href="#3pud">3、PUD表示</a>
+<ul>
+<li><a href="#pdu">PDU类型表示</a></li>
+<li><a href="#getset">get/set的表示</a>
+<ul>
+<li><a href="#request-id">请求标识符Request ID</a></li>
+<li><a href="#error-state">错误状态error-state</a></li>
+<li><a href="#error-index">错误索引error-index</a></li>
+<li><a href="#_1">变量绑定</a></li>
+</ul>
+</li>
+<li><a href="#trapnotification">trap(notification)</a></li>
+<li><a href="#_2">一些数据类型的编码表示</a>
+<ul>
+<li><a href="#integer">Integer整型编码表示</a></li>
+<li><a href="#oid">OID对象标识符编码表示</a></li>
+<li><a href="#sequence">sequence组合类型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>在上一篇文章<a href="http://www.cnblogs.com/oloroso/p/4671184.html">(SNMP报文抓取与分析(一))</a>中已经介绍了怎么使用<code>netcat</code>来抓取数据包了。也给出了对数据包分析的结果。本篇文章将介绍具体的分析过程。</p>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h1 id="1snmp">1、SNMP报文表示简介</h1>
+<p>SNMP(简单网络管理协议)是目前在计算机网络中用得最广泛的网络管理协议,它使用<code>ASN.1</code>(Abstract Syntax Notation One抽象语法表示法.1)来定义SNMP报文格式和MIB(Management Information Base管理信息库)变量的名称。</p>
+<p>ASN.1是一种<code>描述数据和数据特征</code>的正式语言,它和数据的存储及编码无关。<br />
+根据ASN.1标准定义,数据类型分为:<br />
+简单数据类型: <code>boolean</code>布尔值、<code>null</code>空、<code>integer</code>整型、<code>real</code>实数、<code>octerstring</code>八进制字符串、<code>object identifier</code>对象标识、<code>ipaddress</code>IP地址、<code>time ticks</code>时刻值等。<br />
+构造数据类型:<code>sequence</code>序列、<code>sequence of set</code>、<code>set ofchoice</code>等。构造数据类型提供一种或多种简单数据类型进行复合的方法。</p>
+<h3 id="ber">基本编码规则BER</h3>
+<p>在具体系统中,我们需要用具体的编码规则将<code>ASN.1</code>语法表示的抽象数据转换成具体的<code>比特流</code>。</p>
+<p>SNMP使用的编码方法是<code>BER(Basic Encoding Rule)</code>。BER的数据都由三个域构成:标识域(<code>tag</code>)+长度域(<code>length</code>)+值域(<code>value</code>)。</p>
+<h4 id="tag">标识域Tag表示</h4>
+<table>
+<thead>
+<tr><th>数据类型</th><th align="center">编码十六进制表示</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td>BOOL</td>
+<td align="center">0x01</td></p>
+
+<p></tr>
+<tr>
+<td>INT</td>
+<td align="center">0x02</td></p>
+
+<p></tr>
+<tr>
+<td>OCTSTR</td>
+<td align="center">0x04</td></p>
+
+<p></tr>
+<tr>
+<td>NULL</td>
+<td align="center">0x05</td></p>
+
+<p></tr>
+<tr>
+<td>OBJID</td>
+<td align="center">0x06</td></p>
+
+<p></tr>
+<tr>
+<td>ENUM</td>
+<td align="center">0x0A</td></p>
+
+<p></tr>
+<tr>
+<td>SEQ</td>
+<td align="center">0x30</td></p>
+
+<p></tr>
+<tr>
+<td>SETOF</td>
+<td align="center">0x31</td></p>
+
+<p></tr>
+<tr>
+<td>IPADDR</td>
+<td align="center">0x40</td></p>
+
+<p></tr>
+<tr>
+<td>COUNTER</td>
+<td align="center">0x41</td></p>
+
+<p></tr>
+<tr>
+<td>GAUGE</td>
+<td align="center">0x42</td></p>
+
+<p></tr>
+<tr>
+<td>TIMETICKS</td>
+<td align="center">0x43</td></p>
+
+<p></tr>
+<tr>
+<td>OPAQUE</td>
+<td align="center">0x44</td></p>
+
+<p></tr>
+<tr>
+<td>GET</td>
+<td align="center">0xA0</td></p>
+
+<p></tr>
+<tr>
+<td>GETNEXT</td>
+<td align="center">0xA1</td></p>
+
+<p></tr>
+<tr>
+<td>GETResp</td>
+<td align="center">0xA2</td></p>
+
+<p></tr>
+<tr>
+<td>SET</td>
+<td align="center">0xA3</td></p>
+
+<p></tr>
+<tr>
+<td>TRAP</td>
+<td align="center">0xA4</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h4 id="length">长度域length表示</h4>
+<p>长度域用于指示后续的<code>值域value</code>的字节数。但是这个长度域自身多长怎么确定呢？SNMP使用的是变长表示法，这有点类似与<code>UTF8</code>的编码方式。具体表示方法如下：<br />
+1、如果值域的长度在<code>0</code>到<code>127</code>字节之间，那么就是一个字节来表示，即第一个<code>最高位为0</code>的时候，其值就代表了值域的长度。<br />
+2、如果值域的长度在<code>127</code>字节以上，那么第一个字节的<code>第一个bit位</code>(为1)就用于指示值域的长度在<code>127</code>字节以上，<code>后7个bit位</code>(实际值)以及后续用于表示值域长度的字节数。<br />
+例如：</p>
+<table>
+<thead>
+<tr><th align="left">值域长度(十进制)</th><th>编码表示(十六进制)</th><th>解释</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">16</td>
+<td>0x10</td>
+<td>在<code>0</code>到<code>127</code>之间，直接表示</td></p>
+
+<p></tr>
+<tr>
+<td align="left">160</td>
+<td>0x81  0xA0</td>
+<td><code>0x81</code>的二进制为<code>1000 0001</code>第一位表示其超过<code>127</code>，低7位表示后续还有一个字节来表示值域字节数。<code>0xA0</code>表示值域的长度为160个字节。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">1500</td>
+<td>0x82 0x05 0xDC</td>
+<td>第一个字节<code>0x82</code>表示后续还有两个字节表示值域长度，<code>0x05DC</code>的十进制值为<code>1500</code></td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<p>因为绝大部分情况下，值域的长度都在<code>【0,127】</code>区间内，所有这种表示方法最节约。</p>
+<h1 id="2snmpget-response">2、SNMP报文详细分析(以一个<code>get-response</code>报文为例)</h1>
+<p>先来看看报文数据</p>
+<h3 id="21get-response">2.1、数据包分析结果(以get-response为例)</h3>
+<p>先使用<code>hexdump</code>来查看一下获取到的报文内容。（hexdump是一个很好用的十六进制分析工具）</p>
+<pre><code>o@o-pc:~/snmpPUD$ hexdump -C b.hex
+00000000  30 30 02 01 01 04 06 70  75 62 6c 69 63 a2 23 02  |00&hellip;..public.#.|
+00000010  04 22 70 8b d4 02 01 00  02 01 00 30 15 30 13 06  |.&ldquo;p&hellip;&hellip;..0.0..|
+00000020  0e 2b 06 01 04 01 8c a6  5e 01 01 01 01 01 00 02  |.+&hellip;&hellip;^&hellip;&hellip;.|
+00000030  01 2b                                             |.+|
+00000032
+</code></pre>
+<h4 id="get-responsebhex"><code>get-response</code>报文示例分析(b.hex)</h4>
+<table>
+<thead>
+<tr><th align="left">十六进制数据</th><th align="left">解释</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">30</td>
+<td align="left">表示SNMP协议报文(整个报文是一个SEQUENCE)</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left">消息长度48字节(表示后面还有44个字节的内容)</td>
+</tr>
+<tr>
+<td align="left">02 01 01</td>
+<td align="left">协议版本(2c)(前两个字节02 01 表示INTEGER类型)</td>
+</tr>
+<tr>
+<td align="left">04</td>
+<td align="left">参数类型(OCTSTR)</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">群体(community)名长度</td>
+</tr>
+<tr>
+<td align="left">70 75 62 6c 69 63</td>
+<td align="left">群体名public的assic码值</td>
+</tr>
+<tr>
+<td align="left">a2</td>
+<td align="left">PUD类型get-response</td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left">snmp pdu的长度为35个OctStr(后面的内容31字节)</td>
+</tr>
+<tr>
+<td align="left">02 04 22 70 8b d4</td>
+<td align="left">请求标识符Request ID</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-state为0</td>
+</tr>
+<tr>
+<td align="left">02 01 00</td>
+<td align="left">表示error-index为0</td>
+</tr>
+<tr>
+<td align="left">30 11</td>
+<td align="left">表示后面变量绑定是SEQUENCE类型17个字节长度</td>
+</tr>
+<tr>
+<td align="left">30 0f</td>
+<td align="left">表示(变量名1变量值1)是SEQUENCE类型15个字节长度</td>
+</tr>
+<tr>
+<td align="left">06</td>
+<td align="left">表示该字段是OID类型</td>
+</tr>
+<tr>
+<td align="left">0b</td>
+<td align="left">OID长度11字节</td>
+</tr>
+<tr>
+<td align="left">2b 06 01 04 01</td>
+<td align="left">1.3.6.1.4.1(标识1.3被合并为2B)</td>
+</tr>
+<tr>
+<td align="left">8c a6 5e</td>
+<td align="left">201566 (这也是根据规则转换得到的)</td>
+</tr>
+<tr>
+<td align="left">01 01 01</td>
+<td align="left">1.1.1</td>
+</tr>
+<tr>
+<td align="left">00</td>
+<td align="left">表示.0 即第一个实例&lt;/td&gt;
+</tr>
+<tr>
+<td align="left">&nbsp;</td>
+<td align="left">(下面的值实际是节点1.3.6.1.4.1.201566.1.1.1.0的)</td>
+</tr>
+<tr>
+<td align="left">02 01 2b</td>
+<td align="left">02 01 表示INTEGER类型，2b表示值(43)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="21snmp">2.1、SNMP首部</h3>
+<p>SNMP报文的首部指明了这个报文是SNMP协议报文，以及报文的字节数。<br />
+SNMP报文的第一个字节用于表示这是一个SNMP报文，就是<code>0x30</code>。<br />
+在第一个字节之后是一个长度域，用于告知后面的SNMP报文的总字节数(不包括前面的<code>0x30</code>和这个长度域所占的字节数)。如下所示</p>
+<table>
+<thead>
+<tr><th>0x30</th><th>length</th><th>后面的内容，字节数为length&hellip;.</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td>标识域</td>
+<td>长度域</td>
+<td>值域</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<p>-<br />
+这就是BER编码规则出来的<code>Byte</code>流数据。</p>
+<h2 id="23snmp">2.3、SNMP版本表示</h2>
+<p>上述值域部分，前三个字节是SNMP版本的内容。<code>0x02,0x01,0x01</code><br />
+<code>0x02</code>是标识域，表示的是值域类型为<code>Integer</code><br />
+<code>0x01</code>是长度域，表示后续值域的长度为1个字节<br />
+<code>0x01</code>是值域，表示版本为<code>SNMP v2c</code>。</p>
+<table>
+<thead>
+<tr><th>SNMP版本</th><th>编码(十六进制)</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td>V1</td>
+<td>0x00</td></p>
+
+<p></tr>
+<tr>
+<td>V2C</td>
+<td>0x01</td></p>
+
+<p></tr>
+<tr>
+<td>V3</td>
+<td>0x02</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h2 id="24community">2.4、Community共同体表示</h2>
+<p>还是以之前的数据包来做分析，共同体部分这里一共占了8个字节。<code>0x04,0x06,0x70,0x75,0x62,0x6c,0x69,0x63</code><br />
+<code>0x04</code>是标识域，表示值域类型为(OCTSTR)<br />
+<code>0x06</code>是长度域，表示值域的长度为6个字节 <br />
+<code>70 75 62 6c 69 63</code>是值域的内容，是群体名<code>public</code>的assic码值</p>
+<h1 id="3pud">3、PUD表示</h1>
+<p>这个部分内容比较多，但都是基于BER形式编码出来的。就不详细分析了。<br />
+先把这一部分的内容贴出来<br />
+<code>a2 23 02 04 22 70 8b d4 02 01 00  02 01 00 30 15 30 13 06 0e 2b 06 01 04 01 8c a6  5e 01 01 01 01 01 00 02 01 2b</code></p>
+<h3 id="pdu">PDU类型表示</h3>
+<p>上面的第一个字节<code>0xa2</code>就是表示这个PDU的类型。见下表</p>
+<table>
+<thead>
+<tr><th align="center">PDU类型编码</th><th align="left">名称</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">0xA0</td>
+<td align="left">get-request</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA1</td>
+<td align="left">get-next-request</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA2</td>
+<td align="left">get-response</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA3</td>
+<td align="left">set-request</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA4</td>
+<td align="left">trap(notification)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA5</td>
+<td align="left"><span style="font-size: 14px;"><span style="color: #ff0000;">GetBulk(SNMPv2增加)</span></span></td></p>
+
+<p></tr>
+<tr>
+<td align="center">0xA6</td>
+<td align="left"><span style="font-size: 14px;"><span style="color: #ff0000;"><span style="font-size: 18px;"><span style="color: #ff0000;">Inform</span></span>(SNMPv2增加)</span></span></td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<p><code>0xa2</code>后一个字节是这个PUD的长度域，<code>0x23</code>表示后面的值域是<code>35</code>个字节。</p>
+<h3 id="getset">get/set的表示</h3>
+<p>SNMP应该说是有三种操作，<code>get/set/trap</code>，又可细分为上面表格中的5中<code>PDU</code>类型。其中<code>get</code>和<code>set</code>有共同之处，这里先以<code>get</code>的来做说明。</p>
+<h4 id="request-id">请求标识符Request ID</h4>
+<p>这是由<code>管理进程</code>设置的一个整数值。代理进程在发送<code>get-respons</code>e报文时也要返回此请求标识符。管理进程可<code>同时</code>向许多代理发出<code>get</code>报文，这些报文都使用<code>UDP</code>传送，先发送的有可能后到达。设置了请求标识符可<code>使管理进程</code>能够<code>识别</code>返回的响应报文对于哪一个请求报文</p>
+<p>先贴数据<code>02 04 22 70 8b d4</code><br />
+<code>0x02</code>是标识域，表示值域为整型数据<br />
+<code>0x04</code>是长度域，表示值域长度为4个字节<br />
+<code>0x22 70 8b d4</code>是值域，就是一个整数而已。(577801172)</p>
+<h4 id="error-state">错误状态error-state</h4>
+<p>错误状态是用于告知管理进程，代理进程对其发出的请求的处理结果的状态的。</p>
+<p>还是贴数据<code>02 01 00</code><br />
+<code>0x02</code>是标识域，表示值域为整型数据<br />
+<code>0x01</code>是长度域，表示值域长度为1个字节<br />
+<code>0x00</code>是值域，表示没有出错<br />
+错误状态的编码如下表所示</p>
+<table>
+<thead>
+<tr><th align="center">编码</th><th align="left">名字</th><th align="left">说明</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="left">noError</td>
+<td align="left">一切正常</td></p>
+
+<p></tr>
+<tr>
+<td align="center">1</td>
+<td align="left">tooBig</td>
+<td align="left">代理无法将回答装入到一个SNMP报文之中</td></p>
+
+<p></tr>
+<tr>
+<td align="center">2</td>
+<td align="left">noSuchName</td>
+<td align="left">操作指明了一个不存在的变量</td></p>
+
+<p></tr>
+<tr>
+<td align="center">3</td>
+<td align="left">badValue</td>
+<td align="left">一个set操作指明了一个无效值或无效语法</td></p>
+
+<p></tr>
+<tr>
+<td align="center">4</td>
+<td align="left">readOnly</td>
+<td align="left">管理进程试图修改一个只读变量</td></p>
+
+<p></tr>
+<tr>
+<td align="center">5</td>
+<td align="left">genErr</td>
+<td align="left">某些其他的差错</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h4 id="error-index">错误索引error-index</h4>
+<p>当出现<code>noSuchName</code>、<code>badValue</code>或<code>readOnly</code>的差错时(见上表)，由代理进程在回答时设置的一个<code>整数</code>，它指明有差错的变量在<code>变量列表</code>中的偏移。</p>
+<p>贴数据<code>02 01 00</code><br />
+<code>0x02</code>是标识域，表示值域为整型数据<br />
+<code>0x01</code>是长度域，表示值域长度为1个字节<br />
+<code>0x00</code>是值域，因为没有出错，所以这里为0</p>
+<h4 id="_1">变量绑定</h4>
+<p>变量绑定就是跟在错误索引后面的一系列变量。这些变量同样也采取<code>BER</code>形式的编码规则。<br />
+在get或get-next报文中，变量的值应忽略。</p>
+<h3 id="trapnotification">trap(notification)</h3>
+<p>PUD的类型如果不是上面的所述的<code>get/set</code>那就应该是<code>trap(notification)</code>类型了。这里没有抓取相关的数据包，只是简单的介绍一下。</p>
+<p>trap部分的编码字节流大致如下分布形式</p>
+<table>
+<thead>
+<tr><th>OID</th><th>trap类型</th><th>特定代码</th><th>时间戳</th><th>变量绑定&hellip;</th>
+</tr></p>
+
+<p></thead></p>
+
+<p></table>
+<p>-</p>
+<ul>
+<li>1、第一个部分是指trap报文对应的网络设备的对象标识符。此对象标识符肯定是在enterprise结点{1.3.6.1.4.1}下面的一棵子树上。</li>
+<li>
+<p>2、trap类型<br />
+    此字段正式的名称是generic-trap，共分为下表中的7种。</p>
+<table>
+<thead>
+<tr><th align="center">trap类型</th><th align="left">名字</th><th align="left">说明</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">0</td>
+<td align="left">coldStart</td>
+<td align="left">代理进行了初始化</td></p>
+
+<p></tr>
+<tr>
+<td align="center">1</td>
+<td align="left">warmStart</td>
+<td align="left">代理进行了重新初始化</td></p>
+
+<p></tr>
+<tr>
+<td align="center">2</td>
+<td align="left">linkDown</td>
+<td align="left">一个接口从工作状态变为故障状态</td></p>
+
+<p></tr>
+<tr>
+<td align="center">3</td>
+<td align="left">linkUp</td>
+<td align="left">一个接口从故障状态变为工作状态</td></p>
+
+<p></tr>
+<tr>
+<td align="center">4</td>
+<td align="left">authenticationFailure</td>
+<td align="left">从SNMP管理进程接收到具有一个无效共同体的报文</td></p>
+
+<p></tr>
+<tr>
+<td align="center">5</td>
+<td align="left">egpNeighborLoss</td>
+<td align="left">一个EGP相邻路由器变为故障状态</td></p>
+
+<p></tr>
+<tr>
+<td align="center">6</td>
+<td align="left">enterpriseSpecific</td>
+<td align="left">代理自定义的事件，需要用后面的&ldquo;特定代码&rdquo;来指明</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table></p>
+
+<p></li>
+<li>
+<p>3、当使用上述类型2、3、5时，在报文后面变量绑定部分的<code>第一个变量</code>应<code>标识响应</code>的接口。</p></p>
+
+<p></li>
+<li>4、特定代码(specific-code)<br />
+    指明代理自定义的时间（若trap类型为6），否则为0。</li>
+<li>5、时间戳(timestamp)<br />
+    指明自代理进程<code>初始化</code>到产生<code>trap报告</code>的事件发生所经历的时间，例如时间戳为1230表明在代理初始化后1230ms发生了该时间。</li>
+<li>5、变量绑定(variable-bindings)<br />
+    指明一个或多个变量的名和对应的值。也是采用的<code>BER</code>编码规则。</li></p>
+
+<p></ul>
+<h2 id="_2">一些数据类型的编码表示</h2>
+<p>前面的就只介绍到错误索引了，错误索引后门的内容就是变量和值的内容了。直接看分析结果就是了，就不做详细介绍了。下面介绍一些变量类型的编码表示方法。</p>
+<h3 id="integer">Integer整型编码表示</h3>
+<p>整型数据的标识域编码是<code>0x02</code>,长度域不定，一般是<code>1/2/4</code>字节等。<br />
+整型数据的值域是带符号类型，最高位是符号位，采取补码的表示形式。要注意的是，其是<code>大端表示法</code>(高地址存低位)。</p>
+<h3 id="oid">OID对象标识符编码表示</h3>
+<p>SNMP服务器维护的所有管理信息库(MIB)对象采用ObjectID表示,如,1.3.6.1.2.1.1.1表示MIB库中的设备描述<code>SysDesc</code>变量,其编码规则如下:<br />
+标识域编码为<code>0x06</code>，长度域根据情况而定，值域的编码比较复杂，如下所示。</p>
+<ul>
+<li>1、首两个ID被合并为一个字节<code>X * 40+Y</code>。<br />
+    例如：<code>1.3</code>合并为1x40+3 = <code>43</code> = <code>0x2B</code></li>
+<li>2、后续的ID，如果在区间<code>[1,127]</code>内，直接编码表示，如果大于<code>127</code>，那么按照下面(3)所述方法编码</li>
+<li>3、如果ID大于127，那么使用多个字节来表示。
+<ul>
+<li>a.这多个字节中<code>除最后一个字节</code>外，前面的字节最高位为<code>1</code></li>
+<li>b.这多个字节的<code>最后一个字节</code>的最高位为<code>0</code></li>
+<li>c.这里每个字节剩下的7个比特位用来表示实际的数值<br />
+例如这里的<code>201566</code>这个数，用十六进制表示是<code>0x03 13 5e</code><br />
+那么用二进制表示是<code>000 1100</code> <code>010 0110</code> <code>101 1110</code><br />
+注意上面是以7个比特位为单位进行分划的，现在我们来填充最高位<br />
+将前面的最高位填<code>1</code>，最后一个最高位填<code>0</code>即可得到<br />
+<code>1000 1100</code> <code>1010 0110</code> <code>0101 1110</code>用十六进制表示为<code>0x8c a6 5e</code></li></p>
+
+<p></ul></p>
+
+<p></li></p>
+
+<p></ul>
+<h3 id="sequence">sequence组合类型</h3>
+<p>sequence表示其由多个数据组合而成，每一个数据也都还是采用的<code>BER</code>编码方法。<br />
+例如我们这里分析的数据包中就要一个<code>sequence</code>类型的数据，其值域又是有一个<code>OID</code>类型的数据和一个<code>Integer</code>类型的数据组合而成的。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

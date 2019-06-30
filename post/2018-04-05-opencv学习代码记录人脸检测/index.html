@@ -1,0 +1,284 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> OpenCV学习代码记录——人脸检测 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>OpenCV学习代码记录——人脸检测</h1>
+          <span class="post-date">2018年04月05日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/04/05/8722016.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/04/05/8722016.html</a>
+很久之前学习过一段时间的OpenCV，当时没有做什么笔记，但是代码都还在，这里把它贴出来做个记录。
+代码放在码云上，地址在这里<a href="https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest">https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest</a></p>
+
+<h2 id="效果">效果</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180813205314582-2118769257.gif" alt="" /></p>
+
+<h2 id="代码">代码</h2>
+
+<p>我是直接使用OpenCV自带的分类器。如果有数据，可以自己训练得到。</p>
+
+<ul>
+<li><a href="https://blog.csdn.net/txiaomiao/article/details/64132273">opencv之级联分类器训练属于自己的xml文件</a></li>
+<li><a href="https://blog.csdn.net/qq_32502511/article/details/79010509">opencv3.3版本训练自己的物体分类器</a></li>
+</ul>
+
+<pre><code class="language-cpp">#include &lt;opencv2/core.hpp&gt;
+#include &lt;opencv2/highgui.hpp&gt;
+#include &lt;opencv2/objdetect.hpp&gt;
+#include &lt;opencv2/imgproc.hpp&gt;
+
+#include &lt;cstdio&gt;
+// g++ face.cpp -o face -std=c++11 -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_objdetect
+
+// 文件在opencv的安装目录下有
+static const char* cascade_name = &quot;D:\\OpenCV\\share\\OpenCV\\haarcascades\\&quot;
+						   &quot;haarcascade_frontalface_alt2.xml&quot;;
+
+
+// http://wiki.opencv.org.cn/index.php/%E4%BA%BA%E8%84%B8%E6%A3%80%E6%B5%8B
+
+
+void frameFaceDetection(cv::Mat&amp; src, cv::CascadeClassifier&amp; cascade,
+	const char* showWindowName);
+
+int FaceDetection(int c,char**v)
+{
+	//cv::Mat	src,gray;	// 源图像，灰度图像
+	
+	cv::VideoCapture	capture;	// 视频捕获对象
+	cv::Mat				frame;		// 视频帧
+	cv::CascadeClassifier	cascade;	//级联分类器
+	
+	/**
+	// 加载源图像
+	const char* picpath = &quot;../Image/sisy.jpg&quot;;
+	if (c &gt; 1) { picpath = v[1]; }
+	src = cv::imread(picpath);
+
+	if (src.empty()) {
+		puts(&quot;图片加载失败!!!&quot;);
+		return -1;
+	}
+	*/
+
+	// 打开视频文件
+	if (!capture.open(&quot;../Image/video.mov&quot;)) {
+		puts(&quot;打开视频文件失败!!!&quot;);
+		return -1;
+	}
+
+	// 加载人脸识别级联分类器文件
+	if (!cascade.load(cascade_name)){
+		puts(&quot;人脸识别级联分类器文件加载失败!!!&quot;);
+		return 0;
+	}
+
+	// 创建显示窗口
+	cv::namedWindow(&quot;src&quot;);
+
+	cv::Mat	src_scale;
+	src_scale.create(cv::Size(480, 320), CV_8SC3);
+	// 循环取帧并显示
+	while (capture.read(frame)) {
+		// 进行缩放
+		cv::resize(frame, src_scale, src_scale.size());
+		// 检测并显示
+		frameFaceDetection(src_scale, cascade, &quot;src&quot;);
+		// 等待按键事件
+		// 此处等待也为显示图像函数提供足够的时间完成显示
+		// 等待事件可以按照CPU速度进行调节
+		if (cv::waitKey(1) &gt;= 0) {
+			break;	// 按键就退出
+		}
+	}
+	//cv::waitKey();
+	cv::destroyAllWindows();
+	return 0;
+}
+
+
+void frameFaceDetection(cv::Mat&amp; src,
+	cv::CascadeClassifier&amp; cascade,
+	const char* showWindowName)
+{
+	std::vector&lt;cv::Rect&gt;	faces;
+	cv::Mat gray;
+
+	// 获取源图像的灰度图像
+	gray.create(src.size(), CV_8UC1);
+	cv::cvtColor(src, gray, CV_BGR2GRAY);
+	// 使灰度图象直方图均衡化
+	cv::equalizeHist(gray, gray);
+
+	// 获取初步检测结果
+	cascade.detectMultiScale(
+		gray/*源图像*/,
+		faces/*检测出的物体边缘(得到被检测物体的矩形框向量组)*/,
+		1.1/*每一个图像尺度中的尺度参数，默认值为1.1*/,
+		2/*每一个级联矩形应该保留的邻近个数*/,
+		CV_HAAR_SCALE_IMAGE,
+		cv::Size(30, 30)/*最小可能的对象的大小，小于的对象将被忽略*/);
+
+	// 将检测得到的结果，绘制到原图像上
+	for (auto face : faces) {
+		// 绘制红色矩形
+		cv::rectangle(src, face, cv::Scalar(0, 0, 255), 3);
+	}
+	// 显示图像
+	cv::imshow(showWindowName, src);
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

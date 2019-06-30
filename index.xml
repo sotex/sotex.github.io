@@ -1,0 +1,3527 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>风吹过 on 风吹过 </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
+    <link>http://sotex.github.io/</link>
+    <language>zh-cn</language>
+    
+    
+    <updated>Mon, 24 Jun 2019 00:00:00 UTC</updated>
+    
+    <item>
+      <title>cesium地形瓦片(Quantized-mesh)格式</title>
+      <link>http://sotex.github.io/post/2019-06-24-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87quantized-mesh%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-06-24-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87quantized-mesh%E6%A0%BC%E5%BC%8F/</guid>
+      <description>
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/06/24/11080222.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/11080222.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;参考资料：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AnalyticalGraphicsInc/quantized-mesh&#34;&gt;quantized-mesh-1.0 terrain format(用于三维可视化的流式海量地形数据集规范)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification&#34;&gt;Tile Map Service Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/&#34;&gt;国内主要地图瓦片坐标系定义及计算原理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/QuantizedMeshTerrainData.html&#34;&gt;QuantizedMeshTerrainData&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/oloroso/p/11063905.html&#34;&gt;cesium地形瓦片(HeightMap)格式&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://fgiesen.wordpress.com/2013/12/17/index-compression-follow-up/&#34;&gt;Index compression follow-up&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;1-切片规则&#34;&gt;1、切片规则&lt;/h2&gt;
+
+&lt;p&gt;量化网格-1.0格式的地形图瓦片的切分规则和HeightMap的一样，也是&lt;a href=&#34;http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification&#34;&gt;Tile Map Service (TMS)&lt;/a&gt; 的&lt;strong&gt;global-geodetic&lt;/strong&gt;规则，详情可见&lt;a href=&#34;https://www.cnblogs.com/oloroso/p/11063905.html&#34;&gt;cesium地形瓦片(HeightMap)格式&lt;/a&gt;中的描述。&lt;/p&gt;
+
+&lt;p&gt;如果瓦片集的URL是如下形式:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://assets.agi.com/stk-terrain/world/tiles
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;则金字塔根部两个瓦片文件的URL:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(-180 deg, -90 deg) - (0 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/0/0/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/0/0/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(0 deg, -90 deg) - (180 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/0/1/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/0/1/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;再下一级的8个瓦片文件的URL:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(-180 deg, -90 deg) - (-90 deg, 0 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/0/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/0/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(-90 deg, -90 deg) - (0 deg, 0 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/1/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/1/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(0 deg, -90 deg) - (90 deg, 0 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/2/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/2/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(90 deg, -90 deg) - (180 deg, 0 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/3/0.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/3/0.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(-180 deg, 0 deg) - (-90 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/0/1.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/0/1.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(-90 deg, 0 deg) - (0 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/1/1.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/1/1.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(0 deg, 0 deg) - (90 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/2/1.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/2/1.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;(90 deg, 0 deg) - (180 deg, 90 deg) - &lt;a href=&#34;http://assets.agi.com/stk-terrain/world/tiles/1/3/1.terrain&#34;&gt;http://assets.agi.com/stk-terrain/world/tiles/1/3/1.terrain&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;请求瓦片时，请确保在请求中包含以下HTTP标头：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Accept: application/vnd.quantized-mesh,application/octet-stream;q=0.9
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;否则，某些服务器可能会返回与此处描述的不同的瓦片数据。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-瓦片格式分析&#34;&gt;2、瓦片格式分析&lt;/h2&gt;
+
+&lt;p&gt;每个图块是一个特殊编码的三角形网格，其中顶点与图块边缘处的相邻网格重叠。换句话说，在根部，&lt;strong&gt;西部瓦片中最东部的顶点与东部瓦片中最西部的顶点具有相同的经度&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;地形瓦片是&lt;code&gt;gzip&lt;/code&gt;压缩的。解压缩后，tile是小端序(little-endian)的二进制数据。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-1-数据头部&#34;&gt;2.1、数据头部&lt;/h3&gt;
+
+&lt;p&gt;该文件的第一部分是具有以下格式的数据头。&lt;code&gt;double&lt;/code&gt;是&lt;strong&gt;IEEE 754 64位浮点数&lt;/strong&gt;，&lt;code&gt;float&lt;/code&gt;是&lt;strong&gt;IEEE 754 32位浮点数&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct QuantizedMeshHeader
+{
+    // 瓦片中心在地心坐标系下的坐标
+    double CenterX;
+    double CenterY;
+    double CenterZ;
+
+    // 该瓦片覆盖区域的最小和最大高度值
+    // 最小值可以低于所有顶点，最大值也可以高于任何顶点
+    // 因为在网格简化(simplificatipn)的过程中可能会有移除最小或最大顶点的情况
+    // 但是这些是适用于用于分析或可视化的的值
+    float MinimumHeight;
+    float MaximumHeight;
+
+    // 瓦片的球面边界. 
+    // X,Y,Z 坐标是地心坐标系下的坐标, 半径的单位为米
+    double BoundingSphereCenterX;
+    double BoundingSphereCenterY;
+    double BoundingSphereCenterZ;
+    double BoundingSphereRadius;
+
+    // 地平线遮挡点，以椭球体缩放的地心坐标系表示
+    // 如果此点低于地平线，则整个图块位于地平线下方。
+    // 有关更多信息，请参见http://cesiumjs.org/2013/04/25/Horizon-culling/。
+    double HorizonOcclusionPointX;
+    double HorizonOcclusionPointY;
+    double HorizonOcclusionPointZ;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190624232923893-936263612.png&#34; alt=&#34;HorizonCullingOverview&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;在上图中，绿色点对观察者可见， 红点不可见，因为它们&lt;strong&gt;位于视锥体之外&lt;/strong&gt;，表示为粗白线。 蓝点位于视锥体内，但观察者看不到它，因为&lt;strong&gt;它被地球遮挡&lt;/strong&gt;。 换句话说，它低于地平线。 地平线剔除是一种直截了当的想法，即从当前观察者位置看，您不需要渲染位于地平线下方的物体。 听起来很简单，细节变得棘手，特别是因为它需要非常快。cesium每个渲染帧将进行数百次测试，以测试地形图块的可见性。 不过，这是一项重要的考验。 在上图中的配置中，覆盖整个地球的地形瓦片位于视锥体内。 然而，其中一半以上是低于地平线而不需要渲染。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;2-顶点数据&#34;&gt;2、顶点数据&lt;/h3&gt;
+
+&lt;p&gt;头部数据后面紧跟着顶点数据，&lt;code&gt;unsigned int&lt;/code&gt;是32位无符号整数，&lt;code&gt;unsigned short&lt;/code&gt;是16位无符号整数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct VertexData
+{
+    unsigned int vertexCount;           // 顶点个数
+    unsigned short u[vertexCount];      // 顶点横坐标
+    unsigned short v[vertexCount];      // 顶点纵坐标
+    unsigned short height[vertexCount]; // 顶点高程值
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;vertexCount字段指示后面三个数组的大小。 这三个数组包含来自前一个值的增量，然后进行&lt;a href=&#34;https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba&#34;&gt;&lt;code&gt;zig-zag&lt;/code&gt;编码&lt;/a&gt;，以便使小整数（无论其符号如何）使用较少比特位。&lt;/p&gt;
+
+&lt;p&gt;解码值的过程很简单：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;var u = 0;
+var v = 0;
+var height = 0;
+
+// zig-zag 编码
+function zigZagEncode (value) {
+  return (value &amp;gt;&amp;gt; 31) ^ (value &amp;lt;&amp;lt; 1);
+}
+// zig-zag 解码
+function zigZagDecode(value) {
+    return (value &amp;gt;&amp;gt; 1) ^ (-(value &amp;amp; 1));
+}
+
+for (i = 0; i &amp;lt; vertexCount; ++i) {
+    u += zigZagDecode(uBuffer[i]);
+    v += zigZagDecode(vBuffer[i]);
+    height += zigZagDecode(heightBuffer[i]);
+
+    uBuffer[i] = u;
+    vBuffer[i] = v;
+    heightBuffer[i] = height;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解码后，每个数组中值的含义如下：&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;数组&lt;/th&gt;
+&lt;th&gt;含义&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;u&lt;/td&gt;
+&lt;td&gt;图块中顶点的水平坐标。 当u值为0时，顶点位于图块的西边缘。 当值为32767时，顶点位于图块的东边缘。 对于其他值，顶点的经度是&lt;strong&gt;在图块的西边和东边的经度之间的线性插值&lt;/strong&gt;。&lt;br /&gt;即：&lt;code&gt;经度= 最西 + (u/32767) * (最东-最西)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;v&lt;/td&gt;
+&lt;td&gt;图块中顶点的水平坐标。 当u值为0时，顶点位于图块的南边缘。 当值为32767时，顶点位于图块的北边缘。 对于其他值，顶点的纬度是&lt;strong&gt;在图块的南边和北边的经度之间的线性插值&lt;/strong&gt;。&lt;br /&gt;即：&lt;code&gt;纬度= 最南 + (v/32767) * (最北-最南)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;height&lt;/td&gt;
+&lt;td&gt;图块中顶点的高度。 当高度值为0时，顶点的高度等于图块内最小高度，如图块标题中指定的那样。 当值为32767时，顶点的高度等于图块内的最大高度。 对于其他值，顶点的高度是最小和最大高度之间的线性插值。&lt;br /&gt;即：&lt;code&gt;高度= 最低 + (h/32767) * (最高-最低)&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;2-3-索引数据&#34;&gt;2.3、索引数据&lt;/h3&gt;
+
+&lt;p&gt;紧跟在顶点数据之后的是索引数据。指数指定顶点如何链接在一起成三角形。如果tile具有超过&lt;strong&gt;65536个顶点&lt;/strong&gt;，则tile使用&lt;strong&gt;IndexData32&lt;/strong&gt;结构对索引进行编码。否则，它使用&lt;strong&gt;IndexData16&lt;/strong&gt;结构。&lt;/p&gt;
+
+&lt;p&gt;为了对索引数据强制进行字节对齐，在&lt;strong&gt;IndexData&lt;/strong&gt;之前添加填充字节，以确保&lt;strong&gt;IndexData16为2字节对齐&lt;/strong&gt;和&lt;strong&gt;IndexData32为4字节对齐&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct IndexData16
+{
+    unsigned int triangleCount;                // 三角形个数
+    unsigned short indices[triangleCount * 3]; // 三角形顶点索引
+}
+
+struct IndexData32
+{
+    unsigned int triangleCount;
+    unsigned int indices[triangleCount * 3];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;索引使用来自 &lt;a href=&#34;https://code.google.com/p/webgl-loader/&#34;&gt;webgl-loader&lt;/a&gt; 的 高水位标记(high water mark)编码进行编码。&lt;/p&gt;
+
+&lt;p&gt;索引解码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;var highest = 0;
+for (var i = 0; i &amp;lt; indices.length; ++i) {
+    var code = indices[i];
+    indices[i] = highest - code;
+    if (code === 0) {
+        ++highest;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;索引的每个三元组以逆时针顺序指定要渲染的一个三角形。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;h3 id=&#34;high-watermark-encoding&#34;&gt;“High watermark encoding”&lt;/h3&gt;
+
+&lt;p&gt;I really like this idea. Previously I’d been using simple delta  encoding on the resulting index lists; that works, but the problem with  delta coding is that a single outlier will produce two large steps – one  to go from the current region to the outlier, then another one to get  back. The high watermark scheme is almost as straightforward as straight  delta coding and avoids this case completely.&lt;/p&gt;
+
+&lt;p&gt;Now, if you have an index list straight out of vertex cache  optimization and vertex renumbering, the idea works as described.  However, with the hybrid tri/paired-tri encoding I described last time,  we have to be a bit more careful. While the original index list will  indeed have each index be at most 1 larger than the highest index we’ve  seen so far, our use of “A ≥ B” to encode whether the next set of  indices describes a single triangle or a pair means that we might end up  having to start from the second or third vertex of a triangle, and  consequently see a larger jump than just 1. Luckily, the fix for this is  simple – rather than keeping the high watermark always 1 higher than  the largest vertex index we’ve seen so far, we keep it N higher where N  is the largest possible “step” we can have in the index list. With that,  the transform is really easy, so I’m just going to post my code in  full:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;&amp;gt;static void watermark_transform(std::vector&amp;lt;int&amp;gt;&amp;amp; out_inds,
+&amp;gt;    const std::vector&amp;lt;int&amp;gt;&amp;amp; in_inds, int max_step)
+&amp;gt;{
+&amp;gt;    int hi = max_step - 1; // high watermark
+&amp;gt;    out_inds.clear();
+&amp;gt;    out_inds.reserve(in_inds.size());
+&amp;gt;    for (int v : in_inds)
+&amp;gt;    {
+&amp;gt;        assert(v &amp;lt;= hi);
+&amp;gt;        out_inds.push_back(hi - v);
+&amp;gt;        hi = std::max(hi, v + max_step);
+&amp;gt;    }
+&amp;gt;}
+&amp;gt;```
+&amp;gt;
+&amp;gt;and the inverse is exactly the same, with the `push_back` in the middle replaced by the two lines
+&amp;gt;
+&amp;gt;```cpp
+&amp;gt;v = hi - v;
+&amp;gt;out_inds.push_back(v);
+&amp;gt;```
+&amp;gt;
+&amp;gt;So what’s the value of N (aka `max_step` in the code), the  largest step that a new index can be from the highest index we’ve seen  so far? Well, for the encoding described last time, it turns out to be  3:
+&amp;gt;
+&amp;gt;-   When encoding a single triangle, the worst case is a triangle with  all-new verts. Suppose the highest index we’ve seen so far is k, and the  next triangle has indices (k+1,k+2,k+3). Our encoding for single  triangles requires that the first index be larger than the second one,  so we would send this triangle as (k+3,k+1,k+2). That’s a step of 3.
+&amp;gt;-   For a pair of triangles, we get 4 new indices. So it might seem like  we might get a worst-case step of 4. However, we know that the two  triangles share an edge; and for that to be the case, the shared edge  must have been present in the first triangle. Furthermore, we require  that the smaller of the two indices be sent first (that’s what flags  this as a paired tri). So the worst cases we can have for the first two  indices are (k+2,k+3) and (k+1,k+3), both of which have a largest step  size of 2. After the first two indices, we only have another two indices  to send; worst-case, they are both new, and the third index is larger  than the fourth. This corresponds to a step size of 2. All other  configurations have step sizes ≤1.
+
+三角索引之后还有四个(边缘)索引列表，这些索引列表保存了tile所有边缘上的顶点。 知道哪些顶点在边缘上以添加裙边以隐藏相邻细节层之间的裂缝是有帮助的。
+
+```c
+struct EdgeIndices16
+{
+    unsigned int westVertexCount;
+    unsigned short westIndices[westVertexCount];
+
+    unsigned int southVertexCount;
+    unsigned short southIndices[southVertexCount];
+
+    unsigned int eastVertexCount;
+    unsigned short eastIndices[eastVertexCount];
+
+    unsigned int northVertexCount;
+    unsigned short northIndices[northVertexCount];
+}
+
+struct EdgeIndices32
+{
+    unsigned int westVertexCount;
+    unsigned int westIndices[westVertexCount];
+
+    unsigned int southVertexCount;
+    unsigned int southIndices[southVertexCount];
+
+    unsigned int eastVertexCount;
+    unsigned int eastIndices[eastVertexCount];
+
+    unsigned int northVertexCount;
+    unsigned int northIndices[northVertexCount];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&#34;2-4-扩展数据&#34;&gt;2.4、扩展数据&lt;/h3&gt;
+
+&lt;p&gt;随后可以使用扩展数据来补充具有附加信息的量化网格。 每个扩展都以&lt;strong&gt;ExtensionHeader&lt;/strong&gt;结构开头，包含唯一标识符和扩展数据的大小（以字节为单位）。 &lt;code&gt;unsigned char&lt;/code&gt;是一个8位无符号整数。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct ExtensionHeader
+{
+    unsigned char extensionId;     // 扩展ID
+    unsigned int  extensionLength; // 扩展长度
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在定义新扩展时，将为它们分配唯一标识符。 如果没有为&lt;code&gt;tileset&lt;/code&gt;定义扩展，则&lt;code&gt;ExtensionanEeader&lt;/code&gt;将不包含在&lt;code&gt;quanitzed-mesh&lt;/code&gt;中。 可以将多个扩展附加到量化网格数据，其中每个扩展的排序由服务器确定。&lt;/p&gt;
+
+&lt;p&gt;客户端可以通过使用&lt;code&gt;-&lt;/code&gt;分隔扩展名来请求多个扩展。 例如，客户端可以使用以下&lt;code&gt;Accept&lt;/code&gt;标头请求&lt;strong&gt;顶点法线&lt;/strong&gt;和&lt;strong&gt;watermask&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Accept : &#39;application/vnd.quantized-mesh;extensions=octvertexnormals-watermask&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;可以为量化网格定义以下扩展：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;地形光照-terrain-lighting&#34;&gt;地形光照（Terrain Lighting）&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;名称（Name）：&lt;code&gt;Oct-Encoded Per-Vertex Normals&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标识（id）: 1&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;描述（Description）：将每个顶点光照属性添加到量化网格。 每个顶点法线使用&lt;code&gt;oct&lt;/code&gt;编码将传统的&lt;code&gt;x，y，z&lt;/code&gt; 96位浮点单位向量压缩为&lt;code&gt;x，y&lt;/code&gt; 16位表示。 &lt;code&gt;oct&lt;/code&gt;编码在介绍在”A Survey of Efficient Representations of Independent Unit Vectors“, Cigolle et al 2014: &lt;a href=&#34;http://jcgt.org/published/0003/02/01/&#34;&gt;http://jcgt.org/published/0003/02/01/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据定义（Data Definition）:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct OctEncodedVertexNormals
+{
+    unsigned char xy[vertexCount * 2];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求（Requesting）：对于要包含在量化网格中的oct编码的每顶点法线，客户端必须使用以下HTTP标头请求此扩展：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Accept : &#39;application/vnd.quantized-mesh;extensions=octvertexnormals&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;附注（Comments）：使用&lt;strong&gt;扩展名vertexnormals&lt;/strong&gt;请求此扩展的原始实现。 不推荐使用vertexnormals的&lt;strong&gt;扩展标识符&lt;/strong&gt;，并且实现现在必须通过在请求标头扩展参数中添加&lt;strong&gt;octvertexnormal&lt;/strong&gt;来请求顶点法线，如上所示。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;水面掩码-water-mask&#34;&gt;水面掩码（Water Mask）&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;名称（Name）：&lt;code&gt;Water Mask&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标识（id）: 2&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;描述（Description）：添加用于渲染水效果的海岸线数据。如果图块区域全部是水面或者陆地，则为1字节，否则是&lt;code&gt;256*256*1=65536&lt;/code&gt;字节。掩码值0表示陆地，255表示水面。掩码中的值是从西向东、从北到南定义的，第一个字节是西北角的watermask值。允许&lt;strong&gt;0-255之间&lt;/strong&gt;的值，以便支持海岸线的抗锯齿。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据定义（Data Definition）:&lt;/p&gt;
+
+&lt;p&gt;完全由陆地或水覆盖的地形瓦片由单个字节定义。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct WaterMask
+{
+    unsigned char mask;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;包含陆地和水混合的地形瓦片定义了256 x 256高度值网格。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct WaterMask
+{
+    unsigned char mask[256 * 256];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;请求（Requesting）：要使watermask包含在量化网格中，客户端必须使用以下HTTP标头请求此扩展：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Accept : &#39;application/vnd.quantized-mesh;extensions=watermask&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;元数据-metadata&#34;&gt;元数据（Metadata）&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;名称（Name）：&lt;code&gt;Metadata&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;标识（id）: 4&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;描述（Description）：向每个瓦片添加一个JSON对象，可以存储有关瓦片的额外信息。 潜在用途包括存储瓦片中的土地类型（例如森林，沙漠等）或子级瓦片的可用性。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;数据定义（Data Definition）:&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct Metadata
+{
+    unsigned int jsonLength;
+    char json[jsonLength];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;包含陆地和水混合的地形瓦片定义了256 x 256高度值网格。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;struct WaterMask
+{
+    unsigned char mask[256 * 256];
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;请求（Requesting）：要使metadata包含在量化网格中，客户端必须使用以下HTTP标头请求此扩展：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Accept : &#39;application/vnd.quantized-mesh;extensions=metadata&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>博客园备份提取</title>
+      <link>http://sotex.github.io/post/2019-06-24-%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-06-24-%E5%8D%9A%E5%AE%A2%E5%9B%AD%E5%A4%87%E4%BB%BD%E6%8F%90%E5%8F%96/</guid>
+      <description>
+
+&lt;h2 id=&#34;简述&#34;&gt;简述&lt;/h2&gt;
+
+&lt;p&gt;[TOC]&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/06/24/11079838.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/11079838.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在博客园记录了一些文章，想把它备份到github上，还好大部分博文都是markdown格式的，博客园也支持备份导出，但是到处的是单个的XML文件。
+为了把每一篇博文单独提取出来，所以写了一个小程序来提取。
+&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190624220705555-26465876.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;github中需要如下图所示的格式，方能正确的分类
+&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190624220834447-1682309050.png&#34; alt=&#34;&#34; /&gt;
+文件名需要日期开头，文件内容中最前面一段是文章的一些描述信息&lt;/p&gt;
+
+&lt;h2 id=&#34;程序代码&#34;&gt;程序代码&lt;/h2&gt;
+
+&lt;p&gt;程序是用Golang编写的，代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-go&#34;&gt;// cnblogs2githubpages project main.go
+package main
+
+import (
+	&amp;quot;bytes&amp;quot;
+	&amp;quot;encoding/xml&amp;quot;
+	&amp;quot;fmt&amp;quot;
+	&amp;quot;io/ioutil&amp;quot;
+	&amp;quot;os&amp;quot;
+	&amp;quot;strings&amp;quot;
+	&amp;quot;time&amp;quot;
+)
+
+// 结构体中要能够进行XML解析，则字段名必须以大写开头
+// 帖子
+type Post struct {
+	XMLName     xml.Name `xml:&amp;quot;item&amp;quot;`
+	Title       string   `xml:&amp;quot;title&amp;quot;`
+	Link        string   `xml:&amp;quot;link&amp;quot;`
+	Creator     string   `xml:&amp;quot;dc:creator&amp;quot;`
+	Author      string   `xml:&amp;quot;author&amp;quot;`
+	PubDate     string   `xml:&amp;quot;pubDate&amp;quot;`
+	Guid        string   `xml:&amp;quot;guid&amp;quot;`
+	Description string   `xml:&amp;quot;description,CDATA&amp;quot;`
+}
+
+type Blogs struct {
+	XMLName       xml.Name `xml:&amp;quot;channel&amp;quot;`
+	Title         string   `xml:&amp;quot;title&amp;quot;`
+	Link          string   `xml:&amp;quot;link&amp;quot;`
+	Description   string   `xml:&amp;quot;description&amp;quot;`
+	Language      string   `xml:&amp;quot;language&amp;quot;`
+	LastBuildDate string   `xml:&amp;quot;lastBuildDate&amp;quot;`
+	PubDate       string   `xml:&amp;quot;pubDate&amp;quot;`
+	Ttl           string   `xml:&amp;quot;ttl&amp;quot;`
+	Items         []Post   `xml:&amp;quot;item&amp;quot;`
+}
+type RSS struct {
+	XMLName xml.Name `xml:&amp;quot;rss&amp;quot;`
+	Blogs   Blogs    `xml:&amp;quot;channel&amp;quot;`
+}
+
+func main() {
+	if len(os.Args) != 2 {
+		return
+	}
+	backupxml, err := ioutil.ReadFile(os.Args[1])
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(len(backupxml))
+
+	b := RSS{}
+
+	err = xml.Unmarshal(backupxml, &amp;amp;b)
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
+	fmt.Println(len(b.Blogs.Items))
+
+        // 逐个导出
+	for i, _ := range b.Blogs.Items {
+		var item = &amp;amp;(b.Blogs.Items[i])
+		t, _ := time.Parse(time.RFC1123, item.PubDate)
+		postdate := t.Format(&amp;quot;2006-01-02&amp;quot;)
+		// fmt.Printf(&amp;quot;%s\n\t%s\n\t%s\n\t%s\n\t%s\n&amp;quot;, date, item.Title, item.Link, item.Author, item.Description[0:64])
+		postTitle := strings.ReplaceAll(item.Title, &amp;quot; &amp;quot;, &amp;quot;-&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;*&amp;quot;, &amp;quot;&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;/&amp;quot;, &amp;quot;.&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;\\&amp;quot;, &amp;quot;&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;$&amp;quot;, &amp;quot;&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;?&amp;quot;, &amp;quot;&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;:&amp;quot;, &amp;quot;-&amp;quot;)
+		postTitle = strings.ReplaceAll(postTitle, &amp;quot;。&amp;quot;, &amp;quot;&amp;quot;)
+		filename := fmt.Sprintf(&amp;quot;./%s-%s.md&amp;quot;, postdate, postTitle)
+		fmt.Println(filename)
+                 
+                // 根据博文的标题，做一个简单的分类（只适合当前情况）
+		var categories string = &amp;quot;其它&amp;quot;
+		{
+			title2 := strings.ToLower(item.Title)
+			if strings.Contains(title2, &amp;quot;live555&amp;quot;) {
+				categories = &amp;quot;live555&amp;quot;
+			} else if strings.Contains(title2, &amp;quot;linux&amp;quot;) || strings.Contains(title2, &amp;quot;ubuntu&amp;quot;) {
+				categories = &amp;quot;linux&amp;quot;
+			} else if strings.Contains(title2, &amp;quot;gcc&amp;quot;) || strings.Contains(title2, &amp;quot;git&amp;quot;) ||
+				strings.Contains(title2, &amp;quot;编程&amp;quot;) || strings.Contains(title2, &amp;quot;编译&amp;quot;) ||
+				strings.Contains(title2, &amp;quot;vc&amp;quot;) || strings.Contains(title2, &amp;quot;c++&amp;quot;) ||
+				strings.Contains(title2, &amp;quot;visual&amp;quot;) || strings.Contains(title2, &amp;quot;程序&amp;quot;) {
+				categories = &amp;quot;编程&amp;quot;
+			} else if strings.Contains(title2, &amp;quot;gdal&amp;quot;) || strings.Contains(title2, &amp;quot;proj&amp;quot;) ||
+				strings.Contains(title2, &amp;quot;gis&amp;quot;) || strings.Contains(title2, &amp;quot;地理&amp;quot;) {
+				categories = &amp;quot;地理信息&amp;quot;
+			}
+		}
+		var desc bytes.Buffer
+
+		desc.WriteString(&amp;quot;---\r\n&amp;quot;)
+		desc.WriteString(&amp;quot;layout:  post\r\n&amp;quot;)
+		desc.WriteString(&amp;quot;title:  \&amp;quot;&amp;quot;)
+		desc.WriteString(item.Title)
+		desc.WriteString(&amp;quot;\&amp;quot;\r\ndate:  &amp;quot;)
+		desc.WriteString(postdate)
+		desc.WriteString(&amp;quot;\r\ncategories:  &amp;quot;)
+		desc.WriteString(categories)
+		desc.WriteString(&amp;quot;\r\ntags:  &amp;quot;)
+		desc.WriteString(categories)
+		desc.WriteString(&amp;quot;\r\ncomments: 1\r\n&amp;quot;)
+		desc.WriteString(&amp;quot;---\r\n&amp;quot;)
+		tocIndex := strings.Index(item.Description, &amp;quot;&amp;quot;)
+		if tocIndex != -1 {
+			tocIndex += len(&amp;quot;[TOC]&amp;quot;)
+			desc.WriteString(item.Description[0:tocIndex])
+			desc.WriteString(&amp;quot;\r\n[博客园原文地址 &amp;quot;)
+			desc.WriteString(item.Link)
+			desc.WriteString(&amp;quot;](&amp;quot;)
+			desc.WriteString(item.Link)
+			desc.WriteString(&amp;quot;)\r\n\r\n&amp;quot;)
+			desc.WriteString(item.Description[tocIndex:])
+		} else {
+			desc.WriteString(&amp;quot;\r\n[TOC]\r\n[博客园文章地址 &amp;quot;)
+			desc.WriteString(item.Link)
+			desc.WriteString(&amp;quot;](&amp;quot;)
+			desc.WriteString(item.Link)
+			desc.WriteString(&amp;quot;)\r\n&amp;quot;)
+			desc.WriteString(item.Description)
+		}
+		err := ioutil.WriteFile(filename, desc.Bytes(), os.ModePerm)
+		if err != nil {
+			fmt.Println(err.Error())
+		}
+	}
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>干掉搜狗输入法云代理SogouCloud.exe</title>
+      <link>http://sotex.github.io/post/2019-06-24-%E5%B9%B2%E6%8E%89%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%BA%91%E4%BB%A3%E7%90%86sogoucloud.exe/</link>
+      <pubDate>Mon, 24 Jun 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-06-24-%E5%B9%B2%E6%8E%89%E6%90%9C%E7%8B%97%E8%BE%93%E5%85%A5%E6%B3%95%E4%BA%91%E4%BB%A3%E7%90%86sogoucloud.exe/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/06/24/10930945.html&#34;&gt;博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/10930945.html&lt;/a&gt;
+搜狗输入法暂时还离不开，但是很讨厌搜狗输入法一直在后台的“搜狗云代理程序”（&lt;code&gt;C:\Program Files (x86)\SogouInput\9.1.0.2657\SogouCloud.exe&lt;/code&gt;），占用大量CPU和网络，不知道进行什么活动。
+&lt;strong&gt;2019年6月24日更新，我已经卸载了搜狗输入法，现在用微软拼音也习惯了。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;方法一&#34;&gt;方法一&lt;/h2&gt;
+
+&lt;p&gt;删除&lt;code&gt;SogouCloud.exe&lt;/code&gt;文件。
+这个方法有效，但是搜狗会一直提示要修复，即便是你不修复，也会在某一时间就被修复了。
+如果是删除之后替换为一个名为&lt;code&gt;SogouCloud.exe&lt;/code&gt;的空文件或者目录，就会经常在启动一些程序的时候，会打开这个文件或目录。
+可以通过设置只读权限，来防止被搜狗替换回来。&lt;/p&gt;
+
+&lt;h2 id=&#34;方法二&#34;&gt;方法二&lt;/h2&gt;
+
+&lt;p&gt;在组策略中限制&lt;code&gt;SogouCloud.exe&lt;/code&gt;的运行。
+打开组策略，定位到&lt;code&gt;用户配置 --&amp;gt; 管理模板 --&amp;gt; 系统 --&amp;gt; 不允许指定 Windows 应用程序 --&amp;gt;点选“已启用”&lt;/code&gt;
+&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201905/693958-20190527151401118-1785412146.png&#34; alt=&#34;组策略限制程序运行&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;方法三&#34;&gt;方法三&lt;/h2&gt;
+
+&lt;p&gt;写一个最简单的程序来替换掉SogouCloud.exe，这个程序什么都不干，足够的小即可。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;Windows.h&amp;gt;
+
+int main()
+{
+	// 保证只有一个进程实例
+	HANDLE h = CreateMutexA(NULL, TRUE, &amp;quot;SouguCloud.exe&amp;quot;);
+	DWORD dwRet = GetLastError();
+    if (!h || dwRet == ERROR_ALREADY_EXISTS) {
+		return 0;
+	}
+    // 为了让程序不被替换掉，无限休眠下去 
+    // https://docs.microsoft.com/zh-cn/windows/desktop/api/synchapi/nf-synchapi-sleep
+    Sleep(0xFFFFFFFF);
+	ReleaseMutex(h);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译链接&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 编译
+cl SogouCloud.c  /c /Fo:SogouCloud.obj
+# 链接
+link /SUBSYSTEM:WINDOWS /ENTRY:main Kernel32.lib SogouCloud.obj /OUT:SogouCloud.exe
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>cesium地形瓦片(HeightMap)格式</title>
+      <link>http://sotex.github.io/post/2019-06-21-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87heightmap%E6%A0%BC%E5%BC%8F/</link>
+      <pubDate>Fri, 21 Jun 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-06-21-cesium%E5%9C%B0%E5%BD%A2%E7%93%A6%E7%89%87heightmap%E6%A0%BC%E5%BC%8F/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/06/21/11063905.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/21/11063905.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;参考资料：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/AnalyticalGraphicsInc/cesium/wiki/heightmap-1.0&#34;&gt;heightmap 1.0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification&#34;&gt;Tile Map Service Specification&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/&#34;&gt;国内主要地图瓦片坐标系定义及计算原理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html&#34;&gt;HeightmapTerrainData&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;cesium支持多种地形瓦片数据（&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/GoogleEarthEnterpriseTerrainData.html&#34;&gt;GoogleEarthEnterpriseTerrainData&lt;/a&gt;、&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/QuantizedMeshTerrainData.html&#34;&gt;QuantizedMeshTerrainData&lt;/a&gt;、&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html&#34;&gt;HeightmapTerrainData&lt;/a&gt;），这里不详细叙述每一个，以下说的地形瓦片都是指&lt;a href=&#34;https://cesiumjs.org/Cesium/Build/Documentation/HeightmapTerrainData.html&#34;&gt;HeightmapTerrainData&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-瓦片切分规则&#34;&gt;1、瓦片切分规则&lt;/h2&gt;
+
+&lt;p&gt;地形瓦片(heightmap-1.0)格式的terrain瓦片集是根据&lt;a href=&#34;https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification&#34;&gt;TMS&lt;/a&gt;（瓦片地图服务）&lt;strong&gt;global-geodetic&lt;/strong&gt;（全球大地坐标）规则进行切分。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TMS特性简述：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;TMS中一个瓦片地图(TileMap)由一组具有不同比例尺瓦片集(TileSet)组成，每个瓦片集由相同大小格式的规则瓦片平铺而成。下一级的瓦片集由上一级的四叉分割而来（整个地图就是个四叉树结构）。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对于一个瓦片地图(TileMap)只能支持一个空间参考系(SRS)和一种图像格式，如果需要支持多种就要做多个瓦片地图。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;瓦片地图具有边界范围(BoundingBox)和原点(Origin)，原点是&lt;code&gt;0,0&lt;/code&gt;瓦片的左下角（也是&lt;code&gt;-1,-1&lt;/code&gt;瓦片的右上角），也就是轴向是向左向上。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122711470-1135189334.png&#34; alt=&#34;TMS&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;global-geodetic切分规则：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;坐标系为WGS84大地坐标系（&lt;code&gt;&amp;lt;SRS&amp;gt;EPSG:4326&amp;lt;/SRS&amp;gt;&lt;/code&gt;）&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对于任意级别（&lt;code&gt;n&lt;/code&gt;），该级别瓦片集的瓦片像素分辨率为&lt;code&gt;units-per-pixel = 0.703125/2^n&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;0级为覆盖全球的2个256x256像素大小（地理大小为180*180度）的图块，其Origin为&lt;code&gt;-180,90&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122730318-1157815087.png&#34; alt=&#34;global-geodetic&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;heightmap 1.0 特定规则：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;所有图块都具有后缀名&lt;code&gt;.terrain&lt;/code&gt;。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;图块大小为&lt;code&gt;65x65&lt;/code&gt;像素大小，实际上图块的最后一行和最后一列是相邻的 东边/南边 图块的第一行/第一列。因为其大小不是&lt;code&gt;256x256&lt;/code&gt;，所以其对应级别的分辨率也有所不同。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;图块获取URL示例如下：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;对于顶级的两个图块：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(-180°, -90°) - (0 °,     90 °) - &lt;code&gt;/path/tilesets/terrain/smallterrain/0/0/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(     0°, -90 °) - (180 °, 90 °) - &lt;code&gt;/path/tilesets/terrain/smallterrain/0/1/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;往下一级的8个图块:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;(-180°,-90°) - ( -90°,  0°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/0/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;( -90°,-90°) - (   0°,  0°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/1/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(   0°,-90°) - (  90°,  0°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/2/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(  90°,-90°) - ( 180°,  0°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/3/0.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(-180°,  0°) - ( -90°, 90°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/0/1.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;( -90°,  0°) - (   0°, 90°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/1/1.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(   0°,  0°) - (  90°, 90°) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/2/1.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;(  90°,  0°) - (180 °, 90 °) - &lt;code&gt;/path/tilesets/terrain/smallterrain/1/3/1.terrain&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;可以参考一下 &lt;a href=&#34;http://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/&#34;&gt;http://www.vr-theworld.com/vr-theworld/tiles1.0.0/73/&lt;/a&gt; ，它的图块大小是&lt;code&gt;32x32&lt;/code&gt;的，瓦片集的信息如下。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122756415-1978569628.png&#34; alt=&#34;vr-theworld&#34; /&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-terrain瓦片格式分析&#34;&gt;2、.terrain瓦片格式分析&lt;/h2&gt;
+
+&lt;p&gt;可以使用开源软件 &lt;a href=&#34;https://github.com/geo-data/cesium-terrain-builder&#34;&gt;Cesium Terrain Builder&lt;/a&gt; 来对DEM数据切片，生成terrain瓦片。&lt;/p&gt;
+
+&lt;p&gt;对于&lt;code&gt;TerrainTile&lt;/code&gt;的数据结构，可以查看代码&lt;a href=&#34;https://github.com/geo-data/cesium-terrain-builder/blob/master/src/TerrainTile.hpp&#34;&gt;TerrainTile.hpp&lt;/a&gt;、&lt;a href=&#34;https://github.com/geo-data/cesium-terrain-builder/blob/master/src/TerrainTile.cpp&#34;&gt;TerrainTile.cpp&lt;/a&gt;，很清晰明了。&lt;/p&gt;
+
+&lt;p&gt;对于单个图块，为65x65大小，每个像素表示一个高度值，海拔值的计算规则为&lt;code&gt;H=像素值*0.2-1000&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;每个高度值为16Bit的整数，排列顺序为&lt;strong&gt;行-从西向东，列-从北向南&lt;/strong&gt;，总的字节数为&lt;code&gt;65*65*2=8450&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;相邻图块直接关系大致如下图所示，相邻瓦片之间有一行或者一列的重合。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122846970-1423906158.png&#34; alt=&#34;terrain-layout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;对于一个.terrain图块，其经过&lt;code&gt;gzip&lt;/code&gt;解压后的数据（文档里面说要瓦片数据要经过gzip压缩，但是我在使用cesium测试的时候，是不经过压缩的才能正确读取），布局大致如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201906/693958-20190621122907825-1804582034.png&#34; alt=&#34;terrain-memory-layout&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;前8540字节是高度数据，每个高度数据为&lt;strong&gt;2字节&lt;/strong&gt;的小端表示的16位带符号整数。&lt;/p&gt;
+
+&lt;p&gt;紧跟其后的一个字节是&lt;strong&gt;子块掩码&lt;/strong&gt;，用于标识当前块的子块是否存在。&lt;/p&gt;
+
+&lt;p&gt;再之后是1个或者256*256个字节的水域掩码，如果全部是水域(0)或者陆地(255)，那么就是一个字节，如果混合了水域和陆地，那么就是256x256个字节，每个字节表示该像素位置是水域(0)还是陆地(255)。&lt;/p&gt;
+
+&lt;p&gt;cesium里解析terrain瓦片数据(解压缩后的)的示例代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var buffer = ...
+var heightBuffer = new Uint16Array(buffer, 0, that._heightmapWidth * that._heightmapWidth);
+var childTileMask = new Uint8Array(buffer, heightBuffer.byteLength, 1)[0];
+var waterMask = new Uint8Array(buffer, heightBuffer.byteLength + 1,
+                               buffer.byteLength - heightBuffer.byteLength - 1);
+var terrainData = new Cesium.HeightmapTerrainData({
+  buffer : heightBuffer,
+  width : 65,
+  height : 65,
+  childTileMask : childTileMask,
+  waterMask : waterMask
+});
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Proj.4 升级新版本5.x和6.x</title>
+      <link>http://sotex.github.io/post/2019-05-31-proj.4-%E5%8D%87%E7%BA%A7%E6%96%B0%E7%89%88%E6%9C%AC5.x%E5%92%8C6.x/</link>
+      <pubDate>Fri, 31 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-05-31-proj.4-%E5%8D%87%E7%BA%A7%E6%96%B0%E7%89%88%E6%9C%AC5.x%E5%92%8C6.x/</guid>
+      <description>
+
+&lt;h1 id=&#34;proj-4-升级新版本5-x和6-x&#34;&gt;Proj.4 升级新版本5.x和6.x&lt;/h1&gt;
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/05/31/10955620.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/31/10955620.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;0-缘起&#34;&gt;0、缘起&lt;/h2&gt;
+
+&lt;p&gt;今天（2019年5月30日）去编译最新版本的GDAL，发现其对Proj.4的依赖已经要求为6.x版本了。于是去&lt;a href=&#34;https://github.com/OSGeo/proj.4&#34;&gt;https://github.com/OSGeo/proj.4&lt;/a&gt;看了一下最新的代码，又去&lt;a href=&#34;https://proj4.org/&#34;&gt;https://proj4.org/&lt;/a&gt;看了一下文档，感觉5.x和6.x的更新挺大的，有必要测试一下，看工作中的项目是不是要升级过来。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-5-x和6-x更新情况简述&#34;&gt;1、5.x和6.x更新情况简述&lt;/h2&gt;
+
+&lt;p&gt;我没有仔细去看5.x版本的代码，仅看了一下最新的&lt;code&gt;Proj.4&lt;/code&gt; 版本6的代码，与早前使用的4.9.3版本简单对比了一下，感觉区别还是挺大的，这里列出几点我关注的地方的对比。&lt;/p&gt;
+
+&lt;p&gt;1、新版本改用C++编写，相比4.9版本代码量增加了不少，功能也多了不少。代码层次结构清晰了许多，比如各种转换算法都在&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/transformations&#34;&gt;src/transformations&lt;/a&gt;目录下可以找到，各种投影方法相关的算法都在&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/projections&#34;&gt;src/projections&lt;/a&gt;目录可以找到。&lt;/p&gt;
+
+&lt;p&gt;2、支持了从&lt;code&gt;WKT/WKT2&lt;/code&gt;字符串和EPSG代码直接创建坐标系对象，也支持导出WKT字符串。老版本中记录EPSG坐标系定义的的&lt;a href=&#34;https://github.com/OSGeo/proj.4/blob/4.9.2-maintenance/nad/epsg&#34;&gt;nad/epsg&lt;/a&gt;被弃用，改用SQLite数据库来记录（在&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/data/sql/&#34;&gt;data/sql&lt;/a&gt;目录下保存着用于生成&lt;code&gt;proj.db&lt;/code&gt;文件的SQL脚本），不过新版本需要依赖SQLite3。&lt;/p&gt;
+
+&lt;p&gt;3、新版的实现使用了缓存机制，在创建操作坐标系对象及搜索查找等都有用到。代码可见 &lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/factory.cpp&#34;&gt;src/iso19111/factory.cpp&lt;/a&gt;、&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/crs.cpp&#34;&gt;src/iso19111/crs.cpp&lt;/a&gt;、&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/coordinateoperation.cpp&#34;&gt;src/iso19111/coordinateoperation.cpp&lt;/a&gt;、&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/io.cpp&#34;&gt;src/iso19111/coordinateoperation.cpp&lt;/a&gt; 等文件。&lt;/p&gt;
+
+&lt;p&gt;4、新版添加了&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/proj_math.h&#34;&gt;proj_math.h&lt;/a&gt;、&lt;a href=&#34;https://github.com/OSGeo/proj.4/tree/master/src/math.cpp&#34;&gt;math.cpp&lt;/a&gt;，添加了&lt;code&gt;pj_hypot&lt;/code&gt;等函数，这解决了一些编译问题（因为之前版本projects.h中声明了&lt;code&gt;hypot&lt;/code&gt;函数，但这个函数在非_WIN32环境中也可能是存在math.h中的）。&lt;/p&gt;
+
+&lt;p&gt;以下主要翻译自：&lt;a href=&#34;https://proj4.org/news.html#release-notes&#34;&gt;PROJ.4 News&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;proj-5-x-更新&#34;&gt;PROJ 5.x 更新&lt;/h3&gt;
+
+&lt;p&gt;此版本的 PROJ 对系统的大地测量功能 (主要是) 引入了一些重要的扩展和改进。&lt;/p&gt;
+
+&lt;p&gt;引入新功能的主要驱动因素是动态参考框架的出现、高精度全球导航卫星系统的使用日益增加以及对精确坐标变换的相关需求的增加。虽然旧版本的 PROJ 包含一些大地测量功能, 但新框架为将 PROJ 转变为通用地理空间坐标转换引擎奠定了基础。&lt;/p&gt;
+
+&lt;p&gt;内部架构也有了许多变化和改进。到目前为止，这些改进都遵循现有的编程接口。但是这个过程已经显示出需要简化和减少代码库，以支持持续的主动开发。&lt;/p&gt;
+
+&lt;p&gt;新的主要版本号使该项目在名称上留下了一些难题。在产品的大部分使用寿命中，它被称为PROJ.4，但由于我们现在已达到版本5，因此名称不再与版本号对齐。&lt;/p&gt;
+
+&lt;p&gt;因此，我们决定将名称与版本号和该版本分离，然后将产品简称为PROJ。为了表彰软件的历史，我们将PROJ.4作为组织项目的名称。同一个项目团队也会生成datum-grid 包。&lt;/p&gt;
+
+&lt;p&gt;综上所述:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;PROJ.4项目提供产品PROJ，现在版本为5.0.0。&lt;/li&gt;
+&lt;li&gt;PROJ的基础组件是库libproj。&lt;/li&gt;
+&lt;li&gt;其他PROJ组件包括应用程序proj，它为libproj提供命令行界面。&lt;/li&gt;
+&lt;li&gt;PROJ.4项目还分发了基准网格(datum-grid)包，在编写本文时，它是1.6.0版本。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;5-0-0-更新&#34;&gt;5.0.0 更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;推出新的API在&lt;code&gt;proj.h&lt;/code&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新版API增加了4D空间坐标转换功能&lt;/li&gt;
+&lt;li&gt;新API中的函数使用&lt;code&gt;proj_&lt;/code&gt;命名空间(名称前缀)&lt;/li&gt;
+&lt;li&gt;新API中的数据类型使用&lt;code&gt;PJ_&lt;/code&gt;命名空间(名称前缀)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;引入“转换管道”(transformation pipelines)的概念，可以通过 &lt;a href=&#34;https://baike.baidu.com/item/%E8%8F%8A%E8%8A%B1%E9%93%BE#3&#34;&gt;菊花链&lt;/a&gt; 的方式简化坐标操作，可以对坐标进行复杂的大地转换。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;采用 &lt;strong&gt;OGC/ISO-19100&lt;/strong&gt; 地理空间标准系列术语。关键定义是：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在通用层面上，坐标操作是基于从一个坐标参考系统到另一个坐标参考系统的一对一关系的坐标变换。&lt;/li&gt;
+&lt;li&gt;变换(&lt;em&gt;transformation&lt;/em&gt; )是一种坐标操作，其中两个坐标参考系统基于不同的基准，例如，从全局参考框架改变到区域框架。&lt;/li&gt;
+&lt;li&gt;转换(&lt;em&gt;conversion&lt;/em&gt; )是一种坐标操作，其中两个坐标参考系统都基于相同的数据，例如，坐标单位的变化。&lt;/li&gt;
+&lt;li&gt;投影是从椭球坐标系到平面坐标系的坐标转换。虽然投影只是根据标准进行的转换, 但它们在 PROJ 中被视为单独的实体, 因为它们占库中绝大多数操作。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;新操作&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;管线操作 &lt;a href=&#34;https://proj4.org/operations/pipeline.html#pipeline&#34;&gt;The pipeline operator&lt;/a&gt; (&lt;code&gt;pipeline&lt;/code&gt;)&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;变换 Transformations&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;霍默特变换 &lt;a href=&#34;https://proj4.org/operations/transformations/helmert.html#helmert&#34;&gt;Helmert transform&lt;/a&gt; (&lt;code&gt;helmert&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;霍纳实数和复数的多项式评估 (&lt;code&gt;horner&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://proj4.org/operations/transformations/hgridshift.html#hgridshift&#34;&gt;Horizontal gridshift&lt;/a&gt; (&lt;code&gt;hgridshift&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://proj4.org/operations/transformations/vgridshift.html#vgridshift&#34;&gt;Vertical gridshift&lt;/a&gt; (&lt;code&gt;vgridshift&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;莫洛金斯基变换 &lt;a href=&#34;https://proj4.org/operations/transformations/molodensky.html#molodensky&#34;&gt;Molodensky transform&lt;/a&gt; (&lt;code&gt;molodensky&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://proj4.org/operations/transformations/deformation.html#deformation&#34;&gt;Kinematic gridshift with deformation model&lt;/a&gt; (&lt;code&gt;deformation&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;转换 Conversions&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;单位转换 &lt;a href=&#34;https://proj4.org/operations/conversions/unitconvert.html#unitconvert&#34;&gt;Unit conversion&lt;/a&gt; (&lt;code&gt;unitconvert&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;轴向交换 &lt;a href=&#34;https://proj4.org/operations/conversions/axisswap.html#axisswap&#34;&gt;Axis swap&lt;/a&gt; (&lt;code&gt;axisswap&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;投影 Projections&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;中央圆锥投影 &lt;a href=&#34;https://proj4.org/operations/projections/ccon.html#ccon&#34;&gt;Central Conic projection&lt;/a&gt; (&lt;code&gt;ccon&lt;/code&gt;)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;新的“自由格式”(free format)选项，运行在指定&lt;strong&gt;key/value&lt;/strong&gt;键值对时候通过空白字符进行分割标记，例如&lt;code&gt;proj = merc lat_0 = 45&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加到&lt;strong&gt;init-files&lt;/strong&gt;的元数据，可以通过&lt;code&gt;proj.h&lt;/code&gt;中新的API函数&lt;code&gt;proj_init_info()&lt;/code&gt;读取它们。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加了具有ITRF转换参数的ITRF2000，ITRF2008和ITRF2014初始化文件，包括板块运动模型参数。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加椭球参数到GSK2011,PZ90和&amp;rdquo;danish&amp;rdquo;。后者类似于已经支持的andrae椭球体，但长半轴略微不同。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;添加哥本哈根本初子午线.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将EPSG数据库更新至9.2.0版。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Geodesic库已更新至1.49.2-c版。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;对分析性偏导数的支持已被移除。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;改善了Winkel Tripel和Aitoff的表现。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;将&lt;code&gt;pj_has_inverse()&lt;/code&gt;函数引入&lt;code&gt;proj_api.h&lt;/code&gt;，使用它检测一个操作是否可反转，而不是检测&lt;code&gt;P-&amp;gt;inv&lt;/code&gt;是否存在。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;ABI版本号更新为13:0:0。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;删除了对Windows CE的支持。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;删除了VB6 COM接口。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;5-1-0-更新&#34;&gt;5.1.0 更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;添加函数&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_errno_string&#34;&gt;&lt;code&gt;proj_errno_string()&lt;/code&gt;&lt;/a&gt; 到 &lt;code&gt;proj.h&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;验证管道步骤之间的单位，并确保转换的完整性。&lt;/li&gt;
+&lt;li&gt;在没有参数的情况下调用&lt;a href=&#34;https://proj4.org/apps/cct.html#cct&#34;&gt;cct&lt;/a&gt;和&lt;a href=&#34;https://proj4.org/apps/gie.html#gie&#34;&gt;gie&lt;/a&gt;程序时打印帮助。&lt;/li&gt;
+&lt;li&gt;CITATION文件添加到源码发行。&lt;/li&gt;
+&lt;li&gt;添加了Web墨卡托操作。&lt;/li&gt;
+&lt;li&gt;提高了赤道附近(4326)向spherical Mercator(3857)前向转换的数值精度。&lt;/li&gt;
+&lt;li&gt;为cct添加了&lt;code&gt;--skip-lines&lt;/code&gt;选项。&lt;/li&gt;
+&lt;li&gt;始终对输入&lt;code&gt;NaN&lt;/code&gt; 处返回&lt;code&gt;Nan&lt;/code&gt;值。&lt;/li&gt;
+&lt;li&gt;移除没有使用的&lt;code&gt;src/org_proj4_Projections.h&lt;/code&gt;文件。&lt;/li&gt;
+&lt;li&gt;Java Native Interface绑定已更新&lt;/li&gt;
+&lt;li&gt;水平和垂直网格移位操作扩展到时域(temporal domain)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;5-2-0-更新&#34;&gt;5.2.0 更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;在unitconvert中增加了对deg，rad和grad的支持。&lt;/li&gt;
+&lt;li&gt;当没有另外指定时，假设&lt;code&gt;+t_epoch&lt;/code&gt;为时间输入。&lt;/li&gt;
+&lt;li&gt;添加了逆拉格朗日投影。&lt;/li&gt;
+&lt;li&gt;添加&lt;code&gt;-multiplier&lt;/code&gt;选项到vgridshift。&lt;/li&gt;
+&lt;li&gt;添加等地球投影。（等地球地图投影是用于世界地图的新的等面积假圆柱投影）&lt;/li&gt;
+&lt;li&gt;为gie添加了“require_grid”选项。&lt;/li&gt;
+&lt;li&gt;将 Helmert 变换的&lt;code&gt;+transpose&lt;/code&gt;选项替换为&lt;code&gt;+convention&lt;/code&gt;。从现在开始应当显示指定convertion使用，使用+transpose选项将返回错误。&lt;/li&gt;
+&lt;li&gt;改进的逆spherical Mercator投影数值精度&lt;/li&gt;
+&lt;li&gt;当前&lt;strong&gt;cct&lt;/strong&gt;会将前向输入的坐标，转发到输出流。 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1111&#34;&gt;#1111&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;proj-6-x-更新&#34;&gt;PROJ 6.x 更新&lt;/h3&gt;
+
+&lt;p&gt;PROJ6 进行了广泛的更改, 以增加其功能范围, 从具有所谓 &amp;ldquo;早期绑定&amp;rdquo; 大地测量基准转换功能的制图投影引擎, 到更完整的库, 支持坐标变换和坐标参考系统。&lt;/p&gt;
+
+&lt;p&gt;作为其他增强功能的基础, PROJ 现在包括由 iso-19111:2019 标准/OGC 抽象规范主题 2: &amp;ldquo;按坐标引用&amp;rdquo; 的模型的 C++ 实现, 用于大地测量参照框 (基准), 坐标参考系统和协调操作。这些大地测量对象的构造和查询可通过新的 C++ API 进行, 并且在很大程度上可以从 C API 中的绑定中访问。&lt;/p&gt;
+
+&lt;p&gt;这些大地测量对象可以从 OGC 已知文本格式 (WKT) 以不同的变体导入和导出: ESRI WKT、GDAL WKT 1、WKT2:2015 (ISO 191.2: 2015) 和 WKT2:2018 (ISO 19162: 2018)。还支持从 PROJ 字符串导入和导出 crs 对象。此功能以前在 GDAL 软件库中可用 (WKT2 支持除外, 这是一项新功能), 现在是 PROJ 不可或缺的一部分。&lt;/p&gt;
+
+&lt;p&gt;现在, sqlite3 数据库文件 &lt;strong&gt;proj.db&lt;/strong&gt; 中提供了一个统一的大地测量对象数据库、坐标参考系统及其元数据以及这些 CRS 之间的坐标操作。这包括从 IOMP EPSG 数据集 (v9.6.0 版本)、法国国家测绘机构大地测量登记册和 ESRI 投影引擎数据库中导入的定义。PROJ 现在是此 CRS 和坐标操作数据库的 &amp;ldquo;OSGeo C stack&amp;rdquo; 中的参考软件, 而以前此功能分布在 PROJ、GDAL 和歌词地理, 并使用 CSV 或其他基于特定文本的格式。&lt;/p&gt;
+
+&lt;p&gt;添加了考虑到元数据 (如使用区域和准确性) 的后期绑定坐标操作功能。这可以在许多情况下避免过去使用 WGS84 作为中间系统的要求, 这可能会导致不必要的精度损失, 或者在无法转换到 WGS84 的情况下有时是无法实现的。这些后期绑定功能现在由  proj_create_crs_to_crs() 函数和 cs2cs 实用程序使用。&lt;/p&gt;
+
+&lt;p&gt;添加了一个新的命令行实用程序 projinfo 来查询有关数据库的大地测量对象的信息, 从 WKT 字符串和 PROJ 字符串导入和导出大地测量对象, 并显示两个 CRS(坐标参考系统) 之间可用的坐标操作。&lt;/p&gt;
+
+&lt;h4 id=&#34;6-0-0-更新&#34;&gt;6.0.0 更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;公开接口中移除projects.h（当前仅作为内部接口）(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/835&#34;&gt;#835&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;不推荐使用proj_api.h接口。头文件仍然可用，但将在下一个主要版本的PROJ中删除。现在需要定义&lt;code&gt;ACCEPT_USE_OF_DEPRECATED_PROJ_API_H&lt;/code&gt;宏接口才可用。 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/836&#34;&gt;#836&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;删除了对nmake构建系统的支持。(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/838&#34;&gt;#838&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;删除对&lt;code&gt;proj_def.dat&lt;/code&gt; 默认文件的支持。 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/201&#34;&gt;#201&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;构建PROJ需要支持C++11编译器。&lt;/li&gt;
+&lt;li&gt;构建添加对SQLite 3.7的依赖。(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1175&#34;&gt;#1175&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加 &lt;strong&gt;projinfo&lt;/strong&gt; 命令行程序。&lt;/li&gt;
+&lt;li&gt;添加一些用于处理ISO19111功能函数的到&lt;code&gt;proj.h&lt;/code&gt;。(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1175&#34;&gt;#1175&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;更新了cs2cs以使用后期绑定特性。(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1182&#34;&gt;#1182&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;移除 &lt;code&gt;nad2bin&lt;/code&gt; 程序。现在可以在&lt;a href=&#34;https://github.com/OSGeo/proj-datumgrid&#34;&gt;proj-datumgrid&lt;/a&gt;仓库中查看。&lt;/li&gt;
+&lt;li&gt;在proj中删除了对Chebyshev多项式的支持&lt;/li&gt;
+&lt;li&gt;从proj.h中移除&lt;code&gt;proj_geocentric_latitude()&lt;/code&gt; API&lt;/li&gt;
+&lt;li&gt;更改&lt;strong&gt;proj&lt;/strong&gt;行为：现在只允许投影的初始化 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1162&#34;&gt;#1162&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;更改&lt;a href=&#34;https://proj4.org/operations/projections/tmerc.html#tmerc&#34;&gt;tmerc&lt;/a&gt;行为：现在默认扩展横轴墨卡托算法 (&lt;code&gt;etmerc&lt;/code&gt;)。旧的实现可以通过添加 &lt;code&gt;+approx&lt;/code&gt;参数(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/404&#34;&gt;#404&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;更改行为：默认椭球现在设置为GRS80 (之前是WGS84) (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1210&#34;&gt;#1210&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;允许在 &lt;a href=&#34;https://proj4.org/usage/environmentvars.html#envvar-PROJ_LIB&#34;&gt;&lt;code&gt;PROJ_LIB&lt;/code&gt;&lt;/a&gt; 环境变量中使用多个目录 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/pull/1218&#34;&gt;#1218&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/operations/projections/lcc.html#lcc&#34;&gt;Lambert Conic Conformal (2SP Michigan)&lt;/a&gt; 投影 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1142&#34;&gt;#1142&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加 &lt;a href=&#34;https://proj4.org/operations/projections/bertin1953.html#bertin1953&#34;&gt;Bertin1953&lt;/a&gt; 投影 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1133&#34;&gt;#1133&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/operations/projections/tobmerc.html#tobmerc&#34;&gt;Tobler-Mercator&lt;/a&gt; 投影 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1153&#34;&gt;#1153&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/operations/transformations/molobadekas.html#molobadekas&#34;&gt;Molodensky-Badekas&lt;/a&gt; 变换 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1160&#34;&gt;#1160&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/operations/conversions/push.html#push&#34;&gt;push&lt;/a&gt; 和&lt;a href=&#34;https://proj4.org/operations/conversions/pop.html#pop&#34;&gt;pop&lt;/a&gt; 坐标操作 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1250&#34;&gt;#1250&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;code&gt;+t_obs&lt;/code&gt; 参数，从helmert 和deformation中 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1264&#34;&gt;#1264&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/operations/transformations/deformation.html#cmdoption-arg-dt&#34;&gt;&lt;code&gt;+dt&lt;/code&gt;&lt;/a&gt; 参数到deformation中，用于替换移除的 &lt;code&gt;+t_obs&lt;/code&gt; (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1264&#34;&gt;#1264&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;6-1-0-更新&#34;&gt;6.1.0 更新&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;包含 QGIS 中定义的椭球 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1337&#34;&gt;#1137&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加 &lt;code&gt;-k ellipsoid&lt;/code&gt; 选项到 projinfo (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1338&#34;&gt;#1338&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;cs2cs支持4D坐标 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1355&#34;&gt;#1355&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;WKT2 解析：更新到OGC 18-010r6 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1360&#34;&gt;#1360&lt;/a&gt; &lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1366&#34;&gt;#1366&lt;/a&gt;))&lt;/li&gt;
+&lt;li&gt;更新googletest内部版本到v1.8.1 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1361&#34;&gt;#1361&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;数据库更新：EPSG v9.6.2 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1462&#34;&gt;#1462&lt;/a&gt;), IGNF v3.0.3, ESRI 10.7.0 并添加operation_version列(&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1368&#34;&gt;#1368&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_normalize_for_visualization&#34;&gt;&lt;code&gt;proj_normalize_for_visualization()&lt;/code&gt;&lt;/a&gt; 尝试应用大多数 GIS 应用和 PROJ &amp;lt;6 使用的轴序 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1387&#34;&gt;#1387&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加 noop（空）操作 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1391&#34;&gt;#1391&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;用户设置的路径优先于 &lt;a href=&#34;https://proj4.org/usage/environmentvars.html#envvar-PROJ_LIB&#34;&gt;&lt;code&gt;PROJ_LIB&lt;/code&gt;&lt;/a&gt; 搜索路径 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1398&#34;&gt;#1398&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;缩小数据库大小 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1438&#34;&gt;#1438&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;添加对compoundCRS 和concatenatedOperation组件命名的支持 (&lt;a href=&#34;https://github.com/OSGeo/proj.4/issues/1441&#34;&gt;#1441&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-从proj-4向新版本迁移&#34;&gt;2、从PROJ.4向新版本迁移&lt;/h2&gt;
+
+&lt;p&gt;以下内容主要来自&lt;a href=&#34;https://proj4.org/development/migration.html&#34;&gt;Version 4 to &lt;sup&gt;5&lt;/sup&gt;&amp;frasl;&lt;sub&gt;6&lt;/sub&gt; API Migration&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&#34;迁移到5-x版本&#34;&gt;迁移到5.x版本&lt;/h3&gt;
+
+&lt;p&gt;这是希望将代码迁移到使用PROJ 5的开发人员的过渡指南。&lt;/p&gt;
+
+&lt;h4 id=&#34;背景&#34;&gt;背景&lt;/h4&gt;
+
+&lt;p&gt;原文太长，这里简单抽取一部分。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;1、之前老的API两个坐标参考系统之间的任何转换都必须通过未明确定义的WGS84框架进行中转，新的API取消了对PROJ中转换的限制。虽然任然可以进行这种类型的转换，但是在多数情况下，有更好的替代方案。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;2、如果你只关心到米级精度，那么旧的API是够用的。但是WGS84并非真实世界的基础，其它一切都可以通过WGS84进行转换的观点是有缺陷的。并且这里说的WGS84是6个实现中的哪一个呢？&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;3、对许多坐标系统而言，转换到WGS84，在旧系统之间可能变换精度在厘米级。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;4、hub（这里说的就是把所有坐标之间的转换都通过WGS84做中转）框架（&amp;rdquo;基准&amp;rdquo;）概念本身没有大问题。但世界本质是4维的，为了获得大地测量精确变换，可能需要在四个维度下计算，新的API允许这样做。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;旧的API下，坐标从坐标系A转换到坐标系B的过程，需要从A变换到WGS84（反算），再从WGS84变换到B（正算）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;$ echo 300000 6100000 | cs2cs +proj=utm +zone=33 +ellps=GRS80 +to +proj=utm +zone=32 +ellps=GRS80
+683687.87       6099299.66 0.00
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;新的命令行工具&lt;code&gt;cct&lt;/code&gt;使用新的API，所以同样的转换可能结果不一样&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;$ echo 300000 6100000 0 0 | cct +proj=pipeline +step +inv +proj=utm +zone=33 +ellps=GRS80 +step +proj=utm +zone=32 +ellps=GRS80
+683687.8667   6099299.6624    0.0000    0.0000
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;代码示例&#34;&gt;代码示例&lt;/h4&gt;
+
+&lt;p&gt;这里显示了旧API和新API之间的区别，并举了几个例子。 下面我们用两个不同的API实现相同的程序。 程序从命令行读取输入经度和纬度，并使用墨卡托投影将它们转换为投影坐标。&lt;/p&gt;
+
+&lt;p&gt;我们首先编写PROJ v.4的程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;proj_api.h&amp;gt;
+
+main(int argc, char **argv) {
+    projPJ pj_merc, pj_longlat;
+    double x, y;
+
+    // 创建坐标参考系对象
+    if (!(pj_longlat = pj_init_plus(&amp;quot;+proj=longlat +ellps=clrk66&amp;quot;)) )
+        return 1;
+    if (!(pj_merc = pj_init_plus(&amp;quot;+proj=merc +ellps=clrk66 +lat_ts=33&amp;quot;)) )
+        return 1;
+
+    // PROJ.4 API 默认的经纬度都是使用弧度值
+    while (scanf(&amp;quot;%lf %lf&amp;quot;, &amp;amp;x, &amp;amp;y) == 2) {
+        x *= DEG_TO_RAD; /* 经度 */
+        y *= DEG_TO_RAD; /* 纬度 */
+        // 进行坐标转换
+        p = pj_transform(pj_longlat, pj_merc, 1, 1, &amp;amp;x, &amp;amp;y, NULL );
+        printf(&amp;quot;%.2f\t%.2f\n&amp;quot;, x, y);
+    }
+
+    pj_free(pj_longlat);
+    pj_free(pj_merc);
+
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用PROJ v.5实现的相同程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;// 使用新的头文件
+#include &amp;lt;proj.h&amp;gt;
+
+main(int argc, char **argv) {
+    PJ *P;
+    PJ_COORD c;
+
+    // 创建墨卡托投影坐标系
+    P = proj_create(PJ_DEFAULT_CTX, &amp;quot;+proj=merc +ellps=clrk66 +lat_ts=33&amp;quot;);
+    if (P==0)
+        return 1;
+
+    while (scanf(&amp;quot;%lf %lf&amp;quot;, &amp;amp;c.lp.lam, &amp;amp;c.lp.phi) == 2) {
+        // 度转弧度
+        c.lp.lam = proj_torad(c.lp.lam);
+        c.lp.phi = proj_torad(c.lp.phi);
+        // 进行坐标转换（正算）
+        c = proj_trans(P, PJ_FWD, c);
+        printf(&amp;quot;%.2f\t%.2f\n&amp;quot;, c.xy.x, c.xy.y);
+    }
+
+    proj_destroy(P);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;新旧api函数对照表&#34;&gt;新旧API函数对照表&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;旧版 API 函数&lt;/th&gt;
+&lt;th&gt;新版 API 函数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pj_fwd&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_inv&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_fwd3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_inv3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_transform&lt;/td&gt;
+&lt;td&gt;proj_trans_array or proj_trans_generic&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_init&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create&#34;&gt;&lt;code&gt;proj_create()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_init_plus&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create&#34;&gt;&lt;code&gt;proj_create()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_free&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_destroy&#34;&gt;&lt;code&gt;proj_destroy()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_is_latlong&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_angular_output&#34;&gt;&lt;code&gt;proj_angular_output()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_is_geocent&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_angular_output&#34;&gt;&lt;code&gt;proj_angular_output()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_def&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_pj_info&#34;&gt;&lt;code&gt;proj_pj_info()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_latlong_from_proj&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_set_finder&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_set_searchpath&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_deallocate_grids&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_strerrno&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_errno_ref&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_errno&#34;&gt;&lt;code&gt;proj_errno()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_release&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_info&#34;&gt;&lt;code&gt;proj_info()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;迁移到6-x版本&#34;&gt;迁移到6.x版本&lt;/h3&gt;
+
+&lt;p&gt;这是希望迁移代码以使用PROJ 6的开发人员的过渡指南。&lt;/p&gt;
+
+&lt;h4 id=&#34;代码示例-1&#34;&gt;代码示例&lt;/h4&gt;
+
+&lt;p&gt;这里显示了旧API和新API之间的区别，并举了几个例子。 下面我们用两个不同的API实现相同的程序。 程序从命令行读取输入经度和纬度，并使用墨卡托投影将它们转换为投影坐标。&lt;/p&gt;
+
+&lt;p&gt;我们首先编写PROJ v.4的程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;proj_api.h&amp;gt;
+
+main(int argc, char **argv) {
+    projPJ pj_merc, pj_longlat;
+    double x, y;
+
+    // 创建坐标参考系对象
+    if (!(pj_longlat = pj_init_plus(&amp;quot;+proj=longlat +ellps=clrk66&amp;quot;)) )
+        return 1;
+    if (!(pj_merc = pj_init_plus(&amp;quot;+proj=merc +ellps=clrk66 +lat_ts=33&amp;quot;)) )
+        return 1;
+
+    // PROJ.4 API 默认的经纬度都是使用弧度值
+    while (scanf(&amp;quot;%lf %lf&amp;quot;, &amp;amp;x, &amp;amp;y) == 2) {
+        x *= DEG_TO_RAD; /* 经度 */
+        y *= DEG_TO_RAD; /* 纬度 */
+        // 进行坐标转换
+        p = pj_transform(pj_longlat, pj_merc, 1, 1, &amp;amp;x, &amp;amp;y, NULL );
+        printf(&amp;quot;%.2f\t%.2f\n&amp;quot;, x, y);
+    }
+
+    pj_free(pj_longlat);
+    pj_free(pj_merc);
+
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用PROJ v.6实现的相同程序：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;lt;proj.h&amp;gt;
+
+main(int argc, char **argv) {
+    PJ *P;
+    PJ_COORD c;
+
+    /* 注意: 在PROJ 6中强烈建议不要使用 PROJ 格式字符串来定义 CRS ，因为 PROJ 格式字符串*/
+    /* 不是描述 CRS 的一种好方式，准确说来是其对大地基准的描述不够详细。                 */
+    /* 使用权威机构提供的坐标系代码(例如&amp;quot;EPSG:4326&amp;quot;, etc...)或者WKT字符串来创建，将能够 */
+    /* 充分利用PROJ的“transformation engine”来确定两个CRS直接的最佳转换方式          */
+    P = proj_create_crs_to_crs(PJ_DEFAULT_CTX,
+                               &amp;quot;+proj=longlat +ellps=clrs66&amp;quot;,
+                               &amp;quot;+proj=merc +ellps=clrk66 +lat_ts=33&amp;quot;,
+                               NULL);
+    if (P==0)
+        return 1;
+
+    {
+        /* 对于特定的使用情况下（转换前后坐标系已知），这是没有必要的。                */
+        /* proj_normalize_for_visualization() 确保预期坐标顺序和由 proj_trans() */
+        /* 返回的顺序是 大地坐标系下先经度后纬度，投影坐标系下先东向后北向             */
+        /* 如果不是使用上面的PROJ字符串，而是使用 &amp;quot;EPSG:XXXX&amp;quot; 代码，这可能是必要的。  */
+        PJ* P_for_GIS = proj_normalize_for_visualization(C, P);
+        if( 0 == P_for_GIS )  {
+            proj_destroy(P);
+            return 1;
+        }
+        proj_destroy(P);
+        P = P_for_GIS;
+    }
+
+    while (scanf(&amp;quot;%lf %lf&amp;quot;, &amp;amp;c.lp.lam, &amp;amp;c.lp.phi) == 2) {
+        /* 不需要转换到弧度 */
+        c = proj_trans(P, PJ_FWD, c);
+        printf(&amp;quot;%.2f\t%.2f\n&amp;quot;, c.xy.x, c.xy.y);
+    }
+
+    proj_destroy(P);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;新旧api函数对照表-1&#34;&gt;新旧API函数对照表&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;旧版 API 函数&lt;/th&gt;
+&lt;th&gt;新版 API 函数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pj_fwd&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_inv&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_fwd3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_inv3&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_transform&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create_crs_to_crs&#34;&gt;&lt;code&gt;proj_create_crs_to_crs()&lt;/code&gt;&lt;/a&gt; + (&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_normalize_for_visualization&#34;&gt;&lt;code&gt;proj_normalize_for_visualization()&lt;/code&gt;&lt;/a&gt; +) &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans&#34;&gt;&lt;code&gt;proj_trans()&lt;/code&gt;&lt;/a&gt;, &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans_array&#34;&gt;&lt;code&gt;proj_trans_array()&lt;/code&gt;&lt;/a&gt; or &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_trans_generic&#34;&gt;&lt;code&gt;proj_trans_generic()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_init&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create&#34;&gt;&lt;code&gt;proj_create()&lt;/code&gt;&lt;/a&gt; / &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create_crs_to_crs&#34;&gt;&lt;code&gt;proj_create_crs_to_crs()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_init&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create&#34;&gt;&lt;code&gt;proj_create()&lt;/code&gt;&lt;/a&gt; / &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create_crs_to_crs&#34;&gt;&lt;code&gt;proj_create_crs_to_crs()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_free&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_destroy&#34;&gt;&lt;code&gt;proj_destroy()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_is_latlong&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;proj_get_type()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_is_geocent&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;proj_get_type()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_def&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_pj_info&#34;&gt;&lt;code&gt;proj_pj_info()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_latlong_from_proj&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No direct equivalent&lt;/em&gt;, but can be accomplished by chaining &lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_create&#34;&gt;&lt;code&gt;proj_create()&lt;/code&gt;&lt;/a&gt;, &lt;code&gt;proj_crs_get_horizontal_datum()&lt;/code&gt; and &lt;code&gt;proj_create_geographic_crs_from_datum()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_set_finder&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;proj_context_set_file_finder()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_set_searchpath&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;proj_context_set_search_paths()&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_deallocate_grids&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_strerrno&lt;/td&gt;
+&lt;td&gt;&lt;em&gt;No equivalent&lt;/em&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_errno_ref&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_errno&#34;&gt;&lt;code&gt;proj_errno()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;pj_get_release&lt;/td&gt;
+&lt;td&gt;&lt;a href=&#34;https://proj4.org/development/reference/functions.html#c.proj_info&#34;&gt;&lt;code&gt;proj_info()&lt;/code&gt;&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>SQLite R*Tree 模块测试</title>
+      <link>http://sotex.github.io/post/2019-05-29-sqlite-rtree-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 29 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-05-29-sqlite-rtree-%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95/</guid>
+      <description>
+
+&lt;h1 id=&#34;sqlite-r-tree-模块测试&#34;&gt;SQLite R*Tree 模块测试&lt;/h1&gt;
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/05/29/10941099.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/29/10941099.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;相关参考：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/oloroso/p/9579720.html&#34;&gt;MySQL空间索引简单使用&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.cnblogs.com/oloroso/p/9777141.html&#34;&gt;MongoDB地理空间数据存储及检索&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.sqlite.org/rtree.html&#34;&gt;The SQLite R*Tree Module&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.sqlite.org/mmap.html&#34;&gt;Memory-Mapped I/O&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sqlite.org/inmemorydb.html&#34;&gt;In-Memory Databases&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://libspatialindex.org/&#34;&gt;libspatialindex&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/R*_tree&#34;&gt;R* tree - Wikipedia&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我另外做了GEOS STRtree/Quadtree 空间检索的性能，测试代码和数据可见&lt;a href=&#34;https://github.com/sotex/Spatial_Index_Test&#34;&gt;Spatial_Index_Test&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-sqlite-r-tree-模块特性简介&#34;&gt;1、SQLite R*Tree 模块特性简介&lt;/h2&gt;
+
+&lt;p&gt;关于SQLite的空间索引相关介绍可以查看官方文档 &lt;a href=&#34;https://www.sqlite.org/rtree.html&#34;&gt;The SQLite R*Tree Module&lt;/a&gt; ，这里只做简单的介绍。&lt;/p&gt;
+
+&lt;p&gt;1、&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;模块实现部分在其源代码内（&lt;a href=&#34;https://www.sqlite.org/download.html&#34;&gt;源码下载页面&lt;/a&gt;），无需另外合并。但是默认是没有启用的，启用需要定义&lt;code&gt;SQLITE_ENABLE_RTREE=1&lt;/code&gt;宏再编译。&lt;/p&gt;
+
+&lt;p&gt;2、&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;模块采用虚拟表实现，每个R *Tree索引都是一个虚拟表。对于这个表，其第一列必须是64位有符号整数类型，作为主键。其它的列（2-12列）根据空间维度确定，每个维度包含一对（两列），分别是该维度的最小和最大值。例如：一维R *Tree索引虚拟表包含3列，分别是&lt;strong&gt;Int64主键| 最小值| 最大值&lt;/strong&gt;；二维R*Tree索引虚拟表包含5列，分别是&lt;strong&gt;Int64主键| 第一维最小值| 第一维最大值| 第二维最小值| 第二维最大值&lt;/strong&gt;；3、4、5维R*Tree索引虚拟表列数情况的以此论推，&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;实现不支持宽度超过5维的R *树。&lt;/p&gt;
+
+&lt;p&gt;3、对于各个维度的最大最小值列，SQLite中可以使用&lt;code&gt;int32&lt;/code&gt;或者&lt;code&gt;float32&lt;/code&gt;类型进行数据存储。与其它常规表中的列不同，这里存储就是二进制类型的值，而不是转换为字符串。如果在插入数据的时候，使用了这两者之外的类型，则会进行隐式转换。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sqlite&#34;&gt;    -- 创建整型坐标rtree索引虚拟表
+    CREATE VIRTUAL TABLE intrtree USING rtree_i32(id,x0,x1,y0,y1,z0,z1);
+    -- 创建浮点型坐标rtree索引虚拟表
+    CREATE VIRTUAL TABLE floatrtree USING rtree(id,x0,x1,y0,y1,z0,z1);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;4、&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;中查询并不限制查询的维度一定要与所查询的表中的维度一致，可以仅查询其中的某几个维度（如3维空间仅查询2个维度）。一般来说，约束（维度）越多，查询的范围框越小，速度越快。&lt;/p&gt;
+
+&lt;p&gt;5、默认情况下使用&lt;code&gt;float32&lt;/code&gt;存储坐标值，当无法精确表示传入值时，下限坐标向下舍入，上限坐标向上舍入，因此边界框可能略大于指定，但永远不会变小。这在查询某个&lt;strong&gt;范围之外&lt;/strong&gt;的数据时，可能会有极小的误差。&lt;/p&gt;
+
+&lt;p&gt;6、对于&lt;strong&gt;3.24.0&lt;/strong&gt;之前的版本，&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;索引虚拟表仅能存储整数主键和坐标值列，其它的信息需要另存于其它表中（通过主键进行关联）。从3.24.0版本开始，&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;索引虚拟表可以存储任意类型数据的辅助列，辅助列必须以&lt;code&gt;+&lt;/code&gt;开头，最多可以存储100个辅助列。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sqlite&#34;&gt;    CREATE VIRTUAL TABLE demo_index2 USING rtree(
+       id,              -- 64位整型主键
+       minX, maxX,      -- X方向最小最大值
+       minY, maxY,      -- Y方向最小最大值
+       +objname TEXT,   -- 辅助列 文本类型
+       +objtype TEXT,   -- 辅助列 文本类型
+       +boundary BLOB   -- 辅助列 二进制数据
+    );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;7、可以自定义R-Tree查询，以便实现非矩形框碰撞。这需要通过&lt;code&gt;sqlite3_rtree_query_callback&lt;/code&gt;（新，3.8.5开始提供）或&lt;code&gt;sqlite3_rtree_geometry_callback&lt;/code&gt;（旧）注册查询SQL语句和匹配检测回调。相关信息在SQLite网站上有详细介绍。&lt;/p&gt;
+
+&lt;p&gt;8、一个&lt;strong&gt;SQLite R *Tree&lt;/strong&gt;会附带三个影子表，用于存储数据，分别是&lt;code&gt;虚拟表名_node&lt;/code&gt;（存储节点） &lt;code&gt;虚拟表名_parent&lt;/code&gt;（存储父节点） &lt;code&gt;虚拟表名_rowid&lt;/code&gt;（存储节点的rowid）。&lt;/p&gt;
+
+&lt;p&gt;9、可以使用&lt;code&gt;SELECT rtreecheck(&#39;虚拟表名&#39;)&lt;/code&gt;来对R-Tree索引进行完整性和正确性检查。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-sqlite-r-tree-模块简单测试代码&#34;&gt;2、SQLite R*Tree 模块简单测试代码&lt;/h2&gt;
+
+&lt;p&gt;写了一个简单的测试程序来测试一下&lt;strong&gt;R *Tree&lt;/strong&gt;树的速度，结果还是可以的。（可用，并不是最佳）&lt;/p&gt;
+
+&lt;p&gt;我的机器环境是：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Windows 10 1903 x64专业版&lt;/p&gt;
+
+&lt;p&gt;AMD 锐龙 2600X&lt;/p&gt;
+
+&lt;p&gt;DDR4 2400 8G&lt;/p&gt;
+
+&lt;p&gt;编译器：VS2017 Native x64&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;使用本地文件的时候，十万条数据插入时间大概在2秒以内，查询一个5x5度大小的范围，时间基本在0.07秒以内；使用内存模式时，插入时间大概在1.8秒以内，查询一个5x5度大小的范围，时间基本在0.04秒以内。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：编译SQLite的时候要定义&lt;code&gt;SQLITE_ENABLE_RTREE&lt;/code&gt;宏，开启RTree索引支持。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;#include &amp;quot;sqlite/sqlite3.h&amp;quot;
+#include&amp;lt;time.h&amp;gt;
+#include &amp;lt;stdlib.h&amp;gt;
+#include &amp;lt;stdio.h&amp;gt;
+
+// 因为仅仅是进行一下试用测试，所以有些地方就没有处理，包括close
+
+int main() 
+{
+    sqlite3* db = NULL;
+    int rc = sqlite3_open(&amp;quot;:memory:&amp;quot;, &amp;amp;db);
+    // int rc = sqlite3_open(&amp;quot;D:/sqlite_rtree/test.db&amp;quot;, &amp;amp;db);
+    if (rc != SQLITE_OK) 
+    {
+        return -1;
+    }
+    
+    char* errmsg;
+    // 创建RTree索引虚拟表
+    rc = sqlite3_exec(db,
+                      &amp;quot;CREATE VIRTUAL TABLE demo_index USING rtree(id,minX, maxX,minY, maxY,+axucol INTEGER NOT NULL)&amp;quot;,
+                      NULL, NULL, &amp;amp;errmsg);
+    if (rc != SQLITE_OK) 
+    {
+        printf(&amp;quot;%4d Error:%sn&amp;quot;, __LINE__, errmsg);
+        return -2;
+    }
+    
+    // 开始计时
+    clock_t start = clock();
+    
+    // 开启事物
+    if (sqlite3_exec(db, &amp;quot;begin&amp;quot;, NULL, NULL, &amp;amp;errmsg) != SQLITE_OK) {
+        printf(&amp;quot;%4d Error:%sn&amp;quot;, __LINE__, errmsg);
+        return -2;
+    }
+    
+    // 生成十万个大小在 边长在[0.002,0.202]度大小以内的数据(0.2~22.5公里左右)
+    srand(time(NULL));  // 初始化随机数种子
+    sqlite3_stmt *pStmt = NULL;
+    
+    // 预处理SQL语句
+    if(sqlite3_prepare_v2(db,
+                          &amp;quot;INSERT INTO demo_index VALUES(?,?,?,?,?,?)&amp;quot;,
+                          -1, &amp;amp;pStmt, NULL) != SQLITE_OK) {
+        printf(&amp;quot;%4d Error:%sn&amp;quot;, __LINE__, errmsg);
+        return -3;
+    }
+    // 逐个插入
+    for (int i = 0; i &amp;lt; 100000; ++i) {
+        // 生成在经纬度范围内的x,y
+        double x0 = ((double)rand() / (double)RAND_MAX) * 360 - 180;
+        double y0 = ((double)rand() / (double)RAND_MAX) * 180 - 90;
+        double x1 = x0 + 0.002 + ((double)rand() / (double)RAND_MAX)*0.2;
+        double y1 = y0 + 0.002 + ((double)rand() / (double)RAND_MAX)*0.2;
+        // 绑定数据
+        sqlite3_bind_int64(pStmt, 1, i);
+        sqlite3_bind_double(pStmt, 2, x0);
+        sqlite3_bind_double(pStmt, 3, x1);
+        sqlite3_bind_double(pStmt, 4, y0);
+        sqlite3_bind_double(pStmt, 5, y1);
+        sqlite3_bind_int(pStmt, 6, rand()%3);
+        // 执行
+        sqlite3_step(pStmt);
+        // 重置
+        sqlite3_reset(pStmt);
+    }
+    sqlite3_finalize(pStmt); //结束语句，释放语句句柄
+    
+    // 结束事物
+    if (sqlite3_exec(db, &amp;quot;commit&amp;quot;, NULL, NULL, &amp;amp;errmsg) != SQLITE_OK){
+        printf(&amp;quot;%4d Error:%sn&amp;quot;, __LINE__, errmsg);
+        return -2;
+    }
+    
+    
+    // 结束计时
+    clock_t end = clock();
+    double hs = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    printf(&amp;quot;插入总耗时: %lf msn&amp;quot;, hs);
+    // 查询
+    // select * from test where NOT(maxX&amp;lt;74.254915 OR minX&amp;gt;79.765758 OR maxY&amp;lt; 24.214285 OR minY&amp;gt;29.725129) AND auxcol==2 ORDER BY id;
+    // 预处理SQL语句
+    pStmt = NULL;
+    if (sqlite3_prepare_v2(db,
+            &amp;quot;SELECT id,minX,minY,auxcol FROM demo_index WHERE NOT(maxX&amp;lt;? OR minX&amp;gt;? OR maxY&amp;lt;?  OR minY&amp;gt;?) AND auxcol==1;&amp;quot;,
+            -1, &amp;amp;pStmt, NULL) != SQLITE_OK) {
+        printf(&amp;quot;%4d Error:%sn&amp;quot;, __LINE__, errmsg);
+        return -4;
+    }
+    
+    //-------------------------------------------------------------------------
+    
+    // 输入查询的范围框数据
+    puts(&amp;quot;Input x0,x1,y0,y1:&amp;quot;);
+    double x0, x1, y0, y1;
+    scanf(&amp;quot;%lf,%lf,%lf,%lf&amp;quot;, &amp;amp;x0, &amp;amp;x1, &amp;amp;y0, &amp;amp;y1);
+    printf(&amp;quot;-----------[%lf,%lf,%lf,%lf]-------------n&amp;quot;, x0, x1, y0, y1);
+    
+    // 开始计时
+    start = clock();
+    
+    // 绑定查询范围数据
+    sqlite3_bind_double(pStmt, 1, x0);
+    sqlite3_bind_double(pStmt, 2, x1);
+    sqlite3_bind_double(pStmt, 3, y0);
+    sqlite3_bind_double(pStmt, 4, y1);
+    while (sqlite3_step(pStmt) == SQLITE_ROW) {
+        int id = sqlite3_column_int(pStmt, 0);
+        double x = sqlite3_column_double(pStmt, 1);
+        double y = sqlite3_column_double(pStmt, 2);
+        int auxcol = sqlite3_column_int(pStmt, 3);
+        // 可以把输出去掉，减少对时间统计的影响
+        printf(&amp;quot;%dt %lf,%lfn&amp;quot;, id, x, y);
+    }
+    sqlite3_reset(pStmt); // 这里只查询一次可以没有，如果需要多次使用这个查询语句，则必须有，不然查出数据不对
+    sqlite3_finalize(pStmt); //结束语句，释放语句句柄
+    
+    // 结束计时
+    end = clock();
+    hs = (double)(end - start) * 1000 / CLOCKS_PER_SEC;
+    printf(&amp;quot;本次查询总耗时: %lf msn&amp;quot;, hs);
+    
+    
+    sqlite3_close(db);
+    system(&amp;quot;pause&amp;quot;);
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>使用 ArcGIS Desktop 切瓦片</title>
+      <link>http://sotex.github.io/post/2019-05-28-%E4%BD%BF%E7%94%A8-arcgis-desktop-%E5%88%87%E7%93%A6%E7%89%87/</link>
+      <pubDate>Tue, 28 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-05-28-%E4%BD%BF%E7%94%A8-arcgis-desktop-%E5%88%87%E7%93%A6%E7%89%87/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/05/28/10936522.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/28/10936522.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-生成切片缓存切片方案&#34;&gt;1、生成切片缓存切片方案&lt;/h2&gt;
+
+&lt;p&gt;ArcGIS有默认的切片方案，如果需要自定义切片规则，需要先生成一个切片方案。&lt;/p&gt;
+
+&lt;p&gt;打开ArcMap，打开 &lt;strong&gt;工具箱(Tools Box) &amp;ndash;&amp;gt; 系统工具箱(System Tools Box) &amp;ndash;&amp;gt; 数据管理工具(Data Managment Tools) &amp;ndash;&amp;gt; 切片缓存(Tile Cache)&amp;ndash;&amp;gt;生成切片缓存切片方案(Generate Tile Cache Tiling Scheme)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201905/693958-20190528124723543-1430779030.png&#34; alt=&#34;生成切片缓存切片方案&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;各个选项简要说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1、输入数据源：这个是用来确定这个切片方案能够切多少级的，切片的最大级别的分辨率&lt;strong&gt;最多能够是&lt;/strong&gt;小于等于输入的数据源的分辨率，也就是说最多能切到刚好等于或者小于数据源的分辨率，就不能再继续往下切了。&lt;/li&gt;
+&lt;li&gt;2、输出切片方案：也就是这个切片方案的保存位置，不能是一个已经存在的文件。&lt;/li&gt;
+&lt;li&gt;3、生成方案：二选一，&lt;strong&gt;NEW&lt;/strong&gt; 表示创建一个新的，&lt;strong&gt;PREDEFINED&lt;/strong&gt; 表示基于一个已有的切片方案来创建。&lt;/li&gt;
+&lt;li&gt;4、比例级数：指定要切多少级，这个数据会自动根据输入数据源的分辨率进行调整。&lt;/li&gt;
+&lt;li&gt;5、比例：指定比例级数后，会自动计算出相应的比例系数列表，如果需要添加，则可以在这里输入后，点击右侧的&lt;code&gt;+&lt;/code&gt;按钮进行添加。移除则是在表格中选择后，点击右侧的&lt;code&gt;X&lt;/code&gt;按钮进行移除。&lt;/li&gt;
+&lt;li&gt;6、切片原点：就是切片的第一个瓦片(0,0)的左上角点坐标。&lt;/li&gt;
+&lt;li&gt;7、每英寸的点数(像素)：就是DPI的设置，一般国内的切片96（天地图），但是WMTS服务通常是90.714（WMTS标准里面就是，但是ArcGIS Desktop10.2/3版本，由于计算使用的经纬度与米的换算系数偏小的原因，导致其计算比例尺与分辨率的结果有问题，其加载WMTS图层时可见）&lt;/li&gt;
+&lt;li&gt;8、切片大小（以像素为单位）：瓦片的大小，通常是&lt;code&gt;256 x 256&lt;/code&gt;。经过我的测试，大部分情况下&lt;code&gt;512 x 512&lt;/code&gt;的瓦片大小，在切瓦片的速度和发布成服务后的浏览速度上，都是优于256大小的，1024大小的瓦片在大多数时候也是优于256的，但与512差异不大。&lt;/li&gt;
+&lt;li&gt;9、切片格式：主要是&lt;strong&gt;PNGx、JPEG、MIXED&lt;/strong&gt;。MIXED混合格式，指的是在切片的时候，如果检测到瓦片内有透明区域，则这个瓦片使用PNG32格式，如果没有，则使用JPEG格式。这样做可以在不失去透明通道的前提下，有效降低瓦片数据文件的大小。&lt;/li&gt;
+&lt;li&gt;10、切片压缩质量：仅对JPEG（包括MIXED中使用JPEG的瓦片）有效，参数值需要介于1-100之间，默认是75。&lt;/li&gt;
+&lt;li&gt;11、存储格式：&lt;strong&gt;COMPACT&lt;/strong&gt; 紧凑格式，也就是把多个瓦片（最多128x128个）存储到一个&lt;code&gt;bundle/bundlx&lt;/code&gt;文件的形式，避免出现大量碎文件。&lt;strong&gt;EXPLODED&lt;/strong&gt; 分散格式，就是把每一个瓦片存储成一个图片文件，这个形式的瓦片不能和tpk包一起使用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考：&lt;a href=&#34;http://desktop.arcgis.com/en/arcmap/10.5/tools/data-management-toolbox/generate-tile-cache-tiling-scheme.htm&#34;&gt;Generate Tile Cache Tiling Scheme&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-切瓦片&#34;&gt;2、切瓦片&lt;/h2&gt;
+
+&lt;p&gt;切瓦片在ArcGIS里面没有直接使用这个名称，在“管理切片缓存”里面。&lt;/p&gt;
+
+&lt;p&gt;打开ArcMap，打开 &lt;strong&gt;工具箱(Tools Box) &amp;ndash;&amp;gt; 系统工具箱(System Tools Box) &amp;ndash;&amp;gt; 数据管理工具(Data Managment Tools) &amp;ndash;&amp;gt; 切片缓存(Tile Cache)&amp;ndash;&amp;gt;管理切片缓存(Manage Tile Cache)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201905/693958-20190528124745988-274072170.png&#34; alt=&#34;管理切片缓存&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;各个选项简要说明：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1、缓存位置：切出来的瓦片保存的文件夹，也可以是已经存在的瓦片目录，因为这里不仅仅是可以切瓦片。&lt;/li&gt;
+&lt;li&gt;2、缓存名称：切出来的瓦片保存的子一级文件夹名称，可以为空。&lt;/li&gt;
+&lt;li&gt;3、管理模式：&lt;strong&gt;RECREATE_ALL_TILES&lt;/strong&gt; 替换所有瓦片，不管存不存在。&lt;strong&gt;RECREATE_EMPTY_TILES&lt;/strong&gt; 替换空瓦片，也就是如果存在则不替换。&lt;strong&gt;DELETE_TILES&lt;/strong&gt; 删除瓦片，这个选项用来删除所有的瓦片数据文件，但是不删除目录结构。（注意：如果输出是已经存在的瓦片目录，则该目录下的&lt;strong&gt;conf.cdi&lt;/strong&gt;并不会更新，这在替换了数据源等情况下可能导致输出瓦片与描述信息不对应）&lt;/li&gt;
+&lt;li&gt;4、输入数据源：选择要切片的数据文件，虽然这里写着可选，但是如果没有指定就会报错。数据文件必须指定了坐标系，且能够转换到WGS84椭球下。&lt;/li&gt;
+&lt;li&gt;5、输入切片方案：切片的规则。&lt;strong&gt;ARCGISONLINE_SCHEME&lt;/strong&gt; 使用ArcGIS在线地图的默认切片规则（3857）。&lt;strong&gt;IMPORT_SCHEME&lt;/strong&gt; 导入方案，可以导入自己创建的切片方案。（ArcGIS10.5版本有更多模式）&lt;/li&gt;
+&lt;li&gt;6、最小/最大 缓存比例：计算切片的比例系数的上下限，在这个区间之外的将被忽略。&lt;/li&gt;
+&lt;li&gt;7、感兴趣区：定义要切片的区域。这里可以设置一个矢量文件或者绘制的矢量对象。&lt;/li&gt;
+&lt;li&gt;8、最大源像元大小：这个是对有金字塔文件的数据使用的。如果为空，则使用全部金字塔。如果不为空，则仅使用像元大小在指定值以内的金字塔层。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考：&lt;a href=&#34;http://desktop.arcgis.com/en/arcmap/10.5/tools/data-management-toolbox/manage-tile-cache.htm&#34;&gt;Manage Tile Cache&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>使用hdfs-mount挂载HDFS</title>
+      <link>http://sotex.github.io/post/2019-05-22-%E4%BD%BF%E7%94%A8hdfs-mount%E6%8C%82%E8%BD%BDhdfs/</link>
+      <pubDate>Wed, 22 May 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-05-22-%E4%BD%BF%E7%94%A8hdfs-mount%E6%8C%82%E8%BD%BDhdfs/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/05/22/10906275.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/05/22/10906275.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hdfs-mount&lt;/code&gt;是一个将HDFS挂载为&lt;strong&gt;本地&lt;code&gt;Linux&lt;/code&gt;文件系统&lt;/strong&gt;的工具，使用go语言开发，不依赖libdfs和java虚拟机。它允许将远程HDFS作为本地Linux文件系统挂载，并允许任意应用程序或shell脚本以高效和安全的方式访问HDFS作为普通文件和目录。&lt;/p&gt;
+
+&lt;h2 id=&#34;1-特性-计划-简介&#34;&gt;1、特性(计划)简介&lt;/h2&gt;
+
+&lt;p&gt;以下翻译自 &lt;a href=&#34;https://github.com/microsoft/hdfs-mount/blob/master/README.md&#34;&gt;hdfs-mount/README.md&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;高性能
+
+&lt;ul&gt;
+&lt;li&gt;使用protocol buffers协议直接连接HDFS和Linux内核FUSE接口（无需Java虚拟机）&lt;/li&gt;
+&lt;li&gt;针对吞吐量密集型工作负载进行设计和优化（尽可能以延迟交换吞吐量）&lt;/li&gt;
+&lt;li&gt;完全流式传输和自动预读支持&lt;/li&gt;
+&lt;li&gt;并发操作&lt;/li&gt;
+&lt;li&gt;在内存中缓存元数据 (速度非常快 l!)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;高稳定性和强大的故障处理行为
+
+&lt;ul&gt;
+&lt;li&gt;自动重试和故障转移，全部可配置&lt;/li&gt;
+&lt;li&gt;可选的延迟挂载, 在 HDFS 可用之前&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;读写操作都支持
+
+&lt;ul&gt;
+&lt;li&gt;支持随机写入[慢，但功能正确]&lt;/li&gt;
+&lt;li&gt;支持文件截断&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;（可选）扩展ZIP存档，并根据需要提取内容
+
+&lt;ul&gt;
+&lt;li&gt;这为”数百万个小文件在HDFS上“(millions of small files on HDFS)问题提供了有效的解决方案&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;对CoreOS和Docker友好
+
+&lt;ul&gt;
+&lt;li&gt;可选择打包为静态链接的独立可执行文件&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;2-构建程序&#34;&gt;2、构建程序&lt;/h2&gt;
+
+&lt;p&gt;我的系统环境是&lt;code&gt;CentOS 7.0 x86_64&lt;/code&gt;，以下所有操作都是基于此。&lt;/p&gt;
+
+&lt;p&gt;先安装编译所需的必要工具软件：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;yum install make golang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后下载&lt;code&gt;hdfs-mount&lt;/code&gt;的源码回来，源码仓库地址:&lt;a href=&#34;https://github.com/microsoft/hdfs-mount.git&#34;&gt;https://github.com/microsoft/hdfs-mount.git&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/microsoft/hdfs-mount.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后就可以编译了，先进入源码目录&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 进入源码根目录
+cd hdfs-mount
+# 执行构建
+make
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;编译的过程中因为要下载依赖（&lt;a href=&#34;github.com/bazil/fuse&#34;&gt;bazil/fuse&lt;/a&gt;、&lt;a href=&#34;golang.org/x/net/context&#34;&gt;x/net/context&lt;/a&gt;、&lt;a href=&#34;github.com/golang/protobuf/proto&#34;&gt;protobuf/proto&lt;/a&gt;），所以需要保持网络通畅。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-使用hdfs-mount挂载hdfs&#34;&gt;3、使用hdfs-mount挂载HDFS&lt;/h2&gt;
+
+&lt;p&gt;因为&lt;code&gt;hdfs-mount&lt;/code&gt;基于FUSE(用户空间文件系统)框架设计，所以需要先安装&lt;code&gt;fuse&lt;/code&gt;内核模块，并加载（如果没有加载&lt;code&gt;fuse&lt;/code&gt;内核模块，则无法hdfs-mount操作时候将失败，并提示加载）。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 安装fuse模块
+sudo yum install fuse
+# 加载fuse模块
+sudo modprobe fuse
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;然后就可以使用&lt;code&gt;hdfs-mount&lt;/code&gt;进行HDFS的挂载了，挂载后可以使用&lt;code&gt;dd&lt;/code&gt;命令进行一下读写速度测试。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# 挂载，因为hdfs-mount并不会后台运行，所以使用&amp;amp;放入后台
+sudo ./hdfs-mount 192.168.0.32:9000 /mnt/hdfs &amp;amp;
+# 测试一下读取速度
+dd bs=64k if=/mnt/hdfs/test.img of=/dev/null
+记录了24421+1 的读入
+记录了24421+1 的写出
+1600485903字节(1.6 GB)已复制，9.56565 秒，167 MB/秒
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;hdfs-mount&lt;/code&gt;的一些命令行参数如下，更多细节可执行&lt;code&gt;hdfs-mount --help&lt;/code&gt;查看。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt; # 查看使用帮助信息
+./hdfs-mount --help
+# 挂载必要选项:  HDFS名字节点 端口  挂载位置
+./hdfs-mount      NameNode:Port MountPoint 
+
+# 下面是一些可选参数
+-allowedPrefixes string
+   # 允许的前缀字符串，以逗号分隔的远程HDFS上允许访问的路径前缀列表，如果指定了，挂载点将仅公开对这些前缀路径的访问(默认*)
+-expandZips
+   # 实现zip文件的自动展开（访问zip包内部文件）
+-fuse.debug
+   # 日志输出FUSE处理的线性信息
+-lazy
+   # 延迟加载，允许在HDFS就绪前挂载HDFS文件系统
+-logLevel int
+   # 日志输出级别控制。0：仅fatal/err日志；1：+warning日志；2：+info日志
+-readOnly
+   # 启用只读挂载
+-retryMaxAttempts int
+   # 失败操作的最大重试次数（默认99999999）
+-retryMaxDelay    duration
+   # 两次重试之间的最大延时（默认1分0秒）
+-retryMinDelay    duration
+   # 两次重试之间的最小延时（注意，第一次重试总是立即进行）（默认为1秒）
+-retryTimeLimit   duration
+   # 失败操作的所有重试尝试的时间限制 (默认为 5分0秒)
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Qt Multimedia Backends（多媒体后端）翻译</title>
+      <link>http://sotex.github.io/post/2019-04-30-qt-multimedia-backends%E5%A4%9A%E5%AA%92%E4%BD%93%E5%90%8E%E7%AB%AF%E7%BF%BB%E8%AF%91/</link>
+      <pubDate>Tue, 30 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-04-30-qt-multimedia-backends%E5%A4%9A%E5%AA%92%E4%BD%93%E5%90%8E%E7%AB%AF%E7%BF%BB%E8%AF%91/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/04/30/10795485.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/30/10795485.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;原文地址：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.qt.io/Qt_Multimedia_Backends&#34;&gt;Qt Multimedia Backends&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://wiki.qt.io/Qt_5.11_Multimedia_Backends&#34;&gt;Qt 5.11 Multimedia Backends&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;对于大多数功能，Qt Multimedia建立在底层系统的多媒体框架之上。因此，有基于不同技术和API的多个多媒体后端。平台特定的库和Qt Multimedia之间使用插件进行结合。
+Qt Multimedia目前有三种插件：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;MediaService&lt;/strong&gt;（媒体服务）插件，提供媒体播放器，摄像头，收音机和录音功能。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Audio&lt;/strong&gt;（音频）插件，提供低延迟（low-latency）音频支持。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PlaylistFormat&lt;/strong&gt;（播放列表格式）插件，支持特定的播放列表文件格式。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;插件不一定实现所有可能的功能, 不同的后端具有不同的功能。下表概述了 Qt 5.11 中每个后端所支持的内容。&lt;/p&gt;
+
+&lt;h2 id=&#34;mediaservice-plugins-媒体服务插件&#34;&gt;MediaService plugins 媒体服务插件&lt;/h2&gt;
+
+&lt;h3 id=&#34;不同后端支持的媒体播放器功能&#34;&gt;不同后端支持的媒体播放器功能:&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;DirectShow (Windows)&lt;/th&gt;
+&lt;th&gt;Media Foundation (Windows)&lt;/th&gt;
+&lt;th&gt;AV Foundation (OSX/ iOS)&lt;/th&gt;
+&lt;th&gt;GStreamer (Unix)&lt;/th&gt;
+&lt;th&gt;Android&lt;/th&gt;
+&lt;th&gt;BlackBerry&lt;/th&gt;
+&lt;th&gt;WinRT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;媒体播放控制（MediaPlayer control）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;URL 媒体源 (本地和远程)&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;流媒体源（Stream source）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;媒体元信息（Metadata）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;部分&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;播放速率（Playback rate）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;轨道选择（Track selection）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;硬件解码（HW decoding）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频窗口(输出)控制（Video window control）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频部件(输出)控制（Video widget control）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频渲染控制（Video renderer control）(包括OpenGL纹理)&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;音频Audio probe&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频探针（Video Probe）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;后端支持的摄像头-相机-功能&#34;&gt;后端支持的摄像头（相机）功能&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;DirectShow (Windows)&lt;/th&gt;
+&lt;th&gt;Media Foundation (Windows)&lt;/th&gt;
+&lt;th&gt;AV Foundation (OSX/ iOS)&lt;/th&gt;
+&lt;th&gt;GStreamer (Unix)&lt;/th&gt;
+&lt;th&gt;Android&lt;/th&gt;
+&lt;th&gt;BlackBerry&lt;/th&gt;
+&lt;th&gt;WinRT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;s摄像头控制（Camera control）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频窗口(输出)控制（Video window control）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频部件(输出)控制（Video widget control）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频渲染控制（Video renderer control）(包括OpenGL纹理)&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;音频探针（Audio probe）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视频探针（Video probe）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;视口查找设置（ViewFinder settings）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;影像捕获（Image capture）&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;捕获目标（Capture destination）&lt;/td&gt;
+&lt;td&gt;文件, 内存缓存区&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;文件&lt;/td&gt;
+&lt;td&gt;文件, 内存缓存区&lt;/td&gt;
+&lt;td&gt;文件, 内存缓存区&lt;/td&gt;
+&lt;td&gt;文件, 内存缓存区&lt;/td&gt;
+&lt;td&gt;文件&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;影像设置（Image settings）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;分辨率&lt;/td&gt;
+&lt;td&gt;分辨率&lt;/td&gt;
+&lt;td&gt;分辨率, 质量&lt;/td&gt;
+&lt;td&gt;分辨率, 质量&lt;/td&gt;
+&lt;td&gt;分辨率&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;缩放（Zoom）&lt;/td&gt;
+&lt;td&gt;√(depends on HW)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√(only iOS &amp;gt;= 7.0)&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;动画（Flash）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√(取决于硬件平台, 在桌面 Linux 上不可用)&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;聚焦（Focus）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;模式、自定义点（mode, custom point）&lt;/td&gt;
+&lt;td&gt;模式、自定义点、焦点区域（mode, custom point, focus zones） (取决于硬件平台, 在桌面 Linux 上不可用)&lt;/td&gt;
+&lt;td&gt;模式、自定义点、焦点区域（mode, custom point, focus zones）&lt;/td&gt;
+&lt;td&gt;模式、自定义点、焦点区域（mode, custom point, focus zones）&lt;/td&gt;
+&lt;td&gt;模式、自定义点（mode, custom point）&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;曝光（Exposure）&lt;/td&gt;
+&lt;td&gt;光圈, 快门速度（Aperture, ShutterSpeed） (依赖硬件)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;仅iOS &amp;gt;= 8.0： ISO, 快门速度，补偿（ShutterSpeed, compensation）&lt;/td&gt;
+&lt;td&gt;Scene mode, compensation, ISO, aperture, ShutterSpeed (取决于硬件平台, 在桌面 Linux 上不可用)&lt;/td&gt;
+&lt;td&gt;场景模式, 补偿（Scene mode, compensation）&lt;/td&gt;
+&lt;td&gt;场景模式（Scene mode）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;影像处理（Image Processing）&lt;/td&gt;
+&lt;td&gt;手动白平衡, 对比度, 亮度, 饱和度, 锐化（Manual White Balance, Contrast, Brightness, Saturation, Sharpening）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;白平衡, 对比度, 亮度, 饱和度（White Balance, Contrast, Brightness, Saturation）&lt;/td&gt;
+&lt;td&gt;白平衡（White Balance）&lt;/td&gt;
+&lt;td&gt;白平衡（White Balance）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;锁定（Locks）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;聚焦、曝光、白平衡（Focus, Exposure, White Balance） (取决于硬件平台, 在桌面 Linux 上不可用)&lt;/td&gt;
+&lt;td&gt;聚焦、曝光、白平衡（Focus, Exposure, White Balance）&lt;/td&gt;
+&lt;td&gt;聚焦、曝光、白平衡（Focus, Exposure, White Balance）&lt;/td&gt;
+&lt;td&gt;聚焦（Focus）&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;后端支持的音频解码功能&#34;&gt;后端支持的音频解码功能&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;DirectShow (Windows)&lt;/th&gt;
+&lt;th&gt;Media Foundation (Windows)&lt;/th&gt;
+&lt;th&gt;AV Foundation (OSX/ iOS)&lt;/th&gt;
+&lt;th&gt;GStreamer (Unix)&lt;/th&gt;
+&lt;th&gt;Android&lt;/th&gt;
+&lt;th&gt;BlackBerry&lt;/th&gt;
+&lt;th&gt;WinRT&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;解码音频（Decode audio）&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;√&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;audio-plugins-音频插件&#34;&gt;Audio plugins 音频插件&lt;/h2&gt;
+
+&lt;p&gt;音频后端实现在&lt;code&gt;QAudioInput&lt;/code&gt;，&lt;code&gt;QAudioOutput&lt;/code&gt;，&lt;code&gt;QAudioDeviceInfo&lt;/code&gt;和&lt;code&gt;QSoundEffect&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;以下是当前音频后端的列表：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Windows Multimedia&lt;/li&gt;
+&lt;li&gt;WASAPI (WinRT)&lt;/li&gt;
+&lt;li&gt;CoreAudio (OSX / iOS)&lt;/li&gt;
+&lt;li&gt;PulseAudio (Unix)&lt;/li&gt;
+&lt;li&gt;Alsa (Unix)&lt;/li&gt;
+&lt;li&gt;OpenSL ES (Android)&lt;/li&gt;
+&lt;li&gt;QNX&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MinFilter(MaxFilter)快速算法C&#43;&#43;实现</title>
+      <link>http://sotex.github.io/post/2019-04-23-minfiltermaxfilter%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95c&#43;&#43;%E5%AE%9E%E7%8E%B0/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-04-23-minfiltermaxfilter%E5%BF%AB%E9%80%9F%E7%AE%97%E6%B3%95c&#43;&#43;%E5%AE%9E%E7%8E%B0/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/04/23/10758029.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/23/10758029.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;参考资料：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://reference.wolfram.com/language/ref/MinFilter.html&#34;&gt;MinFilter - Wolfram 语言与系统参考资料中心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://reference.wolfram.com/language/ref/ImageFilter.html&#34;&gt;ImageFilter - Wolfram 语言与系统参考资料中心&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://lemire.me/en/publication/arxiv0610046/&#34;&gt;Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[&lt;a href=&#34;https://www.cnblogs.com/Imageshop/p/7018510.html&#34;&gt;SSE图像算法优化系列七：基于SSE实现的极速的矩形核腐蚀和膨胀（最大值和最小值）算法。&lt;/a&gt;]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;1-算法简述&#34;&gt;1、算法简述&lt;/h2&gt;
+
+&lt;h3 id=&#34;1-1-minfilter-maxfilter-算法简述&#34;&gt;1.1、MinFilter(MaxFilter) 算法简述&lt;/h3&gt;
+
+&lt;p&gt;MinFilter（MaxFilter）算法是用于对一维或多维数据进行滤波的算法，滤波的结果为原数据中对应位置领域&lt;code&gt;r&lt;/code&gt;内的最小（最大）值。在数据的边界处，使用较小（较大）的邻域.。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181416644-1714174711.gif&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;1-2-minfilter-maxfilter-快速算法简述&#34;&gt;1.2、MinFilter(MaxFilter) 快速算法简述&lt;/h3&gt;
+
+&lt;p&gt;对于MinFilter(MaxFilter)的快速算法，思想来自于这篇论文&lt;a href=&#34;https://lemire.me/en/publication/arxiv0610046/&#34;&gt;Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element&lt;/a&gt;。在网上找到了这张图，但这个图也没有什么文字说明，并不是很清楚。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181429526-202955323.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下面按照我实现的时候的思路，来说一下我的理解。&lt;/p&gt;
+
+&lt;p&gt;首先，对于一个多维的数据，都可以逐个维度进行处理。比如说一个图片，也就是二维数据，可以先对每一行进行处理，然后再对每一列进行处理，这样&lt;strong&gt;得到的结果与行列同时处理是一样的&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;假设r=1
+原始数据     --&amp;gt;   逐行处理    --&amp;gt;  逐列处理
+5 2 1 3 4       2 1 1 1 3      2 1 1 1 3
+6 9 8 4 7       6 6 4 4 4      2 1 1 0 0
+7 3 8 2 0       3 3 2 0 0      0 0 0 0 0
+9 0 1 5 6       0 0 0 1 5      0 0 0 0 0
+
+原始数据     --&amp;gt;  逐行列处理
+5 2 1 3 4       2 1 1 1 3
+6 9 8 4 7       2 1 1 0 0
+7 3 8 2 0       0 0 0 0 0
+9 0 1 5 6       0 0 0 0 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;因此算法的关键在于提高一行数据处理的效率。&lt;/p&gt;
+
+&lt;p&gt;这个算法的过程大概是这样的：&lt;/p&gt;
+
+&lt;p&gt;1、首先遍历一行数据中最左边的&lt;code&gt;r*2+1&lt;/code&gt;个数据，获取最小值和最小值的位置。然后对左边边界部分的处理，直接赋最小值。&lt;/p&gt;
+
+&lt;p&gt;2、从&lt;code&gt;r+1&lt;/code&gt;位置开始向后遍历，一直到右边界部分。&lt;/p&gt;
+
+&lt;p&gt;3、遍历的时候，判断上一次获取的最小值索引&lt;code&gt;minIndex&lt;/code&gt;，是否在当前位置的领域&lt;code&gt;r&lt;/code&gt;以内。&lt;/p&gt;
+
+&lt;p&gt;如果不在，则遍历当前位置的领域&lt;code&gt;r&lt;/code&gt;范围，找出最小值的位置。也可以先与当前位置领域&lt;code&gt;r&lt;/code&gt;内最右边的比较，如果最右边的小于&lt;code&gt;minIndex&lt;/code&gt;位置的值，则&lt;code&gt;minIndex&lt;/code&gt;就是这最右边的这个，否则就需要遍历当前位置领域&lt;code&gt;r&lt;/code&gt;范围内。&lt;/p&gt;
+
+&lt;p&gt;如果在，则说明当前位置领域&lt;code&gt;r&lt;/code&gt;内，除了最右边的元素，肯定都小于&lt;code&gt;minIndex&lt;/code&gt;处的值。因为&lt;code&gt;minIndex&lt;/code&gt;是当前位置上一个的领域&lt;code&gt;r&lt;/code&gt;内的最小值，而上一个位置的领域&lt;code&gt;r&lt;/code&gt;范围与当前位置的领域&lt;code&gt;r&lt;/code&gt;范围只偏移了一个位置。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-实现代码&#34;&gt;2、实现代码&lt;/h2&gt;
+
+&lt;p&gt;我这里实现了对一行数据的过滤，然后在一行数据过滤的基础上实现对二维矩阵进行过滤。&lt;/p&gt;
+
+&lt;p&gt;对于&lt;strong&gt;MaxFilter&lt;/strong&gt;的相关实现，只需要将下面对应的&lt;code&gt;&amp;gt;=&lt;/code&gt;改为&lt;code&gt;&amp;lt;=&lt;/code&gt;即可。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-1-minfilteronerow-单行滤波代码&#34;&gt;2.1、MinFilterOneRow 单行滤波代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/**********************************************************************//**
+ * @brief	对一行数据进行滤波，每个值用邻域 r 内的最小值替换.
+ * @author	solym@sohu.com/ymwh@foxmail.com
+ * @date	2019/4/23
+ * @param	srcData             待滤波数据地址.
+ * @param	srcChanelCount      待滤波数据每个像素的通道数.
+ * @param	srcChanelIndex      待滤波数据要进行滤波的通道[0,srcChanelCount).
+ * @param	dstData             滤波后输出数据地址.
+ * @param	dstChanelCount      滤波后输出数据每个像素的通道数.
+ * @param	dstChanelIndex      滤波后数据要输出的通道索引[0,srcChanelCount).
+ * @param	colnumCount         该行数据要滤波的像素数.
+ * @param	radius              滤波的半径大小.
+ *************************************************************************/
+template&amp;lt;typename PixelDataType&amp;gt;
+void MinFilterOneRow(
+        PixelDataType* srcData, const size_t srcChanelCount, const size_t srcChanelIndex,
+        PixelDataType* dstData, const size_t dstChanelCount, const size_t dstChanelIndex,
+        const size_t colnumCount, const size_t radius)
+{
+    PixelDataType* pSrc = srcData;
+    PixelDataType* pDst = dstData;
+
+    size_t minIndex = 0;   // 记录最小值的下标
+    size_t blockSize = radius * 2 + 1; // 块大小，以当前点为中心，左右各radius的宽度
+    PixelDataType minValue = pSrc[srcChanelIndex];  // 比较中获取最小值进行记录
+
+    // 对第一个块进行处理（i从1开始，比较(i-1,i)位置像素值）
+    // 找出最小值(第一个块内的最小值，就是r位置(块中心)处的输出值)
+    for(size_t iPixel=1; iPixel &amp;lt; blockSize; ++iPixel){
+        PixelDataType value = pSrc[iPixel*srcChanelCount + srcChanelIndex];
+        // 使用 &amp;gt;= 比 &amp;gt; 更快推进minIndex向前走
+        if(minValue &amp;gt;= value){
+            minValue = value;
+            minIndex = iPixel;
+        }
+    }
+    // 输出到第一个块中心(r)位置处的值。
+    // 它已经是第一个块内的最小值，也就是该块左边都只能是这个值
+    for(size_t i=0;i&amp;lt;=radius;++i){
+        pDst[i*dstChanelCount + dstChanelIndex] = minValue;
+    }
+    // 开始处理r+1位置之后的值
+    for (size_t iPixel = radius + 1; iPixel &amp;lt; colnumCount - radius; ++iPixel) {
+        /*  i-r           i          i+r
+         *   |____________|___________|_
+         *       └min
+         * 当前最小的索引在当前位置为中心的块的内(一定位于当前块内或前一个)
+         * iPixel是当前块的中心，下面说的当前位置都指iPixel
+         */
+        if(minIndex &amp;gt;= (iPixel - radius)) {
+            // 当前最小索引位置值与当前位置为中心的块的最后一个值比较
+            // 根据下面的代码可知，如果mIndex在块的内部，它所在位置的值一定是最小的
+            // 进入本次循环时，minIndex是上次比较的值，而上一个块与当前块等长，位置差一位
+            // 所以可以直接和当前块最后一个像素值进行比较了，当前块也就完全比较完了
+            size_t nextBlockFirstIndex = iPixel + radius;
+            if(pSrc[minIndex*srcChanelCount + srcChanelIndex] &amp;gt;
+                    pSrc[nextBlockFirstIndex*srcChanelCount + srcChanelIndex]){
+                // 赋值当前最小值索引和值
+                minIndex = nextBlockFirstIndex;
+                minValue = pSrc[nextBlockFirstIndex*srcChanelCount + srcChanelIndex];
+            }
+        }else{
+            // 如果不在当前位置为中心的块内，则对当前块进行查找最小值
+            // 则将minIndex设置该块的最左边位置
+            minIndex = iPixel - radius;
+            // 获取当前位置为中心的块的最小值和索引
+            minValue = pSrc[minIndex*srcChanelCount + srcChanelIndex];
+            size_t blockEnd = minIndex + blockSize;
+            for (size_t iBPixel = minIndex; iBPixel &amp;lt; blockEnd; ++iBPixel) {
+                PixelDataType value = pSrc[iBPixel*srcChanelCount + srcChanelIndex];
+                if(minValue &amp;gt;= value){
+                    minIndex = iBPixel;
+                    minValue = value;
+                }
+            }
+        } // end if minIndex &amp;gt; ...
+        pDst[iPixel*dstChanelCount + dstChanelIndex] = minValue;
+    } // end for iPixel
+
+    // 最后一个块中心位置的右边，一定都是和它中心位置的值是一样的
+    for (size_t i = colnumCount-radius; i &amp;lt; colnumCount; ++i) {
+        pDst[i*dstChanelCount + dstChanelIndex] = minValue;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-2-minfilteronematrix-单个二维矩阵滤波代码&#34;&gt;2.2、MinFilterOneMatrix 单个二维矩阵滤波代码&lt;/h3&gt;
+
+&lt;p&gt;对于二维矩阵进行滤波，实际上是先进行行滤波，然后结果进行行列转置，对转置的结果再次进行行滤波，然后再行列转置输出。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/**********************************************************************//**
+ * @brief	对一个矩阵数据进行滤波，每个值用邻域 r 内的最小值替换.
+ * @author	solym@sohu.com/ymwh@foxmail.com
+ * @date	2019/4/23
+ * @param	srcData             待滤波数据地址.
+ * @param	srcBytePerRow       待滤波数据每行的字节数.
+ * @param	srcChanelCount      待滤波数据每个像素的通道数.
+ * @param	srcChanelIndex      待滤波数据要进行滤波的通道[0,srcChanelCount).
+ * @param	dstData             滤波后输出数据地址.
+ * @param	dstBytePerRow       滤波后输出数据每行的字节数.
+ * @param	dstChanelCount      滤波后输出数据每个像素的通道数.
+ * @param	dstChanelIndex      滤波后数据要输出的通道索引[0,srcChanelCount).
+ * @param	rowCount            矩阵的行数.
+ * @param	colCount            矩阵的列数.
+ * @param	radius              滤波的半径大小.
+ *************************************************************************/
+template&amp;lt;typename PixelDataType&amp;gt;
+void MinFilterOneMatrix(
+        PixelDataType* srcData, const size_t srcBytePerRow,
+        const size_t srcChanelCount, const size_t srcChanelIndex,
+        PixelDataType* dstData, const size_t dstBytePerRow,
+        const size_t dstChanelCount, const size_t dstChanelIndex,
+        const size_t rowCount, const size_t colCount,
+        const size_t radius)
+{
+    unsigned char* pSrc = reinterpret_cast&amp;lt;unsigned char*&amp;gt;(srcData);
+    unsigned char* pDst = reinterpret_cast&amp;lt;unsigned char*&amp;gt;(dstData);
+    // 保存中间结果
+    std::vector&amp;lt;PixelDataType&amp;gt; tmpData(rowCount * colCount);
+    // 逐行进行滤波
+    for (size_t row = 0; row &amp;lt; rowCount; ++row) {
+        // 获取输入和输出每行的行首位置
+        PixelDataType* pSrcRowFirst = (PixelDataType*)(pSrc + row * srcBytePerRow);
+        PixelDataType* pDstRowFirst = tmpData.data() + row * colCount;
+        // 对当前行进行滤波
+        MinFilterOneRow&amp;lt;PixelDataType&amp;gt;(pSrcRowFirst,srcChanelCount,srcChanelIndex,
+                                       pDstRowFirst,1,0,
+                                       colCount,radius);
+    }
+    // 将行滤波后的结果进行 行列转置（进行列滤波）
+    std::vector&amp;lt;PixelDataType&amp;gt; tmpDataT(rowCount * colCount);
+    for (size_t row = 0; row &amp;lt; rowCount; ++row) {
+        for(size_t col = 0; col &amp;lt; colCount; ++col){
+            tmpDataT[col*rowCount + row] = tmpData[row*colCount + col];
+        }
+    }
+    // 对转置后的矩阵进行 逐行滤波（就是原行滤波后结果进行列滤波）
+    for (size_t col = 0; col &amp;lt; colCount; ++col) {
+        PixelDataType* pSrcColFirst = tmpDataT.data() + col * rowCount;
+        PixelDataType* pDstColFirst = tmpData.data() + col * rowCount;
+        // 对当前行进行滤波
+        MinFilterOneRow&amp;lt;PixelDataType&amp;gt;(pSrcColFirst,1,0,
+                                       pDstColFirst,1,0,
+                                       rowCount,radius);
+    }
+    // 将行列滤波后的结果输出
+    for (size_t row = 0; row &amp;lt; rowCount; ++row) {
+        PixelDataType* pDstRowFirst = (PixelDataType*)(pDst + row * dstBytePerRow);
+        for(size_t col = 0; col &amp;lt; colCount; ++col){
+            pDstRowFirst[col*dstChanelCount+dstChanelIndex] = tmpData[col*rowCount + row];
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;3-测试&#34;&gt;3、测试&lt;/h2&gt;
+
+&lt;h3 id=&#34;3-1-测试截图&#34;&gt;3.1 测试截图&lt;/h3&gt;
+
+&lt;p&gt;使用Qt写了一个简单的测试程序进行测试，测试结果如下：
+&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181441419-675885454.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;3-2-测试代码&#34;&gt;3.2 测试代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;quot;filter.hpp&amp;quot;
+#include &amp;lt;QApplication&amp;gt;
+#include &amp;lt;QWidget&amp;gt;
+#include &amp;lt;QLineEdit&amp;gt;
+#include &amp;lt;QPushButton&amp;gt;
+#include &amp;lt;QComboBox&amp;gt;
+#include &amp;lt;QVBoxLayout&amp;gt;
+#include &amp;lt;QHBoxLayout&amp;gt;
+#include &amp;lt;QFileDialog&amp;gt;
+#include &amp;lt;QWebEngineView&amp;gt;
+#include &amp;lt;QXmlStreamWriter&amp;gt;
+#include &amp;lt;QBuffer&amp;gt;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    QImage srcImage,dstImage;
+    // 创建窗口
+    QWidget widget;
+    // 添加控件
+    QWebEngineView *wevView = new QWebEngineView(&amp;amp;widget);
+    QLineEdit* leSrcImagePath = new QLineEdit(&amp;amp;widget);
+    QPushButton* pbSelectSrcFile = new QPushButton(QStringLiteral(&amp;quot;选择图片&amp;quot;),&amp;amp;widget);
+    QComboBox* cbSelectFilterAlg = new QComboBox(&amp;amp;widget);
+    cbSelectFilterAlg-&amp;gt;addItems(
+    { QStringLiteral(&amp;quot;MinFilter&amp;quot;),QStringLiteral(&amp;quot;MaxFilter&amp;quot;)});
+    QPushButton* pbRunFilter = new QPushButton(QStringLiteral(&amp;quot;执行滤波&amp;quot;),&amp;amp;widget);
+    //pbRunDetect-&amp;gt;setEnabled(false);
+    QHBoxLayout* hbLayout = new QHBoxLayout;
+    // 设置布局
+    hbLayout-&amp;gt;addWidget(leSrcImagePath);
+    hbLayout-&amp;gt;addWidget(pbSelectSrcFile);
+    hbLayout-&amp;gt;addWidget(cbSelectFilterAlg);
+    hbLayout-&amp;gt;addWidget(pbRunFilter);
+    QVBoxLayout* vbLayout = new QVBoxLayout(&amp;amp;widget);
+    vbLayout-&amp;gt;addLayout(hbLayout);
+    vbLayout-&amp;gt;addWidget(wevView);
+    // 添加处理操作
+    std::function&amp;lt;void(QString,const QImage&amp;amp;,const QImage&amp;amp;)&amp;gt;
+            updateHtmlView =
+            [wevView,leSrcImagePath](QString filterName,const QImage&amp;amp; srcImage,const QImage&amp;amp; resultimage)
+    {
+        QString tmpPath;
+        QByteArray html;
+        {
+            QXmlStreamWriter writer(&amp;amp;html);
+            writer.setAutoFormatting(true);
+            writer.writeStartDocument();
+            writer.writeStartElement(&amp;quot;html&amp;quot;);
+            writer.writeStartElement(&amp;quot;body&amp;quot;);
+            writer.writeAttribute(&amp;quot;bgcolor&amp;quot;,&amp;quot;gray&amp;quot;);
+            if(!srcImage.isNull()){
+                writer.writeTextElement(&amp;quot;h2&amp;quot;,QStringLiteral(&amp;quot;原图&amp;quot;));
+                writer.writeStartElement(&amp;quot;img&amp;quot;);
+                QBuffer buffer;
+                srcImage.save(&amp;amp;buffer,&amp;quot;PNG&amp;quot;);
+                writer.writeAttribute(&amp;quot;src&amp;quot;,&amp;quot;data:image/png;base64,&amp;quot; + buffer.data().toBase64());
+                // writer.writeAttribute(&amp;quot;src&amp;quot;,QUrl(leSrcImagePath-&amp;gt;text()).toString());
+                writer.writeEndElement();
+            }
+            if(!resultimage.isNull()){
+                writer.writeTextElement(&amp;quot;h2&amp;quot;,filterName + QStringLiteral(&amp;quot;滤波结果图&amp;quot;));
+                writer.writeStartElement(&amp;quot;img&amp;quot;);
+                QBuffer buffer;
+                resultimage.save(&amp;amp;buffer,&amp;quot;PNG&amp;quot;);
+                writer.writeAttribute(&amp;quot;src&amp;quot;,&amp;quot;data:image/png;base64,&amp;quot; + buffer.data().toBase64());
+                // tmpPath = QDir::tempPath() + QString::fromUtf8(&amp;quot;.png&amp;quot;);
+                // resultimage.save(tmpPath,&amp;quot;PNG&amp;quot;);
+                // writer.writeAttribute(&amp;quot;src&amp;quot;,QUrl(tmpPath).toString());
+                writer.writeEndElement();
+            }
+            writer.writeEndElement();
+            writer.writeEndElement();
+        }
+        wevView-&amp;gt;setHtml(QString::fromUtf8(html));
+        // if(!resultimage.isNull()){
+        //     qDebug()&amp;lt;&amp;lt;tmpPath;
+        //     QFile::remove(tmpPath);
+        // }
+    };
+
+    // 文件选择按钮单击信号处理
+    QObject::connect(pbSelectSrcFile,&amp;amp;QPushButton::clicked,
+                     [leSrcImagePath,&amp;amp;srcImage,&amp;amp;widget,&amp;amp;updateHtmlView]()
+    {
+        static QString path(&amp;quot;.&amp;quot;);
+        path = QFileDialog::getOpenFileName(&amp;amp;widget,
+                                            QStringLiteral(&amp;quot;选择待滤波图片&amp;quot;),
+                                            path,
+                                            QString(&amp;quot;Images (*.png *.jpg *.jpeg *.jfif)&amp;quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+
+        srcImage = image.convertToFormat(QImage::Format_RGBA8888);
+        leSrcImagePath-&amp;gt;setText(path);
+        updateHtmlView(QString(),srcImage,QImage());
+    });
+
+    // 执行滤波按钮单击信号处理
+    QObject::connect(pbRunFilter,&amp;amp;QPushButton::clicked,
+                     [&amp;amp;cbSelectFilterAlg,&amp;amp;srcImage,&amp;amp;dstImage,&amp;amp;updateHtmlView]
+    {
+        // 获取滤波算法名称
+        QString filterName = cbSelectFilterAlg-&amp;gt;currentText();
+        // 最小值滤波 https://reference.wolfram.com/language/ref/MinFilter.html
+        if(filterName == QStringLiteral(&amp;quot;MinFilter&amp;quot;)){
+            dstImage = srcImage;
+            unsigned int raduis = 2;
+            uchar* pSrc = srcImage.bits();
+            uchar* pDst = dstImage.bits();
+
+            unsigned int colCount = srcImage.width();
+            unsigned int rowCount = srcImage.height();
+            unsigned int chanel = 4;
+            // 分别对RGB通道进行滤波
+            MinFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,0,
+                                      pDst,dstImage.bytesPerLine(),chanel,0,
+                                      rowCount,colCount,raduis);
+            MinFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,1,
+                                      pDst,dstImage.bytesPerLine(),chanel,1,
+                                      rowCount,colCount,raduis);
+            MinFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,2,
+                                      pDst,dstImage.bytesPerLine(),chanel,2,
+                                      rowCount,colCount,raduis);
+        }
+        else if(filterName == QStringLiteral(&amp;quot;MaxFilter&amp;quot;)){
+            dstImage = srcImage;
+            unsigned int raduis = 2;
+            uchar* pSrc = srcImage.bits();
+            uchar* pDst = dstImage.bits();
+
+            unsigned int colCount = srcImage.width();
+            unsigned int rowCount = srcImage.height();
+            unsigned int chanel = 4;
+            // 分别对RGB通道进行滤波
+            MaxFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,0,
+                                      pDst,dstImage.bytesPerLine(),chanel,0,
+                                      rowCount,colCount,raduis);
+            MaxFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,1,
+                                      pDst,dstImage.bytesPerLine(),chanel,1,
+                                      rowCount,colCount,raduis);
+            MaxFilterOneMatrix&amp;lt;uchar&amp;gt;(pSrc,srcImage.bytesPerLine(),chanel,2,
+                                      pDst,dstImage.bytesPerLine(),chanel,2,
+                                      rowCount,colCount,raduis);
+        }
+        updateHtmlView(filterName,srcImage,dstImage);
+
+    });
+
+    widget.resize(1024,768);
+    widget.show();
+    return a.exec();
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>RGBA alpha 透明度混合算法实现和测试</title>
+      <link>http://sotex.github.io/post/2019-04-17-rgba-alpha-%E9%80%8F%E6%98%8E%E5%BA%A6%E6%B7%B7%E5%90%88%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%92%8C%E6%B5%8B%E8%AF%95/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-04-17-rgba-alpha-%E9%80%8F%E6%98%8E%E5%BA%A6%E6%B7%B7%E5%90%88%E7%AE%97%E6%B3%95%E5%AE%9E%E7%8E%B0%E5%92%8C%E6%B5%8B%E8%AF%95/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/04/17/10724803.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/17/10724803.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-算法叙述&#34;&gt;1、算法叙述&lt;/h2&gt;
+
+&lt;p&gt;算法参考自：&lt;a href=&#34;https://blog.csdn.net/xhhjin/article/details/6445460&#34;&gt;【RGBA alpha 透明度混合算法】&lt;/a&gt; ，下面的叙述和实现中有一些个人修改在里面。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-1-透明度混合算法1&#34;&gt;1.1、透明度混合算法1&lt;/h3&gt;
+
+&lt;p&gt;**R1、G1、B1、Alpha1 &lt;strong&gt;为前景颜色值，&lt;/strong&gt;R2、G2、B2、Alpha2** 为背景颜色值，则：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;Alpha = 1 - (1 - Alpha1) * ( 1 - Alpha2)
+R = (R1 * Alpha1 + R2 * Alpha2 * (1-Alpha1))/Alpha
+G = (G1 * Alpha1 + G2 * Alpha2 * (1-Alpha1))/Alpha
+B = (B1 * Alpha1 + B2 * Alpha2 * (1-Alpha1))/Alpha
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这里的Alpha取值范围是[0,1]，需要使用到浮点计算（实数计算）。对于我们常见的8位图像，我们可以将其值域改为[0,255]进行计算，具体的见下面测试代码。&lt;/p&gt;
+
+&lt;h3 id=&#34;1-2-alphablend算法介绍&#34;&gt;1.2、AlphaBlend算法介绍&lt;/h3&gt;
+
+&lt;p&gt;混合算法目前在常用到的算法是&lt;strong&gt;AlphaBlend&lt;/strong&gt;。
+计算公式如下:假设一幅图像是A，另一幅透明的图像是B，那么&lt;strong&gt;透过B去看A&lt;/strong&gt;，看上去的图像C就是B和A的混合图像，
+      设B图像的透明度为&lt;code&gt;alpha&lt;/code&gt;(取值为0-1，1为完全透明，0为完全不透明).
+      &lt;code&gt;Alpha&lt;/code&gt;混合公式如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;R(C)=(1-alpha)*R(B) + alpha*R(A)
+G(C)=(1-alpha)*G(B) + alpha*G(A)
+B(C)=(1-alpha)*B(B) + alpha*B(A)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;R(x)、G(x)、B(x)分别指颜色x的RGB分量原色值。从上面的公式可以知道，&lt;strong&gt;Alpha其实是一个决定混合透明度的数值&lt;/strong&gt;。&lt;/p&gt;
+
+&lt;p&gt;这里只对B图的Alpha进行了处理，但A图本身如果也有透明通道的，也需要进行一样的处理，即&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;A(C)=(1-alpha)*A(B) + alpha*A(A)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;1-3-简易alpha混合算法&#34;&gt;1.3、简易Alpha混合算法&lt;/h3&gt;
+
+&lt;p&gt;首先，要能取得上层与下层颜色的 RGB三基色，然后用r,g,b 为最后取得的颜色值；&lt;strong&gt;r1、g1、b1&lt;/strong&gt;是上层的颜色值；&lt;strong&gt;r2、g2、b2&lt;/strong&gt;是下层颜色值，若Alpha=上层透明度，则：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;当Alpha=50%时&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;r = r1/2 + r2/2;
+g = g1/2 + g2/2;
+b = b1/2 + b2/2;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;当Alpha&amp;lt;50%时&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;r = r1 - r1/Alpha + r2/Alpha;
+g = g1 - g1/Alpha + g2/Alpha;
+b = b1 - b1/Alpha + b2/Alpha;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;当Alpha&amp;gt;50%时&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;r = r1/Alpha + r2 - r2/Alpha;
+g = g1/Alpha + g2 - g2/Alpha;
+b = b1/Alpha + b2 - b2/Alpha;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;这个算法比较简单，我也没有去做实现。简单来说这里就是看透明度高是否超过50%，来决定是上下层图像谁占主导地位。&lt;/p&gt;
+
+&lt;h2 id=&#34;2-算法实现代码和测试&#34;&gt;2、算法实现代码和测试&lt;/h2&gt;
+
+&lt;p&gt;实现其实是很简单的，只是注意下面没有实数的计算，都是使用的整数计算，要注意移位与抹零的操作别出错。&lt;/p&gt;
+
+&lt;p&gt;下面的&lt;code&gt;rgba1&lt;/code&gt;表示前景图（我的代码里是水印图）的一个像素值，是RGBA8888格式的。&lt;code&gt;rgba2&lt;/code&gt;表示背景图的一个像素值。&lt;code&gt;a1&lt;/code&gt;表示&lt;code&gt;rgba1&lt;/code&gt;中的&lt;code&gt;Alpha&lt;/code&gt;分量值，&lt;code&gt;a2&lt;/code&gt;表示&lt;code&gt;rgba2&lt;/code&gt;中的&lt;code&gt;Alpha&lt;/code&gt;分量值。&lt;/p&gt;
+
+&lt;h3 id=&#34;2-1-透明度混合算法1实现代码&#34;&gt;2.1、透明度混合算法1实现代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;// 如果alpha的值域是[0,1]，这里相当于将其拉伸为[0,255]
+// 所以相当于是 Alpha = 1 - (1 - Alpha1) * ( 1 - Alpha2)乘以了两次255
+// 当a1和a2都接近于0的时候，会导致计算得到的A值不为0，导致叠加不正常
+uint32_t A = (0xffff - (0xff - a1)*(0xff - a2));
+// 下面左边部分少左移8位，相当于乘以了255
+uint32_t R = (((rgba1 &amp;lt;&amp;lt; 8 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+uint32_t G = (((rgba1 &amp;gt;&amp;gt; 0 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+uint32_t B = (((rgba1 &amp;gt;&amp;gt; 8 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 16&amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;2-1-alphablend算法实现代码&#34;&gt;2.1、AlphaBlend算法实现代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;uint32_t A = a1;
+uint32_t R = (((rgba1 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+uint32_t G = (((rgba1 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+uint32_t B = (((rgba1 &amp;gt;&amp;gt; 16&amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 16&amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+A = ((a1 * A + a2 *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU; // 必须对Alpha波段也处理
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-3-测试截图&#34;&gt;2.3、测试截图&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190417171034228-1947570819.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-4-完整测试程序代码&#34;&gt;2.4、完整测试程序代码&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;#include &amp;lt;QApplication&amp;gt;
+#include &amp;lt;QWidget&amp;gt;
+#include &amp;lt;QLineEdit&amp;gt;
+#include &amp;lt;QPushButton&amp;gt;
+#include &amp;lt;QVBoxLayout&amp;gt;
+#include &amp;lt;QHBoxLayout&amp;gt;
+#include &amp;lt;QFileDialog&amp;gt;
+#include &amp;lt;QWebEngineView&amp;gt;
+#include &amp;lt;QXmlStreamWriter&amp;gt;
+#include &amp;lt;QBuffer&amp;gt;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    QImage bkImage,wmImage;
+    QImage mixImage1,mixImage2;
+    // 创建窗口
+    QWidget widget;
+    // 添加控件
+    QWebEngineView *wevView = new QWebEngineView(&amp;amp;widget);
+    QLineEdit* leBkImagePath = new QLineEdit(&amp;amp;widget);
+    QLineEdit* leWmImagePath = new QLineEdit(&amp;amp;widget);
+    QPushButton* pbSelectBkFile = new QPushButton(QStringLiteral(&amp;quot;选择背景图&amp;quot;),&amp;amp;widget);
+    QPushButton* pbSelectWmFile = new QPushButton(QStringLiteral(&amp;quot;选择水印图&amp;quot;),&amp;amp;widget);
+    QPushButton* pbRunMix = new QPushButton(QStringLiteral(&amp;quot;执行叠加&amp;quot;),&amp;amp;widget);
+    //pbRunDetect-&amp;gt;setEnabled(false);
+    QHBoxLayout* hbLayout = new QHBoxLayout;
+    // 设置布局
+    hbLayout-&amp;gt;addWidget(leBkImagePath);
+    hbLayout-&amp;gt;addWidget(pbSelectBkFile);
+    hbLayout-&amp;gt;addWidget(leWmImagePath);
+    hbLayout-&amp;gt;addWidget(pbSelectWmFile);
+    hbLayout-&amp;gt;addWidget(pbRunMix);
+    QVBoxLayout* vbLayout = new QVBoxLayout(&amp;amp;widget);
+    vbLayout-&amp;gt;addLayout(hbLayout);
+    vbLayout-&amp;gt;addWidget(wevView);
+    // 添加处理操作
+    std::function&amp;lt;void()&amp;gt; updateHtmlView =
+            [wevView,&amp;amp;bkImage,&amp;amp;wmImage,&amp;amp;mixImage1,&amp;amp;mixImage2]()
+    {
+        QByteArray html;
+        {
+            QXmlStreamWriter writer(&amp;amp;html);
+            writer.setAutoFormatting(true);
+            writer.writeStartDocument();
+            writer.writeStartElement(&amp;quot;html&amp;quot;);
+            writer.writeStartElement(&amp;quot;body&amp;quot;);
+            writer.writeAttribute(&amp;quot;bgcolor&amp;quot;,&amp;quot;gray&amp;quot;);
+            QStringList imgName =
+            {
+                QStringLiteral(&amp;quot;背景图&amp;quot;),
+                QStringLiteral(&amp;quot;水印图&amp;quot;),
+                QStringLiteral(&amp;quot;算法1结果图&amp;quot;),
+                QStringLiteral(&amp;quot;算法2结果图&amp;quot;)
+            };
+            QList&amp;lt;QImage*&amp;gt; imgRef =
+            {
+                &amp;amp;bkImage,&amp;amp;wmImage,&amp;amp;mixImage1,&amp;amp;mixImage2
+            };
+            for(int i=0;i&amp;lt;imgName.size();++i){
+                if(imgRef[i]-&amp;gt;isNull()){continue;}
+                writer.writeTextElement(&amp;quot;h2&amp;quot;,imgName[i]);
+                writer.writeStartElement(&amp;quot;img&amp;quot;);
+                QBuffer buffer;
+                imgRef[i]-&amp;gt;save(&amp;amp;buffer,&amp;quot;PNG&amp;quot;);
+                writer.writeAttribute(&amp;quot;src&amp;quot;,&amp;quot;data:image/png;base64,&amp;quot; + buffer.data().toBase64());
+                writer.writeEndElement();
+            }
+            writer.writeEndElement();
+            writer.writeEndElement();
+        }
+        wevView-&amp;gt;setHtml(QString::fromUtf8(html));
+
+    };
+    QObject::connect(pbSelectBkFile,&amp;amp;QPushButton::clicked,
+                     [leBkImagePath,&amp;amp;bkImage,&amp;amp;widget,&amp;amp;updateHtmlView]()
+    {
+        static QString path(&amp;quot;.&amp;quot;);
+        path = QFileDialog::getOpenFileName(&amp;amp;widget,
+                                            QStringLiteral(&amp;quot;选择背景图&amp;quot;),
+                                            path,
+                                            QString(&amp;quot;Images (*.png *.jpg *.jpeg *.jfif)&amp;quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+
+        bkImage = image.convertToFormat(QImage::Format_RGBA8888);
+        leBkImagePath-&amp;gt;setText(path);
+        updateHtmlView();
+    });
+    QObject::connect(pbSelectWmFile,&amp;amp;QPushButton::clicked,
+                     [leWmImagePath,&amp;amp;bkImage,&amp;amp;wmImage,&amp;amp;widget,&amp;amp;updateHtmlView]()
+    {
+        static QString path(&amp;quot;.&amp;quot;);
+        path = QFileDialog::getOpenFileName(&amp;amp;widget,
+                                            QStringLiteral(&amp;quot;选择水印图&amp;quot;),
+                                            path,
+                                            QString(&amp;quot;Images (*.png)&amp;quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+        // 水印图不能比背景图大
+        int w = image.width() * 2 &amp;gt; bkImage.width() ? bkImage.width()/2:image.width();
+        int h = image.height() * w / image.width();
+        h = h &amp;gt; bkImage.height()?bkImage.height():h;
+
+        wmImage = image.scaledToHeight(h).convertToFormat(QImage::Format_RGBA8888);
+        leWmImagePath-&amp;gt;setText(path);
+        updateHtmlView();
+    });
+
+    QObject::connect(pbRunMix,&amp;amp;QPushButton::clicked,
+                     [&amp;amp;bkImage,&amp;amp;wmImage,&amp;amp;mixImage1,&amp;amp;mixImage2,&amp;amp;updateHtmlView]
+    {
+        mixImage1 = mixImage2 = bkImage;
+        for(int r = 0;r &amp;lt; wmImage.height();++r){
+            uint32_t* pBgLine = reinterpret_cast&amp;lt;uint32_t*&amp;gt;(bkImage.bits() + bkImage.bytesPerLine()*r);
+            uint32_t* pWmLine = reinterpret_cast&amp;lt;uint32_t*&amp;gt;(wmImage.bits() + wmImage.bytesPerLine()*r);
+            uint32_t* pM1Line = reinterpret_cast&amp;lt;uint32_t*&amp;gt;(mixImage1.bits() + mixImage1.bytesPerLine()*r);
+            uint32_t* pM2Line = reinterpret_cast&amp;lt;uint32_t*&amp;gt;(mixImage2.bits() + mixImage2.bytesPerLine()*r);
+            for(int c=0;c&amp;lt;wmImage.width();++c){
+                uint32_t rgba1 = pWmLine[c];
+                uint32_t rgba2 = pBgLine[c];
+                uint32_t a1 = rgba1 &amp;gt;&amp;gt; 24;
+                uint32_t a2 = rgba2 &amp;gt;&amp;gt; 24;
+
+                {
+                    // 如果alpha的值域是[0,1]，这里相当于将其拉伸为[0,255]
+                    // 所以相当于是 Alpha = 1 - (1 - Alpha1) * ( 1 - Alpha2)乘以了两次255
+                    uint32_t A = (0xffff - (0xff - a1)*(0xff - a2));
+                    // 下面左边部分少左移8位，相当于乘以了255
+                    uint32_t R = (((rgba1 &amp;lt;&amp;lt; 8 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+                    uint32_t G = (((rgba1 &amp;gt;&amp;gt; 0 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+                    uint32_t B = (((rgba1 &amp;gt;&amp;gt; 8 &amp;amp;0xff00U) * a1 + (rgba2 &amp;gt;&amp;gt; 16&amp;amp;0xffU) * a2 *(0xff - a1))/A)&amp;amp;0xffU;
+                    pM1Line[c] = R|(G&amp;lt;&amp;lt;8)|(B&amp;lt;&amp;lt;16)|((A&amp;amp;0xff)&amp;lt;&amp;lt;24);
+                }
+                {
+                    uint32_t A = a1;
+                    uint32_t R = (((rgba1 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 0 &amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+                    uint32_t G = (((rgba1 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 8 &amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+                    uint32_t B = (((rgba1 &amp;gt;&amp;gt; 16&amp;amp;0xffU) * A + (rgba2 &amp;gt;&amp;gt; 16&amp;amp;0xffU) *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU;
+                    A = ((a1 * A + a2 *(0xff - A)) &amp;gt;&amp;gt; 8)&amp;amp;0xffU; // 必须对Alpha波段也处理
+                    pM2Line[c] = R|(G&amp;lt;&amp;lt;8)|(B&amp;lt;&amp;lt;16)|(A&amp;lt;&amp;lt;24);
+                }
+            }
+        }
+        updateHtmlView();
+    });
+
+    widget.resize(1024,768);
+    widget.show();
+    return a.exec();
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>libfacedetection简单使用记录</title>
+      <link>http://sotex.github.io/post/2019-04-16-libfacedetection%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</link>
+      <pubDate>Tue, 16 Apr 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-04-16-libfacedetection%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8%E8%AE%B0%E5%BD%95/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/04/16/10716214.html&#34;&gt;博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/16/10716214.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;1-源码下载&#34;&gt;1、源码下载&lt;/h2&gt;
+
+&lt;p&gt;直接从github上克隆项目仓库。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;git clone https://github.com/ShiqiYu/libfacedetection.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;2-编译&#34;&gt;2、编译&lt;/h2&gt;
+
+&lt;h3 id=&#34;2-1-linux&#34;&gt;2.1、linux&lt;/h3&gt;
+
+&lt;p&gt;这个项目使用了cmake脚本，先生成makefile。（我这里是在ArchLinux x86_64环境下测试的）&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cmake -DENABLE_NEON=OFF -DCMAKE_BUILD_TYPE=RELEASE .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;执行上面的命令成功后，执行下面语句进行编译&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;make -j4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;编译完成后会同时生成动态库和静态库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;[ 90%] Linking CXX static library libfacedetection.a
+[100%] Linking CXX shared library libfacedetection.so
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;2-2-windows-mingw64&#34;&gt;2.2、Windows MINGW64&lt;/h3&gt;
+
+&lt;p&gt;这里和上面也是一样的。先使用&lt;code&gt;cmake&lt;/code&gt;生产&lt;code&gt;Makefile&lt;/code&gt;文件，然后执行编译即可。这里我指定了使用&lt;code&gt;g++&lt;/code&gt;作为C++的编译器，因为如果不指定会使用&lt;code&gt;gcc&lt;/code&gt;去链接，导致生成动态库的时候找不到&lt;code&gt;c++&lt;/code&gt;标准库的一些定义。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;cmake -DENABLE_NEON=OFF -DCMAKE_BUILD_TYPE=RELEASE  -DCMAKE_CXX_COMPILER=g++ .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;其它的与上面linux的一致。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;备注：我这里使用的是MSYS2环境，直接使用pacman命令安装的gcc/g++。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;2-3-vs2017-nmake编译&#34;&gt;2.3、VS2017 NMake编译&lt;/h3&gt;
+
+&lt;p&gt;因为就这么几个文件，生成一个庞大的VS工程实在有点多余，所以我简单写了一个&lt;code&gt;Makefile.vc&lt;/code&gt;文件，使用&lt;code&gt;nmake&lt;/code&gt;脚本来生成静态库（因为源码中并没有对函数接口进行export，所以只生成静态库）。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Makefile.vc 文件内容如下：&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-makefile&#34;&gt;# 编译参数设置
+CXX           = cl
+DEFINES       = -DWIN32 -DWIN64 -DNDEBUG -D_WINDLL
+CXXFLAGS      = -nologo -Zc:wchar_t -FS -Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -O2 -MD -W3 -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 -wd4577 -wd4467 -EHsc $(DEFINES)
+INCPATH       = -I.
+LIBEXE        = lib
+LIBFLAGS      = /NOLOGO 
+LIBS          =  kernel32.lib
+
+# 源文件
+SOURCES       = facedetectcnn.cpp			\
+				facedetectcnn-floatdata.cpp	\
+				facedetectcnn-int8data.cpp	\
+				facedetectcnn-model.cpp
+OBJECTS       = facedetectcnn.obj			\
+				facedetectcnn-floatdata.obj	\
+				facedetectcnn-int8data.obj	\
+				facedetectcnn-model.obj
+
+# 输出目标文件
+DESTDIR_TARGET = libfacedetection.lib
+
+# 编译规则
+.cpp.obj::
+    $(CXX) @&amp;lt;&amp;lt; -c $(CXXFLAGS) $(INCPATH) $&amp;lt;
+&amp;lt;&amp;lt;
+
+all:	$(DESTDIR_TARGET)
+
+$(DESTDIR_TARGET):	$(OBJECTS)
+	$(LIBEXE) $(LIBFLAGS) /OUT:$(DESTDIR_TARGET) $(LIBS) $(OBJECTS)
+
+facedetectcnn.obj: facedetectcnn.cpp facedetectcnn.h
+facedetectcnn-floatdata.obj: facedetectcnn-floatdata.cpp facedetectcnn.h
+facedetectcnn-int8data.obj: facedetectcnn-int8data.cpp facedetectcnn.h
+facedetectcnn-model.obj: facedetectcnn-model.cpp facedetectcnn.h
+
+clean:
+	del /Q $(OBJECTS)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;在&lt;code&gt;VS2017开发者命令行工具中&lt;/code&gt;直接使用&lt;code&gt;nmake&lt;/code&gt;命令来生成静态库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cmd&#34;&gt;nmake -f Makefile.vc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122605075-1040154334.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-简单测试程序&#34;&gt;3、简单测试程序&lt;/h2&gt;
+
+&lt;p&gt;使用Qt写了一个小程序，简单的测试了一下。&lt;/p&gt;
+
+&lt;p&gt;测试的时候发现年龄始终是&lt;code&gt;0&lt;/code&gt;，然后就看了一下源码，发现其并未对年龄和面部特征点进行输出，实际在代码中也没有进行检测，年龄和面部特征点相关的代码我没有找到(2019年4月16日)。&lt;/p&gt;
+
+&lt;h3 id=&#34;3-1-测试截图&#34;&gt;3.1、测试截图&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122627128-1046699870.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201904/693958-20190416122634652-774680793.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;3-2-测试代码如下&#34;&gt;3.2、测试代码如下&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/*****************************************************
+ *       project:libfacedetection 测试代码            *
+ *       anchor:ymwh@foxmail.com/solym@sohu.com      *
+ *       date:2019-4-16                              *
+ *****************************************************/
+
+#include &amp;lt;facedetectcnn.h&amp;gt;
+
+#include &amp;lt;QApplication&amp;gt;
+#include &amp;lt;QWidget&amp;gt;
+#include &amp;lt;QLabel&amp;gt;
+#include &amp;lt;QLineEdit&amp;gt;
+#include &amp;lt;QPushButton&amp;gt;
+#include &amp;lt;QVBoxLayout&amp;gt;
+#include &amp;lt;QHBoxLayout&amp;gt;
+#include &amp;lt;QFileDialog&amp;gt;
+#include &amp;lt;QPainter&amp;gt;
+#include &amp;lt;QGraphicsView&amp;gt;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    QImage srcImage;
+    // 创建窗口
+    QWidget widget;
+    // 添加控件
+    QGraphicsScene* gsViewScene = new QGraphicsScene();
+    gsViewScene-&amp;gt;setItemIndexMethod(QGraphicsScene::NoIndex);
+    QGraphicsView* gvImageView = new QGraphicsView(&amp;amp;widget);
+    gvImageView-&amp;gt;setScene(gsViewScene);
+
+    QLineEdit* leImagePath = new QLineEdit(&amp;amp;widget);
+    QPushButton* pbSelectFile = new QPushButton(QStringLiteral(&amp;quot;选择文件&amp;quot;),&amp;amp;widget);
+    QPushButton* pbRunDetect = new QPushButton(QStringLiteral(&amp;quot;执行检测&amp;quot;),&amp;amp;widget);
+    pbRunDetect-&amp;gt;setEnabled(false);
+    QHBoxLayout* hbLayout = new QHBoxLayout;
+    // 设置布局
+    hbLayout-&amp;gt;addWidget(leImagePath);
+    hbLayout-&amp;gt;addWidget(pbSelectFile);
+    hbLayout-&amp;gt;addWidget(pbRunDetect);
+    QVBoxLayout* vbLayout = new QVBoxLayout(&amp;amp;widget);
+    vbLayout-&amp;gt;addLayout(hbLayout);
+    vbLayout-&amp;gt;addWidget(gvImageView);
+    // 添加处理操作
+    QObject::connect(pbSelectFile,&amp;amp;QPushButton::clicked,
+                     [leImagePath,gvImageView,gsViewScene,pbRunDetect,&amp;amp;srcImage,&amp;amp;widget]()
+    {
+        static QString path;
+        path = QFileDialog::getOpenFileName(&amp;amp;widget,
+                                            QStringLiteral(&amp;quot;选择人像图&amp;quot;),
+                                            path,
+                                            QString(&amp;quot;Images (*.png *.jpg *.jpeg *.jfif)&amp;quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+        // 图像太大的时候，执行太慢，先缩小一点
+        if(image.width() &amp;gt; 2048){ image = image.scaledToWidth(2048); }
+        if(image.width() &amp;gt; 1536){ image = image.scaledToWidth(1536); }
+
+        srcImage.swap(image);
+        leImagePath-&amp;gt;setText(path);
+
+        gsViewScene-&amp;gt;clear();
+        gsViewScene-&amp;gt;setSceneRect(srcImage.rect());
+        gsViewScene-&amp;gt;addPixmap(QPixmap::fromImage(srcImage));
+        gvImageView-&amp;gt;fitInView(gvImageView-&amp;gt;sceneRect());
+
+        pbRunDetect-&amp;gt;setEnabled(true);
+    });
+
+    QObject::connect(pbRunDetect,&amp;amp;QPushButton::clicked,
+                     [gvImageView,gsViewScene,&amp;amp;srcImage]
+    {
+        // 转换为RGB24
+        QImage image = srcImage.convertToFormat(QImage::Format_RGB888);
+        int rows = image.height();
+        int cols = image.width();
+        int rowbytes = image.bytesPerLine();
+
+        uchar* pImgData = image.bits();
+        // RGB -&amp;gt; BGR 因为facedetect_cnn函数要求传入图像为BGR三波段图像
+        for( int r = 0; r &amp;lt; rows; ++r ){
+            uchar* pRow = pImgData + (r * rowbytes);
+            for(int c = 0; c &amp;lt; cols; ++c ){
+                qSwap(pRow[c*3],pRow[c*3+2]);
+            }
+        }
+        // 进行检测
+        QByteArray buffer(0x20000,0);
+        int* pResults = facedetect_cnn((uchar*)buffer.data(),pImgData,cols,rows,rowbytes);
+        // 将检测结果画到图像上
+        QPixmap pixmap = QPixmap::fromImage(srcImage);
+        if(pResults != NULL) {
+            for(int i=0; i&amp;lt; *pResults; ++i) {
+                short * p = ((short*)(pResults+1))+142*i;
+                int x = p[0];
+                int y = p[1];
+                int w = p[2];
+                int h = p[3];
+                int confidence = p[4];
+                // 查看源码可知，其并未进行人像框范围和置信率以外的数据赋值
+                int angle = p[5];
+                QPainter painter(&amp;amp;pixmap);
+                // painter.setBrush(QBrush(QColor(255,0,0),));
+                painter.setPen(Qt::green);
+                // painter.drawEllipse(x,y,w,h);
+                painter.drawRect(x,y,w,h);
+                painter.drawText(x,y,w,h,Qt::AlignCenter,
+                                 QStringLiteral(&amp;quot;置信:%1%\n年龄:%2&amp;quot;).arg(confidence).arg(angle));
+            }
+        }
+
+        gsViewScene-&amp;gt;clear();
+        gsViewScene-&amp;gt;setSceneRect(pixmap.rect());
+        gsViewScene-&amp;gt;addPixmap(pixmap);
+        gvImageView-&amp;gt;fitInView(gvImageView-&amp;gt;sceneRect());
+    });
+
+    widget.resize(1024,768);
+    widget.show();
+    return a.exec();
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>GDAL指定自定义的金字塔目录</title>
+      <link>http://sotex.github.io/post/2019-02-21-gdal%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E9%87%91%E5%AD%97%E5%A1%94%E7%9B%AE%E5%BD%95/</link>
+      <pubDate>Thu, 21 Feb 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-02-21-gdal%E6%8C%87%E5%AE%9A%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9A%84%E9%87%91%E5%AD%97%E5%A1%94%E7%9B%AE%E5%BD%95/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/02/21/10411893.html&#34;&gt;博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/02/21/10411893.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;缘起&#34;&gt;缘起&lt;/h1&gt;
+
+&lt;p&gt;对于一般的遥感影像文件，金字塔文件默认都是与影像文件放在同一个目录下，金字塔文件名一般与源影像文件名相同，但后缀名不同。或者金字塔内建于影像内部，但这不是这里所涉及的。
+在使用ArcGIS桌面版或者Erdas遥感影像处理软件打开遥感影像文件的时候，如果影像不含(带有)金字塔，则会提示是否创建金字塔。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201902/693958-20190221142005593-1825596855.png&#34; alt=&#34;ArcGIS提示建立金字塔&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;我们碰到这么一种情况，就是原始影像是不带金字塔的，并且所在的目录不允许修改，也就是不能将金字塔创建在其中，原始影像文件更是不允许修改，所以也不能更新内建金字塔。&lt;/p&gt;
+
+&lt;h1 id=&#34;解决&#34;&gt;解决&lt;/h1&gt;
+
+&lt;p&gt;对于这个问题，为了加速影像的浏览，只能将金字塔建立在外部的目录，而读取的时候根据读取输出的分辨率，来确认是使用源影像读取还是使用金字塔文件读取，这都需要自己控制。
+因为自己控制会将一些控制流程变复杂，所以我想让GDAL直接支持索引到这个外部的金字塔文件。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;在GDAL中，金字塔称之为Overviews(概览视图)，所以与之相关的接口都带有Overview单词。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;我看了GDAL的RasterIO流程相关的代码，简单的制作了如下的流程图：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201902/693958-20190221142026770-2008538255.png&#34; alt=&#34;GDALDataset::RasterIO简单流程图&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;gdaldefaultoverviews-overviewscan-函数&#34;&gt;GDALDefaultOverviews::OverviewScan()函数&lt;/h2&gt;
+
+&lt;p&gt;与金字塔路径查找的关键代码在函数&lt;a href=&#34;https://github.com/OSGeo/gdal/blob/master/gdal/gcore/gdaldefaultoverviews.cpp&#34;&gt;&lt;code&gt;GDALDefaultOverviews::OverviewScan()&lt;/code&gt;&lt;/a&gt;中。&lt;/p&gt;
+
+&lt;p&gt;通过查看其实现代码，和被调用时候的参数（参数在&lt;code&gt;GDALDefaultOverviews::Initialize&lt;/code&gt;函数被调用的时候确定，可以搜索&lt;code&gt;poDS-&amp;gt;oOvManager.Initialize&lt;/code&gt;查看，都是在对应格式的XXXDataset::Open()函数中被调用，不同格式影像调用时候传的参数可能不同），可以知道GDAL搜寻金字塔的方式与顺序。&lt;/p&gt;
+
+&lt;p&gt;这里不详细说这里面的流程结构了，一些判断条件也略过，只大概说一下搜索顺序（如果有内建金字塔则不会读取外部金字塔）：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1、&lt;code&gt;.ovr&lt;/code&gt;后缀金字塔文件&lt;/li&gt;
+&lt;li&gt;2、&lt;code&gt;.aux&lt;/code&gt;后缀金字塔文件&lt;/li&gt;
+&lt;li&gt;3、&lt;code&gt;.rrd&lt;/code&gt;后缀金字塔文件（如果配置有&lt;strong&gt;USE_RRD=YES&lt;/strong&gt;）&lt;/li&gt;
+&lt;li&gt;4、影像元数据Metadata中的&lt;code&gt;OVERVIEW_FILE&lt;/code&gt;指定的金字塔路径&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果需要使用到自定义的金字塔文件，可以在此处修改，添加一段搜索代码,示例如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;    if( poODS == nullptr )
+    {
+        osOvrFilename = MyOverviewFileSearch(pszInitName);
+        poODS = GDALDataset::Open(osOvrFilename,
+            GDAL_OF_RASTER | (poDS-&amp;gt;GetAccess() == GA_Update ? GDAL_OF_UPDATE: 0));
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;MyOverviewFileSearch是用于搜索自定义路径下金字塔的函数。&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;关于-gdalrasterband-getoverview&#34;&gt;关于 GDALRasterBand::GetOverview&lt;/h2&gt;
+
+&lt;p&gt;上面说如果有内建金字塔则不会读取外部金字塔，这个实际上是各个影像文件格式的相关代码里面自己定义的。
+因为&lt;code&gt;virtual GDALRasterBand* GDALRasterBand::GetOverview(int);&lt;/code&gt;本来就是一个虚函数，而GDAL中又基本都是依赖指针进行操作，所以实际上会调用各自的实现。&lt;/p&gt;
+
+&lt;p&gt;以&lt;strong&gt;GeoTiff&lt;/strong&gt;格式为例，在它的&lt;strong&gt;Overview&lt;/strong&gt;相关函数中就是先搜索Tiff目录内的金字塔，如果找不到才调用&lt;code&gt;GDALRasterBand&lt;/code&gt;中对应的接口，进而访问外部金字塔文件。&lt;/p&gt;
+
+&lt;p&gt;例如以下代码：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/************************************************************************/
+/*                          GetOverviewCount()                          */
+/************************************************************************/
+int GTiffRasterBand::GetOverviewCount()
+{
+    poGDS-&amp;gt;ScanDirectories();
+    if( poGDS-&amp;gt;nOverviewCount &amp;gt; 0 )
+    {
+        return poGDS-&amp;gt;nOverviewCount;
+    }
+
+    const int nOverviewCount = GDALRasterBand::GetOverviewCount();
+    if( nOverviewCount &amp;gt; 0 )
+        return nOverviewCount;
+
+    // Implicit JPEG overviews are normally hidden, except when doing
+    // IRasterIO() operations.
+    if( poGDS-&amp;gt;nJPEGOverviewVisibilityCounter )
+        return poGDS-&amp;gt;GetJPEGOverviewCount();
+
+    return 0;
+}
+
+/************************************************************************/
+/*                            GetOverview()                             */
+/************************************************************************/
+GDALRasterBand *GTiffRasterBand::GetOverview( int i )
+{
+    poGDS-&amp;gt;ScanDirectories();
+    if( poGDS-&amp;gt;nOverviewCount &amp;gt; 0 )
+    {
+        // Do we have internal overviews?
+        if( i &amp;lt; 0 || i &amp;gt;= poGDS-&amp;gt;nOverviewCount )
+            return nullptr;
+        return poGDS-&amp;gt;papoOverviewDS[i]-&amp;gt;GetRasterBand(nBand);
+    }
+
+    GDALRasterBand* const poOvrBand = GDALRasterBand::GetOverview( i );
+    if( poOvrBand != nullptr )
+        return poOvrBand;
+
+    // For consistency with GetOverviewCount(), we should also test
+    // nJPEGOverviewVisibilityCounter, but it is also convenient to be able
+    // to query them for testing purposes.
+    if( i &amp;gt;= 0 &amp;amp;&amp;amp; i &amp;lt; poGDS-&amp;gt;GetJPEGOverviewCount() )
+        return poGDS-&amp;gt;papoJPEGOverviewDS[i]-&amp;gt;GetRasterBand(nBand);
+
+    return nullptr;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;上面代码中的&lt;code&gt;poGDS-&amp;gt;ScanDirectories();&lt;/code&gt;语句，内部调用去遍历Tiff目录，找到&lt;code&gt;TIFFTAG_SUBFILETYPE&lt;/code&gt;(子文件类型)字段为&lt;code&gt;FILETYPE_REDUCEDIMAGE&lt;/code&gt;(缩小图像)的目录，然后解析出需要的金字塔信息（仅第一次调用时做，后面调用会判断bScanDeferred直接跳过）。&lt;/p&gt;
+
+&lt;p&gt;如果没有找到才调用基类&lt;code&gt;GDALRasterBand&lt;/code&gt;对应的函数去访问外部金字塔。&lt;/p&gt;
+
+&lt;h1 id=&#34;关于构建外部金字塔等&#34;&gt;关于构建外部金字塔等&lt;/h1&gt;
+
+&lt;p&gt;构建也是差不多的过程，这里就简单的写一下调用过程：&lt;code&gt;GDALDataset::BuildOverviews  ---&amp;gt;  GDALDataset::IBuildOverviews  ---&amp;gt;  GDALDefaultOverviews::BuildOverviews&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://img2018.cnblogs.com/blog/693958/201902/693958-20190222124742694-2055399044.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;所以设置构建外部金字塔的路径，也可以修改&lt;code&gt;GDALDefaultOverviews::BuildOverviews&lt;/code&gt;。
+同样，对于不同的影像格式，可以有自己的&lt;code&gt;GDALDataset::IBuildOverviews&lt;/code&gt;实现，例如GeoTiff的就是&lt;code&gt;GTiffDataset::IBuildOverviews&lt;/code&gt;，如果需要创建内建的金字塔，则做另外的实现。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>在GDAL中添加GDALRasterizeGeometriesBuf函数</title>
+      <link>http://sotex.github.io/post/2019-02-13-%E5%9C%A8gdal%E4%B8%AD%E6%B7%BB%E5%8A%A0gdalrasterizegeometriesbuf%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-02-13-%E5%9C%A8gdal%E4%B8%AD%E6%B7%BB%E5%8A%A0gdalrasterizegeometriesbuf%E5%87%BD%E6%95%B0/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/02/13/10368595.html&#34;&gt;博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/02/13/10368595.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;缘起&#34;&gt;缘起&lt;/h1&gt;
+
+&lt;p&gt;GDAL的栅格化算法中有&lt;code&gt;GDALRasterizeLayers&lt;/code&gt;、&lt;code&gt;GDALRasterizeLayersBuf&lt;/code&gt;和&lt;code&gt;GDALRasterizeGeometries&lt;/code&gt;函数，但是没有&lt;code&gt;GDALRasterizeGeometriesBuf&lt;/code&gt;函数（GDAL项目不打算添加这个函数，因为增加一个函数会增加维护成本）。而栅格化算法的实际实现函数&lt;code&gt;gv_rasterize_one_shape&lt;/code&gt;并不导出，所以在使用的时候造成了一定的不便。
+虽然可以通过&lt;code&gt;MEMDataset&lt;/code&gt;的方式，调用&lt;code&gt;GDALRasterizeGeometries&lt;/code&gt;达到目的，但是不够直接和高效，所以我写了&lt;code&gt;GDALRasterizeGeometriesBuf&lt;/code&gt;函数。
+个人认为比较灵活的方式，还是将&lt;code&gt;gv_rasterize_one_shape&lt;/code&gt;函数导出，以便自由使用。&lt;/p&gt;
+
+&lt;h1 id=&#34;代码&#34;&gt;代码&lt;/h1&gt;
+
+&lt;p&gt;修改&lt;code&gt;gdal/alg/gdal_alg.h&lt;/code&gt;头文件，在&lt;code&gt;GDALRasterizeGeometries&lt;/code&gt;函数声明下添加&lt;code&gt;GDALRasterizeGeometriesBuf&lt;/code&gt;函数声明。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-c&#34;&gt;CPLErr CPL_DLL
+GDALRasterizeGeometriesBuf( void *pData, int nBufXSize, int nBufYSize,
+                            GDALDataType eBufType, int nPixelSpace, int nLineSpace,
+                            int nGeomCount, OGRGeometryH *pahGeometries,
+                            const char *pszGeomProjection,
+                            const char *pszDstProjection,
+                            double *padfDstGeoTransform,
+                            GDALTransformerFunc pfnTransformer,
+                            void *pTransformArg, double dfBurnValue,
+                            char **papszOptions, GDALProgressFunc pfnProgress,
+                            void *pProgressArg );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改&lt;code&gt;gdal/alg/gdalrasterize.cpp&lt;/code&gt;文件，添加&lt;code&gt;GDALRasterizeGeometriesBuf&lt;/code&gt;函数的实现，代码如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-cpp&#34;&gt;/************************************************************************/
+/*                        GDALRasterizeGeometriesBuf()                      */
+/************************************************************************/
+
+/**
+ * Burn geometries into raster.
+ *
+ * Rasterize a list of geometric objects into a raster dataset.  The
+ * geometries are passed as an array of OGRGeometryH handlers.  
+ *
+ * If the geometries are in the georeferenced coordinates of the raster
+ * dataset, then the pfnTransform may be passed in NULL and one will be
+ * derived internally from the geotransform of the dataset.  The transform
+ * needs to transform the geometry locations into pixel/line coordinates
+ * of the target raster.
+ *
+ * The output raster may be of any GDAL supported datatype, though currently
+ * internally the burning is done either as GDT_Byte or GDT_Float32.  This
+ * may be improved in the future.
+ *
+ * @param pData pointer to the output data array.
+ * @param nBufXSize width of the output data array in pixels.
+ * @param nBufYSize height of the output data array in pixels.
+ * @param eBufType data type of the output data array.
+ *
+ * @param nPixelSpace The byte offset from the start of one pixel value in
+ * pData to the start of the next pixel value within a scanline.  If defaulted
+ * (0) the size of the datatype eBufType is used.
+ *
+ * @param nLineSpace The byte offset from the start of one scanline in
+ * pData to the start of the next.  If defaulted the size of the datatype
+ * eBufType * nBufXSize is used.
+ *
+ * @param nGeomCount the number of geometries being passed in pahGeometries.
+ * @param pahGeometries the array of geometries to burn in. 
+ * @param pszGeomProjection WKT defining the coordinate system of the geometries.
+ *
+ * @param pszDstProjection WKT defining the coordinate system of the target
+ * raster.
+ *
+ * @param padfDstGeoTransform geotransformation matrix of the target raster.
+ *
+ * @param pfnTransformer transformation to apply to geometries to put into
+ * pixel/line coordinates on raster.  If NULL a geotransform based one will
+ * be created internally.
+ *
+ * @param pTransformArg callback data for transformer.
+ * @param dfBurnValue the value to burn into the raster.
+ *
+ * @param papszOptions special options controlling rasterization:
+ * &amp;lt;ul&amp;gt;
+ * &amp;lt;li&amp;gt;&amp;quot;ALL_TOUCHED&amp;quot;: May be set to TRUE to set all pixels touched
+ * by the line or polygons, not just those whose center is within the polygon
+ * or that are selected by brezenhams line algorithm.  Defaults to FALSE.&amp;lt;/li&amp;gt;
+ * &amp;lt;li&amp;gt;&amp;quot;BURN_VALUE_FROM&amp;quot;: May be set to &amp;quot;Z&amp;quot; to use
+ * the Z values of the geometries. dfBurnValue or the attribute field value is
+ * added to this before burning. In default case dfBurnValue is burned as it
+ * is. This is implemented properly only for points and lines for now. Polygons
+ * will be burned using the Z value from the first point. The M value may
+ * be supported in the future.&amp;lt;/li&amp;gt;
+ * &amp;lt;li&amp;gt;&amp;quot;MERGE_ALG&amp;quot;: May be REPLACE (the default) or ADD.  REPLACE
+ * results in overwriting of value, while ADD adds the new value to the
+ * existing raster, suitable for heatmaps for instance.&amp;lt;/li&amp;gt;
+ * &amp;lt;/ul&amp;gt;
+ *
+ * @param pfnProgress the progress function to report completion.
+ *
+ * @param pProgressArg callback data for progress function.
+ *
+ *
+ * @return CE_None on success or CE_Failure on error.
+ */
+
+CPLErr GDALRasterizeGeometriesBuf( void *pData, int nBufXSize, int nBufYSize,
+                                   GDALDataType eBufType, int nPixelSpace, int nLineSpace,
+                                   int nGeomCount, OGRGeometryH *pahGeometries,
+                                   const char *pszGeomProjection,
+                                   const char *pszDstProjection,
+                                   double *padfDstGeoTransform,
+                                   GDALTransformerFunc pfnTransformer,
+                                   void *pTransformArg, double dfBurnValue,
+                                   char **papszOptions, GDALProgressFunc pfnProgress,
+                                   void *pProgressArg )
+
+{
+/* -------------------------------------------------------------------- */
+/*      If pixel and line spaceing are defaulted assign reasonable      */
+/*      value assuming a packed buffer.                                 */
+/* -------------------------------------------------------------------- */
+    if( nPixelSpace != 0 )
+    {
+        nPixelSpace = GDALGetDataTypeSizeBytes( eBufType );
+    }
+    if( nPixelSpace != GDALGetDataTypeSizeBytes( eBufType ) )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                    &amp;quot;GDALRasterizeGeometriesBuf(): unsupported value of nPixelSpace&amp;quot;);
+        return CE_Failure;
+    }
+
+    if( nLineSpace == 0 )
+    {
+        nLineSpace = nPixelSpace * nBufXSize;
+    }
+    if( nLineSpace != nPixelSpace * nBufXSize )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                    &amp;quot;GDALRasterizeGeometriesBuf(): unsupported value of nLineSpace&amp;quot;);
+        return CE_Failure;
+    }
+
+    if( pfnProgress == nullptr )
+      pfnProgress = GDALDummyProgress;
+
+/* -------------------------------------------------------------------- */
+/*      Do some rudimentary arg checking.                               */
+/* -------------------------------------------------------------------- */
+    if( nGeomCount == 0 )
+      return CE_None;
+
+/* -------------------------------------------------------------------- */
+/*      Options                                                         */
+/* -------------------------------------------------------------------- */
+    int bAllTouched = FALSE;
+    GDALBurnValueSrc eBurnValueSource = GBV_UserBurnValue;
+    GDALRasterMergeAlg eMergeAlg = GRMA_Replace;
+    GDALRasterizeOptim eOptim = GRO_Auto;
+    if( GDALRasterizeOptions(papszOptions, &amp;amp;bAllTouched,
+                    &amp;amp;eBurnValueSource, &amp;amp;eMergeAlg,
+                    &amp;amp;eOptim) == CE_Failure )
+    {
+        return CE_Failure;
+    }
+
+
+/* -------------------------------------------------------------------- */
+/*      If we have no transformer, create the one from input file       */
+/*      projection. Note that each layer can be georefernced            */
+/*      separately.                                                     */
+/* -------------------------------------------------------------------- */
+    bool bNeedToFreeTransformer = false;
+
+    if( pfnTransformer == nullptr )
+    {
+        if( !pszGeomProjection )
+        {
+            CPLError( CE_Warning, CPLE_AppDefined,
+                        &amp;quot;There is no specified spatial reference for the&amp;quot;
+                        &amp;quot; geometry to build transformer, assuming&amp;quot;
+                        &amp;quot; matching coordinate systems.&amp;quot;);
+        }
+
+        pTransformArg =
+            GDALCreateGenImgProjTransformer3( pszGeomProjection, nullptr,
+                        pszDstProjection,
+                        padfDstGeoTransform );
+        pfnTransformer = GDALGenImgProjTransform;
+    }
+/* ==================================================================== */
+/*      Write geometry to the raster individually.                      */
+/* ==================================================================== */
+    CPLErr eErr = CE_None;
+
+    pfnProgress( 0.0, nullptr, pProgressArg );
+
+    int iGeometry;
+    for(iGeometry = 0; iGeometry &amp;lt; nGeomCount; ++iGeometry )
+    {
+        OGRGeometry *poGeom = reinterpret_cast&amp;lt;OGRGeometry*&amp;gt;(pahGeometries[iGeometry]);
+
+        // 后期gv_rasterize_one_shape函数可能会变，此处后期需要修改
+        gv_rasterize_one_shape( static_cast&amp;lt;unsigned char *&amp;gt;(pData), 0, 0,
+                    nBufXSize, nBufYSize,
+                    1, eBufType, bAllTouched, poGeom,
+                    &amp;amp;dfBurnValue, eBurnValueSource,
+                    eMergeAlg,
+                    pfnTransformer, pTransformArg );
+
+        if( !pfnProgress((iGeometry+1)/static_cast&amp;lt;double&amp;gt;(nGeomCount),
+                         &amp;quot;&amp;quot;, pProgressArg) )
+        {
+            CPLError( CE_Failure, CPLE_UserInterrupt, &amp;quot;User terminated&amp;quot; );
+            eErr = CE_Failure;
+        }
+    }
+
+    if( bNeedToFreeTransformer )
+        GDALDestroyTransformer( pTransformArg );
+
+    return eErr;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>多时相地图瓦片简单设想</title>
+      <link>http://sotex.github.io/post/2019-02-12-%E5%A4%9A%E6%97%B6%E7%9B%B8%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E7%AE%80%E5%8D%95%E8%AE%BE%E6%83%B3/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 UTC</pubDate>
+      
+      <guid>http://sotex.github.io/post/2019-02-12-%E5%A4%9A%E6%97%B6%E7%9B%B8%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E7%AE%80%E5%8D%95%E8%AE%BE%E6%83%B3/</guid>
+      <description>
+
+&lt;p&gt;[TOC]
+&lt;a href=&#34;http://www.cnblogs.com/oloroso/archive/2019/02/12/10364660.html&#34;&gt;博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/02/12/10364660.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;地图-遥感影像及瓦片地图相关文章&#34;&gt;地图、遥感影像及瓦片地图相关文章&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/21344894&#34;&gt;瓦片地图的前世今生&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/&#34;&gt;国内主要地图瓦片坐标系定义及计算原理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/30722736&#34;&gt;地图瓦片与四叉树（二）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/31045449&#34;&gt;地图瓦片与四叉树（二）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/28674820&#34;&gt;一个有意思的坐标系投影介绍网站&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://zhuanlan.zhihu.com/p/33295151&#34;&gt;一个小游戏让你彻底弄懂墨卡托投影&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cntchen.github.io/2016/05/09/%E7%99%BE%E5%BA%A6JavaScirpt%20%20API%E4%B8%AD%E7%BB%8F%E7%BA%AC%E5%BA%A6%E5%9D%90%E6%A0%87%E8%BD%AC%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87bug/&#34;&gt;百度JavaScript API中经纬度坐标转瓦片坐标bug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opengeospatial.org/standards/wmts&#34;&gt;OpenGIS Web Map Tile Service Implementation Standard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.leiphone.com/news/201412/28iAUFhsXywpCryE.html&#34;&gt; 揭秘Google地图背后的秘密：隐藏的算法与人工操作 &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/LBSer/p/4417127.html&#34;&gt;地图点聚合优化方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/dojo-lzz/p/10143078.html&#34;&gt;动态地图标注算法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://pro.arcgis.com/zh-cn/pro-app/help/data/imagery/supported-raster-dataset-file-formats.htm&#34;&gt;ArcGIS支持栅格文件格式&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;多时相遥感影像相关文章&#34;&gt;多时相遥感影像相关文章&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://baike.baidu.com/item/%E5%A4%9A%E6%97%B6%E7%9B%B8&#34;&gt;百度百科-多时相&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/mrib/article/details/78551027&#34;&gt;如何查看下载不同年份的历史影像(多时相影像)卫星地图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.csdn.net/lijie45655/article/details/49157355&#34;&gt;影像信息提取之——多时相影像动态检测&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://html.rhhz.net/CHXB/html/2017-10-1447.htm&#34;&gt;【测绘学报-多时相遥感影像变化检测的现状与展望】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.gtzyyg.com/article/2016/1001-070X/1001-070X-28-2-91.html&#34;&gt;【国土资源遥感-融合时间特征的高分辨率遥感影像分类】&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://learn.arcgis.com/zh-cn/arcgis-imagery-book/chapter2/&#34;&gt;遥感的本质——远程收集的信息&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;多时相地图的一种实现原理-视频瓦片&#34;&gt;多时相地图的一种实现原理——视频瓦片&lt;/h1&gt;
+
+&lt;p&gt;对于同一位置的不同时期的影像，大部分地区在很大几率上其变化是极小的，所以如果每一时期的影像都做成单独的地图瓦片图层，是极不划算的做法。&lt;/p&gt;
+
+&lt;p&gt;使用类似于视频压缩的方式（关键帧+前向/后向帧），则可以节约很大的数据量。与视频存在固定帧率参数不同，不同遥感影像的时间往往不是等差数列关系，所以应该对每一帧都带有独立的时间记录。在利用这个视频瓦片的时候，应用程序可根据关键帧解析出所有时间的影像帧。&lt;/p&gt;
+
+&lt;p&gt;如果是用于对外提供多时相的可视化影像地图服务（多时相瓦片地图），那么这将是一种极大节省数据传输量的方式，因为每一个瓦片都带有了多个时期的影像数据，完全可以由客户端控制显示那一时期影像（帧）。或者还可以在客户端实现快速的变化检测统计输出（每一个瓦片非关键帧的大小等相关信息就可以粗略统计变化程度）。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

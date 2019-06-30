@@ -1,0 +1,545 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux mount命令参数及用法详解 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux mount命令参数及用法详解</h1>
+          <span class="post-date">2016年04月18日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/04/18/5405099.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/04/18/5405099.html</a>
+<h1 id="linux-mount">linux mount命令参数及用法详解</h1>
+<p>非原创，主要来自<br />
+<a href="http://www.360doc.com/content/13/0608/14/12600778_291501907.shtml。"><a href="http://www.360doc.com/content/13/0608/14/12600778_291501907.shtml。">http://www.360doc.com/content/13/0608/14/12600778_291501907.shtml。</a></a><br />
+<a href="http://yan0063.iteye.com/blog/1610194">http://yan0063.iteye.com/blog/1610194</a></p>
+<h2 id="_1">使用说明</h2>
+<p>功能：加载指定的文件系统。</p>
+<p>语法：mount [-afFhnrvVw] [-L&lt;标签&gt;] [-o&lt;选项&gt;] [-t&lt;文件系统类型&gt;] [设备名] [加载点]<br />
+用法说明：mount可将指定设备中指定的文件系统加载到Linux目录下（也就是装载点）。可将经常使用的设备写入文件/etc/fastab,以使系统在每次启动时自动加载。mount加载设备的信息记录在/etc/mtab文件中。使用umount命令卸载设备时，记录将被清除。<br />
+常用参数和选项：</p>
+<h3 id="_2">参数说明</h3>
+<table>
+<thead>
+<tr><th align="left">参数</th><th align="left">说明</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">-a</td>
+<td align="left">加载文件/etc/fstab中设置的所有设备。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-f</td>
+<td align="left">不实际加载设备。可与-v等参数同时使用以查看mount的执行过程。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-F</td>
+<td align="left">需与-a参数同时使用。所有在/etc/fstab中设置的设备会被同时加载，可加快执行速度。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-h</td>
+<td align="left">显示在线帮助信息。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-L</td>
+<td align="left">&lt;标签&gt; 加载文件系统标签为&lt;标签&gt;的设备。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-n</td>
+<td align="left">不将加载信息记录在/etc/mtab文件中。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o</td>
+<td align="left">&lt;选项&gt; 指定加载文件系统时的选项。有些选项也可在/etc/fstab中使用。这些选项包括：</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　async</td>
+<td align="left">以非同步的方式执行文件系统的输入输出动作。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　atime</td>
+<td align="left">每次存取都更新inode的存取时间，默认设置，取消选项为noatime。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　auto</td>
+<td align="left">必须在/etc/fstab文件中指定此选项。执行-a参数时，会加载设置为auto的设备，取消选取为noauto。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　defaults</td>
+<td align="left">使用默认的选项。默认选项为rw、suid、dev、exec、anto nouser与async。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　dev</td>
+<td align="left">可读文件系统上的字符或块设备，取消选项为nodev。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　exec</td>
+<td align="left">可执行二进制文件，取消选项为noexec。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　noatime</td>
+<td align="left">每次存取时不更新inode的存取时间。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　nodiratime</td>
+<td align="left">每次存取时不更新所在目录的atime</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　noauto</td>
+<td align="left">无法使用-a参数来加载。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　nodev</td>
+<td align="left">不读文件系统上的字符或块设备。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　noexec</td>
+<td align="left">无法执行二进制文件。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　nosuid</td>
+<td align="left">关闭set-user-identifier(设置用户ID)与set-group-identifer(设置组ID)设置位。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　nouser</td>
+<td align="left">使一位用户无法执行加载操作，默认设置。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　remount</td>
+<td align="left">重新加载设备。通常用于改变设备的设置状态。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　ro</td>
+<td align="left">以只读模式加载。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　rw</td>
+<td align="left">以可读写模式加载。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　suid</td>
+<td align="left">启动set-user-identifier(设置用户ID)与set-group-identifer(设置组ID)设置位，取消选项为nosuid。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　sync</td>
+<td align="left">以同步方式执行文件系统的输入输出动作。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-o　　user</td>
+<td align="left">可以让一般用户加载设备。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-r</td>
+<td align="left">以只读方式加载设备。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t&lt;文件系统类型&gt;</td>
+<td align="left">指定设备的文件系统类型。常用的选项说明有：</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    minix</td>
+<td align="left">Linux最早使用的文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    ext2</td>
+<td align="left">Linux目前的常用文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    msdos</td>
+<td align="left">MS-DOS 的 FAT。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    vfat</td>
+<td align="left">Win85/98 的 VFAT。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    nfs</td>
+<td align="left">网络文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    iso9660</td>
+<td align="left">CD-ROM光盘的标准文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    ntfs</td>
+<td align="left">Windows NT的文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    hpfs</td>
+<td align="left">OS/2文件系统。Windows NT 3.51之前版本的文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-t    auto</td>
+<td align="left">自动检测文件系统。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-v</td>
+<td align="left">执行时显示详细的信息。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-V</td>
+<td align="left">显示版本信息。</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-w</td>
+<td align="left">以可读写模式加载设备，默认设置。</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h2 id="_3">简单用法:</h2>
+<p><strong>fat32的分区</strong></p>
+<pre><code class="shell">mount -o codepage=936,iocharset=cp936 /dev/hda7 /mnt/cdrom (mount -t vfat -o iocharset=cp936 /dev/hda7 /mnt/cdrom)
+</code></pre>
+<p><strong>ntfs的分区</strong></p>
+<pre><code class="shell">mount -o iocharset=cp936 /dev/hda7 /mnt/cdrom
+</code></pre>
+<p><strong>iso文件</strong></p>
+<pre><code class="shell">mount -o loop /abc.iso /mnt/cdrom
+</code></pre>
+<p><strong>软盘</strong></p>
+<pre><code class="shell">mount /dev/fd0 /mnt/floppy
+</code></pre>
+<p><strong>USB闪存</strong></p>
+<pre><code class="shell">mount /dev/sda1 /mnt/cdrom
+</code></pre>
+<p>所有/etc/fstab内容 mount -a</p>
+<p>可以指定文件格式&rdquo;-t 格式&rdquo;, 格式可以为vfat, ext2, ext3等.</p>
+<p>镜像文件：<strong></p>
+<pre><code class="shell">mount fileName mountPoint -o loop
+</code></pre>
+<p>fileName是镜像文件名(<em>.iso,</em>.img)，其它的不用说了，跟上面一样。用例：如我有一个a.iso光盘镜像文件，mount a.iso a -o loop，这样进入目录a你就能浏览a.iso的内容了，*.img文件的用法一样。</p>
+<p>显示中文方面,如果是fedora core 1 的话，用utf8更好</strong></p>
+<pre><code class="shell">mount -o iocharset=uft8 /dev/hda1 /mnt/c
+mount -o iocharset=uft8 /dev/sda1 /mnt/usb
+mount -t smbfs //ip_addr/share/dir /mnt/smb/share -o iocharset=uft8,username=name, password=passwd
+</code></pre>
+<h3 id="mountwindows">开机就mount上windows下的分区</h3>
+<p>需安装3g-ntfs驱动<br />
+自动将windows的d盘挂到/mnt/d上，用vi打开<code>/etc/fstab</code>，加入以下一行</p>
+<pre><code>/dev/hda5 /mnt/d vfat defaults,codepage=936,iocharset=cp936 0 0
+</code></pre>
+<p>注意，先得手工建立一个/mnt/d目录<br />
+mount局域网上其他windows机器共享出的目录(bjchenxu)</p>
+<pre><code>mount -t smbfs -o username=guest,password=guest //machine/path /mnt/cdrom
+</code></pre>
+<h2 id="mount">挂载命令(mount) 其他来源的说明</h2>
+<p>命令格式：mount [-t vfstype] [-o options] device dir<br />
+其中：</p>
+<p>1.-t vfstype 指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型。常用类型有：<br />
+光盘或光盘镜像：iso9660<br />
+DOS fat16文件系统：msdos<br />
+Windows 9x fat32文件系统：vfat<br />
+Windows NT ntfs文件系统：ntfs<br />
+Mount Windows文件网络共享：smbfs<br />
+UNIX(LINUX) 文件网络共享：nfs</p>
+<p>2.-o options 主要用来描述设备或档案的挂接方式。常用的参数有：<br />
+loop：用来把一个文件当成硬盘分区挂接上系统<br />
+ro：采用只读方式挂接设备<br />
+rw：采用读写方式挂接设备<br />
+iocharset：指定访问文件系统所用字符集</p>
+<p>3.device 要挂接(mount)的设备。</p>
+<p>4.dir设备在系统上的挂接点(mount point)。</p>
+<p>挂接光盘镜像文件</p>
+<p>1、从光盘制作光盘镜像文件。将光盘放入光驱，执行下面的命令。</p>
+<pre><code>#cp /dev/cdrom /home/sunky/mydisk.iso 或
+#dd if=/dev/cdrom of=/home/sunky/mydisk.iso
+</code></pre>
+<p>注：执行上面的任何一条命令都可将当前光驱里的光盘制作成光盘镜像文件/home/sunky/mydisk.iso</p>
+<p>2、将文件和目录制作成光盘镜像文件，执行下面的命令。</p>
+<pre><code>#mkisofs -r -J -V mydisk -o /home/sunky/mydisk.iso /home/sunky/ mydir
+</code></pre>
+<p>注：这条命令将/home/sunky/mydir目录下所有的目录和文件制作成光盘镜像文件/home/sunky/mydisk.iso，光盘卷标为：mydisk</p>
+<p>3、光盘镜像文件的挂接(mount)</p>
+<pre><code>#mkdir /mnt/vcdrom
+</code></pre>
+<p>注：建立一个目录用来作挂接点(mount point)</p>
+<pre><code>#mount -o loop -t iso9660 /home/sunky/mydisk.iso /mnt/vcdrom
+</code></pre>
+<p>注：使用/mnt/vcdrom就可以访问盘镜像文件mydisk.iso里的所有文件了。</p>
+<h4 id="_4">挂接移动硬盘</h4>
+<pre><code>对linux系统而言，USB接口的移动硬盘是当作SCSI设备对待的。插入移动硬盘之前，应先用fdisk &ndash;l 或 more /proc/partitions查看系统的硬盘和硬盘分区情况。
+</code></pre>
+<p>接 好移动硬盘后，再用fdisk &ndash;l 或 more /proc/partitions查看系统的硬盘和硬盘分区情况.应该可以发现多了一个SCSI硬盘/dev/sdc和它的两个磁盘分区/dev /sdc1?、/dev/sdc2,其中/dev/sdc5是/dev/sdc2分区的逻辑分区。我们可以使用下面的命令挂接/dev/sdc1和 /dev/sdc5。</p>
+<pre><code>#mkdir -p /mnt/usbhd1
+#mkdir -p /mnt/usbhd2
+</code></pre>
+<p>注：建立目录用来作挂接点(mount point)</p>
+<pre><code>#mount -t ntfs /dev/sdc1 /mnt/usbhd1
+#mount -t vfat /dev/sdc5 /mnt/usbhd2
+</code></pre>
+<p>注：对ntfs格式的磁盘分区应使用-t ntfs 参数，对fat32格式的磁盘分区应使用-t vfat参数。若汉字文件名显示为乱码或不显示，可以使用下面的命令格式。</p>
+<pre><code>#mount -t ntfs -o iocharset=cp936 /dev/sdc1 /mnt/usbhd1
+#mount -t vfat -o iocharset=cp936 /dev/sdc5 /mnt/usbhd2
+</code></pre>
+<p>linux系统下使用fdisk分区命令和mkfs文件系统创建命令可以将移动硬盘的分区制作成linux系统所特有的ext2、ext3格式。这样，在linux下使用就更方便了。使用下面的命令直接挂接即可。</p>
+<pre><code>#mount /dev/sdc1 /mnt/usbhd1
+</code></pre>
+<h4 id="u">挂接U盘</h4>
+<pre><code>和USB接口的移动硬盘一样对linux系统而言U盘也是当作SCSI设备对待的。使用方法和移动硬盘完全一样。插入U盘之前，应先用fdisk &ndash;l 或 more /proc/partitions查看系统的硬盘和硬盘分区情况。
+</code></pre>
+<pre><code>[root at pldyrouter root]# fdisk -l
+</code></pre>
+<p>插入U盘后，再用fdisk &ndash;l 或 more /proc/partitions查看系统的硬盘和硬盘分区情况。</p>
+<pre><code>[root at pldyrouter root]# fdisk -l
+</code></pre>
+<p>系统多了一个SCSI硬盘/dev/sdd和一个磁盘分区/dev/sdd1,/dev/sdd1就是我们要挂接的U盘。</p>
+<pre><code>#mkdir -p /mnt/usb
+</code></pre>
+<p>注：建立一个目录用来作挂接点(mount point)</p>
+<pre><code>#mount -t vfat /dev/sdd1 /mnt/usb
+</code></pre>
+<p>注：现在可以通过/mnt/usb来访问U盘了, 若汉字文件名显示为乱码或不显示，可以使用下面的命令。</p>
+<pre><code>#mount -t vfat -o iocharset=cp936 /dev/sdd1 /mnt/usb
+</code></pre>
+<h4 id="windows">挂接Windows文件共享</h4>
+<pre><code>Windows网络共享的核心是SMB/CIFS，在linux下要挂接(mount)windows的磁盘共享，就必须安装和使用samba 软件包。现在流行的linux发行版绝大多数已经包含了samba软件包，如果安装linux系统时未安装samba请首先安装samba。当然也可以到 www.samba.org网站下载&hellip;&hellip;新的版本是3.0.10版。
+</code></pre>
+<p>当windows系统共享设置好以后，就可以在linux客户端挂接(mount)了，具体操作如下：</p>
+<pre><code># mkdir &ndash;p /mnt/samba
+</code></pre>
+<p>注：建立一个目录用来作挂接点(mount point)</p>
+<pre><code># mount -t smbfs -o username=administrator,password=pldy123 //10.140.133.23/c$ /mnt/samba
+</code></pre>
+<p>注：administrator 和 pldy123 是ip地址为10.140.133.23 windows计算机的一个用户名和密码，c$是这台计算机的一个磁盘共享<br />
+如 此就可以在linux系统上通过/mnt/samba来访问windows系统磁盘上的文件了。<br />
+以上操作在redhat as server 3、redflag server 4.1、suse server 9以及windows NT 4.0、windows 2000、windows xp、windows 2003环境下测试通过。</p>
+<h4 id="unixnfs">挂接UNIX系统NFS文件共享</h4>
+<pre><code>类似于windows的网络共享，UNIX(Linux)系统也有自己的网络共享，那就是NFS(网络文件系统)，下面我们就以SUN Solaris2.8和REDHAT as server 3 为例简单介绍一下在linux下如何mount nfs网络共享。
+</code></pre>
+<p>在linux客户端挂接(mount)NFS磁盘共享之前，必须先配置好NFS服务端。</p>
+<p>1、Solaris系统NFS服务端配置方法如下：<br />
+(1)修改 /etc/dfs/dfstab, 增加共享目录</p>
+<pre><code>share -F nfs -o rw /export/home/sunky
+</code></pre>
+<p>(2)启动nfs服务</p>
+<pre><code># /etc/init.d/nfs.server start
+</code></pre>
+<p>(3)NFS服务启动以后，也可以使用下面的命令增加新的共享</p>
+<pre><code># share /export/home/sunky1</p>
+
+<h1 id="share-export-home-sunky2">share /export/home/sunky2</h1>
+
+<p></code></pre>
+<p>注：/export/home/sunky和/export/home/sunky1是准备共享的目录</p>
+<p>2、linux系统NFS服务端配置方法如下：<br />
+(1)修改 /etc/exports,增加共享目录</p>
+<pre><code>/export/home/sunky 10.140.133.23(rw)
+/export/home/sunky1 *(rw)
+/export/home/sunky2 linux-client(rw)
+</code></pre>
+<p>注：/export /home/目录下的sunky、sunky1、sunky2是准备共享的目录，10.140.133.23、*、 linux-client是被允许挂接此共享linux客户机的IP地址或主机名。如果要使用主机名linux-client必须在服务端主机 /etc/hosts文件里增加linux-client主机ip定义。格式如下：</p>
+<pre><code>10.140.133.23 linux-client
+</code></pre>
+<p>(2)启动与停止NFS服务</p>
+<pre><code>/etc/rc.d/init.d/portmap start (在REDHAT中PORTMAP是默认启动的)
+/etc/rc.d/init.d/nfs start 启动NFS服务
+/etc/rc.d/init.d/nfs stop 停止NFS服务
+</code></pre>
+<p>注：若修改/etc/export文件增加新的共享，应先停止NFS服务，再启动NFS服务方能使新增加的共享起作用。使用命令exportfs -rv也可以达到同样的效果。</p>
+<p>3、linux客户端挂接(mount)其他linux系统或UNIX系统的NFS共享</p>
+<pre><code># mkdir &ndash;p /mnt/nfs
+</code></pre>
+<p>注：建立一个目录用来作挂接点(mount point)</p>
+<pre><code>#mount -t nfs -o rw 10.140.133.9:/export/home/sunky /mnt/nfs
+</code></pre>
+<p>注：这里我们假设10.140.133.9是NFS服务端的主机IP地址，当然这里也可以使用主机名，但必须在本机/etc/hosts文件里增加服务端ip定义。/export/home/sunky为服务端共享的目录。</p>
+<p>如此就可以在linux客户端通过/mnt/nfs来访问其它linux系统或UNIX系统以NFS方式共享出来的文件了。以上操作在 redhat as server 3、redflag server4.1、suse server 9以及Solaris 7、Solaris 8、Solaris 9 for x86&amp;sparc环境下测试通过</p>
+<p>补充：</p>
+<h4 id="linux">linux加载光驱</h4>
+<p>（1） 使用光驱前，要先mount一下：＃mount /dev/cdrom /mnt/cdrom，然后您就可以进入/mnt/cdrom目录下读取光盘内容了；<br />
+（2） 当您想退出光盘时，须使用umout命令，否则光驱就会一直处于死锁状态：＃umount /mnt/cdrom。</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

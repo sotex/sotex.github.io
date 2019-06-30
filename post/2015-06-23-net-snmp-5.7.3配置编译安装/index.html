@@ -1,0 +1,545 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp-5.7.3配置编译安装 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp-5.7.3配置编译安装</h1>
+          <span class="post-date">2015年06月23日</span>
+          
+
+<h1 id="net-snmp-5-7-3配置编译安装">net-snmp-5.7.3配置编译安装</h1>
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595123.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595123.html</a></p>
+
+<p>先看一下系统环境</p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ uname -a
+Linux o-pc 3.16.0-30-generic #40~14.04.1-Ubuntu SMP Thu Jan 15 17:43:14 UTC 2015 x86_64 x86_64 x86_64 GNU/Linux
+</code></pre>
+
+<h2 id="1-下载net-snmp-5-7-3源码包">1.下载net-snmp-5.7.3源码包</h2>
+
+<p>net snmp的源码包可以到 <a href="http://www.net-snmp.org/">net-snmp官网</a>上去下载。也可以到sourcefroce上去下载。
+<strong>net-snmp-5.4.4版下载</strong></p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp$ wget  http://downloads.sourceforge.net/project/net-snmp/net-snmp/5.4.4/net-snmp-5.4.4.tar.gz
+</code></pre>
+
+<p><strong>net-snmp-5.7.3版下载</strong></p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp$ wget  http://downloads.sourceforge.net/project/net-snmp/net-snmp/5.7.3/net-snmp-5.7.3.tar.gz
+</code></pre>
+
+<h2 id="2-解压net-snmp源码包">2.解压net-snmp源码包</h2>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp$ tar -xzvf net-snmp-5.7.3.tar.gz 
+</code></pre>
+
+<h2 id="3-编译安装配置">3.编译安装配置</h2>
+
+<p>进入解压的 <code>net-snmp-5.7.3</code>文件夹。可以看到<code>configure</code>文件，现在就使用这个文件来自动配置。
+当然，自动配置也可以定制一些内容，比如安装路径等。</p>
+
+<table>
+<thead>
+<tr>
+<th> ./configure参数</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&ndash;prefix=/usr/local/net-snmp </td>
+<td>net snmp的安装路径</td>
+</tr>
+
+<tr>
+<td>&ndash;enable-mfd-rewrites</td>
+<td>允许新的mfd重写可用的mid模块</td>
+</tr>
+
+<tr>
+<td>&ndash;with-default-snmp-version=&ldquo;3&rdquo;</td>
+<td>默认的snmp版本</td>
+</tr>
+
+<tr>
+<td>&ndash;with-sys-contact=&ldquo;name,E_mail:maileaddress &rdquo;</td>
+<td>该设备的联系人</td>
+</tr>
+
+<tr>
+<td>&ndash;with-sys-location=&ldquo;China&rdquo;</td>
+<td>该设备的位置</td>
+</tr>
+
+<tr>
+<td>&ndash;with-logfile=&ldquo;/var/log/snmpd.log&rdquo;</td>
+<td>日志文件路径</td>
+</tr>
+
+<tr>
+<td>&ndash;with-persistent-directory=&ldquo;/var/net-snmp&rdquo; </td>
+<td>不变数据存储目录</td>
+</tr>
+</tbody>
+</table>
+
+<p>我们这里只配置安装路径，其它的都使用默认设置。</p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ ./configure --prefix=/usr/local/net-snmp
+</code></pre>
+
+<p>配置时的输出信息</p>
+
+<pre><code class="language-bash">checking what to build and install...  agent apps man local mibs
+using default persistent mask 077
+using default temporary file pattern /tmp/snmpdXXXXXX
+using default AgentX socket /var/agentx/master
+using default &quot;enterprise.net-snmp&quot;
+using default enterprise sysOID &quot;NET-SNMP-MIB::netSnmpAgentOIDs...&quot;
+using default notifications &quot;NET-SNMP-MIB::netSnmpNotifications&quot;
+using OS default send buffer size for server sockets
+using OS default recv buffer size for server sockets
+using OS default send buffer size for client sockets
+using OS default recv buffer size for client sockets
+checking whether to prompt for values... configure:
+
+	 ************** Configuration Section **************
+</code></pre>
+
+<p>注意： 当输入配置之后按回车键之后，系统会有一段时间执行配置。这段时间的执行过程是不会停止的，当出现停止要按某个键才能继续往下执行，说明配置有问题，请<strong>取消</strong>当前执行重新检查配置，确保配置正确无误。 以免以后的安装出错，或者安装完成之后不能正常使用。 
+执行完配置（没有中断，没有要求按某个键）之后会出现如下所示的信息。有可能出现的和下面的不一样，这取决于配置，但只要出现和这个相似的部分，说明配置是成功的。没有必要仔细看这个配置摘要。</p>
+
+<pre><code class="language-bash">            Net-SNMP configuration summary:
+---------------------------------------------------------
+
+  SNMP Versions Supported:    1 2c 3
+  Building for:               linux
+  Net-SNMP Version:           5.7.3
+  Network transport support:  Callback Unix Alias TCP UDP IPv4Base SocketBase TCPBase UDPIPv4Base UDPBase
+  SNMPv3 Security Modules:     usm
+  Agent MIB code:            default_modules =&gt;  snmpv3mibs mibII ucd_snmp notification notification-log-mib target agent_mibs agentx disman/event disman/schedule utilities host
+  MYSQL Trap Logging:         unavailable
+  Embedded Perl support:      disabled
+  SNMP Perl modules:          building -- not embeddable
+  SNMP Python modules:        disabled
+  Crypto support from:        crypto
+  Authentication support:     MD5 SHA1
+  Encryption support:         DES AES
+  Local DNSSEC validation:    disabled
+
+---------------------------------------------------------
+</code></pre>
+
+<h2 id="4-编译安装">4.编译安装</h2>
+
+<h3 id="make编译">make编译</h3>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ make
+...
+/usr/bin/ld: cannot find -lperl
+collect2: error: ld returned 1 exit status
+make[1]: *** [libnetsnmpagent.la] 错误 1
+
+</code></pre>
+
+<h4 id="cannot-find-lperl问题">cannot find -lperl问题</h4>
+
+<p>在make编译的时候遇到了一个错误，提示找不到<code>perl</code>这个库。原因是因为我的电脑上没有安装perl开发环境，现在装一个。</p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ sudo apt-get install libperl-dev
+
+</code></pre>
+
+<p>也许还会碰到缺少<code>libtool</code>,<code>openssl</code>,<code>zlib</code>库的情况，请直接安装。
+一般遇到这种缺少了什么库的问题，都是通过安装<code>libXXX-dev</code>或者安装<code>XXX-dev</code>来解决。但也不绝对，有的时候是因为相关的库不是安装在系统的默认路径，也没用加入到环境变量中。</p>
+
+<h3 id="make-install安装">make install安装</h3>
+
+<p>编译成功后就可以安装了，前面设置了安装路径是<code>/usr/local/net-snmp</code>，因为这个路径是的所有者(own)和所在组(group)都是root，所有需要sudo来执行。</p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ sudo make install
+</code></pre>
+
+<p>安装的时候会大量输出类似于的消息，提示我们安装了某个配置文件到<code>/usr/local/net-snmp/share/snmp</code>目录
+&gt; install:  installed XXX.conf in /usr/local/net-snmp/share/snmp</p>
+
+<p>安装完成后进入目录<code>/usr/local/net-snmp/sbin</code>即可看到可执行文件snmpd，执行输出一下版本信息。因为我们这里还没有把它的路径添加到环境变量，所有还不能在任意位置直接输入<code>snmpd</code>来运行。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/sbin$ ./snmpd -v
+
+NET-SNMP version:  5.7.3
+Web:               http://www.net-snmp.org/
+Email:             net-snmp-coders@lists.sourceforge.net
+</code></pre>
+
+<h2 id="5-snmpd-conf配置">5. snmpd.conf配置</h2>
+
+<p>snmpd.conf是snmp服务的配置文件。</p>
+
+<h3 id="5-1-snmpd-conf文件生成和修改">5.1 snmpd.conf文件生成和修改</h3>
+
+<h4 id="生成snmpd-conf">生成snmpd.conf</h4>
+
+<p>先将EXAMPLE.conf文件复制到/usr/local/net-snmp/share/snmp，并重命名为snmpd.conf</p>
+
+<pre><code class="language-bash">o@o-pc:~/work/_snmp/net-snmp-5.7.3$ sudo cp EXAMPLE.conf /usr/local/net-snmp/share/snmp/snmpd.conf
+</code></pre>
+
+<p>上面是一个比较复杂的配置文件，其实可以简单一点。<strong>可以只需要下面说的几点内容写到配置文件，其它的都是多余的</strong></p>
+
+<h4 id="修改snmpd-conf">修改snmpd.conf</h4>
+
+<p>snmpd.conf文件的修改可以参考这些文章
+1.<a href="http://blog.csdn.net/shanzhizi/article/details/16985989">net-snmp的配置文件snmpd.conf配置说明</a>
+2.<a href="http://www.linuxde.net/2013/02/12269.html">snmpd.conf的基础配置</a></p>
+
+<h2 id="这里按照上面给出的两篇文章内容来进行的修改-主要是第二篇">这里按照上面给出的两篇文章内容来进行的修改(主要是第二篇)。</h2>
+
+<p>下面的配置中，使用到的com2sec/group/view/access的说明在EXAMPLE.conf文件的注释中可以看到（大致是65行）。
+首先定义一个首<strong>共同体名称</strong>(community)，这里是 *public*。以及可以访问这个 public 的用户名(sec name)，这里是 <em>notConfigUser</em> 。public 相当于用户 notConfigUser 的密码。
+在snmpd.conf文件中添加下面的语句。(第一句是注释)</p>
+
+<pre><code class="language-bash">#          sec.name       source      community
+  com2sec notConfigUser  default       public
+</code></pre>
+
+<p>然后定义一个<strong>组名</strong>(groupName)这里是 *notConfigGroup*，以及组的安全级别，并把 notConfigGroup 这个用户加到这个组中。
+在snmpd.conf文件中添加下面的语句。(第一句是注释)</p>
+
+<pre><code class="language-bash">#       groupName       securityModel    securityName
+group   notConfigGroup      v1           notConfigUser  
+group   notConfigGroup      v2c          notConfigUser
+</code></pre>
+
+<p>接着定义一个可操作的<strong>视图</strong>(view)名， 这里是 all，范围是 .1。
+在snmpd.conf文件中添加下面的语句。(第一句是注释)</p>
+
+<pre><code class="language-bash">#       name     incl/excl     subtree         mask(optional)
+  view  all      included        .1
+</code></pre>
+
+<p>最后定义 notConfigUser 这个组在 all 这个视图范围内<strong>可做的操作</strong>，这时定义了 notConfigUser 组的成员可对 .1 这个视图做<strong>只读</strong>操作。</p>
+
+<pre><code class="language-bash">#          group        context sec.model sec.level prefix read   write  notif
+ access  notConfigGroup &quot;&quot;      any       noauth    exact  all  none none
+</code></pre>
+
+<p>还可以使用<code>snmpconf</code>程序来设置，这个程序在安装目录的<code>bin</code>目录下。它会提示你输入相关的设置。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/bin$ ./snmpconf -g basic_setup
+
+The following installed configuration files were found:
+
+   1:  /usr/local/net-snmp/share/snmp/snmpd.conf
+
+Would you like me to read them in?  Their content will be merged with the
+output files created by this session.
+
+Valid answer examples: &quot;all&quot;, &quot;none&quot;,&quot;3&quot;,&quot;1,2,5&quot;
+
+Read in which (default = all): all
+************************************************ 
+*** Beginning basic system information setup ***
+************************************************ 
+Do you want to configure the information returned in the system MIB group (contact info, etc)? (default = y): 
+
+...
+</code></pre>
+
+<h4 id="启动netsnmp服务">启动netsnmp服务</h4>
+
+<p>我们可以使用命令<code>service --sratus-all</code>来查看当前的服务状态。可以看到我这台机器上是没有netsnmp这个服务的。没关系，我们并不是特别需要它。具体见下面</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/share/snmp$ service --status-all
+ [ + ]  acpid
+ [ - ]  anacron
+ [ + ]  apache
+ [ - ]  apparmor
+ [ ? ]  apport
+ [ + ]  avahi-daemon
+ [ + ]  bluetooth
+ [ - ]  brltty
+ [ ? ]  console-setup
+ [ + ]  cron
+ [ + ]  cups
+ [ + ]  cups-browsed
+ [ - ]  dbus
+ [ ? ]  dns-clean
+ [ + ]  friendly-recovery
+ [ - ]  gdm
+ [ - ]  grub-common
+ [ ? ]  irqbalance
+ [ + ]  kerneloops
+ [ ? ]  killprocs
+ [ ? ]  kmod
+ [ ? ]  networking
+ [ ? ]  ondemand
+ [ ? ]  pppd-dns
+ [ - ]  procps
+ [ - ]  pulseaudio
+ [ ? ]  rc.local
+ [ + ]  resolvconf
+ [ - ]  rsync
+ [ + ]  rsyslog
+ [ + ]  saned
+ [ ? ]  sendsigs
+ [ - ]  spamassassin
+ [ ? ]  speech-dispatcher
+ [ - ]  sudo
+ [ - ]  udev
+ [ ? ]  umountfs
+ [ ? ]  umountnfs.sh
+ [ ? ]  umountroot
+ [ - ]  unattended-upgrades
+ [ - ]  urandom
+ [ - ]  x11-common
+o@o-pc:/usr/local/net-snmp/share/snmp$ 
+</code></pre>
+
+<p>现在还没有netsnmp这个服务，那么是不是一定要这个服务呢？不是一定的。因为linux的服务，可以说就是一个守护进程，我们找到这个进程的可执行文件来执行它就是。而这个文件就在安装目录下的<code>sbin</code>目录中。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/sbin$ ls
+snmpd  snmptrapd
+</code></pre>
+
+<p>执行它的时候<strong>可指定配置文件</strong>(如果不带，默认就是这个)，下面来执行一下试试</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/sbin$ ./snmpd -c ../share/snmp/snmpd.conf 
+</code></pre>
+
+<p>如果执行失败，程序直接退出了，可以使用<code>-f -Le</code>参数来查看错误信息。
+其中<code>-f</code>是do not fork from the shell不从shell派生子进程
+<code>-L</code>是<LOGOPTS> toggle options controlling where to log to切换到相关的日志控制，它后面需要跟参数。<code>e</code>:log to standard error 日志到标准错误。
+这些相关的参数可以通过<code>./snmpd -h</code>获取。
+我这边出现了这样的错误。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/sbin$ ./snmpd -f -Le
+Turning on AgentX master support.
+Error opening specified endpoint &quot;udp:127.0.0.1:161&quot;
+Server Exiting with code 1
+</code></pre>
+
+<p>这个错误的原因很简单，那就是<strong>权限问题</strong>。使用<code>sudo</code>来执行就没有问题了。linux上很多问题都是权限的问题。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/sbin$ sudo ./snmpd -f -Le
+[sudo] password for o: 
+NET-SNMP version 5.7.3
+</code></pre>
+
+<p>这里没有加配置文件路径，是因为使用的默认配置文件<code>/usr/local/net-snmp/share/snmp/snmpd.conf</code>，如果还有别的错误，那么就修改配置文件，只保留上面说到的四点，其余的都删除掉来试试。
+其实配置文件还可以这样，这也是从网上找的。</p>
+
+<pre><code class="language-bash">#设置区域
+syslocation  &quot;SHANGHAI P.R.China&quot; 
+#设置系统联系人
+syscontact  webmaster@domainname.com 
+#设置一个只读账户 read-only community
+#下面的 whatever 相当于密码，后面还可以跟一个IP地址，表示监控点主机
+rocommunity  whatever 
+#设置一个读写账户 read-write community
+rwcommunity  whoareyou 
+</code></pre>
+
+<p>执行成功后我们可以进入到<code>bin</code>目录，然后执行<code>snmpwalk</code>,<code>snmpget</code>等命令来查看一下。</p>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/bin$ ./snmpget -v 1 -c public localhost sysUpTime.0 
+o@o-pc:/usr/local/net-snmp/bin$ ./snmpwalk -v 1 localhost -c public system
+o@o-pc:/usr/local/net-snmp/bin$ ./snmpwalk -v 2c -c whatever -m ALL localhost .1.3
+</code></pre>
+
+<pre><code class="language-bash">o@o-pc:/usr/local/net-snmp/bin$ ./snmpwalk -v 1 172.0.0.1 -c whatever system
+Timeout: No Response from 172.0.0.1
+o@o-pc:/usr/local/net-snmp/bin$ ./snmpwalk -v 1 localhost -c whatever system
+SNMPv2-MIB::sysDescr.0 = STRING: Linux o-pc 3.16.0-30-generic #40~14.04.1-Ubuntu SMP Thu Jan 15 17:43:14 UTC 2015 x86_64
+SNMPv2-MIB::sysObjectID.0 = OID: NET-SNMP-MIB::netSnmpAgentOIDs.10
+DISMAN-EVENT-MIB::sysUpTimeInstance = Timeticks: (21134) 0:03:31.34
+SNMPv2-MIB::sysContact.0 = STRING: webmaster@domainname.com
+SNMPv2-MIB::sysName.0 = STRING: o-pc
+SNMPv2-MIB::sysLocation.0 = STRING: \&quot;SHANGHAI P.R.China\&quot;
+SNMPv2-MIB::sysORLastChange.0 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORID.1 = OID: SNMP-MPD-MIB::snmpMPDCompliance
+SNMPv2-MIB::sysORID.2 = OID: SNMP-USER-BASED-SM-MIB::usmMIBCompliance
+SNMPv2-MIB::sysORID.3 = OID: SNMP-FRAMEWORK-MIB::snmpFrameworkMIBCompliance
+SNMPv2-MIB::sysORID.4 = OID: SNMPv2-MIB::snmpMIB
+SNMPv2-MIB::sysORID.5 = OID: SNMP-VIEW-BASED-ACM-MIB::vacmBasicGroup
+SNMPv2-MIB::sysORID.6 = OID: TCP-MIB::tcpMIB
+SNMPv2-MIB::sysORID.7 = OID: IP-MIB::ip
+SNMPv2-MIB::sysORID.8 = OID: UDP-MIB::udpMIB
+SNMPv2-MIB::sysORID.9 = OID: SNMP-NOTIFICATION-MIB::snmpNotifyFullCompliance
+SNMPv2-MIB::sysORID.10 = OID: NOTIFICATION-LOG-MIB::notificationLogMIB
+SNMPv2-MIB::sysORDescr.1 = STRING: The MIB for Message Processing and Dispatching.
+SNMPv2-MIB::sysORDescr.2 = STRING: The management information definitions for the SNMP User-based Security Model.
+SNMPv2-MIB::sysORDescr.3 = STRING: The SNMP Management Architecture MIB.
+SNMPv2-MIB::sysORDescr.4 = STRING: The MIB module for SNMPv2 entities
+SNMPv2-MIB::sysORDescr.5 = STRING: View-based Access Control Model for SNMP.
+SNMPv2-MIB::sysORDescr.6 = STRING: The MIB module for managing TCP implementations
+SNMPv2-MIB::sysORDescr.7 = STRING: The MIB module for managing IP and ICMP implementations
+SNMPv2-MIB::sysORDescr.8 = STRING: The MIB module for managing UDP implementations
+SNMPv2-MIB::sysORDescr.9 = STRING: The MIB modules for managing SNMP Notification, plus filtering.
+SNMPv2-MIB::sysORDescr.10 = STRING: The MIB module for logging SNMP Notifications.
+SNMPv2-MIB::sysORUpTime.1 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.2 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.3 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.4 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.5 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.6 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.7 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.8 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.9 = Timeticks: (0) 0:00:00.00
+SNMPv2-MIB::sysORUpTime.10 = Timeticks: (0) 0:00:00.00
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

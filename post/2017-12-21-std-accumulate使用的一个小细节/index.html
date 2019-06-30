@@ -1,0 +1,215 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> std::accumulate使用的一个小细节 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>std::accumulate使用的一个小细节</h1>
+          <span class="post-date">2017年12月21日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/12/21/8080121.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/12/21/8080121.html</a>
+今天使用<code>std::accumulate</code>模板函数的时候出现了一个错误，特此记录一下。</p>
+
+<pre><code class="language-C++">#include &lt;iostream&gt;
+#include &lt;numeric&gt;
+
+int main()
+{
+	int LevelColRow[][3] =
+	{
+		1,  2,	   1,
+		2,  4,	   2,
+		3,  8,	   4,
+		4,  16,	   8,
+		5,  32,	   16,
+		6,  64,	   32,
+		7,  128,   64,
+		8,  256,   128,
+		9,  512,   256,
+		10, 1024,  512,
+		11, 2048,  1024,
+		12, 4096,  2048,
+		13, 8192,  4096,
+		14, 16384, 8192,
+		15, 32768, 16384,
+		16, 65536, 32768 /*,
+		17, 131072, 65536/*,
+		18, 262144, 131072,
+		19, 524288, 262144*/
+	};
+	double xx = std::accumulate( std::begin( LevelColRow ), std::end( LevelColRow ),
+				     0, [] (double val, int lcr[3]) { return(val + double(lcr[1]) * double(lcr[2]) ); } );
+	double xx2 = 0;
+	for ( auto x : LevelColRow )
+	{
+		xx2 += double(x[1]) * double(x[2]);
+	}
+	std::cout &lt;&lt; (int64_t) xx &lt;&lt; std::endl;
+	std::cout &lt;&lt; (int64_t) xx2 &lt;&lt; std::endl;
+	std::cout &lt;&lt; &quot;Hello, world!\n&quot;;
+}
+</code></pre>
+
+<p>这个代码是用于求这个行列组总共有多少个格子的，但是算出的结果总是为负数。
+经过排查，当格子数大于<code>2^31</code>个时候，就出现问题了，这就应该是计算的结果实际是<code>int32</code>的。
+查看<code>accumulate</code>(<a href="http://en.cppreference.com/w/cpp/algorithm/accumulate">http://en.cppreference.com/w/cpp/algorithm/accumulate</a>)的声明如下：</p>
+
+<pre><code class="language-C++">template&lt; class InputIt, class T &gt;
+T accumulate( InputIt first, InputIt last, T init );
+
+template&lt; class InputIt, class T, class BinaryOperation &gt;
+T accumulate( InputIt first, InputIt last, T init,
+              BinaryOperation op );
+</code></pre>
+
+<p>那么原因就很简单了，因为我在使用的时候，第三个参数写的是0（默认为int），改为<code>0.0</code>就可以了。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

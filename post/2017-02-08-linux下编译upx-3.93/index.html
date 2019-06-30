@@ -1,0 +1,253 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译upx 3.93 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译upx 3.93</h1>
+          <span class="post-date">2017年02月08日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/02/08/6377807.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/02/08/6377807.html</a>
+昨天，UPX发布了3.93版本。
+UPX(the Ultimate Packer for eXecutables)是一个非常全面的可执行文件压缩软件,支持dos/exe、dos/com、dos/sys、djgpp2/coff、 watcom/le、win32/pe、rtm32/pe、tmt/adam、atari/tos、linux/i386等几乎所有平台上的可执行文件, 具有极佳的压缩比,还可以对未压缩的文件和压缩完后进行比较。</p>
+
+<h2 id="1-准备源码包">1、准备源码包</h2>
+
+<p>直接去github下载zip包或者直接克隆一下。</p>
+
+<pre><code class="language-shell">git clone https://github.com/upx/upx.git
+cd upx
+rmdir lzma-sdk
+git clone https://github.com/upx/upx-lzma-sdk.git lzma-sdk
+</code></pre>
+
+<p>lzma库无需编译。</p>
+
+<p>然后去下载UCL库。
+UCL是完全使用ANSI C编写的NRV（Not Really Vanished）算法的一个开源实现。 具体的介绍请查阅<a href="http://www.oberhumer.com/opensource/ucl/">http://www.oberhumer.com/opensource/ucl/</a></p>
+
+<pre><code class="language-shell">wget http://www.oberhumer.com/opensource/ucl/download/ucl-1.03.tar.gz
+</code></pre>
+
+<p>国外的网站下载比较慢，可以直接<a href="http://files.cnblogs.com/files/oloroso/ucl-1.03.tar.gz">点击此处</a>下载我已经下好的。</p>
+
+<h2 id="2-编译">2、编译</h2>
+
+<h3 id="ucl编译">UCL编译</h3>
+
+<p>先生成<code>Makefile</code>文件</p>
+
+<pre><code class="language-shell">tar -xzvf ucl-1.03.tar.gz
+cd ucl-1.03
+./configure --prefix=/home/o/ucl CC=clang
+````
+注意上面，指定了C编译器为`clang`。这里是因为gcc的一个bug，导致 **ACC一致性测试失败** ，所以使用clang。
+gcc出现的错误情况在这里[FTBFS with GCC 6: compiler failed the ACC conformance test](https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=811707)有详细描述。
+
+### 编译UPX
+使用下面命令编译upx
+```shell
+make all UPX_UCLDIR=/home/o/upx/ucl/ucl-1.03 UPX_LZMADIR=./src/lzma-sdk
+</code></pre>
+
+<p>注意，这里的<code>UPX_UCLDIR</code>变量的值必须是绝对路径。
+编译出的结果是<code>upx.out</code>程序，在<code>src</code>目录下。</p>
+
+<h2 id="3-使用测试">3、使用测试</h2>
+
+<p>先查看一下编译出<code>upx.out</code>的文件大小</p>
+
+<pre><code>&gt; ls -l upx.out
+-rwxr-xr-x 1 o users 2006544 2月   8 16:08 upx.out
+</code></pre>
+
+<p>然后用其对自身进行压缩一下</p>
+
+<pre><code class="language-shell">cp upx.out upx.out2
+
+&gt; ./upx.out upx.out2 
+                       Ultimate Packer for eXecutables
+                          Copyright (C) 1996 - 2017
+UPX git-fdce70  Markus Oberhumer, Laszlo Molnar &amp; John Reiser   Jan 29th 2017
+
+        File size         Ratio      Format      Name
+   --------------------   ------   -----------   -----------
+   2006544 -&gt;    479576   23.90%   linux/amd64   upx.out2                      
+
+Packed 1 file.
+
+WARNING: this is an unstable beta version - use for testing only! Really.
+
+&gt; ls -lh upx.out2
+-rwxr-xr-x 1 o users 469K 2月   8 16:09 upx.out2
+</code></pre>
+
+<p>可以看到，压缩的效果还是很明显的。</p>
+
+<p>为了对比，下面使用<code>strip</code>删除多余信息，并使用<code>gzexe</code>压缩（先还原upx.out2，通过命令<code>./upx.out -d upx.out2</code>）</p>
+
+<pre><code>&gt; strip upx.out2 
+
+&gt; ll upx.out2
+-rwxr-xr-x 1 o users 1.7M 2月   8 16:13 upx.out2
+
+&gt; gzexe upx.out2
+upx.out2:	 72.7%
+
+&gt; ll upx.out2   
+-rwxr-xr-x 1 o users 455K 2月   8 16:14 upx.out2
+</code></pre>
+
+<p><strong>UPX相对gzexe不一定有压缩上的优势，但是其具有跨平台的优势。且UPX压缩之后的程序依然是一个<code>ELF</code>文件，但gzexe压缩之后的程序是一个posix shell脚本(后部分是压缩后的程序二进制文件)。</strong></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

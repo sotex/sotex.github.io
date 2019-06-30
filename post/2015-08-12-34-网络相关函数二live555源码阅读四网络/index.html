@@ -1,0 +1,216 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 34 网络相关函数(二)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>34 网络相关函数(二)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月12日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/12/4724030.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/12/4724030.html</a>
+<h1 id="34-live555">34 网络相关函数(二)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#34-live555">34 网络相关函数(二)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#2socketerr">2)socketErr 套接口错误</a></li>
+<li><a href="#3groupsockpriv">3)groupsockPriv函数</a></li>
+<li><a href="#4reclaimgroupsockpriv">4)reclaimGroupsockPriv函数</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="2socketerr">2)socketErr 套接口错误</h2>
+<p><code>socketErr</code>是个静态方法，定义在<code>live555sourcecontrol\groupsock\GroupsockHelper.cpp</code>文件中。<br />
+实现很简单，把<code>errorMsg</code>中的内容设置到<code>env</code>中取。</p>
+<pre><code class="cpp">static void socketErr(UsageEnvironment&amp; env, char const* errorMsg) {
+  env.setResultErrMsg(errorMsg);
+}
+</code></pre>
+<h2 id="3groupsockpriv">3)groupsockPriv函数</h2>
+<p>这个函数为其参数<code>env</code>成员<code>groupsockPriv</code>创建一个对象。<br />
+在看这个函数的时候先看一个结构体定义</p>
+<pre><code class="cpp">struct _groupsockPriv { // There should be only one of these allocated
+  HashTable* socketTable;       // socket哈希表
+  int reuseFlag;                    //重新使用标识
+};
+</code></pre>
+<p>我们回忆一下，在<code>UsageEnvironmen</code>t中有两个数据成员， <code>void<em></code>类型的指针<code>liveMediaPriv</code>和<code>groupsockPriv</code>没有使用到，而且它们是<code>public</code>权限的。<br />
+那么在这里，<code>groupsockPriv</code>成员将会进行赋值操作<br />
+<code>groupsockPriv</code>函数的作用就是给参数<code>env</code>的<code>groupsockPriv</code>申请一个<code>_groupsockPriv</code>对象。当然，是在其为<code>NULL</code>的情况下。<br />
+这里设置了<code>env.groupsockPriv</code>指向对象的两个成员的默认值，<code>socketTable=NULL</code>、<code>reuseFlag=1</code>。</p>
+<pre><code class="cpp">_groupsockPriv</em> groupsockPriv(UsageEnvironment&amp; env) {
+  if (env.groupsockPriv == NULL) { // We need to create it我们需要创建它
+    _groupsockPriv* result = new _groupsockPriv;    //创建结构体
+    result-&gt;socketTable = NULL;
+    result-&gt;reuseFlag = 1; // default value =&gt; allow reuse of socket numbers
+    env.groupsockPriv = result; //赋值
+  }
+  return (_groupsockPriv<em>)(env.groupsockPriv);
+}
+</code></pre>
+<h2 id="4reclaimgroupsockpriv">4)reclaimGroupsockPriv函数</h2>
+<p><code>reclaimGroupsockPriv</code>函数为其参数<code>env</code>的成员<code>groupsockPriv</code>决定是否释放其对象。<br />
+只有在其为默认值的时候，才进行释放。</p>
+<pre><code class="cpp">void reclaimGroupsockPriv(UsageEnvironment&amp; env) {
+    _groupsockPriv</em> priv = (_groupsockPriv*)(env.groupsockPriv);
+    // 两个成员是默认值的时候，进行释放
+    if (priv-&gt;socketTable == NULL &amp;&amp; priv-&gt;reuseFlag == 1/<em>default value</em>/) {
+        // We can delete the structure (to save space); it will get created again, if needed:
+        delete priv;
+        env.groupsockPriv = NULL;
+    }
+}
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

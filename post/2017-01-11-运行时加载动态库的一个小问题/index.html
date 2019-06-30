@@ -1,0 +1,673 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 运行时加载动态库的一个小问题 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>运行时加载动态库的一个小问题</h1>
+          <span class="post-date">2017年01月11日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/11/6273295.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/11/6273295.html</a></p>
+
+<h2 id="简要说明">简要说明</h2>
+
+<p>大致情况是这样的：
+程序<code>program</code>引用动态库<code>libA</code>和<code>libB</code>。其中<code>libA</code>和<code>libB</code>都引用动态库<code>libShared</code>和静态库<code>libStatic</code>。在<code>libShared</code>和<code>libStatic</code>中都含有静态变量。现在就是看这个静态变量是否存在两份。</p>
+
+<pre><code>             program    (可以隐式链接，也可以显示动态链接A和B)
+             |    |
+libStatic-&gt; libA  libB &lt;- libStatic
+             |    |		(隐式链接Shared)
+            libShared
+</code></pre>
+
+<p>因为<code>libA</code>和<code>libB</code>都链接了静态库<code>libStatic</code>，所以<code>libStatic</code>的内容会存在两份。在映射到<code>program</code>的进程空间的时候，这部分就会存在映射到不同地址的两份。在windows上的测试结果确实是如此，在linux上的测试结果中，如果是显示动态链接<code>libA</code>和<code>libB</code>也是，但是如果是隐式链接，那么结果却是只有一份。</p>
+
+<p>因为libShared是动态库，在libA和libB中都不存在，所以在第一个映射到<code>program</code>的进程空间之后，第二次引用的时候就不会再去映射一次了。</p>
+
+<p><strong>这里的一个结论就是，如果一个静态库被多处引用，那么这个静态库在最终程序的进程空间可能会存在多份。如果这个静态库中含有静态变量或全局变量，那么这个变量也会存在多份。如果这个变量是一个类对象，那么变量初始化的时候，每一份都会调用构造函数。</strong>因为VS编译的时候默认是不导出符号的，而gcc默认是导出的，也可能是这个原因。但libA和libB都是动态库，这两者中应该都是含有引用的libStatic部分的全部内容的。</p>
+
+<p>所以，在静态库中最好不要去存放全局变量，也不要在这里创建单例对象等。如果对程序文件大小有要求，最好使用动态库。</p>
+
+<h2 id="实验代码">实验代码</h2>
+
+<p>实验代码包括六个部分，<code>libA</code>/<code>libB</code>/<code>libShared</code>/<code>libStaic</code>/<code>test</code>/<code>test2</code>。其中<code>test</code>测试的是显示动态链接，<code>test2</code>测试的是隐式链接。</p>
+
+<p>源代码下载<a href="http://files.cnblogs.com/files/oloroso/LoadLibraryTest.7z">LoadLibraryTest.7z</a>
+可以使用<code>QtCreator</code>工具打开。</p>
+
+<h3 id="libstatic">libStatic</h3>
+
+<p><strong>libStatic.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBSTATIC_HPP
+#define LIBSTATIC_HPP
+
+void func_Static();
+
+#endif // LIBSTATIC_HPP
+</code></pre>
+
+<p><strong>libStatic.cpp</strong></p>
+
+<pre><code>#include &quot;LibStatic.hpp&quot;
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void func_Static()
+{
+    static char buf[1024] =
+            &quot;这个是libStatic里的buffer。&lt;----&gt;&quot;;
+    printf(&quot;func_Static 地址 %p|&quot;,&amp;func_Static);
+    printf(&quot;buf 地址 %p\n\t%s\t&quot;,&amp;buf,buf);
+
+    static int x = 0;
+    if(x == 0) x = rand();
+    sprintf(buf,&quot;libStatic的buffer被修改 %d&quot;,x);
+    printf(&quot;%s\n--------------------------\n&quot;,buf);
+}
+</code></pre>
+
+<h3 id="libshared">libShared</h3>
+
+<p><strong>libshared_global.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBSHARED_GLOBAL_HPP
+#define LIBSHARED_GLOBAL_HPP
+
+#ifdef _WIN32
+#if defined(LIBSHARED_LIBRARY)
+#  define LIBSHAREDSHARED_EXPORT extern &quot;C&quot; __declspec(dllexport)
+#else
+#  define LIBSHAREDSHARED_EXPORT extern &quot;C&quot; __declspec(dllimport)
+#endif
+#else
+#  define LIBSHAREDSHARED_EXPORT extern &quot;C&quot;
+#endif
+
+#endif // LIBSHARED_GLOBAL_HPP
+</code></pre>
+
+<p><strong>libShared.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBSHARED_HPP
+#define LIBSHARED_HPP
+
+#include &quot;libshared_global.hpp&quot;
+
+LIBSHAREDSHARED_EXPORT void func_Shared();
+
+#endif // LIBSHARED_HPP
+</code></pre>
+
+<p><strong>libShared.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &quot;LibShared.hpp&quot;
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+void func_Shared()
+{
+    static char buf[1024] =
+            &quot;这个是libShared里的buffer。&lt;----&gt;&quot;;
+    printf(&quot;func_Shared 地址 %p|&quot;,&amp;func_Shared);
+    printf(&quot;buf 地址 %p\n\t%s\t&quot;,&amp;buf,buf);
+
+    static int x = 0;
+    if(x == 0) x = rand();
+    sprintf(buf,&quot;libShared的buffer被修改 %d&quot;,x);
+    printf(&quot;%s\n--------------------------\n&quot;,buf);
+}
+</code></pre>
+
+<h3 id="liba">libA</h3>
+
+<p><strong>libA_global.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBA_GLOBAL_HPP
+#define LIBA_GLOBAL_HPP
+
+#ifdef _WIN32
+#if defined(LIBA_LIBRARY)
+#  define LIBASHARED_EXPORT extern &quot;C&quot; __declspec(dllexport)
+#else
+#  define LIBASHARED_EXPORT extern &quot;C&quot; __declspec(dllimport)
+#endif
+#else
+#  define LIBASHARED_EXPORT extern &quot;C&quot;
+#endif
+
+#endif // LIBA_GLOBAL_HPP
+</code></pre>
+
+<p><strong>libA.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBA_HPP
+#define LIBA_HPP
+
+#include &quot;liba_global.hpp&quot;
+
+LIBASHARED_EXPORT int func_A();
+
+#endif // LIBA_HPP
+</code></pre>
+
+<p><strong>libA.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &quot;LibA.hpp&quot;
+
+#include &quot;LibShared.hpp&quot;
+#include &quot;LibStatic.hpp&quot;
+
+#include &lt;stdio.h&gt;
+
+int func_A()
+{
+    static char buf[] =
+            &quot;这个是libA里的buffer。---------&quot;;
+    printf(&quot;func_A      地址 %p|&quot;,&amp;func_A);
+    printf(&quot;buf 地址 %p\n\t%s\n\n&quot;,&amp;buf,buf);
+
+    func_Shared();
+    func_Static();
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="libb">libB</h3>
+
+<p><strong>libB_global.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBB_GLOBAL_HPP
+#define LIBB_GLOBAL_HPP
+
+#ifdef _WIN32
+#if defined(LIBB_LIBRARY)
+#  define LIBBSHARED_EXPORT extern &quot;C&quot; __declspec(dllexport)
+#else
+#  define LIBBSHARED_EXPORT extern &quot;C&quot; __declspec(dllimport)
+#endif
+#else
+#  define LIBBSHARED_EXPORT extern &quot;C&quot;
+#endif
+
+#endif // LIBB_GLOBAL_HPP
+</code></pre>
+
+<p><strong>libB.hpp</strong></p>
+
+<pre><code class="language-cpp">#ifndef LIBB_HPP
+#define LIBB_HPP
+
+#include &quot;libb_global.hpp&quot;
+
+LIBBSHARED_EXPORT int func_B();
+
+#endif // LIBB_HPP
+</code></pre>
+
+<p><strong>libB.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &quot;LibB.hpp&quot;
+
+#include &quot;LibShared.hpp&quot;
+#include &quot;LibStatic.hpp&quot;
+
+#include &lt;stdio.h&gt;
+
+int func_B()
+{
+    static char buf[] =
+            &quot;这个是libB里的buffer。---------&quot;;
+    printf(&quot;func_B      地址 %p|&quot;,&amp;func_B);
+    printf(&quot;buf 地址 %p\n\t%s\n\n&quot;,&amp;buf,buf);
+
+    func_Shared();
+    func_Static();
+    return 0;
+}
+</code></pre>
+
+<h3 id="test">test</h3>
+
+<p><strong>main.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#ifdef _WIN32
+#include &lt;Windows.h&gt;
+#else
+#include &lt;dlfcn.h&gt;
+#endif
+using namespace std;
+
+typedef int(func)();
+
+#ifndef _WIN32
+#define LoadLibraryA(dllpath) \
+    dlopen(dllpath,RTLD_LAZY)
+    // RTLD_LAZY 暂缓解出，需要时解
+#define FreeLibrary(hdll)   \
+    dlclose(hdll)
+#define GetProcAddress dlsym
+
+#define HMODULE void*
+#endif
+
+class dylib{
+public:
+    dylib(const char* dllpath,const char* funcname)
+    {
+        hdll = LoadLibraryA(dllpath);
+        if(hdll){
+            f = (func*)GetProcAddress(hdll,funcname);
+
+            if(f == NULL){
+                cout&lt;&lt;funcname&lt;&lt;&quot; 函数查找失败&quot;&lt;&lt;endl;
+#ifdef _WIN32
+                cout&lt;&lt;&quot;错误码:&quot;&lt;&lt;GetLastError()&lt;&lt;endl;
+#else
+                cout&lt;&lt;&quot;错误信息:&quot;&lt;&lt;dlerror()&lt;&lt;endl;
+#endif
+            }
+        }else{
+            cout&lt;&lt;dllpath&lt;&lt;&quot; 加载失败&quot;&lt;&lt;endl;
+            f = NULL;
+        }
+    }
+    ~dylib()
+    {
+        if(hdll){
+            FreeLibrary(hdll);
+        }
+    }
+    int operator()()
+    {
+        return (f == NULL)?-1:f();
+    }
+
+private:
+    HMODULE hdll;
+    func*   f;
+};
+
+
+int main(int argc, char *argv[])
+{
+#ifdef _WIN32
+    dylib dA(&quot;libA.dll&quot;,&quot;func_A&quot;);
+    dylib dB(&quot;libB.dll&quot;,&quot;func_B&quot;);
+#else
+    dylib dA(&quot;./liblibA.so&quot;,&quot;func_A&quot;);
+    dylib dB(&quot;./liblibB.so&quot;,&quot;func_B&quot;);
+#endif
+
+    dA();
+    dB();
+    dA();
+    dB();
+
+    return 0;
+}
+</code></pre>
+
+<h3 id="test2">test2</h3>
+
+<p><strong>main.cpp</strong></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+#include &quot;LibA.hpp&quot;
+#include &quot;LibB.hpp&quot;
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    func_A();
+    func_B();
+    func_A();
+    func_B();
+    return 0;
+}
+</code></pre>
+
+<h2 id="实验结果">实验结果</h2>
+
+<h3 id="windows上vs2015编译x64版本运行结果">Windows上VS2015编译x64版本运行结果</h3>
+
+<p>####test 运行结果
+为了便于观察，这里多加了换行</p>
+
+<pre><code class="language-shell">func_A      地址 00007FFF756910AA|buf 地址 00007FFF75699000
+        这个是libA里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        这个是libShared里的buffer。&lt;----&gt;       libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7569109B|buf 地址 00007FFF75699030
+        这个是libStatic里的buffer。&lt;----&gt;       libStatic的buffer被修改 18467
+--------------------------
+
+
+func_B      地址 00007FFF71B810AA|buf 地址 00007FFF71B89000
+        这个是libB里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF71B8109B|buf 地址 00007FFF71B89030
+        这个是libStatic里的buffer。&lt;----&gt;       libStatic的buffer被修改 6334
+--------------------------
+
+
+func_A      地址 00007FFF756910AA|buf 地址 00007FFF75699000
+        这个是libA里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7569109B|buf 地址 00007FFF75699030
+        libStatic的buffer被修改 18467   libStatic的buffer被修改 18467
+--------------------------
+
+
+func_B      地址 00007FFF71B810AA|buf 地址 00007FFF71B89000
+        这个是libB里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF71B8109B|buf 地址 00007FFF71B89030
+        libStatic的buffer被修改 6334    libStatic的buffer被修改 6334
+--------------------------
+</code></pre>
+
+<p>这里可以看到<code>func_A</code>和<code>func_B</code>调用的<code>func_Shared</code>是同一个，但是<code>func_Static</code>却不是同一个。</p>
+
+<p>####test2运行结果</p>
+
+<pre><code class="language-shell">func_A      地址 00007FFF756910AA|buf 地址 00007FFF75699000
+        这个是libA里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        这个是libShared里的buffer。&lt;----&gt;       libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7569109B|buf 地址 00007FFF75699030
+        这个是libStatic里的buffer。&lt;----&gt;       libStatic的buffer被修改 18467
+--------------------------
+func_B      地址 00007FFF758810AA|buf 地址 00007FFF75889000
+        这个是libB里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7588109B|buf 地址 00007FFF75889030
+        这个是libStatic里的buffer。&lt;----&gt;       libStatic的buffer被修改 6334
+--------------------------
+func_A      地址 00007FFF756910AA|buf 地址 00007FFF75699000
+        这个是libA里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7569109B|buf 地址 00007FFF75699030
+        libStatic的buffer被修改 18467   libStatic的buffer被修改 18467
+--------------------------
+func_B      地址 00007FFF758810AA|buf 地址 00007FFF75889000
+        这个是libB里的buffer。---------
+
+func_Shared 地址 00007FFF73E610FA|buf 地址 00007FFF73E69000
+        libShared的buffer被修改 41      libShared的buffer被修改 41
+--------------------------
+func_Static 地址 00007FFF7588109B|buf 地址 00007FFF75889030
+        libStatic的buffer被修改 6334    libStatic的buffer被修改 6334
+</code></pre>
+
+<p>与<code>test</code>测试结果一致。</p>
+
+<h3 id="linux上运行测试结果">linux上运行测试结果</h3>
+
+<p>####test运行测试结果</p>
+
+<pre><code class="language-shell">func_A      地址 0x7ffa3cdc47e0|buf 地址 0x7ffa3cfc5060
+	这个是libA里的buffer。---------
+
+func_Shared 地址 0x7ffa3cbc2750|buf 地址 0x7ffa3cdc3060
+	这个是libShared里的buffer。&lt;----&gt;	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7ffa3cdc4830|buf 地址 0x7ffa3cfc50a0
+	这个是libStatic里的buffer。&lt;----&gt;	libStatic的buffer被修改 846930886
+--------------------------
+
+
+func_B      地址 0x7ffa3c9c07e0|buf 地址 0x7ffa3cbc1060
+	这个是libB里的buffer。---------
+
+func_Shared 地址 0x7ffa3cbc2750|buf 地址 0x7ffa3cdc3060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7ffa3c9c0830|buf 地址 0x7ffa3cbc10a0
+	这个是libStatic里的buffer。&lt;----&gt;	libStatic的buffer被修改 1681692777
+--------------------------
+
+
+func_A      地址 0x7ffa3cdc47e0|buf 地址 0x7ffa3cfc5060
+	这个是libA里的buffer。---------
+
+func_Shared 地址 0x7ffa3cbc2750|buf 地址 0x7ffa3cdc3060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7ffa3cdc4830|buf 地址 0x7ffa3cfc50a0
+	libStatic的buffer被修改 846930886	libStatic的buffer被修改 846930886
+--------------------------
+
+
+func_B      地址 0x7ffa3c9c07e0|buf 地址 0x7ffa3cbc1060
+	这个是libB里的buffer。---------
+
+func_Shared 地址 0x7ffa3cbc2750|buf 地址 0x7ffa3cdc3060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7ffa3c9c0830|buf 地址 0x7ffa3cbc10a0
+	libStatic的buffer被修改 1681692777	libStatic的buffer被修改 1681692777
+--------------------------
+</code></pre>
+
+<p>这里结果也是一样的，<code>func_Static</code>存在两份。</p>
+
+<h4 id="test2运行结果">test2运行结果</h4>
+
+<pre><code>func_A      地址 0x7fbeb43087e0|buf 地址 0x7fbeb4509060
+	这个是libA里的buffer。---------
+
+func_Shared 地址 0x7fbeb39e0750|buf 地址 0x7fbeb3be1060
+	这个是libShared里的buffer。&lt;----&gt;	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7fbeb450a830|buf 地址 0x7fbeb470b0a0
+	这个是libStatic里的buffer。&lt;----&gt;	libStatic的buffer被修改 846930886
+--------------------------
+func_B      地址 0x7fbeb450a7e0|buf 地址 0x7fbeb470b060
+	这个是libB里的buffer。---------
+
+func_Shared 地址 0x7fbeb39e0750|buf 地址 0x7fbeb3be1060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7fbeb450a830|buf 地址 0x7fbeb470b0a0
+	libStatic的buffer被修改 846930886	libStatic的buffer被修改 846930886
+--------------------------
+func_A      地址 0x7fbeb43087e0|buf 地址 0x7fbeb4509060
+	这个是libA里的buffer。---------
+
+func_Shared 地址 0x7fbeb39e0750|buf 地址 0x7fbeb3be1060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7fbeb450a830|buf 地址 0x7fbeb470b0a0
+	libStatic的buffer被修改 846930886	libStatic的buffer被修改 846930886
+--------------------------
+func_B      地址 0x7fbeb450a7e0|buf 地址 0x7fbeb470b060
+	这个是libB里的buffer。---------
+
+func_Shared 地址 0x7fbeb39e0750|buf 地址 0x7fbeb3be1060
+	libShared的buffer被修改 1804289383	libShared的buffer被修改 1804289383
+--------------------------
+func_Static 地址 0x7fbeb450a830|buf 地址 0x7fbeb470b0a0
+	libStatic的buffer被修改 846930886	libStatic的buffer被修改 846930886
+--------------------------
+</code></pre>
+
+<p><strong>这里运行结果与windows上不一样，<code>func_Static</code>只存在一份。</strong>这里说明<code>libStatic</code>在进程空间仅存在一份，虽然它同时存在于<code>libA</code>和<code>libB</code>中。通过<code>strings</code>程序查看<code>libA</code>和<code>libB</code>，发现前一部分是一样的，也许这就是在链接的时候只存留一份的依据吧。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

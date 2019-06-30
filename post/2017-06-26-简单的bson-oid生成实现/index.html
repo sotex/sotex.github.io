@@ -1,0 +1,269 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 简单的BSON OID生成实现 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>简单的BSON OID生成实现</h1>
+          <span class="post-date">2017年06月26日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/06/26/7079752.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/06/26/7079752.html</a>
+简单的OID生成测试实现，只是简单的用用，切勿用于生产环境。</p>
+
+<pre><code class="language-c">/* 应该使用大端序的，这里没有做转换
+ * ObjectId是12-byte BSON类型,其结构为:
+ *
+ *  4-byte 值为Unix时间戳,
+ *  3-byte 主机标识,
+ *  2-byte 进程ID
+ *  3-byte 计数值
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;time.h&gt;
+#ifdef _WIN32
+#include &lt;process.h&gt;
+#include &lt;Windows.h&gt;
+#else
+#include &lt;unistd.h&gt;
+#include &lt;sys/utsname.h&gt;
+#endif
+
+/* 全局的主机标识(这个值可采用主机名散列得到) */
+static unsigned char host[4] = {0,0,0,0};
+/* 全局计数器(进程一个，要避免访问冲突,当前没有考虑) */
+static int counter = 0;
+/* 进程ID值 */
+static unsigned short pid = 0;
+
+// 简单的将主机名进行散列
+void hashhostname(const char* hostname)
+{
+	host[0] = 0x41;
+	host[1] = 0xC6;
+	host[2] = 0x4E;
+	while(*hostname){
+		unsigned char v = *(hostname++);
+		host[0] += v &gt;&gt; 2;
+		host[1] += v &gt;&gt; 3;
+		host[2] += v &gt;&gt; 4;
+	}
+}
+
+void create_oid()
+{
+	time_t t = time(NULL);
+
+	unsigned char oid[12];
+	*((int*)oid) = (int)t;
+	oid[4] = host[0];
+	oid[5] = host[1];
+	oid[6] = host[2];
+	oid[7] = pid;
+	oid[8] = pid &gt;&gt; 8;
+	oid[9] = counter;
+	oid[10] = counter &gt;&gt; 8;
+	oid[11] = counter &gt;&gt; 16;
+	// 输出
+	++counter;
+	counter &amp;= 0xffffff;
+	int i=0;
+	while(i&lt;12){
+		printf(&quot;%02X&quot;,oid[i++]);
+	}
+	putchar('\n');
+}
+
+
+int main()
+{
+	// 1、初始化主机标识和进程ID
+#ifdef _WIN32
+	char buffer[512];
+	DWORD buflen = 512;
+	GetComputerNameA((LPSTR)buffer,&amp;buflen);
+	buffer[511] = '\0';
+	puts(buffer);
+	hashhostname(buffer);
+	pid = (unsigned short)_getpid();
+#else
+	struct utsname utn;
+	if(uname(&amp;utn) &lt; 0 ){
+		perror(&quot;uname&quot;);
+		return 0;
+	}else{
+		printf(&quot; sysname:%s\n nodename:%s\n release:%s\n version:%s\n machine:%s\n \n&quot;,
+					utn.sysname,
+					utn.nodename,
+					utn.release,
+					utn.version,
+					utn.machine);
+		hashhostname(utn.nodename);
+	}
+
+	pid = (unsigned short)getpid();
+#endif
+	puts(&quot;-----------------------&quot;);
+	printf(&quot; host=[%hhx,%hhx,%hhx]\n&quot;,host[0],host[1],host[2]);
+	printf(&quot; pid = %hx\n&quot;,pid);
+	puts(&quot;-----------------------&quot;);
+
+	counter = 0xfffffe;
+	create_oid();
+	create_oid();
+	create_oid();
+	create_oid();
+	return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

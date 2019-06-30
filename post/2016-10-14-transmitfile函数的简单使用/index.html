@@ -1,0 +1,318 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> TransmitFile函数的简单使用 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>TransmitFile函数的简单使用</h1>
+          <span class="post-date">2016年10月14日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/10/14/5961500.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/10/14/5961500.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p><code>TransmitFile</code>是一个扩展的 API，它允许在套接字连接上发送一个打开的文件。这使得应用程序可以避免亲自打开文件，重复地在文件执行读入操作，再将读入的那块数据写入套接字。相反，已打开的文件的句柄和套接字连接一起给出的，在套接字上，文件数据的读入和发送都在模式下进行。这就避免了多次的用户/内核模式切换。与linux的<code>sendfile</code>函数类似。
+TransmitFile通过已经连接的SOCKET句柄传输文件，使用操作系统的缓冲管理器来接收数据并提供高质量的文件传输。</p>
+
+<p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms740565(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms740565(v=vs.85).aspx</a></p>
+
+<h2 id="参数">参数</h2>
+
+<ul>
+<li>hSocket
+一个连接的套接字句柄。函数将文件数据写向这个套接字。其必须是<code>面向连接</code>(TCP)的SOCKET。如果hFile为NULL，<code>lpTransmitBuffers</code>将被传输</li>
+<li>hFile
+已打开的文件句柄。由系统内核读取文件数据，可以通过<code>FILE_FLAG_SEQUENTIAL_SCAN</code>提高处理缓存性能。</li>
+<li>nNumberOfBytesToWrite
+要传送的字节数。0值表示传送整个文件。发生错误时，以已发送数据为准。</li>
+<li>nNumberOfBytesPerSend
+每次传送的数据块的大小。0值表示使用<code>SOCKET LAYER</code>的默认值。</li>
+<li>lpOverlapped
+指向<code>OVERLAPPED</code>结构的指针。如果<code>hSocket</code>以打开重叠(默认)，可指定这个参数，以实现一个重叠IO操作(异步)。NULL值表示不开启overlapped(重叠) I/O模式。</li>
+<li>lpTransmitBuffers
+指向TRANSMIT_FILE_BUFFERS结构指针。NULL值表示仅仅传输文件。
+dwFlags
+用于修改<code>TransmitFile</code>函数调用行为的标识。可以包含下表中的定义(在mswscok.h文件中)</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th align="left">标识</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">TF_DISCONNECT</td>
+<td align="left">在所有文件数据已排队等待传输之后，启动传输层断开连接</td>
+</tr>
+
+<tr>
+<td align="left">TF_REUSE_SOCKET</td>
+<td align="left">准备要重复使用的socket句柄。 此标志仅在指定了TF_DISCONNECT时有效。<br>当TransmitFile请求完成时，套接字句柄可以传递到以前用于建立连接的函数调用，例如AcceptEx或ConnectEx。 这种重用是互斥的; 例如，如果为套接字调用了AcceptEx函数，则仅允许重复使用对AcceptEx函数的后续调用，并且不允许对ConnectEx的后续调用。<br> 注意套接字级文件传输受底层传输的行为的影响。 例如，TCP套接字可能受到TCP TIME_WAIT状态的影响，导致TransmitFile调用被延迟。</td>
+</tr>
+
+<tr>
+<td align="left">TF_USE_DEFAULT_WORKER</td>
+<td align="left">指示要使用系统的默认线程来处理长 TransmitFile 请求的 Windows 套接字服务提供程序。可以使用以下注册表参数作为 REG_DWORD 调整系统默认线程︰<br> HKEY_LOCAL_MACHINE\CurrentControlSet\Services\AFD\Parameters\TransmitWorker</td>
+</tr>
+
+<tr>
+<td align="left">TF_USE_SYSTEM_THREAD</td>
+<td align="left">指示Windows Sockets服务提供程序使用系统线程来处理长的TransmitFile请求。</td>
+</tr>
+
+<tr>
+<td align="left">TF_USE_KERNEL_APC</td>
+<td align="left">指示驱动程序使用内核异步过程调用（APC）而不是工作线程来处理长的TransmitFile请求。 Long TransmitFile请求定义为需要从文件或缓存中进行多次读取的请求; 因此请求取决于文件的大小和发送数据包的指定长度。<br> 使用TF_USE_KERNEL_APC可以提供显着的性能优势。 然而，可能（虽然不太可能），启动上下文TransmitFile的线程正用于大量计算; 这种情况可能会阻止APC发射。 请注意，Winsock内核模式驱动程序使用正常的内核APC，每当线程处于等待状态时启动，这与用户模式APC不同，每当线程处于用户模式启动的警报等待状态时启动。</td>
+</tr>
+
+<tr>
+<td align="left">TF_WRITE_BEHIND</td>
+<td align="left">立即完成TransmitFile请求，无待处理。 如果指定此标志并且TransmitFile成功，则数据已被系统接受，但不一定由远程端确认。 不要在指定TF_DISCONNECT和TF_REUSE_SOCKET标志时使用此设置。</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="示例代码">示例代码</h2>
+
+<pre><code class="language-c">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#include &lt;winsock2.h&gt;
+#include &lt;ws2tcpip.h&gt;
+#pragma comment(lib,&quot;Ws2_32.lib&quot;)
+
+#include &lt;MSWSock.h&gt;
+#pragma comment(lib, &quot;Mswsock.lib &quot;)
+
+int main(int c, char** v)
+{
+	if (c != 4) {
+		printf(&quot;用法:%s filename ip port\n&quot;, v[0]);
+		return 0;
+	}
+
+	// 创建并初始化winsock数据变量
+	WSADATA wsaData = { 0 };
+	int iResult = 0;
+
+	SOCKET hSocket = INVALID_SOCKET;
+	int iFamily = AF_INET;
+	int iType = SOCK_STREAM;
+	int iProtocol = IPPROTO_TCP;
+
+	// 初始化 Winsock
+	iResult = WSAStartup(MAKEWORD(2, 2), &amp;wsaData);
+	if (iResult != 0) {
+		printf(&quot;WSAStartup failed: %d\n&quot;, iResult);
+		return -1;
+	}
+	// 打开socket
+	hSocket = socket(iFamily, iType, iProtocol);
+	if (hSocket == INVALID_SOCKET) {
+		printf(&quot;socket function failed with error = %d\n&quot;, WSAGetLastError());
+		WSACleanup();
+		return -2;
+	}
+	do {
+		// 打开文件
+		HANDLE hFile = CreateFile(v[1], GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, NULL, NULL);
+		if (hFile == INVALID_HANDLE_VALUE){
+			iResult = -3;
+			break;
+		}
+		// 获取文件大小
+		//GetFileSize(hFile, NULL);
+		LARGE_INTEGER liFileSize;
+		if (GetFileSizeEx(hFile, &amp;liFileSize) == FALSE) {
+			iResult = -4;
+			break;
+		}
+		// 设置远程段地址
+		sockaddr_in remoteAddr;
+		remoteAddr.sin_family = AF_INET;
+		//remoteAddr.sin_addr.s_addr = inet_addr(v[2]);
+		inet_pton(AF_INET, v[2], &amp;remoteAddr.sin_addr);
+		remoteAddr.sin_port = htons(atoi(v[3]));
+
+		// 连接到远程端
+		iResult = connect(hSocket, (SOCKADDR *)&amp; remoteAddr, sizeof(remoteAddr));
+		if (iResult == SOCKET_ERROR) {
+			printf(&quot;connect function failed with error: %ld\n&quot;, WSAGetLastError());
+			iResult = -5;
+			break;
+		}
+		// 使用TransmitFile发送文件
+		if (TransmitFile(hSocket, hFile, 0, 0, NULL, NULL, TF_USE_DEFAULT_WORKER) == FALSE) {
+			printf(&quot;TransmitFile function failed with error: %ld\n&quot;, WSAGetLastError());
+			iResult = -6;
+			break;
+		}
+	} while (0);
+	// 关闭socket
+	iResult = closesocket(hSocket);
+	if (iResult == SOCKET_ERROR) {
+		printf(&quot;closesocket failed with error = %d\n&quot;, WSAGetLastError());
+		iResult = -7;
+	}
+	// 清理
+	WSACleanup();
+
+	return iResult;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

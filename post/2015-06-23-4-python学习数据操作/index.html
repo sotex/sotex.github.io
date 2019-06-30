@@ -1,0 +1,494 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 4-python学习——数据操作 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>4-python学习——数据操作</h1>
+          <span class="post-date">2015年06月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4594853.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4594853.html</a>
+#4-python学习——数据操作</p>
+
+<p>参考<a href="http://www.cnblogs.com/jenry/archive/2010/05/27/1744861.html">python类型转换、数值操作(收藏)</a></p>
+
+<p><a href="http://www.yiibai.com/python/python_basic_operators.html">Python基本运算符</a></p>
+
+<p>##数据类型转换：</p>
+
+<p>有时候，可能需要执行的内置类型之间的转换。类型之间的转换，只需使用<code>类名作为函数</code>。</p>
+
+<p>有几个内置的功能，从一种数据类型进行转换为另一种。这些函数<code>返回</code>一个表示转换值的<code>新对象</code>。</p>
+
+<hr />
+
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">int(x [,base])</td>
+<td align="left">将x转换为一个整数。基数指定为base，如果x是一个字符串。</td>
+</tr>
+
+<tr>
+<td align="center">long(x [,base] )</td>
+<td align="left">将x转换为一个长整数。基数指定为base，如果x是一个字符串。</td>
+</tr>
+
+<tr>
+<td align="center">float(x)</td>
+<td align="left">将x转换到一个浮点数。</td>
+</tr>
+
+<tr>
+<td align="center">complex(real [,imag])</td>
+<td align="left">创建一个复数。</td>
+</tr>
+
+<tr>
+<td align="center">str(x)</td>
+<td align="left">转换对象x为字符串表示形式。</td>
+</tr>
+
+<tr>
+<td align="center">repr(x)</td>
+<td align="left">对象x转换为一个表达式字符串。</td>
+</tr>
+
+<tr>
+<td align="center">eval(str)</td>
+<td align="left">计算一个字符串，并返回一个对象。</td>
+</tr>
+
+<tr>
+<td align="center">tuple(s)</td>
+<td align="left">把s转换为一个元组。</td>
+</tr>
+
+<tr>
+<td align="center">list(s)</td>
+<td align="left">把s转换为一个列表。</td>
+</tr>
+
+<tr>
+<td align="center">set(s)</td>
+<td align="left">把s转换为一个集合。</td>
+</tr>
+
+<tr>
+<td align="center">dict(d)</td>
+<td align="left">创建一个字典。 d必须的（键，值）元组序列。</td>
+</tr>
+
+<tr>
+<td align="center">frozenset(s)</td>
+<td align="left">把s转换为冻结集。</td>
+</tr>
+
+<tr>
+<td align="center">chr(x)</td>
+<td align="left">整数转换为一个字符。</td>
+</tr>
+
+<tr>
+<td align="center">unichr(x)</td>
+<td align="left">整数转换为一个Unicode字符。</td>
+</tr>
+
+<tr>
+<td align="center">ord(x)</td>
+<td align="left">转换单个字符为整数值。</td>
+</tr>
+
+<tr>
+<td align="center">hex(x)</td>
+<td align="left">将整数转换为十六进制字符串。</td>
+</tr>
+
+<tr>
+<td align="center">oct(x)</td>
+<td align="left">将整数转换为以八进制的字符串。</td>
+</tr>
+</tbody>
+</table>
+
+<p>##数值操作</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">x &gt;&gt; y</td>
+<td align="left">右移</td>
+</tr>
+
+<tr>
+<td align="left">x &amp; y</td>
+<td align="left">按位与</td>
+</tr>
+
+<tr>
+<td align="left">x</td>
+<td align="left">y</td>
+</tr>
+
+<tr>
+<td align="left">x ^ y</td>
+<td align="left">按位异或 (exclusive or)</td>
+</tr>
+
+<tr>
+<td align="left">~x</td>
+<td align="left">按位翻转</td>
+</tr>
+
+<tr>
+<td align="left">x + y</td>
+<td align="left">加</td>
+</tr>
+
+<tr>
+<td align="left">x - y</td>
+<td align="left">减</td>
+</tr>
+
+<tr>
+<td align="left">x * y</td>
+<td align="left">乘</td>
+</tr>
+
+<tr>
+<td align="left">x / y</td>
+<td align="left">常规除</td>
+</tr>
+
+<tr>
+<td align="left">x // y</td>
+<td align="left">地板除(结果向下取整)</td>
+</tr>
+
+<tr>
+<td align="left">x ** y</td>
+<td align="left">乘方 (xy )</td>
+</tr>
+
+<tr>
+<td align="left">x % y</td>
+<td align="left">取模 (x mod y )</td>
+</tr>
+
+<tr>
+<td align="left">-x</td>
+<td align="left">改变操作数的符号位</td>
+</tr>
+
+<tr>
+<td align="left">+x</td>
+<td align="left">什么也不做</td>
+</tr>
+
+<tr>
+<td align="left">~x</td>
+<td align="left">~x=-(x+1)</td>
+</tr>
+
+<tr>
+<td align="left">abs(x )</td>
+<td align="left">绝对值</td>
+</tr>
+
+<tr>
+<td align="left">divmod(x ,y )</td>
+<td align="left">返回 (int(x / y ), x % y )</td>
+</tr>
+
+<tr>
+<td align="left">pow(x ,y [,modulo ])</td>
+<td align="left">返回 (x ** y ) x % modulo</td>
+</tr>
+
+<tr>
+<td align="left">round(x ,[n])</td>
+<td align="left">四舍五入，n为小数点位数</td>
+</tr>
+
+<tr>
+<td align="left">x &lt; y</td>
+<td align="left">小于</td>
+</tr>
+
+<tr>
+<td align="left">x &gt; y</td>
+<td align="left">大于</td>
+</tr>
+
+<tr>
+<td align="left">x == y</td>
+<td align="left">等于</td>
+</tr>
+
+<tr>
+<td align="left">x != y</td>
+<td align="left">不等于(与&lt;&gt;相同)</td>
+</tr>
+
+<tr>
+<td align="left">x &gt;= y</td>
+<td align="left">大于等于</td>
+</tr>
+
+<tr>
+<td align="left">x &lt;= y</td>
+<td align="left">小于等于</td>
+</tr>
+</tbody>
+</table>
+
+<p>##序列操作</p>
+
+<p>序列操作是指对字符串，列表，元组这写类型数据的操作。</p>
+
+<p>下表中的s代表一个序列(可能是字符串/列表/元组)</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="left">释义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">s + r</td>
+<td align="left">序列连接</td>
+</tr>
+
+<tr>
+<td align="left">s * n , n * s</td>
+<td align="left">s的 n 次拷贝,n为整数</td>
+</tr>
+
+<tr>
+<td align="left">s % d</td>
+<td align="left">字符串格式化(仅字符串)</td>
+</tr>
+
+<tr>
+<td align="left">s[i]</td>
+<td align="left">索引</td>
+</tr>
+
+<tr>
+<td align="left">s[i :j ]</td>
+<td align="left">切片(取整体中的一部分)</td>
+</tr>
+
+<tr>
+<td align="left">x in s , x not in s</td>
+<td align="left">从属关系</td>
+</tr>
+
+<tr>
+<td align="left">for x in s :</td>
+<td align="left">迭代</td>
+</tr>
+
+<tr>
+<td align="left">len(s)</td>
+<td align="left">长度</td>
+</tr>
+
+<tr>
+<td align="left">min(s)</td>
+<td align="left">最小元素</td>
+</tr>
+
+<tr>
+<td align="left">max(s)</td>
+<td align="left">最大元素</td>
+</tr>
+
+<tr>
+<td align="left">s[i ] = x</td>
+<td align="left">为s[i]重新赋值</td>
+</tr>
+
+<tr>
+<td align="left">s[i :j ] = r</td>
+<td align="left">将列表片段重新赋值</td>
+</tr>
+
+<tr>
+<td align="left">del s[i ]</td>
+<td align="left">删除列表中一个元素(不支持字符串)</td>
+</tr>
+
+<tr>
+<td align="left">del s[i :j ]</td>
+<td align="left">删除列表中一个片段(不支持字符串)</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

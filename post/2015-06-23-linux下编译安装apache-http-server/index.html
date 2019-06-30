@@ -1,0 +1,349 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Linux下编译安装Apache Http Server &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Linux下编译安装Apache Http Server</h1>
+          <span class="post-date">2015年06月23日</span>
+          
+
+<p>#Linux下编译安装Apache Http Server
+[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595115.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595115.html</a></p>
+
+<p>##1.下载httpd-2.4.12.tar.bz2
+    wget <a href="http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.12.tar.bz2">http://mirror.bit.edu.cn/apache/httpd/httpd-2.4.12.tar.bz2</a>
+##2.解压下载的文件##
+    tar -xjvf httpd-2.4.12.tar.bz2
+##3.configure配置编译安装条件
+    ./configure &ndash;prefix=/usr/local/apache2 &ndash;enable-so &ndash;enable-rewrite</p>
+
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>&ndash;prefix=/usr/local/apach2</td>
+<td>设置编译安装到的系统目录</td>
+</tr>
+
+<tr>
+<td>&ndash;enable-s</td>
+<td>使httpd服务能够动态加载模块功能</td>
+</tr>
+
+<tr>
+<td>&ndash;enable-rewrite</td>
+<td>使httpd服务具有网页地址重写功能</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="arp-not-found-错误">ARP not found 错误</h3>
+
+<pre><code class="language-shell">o@o-pc:~/work/Apache-httpd-2.4.12$ ./configure --prefix=/usr/local/apache2 --enable-so --enable-rewrite
+checking for chosen layout... Apache
+checking for working mkdir -p... yes
+checking for grep that handles long lines and -e... /bin/grep
+checking for egrep... /bin/grep -E
+checking build system type... x86_64-unknown-linux-gnu
+checking host system type... x86_64-unknown-linux-gnu
+checking target system type... x86_64-unknown-linux-gnu
+configure: 
+configure: Configuring Apache Portable Runtime library...
+configure: 
+checking for APR... no
+configure: error: APR not found.  Please read the documentation.
+</code></pre>
+
+<p>###解决办法
+<strong>下载 arp-1.5.2的源码包</strong>
+&gt; wget <a href="http://mirror.bit.edu.cn/apache/apr/apr-1.5.2.tar.bz2">http://mirror.bit.edu.cn/apache/apr/apr-1.5.2.tar.bz2</a></p>
+
+<p><strong>解压后编译安装</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/arp$ tar -xjvf apr-1.5.2.tar.bz2 
+o@o-pc:~/work/arp/apr-1.5.2$ ./configure --prefix=/usr/local/apr
+...
+o@o-pc:~/work/arp/apr-1.5.2$ make
+...
+o@o-pc:~/work/arp/apr-1.5.2$ sudo make install
+</code></pre>
+
+<h3 id="apr-util-not-found-错误">APR-util not found 错误</h3>
+
+<pre><code class="language-shell">o@o-pc:~/work/Apache-httpd-2.4.12$ ./configure --prefix=/usr/local/apache2 --enable-so --enable-rewrite
+checking for chosen layout... Apache
+...
+configure: Configuring Apache Portable Runtime library...
+configure: 
+checking for APR... yes
+  setting CC to &quot;gcc&quot;
+  setting CPP to &quot;gcc -E&quot;
+  setting CFLAGS to &quot; -g -O2 -pthread&quot;
+  setting CPPFLAGS to &quot; -DLINUX -D_REENTRANT -D_GNU_SOURCE&quot;
+  setting LDFLAGS to &quot; &quot;
+configure: 
+configure: Configuring Apache Portable Runtime Utility library...
+configure: 
+checking for APR-util... no
+configure: error: APR-util not found.  Please read the documentation.
+</code></pre>
+
+<p>###解决办法
+<strong>下载 apr-util-1.5.4 源码包</strong>
+&gt; o@o-pc:~/work/arp$ wget <a href="http://mirror.bit.edu.cn/apache/apr/apr-util-1.5.4.tar.bz2">http://mirror.bit.edu.cn/apache/apr/apr-util-1.5.4.tar.bz2</a></p>
+
+<p><strong>解压后编译安装</strong>
+注意<code>./configure</code>配置的时候需要制定APR路径<code>--with-apr=/usr/local/apr</code>是前面编译安装apr的时候设置的路径。</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/arp$ tar -xjvf apr-util-1.5.4.tar.bz2 
+o@o-pc:~/work/arp/apr-util-1.5.4$ ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr
+...
+o@o-pc:~/work/arp/apr-util-1.5.4$ make
+...
+o@o-pc:~/work/arp/apr-util-1.5.4$ sudo make install
+</code></pre>
+
+<p>###pcre-config for libpcre not found错误</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/Apache-httpd-2.4.12$ ./configure --prefix=/usr/local/apache2 --enable-so --enable-rewrite --with-apr-util=/usr/local/apr-util
+checking for chosen layout... Apache
+...
+configure: 
+configure: Configuring Apache Portable Runtime Utility library...
+configure: 
+checking for APR-util... yes
+...
+checking for pcre-config... false
+configure: error: pcre-config for libpcre not found. PCRE is required and available from http://pcre.org/
+</code></pre>
+
+<p>###解决办法
+<strong>下载pcre-8.36源码包</strong>
+&gt; wget <a href="http://jaist.dl.sourceforge.net/project/pcre/pcre/8.36/pcre-8.36.tar.bz2">http://jaist.dl.sourceforge.net/project/pcre/pcre/8.36/pcre-8.36.tar.bz2</a>
+&gt;8.7版本的地址
+<a href="ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2">ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.bz2</a></p>
+
+<p><strong>解压后编译安装</strong></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/arp$ tar -xjvf pcre-8.37.tar.bz2 
+o@o-pc:~/work/arp/pcre-8.37$ ./configure --prefix=/usr/local/pcre
+...
+o@o-pc:~/work/arp/pcre-8.37$ make
+...
+o@o-pc:~/work/arp/pcre-8.37$ sudo make install
+</code></pre>
+
+<p>###上面的错误解决后，再次./configure配置
+注意添加的两个<code>--with-...</code></p>
+
+<pre><code class="language-shell">o@o-pc:~/work/Apache-httpd-2.4.12$ ./configure --prefix=/usr/local/apache2 --enable-so --enable-rewrite --with-apr-util=/usr/local/apr-util --with-pcre=/usr/local/pcre
+</code></pre>
+
+<p>##4.编译安装</p>
+
+<pre><code class="language-shell">o@o-pc:~/work/Apache-httpd-2.4.12$ make
+o@o-pc:~/work/Apache-httpd-2.4.12$ sudo make install
+</code></pre>
+
+<p>##5.启动apache服务</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ /usr/local/apache2/bin/apachectl start
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+(13)Permission denied: AH00072: make_sock: could not bind to address [::]:80
+(13)Permission denied: AH00072: make_sock: could not bind to address 0.0.0.0:80
+no listening sockets available, shutting down
+AH00015: Unable to open logs
+</code></pre>
+
+<p>注意，需要root权限</p>
+
+<pre><code class="language-shell">o@o-pc:~/work$ sudo /usr/local/apache2/bin/apachectl start
+AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message
+</code></pre>
+
+<p>提示错误，无法确定服务名(就是端口号)
+切换到目录<code>/usr/local/apache2/conf</code>
+vi编辑文件httpd.conf（文件是只读的，修改需要root权限）
+<code>o@o-pc:/usr/local/apache2/conf$ sudo vi httpd.conf</code>
+添加一行
+<code>ServerName localhost:80</code>
+然后重新启动服务试试</p>
+
+<pre><code class="language-shell">o@o-pc:~$ sudo /usr/local/apache2/bin/apachectl start
+httpd (pid 31083) already running
+</code></pre>
+
+<p>现在我们可以试试是否生效了
+打开浏览器，输入地址localhost回车看看是否显示 <strong>Is Work!</strong>
+显示了就说们Apache Http Server已经在运行了
+不方便截图，这里直接用<strong>curl</strong>来获取下网页的内容</p>
+
+<pre><code class="language-shell">o@o-pc:~$ curl localhost
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<p>##6.停止Apache Http 服务
+可以看到停止后再去获取就失败了</p>
+
+<pre><code class="language-shell">o@o-pc:~$ sudo /usr/local/apache2/bin/apachectl stop
+o@o-pc:~$ curl localhost
+curl: (7) Failed to connect to localhost port 80: 拒绝连接
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

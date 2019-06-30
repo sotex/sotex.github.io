@@ -1,0 +1,335 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 如何导出标准模板库(STL)类的实例化和包含STL类对象数据成员的类 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>如何导出标准模板库(STL)类的实例化和包含STL类对象数据成员的类</h1>
+          <span class="post-date">2017年08月01日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/08/02/7271720.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/08/02/7271720.html</a>
+本文翻译自 <a href="https://support.microsoft.com/zh-cn/help/168958/how-to-export-an-instantiation-of-a-standard-template-library-stl-clas">https://support.microsoft.com/zh-cn/help/168958/how-to-export-an-instantiation-of-a-standard-template-library-stl-clas</a></p>
+
+<h2 id="概要">概要</h2>
+
+<p>本文讨论如何实现下面任务：
+- 导出标准模板库（STL）类的实例化。
+- 导出包含STL类对象数据成员的类。</p>
+
+<p><strong>注意，您无法导出通用的模板，模板必须实例化才能导出。</strong>也就是说，必须提供所有的模板参数，并且在实例化时，模板的参数必须是完全定义的类型。例如<code>stack&lt;int&gt;</code>实例化STL堆栈类，实例化时强制生成类<code>stack&lt;int&gt;</code>的所有成员。
+还要注意，一些STL容器（map、set、queue、list、deque）无法导出。</p>
+
+<h2 id="更多信息">更多信息</h2>
+
+<p>从VC++ 5.0开始，可以强制对模板类进行实例化并导出实例化类。导出实例化模板类，可使用以下语法：</p>
+
+<h3 id="导出stl类">导出STL类</h3>
+
+<ol>
+<li>在<code>.dll</code>和<code>.exe</code>文件中，必须链接到相同版本的<code>C运行时库dll</code>。两个都链接<code>msvcrt.lib(Release版本)</code>或都链接到<code>msvcrtd.lib(Debug版本)</code>。</li>
+<li>在<code>dll</code>中，在模板的实例化声明中使用<code>__declspec</code>修饰符，以便从<code>dll</code>中导出STL类的实例化。</li>
+<li>在<code>exe</code>中，需提供使用<code>extern</code>和<code>__declspec</code>修饰的模板实例化声明，以便从<code>dll</code>中导入类。 这会导致<code>警告 C4231 &quot;nonstandard extension used : 'extern' before template explicit instantiation.&quot;</code>。 您可以忽略此警告。</li>
+</ol>
+
+<h3 id="导出包含stl类对象数据成员的类">导出包含STL类对象数据成员的类</h3>
+
+<ol>
+<li>在<code>.dll</code>和<code>.exe</code>文件中，必须链接到相同版本的<code>C运行时库dll</code>。两个都链接<code>msvcrt.lib(Release版本)</code>或都链接到<code>msvcrtd.lib(Debug版本)</code>。</li>
+<li>在<code>dll</code>中，在模板的实例化声明中使用<code>__declspec</code>修饰符，以便从<code>dll</code>中导出STL类的实例化。
+<strong>注意：</strong>不能跳过上一步，用于创建数据成员的STL类必须导出其实例化。</li>
+<li>在<code>dll</code>中，在类的声明中使用<code>__declspec</code>修饰符，以便从<code>dll</code>中导出类。</li>
+<li>在<code>exe</code>中，在类的声明中使用<code>__declspec</code>修饰符，以便从<code>dll</code>中导入类。
+如果要导出的类有一个或多个基类，那么其基类也必须导出。如果要导出的类中还包含某类类型的数据成员，则还必须导出数据成员类型的类。</li>
+</ol>
+
+<p><strong>注意：</strong>一些STL类使用到其它的STL类，这些依赖的类也必须导出。如果使用低于1的警告级别(也就是<code>/W2</code>、<code>/W3</code>、<code>/W4</code>)，则必须导出类会出现在编译器警告信息中。<code>/W4</code>级别编译时，会因为STL而生成大量警告信息，目前不推荐使用此级别警告。</p>
+
+<p>一些STL类包含嵌套类，所以无法导出这些类。例如，<strong>deque包含一个嵌套类<code>deque::iterator</code>。</strong>如果导出<code>deque</code>，将产生警告信息。，提示你必须导出<code>deque::iterator</code>；如果你导出<code>deque::iterator</code>则会产生警告信息，提示你必须导出<code>deque</code>。这是受限于STL的设计，一旦模板类被实例化，它不能被重新实例化和导出。目前唯一可以导出的STL容器是<code>vector</code>，其它容器（map、set、queue、list、deque）都包含嵌套类无法导出。</p>
+
+<p>导出使用用户定义类型（UDT）作为STL容器模板参数实例化的类时，必须为自定义类型（）UDT）重载<code>&lt;</code>和<code>==</code>运算符。例如，如果导出<code>vector&lt;MyClass&gt;</code>，则必须定义<code>MyClass::operator&lt;</code>和<code>MyClass::==</code>。这是因为所有的STL容器类都具有成员比较运算操作，需要使用到包含类型的<code>&lt;</code>和<code>==</code>运算操作。通常，这些都不被实例化，因为它们没有被使用。当实例化一个模板类时，会生成所有的成员函数，因为STL容器类具有使用到<code>&lt;</code>和<code>==</code>的成员函数，所有必须实现它们。如果比较UDT的对象没有意义，也可以在定义<code>operator&lt;</code>和<code>opeartor==</code>的时候，简单的返回<code>true</code>。</p>
+
+<p>当在编译期间发现<code>_DLL</code>已经定义（当使用<code>/MD</code>或<code>/MDd</code>编译与C运行时库的DLL版本链接时，该符号被隐含定义），以下STL类以及对这些类的操作的各种全局运算符和函数，已在C运行时库DLL中导出。因此，无法从DLL中导出它们。z只要导入类也使用相同的C运行时DLL版本，则不应该导致可执行程序出问题。</p>
+
+<pre><code class="language-bash">Header      STL template class
+------------------------------
+&lt;IOSFWD&gt;    basic_ios
+&lt;IOSFWD&gt;    &lt;IOSFWD&gt;
+&lt;IOSFWD&gt;    basic_istream
+&lt;IOSFWD&gt;    basic_string (also typedef'd as string and wstring)
+&lt;IOSFWD&gt;    complex
+&lt;LOCALE&gt;    messages
+&lt;XLOCALE&gt;   codecvt
+&lt;XLOCALE&gt;   ctype
+&lt;XLOCMON&gt;   moneypunct
+&lt;XLOCMON&gt;   money_get
+&lt;XLOCMON&gt;   money_put
+&lt;XLOCNUM&gt;   numpunct
+&lt;XLOCTIME&gt;  time_get
+&lt;XLOCTIME&gt;  time_put
+&lt;XSTRING&gt;   basic_string (also typedef'd as string and wstring)
+</code></pre>
+
+<p>有关使用哪些模板参数以及声明哪些全局函数和操作符的具体细节，请参阅相关的头文件。</p>
+
+<pre><code class="language-cpp">// -------------------------------------------
+   // MYHEADER.H
+   //disable warnings on 255 char debug symbols
+    #pragma warning (disable : 4786)
+   //disable warnings on extern before template instantiation
+    #pragma warning (disable : 4231)
+
+    #include &lt;vector&gt;
+
+    // Provide the storage class specifier (extern for an .exe file, null
+    // for DLL) and the __declspec specifier (dllimport for .an .exe file,
+    // dllexport for DLL).
+    // You must define EXP_STL when compiling the DLL.
+    // You can now use this header file in both the .exe file and DLL - a
+    // much safer means of using common declarations than two different
+    // header files.
+    #ifdef EXP_STL
+    #    define DECLSPECIFIER __declspec(dllexport)
+    #    define EXPIMP_TEMPLATE
+    #else
+    #    define DECLSPECIFIER __declspec(dllimport)
+    #    define EXPIMP_TEMPLATE extern
+    #endif
+
+    // Instantiate classes vector&lt;int&gt; and vector&lt;char&gt;
+    // This does not create an object. It only forces the generation of all
+    // of the members of classes vector&lt;int&gt; and vector&lt;char&gt;. It exports
+    // them from the DLL and imports them into the .exe file.
+    EXPIMP_TEMPLATE template class DECLSPECIFIER std::vector&lt;int&gt;;
+    EXPIMP_TEMPLATE template class DECLSPECIFIER std::vector&lt;char&gt;;
+
+    // Declare/Define a class that contains both a static and non-static
+    // data member of an STL object.
+    // Note that the two template instantiations above are required for
+    // the data members to be accessible. If the instantiations above are
+    // omitted, you may experience an access violation.
+    // Note that since you are exporting a vector of MyClass, you must
+    // provide implementations for the operator &lt; and the operator ==.
+    class DECLSPECIFIER MyClass
+    {
+    public:
+        std::vector&lt;int&gt; VectorOfInts;
+        static std::vector&lt;char&gt; StaticVectorOfChars;
+
+    public:
+        bool operator &lt; (const MyClass &gt; c) const
+        {
+            return VectorOfInts &lt; c. VectorOfInts;
+        }
+        bool operator == (const MyClass &gt; c) const
+        {
+            return VectorOfInts == c. VectorOfInts;
+        }
+    };
+
+    // Instantiate the class vector&lt;MyClass&gt;
+    // This does not create an object. It only forces the generation of
+    // all of the members of the class vector&lt;MyClass&gt;. It exports them
+    // from the DLL and imports them into the .exe file.
+    EXPIMP_TEMPLATE template class DECLSPECIFIER std::vector&lt;MyClass&gt;;
+
+    // -------------------------------------------
+    // Compile options needed: /GX /LDd /MDd /D&quot;EXP_STL&quot;
+    //                     or: /GX /LD  /MD  /D&quot;EXP_STL&quot;
+    // DLL.CPP
+
+    #include &quot;MyHeader.h&quot;
+    std::vector&lt;char&gt; MyClass::StaticVectorOfChars;
+
+    // -------------------------------------------
+    // Compile options needed: /GX /MDd
+    //                     or: /GX /MD
+    // EXE.CPP
+
+    #include &lt;iostream&gt;
+    #include &quot;MyHeader.h&quot;
+
+    int main ()
+    {
+        MyClass x;
+
+        for (int i=0; i&lt;5; i++) x.VectorOfInts.push_back(i);
+        for (char j=0; j&lt;5; j++) x.StaticVectorOfChars.push_back('a' + j);
+
+        std::vector&lt;int&gt;::iterator vii = x.VectorOfInts.begin();
+        while (vii != x.VectorOfInts.end())
+        {
+            std::cout &lt;&lt; *vii;
+            std::cout &lt;&lt; &quot; displayed from x.VectorOfInts&quot; &lt;&lt; std::endl;
+            vii++;
+        }
+        std::vector&lt;char&gt;::iterator vci = x.StaticVectorOfChars.begin();
+        while (vci != x.StaticVectorOfChars.end())
+        {
+            std::cout &lt;&lt; *vci;
+            std::cout &lt;&lt; &quot; displayed from MyClass::StaticVectorOfChars&quot;;
+            std::cout &lt;&lt; std::endl;
+            vci++;
+        }
+
+        std::vector&lt;MyClass&gt; vy;
+        for (i=0; i=5; i++) vy.push_back(MyClass());
+
+        return 1;
+    }
+</code></pre>
+
+<h2 id="参考">参考</h2>
+
+<p>其它相关信息，请在VC++帮助中搜索以下关键字：Explicit Instantiation(显示实例化)、__declspec、stack、/MD, /ML, /MT, /LD (Use Run-Time Library)。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

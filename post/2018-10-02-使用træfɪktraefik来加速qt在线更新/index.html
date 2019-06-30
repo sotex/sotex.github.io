@@ -1,0 +1,258 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 使用Træfɪk(traefik)来加速Qt在线更新 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>使用Træfɪk(traefik)来加速Qt在线更新</h1>
+          <span class="post-date">2018年10月02日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/10/02/9736845.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/10/02/9736845.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p>在使用Qt的MaintenanceTool程序进行在线更新的时候遇到一个问题，就是访问<code>download.qt.io</code>实在太慢了，老是失败。所以想使用国内的镜像站来进行更新。
+使用Qt的镜像站方法也很简单，下载<code>Update.xml</code>和<code>Update_orig.xml</code>回来，然后修改里面的<code>url</code>即可，这个网上有很多教程。
+但是这个方法不是很好用，还需要自己手动把一些元数据文件下载回来。</p>
+
+<p>最近在研究<a href="https://traefik.io/">traefik</a>，所以就用它做了一个简单的代理转发，来达到加速的目的。</p>
+
+<h2 id="traefik-简介">traefik 简介</h2>
+
+<p>Træfɪk 是一个为了让部署微服务更加便捷而诞生的现代HTTP反向代理、负载均衡工具。 它支持多种后台 (Docker, Swarm, Kubernetes, Marathon, Mesos, Consul, Etcd, Zookeeper, BoltDB, Rest API, file…) 来自动化、动态的应用它的配置文件设置。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002124932193-800142650.jpg" alt="" /></p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002125013209-1466371485.jpg" alt="" /></p>
+
+<p>关于traefik的介绍，网上资料不是很多，可以看它的官网和一个国内的网站
+- 官网 <a href="https://traefik.io/">https://traefik.io/</a>
+- 国内站 <a href="http://traefik.cn/">http://traefik.cn/</a></p>
+
+<h2 id="代理设置具体过程">代理设置具体过程</h2>
+
+<p>1、下载traefik程序
+这个可以去github上下载源码回来自己编，也可以直接下载编译好的文件。因为traefik是使用go语言编译的，所有的依赖都在一个程序里面，没有乱七八糟的依赖问题。
+发布版本下载地址<a href="https://github.com/containous/traefik/releases">https://github.com/containous/traefik/releases</a></p>
+
+<p>2、编写配置文件，添加前后端来配置代理。
+我使用的是清华大学的镜像站，速度还比较快。地址:<a href="https://mirrors.tuna.tsinghua.edu.cn/qt/">https://mirrors.tuna.tsinghua.edu.cn/qt/</a></p>
+
+<p>写好配置文件之后，直接运行起来即可</p>
+
+<pre><code>./traefik --c config.toml
+</code></pre>
+
+<p>配置文件如何写，可以看官网上的文档。需要中文的也可以看这里<a href="http://docs.traefik.cn/basics">http://docs.traefik.cn/basics</a>
+配置文件如下：</p>
+
+<pre><code class="language-ini"># 入口点
+[entryPoints]
+  # HTTP 入口点，只需要HTTP的就够了
+  [entryPoints.http]
+  address = &quot;:80&quot;    # 使用80端口，这样后面有用
+
+
+# 管理界面监听端口
+[web]
+  address = &quot;:8012&quot;
+  [web.statistics]
+  ReccentError = 10
+
+# 配置文件监测(有改变的时候无需重启服务程序，会自动更新)
+[file]
+filename = &quot;./config.toml&quot;
+watch = true
+# 后端服务器定义
+  [backends]
+    # 定义后端，这里我直接使用的tuna的名称
+    [backends.tuna]
+      # 设置最大连接数，其实可以不设置
+      [backends.tuna.maxconn]
+  	  amount = 10
+  	  extractorfunc = &quot;request.host&quot;
+          # 后端的服务器，可以添加多个
+	  [backends.tuna.servers.server1]
+	  url = &quot;https://mirrors-i.tuna.tsinghua.edu.cn&quot;  # 这里使用清华镜像站的URL
+	  weight = 10
+
+  # 前端转发规则定义  
+  [frontends]
+   # 定义一个前端，前端就是你访问treafik入口点的时候，用来确定如何转发的规则
+    [frontends.tuna]
+    # 这个前端转发到的后端
+    backend = &quot;tuna&quot;
+    passHostHeader = false # 这里不能为true，否则转发的时候会是一个不正常的重定向，导致服务器返回错误
+      # 路由规则，也可以有多个
+      [frontends.tuna.routes.test_1]
+      rule = &quot;AddPrefix:/qt&quot;   # 添加前缀，也就是访问入口点的时候，给URL里面的路径添加前缀/qt再去访问后端
+                                          # 比如访问 http://127.0.0.1/online/qtsdkrepository/windows_x86/android/
+                                          # 那么就会转发到后端 https://mirrors-i.tuna.tsinghua.edu.cn/qt/online/qtsdkrepository/windows_x86/android/
+</code></pre>
+
+<p>3、修改hosts文件，把<code>download.qt.io</code>解析到`127.0.0.1。
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002131204626-83152882.jpg" alt="" /></p>
+
+<p>4、做完上面几步，可以直接在浏览器访问<code>download.qt.io</code>，看看是否正常。
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002131308809-921240112.jpg" alt="" /></p>
+
+<p>然后直接使用Qt安装目录下的MaintenanceTool程序进行升级更新即可。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002130927924-1639732715.jpg" alt="" /></p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002130939976-1205239452.jpg" alt="" /></p>
+
+<p><strong>注意，使用中科大的源，因为文件不全，可能出现下面的问题，北交大的源不能用，它里面是空的，就一个假的。使用清华的源没问题。</strong>
+<img src="https://img2018.cnblogs.com/blog/693958/201810/693958-20181002131538152-1334519025.jpg" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

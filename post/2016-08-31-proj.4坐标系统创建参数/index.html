@@ -1,0 +1,497 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Proj.4坐标系统创建参数 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Proj.4坐标系统创建参数</h1>
+          <span class="post-date">2016年08月31日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/31/5826829.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2016/08/31/5826829.html</a></p>
+
+<p>#Proj.4坐标系统创建参数</p>
+
+<p>本文由乌合之众lym瞎编，欢迎转载blog.cnblogs.net/oloroso</p>
+
+<p>本文原文地址 (<a href="https://github.com/OSGeo/proj.4/wiki/GenParms)[https://github.com/OSGeo/proj.4/wiki/GenParms">https://github.com/OSGeo/proj.4/wiki/GenParms)[https://github.com/OSGeo/proj.4/wiki/GenParms</a>]</p>
+
+<p>grid shift翻译为网格转换</p>
+
+<p>翻译有诸多不妥和错误，请见谅。</p>
+
+<p>这个文档目的是描述所有<code>PROJ.4</code>的参数，可以应用于所有或大多数坐标系统定义。本文档并不试图描述特定于投影类型的特定参数。其中一些可以在GeoTIFF <a href="http://www.remotesensing.org/geotiff/proj_list/">投影变换列表</a>找到。大多数参数的详细文档是可从 PROJ.4 主页访问</p>
+
+<h2 id="参数列表">参数列表</h2>
+
+<p>通用参数:</p>
+
+<p>(这里包括PROJ.4配置<code>cs2cs</code>和基准面支持)</p>
+
+<pre><code>+a         椭球体长半轴长度
++alpha     ? 用于斜墨卡托和其它几个可能的投影
++axis      轴方向 (new in 4.8.0)
++b         椭球体短半轴长度
++datum     基准面名(见`proj -ld`)
++ellps     椭球体名(见`proj -le`)
++k         比例因子(old name)
++k_0       比例因子(new name)
++lat_0     维度起点
++lat_1     标准平行纬线第一条
++lat_2     标准平行纬线第二条
++lat_ts    有效纬度范围Latitude of true scale
++lon_0     中央经线
++lonc      ? 经度用于斜墨卡托和其它几个可能的投影
++lon_wrap  Center longitude to use for wrapping (见下文)
++nadgrids  NTv2网格文件的文件名，用于基准面转换(见下文)
++no_defs   不要使用/usr/share/proj/proj_def.dat缺省文件
++over      允许经度超出-180到180范围,禁止wrapping (见下文)
++pm        备用本初子午线(通常是一个城市的名字，见下文)
++proj      投影名(见`proj -l`)
++south     表示南半球UTM区域
++to_meter  乘数，转换地图单位为1.0m
++towgs84   3或7参数基准面转换(见下文)
++units     meters(米), US survey feet(美国测量英尺),等.
++vto_meter 垂直变换为米.
++vunits    垂直单位.
++x_0       东伪偏移
++y_0       北伪偏移
++zone      UTM区域
+</code></pre>
+
+<p>由Gerald Evenden提供的扩展列表 &ldquo;grepped out of the RCS directory&rdquo;.</p>
+
+<p>(libproj4 by G.E.; 没有基准面支持)</p>
+
+<pre><code>+a         椭球体长半轴长度
++alpha     ? 用于斜墨卡托和其它几个可能的投影
++azi
++b         椭球体短半轴长度
++belgium
++beta
++czech
++e         椭球体的偏心率= sqrt(1 - b^2/a^2) = sqrt( f*(2-f) )
++ellps     椭球体名(见`proj -le`)
++es        椭球体的偏心率的平方
++f         椭球体扁平程度= 1-sqrt(1-e^2) (经常用倒数表示,例:1/298)
++geoc
++guam
++h
++k         比例因子(old name)
++K
++k_0       比例因子(new name)
++lat_0     维度起点
++lat_1     标准平行纬线第一条
++lat_2     标准平行纬线第二条
++lat_b
++lat_t
++lat_ts    Latitude of true scale
++lon_0     中央经线
++lon_1
++lon_2
++lonc      ? 经度用于斜墨卡托和其它几个可能的投影
++lsat
++m
++M
++n
++no_cut
++no_off
++no_rot
++ns
++o_alpha
++o_lat_1
++o_lat_2
++o_lat_c
++o_lat_p
++o_lon_1
++o_lon_2
++o_lon_c
++o_lon_p
++o_proj
++over
++p
++path
++proj      投影名(见`proj -l`)
++q
++R
++R_a
++R_A       计算半径，使得球体的面积是等同于椭圆体的面积
++rf        椭球体扁平程度倒数(例:298)
++R_g
++R_h
++R_lat_a
++R_lat_g
++rot
++R_V
++s
++south     表示南半球UTM区域
++sym
++t
++theta
++tilt
++to_meter  乘数，转换地图单位为1.0m
++units     meters(米), US survey feet(美国测量英尺),等.
++vopt
++W
++westo
++x_0       东伪偏移
++y_0       北伪偏移
++zone      UTM区域
+</code></pre>
+
+<p>See GE&rsquo;s <a href="http://members.verizon.net/~gerald.evenden/proj4/manual.pdf">libproj4 manual</a> for further details (<a href="http://web.archive.org/web/20080807155507/http://members.verizon.net/~gerald.evenden/proj4/manual.pdf">copy in wayback machine</a>).</p>
+
+<p>更多投影详细信息在 <a href="http://www.remotesensing.org/geotiff/proj_list/">http://www.remotesensing.org/geotiff/proj_list/</a></p>
+
+<h2 id="单位">单位</h2>
+
+<p>水平单位可以使用<code>+units=</code>关键字指定一个单位的符号名(如:us-ft)。另外转换为米单位可以使用<code>+to_meter</code>关键字指定(如: 美国英尺为0.304800609601219米)。<code>-lu</code>参数用于<code>cs2cs</code>或<code>proj</code>可以列出支持单位名称.默认单位是度(degrees)。</p>
+
+<h2 id="垂直单位">垂直单位</h2>
+
+<p>垂直单位(Z)可以使用<code>+vunits=</code>关键字指定一个单位的符号名(如: <code>us-ft</code>)。另外转换为米单位可以使用<code>+vto_meter</code>关键字指定(如: 美国英尺为0.304800609601219米).<code>-lu</code>参数用于<code>cs2cs</code>或<code>proj</code>可以列出支持单位名称。如果没有指定垂直单位，垂直单元将默认为与水平坐标相同的.</p>
+
+<p><strong>注意</strong>垂直单位转换仅在<code>pj_transform()</code>和建立在这基础上的程序(如cs2cs)。低层次的投影函数<code>pj_fwd()</code>和<code>pj_inv()</code>以及直接使用它们的程序(如<code>proj</code>)，根本不处理垂直单位.</p>
+
+<h2 id="东-北伪偏移">东/北伪偏移</h2>
+
+<p>几乎所有的坐标系统都运行东伪偏移(+x_0)和北伪偏移(+y_0)。请注意，这些值是米单位的，即使坐标系是一些其它单位的.一些坐标系统(如UTM)具有隐含的东/北伪偏移值.</p>
+
+<h2 id="lon-wrap-超范围部分经度环绕">lon_wrap, 超范围部分经度环绕</h2>
+
+<p>默认情况下PROJ.4在经度范围-180到180环绕包覆。<code>+over</code>可用于禁用默认warp(环绕包覆)。
+which is done at a low level - in <code>pj_inv()</code>.  This is particularly useful with projections like eqc where it would desirable for X values past -20000000 (roughly) to continue past -180 instead of wrapping to +180.</p>
+
+<p>The <code>+lon_wrap</code> option can be used to provide an alternative means of doing longitude wrapping within <code>pj_transform()</code>.  The argument to this option is a center longitude.  So <code>+lon_wrap=180</code> means wrap longitudes in the range 0 to 360.  Note that <code>+over</code> does <strong>not</strong> disable <code>+lon_wrap</code>.</p>
+
+<h2 id="pm-本初子午线">pm - 本初子午线</h2>
+
+<p>本初子午线可以声明表示声明的坐标系本初子午线和格林威治之间的偏移。本初子午线是使用&rdquo;pm&rdquo;参数声明的，可能被分配一个符号名称或替代相对於格林尼治子午线的经度（<code>例如:+pm=-10，即表示本初子午线为相对格林尼治子午线东偏10度</code>）。</p>
+
+<p>当前子午线声明只被<code>pj_transform()</code> API利用,而不被<code>pj_inv()</code>和<code>pj_fwd()</code>利用。因此用户工具<code>cs2cs</code>遵守本初子午线参数，但是<code>proj</code>程序忽略它.</p>
+
+<p>支持以下预先声明本初子午线名称。这些都可以使用<code>cs2cs -lm</code>列出.</p>
+
+<pre><code>   greenwich 0dE                           
+      lisbon 9d07'54.862&quot;W                 
+       paris 2d20'14.025&quot;E                 
+      bogota 74d04'51.3&quot;E                  
+      madrid 3d41'16.48&quot;W                  
+        rome 12d27'8.4&quot;E                   
+        bern 7d26'22.5&quot;E                   
+     jakarta 106d48'27.79&quot;E                
+       ferro 17d40'W                       
+    brussels 4d22'4.71&quot;E                   
+   stockholm 18d3'29.8&quot;E                   
+      athens 23d42'58.815&quot;E                
+        oslo 10d43'22.5&quot;E                  
+</code></pre>
+
+<p>使用示例：位置<code>long=0</code>, <code>lat=0</code>在基于格林威治的lat/long坐标转换到基于马德里作为本初子午线的lat/long坐标.</p>
+
+<pre><code class="language-bash"># 源坐标系    	+proj=latlong +datum=WGS84
+# 目标坐标系	+proj=latlong +datum=WGS84 +pm=madrid
+ cs2cs +proj=latlong +datum=WGS84 +to +proj=latlong +datum=WGS84 +pm=madrid
+0 0                           &lt;i&gt;(input)&lt;/i&gt;
+3d41'16.48&quot;E    0dN 0.000     &lt;i&gt;(output)&lt;/i&gt;
+</code></pre>
+
+<h2 id="towgs84-基准面转换到wgs84">towgs84 - 基准面转换到WGS84</h2>
+
+<p>基准面变换可以使用3参数空间变换(地心空间直角坐标系)，或7参数变换(平移 + 旋转 + 缩放)。可以使用<code>towgs84</code>参数来描述.</p>
+
+<p>在三个参数的情况下，这三个参数转换以米为单位的地心坐标位置。</p>
+
+<p>例如，下面演示了从希腊GGRS87基准变换到WGS84.</p>
+
+<pre><code class="language-bash"># 源坐标系		+proj=latlong +ellps=GRS80 +towgs84=-199.87,74.79,246.62
+# 目标坐标系	+proj=latlong +datum=WGS84
+s2cs +proj=latlong +ellps=GRS80 +towgs84=-199.87,74.79,246.62 \
+    +to +proj=latlong +datum=WGS84
+20 35
+20d0'5.467&quot;E    35d0'9.575&quot;N 8.570
+</code></pre>
+
+<p>EPSG提供示例，使用近似7参数变换WGS72到WGS84。</p>
+
+<pre><code class="language-bash">cs2cs +proj=latlong +ellps=WGS72 +towgs84=0,0,4.5,0,0,0.554,0.219 \
+    +to +proj=latlong +datum=WGS84
+4 55
+4d0'0.554&quot;E     55d0'0.09&quot;N 3.223
+</code></pre>
+
+<p>七参数情况下使用<code>delta_x</code>, <code>delta_y</code>, <code>delta_z</code>, <code>Rx - rotation X</code>, <code>Ry - rotation Y</code>, <code>Rz - rotation Z</code>, <code>M_BF - Scaling</code>。三个平移参数是米单位，如同3参数情况。旋转参数是角秒(角度单位)。缩放值的百万分之一，是尺度变化值(实际缩放值=1.0+缩放因子/1000000)。</p>
+
+<p>在3和7参数变换的更完整的讨论，可以在EPSG数据库中找到(trf_method的9603和9606)。在PROJ.4内，以下计算被用于<code>towgs84</code>变换(going to WGS84)。x、y和 z坐标是地心坐标.</p>
+
+<p>三参数变换(simple offsets):</p>
+
+<pre><code class="language-c">  x[io] = x[io] + defn-&gt;datum_params[0];
+  y[io] = y[io] + defn-&gt;datum_params[1];
+  z[io] = z[io] + defn-&gt;datum_params[2];
+</code></pre>
+
+<p>七参数变换(translation, rotation and scaling):</p>
+
+<pre><code class="language-c">  #define Dx_BF (defn-&gt;datum_params[0])
+  #define Dy_BF (defn-&gt;datum_params[1])
+  #define Dz_BF (defn-&gt;datum_params[2])
+  #define Rx_BF (defn-&gt;datum_params[3])
+  #define Ry_BF (defn-&gt;datum_params[4])
+  #define Rz_BF (defn-&gt;datum_params[5])
+  #define M_BF  (defn-&gt;datum_params[6])
+
+  x_out = M_BF*(       x[io] - Rz_BF*y[io] + Ry_BF*z[io]) + Dx_BF;
+  y_out = M_BF*( Rz_BF*x[io] +       y[io] - Rx_BF*z[io]) + Dy_BF;
+  z_out = M_BF*(-Ry_BF*x[io] + Rx_BF*y[io] +       z[io]) + Dz_BF;
+</code></pre>
+
+<p><strong>注意</strong>EPSG方法9607(coordinate frame rotation)系数可以由PROJ.4通过对旋转参数取负数得到转换到EPSG方法9606 (position vector 7-parameter)支持。这些方法其他方面是相同的。
+<strong>这里实际的意思是，对于布尔沙模型的七参数（ArcGIS使用的也是），与这里使用的七参数（实际测试是DSNP+模型），在三个旋转参数上正负号是相反的。</strong></p>
+
+<h2 id="nadgrids-基于网格的基准调整">nadgrids - 基于网格的基准调整</h2>
+
+<p>在许多地方(尤其是北美洲和澳大利亚)国家大地测量组织针对不同的基准(比如NAD27到NAD83之间进行转换)提供网格转换(gird shift)的文件。这些网格转换文件包括在每个网格位置上施加的偏移。实际上，网格位移通常是基于包含四个网格点之间的内插计算的。</p>
+
+<p>PROJ.4当前支持在某些情况下使用网格转换文件在当前基准和WGS84直接转换。网格转换表的格式是ctable(使用PROJ.4 <code>nad2bin</code>程序生成二进制格式), NTv1 (旧的加拿大格式), and NTv2 (<code>.gsb</code>新的加拿大和澳大利亚格式).</p>
+
+<p>网格变换的使用，是在坐标系统定义中指定<code>nadgrids</code>关键字时使用。例如:</p>
+
+<pre><code class="language-bash"># +nadgrids=ntv1_can.dat 指定使用网格变换文件
+% cs2cs +proj=latlong +ellps=clrk66 +nadgrids=ntv1_can.dat \
+    +to +proj=latlong +ellps=GRS80 +datum=NAD83 &lt;&lt; EOF
+-111 50 
+EOF
+111d0'2.952&quot;W   50d0'0.111&quot;N 0.000
+</code></pre>
+
+<p>在上面例子中，网格转换文件<code>/usr/local/share/proj/ntv1_can.dat</code>被加载，并用于获得选定的点进行网格转换后的值。</p>
+
+<p>它可能列出多个网格转换文件，在这种情况下，将依次尝试每一个grid shift文件，直到找到包含被转换点的。</p>
+
+<pre><code class="language-bash">cs2cs +proj=latlong +ellps=clrk66 \
+          +nadgrids=conus,alaska,hawaii,stgeorge,stlrnc,stpaul \
+    +to +proj=latlong +ellps=GRS80 +datum=NAD83 &lt;&lt; EOF
+-111 44
+EOF
+111d0'2.788&quot;W   43d59'59.725&quot;N 0.000
+</code></pre>
+
+<h3 id="跳过丢失网格">跳过丢失网格</h3>
+
+<p>可选的特定前缀<code>@</code>可用于网格转换文件。如果它不存在，将继续搜索下一个网格。通常没有找到任何网格，将产生错误。例如,下面将使用<code>ntv2_0.gsb</code>文件(见 [[NonFreeGrids]]),如果不可以则回退使用<code>ntv1_can.dat</code>文件.</p>
+
+<pre><code class="language-bash">cs2cs +proj=latlong +ellps=clrk66 +nadgrids=@ntv2_0.gsb,ntv1_can.dat \
+    +to +proj=latlong +ellps=GRS80 +datum=NAD83 &lt;&lt; EOF
+-111 50 
+EOF
+111d0'3.006&quot;W   50d0'0.103&quot;N 0.000
+</code></pre>
+
+<h3 id="null网格">null网格</h3>
+
+<p>一个特殊的&rdquo;&lsquo;null&rdquo;&lsquo;网格转换文件在4.4.6(不含)版本后发布。这个文件给全世界提供一个零点(zero)转换。它可以添加在nadgrids文件列表的末尾，在你想在所有其它网格有效区域外的点施加一个零点转换的时候。通常情况下，如果要转换的点不在任何网格中，将发生错误。</p>
+
+<pre><code class="language-bash">cs2cs +proj=latlong +ellps=clrk66 +nadgrids=conus,null \
+    +to +proj=latlong +ellps=GRS80 +datum=NAD83 &lt;&lt; EOF
+-111 45
+EOF
+111d0'3.006&quot;W   50d0'0.103&quot;N 0.000
+
+cs2cs +proj=latlong +ellps=clrk66 +nadgrids=conus,null \
+    +to +proj=latlong +ellps=GRS80 +datum=NAD83 &lt;&lt; EOF
+-111 44
+-111 55
+EOF
+111d0'2.788&quot;W   43d59'59.725&quot;N 0.000
+111dW   55dN 0.000
+</code></pre>
+
+<h3 id="下载并安装网格">下载并安装网格</h3>
+
+<p>The source distribution of PROJ.4 contains only the ntv1_can.dat file.  To get the set of US grid shift files it is necessary to download an additional distribution of files from the PROJ.4 site, such as <a href="ftp://ftp.remotesensing.org/pub/proj/proj-nad27-1.1.tar.gz">ftp://ftp.remotesensing.org/pub/proj/proj-nad27-1.1.tar.gz</a>.  Overlay it on the PROJ.4 source distribution, and re-configure, compile and install.  The distributed ASCII .lla files are converted into binary (platform specific) files that are installed.  On windows using the nmake /f makefile.vc nadshift command in the proj\src directory to build and install these files.</p>
+
+<p>It appears we can&rsquo;t redistribute the Canadian NTv2 grid shift file freely, though it is better than the NTv1 file.  However, end users can download it for free from the <a href="http://www.geod.nrcan.gc.ca/tools-outils/ntv2_e.php">NRCan web site</a>.  After downloading it, just dump it in the data directory with the other installed data files (usually <code>/usr/local/share/proj</code>). See [[NonFreeGrids]] for details.</p>
+
+<h3 id="注意事项">注意事项</h3>
+
+<ul>
+<li>当点在在网格重叠区域时(例如conus(圆锥)和ntv1_can.dat)选择第一个查找到的，而不管是否适当。所以，例如 <code>+nadgrids=ntv1_can.dat</code>,conus将导致加拿大的数据被用于美国北部一些地区，即使conus数据经过批准用于该区域。仔细选择文件和文件顺序是必要的。在某些情况下，边界跨越数据集可能需要被预先分割成加拿大和美国的点，以便他们可进行适当网格的转换。</li>
+<li>有针对NAD83和NAD83基准面的各种HPGN版本之间转换的附加网格。使用这些未经测试的，你可能会遇到的问题。FL.lla，WO.lla，MD.lla，TN.lla和WI.lla都是高精度网格转换的例子。小心！</li>
+<li>设置<code>PROJ_DEBUG</code>环境变量的值，可以知道正在应用网格转换的其他信息。这将导致用什么网格去转换点信息输出到<code>stderr</code>上。各个加载网格的边界值等。</li>
+<li>PROJ.4始终假定网格包含转换<strong>到</strong> NAD83 (基本上是 WGS84)。其他类型的网格可能被或不被使用。</li>
+</ul>
+
+<h2 id="轴定向">轴定向</h2>
+
+<p>从PROJ 4.8.0开始,<code>+axis</code>可以用于控制坐标系的轴方向。默认的定向是&rdquo;easting, northing, up&rdquo;，但方向或轴可以翻转,使用<code>axes</code>组合在<code>+axis</code>切换。axes的值是:</p>
+
+<ul>
+<li>&ldquo;e&rdquo; - 东</li>
+<li>&ldquo;w&rdquo; - 西</li>
+<li>&ldquo;n&rdquo; - 北</li>
+<li>&ldquo;s&rdquo; - 南</li>
+<li>&ldquo;u&rdquo; - 上</li>
+<li>&ldquo;d&rdquo; - 下</li>
+</ul>
+
+<p>它们与<code>+axis</code>结合的形式如下:</p>
+
+<ul>
+<li><code>+axis=enu</code> - 默认的东、北、标高.</li>
+<li><code>+axis=neu</code> - northing, easting, up - 针对&rdquo;lat/long&rdquo;地理坐标,或南向的横轴墨卡托很有用.</li>
+<li><code>+axis=wnu</code> - westing, northing, up - 一些行星坐标系具有&rdquo;west positive&rdquo;坐标系统.</li>
+</ul>
+
+<p><strong>注意</strong><code>+axis</code>参数只适用于通过<code>pj_transform()</code>进行坐标转换 (它可用于命令行程序<code>cs2cs</code>,但不用于proj).</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

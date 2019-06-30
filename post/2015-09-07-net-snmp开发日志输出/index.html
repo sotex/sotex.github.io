@@ -1,0 +1,200 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> NET-SNMP开发——日志输出 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>NET-SNMP开发——日志输出</h1>
+          <span class="post-date">2015年09月07日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/09/07/4789201.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/09/07/4789201.html</a>
+<h1 id="NET-SNMP........................">NET-SNMP开发&mdash;&mdash;日志输出</h1>
+<p>net-snmp的日志输出功能是很强大的，与日志输出相关函数声明在<code>net-snmp-5.7.3\include\net-snmp\library\snmp_logging.h</code>文件中，定义在<code>net-snmp-5.7.3\snmplib\snmp_logging.c</code>文件中。</p>
+<p>具体实现就不说了，可以自己看源码。</p>
+<p>net-snmp的日志功能默认将日志写入到<code class="sourceCode c">/var/log/snmpd.log</code>文件中(linux/unix下，windows下没有)</p>
+<h2 id="snmp.log.......">snmp log 类型</h2>
+<p>net-snmp中将日志分为8个类型(一个警告warning，三个信息information，四个错误error)，具体的宏定义如下</p>
+<pre><code class="cpp">/* error types <em>/
+#define LOG_EMERG       0       /</em> system is unusable <em>/
+#define LOG_ALERT       1       /</em> action must be taken immediately <em>/
+#define LOG_CRIT        2       /</em> critical conditions 临界条件<em>/
+#define LOG_ERR         3       /</em> error conditions 错误条件<em>/
+/</em> warning type <em>/
+#define LOG_WARNING     4       /</em> warning conditions 预警条件<em>/
+/</em> information types <em>/
+#define LOG_NOTICE      5       /</em> normal but significant condition 正常但意义重大<em>/
+#define LOG_INFO        6       /</em> informational 信息<em>/
+#define LOG_DEBUG       7       /</em> debug-level messages 调试级别的消息*/
+</code></pre>
+<p>注意：这些严重等级的分类是与标准的 UNIX/LINUX 中的 syslog 一致的。</p>
+<p><code>System is unusable emergencies alerts</code> 极其紧急的错误 <code>Action must be taken immediately</code> 需立即纠正的错误 <code>Critical conditions</code> 关键信息 <code>Error conditions</code> 需关注但不关键的错误 <code>Warning conditions</code>警告，可能存在某种差错 <code>Normal but significant condition</code> 需注意的信息 <code>Informational</code> 一般提示信息 <code>Debug-level messages</code>调试信息</p>
+<h2 id="L..................">日志输出函数</h2>
+<h3 id="snmp_log">snmp_log</h3>
+<pre><code class="c">int snmp_log(int priority, const char *format, &hellip;)
+</code></pre>
+<p>这个函数实际上调用的是<code>snmp_vlog</code>函数，这个函数成功返回0，当不能格式化日志字符串时返回1，当动态内存不能分配返回2，如果日志缓冲区的长度大于1024字节。这些消息将以LOG_ERR类型直接写入日志文件。</p>
+<p>调用示例</p>
+<pre><code class="sourceCode c">snmp_log(LOG_ERR, &ldquo;%s: Error %d out-of-range\n&rdquo;, s, errno);
+</code></pre>
+<h3 id="snmp_log_perror">snmp_log_perror</h3>
+<pre><code class="c">void snmp_log_perror(const char <em>s)
+</code></pre>
+<p>实际上是先调用<code>char</em> error = strerror(errno);</code>获取<code>errno</code>的信息，然后使用<code>snmp_log</code>来输出参数<code>s</code>和<code>error</code>字符串。 调用示例</p>
+<pre><code class="c">snmp_log_perror(&ldquo;init error&rdquo;);
+</code></pre>
+<h3 id="snmp_log_string">snmp_log_string</h3>
+<pre><code class="sourceCode c">void snmp_log_string(int priority, const char *str)
+</code></pre>
+<p>调用示例</p>
+<pre><code class="c">snmp_log_string(LOG_ERR, &ldquo;Could not format log-string\n&rdquo;);
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

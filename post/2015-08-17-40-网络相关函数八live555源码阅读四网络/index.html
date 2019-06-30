@@ -1,0 +1,272 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 40 网络相关函数(八)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>40 网络相关函数(八)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月17日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/17/4736919.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/17/4736919.html</a>
+<h1 id="40-live555">40 网络相关函数(八)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#40-live555">40 网络相关函数(八)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#15writesocket">15)writeSocket向套接口写数据</a></li>
+<li><a href="#ttl">TTL的概念</a></li>
+<li><a href="#sendto">函数sendto</a>
+<ul>
+<li><a href="#_2">函数原型</a></li>
+<li><a href="#_3">函数说明</a></li>
+<li><a href="#_4">参数说明：</a></li>
+<li><a href="#_5">返回值</a>
+<ul>
+<li><a href="#_6">错误代码</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="15writesocket">15)writeSocket向套接口写数据</h2>
+<p><code>writeSocket</code>函数用于将<code>buffer</code>中的数据经<code>socket</code>套接口写入到目标主机<code>(address + port)</code>。参数<code>ttlArg</code>为<code>0</code>时被忽略，不为<code>0</code>时设置此处发送数据包的最大路由跳转次数。</p>
+<pre><code class="cpp">// 往套接口写数据
+Boolean writeSocket(UsageEnvironment&amp; env,
+    int socket, struct in_addr address, Port port,
+    u_int8_t ttlArg,
+    unsigned char* buffer, unsigned bufferSize)
+{
+    do {
+        if (ttlArg != 0) {
+            // TTL是 Time To Live的缩写，该字段指定IP包被路由器丢弃之前允许通过的最大网段数量。
+            // TTL的最大值是255，TTL的一个推荐值是64。
+            // Before sending, set the socket&rsquo;s TTL:发送前设置socket TTL
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+#define TTL_TYPE int
+#else
+#define TTL_TYPE u_int8_t
+#endif
+            TTL_TYPE ttl = (TTL_TYPE)ttlArg;
+            // 设置多播TTL值
+            if (setsockopt(socket, IPPROTO_IP, IP_MULTICAST_TTL,
+                (const char*)&amp;ttl, sizeof ttl) &lt; 0) {
+                socketErr(env, &ldquo;setsockopt(IP_MULTICAST_TTL) error: &ldquo;);
+                break;
+            }
+        }</p>
+
+<pre><code>    MAKE_SOCKADDR_IN(dest, address.s_addr, port.num());
+    // 将buffer中的数据经socket发送到dest
+    int bytesSent = sendto(socket, (char*)buffer, bufferSize, 0,
+        (struct sockaddr*)&amp;amp;dest, sizeof dest);
+    // 发送非全部发送成功
+    if (bytesSent != (int)bufferSize) {
+        char tmpBuf[100];
+        sprintf(tmpBuf, &quot;writeSocket(%d), sendTo() error: wrote %d bytes instead of %u: &quot;, socket, bytesSent, bufferSize);
+        socketErr(env, tmpBuf);
+        break;
+    }
+
+    return True;    //发送成功返回
+} while (0);
+
+return False;   //失败返回
+</code></pre>
+
+<p>}
+</code></pre>
+<h2 id="ttl">TTL的概念</h2>
+<p><code>TTL</code>是<code>Time To Live</code>的缩写，该字段指定<code>IP包</code>被路由器丢弃之前允许通过的最大网段数量。在IPv4包头中TTL是一个8 bit字段，它位于IPv4包的第9个字节。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201508/171618160508351.jpg" alt="" /></p>
+<p>如上图所示，每一行表示<code>32 bit</code>（4字节），位从0开始编号，即0~31。<br />
+<code>TTL</code>的作用是限制IP数据包在计算机网络中的存在的时间。TTL的最大值是<code>25</code>5，TTL的一个推荐值是<code>64</code>。</p>
+<p>虽然TTL从字面上翻译，是可以存活的时间，但实际上TTL是IP数据包在计算机网络中可以转发的最大跳数。TTL字段由IP数据包的发送者设置，在IP数据包从源到目的的整个转发路径上，每经过一个路由器，路由器都会修改这个TTL字段值，具体的做法是把该TTL的值<code>减1</code>，然后再将IP包转发出去。如果在<code>IP包</code>到达<code>目的IP</code>之前，TTL减少为<code>0</code>，路由器将会<code>丢弃</code>收到的<code>TTL=0</code>的IP包并向IP包的发送者发送<code>ICMP time exceeded</code>消息。<br />
+TTL的主要作用是<code>避免IP包</code>在网络中的<code>无限循环和收发</code>，节省了网络资源，并能使<code>IP包</code>的<code>发送者</code>能收到<code>告警</code>消息。<br />
+TTL 是由<code>发送主机</code>设置的，以防止数据包不断在IP互联网络上永不终止地循环。转发IP数据包时，要求路由器<code>至少</code>将 TTL 减小 1。</p>
+<h2 id="sendto">函数sendto</h2>
+<h3 id="_2">函数原型</h3>
+<pre><code>int sendto ( socket s , const void * msg, int len, unsigned int flags, const
+struct sockaddr * to , int tolen ) ;
+</code></pre>
+<h3 id="_3">函数说明</h3>
+<p><code>sendto()</code> 用来将数据由指定的<code>socket</code>传给对方主机。</p>
+<h3 id="_4">参数说明：</h3>
+<ul>
+<li>s 为已建立连接的<code>socket</code>,如果利用<code>UDP</code>协议则不需经过连线操作。</li>
+<li>msg 指向欲发送的数据内容</li>
+<li>flags 一般设0，详细描述请参考<code>send()</code>。</li>
+<li>to 用来指定目的套接字的地址，结构<code>ockaddr</code>请参考<code>bind()</code>。</li>
+<li>tolen 为<code>sockaddr</code>的结构长度。</li>
+</ul>
+<h3 id="_5">返回值</h3>
+<p>成功则返回实际传送出去的<code>字节数</code>，失败返回<code>－1</code>，错误原因存于<code>errno</code>中。</p>
+<h4 id="_6">错误代码</h4>
+<ul>
+<li>EBADF 参数s非法的socket处理代码。</li>
+<li>EFAULT 参数中有一指针指向无法存取的内存空间。</li>
+<li>ENOTSOCK 参数 s为一文件描述词，非socket。</li>
+<li>EINTR 被信号所中断。</li>
+<li>EAGAIN 此动作会令进程阻断，但参数s的socket为不可阻断的。</li>
+<li>ENOBUFS 系统的缓冲内存不足。</li>
+<li>EINVAL 传给系统调用的参数不正确。</li>
+</ul></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

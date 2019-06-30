@@ -1,0 +1,509 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 简单的哈希表实现 C语言 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>简单的哈希表实现 C语言</h1>
+          <span class="post-date">2015年06月30日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/30/4610109.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/30/4610109.html</a>
+<h2 id="_1">简单的哈希表实现</h2>
+<div class="toc">
+<ul>
+<li><a href="#_1">简单的哈希表实现</a>
+<ul>
+<li><a href="#_2">原理</a></li>
+<li><a href="#_3">哈希表和节点数据结构的定义</a></li>
+<li><a href="#_4">初始化和释放哈希表</a></li>
+<li><a href="#_5">哈希散列算法</a></li>
+<li><a href="#strdup">辅助函数strDup</a></li>
+<li><a href="#_6">哈希表的插入和修改</a></li>
+<li><a href="#_7">哈希表中查找</a></li>
+<li><a href="#_8">哈希表元素的移除</a></li>
+<li><a href="#_9">哈希表打印</a></li>
+<li><a href="#_10">测试一下</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>这是一个简单的哈希表的实现，用<code>c</code>语言做的。</p>
+<h2 id="_2">原理</h2>
+<p>先说一下原理。<br />
+先是有一个<code>bucket</code>数组，也就是所谓的桶。</p>
+<p>哈希表的特点就是<code>数据</code>与其在表中的位置存在<code>相关性</code>，也就是有关系的，通过数据应该可以计算出其位置。</p>
+<p>这个哈希表是用于存储一些键值对(<code>key &ndash; value</code>)关系的数据，其<code>key</code>也就是其在表中的索引，<code>value</code>是附带的数据。</p>
+<p>通过散列算法，将字符串的<code>key</code>映射到某个桶中，这个算法是确定的，也就是说一个<code>key</code>必然对应一个<code>bucket</code>。</p>
+<p>然后是碰撞问题，也就是说多个<code>key</code>对应一个索引值。举个例子：有三个<code>key</code>:<code>key1</code>,<code>key3</code>,<code>key5</code>通过散列算法<code>keyToIndex</code>得到的索引值都为<code>2</code>，也就是这三个<code>key</code>产生了碰撞，对于碰撞的处理，采取的是用链表连接起来，而没有进行再散列。</p>
+<p>&nbsp;<img src="http://images0.cnblogs.com/blog2015/693958/201506/301256459625911.jpg" alt="" /></p>
+<p>这是包含的头文件<code class="c">
+</code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:cpp;gutter:true;">#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;</p>
+
+<p>#define BUCKETCOUNT 16
+</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_3">哈希表和节点数据结构的定义<code class="c"> </code></h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;"> hashEntry
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em><span style="color: #000000;"> key;
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">char</span></em><span style="color: #000000;"> value;
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">struct</span> hashEntry<em><span style="color: #000000;"> next;
+</span><span style="color: #008080;"> 6</span> <span style="color: #000000;">};
+</span><span style="color: #008080;"> 7</span>
+<span style="color: #008080;"> 8</span> typedef <span style="color: #0000ff;">struct</span><span style="color: #000000;"> hashEntry entry;
+</span><span style="color: #008080;"> 9</span>
+<span style="color: #008080;">10</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;"> hashTable
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">12</span>     entry bucket[BUCKETCOUNT];  <span style="color: #008000;">//</span><span style="color: #008000;">先默认定义16个桶</span>
+<span style="color: #008080;">13</span> <span style="color: #000000;">};
+</span><span style="color: #008080;">14</span>
+<span style="color: #008080;">15</span> typedef <span style="color: #0000ff;">struct</span> hashTable table;</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_4">初始化和释放哈希表</h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">初始化哈希表</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">void</span> initHashTable(table</em><span style="color: #000000;"> t)
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> i;
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">if</span> (t == NULL)<span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">for</span> (i = <span style="color: #800080;">0</span>; i &lt; BUCKETCOUNT; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;"> 8</span>         t-&gt;bucket[i].key =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;"> 9</span>         t-&gt;bucket[i].value =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">10</span>         t-&gt;bucket[i].next =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">}
+</span><span style="color: #008080;">13</span>
+<span style="color: #008080;">14</span> <span style="color: #008000;">//</span><span style="color: #008000;">释放哈希表</span>
+<span style="color: #008080;">15</span> <span style="color: #0000ff;">void</span> freeHashTable(table<em><span style="color: #000000;"> t)
+</span><span style="color: #008080;">16</span> <span style="color: #000000;">{
+</span><span style="color: #008080;">17</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> i;
+</span><span style="color: #008080;">18</span>     entry</em> e,<em><span style="color: #000000;">ep;
+</span><span style="color: #008080;">19</span>     <span style="color: #0000ff;">if</span> (t == NULL)<span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;">20</span>     <span style="color: #0000ff;">for</span> (i = <span style="color: #800080;">0</span>; i&lt;BUCKETCOUNT; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;">21</span>         e = &amp;(t-&gt;<span style="color: #000000;">bucket[i]);
+</span><span style="color: #008080;">22</span>         <span style="color: #0000ff;">while</span> (e-&gt;next !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">23</span>             ep = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">24</span>             e-&gt;next = ep-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">25</span>             <span style="color: #0000ff;">free</span>(ep-&gt;<span style="color: #000000;">key);
+</span><span style="color: #008080;">26</span>             <span style="color: #0000ff;">free</span>(ep-&gt;<span style="color: #000000;">value);
+</span><span style="color: #008080;">27</span>             <span style="color: #0000ff;">free</span><span style="color: #000000;">(ep);
+</span><span style="color: #008080;">28</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">29</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">30</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_5">哈希散列算法</h2>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">哈希散列方法函数</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">int</span> keyToIndex(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span></em><span style="color: #000000;"> key)
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> index , len , i;
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">if</span> (key == NULL)<span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span>     len =<span style="color: #000000;"> strlen(key);
+</span><span style="color: #008080;"> 8</span>     index = (<span style="color: #0000ff;">int</span>)key[<span style="color: #800080;">0</span><span style="color: #000000;">];
+</span><span style="color: #008080;"> 9</span>     <span style="color: #0000ff;">for</span> (i = <span style="color: #800080;">1</span>; i&lt;len; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;">10</span>         index <em>= <span style="color: #800080;">1103515245</span> + (<span style="color: #0000ff;">int</span><span style="color: #000000;">)key[i];
+</span><span style="color: #008080;">11</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">12</span>     index &gt;&gt;= <span style="color: #800080;">27</span><span style="color: #000000;">;
+</span><span style="color: #008080;">13</span>     index &amp;= (BUCKETCOUNT - <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">14</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> index;
+</span><span style="color: #008080;">15</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="strdup">辅助函数strDup</h2>
+<p>这是比较多余的做法，因为C标准库中<code>string.h</code>中有一系列这样的函数。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">在堆上分配足以保存str的内存
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;">并拷贝str内容到新分配位置</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">char</span></em> strDup(<span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em><span style="color: #000000;"> str)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> len;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">char</span></em><span style="color: #000000;"> ret;
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">if</span> (str == NULL)<span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+</span><span style="color: #008080;"> 8</span>
+<span style="color: #008080;"> 9</span>     len =<span style="color: #000000;"> strlen(str);
+</span><span style="color: #008080;">10</span>     ret = (<span style="color: #0000ff;">char</span>*)<span style="color: #0000ff;">malloc</span>(len + <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">11</span>     <span style="color: #0000ff;">if</span> (ret !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">12</span> <span style="color: #000000;">        memcpy(ret , str , len);
+</span><span style="color: #008080;">13</span>         ret[len] = <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">\0</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;">;
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">15</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> ret;
+</span><span style="color: #008080;">16</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<p><code>string.h</code>中的相关函数</p>
+<div class="cnblogs_code">
+<pre>       #include &lt;<span style="color: #0000ff;">string</span>.h&gt;</p>
+
+<pre><code>   &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *strdup(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt;s);
+
+   &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *strndup(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt;s, size_t n);
+   &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *strdupa(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *&lt;span style=&quot;color: #000000;&quot;&gt;s);
+   &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *strndupa(&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt; *s, size_t n);&lt;/pre&gt;
+</code></pre>
+
+<p></div>
+<p>&nbsp;</p>
+<h2 id="_6">哈希表的插入和修改</h2>
+<p>这个了插入和修改是一个方法，如果<code>key</code>在哈希表中已经存在，那么就是修改<code>value</code>，否则就是插入一个节点。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">向哈希表中插入数据</span>
+<span style="color: #008080;"> 2</span> <span style="color: #0000ff;">int</span> insertEntry(table* t , <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span>* key , <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em><span style="color: #000000;"> value)
+</span><span style="color: #008080;"> 3</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 4</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> index , vlen1 , vlen2;
+</span><span style="color: #008080;"> 5</span>     entry</em> e , <em><span style="color: #000000;">ep;
+</span><span style="color: #008080;"> 6</span>
+<span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">if</span> (t == NULL || key == NULL || value ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">return</span> -<span style="color: #800080;">1</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">10</span>
+<span style="color: #008080;">11</span>     index =<span style="color: #000000;"> keyToIndex(key);
+</span><span style="color: #008080;">12</span>     <span style="color: #0000ff;">if</span> (t-&gt;bucket[index].key ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">13</span>         t-&gt;bucket[index].key =<span style="color: #000000;"> strDup(key);
+</span><span style="color: #008080;">14</span>         t-&gt;bucket[index].value =<span style="color: #000000;"> strDup(value);
+</span><span style="color: #008080;">15</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">16</span>     <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">17</span>         e = ep = &amp;(t-&gt;<span style="color: #000000;">bucket[index]);
+</span><span style="color: #008080;">18</span>         <span style="color: #0000ff;">while</span> (e != NULL) { <span style="color: #008000;">//</span><span style="color: #008000;">先从已有的找</span>
+<span style="color: #008080;">19</span>             <span style="color: #0000ff;">if</span> (strcmp(e-&gt;key , key) == <span style="color: #800080;">0</span><span style="color: #000000;">) {
+</span><span style="color: #008080;">20</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">找到key所在，替换值</span>
+<span style="color: #008080;">21</span>                 vlen1 =<span style="color: #000000;"> strlen(value);
+</span><span style="color: #008080;">22</span>                 vlen2 = strlen(e-&gt;<span style="color: #000000;">value);
+</span><span style="color: #008080;">23</span>                 <span style="color: #0000ff;">if</span> (vlen1 &gt;<span style="color: #000000;"> vlen2) {
+</span><span style="color: #008080;">24</span>                     <span style="color: #0000ff;">free</span>(e-&gt;<span style="color: #000000;">value);
+</span><span style="color: #008080;">25</span>                     e-&gt;value = (<span style="color: #0000ff;">char</span></em>)<span style="color: #0000ff;">malloc</span>(vlen1 + <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">26</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">27</span>                 memcpy(e-&gt;value , value , vlen1 + <span style="color: #800080;">1</span><span style="color: #000000;">);
+</span><span style="color: #008080;">28</span>                 <span style="color: #0000ff;">return</span> index;   <span style="color: #008000;">//</span><span style="color: #008000;">插入完成了</span>
+<span style="color: #008080;">29</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">30</span>             ep =<span style="color: #000000;"> e;
+</span><span style="color: #008080;">31</span>             e = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">32</span>         } <span style="color: #008000;">//</span><span style="color: #008000;"> end while(e&hellip;
+</span><span style="color: #008080;">33</span>
+<span style="color: #008080;">34</span>         <span style="color: #008000;">//</span><span style="color: #008000;">没有在当前桶中找到
+</span><span style="color: #008080;">35</span>         <span style="color: #008000;">//</span><span style="color: #008000;">创建条目加入</span>
+<span style="color: #008080;">36</span>         e = (entry<em>)<span style="color: #0000ff;">malloc</span>(<span style="color: #0000ff;">sizeof</span><span style="color: #000000;"> (entry));
+</span><span style="color: #008080;">37</span>         e-&gt;key =<span style="color: #000000;"> strDup(key);
+</span><span style="color: #008080;">38</span>         e-&gt;value =<span style="color: #000000;"> strDup(value);
+</span><span style="color: #008080;">39</span>         e-&gt;next =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">40</span>         ep-&gt;next =<span style="color: #000000;"> e;
+</span><span style="color: #008080;">41</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">42</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> index;
+</span><span style="color: #008080;">43</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_7">哈希表中查找</h2>
+<p>因为这个哈希表中保存的是<code>键值对</code>，所以这个方法是从哈希表中查找<code>key</code>对应的<code>value</code>的。要注意，这里返回的是<code>value</code>的地址，不应该对其指向的数据进行修改，否则可能会有意外发生。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">在哈希表中查找key对应的value
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;">找到了返回value的地址，没找到返回NULL</span>
+<span style="color: #008080;"> 3</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span></em> findValueByKey(<span style="color: #0000ff;">const</span> table* t , <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">char</span><em><span style="color: #000000;"> key)
+</span><span style="color: #008080;"> 4</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> index;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">const</span> entry</em><span style="color: #000000;"> e;
+</span><span style="color: #008080;"> 7</span>     <span style="color: #0000ff;">if</span> (t == NULL || key ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 8</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+</span><span style="color: #008080;"> 9</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">10</span>     index =<span style="color: #000000;"> keyToIndex(key);
+</span><span style="color: #008080;">11</span>     e = &amp;(t-&gt;<span style="color: #000000;">bucket[index]);
+</span><span style="color: #008080;">12</span>     <span style="color: #0000ff;">if</span> (e-&gt;key == NULL) <span style="color: #0000ff;">return</span> NULL;<span style="color: #008000;">//</span><span style="color: #008000;">这个桶还没有元素</span>
+<span style="color: #008080;">13</span>     <span style="color: #0000ff;">while</span> (e !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">14</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span> == strcmp(key , e-&gt;<span style="color: #000000;">key)) {
+</span><span style="color: #008080;">15</span>             <span style="color: #0000ff;">return</span> e-&gt;value;    <span style="color: #008000;">//</span><span style="color: #008000;">找到了，返回值</span>
+<span style="color: #008080;">16</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">17</span>         e = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">18</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">19</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">20</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_8">哈希表元素的移除</h2>
+<p>这个函数用于将哈希表中<code>key</code>对应的节点移除，如果其不存在，那就返回<code>NULL</code>。如果存在，就返回这个节点的地址。注意，这里并没有释放节点，如果不需要了，应该手动释放它。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #008000;">//</span><span style="color: #008000;">在哈希表中查找key对应的entry
+</span><span style="color: #008080;"> 2</span> <span style="color: #008000;">//</span><span style="color: #008000;">找到了返回entry，并将其从哈希表中移除
+</span><span style="color: #008080;"> 3</span> <span style="color: #008000;">//</span><span style="color: #008000;">没找到返回NULL</span>
+<span style="color: #008080;"> 4</span> entry* removeEntry(table* t , <span style="color: #0000ff;">char</span><em><span style="color: #000000;"> key)
+</span><span style="color: #008080;"> 5</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> index;
+</span><span style="color: #008080;"> 7</span>     entry</em> e,*ep;   <span style="color: #008000;">//</span><span style="color: #008000;">查找的时候，把ep作为返回值</span>
+<span style="color: #008080;"> 8</span>     <span style="color: #0000ff;">if</span> (t == NULL || key ==<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;"> 9</span>         <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">10</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">11</span>     index =<span style="color: #000000;"> keyToIndex(key);
+</span><span style="color: #008080;">12</span>     e = &amp;(t-&gt;<span style="color: #000000;">bucket[index]);
+</span><span style="color: #008080;">13</span>     <span style="color: #0000ff;">while</span> (e !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">14</span>         <span style="color: #0000ff;">if</span> (<span style="color: #800080;">0</span> == strcmp(key , e-&gt;<span style="color: #000000;">key)) {
+</span><span style="color: #008080;">15</span>             <span style="color: #008000;">//</span><span style="color: #008000;">如果是桶的第一个</span>
+<span style="color: #008080;">16</span>             <span style="color: #0000ff;">if</span> (e == &amp;(t-&gt;<span style="color: #000000;">bucket[index])) {
+</span><span style="color: #008080;">17</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">如果这个桶有两个或以上元素
+</span><span style="color: #008080;">18</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">交换第一个和第二个，然后移除第二个</span>
+<span style="color: #008080;">19</span>                 ep = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">20</span>                 <span style="color: #0000ff;">if</span> (ep !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">21</span>                     entry tmp = *e; <span style="color: #008000;">//</span><span style="color: #008000;">做浅拷贝交换</span>
+<span style="color: #008080;">22</span>                     *e = *ep;<span style="color: #008000;">//</span><span style="color: #008000;">相当于链表的头节点已经移除</span>
+<span style="color: #008080;">23</span>                     <em>ep = tmp;  <span style="color: #008000;">//</span><span style="color: #008000;">这就是移除下来的链表头节点</span>
+<span style="color: #008080;">24</span>                     ep-&gt;next =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">25</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">26</span>                 <span style="color: #0000ff;">else</span> {<span style="color: #008000;">//</span><span style="color: #008000;">这个桶只有第一个元素</span>
+<span style="color: #008080;">27</span>                     ep = (entry</em>)<span style="color: #0000ff;">malloc</span>(<span style="color: #0000ff;">sizeof</span><span style="color: #000000;">(entry));
+</span><span style="color: #008080;">28</span>                     *ep = <em><span style="color: #000000;">e;
+</span><span style="color: #008080;">29</span>                     e-&gt;key = e-&gt;value =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">30</span>                     e-&gt;next =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">31</span> <span style="color: #000000;">                }
+</span><span style="color: #008080;">32</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">33</span>             <span style="color: #0000ff;">else</span><span style="color: #000000;"> {
+</span><span style="color: #008080;">34</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">如果不是桶的第一个元素
+</span><span style="color: #008080;">35</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">找到它的前一个(这是前面设计不佳导致的多余操作)</span>
+<span style="color: #008080;">36</span>                 ep = &amp;(t-&gt;<span style="color: #000000;">bucket[index]);
+</span><span style="color: #008080;">37</span>                 <span style="color: #0000ff;">while</span> (ep-&gt;next != e)ep = ep-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">38</span>                 <span style="color: #008000;">//</span><span style="color: #008000;">将e从中拿出来</span>
+<span style="color: #008080;">39</span>                 ep-&gt;next = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">40</span>                 e-&gt;next =<span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">41</span>                 ep =<span style="color: #000000;"> e;
+</span><span style="color: #008080;">42</span> <span style="color: #000000;">            }
+</span><span style="color: #008080;">43</span>             <span style="color: #0000ff;">return</span><span style="color: #000000;"> ep;
+</span><span style="color: #008080;">44</span>         }<span style="color: #008000;">//</span><span style="color: #008000;"> end if(strcmp&hellip;</span>
+<span style="color: #008080;">45</span>         e = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">46</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">47</span>     <span style="color: #0000ff;">return</span><span style="color: #000000;"> NULL;
+</span><span style="color: #008080;">48</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_9">哈希表打印</h2>
+<p>这个函数用于打印哈希表的内容的。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #008080;"> 1</span> <span style="color: #0000ff;">void</span> printTable(table</em><span style="color: #000000;"> t)
+</span><span style="color: #008080;"> 2</span> <span style="color: #000000;">{
+</span><span style="color: #008080;"> 3</span>     <span style="color: #0000ff;">int</span><span style="color: #000000;"> i;
+</span><span style="color: #008080;"> 4</span>     entry*<span style="color: #000000;"> e;
+</span><span style="color: #008080;"> 5</span>     <span style="color: #0000ff;">if</span> (t == NULL)<span style="color: #0000ff;">return</span><span style="color: #000000;">;
+</span><span style="color: #008080;"> 6</span>     <span style="color: #0000ff;">for</span> (i = <span style="color: #800080;">0</span>; i&lt;BUCKETCOUNT; ++<span style="color: #000000;">i) {
+</span><span style="color: #008080;"> 7</span>         printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\nbucket[%d]:\n</span><span style="color: #800000;">&ldquo;</span><span style="color: #000000;"> , i);
+</span><span style="color: #008080;"> 8</span>         e = &amp;(t-&gt;<span style="color: #000000;">bucket[i]);
+</span><span style="color: #008080;"> 9</span>         <span style="color: #0000ff;">while</span> (e-&gt;key !=<span style="color: #000000;"> NULL) {
+</span><span style="color: #008080;">10</span>             printf(<span style="color: #800000;">&ldquo;</span><span style="color: #800000;">\t%s\t=\t%s\n</span><span style="color: #800000;">&ldquo;</span> , e-&gt;key , e-&gt;<span style="color: #000000;">value);
+</span><span style="color: #008080;">11</span>             <span style="color: #0000ff;">if</span> (e-&gt;next == NULL)<span style="color: #0000ff;">break</span><span style="color: #000000;">;
+</span><span style="color: #008080;">12</span>             e = e-&gt;<span style="color: #000000;">next;
+</span><span style="color: #008080;">13</span> <span style="color: #000000;">        }
+</span><span style="color: #008080;">14</span> <span style="color: #000000;">    }
+</span><span style="color: #008080;">15</span> }</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_10">测试一下</h2>
+<p>用于测试的数据来自于本机相关信息。</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">int</span><span style="color: #000000;"> main()
+{
+    table t;
+    initHashTable(</span>&amp;<span style="color: #000000;">t);</p>
+
+<pre><code>insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;电脑型号&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;华硕 X550JK 笔记本电脑&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;操作系统&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Windows 8.1 64位 (DirectX 11)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;处理器&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;英特尔 Core i7 - 4710HQ @ 2.50GHz 四核&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主板&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;华硕 X550JK(英特尔 Haswell)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;内存&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;4 GB(Hynix / Hyundai)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主硬盘&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;日立 HGST HTS541010A9E680(1 TB / 5400 转 / 分)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;显卡&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;NVIDIA GeForce GTX 850M       (2 GB / 华硕)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;显示器&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;奇美 CMN15C4(15.3 英寸)&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;光驱&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;松下 DVD - RAM UJ8E2 S DVD刻录机&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;声卡&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;Conexant SmartAudio HD @ 英特尔 Lynx Point 高保真音频&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;网卡&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;瑞昱 RTL8168 / 8111 / 8112 Gigabit Ethernet Controller / 华硕&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主板型号&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;华硕 X550JK&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;芯片组&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;英特尔 Haswell&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;BIOS&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;X550JK.301&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;制造日期&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;06 / 26 / 2014&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主人&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;就是我&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;价格&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;六十张红色毛主席&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+insertEntry(&lt;/span&gt;&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主硬盘&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;换了个120G的固态&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+
+entry&lt;/span&gt;* e = removeEntry(&amp;amp;t , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主板型号&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (e !=&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+    puts(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;找到后要释放&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;free&lt;/span&gt;(e-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;key);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;free&lt;/span&gt;(e-&amp;gt;&lt;span style=&quot;color: #000000;&quot;&gt;value);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;free&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;(e);
+    e &lt;/span&gt;=&lt;span style=&quot;color: #000000;&quot;&gt; NULL;
+}
+
+printTable(&lt;/span&gt;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;t);
+
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;* keys[] = { &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;显示器&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;主人&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;,&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;没有&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt; , &lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;处理器&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; };
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;for&lt;/span&gt; (&lt;span style=&quot;color: #0000ff;&quot;&gt;int&lt;/span&gt; i = &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;; i &amp;lt; &lt;span style=&quot;color: #800080;&quot;&gt;4&lt;/span&gt;; ++&lt;span style=&quot;color: #000000;&quot;&gt;i) {
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;const&lt;/span&gt; &lt;span style=&quot;color: #0000ff;&quot;&gt;char&lt;/span&gt;* value = findValueByKey(&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;t , keys[i]);
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;if&lt;/span&gt; (value !=&lt;span style=&quot;color: #000000;&quot;&gt; NULL) {
+        printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;find %s\t=\t%s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; ,keys[i], value);
+    }
+    &lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;else&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt; {
+        printf(&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;not found %s\n&lt;/span&gt;&lt;span style=&quot;color: #800000;&quot;&gt;&quot;&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;,keys[i]);
+    }
+}
+
+
+freeHashTable(&lt;/span&gt;&amp;amp;&lt;span style=&quot;color: #000000;&quot;&gt;t);
+getchar();
+&lt;/span&gt;&lt;span style=&quot;color: #0000ff;&quot;&gt;return&lt;/span&gt; &lt;span style=&quot;color: #800080;&quot;&gt;0&lt;/span&gt;&lt;span style=&quot;color: #000000;&quot;&gt;;
+</code></pre>
+
+<p>}</span></pre>
+</div>
+<p>&nbsp;</p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

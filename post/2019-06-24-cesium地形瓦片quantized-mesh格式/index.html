@@ -1,0 +1,543 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> cesium地形瓦片(Quantized-mesh)格式 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>cesium地形瓦片(Quantized-mesh)格式</h1>
+          <span class="post-date">2019年06月24日</span>
+          
+
+<p>[TOC]</p>
+
+<p><a href="http://www.cnblogs.com/oloroso/archive/2019/06/24/11080222.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/06/24/11080222.html</a></p>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><a href="https://github.com/AnalyticalGraphicsInc/quantized-mesh">quantized-mesh-1.0 terrain format(用于三维可视化的流式海量地形数据集规范)</a></li>
+<li><a href="https://wiki.osgeo.org/wiki/Tile_Map_Service_Specification">Tile Map Service Specification</a></li>
+<li><a href="http://cntchen.github.io/2016/05/09/%E5%9B%BD%E5%86%85%E4%B8%BB%E8%A6%81%E5%9C%B0%E5%9B%BE%E7%93%A6%E7%89%87%E5%9D%90%E6%A0%87%E7%B3%BB%E5%AE%9A%E4%B9%89%E5%8F%8A%E8%AE%A1%E7%AE%97%E5%8E%9F%E7%90%86/">国内主要地图瓦片坐标系定义及计算原理</a></li>
+<li><a href="https://cesiumjs.org/Cesium/Build/Documentation/QuantizedMeshTerrainData.html">QuantizedMeshTerrainData</a></li>
+<li><a href="https://www.cnblogs.com/oloroso/p/11063905.html">cesium地形瓦片(HeightMap)格式</a></li>
+<li><a href="https://fgiesen.wordpress.com/2013/12/17/index-compression-follow-up/">Index compression follow-up</a></li>
+</ul>
+
+<h2 id="1-切片规则">1、切片规则</h2>
+
+<p>量化网格-1.0格式的地形图瓦片的切分规则和HeightMap的一样，也是<a href="http://wiki.osgeo.org/wiki/Tile_Map_Service_Specification">Tile Map Service (TMS)</a> 的<strong>global-geodetic</strong>规则，详情可见<a href="https://www.cnblogs.com/oloroso/p/11063905.html">cesium地形瓦片(HeightMap)格式</a>中的描述。</p>
+
+<p>如果瓦片集的URL是如下形式:</p>
+
+<pre><code>http://assets.agi.com/stk-terrain/world/tiles
+</code></pre>
+
+<p>则金字塔根部两个瓦片文件的URL:</p>
+
+<ul>
+<li>(-180 deg, -90 deg) - (0 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/0/0/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/0/0/0.terrain</a></li>
+<li>(0 deg, -90 deg) - (180 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/0/1/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/0/1/0.terrain</a></li>
+</ul>
+
+<p>再下一级的8个瓦片文件的URL:</p>
+
+<ul>
+<li>(-180 deg, -90 deg) - (-90 deg, 0 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/0/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/0/0.terrain</a></li>
+<li>(-90 deg, -90 deg) - (0 deg, 0 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/1/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/1/0.terrain</a></li>
+<li>(0 deg, -90 deg) - (90 deg, 0 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/2/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/2/0.terrain</a></li>
+<li>(90 deg, -90 deg) - (180 deg, 0 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/3/0.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/3/0.terrain</a></li>
+<li>(-180 deg, 0 deg) - (-90 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/0/1.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/0/1.terrain</a></li>
+<li>(-90 deg, 0 deg) - (0 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/1/1.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/1/1.terrain</a></li>
+<li>(0 deg, 0 deg) - (90 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/2/1.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/2/1.terrain</a></li>
+<li>(90 deg, 0 deg) - (180 deg, 90 deg) - <a href="http://assets.agi.com/stk-terrain/world/tiles/1/3/1.terrain">http://assets.agi.com/stk-terrain/world/tiles/1/3/1.terrain</a></li>
+</ul>
+
+<p><strong>请求瓦片时，请确保在请求中包含以下HTTP标头：</strong></p>
+
+<pre><code class="language-bash">Accept: application/vnd.quantized-mesh,application/octet-stream;q=0.9
+</code></pre>
+
+<p>否则，某些服务器可能会返回与此处描述的不同的瓦片数据。</p>
+
+<h2 id="2-瓦片格式分析">2、瓦片格式分析</h2>
+
+<p>每个图块是一个特殊编码的三角形网格，其中顶点与图块边缘处的相邻网格重叠。换句话说，在根部，<strong>西部瓦片中最东部的顶点与东部瓦片中最西部的顶点具有相同的经度</strong>。</p>
+
+<p>地形瓦片是<code>gzip</code>压缩的。解压缩后，tile是小端序(little-endian)的二进制数据。</p>
+
+<h3 id="2-1-数据头部">2.1、数据头部</h3>
+
+<p>该文件的第一部分是具有以下格式的数据头。<code>double</code>是<strong>IEEE 754 64位浮点数</strong>，<code>float</code>是<strong>IEEE 754 32位浮点数</strong>。</p>
+
+<pre><code class="language-c">struct QuantizedMeshHeader
+{
+    // 瓦片中心在地心坐标系下的坐标
+    double CenterX;
+    double CenterY;
+    double CenterZ;
+
+    // 该瓦片覆盖区域的最小和最大高度值
+    // 最小值可以低于所有顶点，最大值也可以高于任何顶点
+    // 因为在网格简化(simplificatipn)的过程中可能会有移除最小或最大顶点的情况
+    // 但是这些是适用于用于分析或可视化的的值
+    float MinimumHeight;
+    float MaximumHeight;
+
+    // 瓦片的球面边界. 
+    // X,Y,Z 坐标是地心坐标系下的坐标, 半径的单位为米
+    double BoundingSphereCenterX;
+    double BoundingSphereCenterY;
+    double BoundingSphereCenterZ;
+    double BoundingSphereRadius;
+
+    // 地平线遮挡点，以椭球体缩放的地心坐标系表示
+    // 如果此点低于地平线，则整个图块位于地平线下方。
+    // 有关更多信息，请参见http://cesiumjs.org/2013/04/25/Horizon-culling/。
+    double HorizonOcclusionPointX;
+    double HorizonOcclusionPointY;
+    double HorizonOcclusionPointZ;
+};
+</code></pre>
+
+<blockquote>
+<p><img src="https://img2018.cnblogs.com/blog/693958/201906/693958-20190624232923893-936263612.png" alt="HorizonCullingOverview" /></p>
+
+<p>在上图中，绿色点对观察者可见， 红点不可见，因为它们<strong>位于视锥体之外</strong>，表示为粗白线。 蓝点位于视锥体内，但观察者看不到它，因为<strong>它被地球遮挡</strong>。 换句话说，它低于地平线。 地平线剔除是一种直截了当的想法，即从当前观察者位置看，您不需要渲染位于地平线下方的物体。 听起来很简单，细节变得棘手，特别是因为它需要非常快。cesium每个渲染帧将进行数百次测试，以测试地形图块的可见性。 不过，这是一项重要的考验。 在上图中的配置中，覆盖整个地球的地形瓦片位于视锥体内。 然而，其中一半以上是低于地平线而不需要渲染。</p>
+</blockquote>
+
+<h3 id="2-顶点数据">2、顶点数据</h3>
+
+<p>头部数据后面紧跟着顶点数据，<code>unsigned int</code>是32位无符号整数，<code>unsigned short</code>是16位无符号整数。</p>
+
+<pre><code class="language-c">struct VertexData
+{
+    unsigned int vertexCount;           // 顶点个数
+    unsigned short u[vertexCount];      // 顶点横坐标
+    unsigned short v[vertexCount];      // 顶点纵坐标
+    unsigned short height[vertexCount]; // 顶点高程值
+};
+</code></pre>
+
+<p>vertexCount字段指示后面三个数组的大小。 这三个数组包含来自前一个值的增量，然后进行<a href="https://gist.github.com/mfuerstenau/ba870a29e16536fdbaba"><code>zig-zag</code>编码</a>，以便使小整数（无论其符号如何）使用较少比特位。</p>
+
+<p>解码值的过程很简单：</p>
+
+<pre><code class="language-c">var u = 0;
+var v = 0;
+var height = 0;
+
+// zig-zag 编码
+function zigZagEncode (value) {
+  return (value &gt;&gt; 31) ^ (value &lt;&lt; 1);
+}
+// zig-zag 解码
+function zigZagDecode(value) {
+    return (value &gt;&gt; 1) ^ (-(value &amp; 1));
+}
+
+for (i = 0; i &lt; vertexCount; ++i) {
+    u += zigZagDecode(uBuffer[i]);
+    v += zigZagDecode(vBuffer[i]);
+    height += zigZagDecode(heightBuffer[i]);
+
+    uBuffer[i] = u;
+    vBuffer[i] = v;
+    heightBuffer[i] = height;
+}
+</code></pre>
+
+<p>解码后，每个数组中值的含义如下：</p>
+
+<table>
+<thead>
+<tr>
+<th>数组</th>
+<th>含义</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>u</td>
+<td>图块中顶点的水平坐标。 当u值为0时，顶点位于图块的西边缘。 当值为32767时，顶点位于图块的东边缘。 对于其他值，顶点的经度是<strong>在图块的西边和东边的经度之间的线性插值</strong>。<br />即：<code>经度= 最西 + (u/32767) * (最东-最西)</code></td>
+</tr>
+
+<tr>
+<td>v</td>
+<td>图块中顶点的水平坐标。 当u值为0时，顶点位于图块的南边缘。 当值为32767时，顶点位于图块的北边缘。 对于其他值，顶点的纬度是<strong>在图块的南边和北边的经度之间的线性插值</strong>。<br />即：<code>纬度= 最南 + (v/32767) * (最北-最南)</code></td>
+</tr>
+
+<tr>
+<td>height</td>
+<td>图块中顶点的高度。 当高度值为0时，顶点的高度等于图块内最小高度，如图块标题中指定的那样。 当值为32767时，顶点的高度等于图块内的最大高度。 对于其他值，顶点的高度是最小和最大高度之间的线性插值。<br />即：<code>高度= 最低 + (h/32767) * (最高-最低)</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="2-3-索引数据">2.3、索引数据</h3>
+
+<p>紧跟在顶点数据之后的是索引数据。指数指定顶点如何链接在一起成三角形。如果tile具有超过<strong>65536个顶点</strong>，则tile使用<strong>IndexData32</strong>结构对索引进行编码。否则，它使用<strong>IndexData16</strong>结构。</p>
+
+<p>为了对索引数据强制进行字节对齐，在<strong>IndexData</strong>之前添加填充字节，以确保<strong>IndexData16为2字节对齐</strong>和<strong>IndexData32为4字节对齐</strong>。</p>
+
+<pre><code class="language-c">struct IndexData16
+{
+    unsigned int triangleCount;                // 三角形个数
+    unsigned short indices[triangleCount * 3]; // 三角形顶点索引
+}
+
+struct IndexData32
+{
+    unsigned int triangleCount;
+    unsigned int indices[triangleCount * 3];
+}
+</code></pre>
+
+<p>索引使用来自 <a href="https://code.google.com/p/webgl-loader/">webgl-loader</a> 的 高水位标记(high water mark)编码进行编码。</p>
+
+<p>索引解码如下：</p>
+
+<pre><code class="language-c">var highest = 0;
+for (var i = 0; i &lt; indices.length; ++i) {
+    var code = indices[i];
+    indices[i] = highest - code;
+    if (code === 0) {
+        ++highest;
+    }
+}
+</code></pre>
+
+<p>索引的每个三元组以逆时针顺序指定要渲染的一个三角形。</p>
+
+<blockquote>
+<h3 id="high-watermark-encoding">“High watermark encoding”</h3>
+
+<p>I really like this idea. Previously I’d been using simple delta  encoding on the resulting index lists; that works, but the problem with  delta coding is that a single outlier will produce two large steps – one  to go from the current region to the outlier, then another one to get  back. The high watermark scheme is almost as straightforward as straight  delta coding and avoids this case completely.</p>
+
+<p>Now, if you have an index list straight out of vertex cache  optimization and vertex renumbering, the idea works as described.  However, with the hybrid tri/paired-tri encoding I described last time,  we have to be a bit more careful. While the original index list will  indeed have each index be at most 1 larger than the highest index we’ve  seen so far, our use of “A ≥ B” to encode whether the next set of  indices describes a single triangle or a pair means that we might end up  having to start from the second or third vertex of a triangle, and  consequently see a larger jump than just 1. Luckily, the fix for this is  simple – rather than keeping the high watermark always 1 higher than  the largest vertex index we’ve seen so far, we keep it N higher where N  is the largest possible “step” we can have in the index list. With that,  the transform is really easy, so I’m just going to post my code in  full:</p>
+
+<pre><code class="language-cpp">&gt;static void watermark_transform(std::vector&lt;int&gt;&amp; out_inds,
+&gt;    const std::vector&lt;int&gt;&amp; in_inds, int max_step)
+&gt;{
+&gt;    int hi = max_step - 1; // high watermark
+&gt;    out_inds.clear();
+&gt;    out_inds.reserve(in_inds.size());
+&gt;    for (int v : in_inds)
+&gt;    {
+&gt;        assert(v &lt;= hi);
+&gt;        out_inds.push_back(hi - v);
+&gt;        hi = std::max(hi, v + max_step);
+&gt;    }
+&gt;}
+&gt;```
+&gt;
+&gt;and the inverse is exactly the same, with the `push_back` in the middle replaced by the two lines
+&gt;
+&gt;```cpp
+&gt;v = hi - v;
+&gt;out_inds.push_back(v);
+&gt;```
+&gt;
+&gt;So what’s the value of N (aka `max_step` in the code), the  largest step that a new index can be from the highest index we’ve seen  so far? Well, for the encoding described last time, it turns out to be  3:
+&gt;
+&gt;-   When encoding a single triangle, the worst case is a triangle with  all-new verts. Suppose the highest index we’ve seen so far is k, and the  next triangle has indices (k+1,k+2,k+3). Our encoding for single  triangles requires that the first index be larger than the second one,  so we would send this triangle as (k+3,k+1,k+2). That’s a step of 3.
+&gt;-   For a pair of triangles, we get 4 new indices. So it might seem like  we might get a worst-case step of 4. However, we know that the two  triangles share an edge; and for that to be the case, the shared edge  must have been present in the first triangle. Furthermore, we require  that the smaller of the two indices be sent first (that’s what flags  this as a paired tri). So the worst cases we can have for the first two  indices are (k+2,k+3) and (k+1,k+3), both of which have a largest step  size of 2. After the first two indices, we only have another two indices  to send; worst-case, they are both new, and the third index is larger  than the fourth. This corresponds to a step size of 2. All other  configurations have step sizes ≤1.
+
+三角索引之后还有四个(边缘)索引列表，这些索引列表保存了tile所有边缘上的顶点。 知道哪些顶点在边缘上以添加裙边以隐藏相邻细节层之间的裂缝是有帮助的。
+
+```c
+struct EdgeIndices16
+{
+    unsigned int westVertexCount;
+    unsigned short westIndices[westVertexCount];
+
+    unsigned int southVertexCount;
+    unsigned short southIndices[southVertexCount];
+
+    unsigned int eastVertexCount;
+    unsigned short eastIndices[eastVertexCount];
+
+    unsigned int northVertexCount;
+    unsigned short northIndices[northVertexCount];
+}
+
+struct EdgeIndices32
+{
+    unsigned int westVertexCount;
+    unsigned int westIndices[westVertexCount];
+
+    unsigned int southVertexCount;
+    unsigned int southIndices[southVertexCount];
+
+    unsigned int eastVertexCount;
+    unsigned int eastIndices[eastVertexCount];
+
+    unsigned int northVertexCount;
+    unsigned int northIndices[northVertexCount];
+}
+</code></pre>
+</blockquote>
+
+<h3 id="2-4-扩展数据">2.4、扩展数据</h3>
+
+<p>随后可以使用扩展数据来补充具有附加信息的量化网格。 每个扩展都以<strong>ExtensionHeader</strong>结构开头，包含唯一标识符和扩展数据的大小（以字节为单位）。 <code>unsigned char</code>是一个8位无符号整数。</p>
+
+<pre><code class="language-c">struct ExtensionHeader
+{
+    unsigned char extensionId;     // 扩展ID
+    unsigned int  extensionLength; // 扩展长度
+}
+</code></pre>
+
+<p>在定义新扩展时，将为它们分配唯一标识符。 如果没有为<code>tileset</code>定义扩展，则<code>ExtensionanEeader</code>将不包含在<code>quanitzed-mesh</code>中。 可以将多个扩展附加到量化网格数据，其中每个扩展的排序由服务器确定。</p>
+
+<p>客户端可以通过使用<code>-</code>分隔扩展名来请求多个扩展。 例如，客户端可以使用以下<code>Accept</code>标头请求<strong>顶点法线</strong>和<strong>watermask</strong>：</p>
+
+<pre><code class="language-bash">Accept : 'application/vnd.quantized-mesh;extensions=octvertexnormals-watermask'
+</code></pre>
+
+<p><strong>可以为量化网格定义以下扩展：</strong></p>
+
+<h4 id="地形光照-terrain-lighting">地形光照（Terrain Lighting）</h4>
+
+<ul>
+<li><p>名称（Name）：<code>Oct-Encoded Per-Vertex Normals</code></p></li>
+
+<li><p>标识（id）: 1</p></li>
+
+<li><p>描述（Description）：将每个顶点光照属性添加到量化网格。 每个顶点法线使用<code>oct</code>编码将传统的<code>x，y，z</code> 96位浮点单位向量压缩为<code>x，y</code> 16位表示。 <code>oct</code>编码在介绍在”A Survey of Efficient Representations of Independent Unit Vectors“, Cigolle et al 2014: <a href="http://jcgt.org/published/0003/02/01/">http://jcgt.org/published/0003/02/01/</a></p></li>
+
+<li><p>数据定义（Data Definition）:</p>
+
+<pre><code class="language-c">struct OctEncodedVertexNormals
+{
+    unsigned char xy[vertexCount * 2];
+}
+</code></pre>
+
+<ul>
+<li>请求（Requesting）：对于要包含在量化网格中的oct编码的每顶点法线，客户端必须使用以下HTTP标头请求此扩展：</li>
+</ul>
+
+<pre><code class="language-bash">Accept : 'application/vnd.quantized-mesh;extensions=octvertexnormals'
+</code></pre></li>
+
+<li><p>附注（Comments）：使用<strong>扩展名vertexnormals</strong>请求此扩展的原始实现。 不推荐使用vertexnormals的<strong>扩展标识符</strong>，并且实现现在必须通过在请求标头扩展参数中添加<strong>octvertexnormal</strong>来请求顶点法线，如上所示。</p></li>
+</ul>
+
+<h4 id="水面掩码-water-mask">水面掩码（Water Mask）</h4>
+
+<ul>
+<li><p>名称（Name）：<code>Water Mask</code></p></li>
+
+<li><p>标识（id）: 2</p></li>
+
+<li><p>描述（Description）：添加用于渲染水效果的海岸线数据。如果图块区域全部是水面或者陆地，则为1字节，否则是<code>256*256*1=65536</code>字节。掩码值0表示陆地，255表示水面。掩码中的值是从西向东、从北到南定义的，第一个字节是西北角的watermask值。允许<strong>0-255之间</strong>的值，以便支持海岸线的抗锯齿。</p></li>
+
+<li><p>数据定义（Data Definition）:</p>
+
+<p>完全由陆地或水覆盖的地形瓦片由单个字节定义。</p>
+
+<pre><code class="language-c">struct WaterMask
+{
+    unsigned char mask;
+}
+</code></pre>
+
+<p>包含陆地和水混合的地形瓦片定义了256 x 256高度值网格。</p>
+
+<pre><code class="language-c">struct WaterMask
+{
+    unsigned char mask[256 * 256];
+}
+</code></pre></li>
+
+<li><p>请求（Requesting）：要使watermask包含在量化网格中，客户端必须使用以下HTTP标头请求此扩展：</p>
+
+<pre><code class="language-bash">Accept : 'application/vnd.quantized-mesh;extensions=watermask'
+</code></pre>
+
+<h4 id="元数据-metadata">元数据（Metadata）</h4>
+
+<ul>
+<li><p>名称（Name）：<code>Metadata</code></p></li>
+
+<li><p>标识（id）: 4</p></li>
+
+<li><p>描述（Description）：向每个瓦片添加一个JSON对象，可以存储有关瓦片的额外信息。 潜在用途包括存储瓦片中的土地类型（例如森林，沙漠等）或子级瓦片的可用性。</p></li>
+
+<li><p>数据定义（Data Definition）:</p></li>
+</ul>
+
+<pre><code class="language-c">struct Metadata
+{
+    unsigned int jsonLength;
+    char json[jsonLength];
+}
+</code></pre>
+
+<p>包含陆地和水混合的地形瓦片定义了256 x 256高度值网格。</p>
+
+<pre><code class="language-c">struct WaterMask
+{
+    unsigned char mask[256 * 256];
+}
+</code></pre>
+
+<ul>
+<li>请求（Requesting）：要使metadata包含在量化网格中，客户端必须使用以下HTTP标头请求此扩展：</li>
+</ul>
+
+<pre><code class="language-bash">Accept : 'application/vnd.quantized-mesh;extensions=metadata'
+</code></pre></li>
+</ul>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,209 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Linux下RocksDB、LevelDB、ForestDB性能测试对比 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Linux下RocksDB、LevelDB、ForestDB性能测试对比</h1>
+          <span class="post-date">2017年01月20日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/20/6323400.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/20/6323400.html</a></p>
+
+<h2 id="简要说明">简要说明</h2>
+
+<p>本次环境与<a href="http://www.cnblogs.com/oloroso/p/6306352.html">http://www.cnblogs.com/oloroso/p/6306352.html</a>中的一致。
+依然是增删查改各测试10000次，每个测试重复5次取平均值。</p>
+
+<h2 id="1-不使用jemalloc和tbb测试">1、不使用jemalloc和tbb测试</h2>
+
+<p>三个数据库除了<code>rocksdb</code>之外，默认都不使用<code>jemalloc</code>和<code>tbb</code>。
+设置<code>rocksdb</code>的编译参数为<code>make static_lib -e DISABLE_JEMALLOC=1 -j8</code>，以便不启用<code>jemalloc</code>。</p>
+
+<p>三个测试代码的编译命令如下:</p>
+
+<pre><code class="language-shell">g++ rocksdb_test.cpp  -o rocksdb_test  -I./include  -L. -lrocksdb -lpthread -lrt -lsnappy -lgflags -lz -lbz2 -llz4 -O2
+g++ leveldb_test.cpp  -o leveldb_test  -I../include -L. -lleveldb -O2 -Wl,-rpath=. 
+g++ forestdb_test.cpp -o forestdb_test -I../include -L. -lforestdb -O2 -Wl,-rpath=. 
+</code></pre>
+
+<p>测试结果对比直方图如下
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170120173835468-1593238098.png" alt="no-jt" /></p>
+
+<h2 id="2-使用jemalloc和tbb测试">2、使用jemalloc和tbb测试</h2>
+
+<p>因为<code>leveldb</code>内没有设置使用<code>jemalloc</code>的代码，所以只在链接的时候添加。
+<code>forestdb</code>使用<code>cmake</code>生成<code>Makefile</code>的时候设置变量<code>COUCHBASE_SERVER_BUILD</code>和<code>_JEMALLOC</code>的值为<code>1</code>来使用<code>jemalloc</code>。</p>
+
+<p>三个测试代码的编译命令如下:</p>
+
+<pre><code class="language-shell">g++ rocksdb_test.cpp  -o rocksdb_test  -I./include  -L. -lrocksdb -lpthread -lrt -lsnappy -lgflags -lz -lbz2 -llz4 -ljemalloc -ltbb -O2
+g++ leveldb_test.cpp  -o leveldb_test  -I../include -L. -lleveldb  -ljemalloc -ltbb -O2 -Wl,-rpath=. 
+g++ forestdb_test.cpp -o forestdb_test -I../include -L. -lforestdb  -ljemalloc -ltbb -O2 -Wl,-rpath=. 
+</code></pre>
+
+<p>测试结果对比直方图如下
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170120174435203-1415575180.png" alt="jt" /></p>
+
+<h2 id="测试数据和代码">测试数据和代码</h2>
+
+<p><code>leveldb</code>和<code>forestdb</code>的代码见<a href="http://www.cnblogs.com/oloroso/p/6306352.html">http://www.cnblogs.com/oloroso/p/6306352.html</a>最后部分。
+<code>rocksdb</code>的测试代码和<code>leveldb</code>的测试代码基本一致，只是将其中的<code>leveldb</code>全部改为<code>rocksdb</code>即可(namespace和头文件路径)。</p>
+
+<p>实际测试的时候发现一个问题，<code>rocksdb</code>测试程序在<code>Open</code>数据库的时候耗时比较长，貌似花了很多时间在做一些处理，可能是和它的压缩和校验策略有关吧（RocksDB的ReadOptions默认构造时，<code>verify_checksun</code>为<code>true</code>，而LevelDB默认为<code>false</code>）。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170120174755437-1458662175.png" alt="" /></p>
+
+<p>5次测试平均值如下
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170120174821359-24477442.png" alt="" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

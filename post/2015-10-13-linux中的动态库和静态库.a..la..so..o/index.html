@@ -1,0 +1,565 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Linux中的动态库和静态库(.a/.la/.so/.o) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Linux中的动态库和静态库(.a/.la/.so/.o)</h1>
+          <span class="post-date">2015年10月13日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/10/13/4874801.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/10/13/4874801.html</a>
+<h1 id="linuxalasoo">Linux中的动态库和静态库(.a/.la/.so/.o)</h1>
+<div class="toc">
+<ul>
+<li><a href="#linuxalasoo">Linux中的动态库和静态库(.a/.la/.so/.o)</a>
+<ul>
+<li><a href="#cc">C/C++程序编译的过程</a></li>
+<li><a href="#o">.o文件（目标文件）</a>
+<ul>
+<li><a href="#atoio">创建atoi.o</a></li>
+<li><a href="#atoio_1">使用atoi.o</a></li>
+</ul>
+</li>
+<li><a href="#a">.a文件（静态库文件）</a>
+<ul>
+<li><a href="#atoia">创建atoi.a</a></li>
+<li><a href="#atoia_1">使用atoi.a</a></li>
+</ul>
+</li>
+<li><a href="#so">.so文件（共享库文件）</a>
+<ul>
+<li><a href="#atoiso">创建atoi.so</a></li>
+<li><a href="#atoiso_1">使用atoi.so</a></li>
+</ul>
+</li>
+<li><a href="#lalibtool-archive">.la文件(libtool archive)</a>
+<ul>
+<li><a href="#libtool">libtool的使用</a>
+<ul>
+<li><a href="#1-libtool">1. 创建 Libtool 对象文件</a></li>
+<li><a href="#2-libtool">2. 创建 Libtool 库</a></li>
+<li><a href="#3-libtool">3. 安装 Libtool 库</a></li>
+<li><a href="#4-libtool">4. 使用 Libtool 库</a></li>
+<li><a href="#5-libtool">5. 卸载 Libtool 库</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code><a href="http://my.oschina.net/oloroso">http://my.oschina.net/oloroso</a></code></a><br />
+<a href="http://www.cnblogs.com/oloroso/">本文由乌合之众 lym瞎编，欢迎转载 <code><a href="http://www.cnblogs.com/oloroso/">http://www.cnblogs.com/oloroso/</a></code></a></p>
+<p>在windows下，一般可以通过文件的后缀名来识别文件的类型。在Linux下大致上也是可以的。但是要明确的一点是，在linux下，文件的后缀与文件的类型是没有必然的联系的。这只是约定俗称的习惯罢了。</p>
+<p>在linux 下进行C/C++开发，一般都是使用的<code>gcc</code>编译器，所以本文的讲解以<code>gcc</code>为主。</p>
+<ul>
+<li><code>.o</code>文件，即目标文件。一般通过<code>.c</code>或者<code>.cpp</code>文件编译而来，相当于<code>VC</code>编译出来的<code>obj</code>文件</li>
+<li><code>.so</code>文件，shared object 共享库(对象)，相当于windows下的dll。</li>
+<li><code>.a</code>文件，archive 归档包，即静态库。其实质是多个<code>.o</code>文件打包的结果，相当于<code>VC</code>下的<code>.lib</code>文件</li>
+<li><code>.la</code>文件，libtool archive 文件，是libtool自动生成的共享库文件。</li></p>
+
+<p></ul>
+<p>下面对这四种文件进行逐个说明。</p>
+<hr />
+<h2 id="cc">C/C++程序编译的过程</h2>
+<p>先说一下C/C++编译的几个过程。</p>
+<ol>
+<li>预处理，展开头文件，宏定义，条件编译处理等。通过<code>gcc -E source.c -o source.i</code>或者<code>cpp source.c</code>生成。</li>
+<li>编译。这里是一个狭义的编译意义，指的是将预处理后的文件翻译成汇编代码的过程。通过<code>gcc -S source.i</code>生成。默认生成<code>source.s</code>文件。</li>
+<li>汇编。汇编即将上一步生成的汇编代码翻译成对应的二进制机器码的过程。通过<code>gcc -c source.s</code>来生成<code>source.o</code>文件。</li>
+<li>链接。链接是将生成目标文件和其引用的各种符号等生成一个完整的可执行程序的过程。链接的时候会进行虚拟内存的重定向操作。</li></p>
+
+<p></ol>
+<p>上面四个步骤就是C/C++程序编译的几个基本步骤。前面三个步骤都是很简单，大多时候会合并为一个步骤。只有第四个步骤<code>链接</code>是复杂一点的。很多时候我们编译比较大的项目，报错的往往是在链接的时候缺少某些库，或者某些符号找不到定义，重定义等。</p>
+<hr />
+<h2 id="o"><code>.o</code>文件（目标文件）</h2>
+<p><code>.o</code>文件就是C/C++源码编译的结果。即上面所说的C/C++编译过程中的前三步。一般开发中很少将这三步分开来做，通常的做法是一步生成。</p>
+<p>这里举个例子，我们来写一个函数<code>int atoi(const char* str)</code>。</p>
+<p>头文件<code>atoi.h</code></p>
+<pre><code class="c">.#ifndef ATOI_H
+.#define ATOI_H
+int atoi(const char* str);
+.#endif //! ATOI_H
+</code></pre>
+<p>源文件<code>atoi.c</code></p>
+<pre><code class="c">.#include &lt;stdio.h&gt;
+.#include &ldquo;atoi.h&rdquo;
+int atoi(const char* str)
+{
+    int ret = 0;
+    if(str != NULL){
+        sscanf(str,&ldquo;%d&rdquo;,&amp;ret);
+    }
+    return ret;
+}
+</code></pre>
+<h3 id="atoio">创建atoi.o</h3>
+<p>直接使用命令<code>gcc -c atoi.c -o atoi.o</code>或<code>gcc -c atoi.c</code>来生成目标文件。<br />
+上面我们函数中调用了<code>sscanf</code>这个C标准库中的函数，那么它在<code>.o</code>文件中会记录这个存在，我们可以使用<code>readelf</code>工具来查看一下。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ls
+atoi.c  atoi.h
+o@Neo-kylin:~/lib_a_so$ gcc -c atoi.c
+o@Neo-kylin:~/lib_a_so$ ll
+总用量 20
+drwxr-xr-x 2 o    o    4096 10月 10 15:11 ./
+drwxrwxr-x 5 1000 1000 4096 10月 10 14:32 ../
+-rw-rw-r&ndash; 1 o    o     140 10月 10 15:07 atoi.c
+-rw-rw-r&ndash; 1 o    o      75 10月 10 15:07 atoi.h
+-rw-rw-r&ndash; 1 o    o    1536 10月 10 15:11 atoi.o
+o@Neo-kylin:~/lib_a_so$ readelf -s atoi.o</p>
+
+<p>Symbol table &lsquo;.symtab&rsquo; contains 11 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND
+     1: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS atoi.c
+     2: 0000000000000000     0 SECTION LOCAL  DEFAULT    1
+     3: 0000000000000000     0 SECTION LOCAL  DEFAULT    3
+     4: 0000000000000000     0 SECTION LOCAL  DEFAULT    4
+     5: 0000000000000000     0 SECTION LOCAL  DEFAULT    5
+     6: 0000000000000000     0 SECTION LOCAL  DEFAULT    7
+     7: 0000000000000000     0 SECTION LOCAL  DEFAULT    8
+     8: 0000000000000000     0 SECTION LOCAL  DEFAULT    6
+     9: 0000000000000000    60 FUNC    GLOBAL DEFAULT    1 atoi
+    10: 0000000000000000     0 NOTYPE  GLOBAL DEFAULT  UND <strong>isoc99_sscanf
+</code></pre>
+<p>这就是<code>.o</code>文件了。它保存了编译的时候引用到的符号(函数，全局变量等)，这些符号，在链接的时候需要使用到。</p>
+<h3 id="atoio_1">使用atoi.o</h3>
+<p>使用<code>atoi.o</code>的地方有很多，就不一一列举了。这里先不说怎么用，后面生成<code>.a</code>文件的时候用到了。</p>
+<hr />
+<h2 id="a"><code>.a</code>文件（静态库文件）</h2>
+<p>静态库是多个<code>.o</code>文件的打包的结果，前面已经说过了，其实不一定非要多个文件，一个<code>.o</code>文件也可以打包为<code>.a</code>文件。<br />
+这一步使用<code>ar</code>工具来操作。<code>ar</code>工具是用来创建, 修改和提取archives归档文件的工具，具体使用可以看<code>manpages</code>。</p>
+<p><code>ar [emulation options] [-]{dmpqrstx}[abcfilNoPsSuvV] [member-name] [count] archive-file file&hellip;</code></p>
+<p>这个工具的作用看起来很简单，但是其是很强大，且参数的设置很复杂的。这里不是为了介绍这个工具，不细说了。</p>
+<h3 id="atoia">创建atoi.a</h3>
+<p>我们先使用上面生成的<code>atoi.o</code>文件来生成一个<code>atoi.a</code>文件。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ls
+atoi.c  atoi.h  atoi.o
+o@Neo-kylin:~/lib_a_so$ ar -r atoi.a atoi.o
+ar: creating atoi.a
+o@Neo-kylin:~/lib_a_so$ ll
+总用量 24
+drwxr-xr-x 2 o    o    4096 10月 10 15:35 ./
+drwxrwxr-x 5 1000 1000 4096 10月 10 14:32 ../
+-rw-rw-r&ndash; 1 o    o    1678 10月 10 15:35 atoi.a
+-rw-rw-r&ndash; 1 o    o     140 10月 10 15:07 atoi.c
+-rw-rw-r&ndash; 1 o    o      75 10月 10 15:07 atoi.h
+-rw-rw-r&ndash; 1 o    o    1536 10月 10 15:11 atoi.o
+</code></pre>
+<p><code>-r</code>参数的意思是替换已存在的或插入新的文件到archive包中。</p>
+<h3 id="atoia_1">使用atoi.a</h3>
+<p>创建了<code>atoi.a</code>文件后，我们就可以来使用它了。这里我们写一个<code>main</code>函数来调用<code>atoi</code>。</p>
+<p><code>main.c</code>文件</p>
+<pre><code class="c">int main()
+{
+    return atoi(&ldquo;5&rdquo;);
+}
+</code></pre>
+<p>这一次我们先把<code>main.c</code>编译为<code>main.o</code>文件。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.c  atoi.h  atoi.o  main.c
+o@Neo-kylin:~/lib_a_so$ gcc -c main.c
+o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.c  atoi.h  atoi.o  main.c  main.o
+</code></pre>
+<p>然后使用<code>ld</code>程序来链接<code>main.o</code>和<code>atoi.a</code></p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ld main.o atoi.a -o main
+ld: warning: cannot find entry symbol _start; defaulting to 00000000004000b0
+atoi.a(atoi.o): In function <code>atoi':
+atoi.c:(.text+0x33): undefined reference to</code></strong>isoc99_sscanf&rsquo;<code>
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面报了一个错误，原因是在&lt;code&gt;atoi&lt;/code&gt;函数中使用未定义的引用 &lt;code&gt;__isoc99_sscanf&lt;/code&gt;，这个问题我们可以通过链接上&lt;code&gt;libc.a&lt;/code&gt;或者&lt;code&gt;libc.so&lt;/code&gt;来解决这个问题。通常的情况下，都是链接&lt;code&gt;libc.so&lt;/code&gt;来解决的，如果使用glibc的静态库，那么你也必须将你的程序开源，不然这应该算是违反GPL协议的约定。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;o@Neo-kylin:~/lib_a_so$ ld main.o atoi.a /lib64/libc.so.6 -o main
+ld: warning: cannot find entry symbol _start; defaulting to 0000000000400288
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里又报了一个警告，是没有发现&lt;code&gt;_start&lt;/code&gt;符号的意思。这是因为没有发现程序主入口点的原因。在C语言中，程序的入口函数是&lt;code&gt;main&lt;/code&gt;，但是在汇编中，程序的主入口函数是&lt;code&gt;_start&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;这里我们可以把&lt;code&gt;main.c&lt;/code&gt;文件中的&lt;code&gt;main&lt;/code&gt;函数改为&lt;code&gt;_start&lt;/code&gt;函数，然后再编译为&lt;code&gt;main.o&lt;/code&gt;再链接就没有问题了。但是这不是正确的做法，这样做虽然使用&lt;code&gt;ld&lt;/code&gt;来链接是不会报错了，但是程序是运行不了的。会报错误&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;o@Neo-kylin:~/lib_a_so$ ld main.o atoi.a /lib64/libc.so.6 -o main
+o@Neo-kylin:~/lib_a_so$ ./main 
+-bash: ./main: /lib/ld64.so.1: bad ELF interpreter: 没有那个文件或目录
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;正确的做法是链接上&lt;code&gt;crt0.o、crti.o、crtn.o&lt;/code&gt;等很多个文件就行了，不同的机器，需要链接的文件的位置可能不一样。这个参数可能非常长，普通人记不住。&lt;br /&gt;
+这个是可以怎么得到呢？我肯定不知道这些文件都在什么位置，但是&lt;code&gt;gcc&lt;/code&gt;编译环境知道，我们可以使用&lt;code&gt;gcc&lt;/code&gt;来获取。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ gcc -v -o main main.o atoi.a 
+使用内建 specs。
+目标：x86_64-redhat-linux
+配置为：../configure --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-bootstrap --enable-shared --enable-threads=posix --enable-checking=release --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-languages=c,c++,objc,obj-c++,java,fortran,ada --enable-java-awt=gtk --disable-dssi --with-java-home=/usr/lib/jvm/java-1.5.0-gcj-1.5.0.0/jre --enable-libgcj-multifile --enable-java-maintainer-mode --with-ecj-jar=/usr/share/java/eclipse-ecj.jar --disable-libjava-multilib --with-ppl --with-cloog --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux
+线程模型：posix
+gcc 版本 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) 
+COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/4.4.7/:/usr/libexec/gcc/x86_64-redhat-linux/4.4.7/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.4.7/:/usr/lib/gcc/x86_64-redhat-linux/:/usr/libexec/gcc/x86_64-redhat-linux/4.4.7/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/4.4.7/:/usr/lib/gcc/x86_64-redhat-linux/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/4.4.7/:/usr/lib/gcc/x86_64-redhat-linux/4.4.7/:/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'main' '-mtune=generic'
+ /usr/libexec/gcc/x86_64-redhat-linux/4.4.7/collect2 --eh-frame-hdr --build-id -m elf_x86_64 --hash-style=gnu -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o main /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/4.4.7/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/4.4.7 -L/usr/lib/gcc/x86_64-redhat-linux/4.4.7 -L/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../.. main.o atoi.a -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-redhat-linux/4.4.7/crtend.o /usr/lib/gcc/x86_64-redhat-linux/4.4.7/../../../../lib64/crtn.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;编译之后我们可以来看以下程序运行结果是否正确。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ ./main 
+o@Neo-kylin:~/lib_a_so$ echo $?
+5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;结果为5，与预期一致。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2 id=&quot;so&quot;&gt;&lt;code&gt;.so&lt;/code&gt;文件（共享库文件）&lt;/h2&gt;
+&lt;p&gt;共享库文件和windows下的&lt;code&gt;dll&lt;/code&gt;文件(dynamic link library)的概念是一样的，都是在程序运行的时候进行动态链接，供程序调用的。&lt;br /&gt;
+在linux 下可以使用&lt;code&gt;ldd&lt;/code&gt;命令来查看某个可执行文件需要链接哪些共享库(动态库)，并可以确定这些要链接的共享库在本机中的位置。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&amp;gt;  (0x00007fffab1ff000)
+    libc.so.6 =&amp;gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里要说以下动态库的查找路径。对于程序需要链接的动态库&lt;code&gt;xxx.so&lt;/code&gt;，如果它在当前目录下有，那么链接当前目录下的。如果没有，那么就链接系统&lt;code&gt;/etc/ld.so.cache&lt;/code&gt;(可通过ldconfig来更新)文件中查找xxx.so的路径，如果都没有，那么就会报错啦。&lt;br /&gt;
+我们在当前目录创建一个&lt;code&gt;libc.so.6&lt;/code&gt;文件，然后再使用&lt;code&gt;ldd&lt;/code&gt;看一下。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ touch libc.so.6 &amp;amp;&amp;amp; chmod +x libc.so.6
+o@Neo-kylin:~/lib_a_so$ ls -l libc.so.6 
+-rwxrwxr-x 1 o o 0 10月 10 17:15 libc.so.6
+o@Neo-kylin:~/lib_a_so$ ldd main
+./main: error while loading shared libraries: ./libc.so.6: file too short
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到，这时候是链接的当前目录下的&lt;code&gt;libc.so.6&lt;/code&gt;这个文件，很可惜，出错了。&lt;br /&gt;
+其实在链接的时候，我们可以通过&lt;code&gt;-Wl,-rpath=sopath&lt;/code&gt;来指定运行时加载动态库的路径。这样做的好处是可以把一些动态库的位置信息不加入到&lt;code&gt;/etc/ld.so.cache&lt;/code&gt;中，已经避免和系统已有动态库产生冲突的情况。（例如目标机器的glibc库版本太低，而编译程序的时候使用的高版本的，而出现&amp;rdquo;libc.so.6: version</code>GLIBC_2.14&rsquo; not found&rdquo;类似的错误的情况）</p>
+<p>注：<span class=" newTimeFactor_before_abs m">&nbsp;-<em>Wl</em>: 表示后面的参数将传给link程序ld</span>，gcc编译时候的链接实际上是调用ld进行的.</p>
+<h3 id="atoiso">创建atoi.so</h3>
+<p>这里还是使用前面创建的<code>atoi.c</code>文件创建<code>atoi.so</code>文件。实际上我们这里创建<code>atoi.so.1</code>文件，文件名后面的<code>.1</code>代表的是版本号。动态库因为使用的时候是动态链接的，而不是直接链接到目标程序文件中的。所以可能同时存在多个版本的情况，一般都会指定版本号。<br />
+通常使用<code>libxxx.so.主版本号.副版本号</code>的形式来命名。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ gcc -shared -o atoi.so.1 atoi.c
+/usr/bin/ld: /tmp/ccLK0pLC.o: relocation R_X86_64_32 against `.rodata&rsquo; can not be used when making a shared object; recompile with -fPIC
+/tmp/ccLK0pLC.o: could not read symbols: Bad value
+collect2: ld 返回 1
+o@Neo-kylin:~/lib_a_so$ gcc -fPIC -shared -o atoi.so.1 atoi.c
+o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.c  atoi.h  atoi.o  atoi.so.1  main.c  main.o
+</code></pre>
+<p><code>-share</code>该选项指定生成动态连接库（让连接器生成T类型的导出符号表，有时候也生成弱连接W类型的导出符号，后面介绍<code>nm</code>工具的时候再说），不用该标志外部程序无法连接。相当于一个可执行文件。<br />
+<code>-fPIC</code>表示编译为位置独立的代码，不用此选项的话编译后的代码是位置相关的所以动态载入时是通过代码拷贝的方式来满足不同进程的需要，而不能达到真正代码段共享的目的。</p>
+<p>第一次没有指定<code>-fPIC</code>的时候出错了，原因是<strong>针对可迁移R_X86_64_32平台，只读数据段&rsquo;.rodata&rsquo;不能创建成共享对象</strong>，原因是在动态链接动态库的时候，如果没有<strong>编译成位置无关代码</strong>，那么链接的时候可能因为某些代码的位置具有相关性，而在执行时出现错误。可执行文件在链接时就知道每一行代码、每一个变量会被放到线性地址空间的什么位置，因此这些地址可以都作为常数写到代码里面。对于动态库，只有加载的时候才知道。</p>
+<p>如果代码中没有只读数据段，那么就不会有这个问题。例如</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ cat &gt;val.c
+int a= 100;
+o@Neo-kylin:~/lib_a_so$ gcc -shared -o val.so val.c
+</code></pre>
+<h3 id="atoiso_1">使用atoi.so</h3>
+<p>使用<code>.so</code>文件的形式和使用<code>.a</code>也差不多，也是使用<code>ld</code>来进行链接。因为这过于复杂，还是使用<code>gcc</code>来做这个操作(实际上gcc也是使用的ld)。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ gcc -o main main.o atoi.so.1
+o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&gt;  (0x00007fff56eaf000)
+    atoi.so.1 =&gt; not found
+    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+o@Neo-kylin:~/lib_a_so$ ./main
+./main: error while loading shared libraries: atoi.so.1: cannot open shared object file: No such file or directory
+</code></pre>
+<p>上面执行的时候报错，意思是找不到<code>atoi.so.1</code>这个文件。原因是共享库的查找目录没有当前目录，我们可以添加环境变量<code>LD_LIBRARY_PATH</code>来使系统动态载入器 (dynamic linker/loader)在当前目录也查找。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ export LD_LIBRARY_PATH=.
+o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&gt;  (0x00007fff08fff000)
+    atoi.so.1 =&gt; ./atoi.so.1 (0x00007f9ed7ac6000)
+    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+o@Neo-kylin:~/lib_a_so$ ./main
+o@Neo-kylin:~/lib_a_so$ echo $?
+5
+</code></pre>
+<p>还有一种办法，比添加环境变量更好使，也更具有可移植性，那就是编译的时候指定运行的时候共享库的加载路径。gcc使用<code>-Wl,-rpath=sopath</code>来指定，其中<code>sopath</code>是共享库放置的路径(可以是绝对路径，也可以是相对路径)。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ gcc -o main main.o -Wl,-rpath=. atoi.so.1
+o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&gt;  (0x00007fff457ff000)
+    atoi.so.1 =&gt; ./atoi.so.1 (0x00007fb946d56000)
+    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+o@Neo-kylin:~/lib_a_so$ ./main
+o@Neo-kylin:~/lib_a_so$ echo $?
+5
+</code></pre>
+<p>动态库还可以通过<code>dlopen</code>/<code>dlsym</code>等来使用，这里就不介绍了。</p>
+<hr />
+<h2 id="lalibtool-archive"><code>.la</code>文件(libtool archive)</h2>
+<p>以下的内容，参考<a href="http://www.ibm.com/developerworks/cn/aix/library/1007_wuxh_libtool/">使用 GNU Libtool 创建库</a><br />
+这里先要说以下<code>libtool</code>这个工具。<br />
+libtool是GNU的一个用来解决各个平台创建动态/静态库文件的不同操作的过于复杂的工具。它提供了使用抽象的接口进行动态/静态库的方法。<br />
+使用<code>GNU Libtool</code>可以容易的在不同的系统中建立动态链接库。它通过一个称为<code>Libtool</code>库的抽象，隐藏了不同系统之间的差异，给开发人员提供了一致的的接口。对于大部分情况，开发人员甚至不用去查看相应的系统手册，只需要掌握<code>GNU Libtool</code>的用法就可以了。并且，使用 <code>Libtool</code>的<code>Makefile</code>也只需要编写一次就可以在多个系统上使用。</p>
+<h3 id="libtool">libtool的使用</h3>
+<p>libtool的使用一般分为以下几个步骤<br />
+1. 创建 Libtool 对象文件<br />
+2. 创建 Libtool 库<br />
+3. 安装 Libtool 库 <br />
+4. 使用 Libtool 库<br />
+5. 卸载 Libtool 库</p>
+<h4 id="1-libtool">1. 创建 Libtool 对象文件</h4>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.c  atoi.h  main  main.c
+o@Neo-kylin:~/lib_a_so$ libtool &ndash;mode=compile gcc -c atoi.c
+libtool: compile:  gcc -c atoi.c  -fPIC -DPIC -o .libs/atoi.o
+libtool: compile:  gcc -c atoi.c -o atoi.o &gt;/dev/null 2&gt;&amp;1
+o@Neo-kylin:~/lib_a_so$ ls -aR
+.:
+.  ..  atoi.a  atoi.c  atoi.h  atoi.lo  atoi.o  .libs  main  main.c  main.lo  main.o</p>
+
+<p>./.libs:
+.  ..  atoi.o  libatoi.a  libatoi.la  libatoi.lai  libatoi.so  libatoi.so.0  libatoi.so.0.0.0  main.o
+</code></pre>
+<p>创建libtool对象文件的过程，实际上是生成<code>.o</code>、<code>.so</code>、<code>.a</code>文件的过程，同时还生成了一个<code>.lo</code>文件。<code>.lo</code>文件里面描述了两个.o文件的路径。这一步，就已经生成了相应的动态库和静态库。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ cat atoi.lo</p>
+
+<h1 id="atoi-lo-a-libtool-object-file">atoi.lo - a libtool object file</h1>
+
+<h1 id="generated-by-ltmain-sh-gnu-libtool-2-2-6b">Generated by ltmain.sh (GNU libtool) 2.2.6b</h1>
+
+<p>#</p>
+
+<h1 id="please-do-not-delete-this-file">Please DO NOT delete this file!</h1>
+
+<h1 id="it-is-necessary-for-linking-the-library">It is necessary for linking the library.</h1>
+
+<h1 id="name-of-the-pic-object">Name of the PIC object.</h1>
+
+<p>pic_object=&lsquo;.libs/atoi.o&rsquo;</p>
+
+<h1 id="name-of-the-non-pic-object">Name of the non-PIC object</h1>
+
+<p>non_pic_object=&lsquo;atoi.o&rsquo;
+</code></pre>
+<p>其中一个是用于生成静态库的，一个是用于生产动态库的。</p>
+<h4 id="2-libtool">2. 创建 Libtool 库</h4>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ libtool &ndash;mode=link gcc -o libatoi.la atoi.lo -rpath /home/o/lib_a_so/lib -lc
+libtool: link: rm -fr  .libs/libatoi.a .libs/libatoi.la .libs/libatoi.lai .libs/libatoi.so .libs/libatoi.so.0 .libs/libatoi.so.0.0.0
+libtool: link: gcc -shared  .libs/atoi.o   -lc    -Wl,-soname -Wl,libatoi.so.0 -o .libs/libatoi.so.0.0.0
+libtool: link: (cd &ldquo;.libs&rdquo; &amp;&amp; rm -f &ldquo;libatoi.so.0&rdquo; &amp;&amp; ln -s &ldquo;libatoi.so.0.0.0&rdquo; &ldquo;libatoi.so.0&rdquo;)
+libtool: link: (cd &ldquo;.libs&rdquo; &amp;&amp; rm -f &ldquo;libatoi.so&rdquo; &amp;&amp; ln -s &ldquo;libatoi.so.0.0.0&rdquo; &ldquo;libatoi.so&rdquo;)
+libtool: link: ar cru .libs/libatoi.a  atoi.o
+libtool: link: ranlib .libs/libatoi.a
+libtool: link: ( cd &ldquo;.libs&rdquo; &amp;&amp; rm -f &ldquo;libatoi.la&rdquo; &amp;&amp; ln -s &ldquo;../libatoi.la&rdquo; &ldquo;libatoi.la&rdquo; )
+</code></pre>
+<p>注意这里使用<code>atoi.lo</code>作为输入文件，并指定生成的目标文件为<code>libatoi.la</code>。<br />
+<code>-rpath</code>选项是指定Libtool将这个库安装到的位置，如果省略了<code>-rpath</code>选项，那么不生成动态链接库。<br />
+因为在<code>atoi</code>函数中使用了标准C库函数<code>sscanf</code>，所以带上<code>-lc</code>选项，Libtool 会记住这个依赖关系，后续在使用我们的库时自动的将依赖的库链接进来。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ ls -aR
+.:
+.  ..  atoi.a  atoi.c  atoi.h  atoi.lo  atoi.o  libatoi.la  .libs  main  main.c  main.lo  main.o</p>
+
+<p>./.libs:
+.  ..  atoi.o  libatoi.a  libatoi.la  libatoi.lai  libatoi.so  libatoi.so.0  libatoi.so.0.0.0  main.o
+</code></pre>
+<p>可以看到这次在当前目录下生成了<code>libatoi.la</code>文件，而<code>.libs</code>目录下的那个是一个符号链接，指向当前目录下的这个文件。这其实是一个文本文件，里面的内容比较长，就不贴了。贴几个比较重要的。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ cat libatoi.la
+dlname=&lsquo;libatoi.so.0&rsquo;
+library_names=&lsquo;libatoi.so.0.0.0 libatoi.so.0 libatoi.so&rsquo;
+old_library=&lsquo;libatoi.a&rsquo;
+dependency_libs=&rsquo; -lc&rsquo;
+installed=no
+shouldnotlink=no
+dlopen=&rdquo;
+dlpreopen=&rdquo;
+libdir=&lsquo;/home/o/lib_a_so/lib&rsquo;
+</code></pre>
+<h4 id="3-libtool">3. 安装 Libtool 库</h4>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ libtool &ndash;mode=install install -c libatoi.la /home/o/lib_a_so/lib
+libtool: install: install -c .libs/libatoi.so.0.0.0 /home/o/lib_a_so/libatoi.so.0.0.0
+libtool: install: (cd /home/o/lib_a_so &amp;&amp; { ln -s -f libatoi.so.0.0.0 libatoi.so.0 || { rm -f libatoi.so.0 &amp;&amp; ln -s libatoi.so.0.0.0 libatoi.so.0; }; })
+libtool: install: (cd /home/o/lib_a_so &amp;&amp; { ln -s -f libatoi.so.0.0.0 libatoi.so || { rm -f libatoi.so &amp;&amp; ln -s libatoi.so.0.0.0 libatoi.so; }; })
+libtool: install: install -c .libs/libatoi.lai /home/o/lib_a_so/libatoi.la
+libtool: install: install -c .libs/libatoi.a /home/o/lib_a_so/libatoi.a
+libtool: install: chmod 644 /home/o/lib_a_so/libatoi.a
+libtool: install: ranlib /home/o/lib_a_so/libatoi.a
+libtool: install: warning: remember to run <code>libtool --finish /home/o/lib_a_so/lib'
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面操作报了一个&lt;code&gt;warning&lt;/code&gt;，提示我们去运行 &lt;code&gt;libtool --finish /home/o/lib_a_so/lib&lt;/code&gt;，这个操作是使用libtool进行一个正确配置环境变量&lt;code&gt;LD_LIBRARY_PATH&lt;/code&gt;、&lt;code&gt;LD_RUN_PATH&lt;/code&gt;等的过程。如果不能正常的使用安装好的库，运行这个命令。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;查看一下，在当前目录生成了 libatoi.a、libatoi.so、libatoi.so.0、libatoi.so.0.0.0这几个文件。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.c  atoi.h  atoi.lo  atoi.o  libatoi.a  libatoi.la  libatoi.so  libatoi.so.0  libatoi.so.0.0.0  main  main.c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&quot;4-libtool&quot;&gt;4. 使用 Libtool 库&lt;/h4&gt;
+&lt;p&gt;先编译&lt;code&gt;main.c&lt;/code&gt;文件&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ libtool --mode=compile gcc -c main.c
+libtool: compile:  gcc -c main.c  -fPIC -DPIC -o .libs/main.o
+libtool: compile:  gcc -c main.c -o main.o &amp;gt;/dev/null 2&amp;gt;&amp;amp;1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;然后使用&lt;code&gt;Libtool&lt;/code&gt;来进行链接操作。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ libtool --mode=link gcc -o main main.lo /home/o/lib_a_so/libatoi.la 
+libtool: link: warning: library</code>/home/o/lib_a_so/libatoi.la&rsquo; was moved.
+libtool: link: warning: library <code>/home/o/lib_a_so/libatoi.la' was moved.
+libtool: link: gcc -o main .libs/main.o  /home/o/lib_a_so/libatoi.so -lc  -Wl,-rpath -Wl,/home/o/lib_a_so -Wl,-rpath -Wl,/home/o/lib_a_so
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;从上面的输出可以看到，实际上它还是调用的&lt;code&gt;gcc&lt;/code&gt;来进行的操作，但是它添加了选项&lt;code&gt;-lc&lt;/code&gt;，这就是&lt;code&gt;Libtool&lt;/code&gt;做的事情之一，它会解决依赖的问题。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ ls
+atoi.a  atoi.h   atoi.o     libatoi.la  libatoi.so.0      main    main.lo
+atoi.c  atoi.lo  libatoi.a  libatoi.so  libatoi.so.0.0.0  main.c  main.o
+o@Neo-kylin:~/lib_a_so$ ./main 
+o@Neo-kylin:~/lib_a_so$ echo $?
+5
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面的操作默认使用的动态库，可以使用&lt;code&gt;-static-libtool-libs&lt;/code&gt;选项来指定使用静态库。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&amp;gt;  (0x00007fffd3bff000)
+    libatoi.so.0 =&amp;gt; /home/o/lib_a_so/libatoi.so.0 (0x00007f984bdd0000)
+    libc.so.6 =&amp;gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;使用&lt;code&gt;-static-libtool-libs&lt;/code&gt;选项重新生成。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;o@Neo-kylin:~/lib_a_so$ libtool --mode=link gcc -o main main.lo /home/o/lib_a_so/libatoi.la -static-libtool-libs
+libtool: link: warning: library</code>/home/o/lib_a_so/libatoi.la&rsquo; was moved.
+libtool: link: warning: library `/home/o/lib_a_so/libatoi.la&rsquo; was moved.
+libtool: link: gcc -o main .libs/main.o  /home/o/lib_a_so/libatoi.a -lc
+</code></pre>
+<p>已经不不需要<code>libatoi.so.0</code>了</p>
+<pre><code>o@Neo-kylin:~/lib_a_so$ ldd main
+    linux-vdso.so.1 =&gt;  (0x00007fff1f3ac000)
+    libc.so.6 =&gt; /lib64/libc.so.6 (0x000000305d800000)
+    /lib64/ld-linux-x86-64.so.2 (0x000000305d000000)
+</code></pre>
+<h4 id="5-libtool">5. 卸载 Libtool 库</h4>
+<p>这是对安装操作的反操作，会删除安装的所有库文件。</p>
+<pre><code class="bash">o@Neo-kylin:~/lib_a_so$ libtool &ndash;mode=uninstall rm /home/o/lib_a_so/libatoi.la
+libtool: uninstall: rm /home/o/lib_a_so/libatoi.la /home/o/lib_a_so/libatoi.so.0.0.0 /home/o/lib_a_so/libatoi.so.0 /home/o/lib_a_so/libatoi.so /home/o/lib_a_so/libatoi.a
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

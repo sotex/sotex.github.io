@@ -1,0 +1,185 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp源码VS2013编译添加加密支持(OpenSSL) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp源码VS2013编译添加加密支持(OpenSSL)</h1>
+          <span class="post-date">2015年11月27日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/11/27/5001672.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/11/27/5001672.html</a>
+<h2>net-snmp源码VS2013编译添加加密支持(OpenSSL)</h2>
+<p>snmp v3 协议使用了基于用户的安全模型，具有认证和加密两个模块。</p>
+<p>认证使用的算法是一般的消息摘要算法，例如MD5/SHA等。这一部分在net-snmp的源码中已经有相关的实现，无需再使用外部库来支持它。</p>
+<p>加密使用的算法一般可以是DES/AES等。这一部分在net-snmp的源码中没有想关的实现，需要使用外部加密算法库(OpenSSL)来支持。</p>
+<h2>1、安装或编译OpenSSL</h2>
+<p>要使得编译出来的net-snmp支持加密，首先我们需要OpenSSL库的相关文件(头文件的库文件)。这可以采用OpenSSL的源码来编译的方式，也可以直接下载已经编译好文件来使用即可。</p>
+<p>如果是自己编译，网上有很多相关的文章了，参考着来做就是。这不是本文的重点，这里就不写了。</p>
+<p>最快速的方式就是网上下载一个现成的来用就是了。这里我下载的是这个 <a href="http://dl.pconline.com.cn/download/355862.html" target="_blank"><a href="http://dl.pconline.com.cn/download/355862.html">http://dl.pconline.com.cn/download/355862.html</a></a></p>
+<p>下载之后直接双击安装即可。</p>
+<p>下图是我这里安装后的位置，红框中的是将要用到的两个文件夹。</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201511/693958-20151127201150171-1781716623.jpg" alt="" /></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h2>2、在net-snmp工程中设置相关属性</h2>
+<h3>2.1、设置<span style="color: #ff0000;">包含</span>目录和<span style="color: #ff0000;">库</span>目录</h3>
+<p>在<span style="color: #ff0000;">libsnmp和snmpd项目</span>中添加包含目录和库目录。（你也可以把所有项目的都加上，我这里只用到这两个项目）其中libsnmp这个项目必须加上，否则不支持加密。</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201511/693958-20151127202600562-1532552789.jpg" alt="" /></p>
+<h3>2.2、设置预处理器定义</h3>
+<p>这里要添加一个宏定义<span style="color: #ff0000;">NETSNMP_USE_OPENSSL</span>。可以修改&lt;<span style="color: #ff0000;">net-snmp/net-snmp-config.h</span>&gt;文件，但是这种做法会导致要所有的项目都必须设置头文件和库文件的目录，所以不是很好。这里我们只需要<span style="color: #ff0000;">libsnmp</span>和<span style="color: #ff0000;">snmpd</span>这两个项目支持即可，所以只需要设置这两个项目的属性。</p>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201511/693958-20151127203213140-1959676533.png" alt="" /></p>
+<h2>3、编译。编写配置文件</h2>
+<p>编译这里就不说了，以后写一篇文章来专门讲讲使用VS2013编译net-snmp 5.7。</p>
+<p>使用的时候必须使用制订了SNMPv3验证方式相关参数的配置文件才可。</p>
+<p>具体的可以见这篇文章</p>
+<p><a href="http://www.cnblogs.com/oloroso/p/4844907.html" target="_blank"><a href="http://www.cnblogs.com/oloroso/p/4844907.html">http://www.cnblogs.com/oloroso/p/4844907.html</a></a></p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

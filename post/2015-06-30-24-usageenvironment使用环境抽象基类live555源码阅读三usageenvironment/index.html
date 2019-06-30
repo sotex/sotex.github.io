@@ -1,0 +1,267 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 24 UsageEnvironment使用环境抽象基类——Live555源码阅读(三)UsageEnvironment &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>24 UsageEnvironment使用环境抽象基类——Live555源码阅读(三)UsageEnvironment</h1>
+          <span class="post-date">2015年06月30日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/30/4609389.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/30/4609389.html</a>
+<h2 id="24-usageenvironmentlive555usageenvironment">24 UsageEnvironment使用环境抽象基类&mdash;&mdash;Live555源码阅读(三)UsageEnvironment</h2>
+<div class="toc">
+<ul>
+<li><a href="#24-usageenvironmentlive555usageenvironment">24 UsageEnvironment使用环境抽象基类&mdash;&mdash;Live555源码阅读(三)UsageEnvironment</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#_2">下面是其定义</a></li>
+<li><a href="#usageenvironment">UsageEnvironment的构造与析构</a></li>
+<li><a href="#reclaim">reclaim方法(自我回收)</a></li>
+<li><a href="#internalerror">internalError方法(内部错误)</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>这是Live555源码阅读的第三部分，包括了UsageEnvironment相关的三个类。</p>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p><code>UsageEnvironment</code>是一个抽象基类，其定义在<code>live555sourcecontrol\UsageEnvironment\include\UsageEnvironment.hh</code>文件中。</p>
+<p>UsageEnvironment定义了三个数据成员， void*类型的指针<code>liveMediaPriv</code>和<code>groupsockPriv</code>(要注意这两者是public权限的，在使用环境相关类中都没有对它们进行初始化以外的操作)，这两个在后面说<code>Groupsock</code>和<code>LiveMedia</code>模块的时候就比较清楚了。还有一个很重要的是一个引用<code>fScheduler</code>，它告诉了我们，每一个使用环境必须绑定一个任务调度器。</p>
+<p><img src="http://images0.cnblogs.com/blog2015/693958/201506/300855164159317.png" alt="" /><img src="http://images0.cnblogs.com/blog2015/693958/201506/300855261036923.png" alt="" /></p>
+<h2 id="_2">下面是其定义</h2>
+<pre><code class="cpp">// An abstract base class, subclassed for each use of the library
+// 一个抽象类，子类为每个使用库
+class UsageEnvironment {
+public:</p>
+
+<pre><code>//reclaim   vt.开拓，开垦; 感化; 取回; 沙化; n.改造，感化; 教化; 回收再利用; 收回，取回;
+//自我回收，如果liveMediaPriv或groupsockPriv这两个成员变量有一个为NULL，就delete this;
+void reclaim();
+
+// task scheduler:任务调度
+//直接返回对象内部的fScheduler成员
+TaskScheduler&amp;amp; taskScheduler() const { return fScheduler; }
+
+// result message handling:
+//消息处理结果，注意这里是一个类型定义
+typedef char const* MsgString;
+//纯虚接口，看意思应该是获取消息处理结果
+virtual MsgString getResultMsg() const = 0;
+
+virtual void setResultMsg(MsgString msg) = 0;
+virtual void setResultMsg(MsgString msg1, MsgString msg2) = 0;
+virtual void setResultMsg(MsgString msg1, MsgString msg2, MsgString msg3) = 0;
+virtual void setResultErrMsg(MsgString msg, int err = 0) = 0;
+// like setResultMsg(), except that an 'errno' message is appended.  (If &quot;err == 0&quot;, the &quot;getErrno()&quot; code is used instead.)
+//类似setResultMsg()，除了&amp;ldquo;errno&amp;rdquo;的消息被追加。（如果&amp;ldquo;err== 0&amp;rdquo;，&amp;ldquo;getErrno()&amp;rdquo;代码是用于替代。）
+
+virtual void appendToResultMsg(MsgString msg) = 0;
+
+virtual void reportBackgroundError() = 0;
+// used to report a (previously set) error message within
+//用于报告错误消息（预先设定）内的
+// a background event事件的背景
+
+virtual void internalError(); // used to 'handle' a 'should not occur'-type error condition within the library.
+
+// 'errno'
+virtual int getErrno() const = 0;
+
+// 'console' output:
+virtual UsageEnvironment&amp;amp; operator&amp;lt;&amp;lt;(char const* str) = 0;
+virtual UsageEnvironment&amp;amp; operator&amp;lt;&amp;lt;(int i) = 0;
+virtual UsageEnvironment&amp;amp; operator&amp;lt;&amp;lt;(unsigned u) = 0;
+virtual UsageEnvironment&amp;amp; operator&amp;lt;&amp;lt;(double d) = 0;
+virtual UsageEnvironment&amp;amp; operator&amp;lt;&amp;lt;(void* p) = 0;
+
+// a pointer to additional, optional, client-specific state
+// 客户端特定的状态
+void* liveMediaPriv;
+void* groupsockPriv;
+</code></pre>
+
+<p>protected:
+    //初始化liveMediaPriv(NULL), groupsockPriv(NULL), fScheduler(scheduler)
+    UsageEnvironment(TaskScheduler&amp; scheduler); // abstract base class
+    virtual ~UsageEnvironment(); // we are deleted only by reclaim()我们只有reclaim()删除</p>
+
+<p>private:
+    TaskScheduler&amp; fScheduler;
+};
+</code></pre>
+<h2 id="usageenvironment">UsageEnvironment的构造与析构</h2>
+<p>其构造的时候需要一个TaskScheduler对象来用于绑定，另外两个成员都被初始化为了NULL。稍带提一下，TaskScheduler是一个抽象基类，这里绑定的应该是BasicTaskScheduler对象，回忆一下BasicTaskScheduler的创建是通过静态方法createNew获得的。</p>
+<p>UsageEnvironment的构造和析构都受到protected权限的保护。</p>
+<pre><code class="cpp">UsageEnvironment::UsageEnvironment(TaskScheduler&amp; scheduler)
+  : liveMediaPriv(NULL), groupsockPriv(NULL), fScheduler(scheduler) {
+}</p>
+
+<p>UsageEnvironment::~UsageEnvironment() {
+}
+</code></pre>
+<h2 id="reclaim">reclaim方法(自我回收)</h2>
+<p>自我回收是一个public接口，可以在外部使用。但是其必须是在(liveMediaPriv NULL &amp;&amp; groupsockPriv NULL)成立的条件下才会析构自身。</p>
+<pre><code class="cpp">void UsageEnvironment::reclaim() {
+    // We delete ourselves only if we have no remainining state:
+    //我们回收自己，仅当我们有一个删除遗留的状态：
+    if (liveMediaPriv == NULL &amp;&amp; groupsockPriv == NULL) delete this;
+}
+</code></pre>
+<h2 id="internalerror">internalError方法(内部错误)</h2>
+<p>这个就不用解释了，在TaskScheduler中有一个一样的。</p>
+<pre><code class="cpp">// By default, we handle &lsquo;should not occur&rsquo;-type library errors by calling abort().  Subclasses can redefine this, if desired.
+void UsageEnvironment::internalError() {
+    abort();
+}
+</code></pre></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

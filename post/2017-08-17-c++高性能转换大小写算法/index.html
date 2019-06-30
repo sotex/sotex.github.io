@@ -1,0 +1,273 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> C&#43;&#43;高性能转换大小写算法 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>C&#43;&#43;高性能转换大小写算法</h1>
+          <span class="post-date">2017年08月17日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/08/17/7384709.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/08/17/7384709.html</a></p>
+
+<h2 id="简述">简述</h2>
+
+<p>有一个需求，是需要将URL中的<code>query</code>参数的key全部转换为小写或者大写，键值对的数量有点多，但全部都是英文字母，无需考虑非字母的情况。
+实现比较快的做法是使用STL或C标准库中的转换接口，如下：</p>
+
+<pre><code class="language-cpp">#include &lt;string&gt; 
+#include &lt;cctype&gt; 
+#include &lt;algorithm&gt;
+
+// 字符串中的大写字符转小写
+std::string strtolower(std::string s)
+{
+    transform(s.begin(), s.end(), s.begin(), ::tolower);
+    return s;
+}
+
+// 字符串中的小写字符转大写
+std::string strtoupper(std::string s)
+{
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
+    return s;
+}
+</code></pre>
+
+<p>这个方法虽然很好，但是效率不是很高。
+分析了一下ascii码的码值，发现大小写字母的ascii码之间是有规律的。</p>
+
+<h2 id="原理">原理</h2>
+
+<p>英文字母的ASCII码值表示如下
+<img src="http://images2017.cnblogs.com/blog/693958/201708/693958-20170817220807600-747925437.png" alt="" />
+对比一下其二进制形式
+<img src="http://images2017.cnblogs.com/blog/693958/201708/693958-20170817220834021-383587734.png" alt="" />
+对比使用的是OSChina的在线工具<a href="http://tool.oschina.net/diff/">http://tool.oschina.net/diff/</a></p>
+
+<p>从对比的结果可以看出，<strong>大写字母与小写字母的差别</strong>仅是<code>一个比特位的不同</code>。
+因为它们的这个规律，可以写出下面的转换函数（如果输入不是字母，转出的结果会有错误）
+可以查看数字<code>0-9</code>的ascii码值，可以看出它们的第6位都是0，所以转为小写的算法不会影响数字的值。
+转小写算法中受到影响的，只有ascii码二进制表示中第六位为0的部分。其中非字母部分如下表
+<img src="http://images2017.cnblogs.com/blog/693958/201708/693958-20170817225135662-230008379.png" alt="" /></p>
+
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stdint.h&gt;
+// 更优化
+std::string strtoupper(std::string s)
+{
+    if(s.empty()){return s;}
+    size_t len = s.size() + 1;
+    size_t alignlen = len + 8 - (len % 8);
+    s.resize(alignlen);
+    size_t ec = alignlen / 8;
+    uint64_t* p8 = (uint64_t*)s.data();
+    for(size_t i=0;i&lt;ec;++i){
+        p8[i] &amp;= 0xDFDFDFDFDFDFDFDF;
+    }
+    s.resize(len-1);
+    return s;
+}
+
+// 未做进一步优化
+std::string strtolower(std::string s)
+{
+    size_t len = s.size();
+    size_t ec = len /8;
+    uint64_t* p8 = (uint64_t*)s.data();
+    for(size_t i=0;i&lt;ec;++i){
+        p8[i] |= 0x2020202020202020;
+    }
+    uint8_t* p1 = (uint8_t*)(p8 + ec);
+    len %= 8;
+    for(size_t i=0;i&lt;len;++i){
+        p1[i] |= 0x20;
+    }
+    return s;
+}
+</code></pre>
+
+<h2 id="性能测试">性能测试</h2>
+
+<p>测试代码如下：</p>
+
+<pre><code class="language-cpp">int main()
+{
+    //std::cout &lt;&lt; &quot;Hello, world!\n&quot;;
+    for(size_t i=0;i&lt;1000000;++i){
+    std::string s = strtoupper(&quot;qwertyuiopasdfghjklzxcvbnm````````QWERTYUIOPASDFGHJKLZXCVBNM&quot;);
+    //std::cout&lt;&lt;s&lt;&lt;std::endl;
+    s = strtolower(&quot;qwertyuiopasdfghjklzxcvbnm\t\t\t\t\t\t\t\tQWERTYUIOPASDFGHJKLZXCVBNM&quot;);
+    //std::cout&lt;&lt;s&lt;&lt;std::endl;
+    }
+    return 0;
+}
+</code></pre>
+
+<p>&ndash;<strong>编译时候请勿优化，否则可能被优化掉！</strong>&ndash;
+测试结果如下：
+使用STL算法结果如下</p>
+
+<pre><code class="language-bash">time ./teststl
+./teststl  7.88s user 0.03s system 100% cpu 7.904 total
+</code></pre>
+
+<p>自写代码测试结果如下</p>
+
+<pre><code class="language-bash">time ./test
+./test  0.93s user 0.00s system 99% cpu 0.928 total
+</code></pre>
+
+<p>可以看到，其性能有差异。（应用场景有限）</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,510 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> GCC 编译优化指南(转) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>GCC 编译优化指南(转)</h1>
+          <span class="post-date">2016年08月30日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/08/30/5822982.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/08/30/5822982.html</a>
+#GCC 编译优化指南(转)</p>
+
+<p><a href="http://www.jinbuguo.com/linux/optimize_guide.html">http://www.jinbuguo.com/linux/optimize_guide.html</a>
+作者：金步国
+版权声明</p>
+
+<p>本文作者是一位开源理念的坚定支持者，所以本文虽然不是软件，但是遵照开源的精神发布。</p>
+
+<pre><code>无担保：本文作者不保证作品内容准确无误，亦不承担任何由于使用此文档所导致的损失。
+自由使用：任何人都可以自由的阅读/链接/打印此文档，无需任何附加条件。
+名誉权：任何人都可以自由的转载/引用/再创作此文档，但必须保留作者署名并注明出处。
+</code></pre>
+
+<p>其他作品</p>
+
+<p>本文作者十分愿意与他人分享劳动成果，如果你对我的其他翻译作品或者技术文章有兴趣，可以在如下位置查看现有的作品集：</p>
+
+<pre><code>金步国作品集 [ http://www.jinbuguo.com/ ]
+</code></pre>
+
+<p>联系方式</p>
+
+<p>由于作者水平有限，因此不能保证作品内容准确无误。如果你发现了作品中的错误(哪怕是错别字也好)，请来信指出，任何提高作品质量的建议我都将虚心接纳。</p>
+
+<pre><code>Email(QQ)：70171448在QQ邮箱
+</code></pre>
+
+<p>##前言</p>
+
+<p>网上关于编译优化的文章很多，但大多零零散散，不成体系，本文试图给出一个完整和清晰的优化思路，同时提供在实践中如何进行优化的详尽参考。但是，在介绍所有优化知识之前首先引用LFS-Book中的一句忠告：“使用编译器优化得到的小幅度性能提升，与它带来的风险相比微不足道”。你还要进行优化吗？</p>
+
+<p>%@&amp;#=^%~*# &hellip;
+OK, crazy guy! Let&rsquo;s Go!!</p>
+
+<p>在继续之前，作者还是奉劝各位：如果追求极致的优化，那么它将是一件既耗时又麻烦的事情，你会陷入无止尽的测试、测试、再测试……另外 Gentoo wiki 上有这么一句话：&rdquo;GCC has well over a hundred individual optimization flags and it would be insane to try and describe them all.&ldquo;所以本文不会涉及全部GCC优化选项。最后作者还是再罗唆一句：优化应当适可而止为好，将精力留出来做一些其它事情会更有意义！</p>
+
+<p>##先决条件</p>
+
+<p>本文的主要读者是 LFS/Gentoo 的玩家，基本上比较 crazy 的玩家都接触过，如果你之前从未使用过 LFS/Gentoo ，请先按照《Linux From Scratch 6.2 中文版》做一遍 LFS ，然后再来阅读此文将会更有意义。另外，本文是建立在《深入理解软件包的配置、编译与安装》一文基础之上的，在开始阅读本文之前，请先阅读它。</p>
+
+<p>##基本原理</p>
+
+<p>我们首先从三个方面来看与优化相关的内容：</p>
+
+<p>从运行时的依赖关系来看，对性能有较大影响的组件有 <code>kernel</code> 和 <code>glibc</code> ，虽然这严格说来这不属于本文的话题，但是经过精心选择、精心配置、精心编译的内核与C库将对提高系统的运行速度起着基础性的作用。
+从被编译的软件包来看，每个软件包的 <code>configure</code> 脚本都提供了许多配置选项，其中有许多选项是与性能息息相关的。比如，对于 <code>Apache-2.2.6</code> 而言，你可以使用 <code>--enable-MODULE=static</code> 将模块静态编译进核心，使用<code>--disable-MODULE</code> 禁用不需要的模块，使用 <code>--with-mpm=MPM</code> 选择一个高效的多路处理模块，在不需要IPv6的情况下使用 <code>--disable-ipv6</code> 禁用IPv6支持，在不使用线程化的MPM时使用 <code>--disable-threads</code> 禁用线程支持，等等……这部分内容显然不可能在本文中进行完整的讲述，本文只能讲述与优化相关的通用选项。针对特定的软件包，请在编译前使用 <code>configure --help</code> 查看所有选项，并精心选择。
+从编译过程自身来看，将源代码编译为二进制文件是在 Makefile 文件的指导下，由 make 程序调用一条条编译命令完成的。而将源代码编译为二进制文件又需要经过以下四个步骤：<code>预处理(cpp)</code> → <code>编译(gcc或g++)</code> → <code>汇编(as)</code> → <code>连接(ld)</code> ；括号中表示每个阶段所使用的程序，它们分别属于 GCC 和 Binutils 软件包。显然的，优化应当从编译工具自身的选择以及控制编译工具的行为入手。</p>
+
+<p>大体上编译优化就这&rdquo;三板斧&rdquo;(其实是&rdquo;三脚猫&rdquo;)了，本文接下来的内容将讨论这只猫的后两只脚。</p>
+
+<p>##编译工具的选择</p>
+
+<p>对于编译工具自身的选择，在假定使用 Binutils 和 GCC 以及 Make 的前提下，没什么好说的，基本上新版本都能带来性能提升，同时比老版本对新硬件的支持更好，所以应当尽量选用新版本。不过追新也可能带来系统的不稳定，这就要针对实际情况进行权衡了。本文以 Binutils-2.18 和 GCC-4.2.2/GCC-4.3.0 以及 Make-3.81 为例进行说明。</p>
+
+<p>##configure 选项</p>
+
+<p>这里我们只讲解通用的&rdquo;体系结构选项&rdquo;，由于&rdquo;特性选项&rdquo;在每个软件包之间千差万别，所以不可能在此处进行讲解。</p>
+
+<p>这部分内容很简单，并且其含义也是不言而喻的，下面只列出常用的值：</p>
+
+<pre><code>i586-pc-linux-gnu
+i686-pc-linux-gnu
+x86_64-pc-linux-gnu
+powerpc-unknown-linux-gnu
+powerpc64-unknown-linux-gnu
+</code></pre>
+
+<p>如果你实在不知道应当使用哪一个，那么就干脆不使用这几个选项，让 config.guess 脚本自己去猜吧，反正也挺准的。</p>
+
+<p>##编译选项</p>
+
+<p>让我们先看看 Makefile 规则中的编译命令通常是怎么写的。</p>
+
+<p>大多数软件包遵守如下约定俗成的规范：</p>
+
+<ul>
+<li>1,首先从源代码生成目标文件(预处理,编译,汇编)，&rdquo;-c&rdquo;选项表示不执行链接步骤。
+<code>$(CC) $(CPPFLAGS) $(CFLAGS) example.c   -c   -o example.o</code></li>
+
+<li><p>2,然后将目标文件连接为最终的结果(连接)，&rdquo;-o&rdquo;选项用于指定输出文件的名字。
+<code>$(CC) $(LDFLAGS) example.o   -o example</code></p></li>
+
+<li><p>有一些软件包一次完成四个步骤：
+<code>$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) example.c   -o example</code></p></li>
+</ul>
+
+<p>当然也有少数软件包不遵守这些约定俗成的规范，比如：</p>
+
+<ul>
+<li><p>1,有些在命令行中漏掉应有的Makefile变量(注意：有些遗漏是故意的)</p>
+
+<pre><code class="language-Makefile">$(CC) $(CFLAGS) example.c    -c   -o example.o
+$(CC) $(CPPFLAGS) example.c  -c   -o example.o
+$(CC) example.o   -o example
+$(CC) example.c   -o example
+</code></pre>
+
+<ul>
+<li>2,有些在命令行中增加了不必要的Makefile变量
+<code>Makefile
+$(CC) $(CFLAGS) $(LDFLAGS) example.o   -o example
+$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) example.c   -c   -o example.o
+</code></li>
+</ul></li>
+</ul>
+
+<p>当然还有极个别软件包完全是&rdquo;胡来&rdquo;：乱用变量(增加不必要的又漏掉了应有的)者有之，不用$(CC)者有之，不一而足&hellip;..</p>
+
+<p>尽管将源代码编译为二进制文件的四个步骤由不同的程序(<code>cpp,gcc/g++,as,ld</code>)完成，但是事实上 <code>cpp</code>, <code>as</code>, <code>ld</code> 都是由 <code>gcc/g++</code> 进行间接调用的。换句话说，控制了 <code>gcc/g++</code> 就等于控制了所有四个步骤。从 <code>Makefile</code> 规则中的编译命令可以看出，编译工具的行为全靠<code>CC/CXX</code> <code>CPPFLAGS</code> <code>CFLAGS/CXXFLAGS</code> <code>LDFLAGS</code> 这几个变量在控制。当然理论上控制编译工具行为的还应当有 <code>AS</code> <code>ASFLAGS</code> <code>ARFLAGS</code> 等变量，但是实践中基本上没有软件包使用它们。</p>
+
+<p>那么我们如何控制这些变量呢？一种简易的做法是首先设置与这些 <code>Makefile</code> 变量同名的环境变量并将它们 <code>export</code> 为全局，然后运行 <code>configure</code> 脚本，大多数 configure 脚本会使用这同名的环境变量代替 <code>Makefile</code> 中的值。但是少数 <code>configure</code> 脚本并不这样做(比如GCC-3.4.6和Binutils-2.16.1的脚本就不传递LDFLAGS)，你必须手动编辑生成的 Makefile 文件，在其中寻找这些变量并修改它们的值，许多源码包在每个子文件夹中都有 Makefile 文件，真是一件很累人的事！</p>
+
+<p>###CC 与 CXX</p>
+
+<p>这是 <code>C</code> 与 <code>C++</code> 编译器命令。默认值一般是 &ldquo;gcc&rdquo; 与 &ldquo;g++&ldquo;。这个变量本来与优化没有关系，但是有些人因为担心软件包不遵守那些约定俗成的规范，害怕自己苦心设置的 <code>CFLAGS/CXXFLAGS/LDFLAGS</code> 之类的变量被忽略了，而索性将原本应当放置在其它变量中的选项一股老儿塞到 <code>CC</code> 或 <code>CXX</code> 中，比如：<code>CC=&quot;gcc -march=k8 -O2 -s&quot;</code>。这是一种怪异的用法，本文不提倡这种做法，而是提倡按照变量本来的含义使用变量。</p>
+
+<p>###CPPFLAGS</p>
+
+<p>这是用于预处理阶段的选项。不过能够用于此变量的选项，看不出有哪个与优化相关。如果你实在想设一个，那就使用下面这两个吧：</p>
+
+<p><code>-DNDEBUG</code>
+    &ldquo;NDEBUG&rdquo;是一个标准的 ANSI 宏，表示不进行调试编译。
+<code>-D_FILE_OFFSET_BITS=64</code>
+    大多数包使用这个来提供大文件(&gt;2G)支持。</p>
+
+<p>###CFLAGS 与 CXXFLAGS</p>
+
+<p><code>CFLAGS</code> 表示用于 C 编译器的选项，CXXFLAGS 表示用于 C++ 编译器的选项。这两个变量实际上涵盖了编译和汇编两个步骤。大多数程序和库在编译时默认的优化级别是&rdquo;2&rdquo;(使用&rdquo;-O2&rdquo;选项)并且带有调试符号来编译，也就是<code>CFLAGS=&quot;-O2 -g&quot;</code>, <code>CXXFLAGS=$CFLAG</code>S 。事实上，&rdquo;-O2&rdquo;已经启用绝大多数安全的优化选项了。另一方面，由于大部分选项可以同时用于这两个变量，所以仅在最后讲述只能用于其中一个变量的选项。[提醒]下面所列选项皆为非默认选项，你只要按需添加即可。</p>
+
+<p>先说说&rdquo;-O3&rdquo;在&rdquo;-O2&rdquo;基础上增加的几项：</p>
+
+<p><code>-finline-functions</code>
+    允许编译器选择某些简单的函数在其被调用处展开，比较安全的选项，特别是在CPU二级缓存较大时建议使用。
+<code>-funswitch-loops</code>
+    将循环体中不改变值的变量移动到循环体之外。
+<code>-fgcse-after-reload</code>
+    为了清除多余的溢出，在重载之后执行一个额外的载入消除步骤。</p>
+
+<p>另外：</p>
+
+<p><code>-fomit-frame-pointer</code>
+    对于不需要栈指针的函数就不在寄存器中保存指针，因此可以忽略存储和检索地址的代码，同时对许多函数提供一个额外的寄存器。所有&rdquo;-O&rdquo;级别都打开它，但仅在调试器可以不依靠栈指针运行时才有效。在AMD64平台上此选项默认打开，但是在x86平台上则默认关闭。建议显式的设置它。
+<code>-falign-functions=N</code>
+<code>-falign-jumps=N</code>
+<code>-falign-loops=N</code>
+<code>-falign-labels=N</code>
+    这四个对齐选项在&rdquo;-O2&rdquo;中打开，其中的根据不同的平台N使用不同的默认值。如果你想指定不同于默认值的N，也可以单独指定。比如，对于L2-cache&gt;=1M的cpu而言，指定 -falign-functions=64 可能会获得更好的性能。建议在指定了 -march 的时候不明确指定这里的值。</p>
+
+<p>###调试选项：</p>
+
+<p><code>-fprofile-arcs</code>
+    在使用这一选项编译程序并运行它以创建包含每个代码块的执行次数的文件后，程序可以再次使用 -fbranch-probabilities 编译，文件中的信息可以用来优化那些经常选取的分支。如果没有这些信息，gcc将猜测哪个分支将被经常运行以进行优化。这类优化信息将会存放在一个以源文件为名字的并以&rdquo;.da&rdquo;为后缀的文件中。</p>
+
+<p>###全局选项：</p>
+
+<p><code>-pipe</code>
+    在编译过程的不同阶段之间使用管道而非临时文件进行通信，可以加快编译速度。建议使用。</p>
+
+<p>###目录选项：</p>
+
+<p><code>--sysroot=dir</code>
+    将dir作为逻辑根目录。比如编译器通常会在 /usr/include 和 /usr/lib 中搜索头文件和库，使用这个选项后将在 dir/usr/include 和 dir/usr/lib 目录中搜索。如果使用这个选项的同时又使用了 -isysroot 选项，则此选项仅作用于库文件的搜索路径，而 -isysroot 选项将作用于头文件的搜索路径。这个选项与优化无关，但是在 CLFS 中有着神奇的作用。</p>
+
+<p>###代码生成选项：</p>
+
+<p><code>-fno-bounds-check</code>
+    关闭所有对数组访问的边界检查。该选项将提高数组索引的性能，但当超出数组边界时，可能会造成不可接受的行为。
+<code>-freg-struct-return</code>
+    如果struct和union足够小就通过寄存器返回，这将提高较小结构的效率。如果不够小，无法容纳在一个寄存器中，将使用内存返回。建议仅在完全使用GCC编译的系统上才使用。
+<code>-fpic</code>
+    生成可用于共享库的位置独立代码。所有的内部寻址均通过全局偏移表完成。要确定一个地址，需要将代码自身的内存位置作为表中一项插入。该选项产生可以在共享库中存放并从中加载的目标模块。
+<code>-fstack-check</code>
+    为防止程序栈溢出而进行必要的检测，仅在多线程环境中运行时才可能需要它。
+<code>-fvisibility=hidden</code>
+    设置默认的ELF镜像中符号的可见性为隐藏。使用这个特性可以非常充分的提高连接和加载共享库的性能，生成更加优化的代码，提供近乎完美的API输出和防止符号碰撞。我们强烈建议你在编译任何共享库的时候使用该选项。参见<code>-fvisibility-inlines-hidden</code>选项。</p>
+
+<p>###硬件体系结构相关选项[仅仅针对x86与x86_64]：</p>
+
+<p><code>-march=cpu-type</code>
+    为特定的cpu-type编译二进制代码(不能在更低级别的cpu上运行)。Intel可以用：pentium2, pentium3(=pentium3m), pentium4(=pentium4m), pentium-m, prescott, nocona, core2(GCC-4.3新增) 。AMD可以用：k6-2(=k6-3), athlon(=athlon-tbird), athlon-xp(=athlon-mp), k8(=opteron=athlon64=athlon-fx)
+<code>-mfpmath=sse</code>
+    P3和athlon-xp级别及以上的cpu支持&rdquo;sse&rdquo;标量浮点指令。仅建议在P4和K8以上级别的处理器上使用该选项。
+<code>-malign-double</code>
+    将double, long double, long long对齐于双字节边界上；有助于生成更高速的代码，但是程序的尺寸会变大，并且不能与未使用该选项编译的程序一起工作。
+<code>-m128bit-long-double</code>
+    指定long double为128位，pentium以上的cpu更喜欢这种标准，并且符合x86-64的ABI标准，但是却不附合i386的ABI标准。
+<code>-mregparm=N</code>
+    指定用于传递整数参数的寄存器数目(默认不使用寄存器)。0&lt;=N&lt;=3 ；注意：当N&gt;0时你必须使用同一参数重新构建所有的模块，包括所有的库。
+<code>-msseregparm</code>
+    使用SSE寄存器传递float和double参数和返回值。注意：当你使用了这个选项以后，你必须使用同一参数重新构建所有的模块，包括所有的库。
+<code>-mmmx</code>
+<code>-msse</code>
+<code>-msse2</code>
+<code>-msse3</code>
+<code>-m3dnow</code>
+<code>-mssse3</code>(没写错!GCC-4.3新增)
+<code>-msse4.1</code>(GCC-4.3新增)
+<code>-msse4.2</code>(GCC-4.3新增)
+<code>-msse4</code>(含4.1和4.2,GCC-4.3新增)
+    是否使用相应的扩展指令集以及内置函数，按照自己的cpu选择吧！
+<code>-maccumulate-outgoing-args</code>
+    指定在函数引导段中计算输出参数所需最大空间，这在大部分现代cpu中是较快的方法；缺点是会明显增加二进制文件尺寸。
+<code>-mthreads</code>
+    支持Mingw32的线程安全异常处理。对于依赖于线程安全异常处理的程序，必须启用这个选项。使用这个选项时会定义&rdquo;-D_MT&rdquo;，它将包含使用选项&rdquo;-lmingwthrd&rdquo;连接的一个特殊的线程辅助库，用于为每个线程清理异常处理数据。
+<code>-minline-all-stringops</code>
+    默认时GCC只将确定目的地会被对齐在至少4字节边界的字符串操作内联进程序代码。该选项启用更多的内联并且增加二进制文件的体积，但是可以提升依赖于高速 memcpy, strlen, memset 操作的程序的性能。
+<code>-minline-stringops-dynamically</code>
+    GCC-4.3新增。对未知尺寸字符串的小块操作使用内联代码，而对大块操作仍然调用库函数，这是比&rdquo;-minline-all-stringops&rdquo;更聪明的策略。决定策略的算法可以通过&rdquo;-mstringop-strategy&rdquo;控制。
+<code>-momit-leaf-frame-pointer</code>
+    不为叶子函数在寄存器中保存栈指针，这样可以节省寄存器，但是将会使调试变的困难。注意：不要与 -fomit-frame-pointer 同时使用，因为会造成代码效率低下。
+<code>-m64</code>
+    生成专门运行于64位环境的代码，不能运行于32位环境，仅用于x86_64[含EMT64]环境。
+<code>-mcmodel=small</code>
+    [默认值]程序和它的符号必须位于2GB以下的地址空间。指针仍然是64位。程序可以静态连接也可以动态连接。仅用于x86_64[含EMT64]环境。
+<code>-mcmodel=kernel</code>
+    内核运行于2GB地址空间之外。在编译linux内核时必须使用该选项！仅用于x86_64[含EMT64]环境。
+<code>-mcmodel=medium</code>
+    程序必须位于2GB以下的地址空间，但是它的符号可以位于任何地址空间。程序可以静态连接也可以动态连接。注意：共享库不能使用这个选项编译！仅用于x86_64[含EMT64]环境。</p>
+
+<p>###其它优化选项：</p>
+
+<p><code>-fforce-addr</code>
+    必须将地址复制到寄存器中才能对他们进行运算。由于所需地址通常在前面已经加载到寄存器中了，所以这个选项可以改进代码。
+<code>-finline-limit=n</code>
+    对伪指令数超过n的函数，编译程序将不进行内联展开，默认为600。增大此值将增加编译时间和编译内存用量并且生成的二进制文件体积也会变大，此值不宜太大。
+<code>-fmerge-all-constants</code>
+    试图将跨编译单元的所有常量值和数组合并在一个副本中。但是标准C/C++要求每个变量都必须有不同的存储位置，所以该选项可能会导致某些不兼容的行为。
+<code>-fgcse-sm</code>
+    在全局公共子表达式消除之后运行存储移动，以试图将存储移出循环。gcc-3.4中曾属于&rdquo;-O2&rdquo;级别的选项。
+<code>-fgcse-las</code>
+    在全局公共子表达式消除之后消除多余的在存储到同一存储区域之后的加载操作。gcc-3.4中曾属于&rdquo;-O2&rdquo;级别的选项。
+<code>-floop-optimize</code>
+    已废除(GCC-4.1曾包含在&rdquo;-O1&rdquo;中)。
+<code>-floop-optimize2</code>
+    使用改进版本的循环优化器代替原来&rdquo;-floop-optimize&rdquo;。该优化器将使用不同的选项(-funroll-loops, -fpeel-loops, -funswitch-loops, -ftree-loop-im)分别控制循环优化的不同方面。目前这个新版本的优化器尚在开发中，并且生成的代码质量并不比以前的版本高。已废除，仅存在于GCC-4.1之前的版本中。
+<code>-funsafe-loop-optimizations</code>
+    假定循环不会溢出，并且循环的退出条件不是无穷。这将可以在一个比较广的范围内进行循环优化，即使优化器自己也不能断定这样做是否正确。
+<code>-fsched-spec-load</code>
+    允许一些装载指令执行一些投机性的动作。
+<code>-ftree-loop-linear</code>
+    在trees上进行线型循环转换。它能够改进缓冲性能并且允许进行更进一步的循环优化。
+<code>-fivopts</code>
+    在trees上执行归纳变量优化。
+<code>-ftree-vectorize</code>
+    在trees上执行循环向量化。
+<code>-ftracer</code>
+    执行尾部复制以扩大超级块的尺寸，它简化了函数控制流，从而允许其它的优化措施做的更好。据说挺有效。
+<code>-funroll-loops</code>
+    仅对循环次数能够在编译时或运行时确定的循环进行展开，生成的代码尺寸将变大，执行速度可能变快也可能变慢。
+<code>-fprefetch-loop-arrays</code>
+    生成数组预读取指令，对于使用巨大数组的程序可以加快代码执行速度，适合数据库相关的大型软件等。具体效果如何取决于代码。
+<code>-fweb</code>
+    建立经常使用的缓存器网络，提供更佳的缓存器使用率。gcc-3.4中曾属于&rdquo;-O3&rdquo;级别的选项。
+<code>-ffast-math</code>
+    违反IEEE/ANSI标准以提高浮点数计算速度，是个危险的选项，仅在编译不需要严格遵守IEEE规范且浮点计算密集的程序考虑采用。
+<code>-fsingle-precision-constant</code>
+    将浮点常量作为单精度常量对待，而不是隐式地将其转换为双精度。
+<code>-fbranch-probabilities</code>
+    在使用 <code>-fprofile-arcs</code> 选项编译程序并执行它来创建包含每个代码块执行次数的文件之后，程序可以利用这一选项再次编译，文件中所产生的信息将被用来优化那些经常发生的分支代码。如果没有这些信息，gcc将猜测那一分支可能经常发生并进行优化。这类优化信息将会存放在一个以源文件为名字的并以&rdquo;.da&rdquo;为后缀的文件中。
+<code>-frename-registers</code>
+    试图驱除代码中的假依赖关系，这个选项对具有大量寄存器的机器很有效。gcc-3.4中曾属于&rdquo;-O3&rdquo;级别的选项。
+<code>-fbranch-target-load-optimize</code>
+<code>-fbranch-target-load-optimize2</code>
+    在执行序启动以及结尾之前执行分支目标缓存器加载最佳化。
+<code>-fstack-protector</code>
+    在关键函数的堆栈中设置保护值。在返回地址和返回值之前，都将验证这个保护值。如果出现了缓冲区溢出，保护值不再匹配，程序就会退出。程序每次运行，保护值都是随机的，因此不会被远程猜出。
+<code>-fstack-protector-all</code>
+    同上，但是在所有函数的堆栈中设置保护值。
+<code>--param max-gcse-memory=xxM</code>
+    执行GCSE优化使用的最大内存量(xxM)，太小将使该优化无法进行，默认为50M。
+<code>--param max-gcse-passes=n</code>
+    执行GCSE优化的最大迭代次数，默认为 1。</p>
+
+<p>###传递给汇编器的选项：</p>
+
+<p><code>-Wa,options</code>
+    options是一个或多个由逗号分隔的可以传递给汇编器的选项列表。其中的每一个均可作为命令行选项传递给汇编器。
+<code>-Wa,--strip-local-absolute</code>
+    从输出符号表中移除局部绝对符号。
+<code>-Wa,-R</code>
+    合并数据段和正文段，因为不必在数据段和代码段之间转移，所以它可能会产生更短的地址移动。
+<code>-Wa,--64</code>
+    设置字长为64bit，仅用于x86_64，并且仅对ELF格式的目标文件有效。此外，还需要使用&rdquo;&ndash;enable-64-bit-bfd&rdquo;选项编译的BFD支持。
+<code>-Wa,-march=CPU</code>
+    按照特定的CPU进行优化：pentiumiii, pentium4, prescott, nocona, core, core2; athlon, sledgehammer, opteron, k8 。</p>
+
+<p>###仅可用于 CFLAGS 的选项：</p>
+
+<p><code>-fhosted</code>
+    按宿主环境编译，其中需要有完整的标准库，入口必须是main()函数且具有int型的返回值。内核以外几乎所有的程序都是如此。该选项隐含设置了 -fbuiltin，且与 -fno-freestanding 等价。
+<code>-ffreestanding</code>
+    按独立环境编译，该环境可以没有标准库，且对main()函数没有要求。最典型的例子就是操作系统内核。该选项隐含设置了 -fno-builtin，且与 -fno-hosted 等价。</p>
+
+<p>###仅可用于 CXXFLAGS 的选项：</p>
+
+<p><code>-fno-enforce-eh-specs</code>
+    C++标准要求强制检查异常违例，但是该选项可以关闭违例检查，从而减小生成代码的体积。该选项类似于定义了&rdquo;NDEBUG&rdquo;宏。
+<code>-fno-rtti</code>
+    如果没有使用&rsquo;dynamic_cast&rsquo;和&rsquo;typeid&rsquo;，可以使用这个选项禁止为包含虚方法的类生成运行时表示代码，从而节约空间。此选项对于异常处理无效(仍然按需生成rtti代码)。
+<code>-ftemplate-depth-n</code>
+    将最大模版实例化深度设为&rsquo;n&rsquo;，符合标准的程序不能超过17，默认值为500。
+<code>-fno-optional-diags</code>
+    禁止输出诊断消息，C++标准并不需要这些消息。
+<code>-fno-threadsafe-statics</code>
+    GCC自动在访问C++局部静态变量的代码上加锁，以保证线程安全。如果你不需要线程安全，可以使用这个选项。
+<code>-fvisibility-inlines-hidden</code>
+    默认隐藏所有内联函数，从而减小导出符号表的大小，既能缩减文件的大小，还能提高运行性能，我们强烈建议你在编译任何共享库的时候使用该选项。参见 -fvisibility=hidden 选项。</p>
+
+<p>###LDFLAGS</p>
+
+<p>LDFLAGS 是传递给连接器的选项。这是一个常被忽视的变量，事实上它对优化的影响也是很明显的。</p>
+
+<p><code>-s</code>
+    删除可执行程序中的所有符号表和所有重定位信息。其结果与运行命令 strip 所达到的效果相同，这个选项是比较安全的。
+<code>-Wl,options</code>
+    options是由一个或多个逗号分隔的传递给链接器的选项列表。其中的每一个选项均会作为命令行选项提供给链接器。
+<code>-Wl,-On</code>
+    当n&gt;0时将会优化输出，但是会明显增加连接操作的时间，这个选项是比较安全的。
+<code>-Wl,--exclude-libs=ALL</code>
+    不自动导出库中的符号，也就是默认将库中的符号隐藏。
+<code>-Wl,-m&lt;emulation&gt;</code>
+    仿真<emulation>连接器，当前ld所有可用的仿真可以通过&rdquo;ld -V&rdquo;命令获取。默认值取决于ld的编译时配置。
+<code>-Wl,--sort-common</code>
+    把全局公共符号按照大小排序后放到适当的输出节，以防止符号间因为排布限制而出现间隙。
+<code>-Wl,-x</code>
+    删除所有的本地符号。
+<code>-Wl,-X</code>
+    删除所有的临时本地符号。对于大多数目标平台，就是所有的名字以&rsquo;L&rsquo;开头的本地符号。
+<code>-Wl,-zcomberloc</code>
+    组合多个重定位节并重新排布它们，以便让动态符号可以被缓存。
+<code>-Wl,--enable-new-dtags</code>
+    在ELF中创建新式的&rdquo;dynamic tags&rdquo;，但在老式的ELF系统上无法识别。
+<code>-Wl,--as-needed</code>
+    移除不必要的符号引用，仅在实际需要的时候才连接，可以生成更高效的代码。
+<code>-Wl,--no-define-common</code>
+    限制对普通符号的地址分配。该选项允许那些从共享库中引用的普通符号只在主程序中被分配地址。这会消除在共享库中的无用的副本的空间，同时也防止了在有多个指定了搜索路径的动态模块在进行运行时符号解析时引起的混乱。
+<code>-Wl,--hash-style=gnu</code>
+    使用gnu风格的符号散列表格式。它的动态链接性能比传统的sysv风格(默认)有较大提升，但是它生成的可执行程序和库与旧的Glibc以及动态链接器不兼容。</p>
+
+<p><strong>转载附加</strong>
+添加 <code>-static-libstdc++ -static-libgcc -static</code>链接参数编译出纯静态链接的程序，可以解决libc版本不一致(在libc版本过低系统上使用链接了高版本libc的程序)问题。</p>
+
+<hr />
+
+<p>最后说两个与优化无关的系统环境变量，因为会影响GCC编译程序的方式，下面两个是咱中国人比较关心的：</p>
+
+<p><code>LANG</code>
+    指定编译程序使用的字符集，可用于创建宽字符文件、串文字、注释；默认为英文。[目前只支持日文&rdquo;C-JIS,C-SJIS,C-EUCJP&rdquo;，不支持中文]
+<code>LC_ALL</code>
+    指定多字节字符的字符分类，主要用于确定字符串的字符边界以及编译程序使用何种语言发出诊断消息；默认设置与LANG相同。中文相关的几项：&rdquo;zh_CN.GB2312 , zh_CN.GB18030 , zh_CN.GBK , zh_CN.UTF-8 , zh_TW.BIG5&rdquo;。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

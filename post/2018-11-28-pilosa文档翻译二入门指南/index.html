@@ -1,0 +1,382 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Pilosa文档翻译（二）入门指南 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Pilosa文档翻译（二）入门指南</h1>
+          <span class="post-date">2018年11月28日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/11/28/10027502.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/11/28/10027502.html</a></p>
+
+<p>Pilosa支持默认使用<code>JSON</code>的<code>HTTP</code>接口。
+任何HTTP工具都可用于与<code>Pilosa</code>服务器进行交互。 本文档中的示例将使用<code>curl</code>，默认情况下可用于许多类UNIX系统，包括Linux和MacOS。 Windows用户可以在这里下载<a href="https://curl.haxx.se/download.html">curl</a>。</p>
+
+<blockquote>
+<p>请注意，Pilosa服务器对打开文件的上限有要求。 检查系统文档，了解如何在达到该限制时增加它。 有关详细信息，请参阅<a href="https://www.pilosa.com/docs/administration/#open-file-limits"> Open File Limits</a>。</p>
+</blockquote>
+
+<h1 id="开始-pilosa">开始 Pilosa</h1>
+
+<p>按照安装文档中的步骤安装Pilosa。 在终端中执行以下命令，以使用默认配置运行Pilosa（Pilosa将在localhost：10101中可用）：</p>
+
+<pre><code class="language-bash">pilosa server
+</code></pre>
+
+<p>如果您使用的是Docker镜像，则可以使用以下命令在默认地址上运行短暂的Pilosa容器：</p>
+
+<pre><code class="language-bash">docker run -it --rm --name pilosa -p 10101:10101 pilosa/pilosa:latest
+</code></pre>
+
+<p>确保Pilosa正在运行：</p>
+
+<pre><code class="language-bash">curl localhost:10101/status
+</code></pre>
+
+<pre><code class="language-json">{&quot;state&quot;:&quot;NORMAL&quot;,&quot;nodes&quot;:[{&quot;id&quot;:&quot;91715a50-7d50-4c54-9a03-873801da1cd1&quot;,&quot;uri&quot;:{&quot;scheme&quot;:&quot;http&quot;,&quot;host&quot;:&quot;localhost&quot;,&quot;port
+&quot;:10101},&quot;isCoordinator&quot;:true}],&quot;localID&quot;:&quot;91715a50-7d50-4c54-9a03-873801da1cd1&quot;}
+</code></pre>
+
+<h1 id="简单项目">简单项目</h1>
+
+<p>为了更好地理解<code>Pilosa</code>的功能，我们将创建一个名为<code>Star Trace</code>的示例项目，其中包含有<code>1000</code>个流行的Github存储库的信息，这些存储库名称中包含<code>go</code>。<code>Star Trace</code>索引将包括数据点，例如编程语言，标签和star者(已经为项目加星标的人)。</p>
+
+<p>尽管<code>Pilosa</code>没有以表格形式保存数据，但在描述数据模型时我们仍然使用术语<code>列</code>和<code>行</code>。我们将<strong>主对象放在列中</strong>，并将这些<strong>对象的属性放在行中</strong>。
+例如，<code>Star Trace</code>项目将包含一个名为<code>repository</code>的索引，其中包含表示Github存储库的<code>列</code>，以及表示<code>编程语言</code>和<code>标签</code>等属性的行。我们可以通过将行分组为名为<code>Fields</code>的集合来更好地组织行。因此，<code>repository</code>(存储库)索引可能具有<code>languages</code>(语言)字段以及<code>tags</code>(标签)字段。您可以在文档的<a href="https://www.pilosa.com/docs/latest/data-model/">Data Model</a>(数据模型)部分中了解有关索引和字段的更多信息。</p>
+
+<h1 id="创建架构-create-the-schema">创建架构(Create the Schema)</h1>
+
+<p><strong>注意：如果您想在任何时候验证数据结构，可以按如下方式请求架构：</strong></p>
+
+<pre><code class="language-bash">curl localhost:10101/schema
+</code></pre>
+
+<pre><code class="language-json">{&quot;indexes&quot;:null}
+</code></pre>
+
+<p>在我们在导入数据或运行查询之前，需要创建索引及其中的字段。 下面先创建存储库索引：
+下面命令成功的创建一个名为<code>repository</code>的索引</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository -X POST
+</code></pre>
+
+<pre><code class="language-json">{&quot;success&quot;:true}
+</code></pre>
+
+<p>接下来创建一个<code>stargazer</code>字段，该字段的行内容(数据)为star者的用户ID</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/field/stargazer \
+     -X POST \
+     -d '{&quot;options&quot;: {&quot;type&quot;: &quot;time&quot;, &quot;timeQuantum&quot;: &quot;YMD&quot;}}'
+</code></pre>
+
+<pre><code class="language-json">{&quot;success&quot;:true}
+</code></pre>
+
+<p>由于我们的数据包含时间戳，这些时间戳代表用户<code>start</code>的时间，因此我们将字段类型设置为<code>time</code>。<code>timeQuantum</code>(时间量)是我们想要使用的时间分辨率，我们将其设置为<code>star</code>的<code>YMD</code>（年月日）。</p>
+
+<p>接下来创建<code>language</code>字段，其行(数据)中包含编程语言的ID</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/field/language \
+     -X POST
+</code></pre>
+
+<pre><code class="language-json">{&quot;success&quot;:true}
+</code></pre>
+
+<p><code>language</code>是一个<code>set</code>(集合)字段，但由于默认字段类型是<code>set</code>，因此我们未在字段选项中指定它。</p>
+
+<h1 id="从cvs文件导入数据">从CVS文件导入数据</h1>
+
+<p>下载<code>stargazer.cvs</code>和<code>language.cvs</code>文件</p>
+
+<pre><code class="language-bash">curl -O https://raw.githubusercontent.com/pilosa/getting-started/master/stargazer.csv
+curl -O https://raw.githubusercontent.com/pilosa/getting-started/master/language.csv
+</code></pre>
+
+<p>运行下面的命令将数据导入到Pilosa</p>
+
+<pre><code class="language-bash">pilosa import -i repository -f stargazer stargazer.csv
+pilosa import -i repository -f language language.csv
+</code></pre>
+
+<p>如果您正在使用<code>Pilosa</code>的<code>Docker</code>容器（名为<code>pilosa</code>），则应将<code>* .csv</code>文件复制到容器中，然后导入它们</p>
+
+<pre><code class="language-bash">docker cp stargazer.csv pilosa:/stargazer.csv
+docker exec -it pilosa /pilosa import -i repository -f stargazer /stargazer.csv
+docker cp language.csv pilosa:/language.csv
+docker exec -it pilosa /pilosa import -i repository -f language /language.csv
+</code></pre>
+
+<p><strong>请注意，用户ID(user IDs)和存储库ID(repository IDs)都重新映射到顺序整数存在数据文件中，它们不再与实际的<code>Github ID</code>相对应。 您可以查看<a href="https://github.com/pilosa/getting-started/blob/master/languages.txt">languages.txt</a>以查看语言的映射。</strong></p>
+
+<h1 id="做一些查询-queries">做一些查询(Queries)</h1>
+
+<ul>
+<li><p>用户14(用户ID的映射整数值)<code>star</code>了那些<code>repository</code>(存储库)</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'Row(stargazer=14)'
+</code></pre>
+
+<pre><code class="language-json">{
+&quot;results&quot;:[
+    {
+        &quot;attrs&quot;:{},
+        &quot;columns&quot;:[1,2,3,362,368,391,396,409,416,430,436,450,454,460,461,464,466,469,470,483,484,486,490,491,503,504,514]
+    }
+]
+}
+</code></pre></li>
+
+<li><p>样本数据中的前5种编程语言是什么</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'TopN(language, n=5)'
+</code></pre>
+
+<pre><code class="language-json">{
+&quot;results&quot;:[
+    [
+        {&quot;id&quot;:5,&quot;count&quot;:119},
+        {&quot;id&quot;:1,&quot;count&quot;:50},
+        {&quot;id&quot;:4,&quot;count&quot;:48},
+        {&quot;id&quot;:9,&quot;count&quot;:31},
+        {&quot;id&quot;:13,&quot;count&quot;:25}
+    ]
+]
+}
+</code></pre></li>
+
+<li><p>用户<strong>14且19</strong><code>star</code>了哪些<code>repository</code>(存储库)</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'Intersect(
+        Row(stargazer=14), 
+        Row(stargazer=19)
+    )'
+</code></pre>
+
+<pre><code class="language-json">{
+&quot;results&quot;:[
+    {
+        &quot;attrs&quot;:{},
+        &quot;columns&quot;:[2,3,362,396,416,461,464,466,470,486]
+    }
+]
+}
+</code></pre></li>
+
+<li><p>用户<strong>14或19</strong><code>star</code>了哪些<code>repository</code>(存储库)</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'Union(
+        Row(stargazer=14), 
+        Row(stargazer=19)
+    )'
+</code></pre>
+
+<pre><code class="language-json">{
+&quot;results&quot;:[
+    {
+        &quot;attrs&quot;:{},
+        &quot;columns&quot;:[1,2,3,361,362,368,376,377,378,382,386,388,391,396,398,400,409,411,412,416,426,428,430,435,436,450,452,453,454,456,460,461,464,465,466,469,470,483,484,486,487,489,490,491,500,503,504,505,512,514]
+    }
+]
+}
+</code></pre></li>
+
+<li><p>哪些存储库由用户<strong>14且19</strong>加星标，<strong>并且</strong>还用语言1编写：</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'Intersect(
+        Row(stargazer=14), 
+        Row(stargazer=19),
+        Row(language=1)
+    )'
+</code></pre>
+
+<pre><code class="language-json">{
+&quot;results&quot;:[
+    {
+        &quot;attrs&quot;:{},
+        &quot;columns&quot;:[2,362,416,461]
+    }
+]
+}
+</code></pre></li>
+
+<li><p>将用户<code>99999</code>设置为存储库<code>77777</code>的<code>star</code>者</p>
+
+<pre><code class="language-bash">curl localhost:10101/index/repository/query \
+ -X POST \
+ -d 'Set(77777, stargazer=99999)'
+</code></pre>
+
+<pre><code class="language-json">{&quot;results&quot;:[true]}
+</code></pre>
+
+<p>请注意，虽然<strong>用户ID</strong><code>99999</code>可能<strong>此列</strong>其它<code>ID不连续</code>，但它仍然是一个相对较小的数字。 不要尝试在Pilosa中使用<code>任意64位整数</code>作为列ID或行ID，<strong>这将导致诸如性能不佳和内存不足错误等问题。</strong></p></li>
+</ul>
+
+<h1 id="接下来做什么">接下来做什么?</h1>
+
+<p>您可以跳转到<a href="https://www.pilosa.com/docs/latest/data-model/">Data Model数据模型</a>以深入了解<code>Pilosa</code>的<code>数据模型</code>，或查询有关<code>PQL</code>（Pilosa的查询语言<a href="https://www.pilosa.com/docs/latest/query-language/">Query Language</a>）的更多详细信息。
+查看<a href="https://www.pilosa.com/docs/latest/examples/">Examples示例</a>页面，了解Pilosa的实际使用样例。看我们不断扩展的客户端库<a href="https://www.pilosa.com/docs/latest/client-libraries/">Client Libraries</a>有没有你喜欢的编程语言版本。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

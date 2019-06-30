@@ -1,0 +1,311 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> OpenCV学习代码记录——轮廓(contour)检测 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>OpenCV学习代码记录——轮廓(contour)检测</h1>
+          <span class="post-date">2018年04月05日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/04/05/8721994.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/04/05/8721994.html</a>
+很久之前学习过一段时间的OpenCV，当时没有做什么笔记，但是代码都还在，这里把它贴出来做个记录。
+代码放在码云上，地址在这里<a href="https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest">https://gitee.com/solym/OpenCVTest/tree/master/OpenCVTest</a></p>
+
+<h2 id="效果">效果</h2>
+
+<p><img src="https://images2018.cnblogs.com/blog/693958/201808/693958-20180813205853701-813191953.jpg" alt="" /></p>
+
+<h2 id="代码">代码</h2>
+
+<pre><code class="language-cpp">#include &lt;opencv2/core/core.hpp&gt;
+#include &lt;opencv2/highgui/highgui.hpp&gt;
+#include &lt;opencv2/imgproc/imgproc.hpp&gt;	// cvtColor
+
+int contours_test();
+
+int ContourDetection()
+{
+	
+	//return contours_test();
+	cv::Mat	image;	// 加载原始图片
+	cv::Mat	gary;	// 存储灰度图像
+	cv::Mat	dstimg;	// 绘制轮廓目标图片	
+
+	// 创建两个窗口
+	cv::namedWindow(&quot;src&quot;);	// 原始图片显示窗口
+	cv::namedWindow(&quot;dst&quot;);	// 轮廓图片显示窗口
+
+	// 载入原始图片
+	image = cv::imread(&quot;../Image/sisy.jpg&quot;);
+	if (image.empty()) {
+		puts(&quot;图片加载失败&quot;);
+		return -1;
+	}
+	cv::imshow(&quot;src&quot;, image);	// 显示原始图片
+
+	gary.create(image.size(), CV_8U);	// 申请灰度图存储空间
+	cv::cvtColor(image, gary, CV_BGR2GRAY);	// 转换原始图为灰度图
+	cv::threshold(gary, gary, 128, 255, cv::THRESH_BINARY);	// 转换为二值图	
+
+	std::vector&lt;std::vector&lt;cv::Point&gt; &gt;	contours;	// 检测的轮廓数组
+	std::vector&lt;cv::Vec4i&gt;					hierarchy;	// 
+	int	mode = CV_RETR_EXTERNAL;	// 轮廓检测模式
+	//mode表示轮廓的检索模式
+	//	CV_RETR_EXTERNAL表示只检测外轮廓
+	//	CV_RETR_LIST检测的轮廓不建立等级关系
+	//	CV_RETR_CCOMP建立两个等级的轮廓，上面的一层为外边界，里面的一层为内孔的边界信息。如果内孔内还有一个连通物体，这个物体的边界也在顶层。
+	//	CV_RETR_TREE建立一个等级树结构的轮廓。具体参考contours.c这个demo
+
+	int method = CV_CHAIN_APPROX_SIMPLE;
+	//method为轮廓的近似办法
+	//	CV_CHAIN_APPROX_NONE存储所有的轮廓点，相邻的两个点的像素位置差不超过1，即max（abs（x1 - x2），abs（y2 - y1）） == 1
+	//	CV_CHAIN_APPROX_SIMPLE压缩水平方向，垂直方向，对角线方向的元素，只保留该方向的终点坐标，例如一个矩形轮廓只需4个点来保存轮廓信息
+	//	CV_CHAIN_APPROX_TC89_L1，CV_CHAIN_APPROX_TC89_KCOS使用teh-Chinl chain 近似算法
+
+
+	// 查找contour
+	cv::findContours(gary/*输入图像(必须为一个2值单通道图像)*/,
+		contours/*, hierarchy*/, mode, method);
+
+
+	// 为轮廓显示图片申请空间
+	dstimg = cv::Mat(image.size(), CV_8UC3); // 3通道图像，以便彩色显示
+	image.copyTo(dstimg);					 // 拷贝源图像
+
+	// 将轮廓画出
+	cv::drawContours(dstimg/*目标图像*/,
+		contours/*输入的轮廓组*/,
+		-1 /*指明画第几个轮廓(负值表示全部轮廓)*/,
+		cv::Scalar(0,0,255)/*轮廓颜色BGR(此处以红色绘制)*/,
+		2 /*轮廓线宽*/,
+		8 /*轮廓线型*/,
+		cv::noArray()/*轮廓结构信息*/);
+
+
+	// 显示轮廓图片
+	cv::imshow(&quot;dst&quot;, dstimg);
+
+	// 等待按键
+	cv::waitKey();
+}
+
+int contours_test()
+{
+	std::string image_name = &quot;../Image/sisy.jpg&quot;;
+
+	cv::Mat src = cv::imread(image_name);
+	cv::imshow(&quot;src&quot;, src);
+
+	cv::Mat gray(src.size(), CV_8U);
+	cv::cvtColor(src, gray, CV_BGR2GRAY);//转换成灰度图  
+
+	cv::imshow(&quot;gray&quot;, gray);
+
+	cv::threshold(gray, gray, 128, 255, cv::THRESH_BINARY);//转换成2值图像  
+	cv::imshow(&quot;binary&quot;, gray);
+
+	/////////////////////////////////////////////////////////////////////  
+	std::vector&lt;std::vector&lt;cv::Point&gt;&gt; contours;
+	cv::findContours(gray,
+		contours, // a vector of contours   
+		CV_RETR_EXTERNAL, // retrieve the external contours  
+		CV_CHAIN_APPROX_NONE); // retrieve all pixels of each contours  
+
+							   // Print contours' length  
+	// std::cout &lt;&lt; &quot;Contours: &quot; &lt;&lt; contours.size() &lt;&lt; std::endl;
+	std::vector&lt;std::vector&lt;cv::Point&gt;&gt;::const_iterator itContours = contours.begin();
+	for (; itContours != contours.end(); ++itContours)
+	{
+
+		//std::cout &lt;&lt; &quot;Size: &quot; &lt;&lt; itContours-&gt;size() &lt;&lt; std::endl;
+	}
+
+	// draw black contours on white image  
+	cv::Mat result(gray.size(), CV_8U, cv::Scalar(255));
+	cv::drawContours(result, contours,
+		-1, // draw all contours  
+		cv::Scalar(0), // in black  
+		2); // with a thickness of 2  
+
+	cv::namedWindow(&quot;Contours&quot;);
+	cv::imshow(&quot;Contours&quot;, result);
+
+
+	// draw contours on the original image  
+	cv::Mat original = cv::imread(image_name);
+	cv::drawContours(original, contours,
+		-1, // draw all contours  
+		cv::Scalar(255, 255, 255), // in white  
+		-1); // with a thickness of 2  
+
+	cv::namedWindow(&quot;Contours on Animals&quot;);
+	cv::imshow(&quot;Contours on Animals&quot;, original);
+
+	// Let's now draw black contours on white image  
+	result.setTo(cv::Scalar(255));
+	cv::drawContours(result, contours,
+		-1, // draw all contours  
+		cv::Scalar(0), // in black  
+		-1); // with a thickness of 1  
+			 //image= cv::imread(&quot;test.png&quot;,0);  
+
+
+
+
+	cv::waitKey(0);
+
+	return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

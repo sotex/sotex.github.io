@@ -1,0 +1,480 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> LevelDB和ForestDB简单性能测试(含代码) &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>LevelDB和ForestDB简单性能测试(含代码)</h1>
+          <span class="post-date">2017年01月19日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/01/19/6306352.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/01/19/6306352.html</a></p>
+
+<h1 id="测试环境简单说明">测试环境简单说明</h1>
+
+<h2 id="windows下测试">Windows下测试</h2>
+
+<p>硬件环境如下：
+    处理器：Intel&reg; Core&trade; i5-4460 CPU @ 3.20GHz
+    内  存：8GB
+    硬  盘：希捷 ST1000DM003
+    操作系统：Windows 10 企业版
+编译说明：
+    两个都是使用VS2015编译的64位Release版本。运行时库采用动态多线程版本(MD)</p>
+
+<h2 id="linux下测试">Linux下测试</h2>
+
+<p>硬件环境如下：
+    处理器：Intel&reg; Core&trade; i7-4500U CPU @ 1.80GHz
+    内  存：8GB
+    硬  盘：金士顿64G SSD
+    操作系统：ArchLinux (Linux version 4.8.13-1-ARCH)
+编译说明：
+    两个都是使用Gcc 6.2.1编译的x64版本，使用<code>-O2</code>参数优化。</p>
+
+<h1 id="测试结果">测试结果</h1>
+
+<p>对<code>LevelDB</code>和<code>ForestDB</code>进行简单的性能测试。
+两个都在<code>单线程</code>下进行<code>10000</code>次的<code>增删查改</code>测试，共测试5次。（这里测试的次数有点少，应该测试十万次以上的）
+测试的时候可以发现（设置断点），Forest每次操作都将数据缓存在内存了，内存占用比较大。而LevelDB在添加的时候并没有缓存，但是在数据获取和修改的时候内存会变大。
+总体上LevelDB占用内存小一点，但是linux下速度不及ForestDB(非常接近)。易用程度上，LevelB简单得多。磁盘占用的情况的话，Forest对磁盘使用比较少，这10000条数据占了13MB左右，而LevelDB则占了120MB左右。</p>
+
+<h2 id="windows下测试结果">Windows下测试结果</h2>
+
+<p>测试结果平均值对比直方图：
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119133938890-1813945194.png" alt="测试结果对比直方图" /></p>
+
+<p>LevelDB 测试结果截图
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119134052015-1839390104.png" alt="LevelDB 测试结果截图" /></p>
+
+<p>ForestDB 测试结果截图
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119134026109-2099387576.png" alt="ForestDB 测试结果截图" /></p>
+
+<h2 id="linux下测试结果">Linux下测试结果</h2>
+
+<p>测试结果平均值对比直方图：
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119135355843-2084456732.png" alt="测试结果对比直方图" /></p>
+
+<p>LevelDB 测试结果截图
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119135420015-758339593.png" alt="LevelDB 测试结果截图" /></p>
+
+<p>ForestDB 测试结果截图
+<img src="http://images2015.cnblogs.com/blog/693958/201701/693958-20170119135437812-1984853997.png" alt="ForestDB 测试结果截图" /></p>
+
+<h1 id="测试代码">测试代码</h1>
+
+<h2 id="leveldb测试代码">LevelDB测试代码</h2>
+
+<pre><code class="language-cpp">#include &lt;cassert&gt;  
+#include &lt;string&gt;  
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+
+#include &quot;leveldb/db.h&quot;  
+
+#define TEST_FREQUENCY	(10000)
+
+char* randomstr()
+{
+	static char buf[1024];
+	int len = rand() % 768 + 255;
+	for (int i = 0; i &lt; len; ++i) {
+		buf[i] = 'A' + rand() % 26;
+	}
+	buf[len] = '\0';
+	return buf;
+}
+
+int main() 
+{
+	leveldb::DB* db;
+	leveldb::Options options;
+	options.create_if_missing = true;
+
+	// 打开数据库
+	leveldb::Status status = leveldb::DB::Open(options, &quot;./testdb&quot;, &amp;db);
+	assert(status.ok());
+
+	srand(2017);
+	std::string k[TEST_FREQUENCY];
+	for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+		k[i] = (randomstr());
+	}
+	std::string v(&quot;壹贰叁肆伍陆柒捌玖拾&quot;);
+	v.append(v).append(v).append(v).append(v).append(v);
+
+	// 测试添加
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Put(leveldb::WriteOptions(), k[i], v);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次添加耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	// 测试获取
+	{
+		auto start = std::chrono::system_clock::now();
+		std::string v2[TEST_FREQUENCY];
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Get(leveldb::ReadOptions(), k[i], &amp;v2[i]);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次获取耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+		// 验证获取结果是否正确
+		std::string ss;
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			if (v2[i] != v) {
+				std::cout &lt;&lt; &quot;第 &quot; &lt;&lt; i &lt;&lt; &quot; 个结果不正确&quot; &lt;&lt; std::endl;
+				std::cout &lt;&lt; v2[i] &lt;&lt; std::endl;
+			}
+		}
+	}
+	// 测试修改
+	{
+		auto start = std::chrono::system_clock::now();
+		v.append(v);
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Put(leveldb::WriteOptions(), k[i], v);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次修改耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+
+	// 测试删除
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = db-&gt;Delete(leveldb::WriteOptions(), k[i]);
+			assert(status.ok());
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次删除耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	delete db;
+	return 0;
+}
+</code></pre>
+
+<h2 id="forest-测试代码">Forest 测试代码</h2>
+
+<pre><code class="language-cpp">#include &lt;cassert&gt;  
+#include &lt;string&gt;  
+#include &lt;iostream&gt;
+#include &lt;chrono&gt;
+
+#include &quot;libforestdb/forestdb.h&quot;
+
+#define TEST_FREQUENCY	(10000)
+
+char* randomstr()
+{
+	static char buf[1024];
+	int len = rand() % 768 + 255;
+	for (int i = 0; i &lt; len; ++i) {
+		buf[i] = 'A' + rand() % 26;
+	}
+	buf[len] = '\0';
+	return buf;
+}
+
+int main()
+{
+	fdb_file_handle* fdbFileHandle = nullptr;
+	fdb_kvs_handle* fdbKvsHandle = nullptr;
+	fdb_status status;
+
+	// 初始化ForestDB
+	// 1、文件配置设置配置
+	fdb_config fileConfig = fdb_get_default_config();
+	{// WAL阈值4K
+		fileConfig.wal_threshold = 4096;
+		// 缓存大小64MB
+		fileConfig.buffercache_size = 64 * 1024 * 1024;
+		// 设置使用默认的kvs
+		fileConfig.multi_kv_instances = false;
+		// 关闭循环块复用
+		fileConfig.block_reusing_threshold = 100;
+		// 使用序列树
+		fileConfig.seqtree_opt = FDB_SEQTREE_USE;
+	}
+	// 2、使用设置的配置进行初始化
+	status = fdb_init(&amp;fileConfig);
+	assert(status == FDB_RESULT_SUCCESS);
+
+	// 打开数据库
+	status = fdb_open(&amp;fdbFileHandle, &quot;./testdb&quot;, &amp;fileConfig);
+	assert(status == FDB_RESULT_SUCCESS);
+	// 打开kvs
+	fdb_kvs_config kvsConfig = fdb_get_default_kvs_config();
+	status = fdb_kvs_open_default(fdbFileHandle, &amp;fdbKvsHandle, &amp;kvsConfig);
+	assert(status == FDB_RESULT_SUCCESS);
+
+
+	srand(2017);
+	std::string k[TEST_FREQUENCY];
+	for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+		k[i] = (randomstr());
+	}
+	std::string v(&quot;壹贰叁肆伍陆柒捌玖拾&quot;);
+	v.append(v).append(v).append(v).append(v).append(v);
+
+	// 测试添加
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = fdb_set_kv(fdbKvsHandle, k[i].data(), k[i].size(), v.data(), v.size());
+			assert(status == FDB_RESULT_SUCCESS);
+		}
+		// 提交操作到磁盘(这里必须commit才能实际写入到磁盘)
+		fdb_commit(fdbFileHandle, FDB_COMMIT_NORMAL);
+
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+	
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次添加耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	// 测试获取
+	{
+		auto start = std::chrono::system_clock::now();
+		void* v2[TEST_FREQUENCY]; size_t v2len[TEST_FREQUENCY];
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = fdb_get_kv(fdbKvsHandle, k[i].data(), k[i].size(), &amp;v2[i], &amp;v2len[i]);
+			assert(status == FDB_RESULT_SUCCESS);
+		}
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次获取耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+		// 验证获取结果是否正确
+		std::string ss;
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			ss.assign((const char*)v2[i], v2len[i]);
+			if (ss != v) {
+				std::cout &lt;&lt; &quot;第 &quot; &lt;&lt; i &lt;&lt; &quot; 个结果不正确&quot; &lt;&lt; std::endl;
+				std::cout &lt;&lt; ss &lt;&lt; std::endl;
+			}
+			free(v2[i]);
+		}
+	}
+	// 测试修改
+	{
+		auto start = std::chrono::system_clock::now();
+		v.append(v);
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = fdb_set_kv(fdbKvsHandle, k[i].data(), k[i].size(), v.data(), v.size());
+			assert(status == FDB_RESULT_SUCCESS);
+		}
+		// 提交操作到磁盘(这里必须commit才能实际写入到磁盘)
+		fdb_commit(fdbFileHandle, FDB_COMMIT_NORMAL);
+
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次修改耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+
+	// 测试删除
+	{
+		auto start = std::chrono::system_clock::now();
+		for (int i = 0; i &lt; TEST_FREQUENCY; ++i) {
+			status = fdb_del_kv(fdbKvsHandle, k[i].data(), k[i].size());
+			assert(status == FDB_RESULT_SUCCESS);
+		}
+		// 提交操作到磁盘(这里必须commit才能实际写入到磁盘)
+		fdb_commit(fdbFileHandle, FDB_COMMIT_NORMAL);
+
+		auto end = std::chrono::system_clock::now();
+		auto duration = std::chrono::duration_cast&lt;std::chrono::microseconds&gt;(end - start);
+
+		std::cout &lt;&lt; TEST_FREQUENCY &lt;&lt;&quot;次删除耗时: &quot;
+			&lt;&lt; double(duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den
+			&lt;&lt; &quot;秒&quot; &lt;&lt; std::endl;
+	}
+	
+	// 关闭数据库
+	status = fdb_kvs_close(fdbKvsHandle);
+	assert(status == FDB_RESULT_SUCCESS);
+	status = fdb_close(fdbFileHandle);
+	assert(status == FDB_RESULT_SUCCESS);
+	status = fdb_shutdown();
+	assert(status == FDB_RESULT_SUCCESS);
+	return 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,323 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 39 网络相关函数(七)——live555源码阅读(四)网络 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>39 网络相关函数(七)——live555源码阅读(四)网络</h1>
+          <span class="post-date">2015年08月17日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/08/17/4736913.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/08/17/4736913.html</a>
+<h1 id="39-live555">39 网络相关函数(七)&mdash;&mdash;live555源码阅读(四)网络</h1>
+<div class="toc">
+<ul>
+<li><a href="#39-live555">39 网络相关函数(七)&mdash;&mdash;live555源码阅读(四)网络</a>
+<ul>
+<li><a href="#_1">简介</a></li>
+<li><a href="#14readsocket">14)readSocket从套接口读取数据</a></li>
+<li><a href="#recvrecvfrom">recv/recvfrom 函数</a>
+<ul>
+<li><a href="#_2">函数原型：</a></li>
+<li><a href="#_3">参数说明：</a></li>
+<li><a href="#_4">返回说明：</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><a href="http://www.cnblogs.com/blog.cnblogs.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>blog.cnblogs.net/oloroso</code></a><br />
+<a href="http://www.cnblogs.com/my.oschina.net/oloroso">本文由乌合之众 lym瞎编，欢迎转载 <code>my.oschina.net/oloroso</code></a></p>
+<h2 id="_1">简介</h2>
+<p>网络相关函数是一系列用于操作网络数据的函数。在多个文件中都有相关的函数的定义。还有一些函数是系统<code>socket API</code>相关函数，就不提了。<br />
+　　　这一系列的函数大多有一个特点，需要一个UsageEnvironmet&amp;型的参数。<br />
+　　　这些方法大多在<code>live555sourcecontrol\groupsock\include\GroupsockHelper.hh</code>中声明。</p>
+<h2 id="14readsocket">14)readSocket从套接口读取数据</h2>
+<p><code>readSocket</code>函数从套接口<code>socket</code>读取数据到<code>buffe</code>r，并捕获数据发送源的地址到<code>fromAddress</code>。<br />
+函数返回读取到的字节数，<code>出错</code>时返回<code>0</code>并调用<code>socketErr(env, &ldquo;recvfrom() error: &ldquo;)</code>来设置套接口错误消息。</p>
+<pre><code class="cpp">// 从套接口读数据
+int readSocket(UsageEnvironment&amp; env,
+    int socket, unsigned char* buffer, unsigned bufferSize,
+struct sockaddr_in&amp; fromAddress) {
+    SOCKLEN_T addressSize = sizeof fromAddress;
+    // ssize_t recvfrom(int sockfd,void *buf,int len,unsigned int flags, struct sockaddr *from,socket_t <em>fromlen);
+    // 读取主机经指定的socket传来的数据,并把数据传到由参数buf指向的内存空间,参数len为可接收数据的最大长度。flag一般设置为0。from是来源地址，fromlen传出来源长度
+    // 如果正确接收返回接收到的字节数，失败返回-1.
+    int bytesRead = recvfrom(socket, (char</em>)buffer, bufferSize, 0,
+        (struct sockaddr*)&amp;fromAddress,
+        &amp;addressSize);
+    if (bytesRead &lt; 0) {
+        //##### HACK to work around bugs in Linux and Windows:
+        int err = env.getErrno();
+        if (err == 111 /<em>ECONNREFUSED (Linux) 连接请求被服务器拒绝</em>/
+#if defined(<strong>WIN32</strong>) || defined(_WIN32)
+            // What a piece of crap Windows is.  Sometimes
+            // recvfrom() returns -1, but with an &lsquo;errno&rsquo; of 0.
+            // This appears not to be a real error; just treat
+            // it as if it were a read of zero bytes, and hope
+            // we don&rsquo;t have to do anything else to &lsquo;reset&rsquo;
+            // this alleged error:
+            // 垃圾的Windows。有时recvfrom()返回- 1，但是有errno为0。
+            // 这似乎不是一个真正的错误；只是把它当作一个读取零字节，并希望我们不需要做什么&ldquo;reset&rdquo;
+            // 这所谓的错误：
+            || err == 0 || err == EWOULDBLOCK
+#else
+            || err == EAGAIN
+#endif
+            || err == 113 /<em>EHOSTUNREACH (Linux)</em>/) { // Why does Linux return this for datagram sock?
+            fromAddress.sin_addr.s_addr = 0;
+            return 0;
+        }
+        //##### END HACK
+        socketErr(env, &ldquo;recvfrom() error: &ldquo;);
+    }</p>
+
+<pre><code>return bytesRead;
+</code></pre>
+
+<p>}
+</code></pre>
+<h2 id="recvrecvfrom">recv/recvfrom 函数</h2>
+<p>功能描述：<br />
+从套接字上接收一个消息。对于<code>recvfrom</code>，可同时应用于面向<code>连</code>接的和<code>无连接</code>的套接字。<code>recv</code>一般只用在面向<code>连接</code>的套接字，几乎等同于<code>recvfrom</code>，只要将<code>recvfrom</code>的第<code>五</code>个参数设置<code>NULL</code>。<br />
+如果消息太大，无法完整存放在所提供的缓冲区，根据不同的套接字，多余的字节会<code>丢弃</code>。<br />
+假如套接字上没有消息可以读取，除了套接字已被设置为非阻塞模式，否则接收调用会等待消息的到来。</p>
+<h3 id="_2">函数原型：</h3>
+<pre><code class="c">#include &lt;sys/types.h&gt;
+#include &lt;sys/socket.h&gt;
+ssize_t recv(int sock, void *buf, size_t len, int flags);
+ssize_t recvfrom(int sock, void *buf, size_t len, int flags,
+struct sockaddr *from, socklen_t *fromlen);
+</code></pre>
+<h3 id="_3">参数说明：</h3>
+<ul>
+<li>sock：索引将要从其接收数据的套接字。</li>
+<li>buf：存放消息接收后的缓冲区。</li>
+<li>len：buf所指缓冲区的容量。</li>
+<li>flags：是以下一个或者多个标志的组合体，可通过or操作连在一起<br />
+<code>MSG_DONTWAIT</code>：操作不会被阻塞。<br />
+<code>MSG_ERRQUEUE</code>：指示应该从套接字的错误队列上接收错误值，依据不同的协议，错误值以某种辅佐性消息的方式传递进来，使用者应该提供足够大的缓冲区。导致错误的原封包通过<code>msg_iovec</code>作为一般的数据来传递。导致错误的数据报原目标地址作为<code>msg_name</code>被提供。错误以<code>sock_extended_err</code>结构形态被使用，定义如下</li></p>
+
+<p></ul>
+<pre><code class="c">#define SO_EE_ORIGIN_NONE    0
+#define SO_EE_ORIGIN_LOCAL   1
+#define SO_EE_ORIGIN_ICMP    2
+#define SO_EE_ORIGIN_ICMP6   3
+struct sock_extended_err
+{
+    u_int32_t ee_errno;   /* error number <em>/
+    u_int8_t ee_origin; /</em> where the error originated <em>/
+    u_int8_t ee_type;    /</em> type <em>/
+    u_int8_t ee_code;    /</em> code <em>/
+    u_int8_t ee_pad;
+    u_int32_t ee_info;    /</em> additional information <em>/
+    u_int32_t ee_data;    /</em> other data <em>/
+    /</em> More data may follow */
+};
+</code></pre>
+<table>
+<thead>
+<tr><th align="left">宏</th><th align="left">说明</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MSG_PEEK</td>
+<td align="left">指示数据接收后，在接收队列中保留原数据，不将其删除，随后的读操作还可以接收相同的数据。</td>
+</tr>
+<tr>
+<td align="left">MSG_TRUNC</td>
+<td align="left">返回封包的实际长度，即使它比所提供的缓冲区更长， 只对packet套接字有效。</td>
+</tr>
+<tr>
+<td align="left">MSG_WAITALL</td>
+<td align="left">要求阻塞操作，直到请求得到完整的满足。然而，如果捕捉到信号，错误或者连接断开发生，或者下次被接收的数据类型不同，仍会返回少于请求量的数据。</td>
+</tr>
+<tr>
+<td align="left">MSG_EOR</td>
+<td align="left">指示记录的结束，返回的数据完成一个记录。</td>
+</tr>
+<tr>
+<td align="left">MSG_TRUNC</td>
+<td align="left">指明数据报尾部数据已被丢弃，因为它比所提供的缓冲区需要更多的空间。</td>
+</tr>
+<tr>
+<td align="left">MSG_CTRUNC</td>
+<td align="left">指明由于缓冲区空间不足，一些控制数据已被丢弃。</td>
+</tr>
+<tr>
+<td align="left">MSG_OOB</td>
+<td align="left">指示接收到out-of-band数据(即需要优先处理的数据)。</td>
+</tr>
+<tr>
+<td align="left">MSG_ERRQUEUE</td>
+<td align="left">指示除了来自套接字错误队列的错误外，没有接收到其它数据。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>from：指向存放对端地址的区域，如果为NULL，不储存对端地址。</li>
+<li>fromlen：作为入口参数，指向存放表示from最大容量的内存单元。作为出口参数，指向存放表示from实际长度的内存单元。</li>
+</ul>
+<h3 id="_4">返回说明：</h3>
+<p>成功执行时，返回接收到的字节数。另一端已关闭则返回<code>0</code>。失败返回<code>-1</code>，<code>errno</code>被设为以下的某个值</p>
+<ul>
+<li>EAGAIN：套接字已标记为非阻塞，而接收操作被阻塞或者接收超时</li>
+<li>EBADF：sock不是有效的描述词</li>
+<li>ECONNREFUSE：远程主机阻绝网络连接</li>
+<li>EFAULT：内存空间访问出错</li>
+<li>EINTR：操作被信号中断</li>
+<li>EINVAL：参数无效</li>
+<li>ENOMEM：内存不足</li>
+<li>ENOTCONN：与面向连接关联的套接字尚未被连接上</li>
+<li>ENOTSOCK：sock索引的不是套接字</li>
+</ul></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

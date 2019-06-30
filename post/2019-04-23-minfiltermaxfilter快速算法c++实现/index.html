@@ -1,0 +1,546 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> MinFilter(MaxFilter)快速算法C&#43;&#43;实现 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>MinFilter(MaxFilter)快速算法C&#43;&#43;实现</h1>
+          <span class="post-date">2019年04月23日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2019/04/23/10758029.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2019/04/23/10758029.html</a></p>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><a href="https://reference.wolfram.com/language/ref/MinFilter.html">MinFilter - Wolfram 语言与系统参考资料中心</a></li>
+<li><a href="https://reference.wolfram.com/language/ref/ImageFilter.html">ImageFilter - Wolfram 语言与系统参考资料中心</a></li>
+<li><a href="https://lemire.me/en/publication/arxiv0610046/">Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element</a></li>
+<li>[<a href="https://www.cnblogs.com/Imageshop/p/7018510.html">SSE图像算法优化系列七：基于SSE实现的极速的矩形核腐蚀和膨胀（最大值和最小值）算法。</a>]</li>
+</ul>
+
+<h2 id="1-算法简述">1、算法简述</h2>
+
+<h3 id="1-1-minfilter-maxfilter-算法简述">1.1、MinFilter(MaxFilter) 算法简述</h3>
+
+<p>MinFilter（MaxFilter）算法是用于对一维或多维数据进行滤波的算法，滤波的结果为原数据中对应位置领域<code>r</code>内的最小（最大）值。在数据的边界处，使用较小（较大）的邻域.。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181416644-1714174711.gif" alt="" /></p>
+
+<h3 id="1-2-minfilter-maxfilter-快速算法简述">1.2、MinFilter(MaxFilter) 快速算法简述</h3>
+
+<p>对于MinFilter(MaxFilter)的快速算法，思想来自于这篇论文<a href="https://lemire.me/en/publication/arxiv0610046/">Streaming Maximum-Minimum Filter Using No More than Three Comparisons per Element</a>。在网上找到了这张图，但这个图也没有什么文字说明，并不是很清楚。</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181429526-202955323.png" alt="" /></p>
+
+<p>下面按照我实现的时候的思路，来说一下我的理解。</p>
+
+<p>首先，对于一个多维的数据，都可以逐个维度进行处理。比如说一个图片，也就是二维数据，可以先对每一行进行处理，然后再对每一列进行处理，这样<strong>得到的结果与行列同时处理是一样的</strong>。</p>
+
+<pre><code class="language-bash">假设r=1
+原始数据     --&gt;   逐行处理    --&gt;  逐列处理
+5 2 1 3 4       2 1 1 1 3      2 1 1 1 3
+6 9 8 4 7       6 6 4 4 4      2 1 1 0 0
+7 3 8 2 0       3 3 2 0 0      0 0 0 0 0
+9 0 1 5 6       0 0 0 1 5      0 0 0 0 0
+
+原始数据     --&gt;  逐行列处理
+5 2 1 3 4       2 1 1 1 3
+6 9 8 4 7       2 1 1 0 0
+7 3 8 2 0       0 0 0 0 0
+9 0 1 5 6       0 0 0 0 0
+</code></pre>
+
+<p>因此算法的关键在于提高一行数据处理的效率。</p>
+
+<p>这个算法的过程大概是这样的：</p>
+
+<p>1、首先遍历一行数据中最左边的<code>r*2+1</code>个数据，获取最小值和最小值的位置。然后对左边边界部分的处理，直接赋最小值。</p>
+
+<p>2、从<code>r+1</code>位置开始向后遍历，一直到右边界部分。</p>
+
+<p>3、遍历的时候，判断上一次获取的最小值索引<code>minIndex</code>，是否在当前位置的领域<code>r</code>以内。</p>
+
+<p>如果不在，则遍历当前位置的领域<code>r</code>范围，找出最小值的位置。也可以先与当前位置领域<code>r</code>内最右边的比较，如果最右边的小于<code>minIndex</code>位置的值，则<code>minIndex</code>就是这最右边的这个，否则就需要遍历当前位置领域<code>r</code>范围内。</p>
+
+<p>如果在，则说明当前位置领域<code>r</code>内，除了最右边的元素，肯定都小于<code>minIndex</code>处的值。因为<code>minIndex</code>是当前位置上一个的领域<code>r</code>内的最小值，而上一个位置的领域<code>r</code>范围与当前位置的领域<code>r</code>范围只偏移了一个位置。</p>
+
+<h2 id="2-实现代码">2、实现代码</h2>
+
+<p>我这里实现了对一行数据的过滤，然后在一行数据过滤的基础上实现对二维矩阵进行过滤。</p>
+
+<p>对于<strong>MaxFilter</strong>的相关实现，只需要将下面对应的<code>&gt;=</code>改为<code>&lt;=</code>即可。</p>
+
+<h3 id="2-1-minfilteronerow-单行滤波代码">2.1、MinFilterOneRow 单行滤波代码</h3>
+
+<pre><code class="language-cpp">/**********************************************************************//**
+ * @brief	对一行数据进行滤波，每个值用邻域 r 内的最小值替换.
+ * @author	solym@sohu.com/ymwh@foxmail.com
+ * @date	2019/4/23
+ * @param	srcData             待滤波数据地址.
+ * @param	srcChanelCount      待滤波数据每个像素的通道数.
+ * @param	srcChanelIndex      待滤波数据要进行滤波的通道[0,srcChanelCount).
+ * @param	dstData             滤波后输出数据地址.
+ * @param	dstChanelCount      滤波后输出数据每个像素的通道数.
+ * @param	dstChanelIndex      滤波后数据要输出的通道索引[0,srcChanelCount).
+ * @param	colnumCount         该行数据要滤波的像素数.
+ * @param	radius              滤波的半径大小.
+ *************************************************************************/
+template&lt;typename PixelDataType&gt;
+void MinFilterOneRow(
+        PixelDataType* srcData, const size_t srcChanelCount, const size_t srcChanelIndex,
+        PixelDataType* dstData, const size_t dstChanelCount, const size_t dstChanelIndex,
+        const size_t colnumCount, const size_t radius)
+{
+    PixelDataType* pSrc = srcData;
+    PixelDataType* pDst = dstData;
+
+    size_t minIndex = 0;   // 记录最小值的下标
+    size_t blockSize = radius * 2 + 1; // 块大小，以当前点为中心，左右各radius的宽度
+    PixelDataType minValue = pSrc[srcChanelIndex];  // 比较中获取最小值进行记录
+
+    // 对第一个块进行处理（i从1开始，比较(i-1,i)位置像素值）
+    // 找出最小值(第一个块内的最小值，就是r位置(块中心)处的输出值)
+    for(size_t iPixel=1; iPixel &lt; blockSize; ++iPixel){
+        PixelDataType value = pSrc[iPixel*srcChanelCount + srcChanelIndex];
+        // 使用 &gt;= 比 &gt; 更快推进minIndex向前走
+        if(minValue &gt;= value){
+            minValue = value;
+            minIndex = iPixel;
+        }
+    }
+    // 输出到第一个块中心(r)位置处的值。
+    // 它已经是第一个块内的最小值，也就是该块左边都只能是这个值
+    for(size_t i=0;i&lt;=radius;++i){
+        pDst[i*dstChanelCount + dstChanelIndex] = minValue;
+    }
+    // 开始处理r+1位置之后的值
+    for (size_t iPixel = radius + 1; iPixel &lt; colnumCount - radius; ++iPixel) {
+        /*  i-r           i          i+r
+         *   |____________|___________|_
+         *       └min
+         * 当前最小的索引在当前位置为中心的块的内(一定位于当前块内或前一个)
+         * iPixel是当前块的中心，下面说的当前位置都指iPixel
+         */
+        if(minIndex &gt;= (iPixel - radius)) {
+            // 当前最小索引位置值与当前位置为中心的块的最后一个值比较
+            // 根据下面的代码可知，如果mIndex在块的内部，它所在位置的值一定是最小的
+            // 进入本次循环时，minIndex是上次比较的值，而上一个块与当前块等长，位置差一位
+            // 所以可以直接和当前块最后一个像素值进行比较了，当前块也就完全比较完了
+            size_t nextBlockFirstIndex = iPixel + radius;
+            if(pSrc[minIndex*srcChanelCount + srcChanelIndex] &gt;
+                    pSrc[nextBlockFirstIndex*srcChanelCount + srcChanelIndex]){
+                // 赋值当前最小值索引和值
+                minIndex = nextBlockFirstIndex;
+                minValue = pSrc[nextBlockFirstIndex*srcChanelCount + srcChanelIndex];
+            }
+        }else{
+            // 如果不在当前位置为中心的块内，则对当前块进行查找最小值
+            // 则将minIndex设置该块的最左边位置
+            minIndex = iPixel - radius;
+            // 获取当前位置为中心的块的最小值和索引
+            minValue = pSrc[minIndex*srcChanelCount + srcChanelIndex];
+            size_t blockEnd = minIndex + blockSize;
+            for (size_t iBPixel = minIndex; iBPixel &lt; blockEnd; ++iBPixel) {
+                PixelDataType value = pSrc[iBPixel*srcChanelCount + srcChanelIndex];
+                if(minValue &gt;= value){
+                    minIndex = iBPixel;
+                    minValue = value;
+                }
+            }
+        } // end if minIndex &gt; ...
+        pDst[iPixel*dstChanelCount + dstChanelIndex] = minValue;
+    } // end for iPixel
+
+    // 最后一个块中心位置的右边，一定都是和它中心位置的值是一样的
+    for (size_t i = colnumCount-radius; i &lt; colnumCount; ++i) {
+        pDst[i*dstChanelCount + dstChanelIndex] = minValue;
+    }
+}
+</code></pre>
+
+<h3 id="2-2-minfilteronematrix-单个二维矩阵滤波代码">2.2、MinFilterOneMatrix 单个二维矩阵滤波代码</h3>
+
+<p>对于二维矩阵进行滤波，实际上是先进行行滤波，然后结果进行行列转置，对转置的结果再次进行行滤波，然后再行列转置输出。</p>
+
+<pre><code class="language-cpp">/**********************************************************************//**
+ * @brief	对一个矩阵数据进行滤波，每个值用邻域 r 内的最小值替换.
+ * @author	solym@sohu.com/ymwh@foxmail.com
+ * @date	2019/4/23
+ * @param	srcData             待滤波数据地址.
+ * @param	srcBytePerRow       待滤波数据每行的字节数.
+ * @param	srcChanelCount      待滤波数据每个像素的通道数.
+ * @param	srcChanelIndex      待滤波数据要进行滤波的通道[0,srcChanelCount).
+ * @param	dstData             滤波后输出数据地址.
+ * @param	dstBytePerRow       滤波后输出数据每行的字节数.
+ * @param	dstChanelCount      滤波后输出数据每个像素的通道数.
+ * @param	dstChanelIndex      滤波后数据要输出的通道索引[0,srcChanelCount).
+ * @param	rowCount            矩阵的行数.
+ * @param	colCount            矩阵的列数.
+ * @param	radius              滤波的半径大小.
+ *************************************************************************/
+template&lt;typename PixelDataType&gt;
+void MinFilterOneMatrix(
+        PixelDataType* srcData, const size_t srcBytePerRow,
+        const size_t srcChanelCount, const size_t srcChanelIndex,
+        PixelDataType* dstData, const size_t dstBytePerRow,
+        const size_t dstChanelCount, const size_t dstChanelIndex,
+        const size_t rowCount, const size_t colCount,
+        const size_t radius)
+{
+    unsigned char* pSrc = reinterpret_cast&lt;unsigned char*&gt;(srcData);
+    unsigned char* pDst = reinterpret_cast&lt;unsigned char*&gt;(dstData);
+    // 保存中间结果
+    std::vector&lt;PixelDataType&gt; tmpData(rowCount * colCount);
+    // 逐行进行滤波
+    for (size_t row = 0; row &lt; rowCount; ++row) {
+        // 获取输入和输出每行的行首位置
+        PixelDataType* pSrcRowFirst = (PixelDataType*)(pSrc + row * srcBytePerRow);
+        PixelDataType* pDstRowFirst = tmpData.data() + row * colCount;
+        // 对当前行进行滤波
+        MinFilterOneRow&lt;PixelDataType&gt;(pSrcRowFirst,srcChanelCount,srcChanelIndex,
+                                       pDstRowFirst,1,0,
+                                       colCount,radius);
+    }
+    // 将行滤波后的结果进行 行列转置（进行列滤波）
+    std::vector&lt;PixelDataType&gt; tmpDataT(rowCount * colCount);
+    for (size_t row = 0; row &lt; rowCount; ++row) {
+        for(size_t col = 0; col &lt; colCount; ++col){
+            tmpDataT[col*rowCount + row] = tmpData[row*colCount + col];
+        }
+    }
+    // 对转置后的矩阵进行 逐行滤波（就是原行滤波后结果进行列滤波）
+    for (size_t col = 0; col &lt; colCount; ++col) {
+        PixelDataType* pSrcColFirst = tmpDataT.data() + col * rowCount;
+        PixelDataType* pDstColFirst = tmpData.data() + col * rowCount;
+        // 对当前行进行滤波
+        MinFilterOneRow&lt;PixelDataType&gt;(pSrcColFirst,1,0,
+                                       pDstColFirst,1,0,
+                                       rowCount,radius);
+    }
+    // 将行列滤波后的结果输出
+    for (size_t row = 0; row &lt; rowCount; ++row) {
+        PixelDataType* pDstRowFirst = (PixelDataType*)(pDst + row * dstBytePerRow);
+        for(size_t col = 0; col &lt; colCount; ++col){
+            pDstRowFirst[col*dstChanelCount+dstChanelIndex] = tmpData[col*rowCount + row];
+        }
+    }
+}
+</code></pre>
+
+<h2 id="3-测试">3、测试</h2>
+
+<h3 id="3-1-测试截图">3.1 测试截图</h3>
+
+<p>使用Qt写了一个简单的测试程序进行测试，测试结果如下：
+<img src="https://img2018.cnblogs.com/blog/693958/201904/693958-20190423181441419-675885454.png" alt="" /></p>
+
+<h3 id="3-2-测试代码">3.2 测试代码</h3>
+
+<pre><code class="language-cpp">#include &quot;filter.hpp&quot;
+#include &lt;QApplication&gt;
+#include &lt;QWidget&gt;
+#include &lt;QLineEdit&gt;
+#include &lt;QPushButton&gt;
+#include &lt;QComboBox&gt;
+#include &lt;QVBoxLayout&gt;
+#include &lt;QHBoxLayout&gt;
+#include &lt;QFileDialog&gt;
+#include &lt;QWebEngineView&gt;
+#include &lt;QXmlStreamWriter&gt;
+#include &lt;QBuffer&gt;
+
+int main(int argc, char *argv[])
+{
+    QApplication a(argc, argv);
+    QImage srcImage,dstImage;
+    // 创建窗口
+    QWidget widget;
+    // 添加控件
+    QWebEngineView *wevView = new QWebEngineView(&amp;widget);
+    QLineEdit* leSrcImagePath = new QLineEdit(&amp;widget);
+    QPushButton* pbSelectSrcFile = new QPushButton(QStringLiteral(&quot;选择图片&quot;),&amp;widget);
+    QComboBox* cbSelectFilterAlg = new QComboBox(&amp;widget);
+    cbSelectFilterAlg-&gt;addItems(
+    { QStringLiteral(&quot;MinFilter&quot;),QStringLiteral(&quot;MaxFilter&quot;)});
+    QPushButton* pbRunFilter = new QPushButton(QStringLiteral(&quot;执行滤波&quot;),&amp;widget);
+    //pbRunDetect-&gt;setEnabled(false);
+    QHBoxLayout* hbLayout = new QHBoxLayout;
+    // 设置布局
+    hbLayout-&gt;addWidget(leSrcImagePath);
+    hbLayout-&gt;addWidget(pbSelectSrcFile);
+    hbLayout-&gt;addWidget(cbSelectFilterAlg);
+    hbLayout-&gt;addWidget(pbRunFilter);
+    QVBoxLayout* vbLayout = new QVBoxLayout(&amp;widget);
+    vbLayout-&gt;addLayout(hbLayout);
+    vbLayout-&gt;addWidget(wevView);
+    // 添加处理操作
+    std::function&lt;void(QString,const QImage&amp;,const QImage&amp;)&gt;
+            updateHtmlView =
+            [wevView,leSrcImagePath](QString filterName,const QImage&amp; srcImage,const QImage&amp; resultimage)
+    {
+        QString tmpPath;
+        QByteArray html;
+        {
+            QXmlStreamWriter writer(&amp;html);
+            writer.setAutoFormatting(true);
+            writer.writeStartDocument();
+            writer.writeStartElement(&quot;html&quot;);
+            writer.writeStartElement(&quot;body&quot;);
+            writer.writeAttribute(&quot;bgcolor&quot;,&quot;gray&quot;);
+            if(!srcImage.isNull()){
+                writer.writeTextElement(&quot;h2&quot;,QStringLiteral(&quot;原图&quot;));
+                writer.writeStartElement(&quot;img&quot;);
+                QBuffer buffer;
+                srcImage.save(&amp;buffer,&quot;PNG&quot;);
+                writer.writeAttribute(&quot;src&quot;,&quot;data:image/png;base64,&quot; + buffer.data().toBase64());
+                // writer.writeAttribute(&quot;src&quot;,QUrl(leSrcImagePath-&gt;text()).toString());
+                writer.writeEndElement();
+            }
+            if(!resultimage.isNull()){
+                writer.writeTextElement(&quot;h2&quot;,filterName + QStringLiteral(&quot;滤波结果图&quot;));
+                writer.writeStartElement(&quot;img&quot;);
+                QBuffer buffer;
+                resultimage.save(&amp;buffer,&quot;PNG&quot;);
+                writer.writeAttribute(&quot;src&quot;,&quot;data:image/png;base64,&quot; + buffer.data().toBase64());
+                // tmpPath = QDir::tempPath() + QString::fromUtf8(&quot;.png&quot;);
+                // resultimage.save(tmpPath,&quot;PNG&quot;);
+                // writer.writeAttribute(&quot;src&quot;,QUrl(tmpPath).toString());
+                writer.writeEndElement();
+            }
+            writer.writeEndElement();
+            writer.writeEndElement();
+        }
+        wevView-&gt;setHtml(QString::fromUtf8(html));
+        // if(!resultimage.isNull()){
+        //     qDebug()&lt;&lt;tmpPath;
+        //     QFile::remove(tmpPath);
+        // }
+    };
+
+    // 文件选择按钮单击信号处理
+    QObject::connect(pbSelectSrcFile,&amp;QPushButton::clicked,
+                     [leSrcImagePath,&amp;srcImage,&amp;widget,&amp;updateHtmlView]()
+    {
+        static QString path(&quot;.&quot;);
+        path = QFileDialog::getOpenFileName(&amp;widget,
+                                            QStringLiteral(&quot;选择待滤波图片&quot;),
+                                            path,
+                                            QString(&quot;Images (*.png *.jpg *.jpeg *.jfif)&quot;));
+        if(path.isEmpty()){return;}
+        QImage image;
+        if(!image.load(path)){return;}
+
+        srcImage = image.convertToFormat(QImage::Format_RGBA8888);
+        leSrcImagePath-&gt;setText(path);
+        updateHtmlView(QString(),srcImage,QImage());
+    });
+
+    // 执行滤波按钮单击信号处理
+    QObject::connect(pbRunFilter,&amp;QPushButton::clicked,
+                     [&amp;cbSelectFilterAlg,&amp;srcImage,&amp;dstImage,&amp;updateHtmlView]
+    {
+        // 获取滤波算法名称
+        QString filterName = cbSelectFilterAlg-&gt;currentText();
+        // 最小值滤波 https://reference.wolfram.com/language/ref/MinFilter.html
+        if(filterName == QStringLiteral(&quot;MinFilter&quot;)){
+            dstImage = srcImage;
+            unsigned int raduis = 2;
+            uchar* pSrc = srcImage.bits();
+            uchar* pDst = dstImage.bits();
+
+            unsigned int colCount = srcImage.width();
+            unsigned int rowCount = srcImage.height();
+            unsigned int chanel = 4;
+            // 分别对RGB通道进行滤波
+            MinFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,0,
+                                      pDst,dstImage.bytesPerLine(),chanel,0,
+                                      rowCount,colCount,raduis);
+            MinFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,1,
+                                      pDst,dstImage.bytesPerLine(),chanel,1,
+                                      rowCount,colCount,raduis);
+            MinFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,2,
+                                      pDst,dstImage.bytesPerLine(),chanel,2,
+                                      rowCount,colCount,raduis);
+        }
+        else if(filterName == QStringLiteral(&quot;MaxFilter&quot;)){
+            dstImage = srcImage;
+            unsigned int raduis = 2;
+            uchar* pSrc = srcImage.bits();
+            uchar* pDst = dstImage.bits();
+
+            unsigned int colCount = srcImage.width();
+            unsigned int rowCount = srcImage.height();
+            unsigned int chanel = 4;
+            // 分别对RGB通道进行滤波
+            MaxFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,0,
+                                      pDst,dstImage.bytesPerLine(),chanel,0,
+                                      rowCount,colCount,raduis);
+            MaxFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,1,
+                                      pDst,dstImage.bytesPerLine(),chanel,1,
+                                      rowCount,colCount,raduis);
+            MaxFilterOneMatrix&lt;uchar&gt;(pSrc,srcImage.bytesPerLine(),chanel,2,
+                                      pDst,dstImage.bytesPerLine(),chanel,2,
+                                      rowCount,colCount,raduis);
+        }
+        updateHtmlView(filterName,srcImage,dstImage);
+
+    });
+
+    widget.resize(1024,768);
+    widget.show();
+    return a.exec();
+}
+
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

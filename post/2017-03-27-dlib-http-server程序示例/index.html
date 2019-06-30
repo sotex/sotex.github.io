@@ -1,0 +1,266 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> DLib Http Server程序示例 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>DLib Http Server程序示例</h1>
+          <span class="post-date">2017年03月27日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/03/27/6627003.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/03/27/6627003.html</a></p>
+
+<pre><code class="language-cpp">/*
+
+    这个示例是一个使用了Dlib C++ 库的server组件的HTTP扩展
+
+    它创建一个始终以简单的HTML表单为响应的服务器。
+    要查看这个页面，你应该访问 http://localhost:5000
+
+*/
+
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+#include &lt;dlib/server.h&gt;
+
+using namespace dlib;
+using namespace std;
+
+class web_server : public server_http
+{
+    const std::string on_request (
+        const incoming_things&amp; incoming,
+        outgoing_things&amp; outgoing
+    )
+    {
+        ostringstream sout;
+        // 我们将发回一个包含HTML表单的页面，其中包含两个文本输入字段。一个字段是name(还有一个是pass)
+        // HTML表单使用post方法，也可以使用get方法(只需将method='post'改为method='get').
+
+        sout &lt;&lt;&quot; &lt;html&gt;&lt;meta charset=\&quot;utf-8\&quot;&gt;&lt;body&gt; &quot;
+            &lt;&lt; &quot;&lt;form action='/form_handler' method='post'&gt; &quot;
+            &lt;&lt; &quot;用户名称: &lt;input name='user' type='text'&gt;&lt;br&gt;  &quot;
+            &lt;&lt; &quot;用户密码: &lt;input name='pass' type='text'&gt; &lt;input type='submit'&gt; &quot;
+            &lt;&lt; &quot; &lt;/form&gt;&quot;;
+
+        // 回写这个请求传入的一些信息，以便它们显示在生成的网页上
+        sout &lt;&lt; &quot;&lt;br&gt;  path = &quot;         &lt;&lt; incoming.path &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  request_type = &quot; &lt;&lt; incoming.request_type &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  content_type = &quot; &lt;&lt; incoming.content_type &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  protocol = &quot;     &lt;&lt; incoming.protocol &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  foreign_ip = &quot;   &lt;&lt; incoming.foreign_ip &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  foreign_port = &quot; &lt;&lt; incoming.foreign_port &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  local_ip = &quot;     &lt;&lt; incoming.local_ip &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  local_port = &quot;   &lt;&lt; incoming.local_port &lt;&lt; endl;
+        sout &lt;&lt; &quot;&lt;br&gt;  body = \&quot;&quot;       &lt;&lt; incoming.body &lt;&lt; &quot;\&quot;&quot; &lt;&lt; endl;
+
+
+        // 如果此请求是用户提交表单的结果，则回显提交
+        if (incoming.path == &quot;/form_handler&quot;)
+        {
+            sout &lt;&lt; &quot;&lt;h2&gt; 来自 query string 的信息 &lt;/h2&gt;&quot; &lt;&lt; endl;
+            sout &lt;&lt; &quot;&lt;br&gt;  user = &quot; &lt;&lt; incoming.queries[&quot;user&quot;] &lt;&lt; endl;
+            sout &lt;&lt; &quot;&lt;br&gt;  pass = &quot; &lt;&lt; incoming.queries[&quot;pass&quot;] &lt;&lt; endl;
+
+            // 将这些表单提交作为Cookie保存
+            outgoing.cookies[&quot;user&quot;] = incoming.queries[&quot;user&quot;];
+            outgoing.cookies[&quot;pass&quot;] = incoming.queries[&quot;pass&quot;];
+        }
+
+
+        // 将所有Cookie回传到客户端浏览器
+        sout &lt;&lt; &quot;&lt;h2&gt;客户web浏览器发送给服务器的 Cookies&lt;/h2&gt;&quot;;
+        for ( key_value_map::const_iterator ci = incoming.cookies.begin(); ci != incoming.cookies.end(); ++ci )
+        {
+            sout &lt;&lt; &quot;&lt;br/&gt;&quot; &lt;&lt; ci-&gt;first &lt;&lt; &quot; = &quot; &lt;&lt; ci-&gt;second &lt;&lt; endl;
+        }
+
+        sout &lt;&lt; &quot;&lt;br/&gt;&lt;br/&gt;&quot;;
+
+        sout &lt;&lt; &quot;&lt;h2&gt;客户web浏览器发送给服务器的 HTTP Headers&lt;/h2&gt;&quot;;
+        // 回显从客户端web浏览器接收的所有HTTP headers
+        for ( key_value_map_ci::const_iterator ci = incoming.headers.begin(); ci != incoming.headers.end(); ++ci )
+        {
+            sout &lt;&lt; &quot;&lt;br/&gt;&quot; &lt;&lt; ci-&gt;first &lt;&lt; &quot;: &quot; &lt;&lt; ci-&gt;second &lt;&lt; endl;
+        }
+
+        sout &lt;&lt; &quot;&lt;/body&gt; &lt;/html&gt;&quot;;
+
+        return sout.str();
+    }
+
+};
+
+int main()
+{
+    try
+    {
+        // 创建一个 web server 实例对象
+        web_server our_web_server;
+
+        // 监听5000端口
+        our_web_server.set_listening_port(5000);
+        // 告诉服务器开始接受连接。
+        our_web_server.start_async();
+
+        cout &lt;&lt; &quot;请按Enter(回车)键去结束程序&quot; &lt;&lt; endl;
+        cin.get();
+    }
+    catch (exception&amp; e)
+    {
+        // 上面出错会抛出异常
+        // 输出异常消息
+        cout &lt;&lt; e.what() &lt;&lt; endl;
+    }
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,363 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> net-snmp的dateandtime数据类型 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>net-snmp的dateandtime数据类型</h1>
+          <span class="post-date">2015年06月23日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595127.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595127.html</a>
+#net-snmp的dateandtime数据类型</p>
+
+<p>2015/06/12 16:35:59
+DateAndTime是Snmpv2中的一种数据类型，它主要提供了对日期时间的描述。
+在开发一个snmp相关程序的时候，碰到了这个东西。
+<a href="http://www.cnblogs.com/oloroso">本文由乌合之众瞎写<code>http://www.cnblogs.com/oloroso</code></a></p>
+
+<p>#原由
+在开发的时候，某个节点的值是<code>DateAndTime</code>类型的，因为是通过挂载脚本来获取的值，是一个字符串，形似 <code>&quot;2015-06-12 17:04:03&quot;</code> 这样的。现在要将这个值转换为<code>net-snmp</code>管理端可以获取的<code>DateAndTime</code>值。</p>
+
+<p>关于这个结构的描述，在net-snmp源代码目录下的<code>snmplib/snmp-tc.c</code>文件中可以找到。
+<code>net-snmp</code>中没有定义这个类型，而是当做一个<code>unsigned char</code>类型的数组，根据各个字段的宽度来操作。</p>
+
+<p>##结构描述如下</p>
+
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">字节数</th>
+<th align="left">内容</th>
+<th align="left">取值范围</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">1-2</td>
+<td align="left">year*</td>
+<td align="left">0..65536</td>
+</tr>
+
+<tr>
+<td align="center">2</td>
+<td align="center">3</td>
+<td align="left">month</td>
+<td align="left">1..12</td>
+</tr>
+
+<tr>
+<td align="center">3</td>
+<td align="center">4</td>
+<td align="left">day</td>
+<td align="left">1..31</td>
+</tr>
+
+<tr>
+<td align="center">4</td>
+<td align="center">5</td>
+<td align="left">hour</td>
+<td align="left">0..23</td>
+</tr>
+
+<tr>
+<td align="center">5</td>
+<td align="center">6</td>
+<td align="left">minutes</td>
+<td align="left">0..59</td>
+</tr>
+
+<tr>
+<td align="center">6</td>
+<td align="center">7</td>
+<td align="left">seconds</td>
+<td align="left">0..60</td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left">(use 60 for leap-second)</td>
+<td align="left"></td>
+</tr>
+
+<tr>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="left">deci-seconds</td>
+<td align="left">0..9</td>
+</tr>
+
+<tr>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="left">direction from UTC</td>
+<td align="left">&rsquo;+&rsquo; / &lsquo;-&rsquo;</td>
+</tr>
+
+<tr>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="left">hours from UTC*</td>
+<td align="left">0..13</td>
+</tr>
+
+<tr>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="left">minutes from UTC</td>
+<td align="left">0..59</td>
+</tr>
+
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+<td align="left"></td>
+<td align="left">* 注意:-年份这个值使用网络字节序</td>
+</tr>
+</tbody>
+</table>
+
+<p>-
+下面是文件中的内容拷贝过来的。</p>
+
+<pre><code class="language-c">#ifndef NETSNMP_FEATURE_REMOVE_NETSNMP_DATEANDTIME_SET_BUF_FROM_VARS
+/*
+  DateAndTime ::= TEXTUAL-CONVENTION
+    DISPLAY-HINT &quot;2d-1d-1d,1d:1d:1d.1d,1a1d:1d&quot;
+    STATUS       current
+    DESCRIPTION
+            &quot;A date-time specification.
+
+            field  octets  contents                  range
+            -----  ------  --------                  -----
+              1      1-2   year*                     0..65536
+              2       3    month                     1..12
+              3       4    day                       1..31
+              4       5    hour                      0..23
+              5       6    minutes                   0..59
+              6       7    seconds                   0..60
+                           (use 60 for leap-second)
+              7       8    deci-seconds              0..9
+              8       9    direction from UTC        '+' / '-'
+              9      10    hours from UTC*           0..13
+             10      11    minutes from UTC          0..59
+
+            * Notes:
+            - the value of year is in network-byte order
+            - daylight saving time in New Zealand is +13
+
+            For example, Tuesday May 26, 1992 at 1:30:15 PM EDT would be
+            displayed as:
+
+                             1992-5-26,13:30:15.0,-4:0
+
+            Note that if only local time is known, then timezone
+            information (fields 8-10) is not present.&quot;
+    SYNTAX       OCTET STRING (SIZE (8 | 11))
+*/
+</code></pre>
+
+<p>#数据操作</p>
+
+<p><code>net-snmp</code>这个库已经提供了一些操作这个&rdquo;数据类型&rdquo;(这里当做一个数据类型)的操作函数，比较游泳的就是<code>netsnmp_dateandtime_set_buf_from_vars</code>这个函数。这个函数用于利用相关的日期时间数值来构建这个数据。注意参数<code>bufsize</code>是<strong>传入传出</strong>参数，传入<code>buf</code>的大小，传出构建后的数据内存字节数。</p>
+
+<pre><code class="language-c">int
+netsnmp_dateandtime_set_buf_from_vars(u_char *buf, size_t *bufsize,
+                                      u_short year, u_char month, u_char day,
+                                      u_char hour, u_char minutes,
+                                      u_char seconds, u_char deci_seconds,
+                                      int utc_offset_direction,
+                                      u_char utc_offset_hours,
+                                      u_char utc_offset_minutes)
+{
+    u_short tmp_year = htons(year);
+
+    /*
+     * if we have a utc offset, need 11 bytes. Otherwise we
+     * just need 8 bytes.
+     */
+    if(utc_offset_direction) {
+        if(*bufsize &lt; 11)
+            return SNMPERR_RANGE;
+
+        /*
+         * set utc offset data
+         */
+        buf[8] = (utc_offset_direction &lt; 0) ? '-' : '+';
+        buf[9] = utc_offset_hours;
+        buf[10] = utc_offset_minutes;
+        *bufsize = 11;
+    }
+    else if(*bufsize &lt; 8)
+        return SNMPERR_RANGE;
+    else
+        *bufsize = 8;
+
+    /*
+     * set basic date/time data
+     */
+    memcpy(buf, &amp;tmp_year, sizeof(tmp_year));
+    buf[2] = month;
+    buf[3] = day;
+    buf[4] = hour;
+    buf[5] = minutes;
+    buf[6] = seconds;
+    buf[7] = deci_seconds;
+
+    return SNMPERR_SUCCESS;
+}
+#endif /* NETSNMP_FEATURE_REMOVE_NETSNMP_DATEANDTIME_SET_BUF_FROM_VARS */
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

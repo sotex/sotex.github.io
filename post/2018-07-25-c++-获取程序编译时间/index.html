@@ -1,0 +1,248 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> C&#43;&#43; 获取程序编译时间 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>C&#43;&#43; 获取程序编译时间</h1>
+          <span class="post-date">2018年07月25日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/07/25/9365749.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2018/07/25/9365749.html</a>
+一个简单的需求，就是需要程序判断当前系统的时间是不是在程序编译之后的，如果系统当前时间在编译之前，那说明这台机器的时间是不正确的，需要终止程序运行。
+因为要在程序编译时候获取时间，如果每次编译前手动修改的话，稍微显得麻烦了一点。</p>
+
+<h2 id="windows下vs2015">Windows下VS2015</h2>
+
+<p>VC中可以使用<a href="https://msdn.microsoft.com/zh-cn/library/b0084kay(v=vs.140).aspx">Visual c + + 编译器预定义的宏</a>来获取编译时间，有<code>__DATE__</code> <code>__TIME__</code>(这两个是ISO C99 和 ISO C + + 14 标准预定义的宏)<code>__TIMESTAMP__</code>(这个是VS预定义的)三个宏可以获取，但是获取到的是字符串形式的时间，所以不太利于进行比较。
+这里写一个函数，用来获取编译时候的时间。</p>
+
+<pre><code class="language-C++">// 获取编译时间
+VOID GetCompileTime(LPSYSTEMTIME lpCompileTime)
+{
+	char Mmm[4] = &quot;Jan&quot;;
+	sscanf_s(__DATE__, &quot;%3s %hu %hu&quot;, Mmm,sizeof(Mmm),
+		&amp;lpCompileTime-&gt;wDay, &amp;lpCompileTime-&gt;wYear);
+	Mmm[3] = Mmm[2]; Mmm[2] = Mmm[0]; Mmm[0] = Mmm[3]; Mmm[3] = 0;
+
+	switch (*(DWORD*)Mmm) {
+		case (DWORD)('Jan'): lpCompileTime-&gt;wMonth = 1; break;
+		case (DWORD)('Feb'): lpCompileTime-&gt;wMonth = 2; break;
+		case (DWORD)('Mar'): lpCompileTime-&gt;wMonth = 3; break;
+		case (DWORD)('Apr'): lpCompileTime-&gt;wMonth = 4; break;
+		case (DWORD)('May'): lpCompileTime-&gt;wMonth = 5; break;
+		case (DWORD)('Jun'): lpCompileTime-&gt;wMonth = 6; break;
+		case (DWORD)('Jul'): lpCompileTime-&gt;wMonth = 7; break;
+		case (DWORD)('Aug'): lpCompileTime-&gt;wMonth = 8; break;
+		case (DWORD)('Sep'): lpCompileTime-&gt;wMonth = 9; break;
+		case (DWORD)('Oct'): lpCompileTime-&gt;wMonth = 10; break;
+		case (DWORD)('Nov'): lpCompileTime-&gt;wMonth = 11; break;
+		case (DWORD)('Dec'): lpCompileTime-&gt;wMonth = 12; break;
+		default:lpCompileTime-&gt;wMonth = 0;
+	}
+	sscanf_s(__TIME__, &quot;%hu:%hu:%hu&quot;, &amp;lpCompileTime-&gt;wHour,
+		&amp;lpCompileTime-&gt;wMinute, &amp;lpCompileTime-&gt;wSecond);
+	lpCompileTime-&gt;wDayOfWeek = lpCompileTime-&gt;wMilliseconds = 0;
+}
+</code></pre>
+
+<p>因为编译器给出的时间实际上是本地时间，所以这里如果进行判断的话，可以与<code>GetLocalTime</code>的结果进行比较。</p>
+
+<pre><code class="language-C++">	SYSTEMTIME lt, ct;
+	GetLocalTime(&amp;lt);
+	GetCompileTime(&amp;ct);
+
+	FILETIME flt, fct;
+	SystemTimeToFileTime(&amp;lt, &amp;flt);
+	SystemTimeToFileTime(&amp;ct, &amp;fct);
+	
+	if (flt.dwHighDateTime &lt; fct.dwHighDateTime || 
+		(flt.dwHighDateTime == fct.dwHighDateTime &amp;&amp; flt.dwLowDateTime &lt; fct.dwLowDateTime)) {
+		// Todo
+	}
+</code></pre>
+
+<p><strong>这里没有考虑不同时区的问题。</strong></p>
+
+<h2 id="clang或gcc">Clang或GCC</h2>
+
+<p>Clang和GCC下可以使用<code>__DATE__</code>和<code>__TIME__</code>宏来获取编译时间，这两个在多字节字符常量上与VS的处理有些不同。不多说，直接放代码。</p>
+
+<pre><code class="language-C++">void GetCompileTime(struct tm* lpCompileTime)
+{
+	char Mmm[4] = &quot;Jan&quot;;
+	sscanf(__DATE__, &quot;%3s %d %d&quot;, Mmm,
+				&amp;lpCompileTime-&gt;tm_mday, &amp;lpCompileTime-&gt;tm_year);
+	lpCompileTime-&gt;tm_year -= 1900;
+
+	switch (*(uint32_t*)Mmm) {
+		case (uint32_t)('Jan'): lpCompileTime-&gt;tm_mon = 1; break;
+		case (uint32_t)('Feb'): lpCompileTime-&gt;tm_mon = 2; break;
+		case (uint32_t)('Mar'): lpCompileTime-&gt;tm_mon = 3; break;
+		case (uint32_t)('Apr'): lpCompileTime-&gt;tm_mon = 4; break;
+		case (uint32_t)('May'): lpCompileTime-&gt;tm_mon = 5; break;
+		case (uint32_t)('Jun'): lpCompileTime-&gt;tm_mon = 6; break;
+		case (uint32_t)('Jul'): lpCompileTime-&gt;tm_mon = 7; break;
+		case (uint32_t)('Aug'): lpCompileTime-&gt;tm_mon = 8; break;
+		case (uint32_t)('Sep'): lpCompileTime-&gt;tm_mon = 9; break;
+		case (uint32_t)('Oct'): lpCompileTime-&gt;tm_mon = 10; break;
+		case (uint32_t)('Nov'): lpCompileTime-&gt;tm_mon = 11; break;
+		case (uint32_t)('Dec'): lpCompileTime-&gt;tm_mon = 12; break;
+		default:lpCompileTime-&gt;tm_mon = 0;
+	}
+	sscanf(__TIME__, &quot;%d:%d:%d&quot;, &amp;lpCompileTime-&gt;tm_hour,
+				&amp;lpCompileTime-&gt;tm_min, &amp;lpCompileTime-&gt;tm_sec);
+	lpCompileTime-&gt;tm_isdst = lpCompileTime-&gt;tm_wday = lpCompileTime-&gt;tm_yday = 0;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

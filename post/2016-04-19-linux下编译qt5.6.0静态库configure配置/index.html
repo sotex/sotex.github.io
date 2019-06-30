@@ -1,0 +1,1745 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> linux下编译qt5.6.0静态库——configure配置 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>linux下编译qt5.6.0静态库——configure配置</h1>
+          <span class="post-date">2016年04月19日</span>
+          <p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/04/19/5407779.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/04/19/5407779.html</a>
+<h1 id="linuxqt560">linux下编译qt5.6.0静态库</h1>
+<div class="toc">
+<ul>
+<li><a href="#linuxqt560">linux下编译qt5.6.0静态库</a>
+<ul>
+<li><a href="#configuremakefile">configure生成makefile</a>
+<ul>
+<li><a href="#_1">安装选项</a></li>
+<li><a href="#configure">Configure选项</a></li>
+<li><a href="#_2">第三方库:</a></li>
+<li><a href="#_3">附加选项:</a></li>
+<li><a href="#qnxblackberry">QNX/Blackberry 选项:</a></li>
+<li><a href="#android">Android 选项:</a></li>
+<li><a href="#makefile">生成makefile</a>
+<ul>
+<li><a href="#_4">遇到链接检查失败的情况</a></li>
+<li><a href="#makefile_1">生成makefile后进行编译</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_5">编译时的错误</a>
+<ul>
+<li><a href="#qt_modbusqt_modbus_low">多重定义&rsquo;QT_MODBUS()&rsquo;和&rsquo;QT_MODBUS_LOW()&rsquo;</a></li>
+<li><a href="#qt_static_plugin_assimpparserplugin">qt_static_plugin_AssimpParserPlugin未定义</a></li>
+</ul>
+</li>
+<li><a href="#qt-creatorqt">在Qt Creator中使用编译出的QT库</a>
+<ul>
+<li><a href="#_6">具体过程如图</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p>编译QT是一件比较麻烦的事情。所以如果没有必要，就不要编译了。如果你只需要使用QT的一些基本功能，那么就只编译源码目录下的<code>qtbase</code>目录下的东西即可。<br />
+下面所介绍的都只是在linux下适用的(windows下使用MinGW也可以，QT提供的MinGW安装包是32位的，需要64位的可以参考)。<br />
+在编译前，最好先安装完成相关的依赖包，主要是<code>xcb/opengl</code>等。编译器使用gcc5及以上版本速度会比较快。<code>i5-4460  CPU @ 3.20GHz</code>+<code>8G</code>内存下编译时间大概是2.5个小时。<br />
+编译的时候对磁盘空间要求非常非常的大<code>75G  ./qt-src/qt-opensource-src-5.6.0</code>(这是还没有完全编译完时候的情况)，如果无法接受，就别编译<code>debug</code>版本和<code>examples</code>了。</p>
+<p>提供一个我已经编译好的了</p>
+<p style="margin-left: 120px;"><span style="color: #3366ff; background-color: #ffff99;"><strong>linux下64位gcc编译</strong></span></p>
+<p style="margin-left: 120px;"><span style="color: #3366ff; background-color: #ffff99;"><strong><a href="http://pan.baidu.com/s/1eRMnf26" target="_blank"><span style="color: #3366ff; background-color: #ffff99;"><a href="http://pan.baidu.com/s/1eRMnf26">http://pan.baidu.com/s/1eRMnf26</a></span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 提取密码&nbsp;&nbsp;&nbsp; iz39</strong></span></p>
+<p style="margin-left: 120px;"><span style="color: #3366ff; background-color: #ffff99;"><strong>windows下64位mingw编译</strong></span></p>
+<p style="margin-left: 120px;"><span style="color: #3366ff; background-color: #ffff99;"><strong><a href="http://pan.baidu.com/s/1qYh7yGG" target="_blank"><span style="color: #3366ff; background-color: #ffff99;"><a href="http://pan.baidu.com/s/1qYh7yGG">http://pan.baidu.com/s/1qYh7yGG</a></span></a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 提取密码&nbsp;&nbsp;&nbsp; 6bur</strong></span></p>
+<p>&nbsp;</p>
+<p>因为编译的时候，安装路径已经硬编码到了qmake中(使用<code>strings qmake|grep qt_</code>来查看)。<br />
+所以如果改变了安装的目录，需要到安装目录下的<code>bin</code>目录下创建文件<code>qt.conf</code>，其内容如下：<code class="conf">
+</code></p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">[Paths]
+Prefix </span>= 安装路径</pre>
+</div>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201604/693958-20160419142306460-1123502825.png" alt="" /></p>
+<p>首先下载源码包qt-everywhere-opensource-src-5.6.0.7z<br />
+然后解压<code class="shell">
+</code></p>
+<div class="cnblogs_code">
+<pre>7z x -o/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span> qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span><span style="color: #000000;">.7z
+cd </span>/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span></pre>
+</div>
+<p>我这里解压到<code>/home/o/qt-src/qt-opensource-src-5.6.0</code>中，解压后进入这个目录。</p>
+<h2 id="configuremakefile">configure生成makefile</h2>
+<p>先使用&nbsp;<span class="cnblogs_code">./configure &ndash;help</span>&nbsp;来看看都有哪些参数，这里就不贴命令输出结果了，直接把选项都翻译出来</p>
+<h3 id="_1">安装选项</h3>
+<table>
+<thead>
+<tr><th align="left">选项</th><th align="left">作用</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-prefix &lt;dir&gt;</td>
+<td align="left">指定部署目录(默认 /usr/local/Qt-5.6.0)</td>
+</tr>
+<tr>
+<td align="left">-extprefix &lt;dir&gt;</td>
+<td align="left">安装目录(默认 SYSROOT/PREFIX)</td>
+</tr>
+<tr>
+<td align="left">-hostprefix [dir]</td>
+<td align="left">运行在这个主机上的构建工具的安装目录，如果不给定，使用当前目录. (默认 EXTPREFIX)</td>
+</tr>
+</tbody>
+</table>
+<p>你可以用这些来改变安装的布局。请注意，所有目录除<code>sysconfdir</code>外，其他的应位于-prefix/ hostprefix下</p>
+<table>
+<thead>
+<tr><th align="left">选项</th><th align="left">作用</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">-bindir &lt;dir&gt;</td>
+<td align="left">用户可执行文件将安装到这个目录(默认 PREFIX/bin)</td>
+</tr>
+<tr>
+<td align="left">-headerdir &lt;dir&gt;</td>
+<td align="left">头文件安装目录(默认 PREFIX/include)</td>
+</tr>
+<tr>
+<td align="left">-libdir &lt;dir&gt;</td>
+<td align="left">库文件安装目录(默认 PREFIX/lib)</td>
+</tr>
+<tr>
+<td align="left">-archdatadir &lt;dir&gt;</td>
+<td align="left">QT相关的数据将被安装到&lt;dir&gt;(默认 PREFIX)</td>
+</tr>
+<tr>
+<td align="left">-plugindir &lt;dir&gt;</td>
+<td align="left">插件安装目录(默认 ARCHDATADIR/plugins)</td>
+</tr>
+<tr>
+<td align="left">-libexecdir &lt;dir&gt;</td>
+<td align="left">程序的可执行文件安装目录(默认 ARCHDATADIR/libexec, ARCHDATADIR/bin for MinGW)</td>
+</tr>
+<tr>
+<td align="left">-importdir &lt;dir&gt;</td>
+<td align="left">导入QML1安装目录(默认 ARCHDATADIR/imports)</td>
+</tr>
+<tr>
+<td align="left">-qmldir &lt;dir&gt;</td>
+<td align="left">导入QML2安装目录(默认 ARCHDATADIR/qml)</td>
+</tr>
+<tr>
+<td align="left">-datadir &lt;dir&gt;</td>
+<td align="left">QT独立的数据安装目录(default PREFIX)</td>
+</tr>
+<tr>
+<td align="left">-docdir &lt;dir&gt;</td>
+<td align="left">文档安装目录(default DATADIR/doc)</td>
+</tr>
+<tr>
+<td align="left">-translationdir &lt;dir&gt;</td>
+<td align="left">Qt程序的翻译数据安装目录(default DATADIR/translations)</td>
+</tr>
+<tr>
+<td align="left">-sysconfdir &lt;dir&gt;</td>
+<td align="left">设置使用QT程序的搜寻目录(default PREFIX/etc/xdg)</td>
+</tr>
+<tr>
+<td align="left">-examplesdir &lt;dir&gt;</td>
+<td align="left">示例文件安装目录(default PREFIX/examples)</td>
+</tr>
+<tr>
+<td align="left">-testsdir &lt;dir&gt;</td>
+<td align="left">测试文件安装目录(default PREFIX/tests)</td>
+</tr>
+<tr>
+<td align="left">-hostbindir &lt;dir&gt;</td>
+<td align="left">主机可执行文件安装目录(default HOSTPREFIX/bin)</td>
+</tr>
+<tr>
+<td align="left">-hostlibdir &lt;dir&gt;</td>
+<td align="left">主机库文件安装目录(default HOSTPREFIX/lib)</td>
+</tr>
+<tr>
+<td align="left">-hostdatadir &lt;dir&gt;</td>
+<td align="left">qmake使用数据安装目录(default HOSTPREFIX)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="configure">Configure选项</h3>
+<p>下表中第一列中的<code><em></code>表示默认并可行的。<code>+</code>表示默认，但需要进行评估(检测)，评估通过才可接受。</p>
+<table>
+<thead>
+<tr><th align="center">&nbsp;</th><th align="left">选项</th><th align="left">作用</th></tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></em></td>
+<td align="left">-release</td>
+<td align="left">编译和链接Qt的release版本</td>
+</tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-debug</td>
+<td align="left">编译和链接debug版本</td>
+</tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-debug-and-release</td>
+<td align="left">编译和链接release和debug两个版本的QT.<br />没有和有debug输出(仅适用于MAC)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-force-debug-info</td>
+<td align="left">强制为release构建输出调试信息</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-developer-build</td>
+<td align="left">Qt开发者编译和链接选项（包括自动测试/输出）</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-optimized-tools</td>
+<td align="left">即使在调试版本中，也不构建优化的主机工具</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-optimized-tools</td>
+<td align="left">构建优化的主机工具，即使在调试版本</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-opensource</td>
+<td align="left">编译和链接Qt开源版本</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-commercial</td>
+<td align="left">编译和链接的Qt商业版</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-confirm-license</td>
+<td align="left">自动确认许可证（使用开源或是商业）</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-c++std &lt;edition&gt;</td>
+<td align="left">编译QT使用的C++标准 (c++98, c++11, c++14, c++1z) 默认: 最高支持版本</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-shared</td>
+<td align="left">创建并使用Qt共享库.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-static</td>
+<td align="left">创建并使用QT静态库</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-largefile</td>
+<td align="left">禁用大文件支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-largefile</td>
+<td align="left">启用QT访问大于4 GB的文件功能</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-accessibility</td>
+<td align="left">不编译的可访问性支持<br />禁用访问不推荐，它将破坏QStyle并且可能影响QT构建 <br /> 这个选项启用将创建一个源不兼容版本的QT，这是不支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-accessibility</td>
+<td align="left">编译访问支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-sql-&lt;driver&gt;</td>
+<td align="left">完全禁用SQL &lt;driver&gt; .</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-sql-&lt;driver&gt;</td>
+<td align="left">在 Qt SQL 模块启用SQL &lt;driver&gt;,默认是不启用的.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-plugin-sql-<code>&lt;driver&gt;</code></td>
+<td align="left">启用SQL &lt;driver&amp;gt;作为一个插件在运行时链接 <br /> <code>&lt;driver&gt;</code>的可能值为: <br /> [ db2 ibase mysql oci odbc psql sqlite sqlite2 tds ]</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-system-sqlite</td>
+<td align="left">利用操作系统SQLite</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-qml-debug</td>
+<td align="left">不构建在QML调试支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-qml-debug</td>
+<td align="left">构建QML调试支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-platform target</td>
+<td align="left">构建的目标操作系统和编译器（默认检测主机系统）<br /> 读readme文件获取支持的操作系统和编译器列表</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-sse2</td>
+<td align="left">编译不要使用SSE2指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-sse3</td>
+<td align="left">编译不要使用SSE3指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-ssse3</td>
+<td align="left">编译不要使用SSSE3指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-sse4.1</td>
+<td align="left">编译不要使用SSE4.1指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-sse4.2</td>
+<td align="left">编译不要使用SSE4.2指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-avx</td>
+<td align="left">编译不要使用AVX指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-avx2</td>
+<td align="left">编译不要使用AVX2指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-mips_dsp</td>
+<td align="left">编译不要使用MIPS DSP指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-mips_dspr2</td>
+<td align="left">编译不要使用MIPS DSP Rev2指令</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qtnamespace &lt;name&gt;</td>
+<td align="left">把所有的Qt库代码放入<code>namespace &lt;name&gt; {&hellip;}</code>中</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qtlibinfix &lt;infix&gt;</td>
+<td align="left">重命名所有<code>libQt<em>.so</code>为<code>libQt</em>&lt;infix&gt;.so</code></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-testcocoon</td>
+<td align="left">Instrument Qt with the TestCocoon code coverage tool.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-gcov</td>
+<td align="left">Instrument Qt with the GCov code coverage tool.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-D &lt;string&gt;</td>
+<td align="left">显示的添加一个宏定义到预处理器</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-I &lt;string&gt;</td>
+<td align="left">显示的添加一个包含路径</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-L &lt;string&gt;</td>
+<td align="left">显示添加一个库路径</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-pkg-config</td>
+<td align="left">使用pkg-config检测包括库路径。默认情况下，配置决定是否使用pkg-config或不具有启发式如检查环境变量。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-pkg-config</td>
+<td align="left">禁用pkg-config支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-force-pkg-config</td>
+<td align="left">强制使用pkg-config (跳过pkg-config可用性启发式检测).</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-help, -h</td>
+<td align="left">显示帮助信息.</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="_2">第三方库:</h3>
+<table>
+<thead>
+<tr><th align="center">&nbsp;</th><th align="left">选项</th><th align="left">作用</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-zlib</td>
+<td align="left">使用QT自带zlib库</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-zlib</td>
+<td align="left">使用操作系统自带的zlib库。<br /> <a href="http://www.gzip.org/zlib">http://www.gzip.org/zlib</a></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-mtdev</td>
+<td align="left">不要编译mtdev支持 <br /> mtdev包含了应用程序对多点触摸协议的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-mtdev</td>
+<td align="left">启用mtdev的支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-no-journald</td>
+<td align="left">不要把日志输出到journald. <br /> Journald是为Linux服务器打造的新系统日志方式</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-journald</td>
+<td align="left">日志输出到journald</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-no-syslog</td>
+<td align="left">不要输出日志到syslog.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-syslog</td>
+<td align="left">输出日志到syslog.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gif</td>
+<td align="left">不要编译GIF读取支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-libpng</td>
+<td align="left">不要编译PNG支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-libpng</td>
+<td align="left">使用Qt自带的libpng</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-libpng</td>
+<td align="left">使用操作系统自带的libpng <br /> <a href="http://www.libpng.org/pub/png">http://www.libpng.org/pub/png</a></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-libjpeg</td>
+<td align="left">不要编译JPEG支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-libjpeg</td>
+<td align="left">使用QT自带的libjpeg.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-libjpeg</td>
+<td align="left">使用系统自带的 libjpeg <br /> <a href="http://www.ijg.org">http://www.ijg.org</a></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-freetype</td>
+<td align="left">不要编译Freetype2的支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-freetype</td>
+<td align="left">使用QT自带的libfreetype.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-freetype</td>
+<td align="left">使用系统自带的libfreetype(假如存在) (启用，如果-fontconfig选项开启). <br />  <a href="http://www.freetype.org">http://www.freetype.org</a></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-harfbuzz</td>
+<td align="left">不要编译HarfBuzz-NG 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-qt-harfbuzz</td>
+<td align="left">使用QT自带的HarfBuzz-NG 去进行文本构形. 仍然可以通过设置<code>QT_HARFBUZZ</code> 环境变量到&rdquo;old&rdquo;来禁用.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-system-harfbuzz</td>
+<td align="left">使用系统自带的HarfBuzz-NG区进行文本构形.仍然可以通过设置<code>QT_HARFBUZZ</code> 环境变量到&rdquo;old&rdquo;来禁用 <br /> <a href="http://www.harfbuzz.org">http://www.harfbuzz.org</a></td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-openssl</td>
+<td align="left">不要编译OpenSSL的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-openssl</td>
+<td align="left">启用运行时OpenSSL支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-openssl-linked</td>
+<td align="left">启用并链接OpenSSL支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-libproxy</td>
+<td align="left">不要编译libproxy的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-libproxy</td>
+<td align="left">使用操作系统自带的libproxy.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-pcre</td>
+<td align="left">使用QT自带的PCRE library.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-pcre</td>
+<td align="left">使用操作系统自带的PCRE library</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-xcb</td>
+<td align="left">使用QT自带的xcb-libraries. (<code>libxcb.so</code>将仍然使用操作系统自带的).</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-xcb</td>
+<td align="left">使用操作吸引自带的xcb- libraries .</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-xkb-config-root</td>
+<td align="left">设置默认的XKB config root. 这个选项仅与-qt-xkbcommon-x11一起使用.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qt-xkbcommon-x11</td>
+<td align="left">在构建xcb中使用QT自带的xkbcommon library .</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-system-xkbcommon-x11</td>
+<td align="left">在构建xcb中使用操作系统自带的 xkbcommon library.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-xkbcommon-evdev</td>
+<td align="left">当编译libinput支持时，不使用X-less xkbcommon.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-xkbcommon-evdev</td>
+<td align="left">当编译libinput支持时，使用X-less xkbcommon.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-xinput2</td>
+<td align="left">不要编译XInput2的支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-xinput2</td>
+<td align="left">编译XInput2支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-xcb-xlib</td>
+<td align="left">不要编译Xcb-Xlib支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-xcb-xlib</td>
+<td align="left">编译 Xcb-Xlib支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-glib</td>
+<td align="left">不要编译 Glib 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-glib</td>
+<td align="left">编译 Glib 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-pulseaudio</td>
+<td align="left">不要编译PulseAudio 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-pulseaudio</td>
+<td align="left">编译 PulseAudio 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-alsa</td>
+<td align="left">不要编译 ALSA 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-alsa</td>
+<td align="left">编译 ALSA 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gtkstyle</td>
+<td align="left">不要编译GTK theme 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-gtkstyle</td>
+<td align="left">编译 GTK theme 支持.</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="_3">附加选项:</h3>
+<table>
+<thead>
+<tr><th align="center">&nbsp;</th><th align="left">选项</th><th align="left">作用</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-make &lt;part&gt;</td>
+<td align="left">在make时添加要构建的组件. (默认为:libs tools examples)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-nomake &lt;part&gt;</td>
+<td align="left">在构建时排除组件</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-skip &lt;module&gt;</td>
+<td align="left">排除整个模块的建立</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-compile-examples</td>
+<td align="left">仅安装examples的源码，不要编译它.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gui</td>
+<td align="left">不要构建Qt GUI模块和依赖.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-gui</td>
+<td align="left">构建Qt GUI 模块和依赖.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-widgets</td>
+<td align="left">不要构建Qt Widgets 模块和依赖.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-widgets</td>
+<td align="left">构建 Qt Widgets模块和依赖</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-R &lt;string&gt;</td>
+<td align="left">显示添加一个运行时库的路径去构建Qt libraries.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-l &lt;string&gt;</td>
+<td align="left">显示添加一个library.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-rpath</td>
+<td align="left">不使用库安装路径作为一个运行时库路径 <br /> 在苹果的平台上，这意味着使用绝对安装名称（基于在libdir）动态库和框架。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-rpath</td>
+<td align="left">链接 Qt 库和可执行文件使用库安装路径作为运行时库路径。相当于-R install_libpath</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-continue</td>
+<td align="left">如果发生错误，尽量继续。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-verbose, -v</td>
+<td align="left">打印每个步骤的配置过程的详细的信息。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-silent</td>
+<td align="left">减少生成输出，这样可以更容易看到警告和错误。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-nis</td>
+<td align="left">不要编译NIS 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-nis</td>
+<td align="left">编译 NIS 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-cups</td>
+<td align="left">不要编译CUPS支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-cups</td>
+<td align="left">编译CUPS支持. 要求 cups/cups.h 和libcups.so.2.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-iconv</td>
+<td align="left">不编译对 iconv(3) 的支持。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-iconv</td>
+<td align="left">编译对 iconv(3) 的支持。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-evdev</td>
+<td align="left">不编译对 evdev 的支持。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-evdev</td>
+<td align="left">编译对 evdev 的支持。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-tslib</td>
+<td align="left">不编译对 tslib 的支持 <br /> tslib是对触屏的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-tslib</td>
+<td align="left">编译对 tslib 的支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-icu</td>
+<td align="left">不编译对 ICU libraries 的支持. <br /> 这是IBM发布的字符集编码转换库</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-icu</td>
+<td align="left">编译对 ICU libraries 的支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-fontconfig</td>
+<td align="left">不编译系统中的FontConfig支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-fontconfig</td>
+<td align="left">编译系统中的FontConfig支持</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-strip</td>
+<td align="left">不对二进制文件和库的使用strip去除不需要的符号.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-strip</td>
+<td align="left">在安装时对二进制文件和库的使用strip去除不需要的符号</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-pch</td>
+<td align="left">不使用预编译的头支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-pch</td>
+<td align="left">使用预编译的头支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-ltcg</td>
+<td align="left">不使用链接时代码生成</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-ltcg</td>
+<td align="left">使用链接时代码生成.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-dbus</td>
+<td align="left">不要编译Qt D-Bus 模块.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-dbus-linked</td>
+<td align="left">编译Qt D-Bus模块并链接到libdbus-1.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-dbus-runtime</td>
+<td align="left">编译Qt D-Bus模块并动态加载libdbus-1.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-reduce-relocations</td>
+<td align="left">减少通过额外的链接器优化库的重加载 <br /> (仅qt/X11 和Qt/linux嵌入式 ;实验性的;需要 GNU ld &gt; = 2.18)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-use-gold-linker</td>
+<td align="left">不要使用GNU gold linker进行链接.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-use-gold-linker</td>
+<td align="left">使用GNU gold linker进行链接.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-force-asserts</td>
+<td align="left">强制启用Q_ASSERT，即使在release构建中.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-sanitize <code>[address/thread/memory/undefined]</code></td>
+<td align="left">启用指定编译器的sanitizer.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-device &lt;name&gt;</td>
+<td align="left">跨平台编译<code>&lt;name&gt;</code>设备 (试验性)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-device-option <code>&lt;key=value&gt;</code></td>
+<td align="left">添加device mkspec的device选项 (试验性)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-separate-debug-info</td>
+<td align="left">不将调试信息存储在一个单独的文件</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-separate-debug-info</td>
+<td align="left">将调试信息到一个单独的文件</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-xcb</td>
+<td align="left">不要编译Xcb (X protocol C-language Binding) 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-xcb</td>
+<td align="left">编译 Xcb 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-eglfs</td>
+<td align="left">不要编译EGLFS (EGL Full Screen/Single Surface) 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-eglfs</td>
+<td align="left">编译 EGLFS 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-kms</td>
+<td align="left">不要编译KMS的后端.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-kms</td>
+<td align="left">编译 KMS的后端.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gbm</td>
+<td align="left">不要编译 GBM 的后端.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-gbm</td>
+<td align="left">编译 GBM的后端.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-directfb</td>
+<td align="left">不要编译 DirectFB 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-directfb</td>
+<td align="left">编译 DirectFB 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-linuxfb</td>
+<td align="left">不要编译Linux Framebuffer 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-linuxfb</td>
+<td align="left">编译 Linux Framebuffer 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-mirclient</td>
+<td align="left">不要编译 Mir client 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-mirclient</td>
+<td align="left">编译 Mir client 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qpa &lt;name&gt;</td>
+<td align="left">设置默认的QPA 平台 (示例 xcb, cocoa, windows).</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-xplatform target</td>
+<td align="left">指定目标平台(在跨平台编译时)</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-sysroot &lt;dir&gt;</td>
+<td align="left">将<code>&lt;dir&gt;</code>设置为目标编译器和 qmake 的 sysroot 并且也设置 pkg-confing路径.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gcc-sysroot</td>
+<td align="left">当使用-sysroot时, 它禁用将&ndash;sysroot传递到编译器</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-feature-<code>&lt;feature&gt;</code></td>
+<td align="left">在<code>&lt;feature&gt;</code>中的不编译.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-feature-<code>&lt;feature&gt;</code></td>
+<td align="left">编译<code>&lt;feature&gt;</code>中的. <br /> 可用的功能介绍在src/corelib/global/qfeatures.txt</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qconfig local</td>
+<td align="left">使用src/corelib/global/qconfig-local.h ，而不是默认的(全部).</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-qreal [double/float]</td>
+<td align="left">为qreal指定类型.默认值是double。请注意，更改此标志影响二进制兼容性。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-opengl</td>
+<td align="left">禁用OpenGL支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-opengl &lt;api&gt;</td>
+<td align="left">启用 OpenGL 支持.<br /> 不带参数时，这将会尝试自动检测的 OpenGL ES 2.0 和更高版本，或常规的桌面版OpenGL. <br /> 使用 es2 的<code>&lt;api&gt;</code>将替代自动检测</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-libinput</td>
+<td align="left">禁用libinput支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-libinput</td>
+<td align="left">启用libinput 支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-gstreamer</td>
+<td align="left">禁用GStreamer支持.</td></p>
+
+<p></tr>
+<tr>
+<td align="center">+</td>
+<td align="left">-gstreamer <code>&lt;version&gt;</code></td>
+<td align="left">启用 GStreamer 支持。<br />不带参数，这将会尝试自动检测 GStreamer 0.10 和 1.0。GStreamer 1.0 是默认使用的可用时。使用 0.10 或 1.0 <code>&lt;version&gt;</code>来覆盖自动检测。</td></p>
+
+<p></tr>
+<tr>
+<td align="center">*</td>
+<td align="left">-no-system-proxies</td>
+<td align="left">默认情况下，不使用系统网络代理</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-system-proxies</td>
+<td align="left">默认情况下，使用系统网络代理</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-no-warnings-are-errors</td>
+<td align="left">Make 时把warnings当做正常</td></p>
+
+<p></tr>
+<tr>
+<td align="center">&nbsp;</td>
+<td align="left">-warnings-are-errors</td>
+<td align="left">Make时把warnings 当做错误 (如果启用了-developer-build)</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="qnxblackberry">QNX/Blackberry 选项:</h3>
+<table>
+<thead>
+<tr><th align="left">选项</th><th align="left">作用</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td align="left">-no-slog2</td>
+<td align="left">不编译 slog2 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-slog2</td>
+<td align="left">编译 slog2 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-no-pps</td>
+<td align="left">不编译 pps 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-pps</td>
+<td align="left">编译 pps 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-no-imf</td>
+<td align="left">不编译 imf 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-imf</td>
+<td align="left">编译 imf 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-no-lgmon</td>
+<td align="left">不编译 lgmon 的支持</td></p>
+
+<p></tr>
+<tr>
+<td align="left">-lgmon</td>
+<td align="left">编译 lgmon 的支持</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="android">Android 选项:</h3>
+<table>
+<thead>
+<tr><th>&nbsp;</th><th align="left">选项</th><th align="left">作用</th>
+</tr></p>
+
+<p></thead>
+<tbody>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-sdk path</td>
+<td align="left">Android SDK 根目录  <br /> (默认 $ANDROID_SDK_ROOT)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-ndk path</td>
+<td align="left">Android NDK 根目录.  <br /> (默认 $ANDROID_NDK_ROOT)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-ndk-platform</td>
+<td align="left">设置android 平台版本  <br /> (默认 android-9)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-ndk-host</td>
+<td align="left">设置android NDK 主机类型 (linux-x86, linux-x86_64, etc.)  <br /> (默认 $ANDROID_NDK_HOST)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-arch</td>
+<td align="left">设置android 体系结构 (armeabi, armeabi-v7a, x86, mips, arm64-v8a, x86_64, mips64)  <br /> (默认 armeabi-v7a)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-android-toolchain-version</td>
+<td align="left">设置android 工具链版本  <br /> (默认 4.9)</td></p>
+
+<p></tr>
+<tr>
+<td>&nbsp;</td>
+<td align="left">-no-android-style-assets</td>
+<td align="left">不编译 通过运行时设备自动提取style-assets的代码. <br /> 设置这将使Android风格的行为不当，但与lgpl2.1许可兼容</td></p>
+
+<p></tr>
+<tr>
+<td>*</td>
+<td align="left">-android-style-assets</td>
+<td align="left">编译 通过运行时设备自动提取style-assets的代码.<br /> 此选项将使Android平台的lgpl2.1许可不兼容。</td></p>
+
+<p></tr></p>
+
+<p></tbody></p>
+
+<p></table>
+<h3 id="makefile">生成makefile</h3>
+<p>下面是我编译的时候使用的选项。<br />
+-platform这一个选项是用于指定目标平台的，可以看<code>qt源码目录/qtbase/mkspecs/</code>下的的目录，就是QT支持的平台。可以进这个目录修改<code>qmake.conf</code>文件来指定编译器和编译选项。<br />
+如果同同时指定了<code>-release</code>和<code>-debug</code>使用的是后者。需要同时编译两个版本的时候应该使用<code>-debug-and-release</code>.例如下面的输出。<br />
+因为很多模块我也不需要，就用过<code>-skip &lt;module&gt;</code>来跳过。模块的名字就是<code>qt-opensource-src-5.6.0</code>下目录的名字(不要-skip qtbase).<code class="shell">
+</code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0 [o@o-pc] [12:09]
+&gt;./configure -prefix /home/o/pragram/qt_5.6.0_gcc5.2.1 -debug-and-release -confirm-license -opensource -c++std c++11 -static -qt-sql-mysql -qt-sql-sqlite -no-qml-debug -platform linux-g++-64  -qt-zlib -no-journald -qt-libpng -qt-libjpeg -openssl -opengl -qt-xcb -skip qtquickcontrols -skip qtquickcontrols2 -skip qtsensors -skip qtdoc
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>下面是询问是否查看开源协议或者直接接受的。直接yes通过就好。也可以通过<code>-confirm-license</code>选项来自动确认<code> </code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">Type &lsquo;3&rsquo; to view the GNU Lesser General Public License version 3.
+Type &lsquo;L&rsquo; to view the Lesser GNU General Public License version 2.1.
+Type &lsquo;yes&rsquo; to accept this license offer.
+Type &lsquo;no&rsquo; to decline this license offer.</p>
+
+<p>Do you accept the terms of either license? yes
+&hellip; &hellip;
+</pre>
+</div>
+<p>&nbsp;</p>
+<h4 id="_4">遇到链接检查失败的情况</h4>
+<p>这里给出一个示例，就是xcb库检查失败。<code class="shell"> </code></p>
+<div class="cnblogs_code">
+<pre>Running configuration tests (phase <span style="color: #800080;">1</span><span style="color: #000000;">)&hellip;
+Done running configuration tests.
+Creating qmake&hellip;
+.Done.
+Running configuration tests (phase </span><span style="color: #800080;">2</span><span style="color: #000000;">)&hellip;
+The test </span><span style="color: #0000ff;">for</span> linking against libxcb and support libraries failed!<span style="color: #000000;">
+ You might need to </span><span style="color: #0000ff;">install</span> dependency packages, or pass -qt-<span style="color: #000000;">xcb.
+ See src</span>/plugins/platforms/xcb/README.</pre>
+</div>
+<p>&nbsp;</p>
+<p>这个很好解决，安装下&nbsp;<span class="cnblogs_code">libxcb-***-dev</span>&nbsp;就是了。其他的库检查失败也是一样的。也可以通过<code>-qt-xcb</code>选项，使用Qt自带的<code>xcb</code>库。</p>
+<h4 id="makefile_1">生成makefile后进行编译</h4>
+<p>configure成功后会出现如下提示，后面说让你使用make进行编译,make install进行安装。<br />
+有一个警告<strong><code>Using static linking will disable the WebKit module.</code></strong>意思是 <code>使用静态链接将禁用WebKit模块。</code><br />
+最后面还有一个警告是<code>WARNING:<strong> Using static linking will disable the use of dynamically loaded plugins. Make sure to import all needed static plugins, or compile needed modules into the library.</strong></code><br />
+意思是<code>警告：使用静态链接将禁用动态加载插件的使用。确保导入所有需要的静态插件，或者编译所需的模块到库中。</code>这不是一个好的做法。<code class="shell">
+</code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">Done running configuration tests.</p>
+
+<p>Configure summary</p>
+
+<p>Build type:    linux-g++-64 (x86_64, CPU features: mmx sse sse2)</p>
+
+<p>Build options:
+  Configuration &hellip;&hellip;&hellip;. accessibility accessibility-atspi-bridge alsa audio-backend avx avx2 c++11 clock-gettime clock-monotonic compile_examples concurrent dbus dbus-linked egl eglfs egl_x11 enable_new_dtags evdev eventfd fontconfig full-config getaddrinfo getifaddrs gif glib gstreamer-0.10 harfbuzz iconv icu inotify ipv6ifname jpeg kms large-config largefile libudev linuxfb medium-config minimal-config mremap nis no-qml-debug opengl openssl png posix_fallocate precompile_header pulseaudio qpa qpa reduce_exports reduce_relocations release rpath small-config sse2 sse3 sse4_1 sse4_2 ssse3 static system-freetype threadsafe-cloexec use_gold_linker xcb xcb-plugin xcb-qt xcb-sm xcb-xlib xinput2 xkbcommon-evdev xkbcommon-qt xlib xrender zlib
+  Build parts &hellip;&hellip;&hellip;&hellip; libs tools examples
+  Mode &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. release
+  Using sanitizer(s)&hellip;&hellip; none
+  Using C++ standard &hellip;.. c++11
+  Using gold linker&hellip;&hellip;. yes
+  Using new DTAGS &hellip;&hellip;.. yes
+  Using PCH &hellip;&hellip;&hellip;&hellip;.. yes
+  Using LTCG &hellip;&hellip;&hellip;&hellip;. no
+  Target compiler supports:
+    SSE2/SSE3/SSSE3 &hellip;&hellip; yes/yes/yes
+    SSE4.1/SSE4.2 &hellip;&hellip;.. yes/yes
+    AVX/AVX2 &hellip;&hellip;&hellip;&hellip;. yes/yes</p>
+
+<p>Qt modules and options:
+  Qt D-Bus &hellip;&hellip;&hellip;&hellip;&hellip; yes (linked to dbus-1)
+  Qt Concurrent &hellip;&hellip;&hellip;. yes
+  Qt GUI &hellip;&hellip;&hellip;&hellip;&hellip;.. yes
+  Qt Widgets &hellip;&hellip;&hellip;&hellip;. yes
+  Large File &hellip;&hellip;&hellip;&hellip;. yes
+  QML debugging &hellip;&hellip;&hellip;. no
+  Use system proxies &hellip;.. no</p>
+
+<p>Support enabled for:
+  Accessibility &hellip;&hellip;&hellip;. yes
+  ALSA &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. yes
+  CUPS &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. no
+  Evdev &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes
+  FontConfig &hellip;&hellip;&hellip;&hellip;. yes
+  FreeType &hellip;&hellip;&hellip;&hellip;&hellip; yes (system library)
+  Glib &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. yes
+  GStreamer &hellip;&hellip;&hellip;&hellip;.. yes (0.10)
+  GTK theme &hellip;&hellip;&hellip;&hellip;.. no
+  HarfBuzz &hellip;&hellip;&hellip;&hellip;&hellip; yes (bundled copy)
+  Iconv &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes
+  ICU &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. yes
+  Image formats:
+    GIF &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes (in QtGui, using bundled copy)
+    JPEG &hellip;&hellip;&hellip;&hellip;&hellip;.. yes (in QtGui, using bundled copy)
+    PNG &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes (in QtGui, using bundled copy)
+  libinput&hellip;&hellip;&hellip;&hellip;&hellip;. no
+  Logging backends:
+    journald &hellip;&hellip;&hellip;&hellip;&hellip; no
+    syslog   &hellip;&hellip;&hellip;&hellip;&hellip; no
+  mtdev &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; no
+  Networking:
+    getaddrinfo &hellip;&hellip;&hellip;. yes
+    getifaddrs &hellip;&hellip;&hellip;.. yes
+    IPv6 ifname &hellip;&hellip;&hellip;. yes
+    libproxy&hellip;&hellip;&hellip;&hellip;.. no
+    OpenSSL &hellip;&hellip;&hellip;&hellip;.. yes (loading libraries at run-time)
+  NIS &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;.. yes
+  OpenGL / OpenVG:
+    EGL &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes
+    OpenGL &hellip;&hellip;&hellip;&hellip;&hellip; desktop
+    OpenVG &hellip;&hellip;&hellip;&hellip;&hellip; no
+  PCRE &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. system
+  pkg-config &hellip;&hellip;&hellip;&hellip;. yes
+  PulseAudio &hellip;&hellip;&hellip;&hellip;. yes
+  QPA backends:
+    DirectFB &hellip;&hellip;&hellip;&hellip;. no
+    EGLFS &hellip;&hellip;&hellip;&hellip;&hellip;. yes
+      EGLFS i.MX6 &hellip;&hellip;.. no
+      EGLFS i.MX6 Wayland. no
+      EGLFS EGLDevice &hellip;. no
+      EGLFS GBM &hellip;&hellip;&hellip;. no
+      EGLFS Mali &hellip;&hellip;&hellip; no
+      EGLFS Raspberry Pi . no
+      EGLFS X11 &hellip;&hellip;&hellip;. yes
+    LinuxFB &hellip;&hellip;&hellip;&hellip;.. yes
+    Mir client&hellip;&hellip;&hellip;&hellip; no
+    XCB &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; yes (bundled copy)
+      EGL on X &hellip;&hellip;&hellip;.. yes
+      GLX &hellip;&hellip;&hellip;&hellip;&hellip;. no
+      MIT-SHM &hellip;&hellip;&hellip;&hellip; yes
+      Xcb-Xlib &hellip;&hellip;&hellip;.. yes
+      Xcursor &hellip;&hellip;&hellip;&hellip; yes (loaded at runtime)
+      Xfixes &hellip;&hellip;&hellip;&hellip;. yes (loaded at runtime)
+      Xi &hellip;&hellip;&hellip;&hellip;&hellip;.. no
+      Xi2 &hellip;&hellip;&hellip;&hellip;&hellip;. yes
+      Xinerama &hellip;&hellip;&hellip;.. yes (loaded at runtime)
+      Xrandr &hellip;&hellip;&hellip;&hellip;. yes (loaded at runtime)
+      Xrender &hellip;&hellip;&hellip;&hellip; yes
+      XKB &hellip;&hellip;&hellip;&hellip;&hellip;. yes
+      XShape &hellip;&hellip;&hellip;&hellip;. yes
+      XSync &hellip;&hellip;&hellip;&hellip;.. yes
+      XVideo &hellip;&hellip;&hellip;&hellip;. yes
+  Session management &hellip;.. yes
+  SQL drivers:
+    DB2 &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; no
+    InterBase &hellip;&hellip;&hellip;&hellip; no
+    MySQL &hellip;&hellip;&hellip;&hellip;&hellip;. qt
+    OCI &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; no
+    ODBC &hellip;&hellip;&hellip;&hellip;&hellip;.. yes (plugin)
+    PostgreSQL &hellip;&hellip;&hellip;.. yes (plugin)
+    SQLite 2 &hellip;&hellip;&hellip;&hellip;. no
+    SQLite &hellip;&hellip;&hellip;&hellip;&hellip; qt-qt
+    TDS &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; no
+  tslib &hellip;&hellip;&hellip;&hellip;&hellip;&hellip; no
+  udev &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. yes
+  xkbcommon-x11&hellip;&hellip;&hellip;.. yes (bundled copy, XKB config root: /usr/share/X11/xkb)
+  xkbcommon-evdev&hellip;&hellip;&hellip; yes
+  zlib &hellip;&hellip;&hellip;&hellip;&hellip;&hellip;. yes (bundled copy)</p>
+
+<p>WARNING: Using static linking will disable the use of dynamically
+loaded plugins. Make sure to import all needed static plugins,
+or compile needed modules into the library.
+Info: creating super cache file /home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/.qmake.super</p>
+
+<p>Qt is now configured for building. Just run &lsquo;make&rsquo;.
+Once everything is built, you must run &lsquo;make install&rsquo;.
+Qt will be installed into /home/o/pragram/qt_5.6.0_gcc5.2.1</p>
+
+<p>Prior to reconfiguration, make sure you remove any leftovers from
+the previous build.
+</pre>
+</div>
+<p>&nbsp;</p>
+<h2 id="_5">编译时的错误</h2>
+<p>编译的过程中会出现各种各样的错误，导致不能编译通过，这是最编译QT的时候最常碰见的。这里列举出我碰见的的错误。</p>
+<h3 id="qt_modbusqt_modbus_low">多重定义&rsquo;QT_MODBUS()&rsquo;和&rsquo;QT_MODBUS_LOW()&rsquo;</h3>
+<p>错误提示如下<code class="shell"> </code></p>
+<div class="cnblogs_code">
+<pre>g++ -m64 -fuse-<span style="color: #0000ff;">ld</span>=gold -Wl,&ndash;enable-new-dtags -o adueditor .obj/main.o .obj/mainwindow.o .obj/modbustcpclient.o .obj/adueditor_plugin_import.o .obj/moc_mainwindow.o .obj/moc_plaintextedit.o .obj/moc_modbustcpclient.o   -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/lib -lQt5Widgets -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtserialbus/lib -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtserialport/lib -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/plugins/platforms -lqxcb -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/plugins/xcbglintegrations -lqxcb-egl-integration -lqxcb-glx-integration -lxcb-glx -lQt5XcbQpa -lXi -lxcb-render-util -lSM -lICE -lxcb-render -lxcb-image -lxcb-icccm -lxcb-<span style="color: #0000ff;">sync</span> -lxcb-xfixes -lxcb-shm -lxcb-randr -lxcb-shape -lxcb-keysyms -lxcb-xinerama -lxcb-xkb -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtimageformats/plugins/imageformats -lqdds -lqicns -lqjp2 -ljasper -lqtga -lqtiff -ltiff -lqwbmp -lqwebp -lwebp -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/plugins/imageformats -lqico -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/plugins/egldeviceintegrations -lqeglfs-x11-integration -lX11-xcb -lxcb -lQt5EglDeviceIntegration -lQt5PlatformSupport -lfontconfig -lfreetype -lXrender -lXext -lX11 -lQt5Gui -lqtharfbuzzng -lEGL -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtserialbus/plugins/canbus -lqtpeakcanbus -lqtsocketcanbus -lqttinycanbus -lQt5SerialBus -lQt5SerialPort -ludev -L/home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtbase/plugins/bearer -lqconnmanbearer -lqgenericbearer -lqnmbearer -lQt5Network -lQt5DBus -ldbus-<span style="color: #800080;">1</span> -lQt5Core -licui18n -licuuc -licudata -lpcre16 -lm -ldl -lgthread-<span style="color: #800080;">2.0</span> -pthread -lglib-<span style="color: #800080;">2.0</span> -lrt -lGL -<span style="color: #000000;">lpthread
+</span>/usr/bin/<span style="color: #0000ff;">ld</span>.gold: error: /home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtserialbus/lib/libQt5SerialBus.a(qmodbusdevice.o): multiple definition of <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">QT_MODBUS()</span><span style="color: #800000;">&lsquo;</span>
+/usr/bin/<span style="color: #0000ff;">ld</span>.gold: .obj/<span style="color: #000000;">mainwindow.o: previous definition here
+</span>/usr/bin/<span style="color: #0000ff;">ld</span>.gold: error: /home/o/qt-src/qt-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qt-everywhere-opensource-src-<span style="color: #800080;">5.6</span>.<span style="color: #800080;">0</span>/qtserialbus/lib/libQt5SerialBus.a(qmodbusdevice.o): multiple definition of <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">QT_MODBUS_LOW()</span><span style="color: #800000;">&lsquo;</span>
+/usr/bin/<span style="color: #0000ff;">ld</span>.gold: .obj/<span style="color: #000000;">mainwindow.o: previous definition here
+collect2: error: </span><span style="color: #0000ff;">ld</span> returned <span style="color: #800080;">1</span><span style="color: #000000;"> exit status
+Makefile:</span><span style="color: #800080;">91</span>: recipe <span style="color: #0000ff;">for</span> target <span style="color: #800000;">&lsquo;</span><span style="color: #800000;">adueditor</span><span style="color: #800000;">&lsquo;</span><span style="color: #000000;"> failed
+</span><span style="color: #0000ff;">make</span>: *** [adueditor] Error <span style="color: #800080;">1</span></pre>
+</div>
+<p>解决的办法很简单,把下面几行注释掉即可。<code class="shell"> </code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtserialbus/examples/serialbus/modbus/adueditor [o@o-pc] [13:07]
+&gt; grep QT_MODBUS *
+mainwindow.cpp:Q_LOGGING_CATEGORY(QT_MODBUS, &ldquo;qt.modbus&rdquo;)
+mainwindow.cpp:Q_LOGGING_CATEGORY(QT_MODBUS_LOW, &ldquo;qt.modbus.lowlevel&rdquo;)
+modbustcpclient_p.h:            qCDebug(QT_MODBUS_LOW) &lt;&lt; &ldquo;Sent TCP ADU:&rdquo; &lt;&lt; buffer.toHex();
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>这个错误的来源在于<span style="color: #ff0000;"><code>qt-everywhere-opensource-src-5.6.0/qtserialbus/lib/libQt5SerialBus.a(qmodbusdevice.o)</code></span>这个文件中对&nbsp;<span class="cnblogs_code">QT_MODBUS()</span>&nbsp;和&nbsp;<span class="cnblogs_code">QT_MODBUS_LOW()</span>&nbsp;有多重定义，所以解决问题还得回到这里。<br />
+打开<code>qt-everywhere-opensource-src-5.6.0/qtserialbus/src/serialbus</code>目录下的<code>amodbusdevice.cpp</code>文件，可以看到最后两行定义了&rsquo;QT_MODBUS()&rsquo;和&rsquo;QT_MODBUS_LOW()&rsquo;，并且是在<code>QT_BEGIN_NAMESPACE</code>下。而这里在<code>mainwindow.cpp</code>文件中也定义了一次，所以导致了重定义，这里注释掉即可。注释后重新编译即没有问题。</p>
+<h3 id="qt_static_plugin_assimpparserplugin">qt_static_plugin_AssimpParserPlugin未定义</h3>
+<p>这个问题在<code>qt-everywhere-opensource-src-5.6.0/qt3d/examples/qt3d/</code>目录下的qml工程都存在这个问题。这个问题的原因就是没有<code>AssimpParserPlugin</code>这个插件，我找到了这个插件，在<code>qt-everywhere-opensource-src-5.6.0/qt3d/plugin</code>目录下。<br />
+问题来源如下<code class="shell">
+</code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qt3d/examples/qt3d/playground-qml [o@o-pc] [14:56]
+&gt; make
+g++ -m64 -fuse-ld=gold -Wl,&ndash;enable-new-dtags -o playground-qml .obj/window.o .obj/main.o .obj/playground-qml_qml_plugin_import.o .obj/playground-qml_plugin_import.o .obj/qrc_playground-qml.o .obj/qrc_gltf.o .obj/moc_window.o   -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qt3d/lib -lQt53DInput -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/lib -lQt53DQuick -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtdeclarative/lib -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qt3d/plugins/sceneparsers -lassimpsceneparser -lgltfsceneparser -lQt53DRender -lQt53DCore -lQt5OpenGLExtensions -lQt5Concurrent -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/plugins/platforms -lqxcb -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/plugins/xcbglintegrations -lqxcb-egl-integration -lqxcb-glx-integration -lxcb-glx -lQt5XcbQpa -lXi -lxcb-render-util -lSM -lICE -lxcb-render -lxcb-image -lxcb-icccm -lxcb-sync -lxcb-xfixes -lxcb-shm -lxcb-randr -lxcb-shape -lxcb-keysyms -lxcb-xinerama -lxcb-xkb -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtimageformats/plugins/imageformats -lqdds -lqicns -lqjp2 -ljasper -lqtga -lqtiff -ltiff -lqwbmp -lqwebp -lwebp -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/plugins/imageformats -lqico -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/plugins/egldeviceintegrations -lqeglfs-x11-integration -lX11-xcb -lxcb -lQt5EglDeviceIntegration -lQt5PlatformSupport -lfontconfig -lfreetype -lXrender -lXext -lX11 -ludev -lEGL -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtdeclarative/plugins/qmltooling -lqmldbg_debugger -lqmldbg_inspector -lQt5Quick -lqmldbg_local -lqmldbg_native -lQt5Gui -lqtharfbuzzng -lqmldbg_profiler -lqmldbg_server -lqmldbg_tcp -lQt5Qml -L/home/o/qt-src/qt-opensource-src-5.6.0/qt-everywhere-opensource-src-5.6.0/qtbase/plugins/bearer -lqconnmanbearer -lqgenericbearer -lqnmbearer -lQt5Network -lQt5DBus -ldbus-1 -lQt5Core -licui18n -licuuc -licudata -lpcre16 -lm -ldl -lgthread-2.0 -pthread -lglib-2.0 -lrt -lGL -lpthread
+playground-qml_plugin_import.cpp:4: error: undefined reference to &lsquo;qt_static_plugin_AssimpParserPlugin()&rsquo;
+collect2: error: ld returned 1 exit status
+Makefile:105: recipe for target &lsquo;playground-qml&rsquo; failed
+make: *** [playground-qml] Error 1
+</pre>
+</div>
+<p>&nbsp;</p>
+<p>这个错误出现的原因在于<span style="color: #ff0000;"><code>playground-qml_plugin_import.cpp</code></span>文件中使用了<span style="color: #ff0000;"><code>Q_IMPORT_PLUGIN(AssimpParserPlugin)</code></span>来引入静态插件<span style="color: #ff0000;"><code>AssimpParserPlugin</code></span>的。如果是动态插件，是不需要这么引入的。静态插件将编译到目标程序中去。<br />
+没有这个插件，那么就先把它注释掉，再编译就可以了。<br />
+因为<span style="color: #ff0000;"><code>playground-qml_plugin_import.cpp</code></span>是Qt的qml工具生成的，所以需要在<code>qmake</code>之后再去修改这个文件。</p>
+<h2 id="qt-creatorqt">在Qt Creator中使用编译出的QT库</h2>
+<p>编译完成后，使用<code>make install</code>进行安装。如果你没有指定安装的目录，可能需要<code>root</code>权限。</p>
+<p>可以先去安装目录中的目录结构<code class="shell">
+</code></p>
+<div class="cnblogs_Highlighter">
+<pre class="brush:bash;gutter:true;">/home/o/pragram/qt_5.6.0_gcc5.2.1 [o@o-pc] [1:49]
+&gt; ls
+bin  doc  examples  include  lib  mkspecs  phrasebooks  plugins  qml  translations</p>
+
+<p>/home/o/pragram/qt_5.6.0_gcc5.2.1 [o@o-pc] [1:49]
+&gt; ls bin
+assistant   fixqt4headers.pl  lrelease  pixeltool             qdbuscpp2xml  qdoc            qhelpgenerator  qml               qmllint      qmltestrunner  qtplugininfo      syncqt.pl    xmlpatternsvalidator
+canbusutil  lconvert          lupdate   qcollectiongenerator  qdbusviewer   qgltf           qlalr           qmleasing         qmlmin       qtdiag         qtwaylandscanner  uic
+designer    linguist          moc       qdbus                 qdbusxml2cpp  qhelpconverter  qmake           qmlimportscanner  qmlprofiler  qtpaths        rcc               xmlpatterns</p>
+
+<p>/home/o/pragram/qt_5.6.0_gcc5.2.1 [o@o-pc] [1:49]
+&gt; ls lib
+cmake                   libQt53DQuick.la         libQt5Core.la                   libQt5Location.la            libQt5OpenGL.la            libQt5QuickParticles.prl  libQt5Sql.la             libQt5Widgets.la
+libEnginio.a            libQt53DQuick.prl        libQt5Core.prl                  libQt5Location.prl           libQt5OpenGL.prl           libQt5Quick.prl           libQt5Sql.prl            libQt5Widgets.prl
+libEnginio.la           libQt53DQuickRender.a    libQt5DBus.a                    libQt5Multimedia.a           libQt5PlatformSupport.a    libQt5QuickTest.a         libQt5Svg.a              libQt5X11Extras.a
+libEnginio.prl          libQt53DQuickRender.la   libQt5DBus.la                   libQt5Multimedia.la          libQt5PlatformSupport.la   libQt5QuickTest.la        libQt5Svg.la             libQt5X11Extras.la
+libpoly2tri.a           libQt53DQuickRender.prl  libQt5DBus.prl                  libQt5Multimedia.prl         libQt5PlatformSupport.prl  libQt5QuickTest.prl       libQt5Svg.prl            libQt5X11Extras.prl
+libpoly2tri.prl         libQt53DRender.a         libQt5Designer.a                libQt5MultimediaQuick_p.a    libQt5Positioning.a        libQt5QuickWidgets.a      libQt5Test.a             libQt5XcbQpa.a
+libqgsttools_p.a        libQt53DRender.la        libQt5DesignerComponents.a      libQt5MultimediaQuick_p.la   libQt5Positioning.la       libQt5QuickWidgets.la     libQt5Test.la            libQt5XcbQpa.la
+libqgsttools_p.prl      libQt53DRender.prl       libQt5DesignerComponents.la     libQt5MultimediaQuick_p.prl  libQt5Positioning.prl      libQt5QuickWidgets.prl    libQt5Test.prl           libQt5XcbQpa.prl
+libQt53DCore.a          libQt5Bluetooth.a        libQt5DesignerComponents.prl    libQt5MultimediaWidgets.a    libQt5PrintSupport.a       libQt5Script.a            libQt5UiTools.a          libQt5Xml.a
+libQt53DCore.la         libQt5Bluetooth.la       libQt5Designer.la               libQt5MultimediaWidgets.la   libQt5PrintSupport.la      libQt5Script.la           libQt5UiTools.la         libQt5Xml.la
+libQt53DCore.prl        libQt5Bluetooth.prl      libQt5Designer.prl              libQt5MultimediaWidgets.prl  libQt5PrintSupport.prl     libQt5Script.prl          libQt5UiTools.prl        libQt5XmlPatterns.a
+libQt53DInput.a         libQt5Bootstrap.a        libQt5EglDeviceIntegration.a    libQt5Network.a              libQt5Qml.a                libQt5ScriptTools.a       libQt5WaylandClient.a    libQt5XmlPatterns.la
+libQt53DInput.la        libQt5Bootstrap.la       libQt5EglDeviceIntegration.la   libQt5Network.la             libQt5QmlDevTools.a        libQt5ScriptTools.la      libQt5WaylandClient.la   libQt5XmlPatterns.prl
+libQt53DInput.prl       libQt5Bootstrap.prl      libQt5EglDeviceIntegration.prl  libQt5Network.prl            libQt5QmlDevTools.la       libQt5ScriptTools.prl     libQt5WaylandClient.prl  libQt5Xml.prl
+libQt53DLogic.a         libQt5CLucene.a          libQt5Gui.a                     libQt5Nfc.a                  libQt5QmlDevTools.prl      libQt5SerialBus.a         libQt5WebChannel.a       libqtharfbuzzng.a
+libQt53DLogic.la        libQt5CLucene.la         libQt5Gui.la                    libQt5Nfc.la                 libQt5Qml.la               libQt5SerialBus.la        libQt5WebChannel.la      libqtharfbuzzng.prl
+libQt53DLogic.prl       libQt5CLucene.prl        libQt5Gui.prl                   libQt5Nfc.prl                libQt5Qml.prl              libQt5SerialBus.prl       libQt5WebChannel.prl     libxcb-static.a
+libQt53DQuick.a         libQt5Concurrent.a       libQt5Help.a                    libQt5OpenGL.a               libQt5Quick.a              libQt5SerialPort.a        libQt5WebSockets.a       libxcb-static.prl
+libQt53DQuickInput.a    libQt5Concurrent.la      libQt5Help.la                   libQt5OpenGLExtensions.a     libQt5Quick.la             libQt5SerialPort.la       libQt5WebSockets.la      pkgconfig
+libQt53DQuickInput.la   libQt5Concurrent.prl     libQt5Help.prl                  libQt5OpenGLExtensions.la    libQt5QuickParticles.a     libQt5SerialPort.prl      libQt5WebSockets.prl
+libQt53DQuickInput.prl  libQt5Core.a             libQt5Location.a                libQt5OpenGLExtensions.prl   libQt5QuickParticles.la    libQt5Sql.a               libQt5Widgets.a
+</pre>
+</div>
+<p>&nbsp;</p>
+<h3 id="_6">具体过程如图</h3>
+<p><img src="http://images2015.cnblogs.com/blog/693958/201604/693958-20160420100749929-1910881513.png" alt="添加一个版本的QT" />&nbsp;<br />&nbsp;
+<img src="http://images2015.cnblogs.com/blog/693958/201604/693958-20160420100816085-957148898.png" alt="" /><br />&nbsp;
+<img src="http://images2015.cnblogs.com/blog/693958/201604/693958-20160420100824226-1500582246.png" alt="" /><br />
+<img src="http://images2015.cnblogs.com/blog/693958/201604/693958-20160420100832882-1063213181.png" alt="" /><br /> </p></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

@@ -1,0 +1,311 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> HTML解析库Gumbo简单使用记录 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>HTML解析库Gumbo简单使用记录</h1>
+          <span class="post-date">2018年09月18日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/09/18/9667642.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/09/18/9667642.html</a></p>
+
+<h2 id="gumbo简介">Gumbo简介</h2>
+
+<p>Gumbo是谷歌开源的一个纯C编写的HTML解析库，性能很好，就是用起来比较麻烦。
+<a href="https://github.com/google/gumbo-parser">github地址https://github.com/google/gumbo-parser</a>
+还有一个C++封装的版本<a href="https://github.com/lazytiger/gumbo-query.git">https://github.com/lazytiger/gumbo-query.git</a></p>
+
+<p>关于HTML的参考，可见<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML">https://developer.mozilla.org/zh-CN/docs/Web/HTML</a></p>
+
+<p>最近准备写一个爬虫，用于爬取<a href="http://epsg.io">epsg.io</a>上的数据，所以找了这个库用于HTML的解析。其实我这个简单的爬取固定位置的内容，用这个实在是有点杀鸡用牛刀了，直接做字符串搜索会更方便。</p>
+
+<h2 id="使用记录">使用记录</h2>
+
+<p>关于这个的使用，网上找不到太多的资料。
+这里有一个<a href="https://blog.csdn.net/fjb2080/article/details/78992851">https://blog.csdn.net/fjb2080/article/details/78992851</a></p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201809/693958-20180918101341410-512644719.png" alt="" /></p>
+
+<p>这个图片上实际已经把相关的关系描述清楚了，我这里只做简单的补充。</p>
+
+<h3 id="1-gumbonode的类型">1、GumboNode的类型</h3>
+
+<p>对于一个<code>GumboNode</code>结构体对象，需要通过它的<code>GumboNodeType type</code>字段判断其类型后，可根据类型对成员<code>v</code>进行操作。
+<code>v</code>是一个<code>union</code>对象，它可以是<code>GumboDocument</code>、<code>GumboElement</code>、<code>GumboText</code>三种类型之一。</p>
+
+<h4 id="1-gumbo-node-document-文档节点">1、GUMBO_NODE_DOCUMENT 文档节点</h4>
+
+<p>文档节点表示的是一个完整的html文档，就是从<code>&lt;html&gt;</code>到<code>&lt;/html&gt;</code>之间的全部信息。对于<code>v</code>可取<code>GumboDocument</code>类型的成员<code>document</code>。
+对于文档节点，其内部包含的元素节点都在<code>GumboVector children</code>中。</p>
+
+<h4 id="2-gumbo-node-element-元素节点">2、GUMBO_NODE_ELEMENT 元素节点</h4>
+
+<p>只要是含有标签<code>tag</code>的部分，都是元素节点。这个可以简单的理解为，只要是<code>&lt;标签名&gt;</code>到<code>&lt;/标签名&gt;</code>之间的就是一个元素节点的内容(有的元素是单标签的)，元素节点可以有包含嵌套关系，子节点都在<code>GumboVector children</code>中。</p>
+
+<pre><code class="language-c">/**
+ * 用于表示所有HTML元素的结构。 它包含有关标记，属性和子节点的信息。
+ */
+typedef struct {
+  /**
+   * GumboNodes数组，包含此元素的子元素。 保存的是GumboNode的指针。
+   */
+  GumboVector /* GumboNode* */ children;
+
+  /** 这个元素的GumboTag(标签，HTML的标签是定义好的)枚举值 */
+  GumboTag tag;
+
+  /**  此元素的GumboNamespaceEnum值(表示这个是HTML、SVG还是MATHML)*/
+  GumboNamespaceEnum tag_namespace;
+
+  /**
+   * 指向此元素的原始标记文本的GumboStringPiece，直接指向源缓冲区。
+   * 如果标记是通过算法插入的（例如，&lt;head&gt;或&lt;tbody&gt;插入），则这将是一个零长度字符串。
+   */
+  GumboStringPiece original_tag;
+
+  /**
+   * 指向此元素的原始结束标记文本的GumboStringPiece。
+   * 如果以算法方式插入结束标记（例如，关闭自闭标记），则这将是一个零长度字符串。
+   */
+  GumboStringPiece original_end_tag;
+
+  /** 记录元素开始标签在来源字符串中的起始位置。 */
+  GumboSourcePosition start_pos;
+
+  /** 记录元素结束标签在来源字符串中的起始位置。  */
+  GumboSourcePosition end_pos;
+
+  /**
+   * GumboAttributes数组，按照解析顺序包含此元素标签的属性
+   * 数组保存的是GumboAttribute的指针
+   */
+  GumboVector /* GumboAttribute* */ attributes;
+} GumboElement;
+</code></pre>
+
+<h4 id="3-gumbo-node-text-文本节点">3、GUMBO_NODE_TEXT 文本节点</h4>
+
+<p>文本节点，对于<code>v</code>可取<code>GumboText</code>类型的成员<code>text</code>。
+<code>Gumbo</code>在解析的时候，对于<code>\r\n</code>这种都会解析为一个独立的文件节点。</p>
+
+<h4 id="4-gumbo-node-cdata">4、GUMBO_NODE_CDATA</h4>
+
+<p><code>CDATA</code>节点是一个比较特殊的节点，这个节点用于传输需要浏览器<strong>不做解析，原封不动的当做文本</strong>的内容。所以对于<code>v</code>也是取<code>GumboText</code>类型的成员<code>text</code>。</p>
+
+<h4 id="5-gumbo-node-comment">5、GUMBO_NODE_COMMENT</h4>
+
+<p>注释节点，这个用于保存html中的注释，对于这个节点，对于<code>v</code>也是取<code>GumboText</code>类型的成员<code>text</code>。取出来的<code>GumboText</code>对象中的<code>text</code>成员<strong>不包含注释分隔符</strong>。</p>
+
+<h4 id="6-gumbo-node-whitespace">6、GUMBO_NODE_WHITESPACE</h4>
+
+<p>这是一个文本节点的特例，文本的内容都是空白字符(空格、TAB、回车)。<code>v</code>也是取<code>GumboText</code>。</p>
+
+<h4 id="7-gumbo-node-template">7、GUMBO_NODE_TEMPLATE</h4>
+
+<p>模板节点。就是标签<code>&lt;template&gt;</code>包含的部分。
+这与GUMBO_NODE_ELEMENT是分开的，因为许多客户端库都希望忽略模板节点的内容，如规范所示。 在GUMBO_NODE_ELEMENT上递归会在这里做正确的事情，而想要包含模板内容的客户端也应该检查GUMBO_NODE_TEMPLATE。 v将是一个GumboElement。</p>
+
+<h3 id="2-简单的使用">2、简单的使用</h3>
+
+<p>为了方便使用，我简单的封装了两个函数，对于我的使用已经足够了。如果需要更方便的使用，可以考虑<a href="https://github.com/lazytiger/gumbo-query.git">https://github.com/lazytiger/gumbo-query.git</a></p>
+
+<h4 id="1-用于方便一点的查找子节点的">1、用于方便一点的查找子节点的</h4>
+
+<pre><code class="language-cpp">std::vector&lt;GumboNode*&gt; find_sub_node(const GumboNode* parentNode,
+	GumboNodeType type, GumboTag tag, int attrCount, ...)
+{
+	std::vector&lt;GumboNode*&gt; subNode;
+	const GumboVector* vec = &amp;(parentNode-&gt;v.element.children);
+	for (int i = 0; i &lt; vec-&gt;length; ++i) {
+		GumboNode* node = (GumboNode*)vec-&gt;data[i];
+		if (node-&gt;type != type || (type == GUMBO_NODE_ELEMENT &amp;&amp; node-&gt;v.element.tag != tag)) {
+			continue;
+		}
+		int pattend = 0;
+		va_list vl;
+		va_start(vl, attrCount);
+		for (int ai = 0; ai &lt; attrCount; ++ai) {
+			const char* name = va_arg(vl, char*);
+			const char* value = va_arg(vl, char*);
+			GumboAttribute* attr = gumbo_get_attribute(&amp;(node-&gt;v.element.attributes), name);
+			if (attr == NULL || strcmp(value, attr-&gt;value) != 0) { continue; }
+			pattend += 1;
+		}
+		va_end(vl);
+		if (pattend == attrCount) {
+			subNode.push_back(node);
+		}
+	}
+
+	return subNode;
+}
+</code></pre>
+
+<h4 id="2-用于方便的查找文本子节点的">2、用于方便的查找文本子节点的</h4>
+
+<pre><code class="language-cpp">std::vector&lt;std::string&gt; find_sub_text(const GumboNode* parentNode)
+{
+	std::vector&lt;std::string&gt; subText;
+	const GumboVector* vec = &amp;(parentNode-&gt;v.element.children);
+	for (int i = 0; i &lt; vec-&gt;length; ++i) {
+		GumboNode* node = (GumboNode*)vec-&gt;data[i];
+		if (GUMBO_NODE_TEXT == node-&gt;type) {
+			subText.push_back(node-&gt;v.text.text);
+			continue;
+		}
+	}
+	return subText;
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

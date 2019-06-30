@@ -1,0 +1,385 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> MongoDB下Map-Reduce使用简单翻译及示例 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>MongoDB下Map-Reduce使用简单翻译及示例</h1>
+          <span class="post-date">2018年12月10日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2018/12/10/10097035.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2018/12/10/10097035.html</a></p>
+
+<blockquote>
+<ul>
+<li><a href="https://docs.mongodb.com/manual/core/map-reduce/">原文地址https://docs.mongodb.com/manual/core/map-reduce/</a></li>
+<li><a href="https://docs.mongodb.com/manual/tutorial/map-reduce-examples/">Map-Reduce 示例</a></li>
+</ul>
+</blockquote>
+
+<p>Map-reduce是一种数据处理范例，用于将大量数据压缩为有用的聚合结果。 对于map-reduce操作，MongoDB提供了<a href="https://docs.mongodb.com/manual/reference/command/mapReduce/#dbcmd.mapReduce">mapReduce</a>数据库命令。
+一个简单的<code>map-reduce</code>示例如下：</p>
+
+<p><img src="https://img2018.cnblogs.com/blog/693958/201812/693958-20181210155915402-1054962392.png" alt="" /></p>
+
+<p>在此<code>map-reduce</code>操作中，MongoDB将<code>映射(map)</code>操作应用于每个输入文档（即集合中与<strong>查询条件匹配</strong>的文档）。map函数提交(emit)一个键值对(key-value)。对于具有多个值的key钥，MongoDB应用<code>reduce</code>操作，该操作用于聚合数据。然后MongoDB将结果存储在一个<code>集合</code>中。reduce函数的输出还可以选择通过<code>finalize</code>函数以进一步压缩或处理聚合的结果。</p>
+
+<p>MongoDB中的所有map-reduce函数都是JavaScript，并在<a href="https://docs.mongodb.com/manual/reference/program/mongod/#bin.mongod">mongod</a>进程中运行。 Map-reduce操作将<a href="https://docs.mongodb.com/manual/reference/glossary/#term-collection"><strong>单个集合</strong></a>的文档作为输入，并可在开始映射阶段之前执行任意排序和限制。 mapReduce可以将map-reduce操作的结果作为文档返回，也可以将结果写入集合。 输入和输出集合可以分片。</p>
+
+<p>对于大多数聚合操作，聚合管道( Aggregation Pipeline)[<a href="https://docs.mongodb.com/manual/core/aggregation-pipeline/]提供更好的性能和更一致的接口。">https://docs.mongodb.com/manual/core/aggregation-pipeline/]提供更好的性能和更一致的接口。</a> 但是，map-reduce操作提供了一些目前在聚合管道中不可用的灵活性。</p>
+
+<h2 id="map-reduce-javascript-函数">Map-Reduce JavaScript 函数</h2>
+
+<p>在MongoDB中，map-reduce操作使用自定义JavaScript函数将值(value)映射或关联到键(key)。 如果某个键(key)有对应多个值(value)，则该操作应该将键的值<code>reduces</code>为<strong>单个对象</strong>。</p>
+
+<p>使用自定义JavaScript函数可以灵活地进行map-reduce操作。 例如，在处理文档时，map函数可以创建多个键和值映射或不进行映射。 Map-reduce操作还可以使用自定义JavaScript函数对映射的结果进行最终修改，并在映射操作的最后阶段进行reduce操作，执行其他计算。</p>
+
+<h2 id="map-reduce-行为">Map-Reduce 行为</h2>
+
+<p>在MongoDB中，map-reduce操作可以将结果写入集合或返回结果内联。 如果将map-reduce输出写入集合，则可以在合并替换，合并或减少新结果与先前结果的同一输入集合上执行后续map-reduce操作。 有关详细信息和示例，请参阅<a href="https://docs.mongodb.com/manual/reference/command/mapReduce/#dbcmd.mapReduce">mapReduce</a>和<a href="https://docs.mongodb.com/manual/tutorial/perform-incremental-map-reduce/">Perform Incremental(执行增量) Map-Reduce</a>。</p>
+
+<p>当返回map-reduce操作的<strong>内联结果</strong>时，结果文档必须在<a href="https://docs.mongodb.com/manual/reference/limits/#BSON-Document-Size">BSON文档大小限制</a>内，该限制当前为16兆字节。 有关map-reduce操作的限制和限制的其他信息，请参阅<a href="https://docs.mongodb.com/manual/reference/command/mapReduce/">mapReduce参考</a>页面。</p>
+
+<p>MongoDB支持分片集合上的map-reduce操作。 Map-reduce操作还可以将结果输出到分片集合。 请参见<a href="https://docs.mongodb.com/manual/core/map-reduce-sharded-collections/">Map-Reduce and Sharded Collections</a>。</p>
+
+<p><a href="https://docs.mongodb.com/manual/core/views/">Views</a>(视图)不支持map-reduce操作。</p>
+
+<h2 id="一个简单的测试">一个简单的测试</h2>
+
+<p><a href="https://www.cnblogs.com/oloroso/p/9777141.html">MongoDB地理空间数据存储及检索</a>
+上面链接是之前曾经做过一个全国县级行政边界矢量入库到MongoDB的记录，这里用它来测试一下。</p>
+
+<p><strong>简单的测试一下全国每个省都有多少个县</strong></p>
+
+<pre><code class="language-js">db.getCollection('xzbj').mapReduce(
+    function() { emit(this.properties.sheng,1);},
+    function(key,values){return Array.sum(values);},
+    {
+        query:{},
+        out:&quot;xian_count&quot;
+    }
+)
+</code></pre>
+
+<p>这里将结果输出到了<code>xian_count</code>这个新的集合中，可以打开这个集合查看结果。
+上面的<code>query</code>也可以没有，就是默认集合内全部文档。
+如果不想把结果输出到一个集合，直接显示结果，则可以使用<code>out: { inline: 1 }</code>。</p>
+
+<p><strong>计算一下湖南省每个地级市有多少个县</strong>
+使用下面语句</p>
+
+<pre><code class="language-js">db.getCollection('xzbj').mapReduce(
+    function() { emit(this.properties.di,1);},
+    function(key,values){return Array.sum(values);},
+    {
+        query:{ 'properties.sheng':'湖南'},
+        out: { inline: 1 }
+    }
+)
+</code></pre>
+
+<p>得到输出如下（这里如果是针对全国的数据是有问题的，因为之前没有正确处理港澳台数据）：</p>
+
+<pre><code class="language-json">{
+    &quot;results&quot; : [ 
+        {
+            &quot;_id&quot; : &quot;娄底市&quot;,
+            &quot;value&quot; : 5.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;岳阳市&quot;,
+            &quot;value&quot; : 7.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;常德市&quot;,
+            &quot;value&quot; : 9.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;张家界市&quot;,
+            &quot;value&quot; : 3.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;怀化市&quot;,
+            &quot;value&quot; : 12.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;株洲市&quot;,
+            &quot;value&quot; : 6.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;永州市&quot;,
+            &quot;value&quot; : 10.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;湘潭市&quot;,
+            &quot;value&quot; : 4.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;湘西土家族苗族自治州&quot;,
+            &quot;value&quot; : 8.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;益阳市&quot;,
+            &quot;value&quot; : 6.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;衡阳市&quot;,
+            &quot;value&quot; : 8.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;邵阳市&quot;,
+            &quot;value&quot; : 11.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;郴州市&quot;,
+            &quot;value&quot; : 11.0
+        }, 
+        {
+            &quot;_id&quot; : &quot;长沙市&quot;,
+            &quot;value&quot; : 5.0
+        }
+    ],
+    &quot;timeMillis&quot; : 19.0,
+    &quot;counts&quot; : {
+        &quot;input&quot; : 105,
+        &quot;emit&quot; : 105,
+        &quot;reduce&quot; : 14,
+        &quot;output&quot; : 14
+    },
+    &quot;ok&quot; : 1.0,
+    &quot;_o&quot; : {
+        &quot;results&quot; : [ 
+            {
+                &quot;_id&quot; : &quot;娄底市&quot;,
+                &quot;value&quot; : 5.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;岳阳市&quot;,
+                &quot;value&quot; : 7.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;常德市&quot;,
+                &quot;value&quot; : 9.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;张家界市&quot;,
+                &quot;value&quot; : 3.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;怀化市&quot;,
+                &quot;value&quot; : 12.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;株洲市&quot;,
+                &quot;value&quot; : 6.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;永州市&quot;,
+                &quot;value&quot; : 10.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;湘潭市&quot;,
+                &quot;value&quot; : 4.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;湘西土家族苗族自治州&quot;,
+                &quot;value&quot; : 8.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;益阳市&quot;,
+                &quot;value&quot; : 6.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;衡阳市&quot;,
+                &quot;value&quot; : 8.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;邵阳市&quot;,
+                &quot;value&quot; : 11.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;郴州市&quot;,
+                &quot;value&quot; : 11.0
+            }, 
+            {
+                &quot;_id&quot; : &quot;长沙市&quot;,
+                &quot;value&quot; : 5.0
+            }
+        ],
+        &quot;timeMillis&quot; : 19,
+        &quot;counts&quot; : {
+            &quot;input&quot; : 105,
+            &quot;emit&quot; : 105,
+            &quot;reduce&quot; : 14,
+            &quot;output&quot; : 14
+        },
+        &quot;ok&quot; : 1.0
+    },
+    &quot;_keys&quot; : [ 
+        &quot;results&quot;, 
+        &quot;timeMillis&quot;, 
+        &quot;counts&quot;, 
+        &quot;ok&quot;
+    ],
+    &quot;_db&quot; : {
+        &quot;_mongo&quot; : {
+            &quot;slaveOk&quot; : true,
+            &quot;host&quot; : &quot;127.0.0.1:27017&quot;,
+            &quot;defaultDB&quot; : &quot;test&quot;,
+            &quot;_readMode&quot; : &quot;commands&quot;
+        },
+        &quot;_name&quot; : &quot;us&quot;
+    }
+}
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

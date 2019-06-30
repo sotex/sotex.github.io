@@ -1,0 +1,381 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 在GDAL中添加GDALRasterizeGeometriesBuf函数 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>在GDAL中添加GDALRasterizeGeometriesBuf函数</h1>
+          <span class="post-date">2019年02月13日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2019/02/13/10368595.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2019/02/13/10368595.html</a></p>
+
+<h1 id="缘起">缘起</h1>
+
+<p>GDAL的栅格化算法中有<code>GDALRasterizeLayers</code>、<code>GDALRasterizeLayersBuf</code>和<code>GDALRasterizeGeometries</code>函数，但是没有<code>GDALRasterizeGeometriesBuf</code>函数（GDAL项目不打算添加这个函数，因为增加一个函数会增加维护成本）。而栅格化算法的实际实现函数<code>gv_rasterize_one_shape</code>并不导出，所以在使用的时候造成了一定的不便。
+虽然可以通过<code>MEMDataset</code>的方式，调用<code>GDALRasterizeGeometries</code>达到目的，但是不够直接和高效，所以我写了<code>GDALRasterizeGeometriesBuf</code>函数。
+个人认为比较灵活的方式，还是将<code>gv_rasterize_one_shape</code>函数导出，以便自由使用。</p>
+
+<h1 id="代码">代码</h1>
+
+<p>修改<code>gdal/alg/gdal_alg.h</code>头文件，在<code>GDALRasterizeGeometries</code>函数声明下添加<code>GDALRasterizeGeometriesBuf</code>函数声明。</p>
+
+<pre><code class="language-c">CPLErr CPL_DLL
+GDALRasterizeGeometriesBuf( void *pData, int nBufXSize, int nBufYSize,
+                            GDALDataType eBufType, int nPixelSpace, int nLineSpace,
+                            int nGeomCount, OGRGeometryH *pahGeometries,
+                            const char *pszGeomProjection,
+                            const char *pszDstProjection,
+                            double *padfDstGeoTransform,
+                            GDALTransformerFunc pfnTransformer,
+                            void *pTransformArg, double dfBurnValue,
+                            char **papszOptions, GDALProgressFunc pfnProgress,
+                            void *pProgressArg );
+</code></pre>
+
+<p>修改<code>gdal/alg/gdalrasterize.cpp</code>文件，添加<code>GDALRasterizeGeometriesBuf</code>函数的实现，代码如下：</p>
+
+<pre><code class="language-cpp">/************************************************************************/
+/*                        GDALRasterizeGeometriesBuf()                      */
+/************************************************************************/
+
+/**
+ * Burn geometries into raster.
+ *
+ * Rasterize a list of geometric objects into a raster dataset.  The
+ * geometries are passed as an array of OGRGeometryH handlers.  
+ *
+ * If the geometries are in the georeferenced coordinates of the raster
+ * dataset, then the pfnTransform may be passed in NULL and one will be
+ * derived internally from the geotransform of the dataset.  The transform
+ * needs to transform the geometry locations into pixel/line coordinates
+ * of the target raster.
+ *
+ * The output raster may be of any GDAL supported datatype, though currently
+ * internally the burning is done either as GDT_Byte or GDT_Float32.  This
+ * may be improved in the future.
+ *
+ * @param pData pointer to the output data array.
+ * @param nBufXSize width of the output data array in pixels.
+ * @param nBufYSize height of the output data array in pixels.
+ * @param eBufType data type of the output data array.
+ *
+ * @param nPixelSpace The byte offset from the start of one pixel value in
+ * pData to the start of the next pixel value within a scanline.  If defaulted
+ * (0) the size of the datatype eBufType is used.
+ *
+ * @param nLineSpace The byte offset from the start of one scanline in
+ * pData to the start of the next.  If defaulted the size of the datatype
+ * eBufType * nBufXSize is used.
+ *
+ * @param nGeomCount the number of geometries being passed in pahGeometries.
+ * @param pahGeometries the array of geometries to burn in. 
+ * @param pszGeomProjection WKT defining the coordinate system of the geometries.
+ *
+ * @param pszDstProjection WKT defining the coordinate system of the target
+ * raster.
+ *
+ * @param padfDstGeoTransform geotransformation matrix of the target raster.
+ *
+ * @param pfnTransformer transformation to apply to geometries to put into
+ * pixel/line coordinates on raster.  If NULL a geotransform based one will
+ * be created internally.
+ *
+ * @param pTransformArg callback data for transformer.
+ * @param dfBurnValue the value to burn into the raster.
+ *
+ * @param papszOptions special options controlling rasterization:
+ * &lt;ul&gt;
+ * &lt;li&gt;&quot;ALL_TOUCHED&quot;: May be set to TRUE to set all pixels touched
+ * by the line or polygons, not just those whose center is within the polygon
+ * or that are selected by brezenhams line algorithm.  Defaults to FALSE.&lt;/li&gt;
+ * &lt;li&gt;&quot;BURN_VALUE_FROM&quot;: May be set to &quot;Z&quot; to use
+ * the Z values of the geometries. dfBurnValue or the attribute field value is
+ * added to this before burning. In default case dfBurnValue is burned as it
+ * is. This is implemented properly only for points and lines for now. Polygons
+ * will be burned using the Z value from the first point. The M value may
+ * be supported in the future.&lt;/li&gt;
+ * &lt;li&gt;&quot;MERGE_ALG&quot;: May be REPLACE (the default) or ADD.  REPLACE
+ * results in overwriting of value, while ADD adds the new value to the
+ * existing raster, suitable for heatmaps for instance.&lt;/li&gt;
+ * &lt;/ul&gt;
+ *
+ * @param pfnProgress the progress function to report completion.
+ *
+ * @param pProgressArg callback data for progress function.
+ *
+ *
+ * @return CE_None on success or CE_Failure on error.
+ */
+
+CPLErr GDALRasterizeGeometriesBuf( void *pData, int nBufXSize, int nBufYSize,
+                                   GDALDataType eBufType, int nPixelSpace, int nLineSpace,
+                                   int nGeomCount, OGRGeometryH *pahGeometries,
+                                   const char *pszGeomProjection,
+                                   const char *pszDstProjection,
+                                   double *padfDstGeoTransform,
+                                   GDALTransformerFunc pfnTransformer,
+                                   void *pTransformArg, double dfBurnValue,
+                                   char **papszOptions, GDALProgressFunc pfnProgress,
+                                   void *pProgressArg )
+
+{
+/* -------------------------------------------------------------------- */
+/*      If pixel and line spaceing are defaulted assign reasonable      */
+/*      value assuming a packed buffer.                                 */
+/* -------------------------------------------------------------------- */
+    if( nPixelSpace != 0 )
+    {
+        nPixelSpace = GDALGetDataTypeSizeBytes( eBufType );
+    }
+    if( nPixelSpace != GDALGetDataTypeSizeBytes( eBufType ) )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                    &quot;GDALRasterizeGeometriesBuf(): unsupported value of nPixelSpace&quot;);
+        return CE_Failure;
+    }
+
+    if( nLineSpace == 0 )
+    {
+        nLineSpace = nPixelSpace * nBufXSize;
+    }
+    if( nLineSpace != nPixelSpace * nBufXSize )
+    {
+        CPLError(CE_Failure, CPLE_NotSupported,
+                    &quot;GDALRasterizeGeometriesBuf(): unsupported value of nLineSpace&quot;);
+        return CE_Failure;
+    }
+
+    if( pfnProgress == nullptr )
+      pfnProgress = GDALDummyProgress;
+
+/* -------------------------------------------------------------------- */
+/*      Do some rudimentary arg checking.                               */
+/* -------------------------------------------------------------------- */
+    if( nGeomCount == 0 )
+      return CE_None;
+
+/* -------------------------------------------------------------------- */
+/*      Options                                                         */
+/* -------------------------------------------------------------------- */
+    int bAllTouched = FALSE;
+    GDALBurnValueSrc eBurnValueSource = GBV_UserBurnValue;
+    GDALRasterMergeAlg eMergeAlg = GRMA_Replace;
+    GDALRasterizeOptim eOptim = GRO_Auto;
+    if( GDALRasterizeOptions(papszOptions, &amp;bAllTouched,
+                    &amp;eBurnValueSource, &amp;eMergeAlg,
+                    &amp;eOptim) == CE_Failure )
+    {
+        return CE_Failure;
+    }
+
+
+/* -------------------------------------------------------------------- */
+/*      If we have no transformer, create the one from input file       */
+/*      projection. Note that each layer can be georefernced            */
+/*      separately.                                                     */
+/* -------------------------------------------------------------------- */
+    bool bNeedToFreeTransformer = false;
+
+    if( pfnTransformer == nullptr )
+    {
+        if( !pszGeomProjection )
+        {
+            CPLError( CE_Warning, CPLE_AppDefined,
+                        &quot;There is no specified spatial reference for the&quot;
+                        &quot; geometry to build transformer, assuming&quot;
+                        &quot; matching coordinate systems.&quot;);
+        }
+
+        pTransformArg =
+            GDALCreateGenImgProjTransformer3( pszGeomProjection, nullptr,
+                        pszDstProjection,
+                        padfDstGeoTransform );
+        pfnTransformer = GDALGenImgProjTransform;
+    }
+/* ==================================================================== */
+/*      Write geometry to the raster individually.                      */
+/* ==================================================================== */
+    CPLErr eErr = CE_None;
+
+    pfnProgress( 0.0, nullptr, pProgressArg );
+
+    int iGeometry;
+    for(iGeometry = 0; iGeometry &lt; nGeomCount; ++iGeometry )
+    {
+        OGRGeometry *poGeom = reinterpret_cast&lt;OGRGeometry*&gt;(pahGeometries[iGeometry]);
+
+        // 后期gv_rasterize_one_shape函数可能会变，此处后期需要修改
+        gv_rasterize_one_shape( static_cast&lt;unsigned char *&gt;(pData), 0, 0,
+                    nBufXSize, nBufYSize,
+                    1, eBufType, bAllTouched, poGeom,
+                    &amp;dfBurnValue, eBurnValueSource,
+                    eMergeAlg,
+                    pfnTransformer, pTransformArg );
+
+        if( !pfnProgress((iGeometry+1)/static_cast&lt;double&gt;(nGeomCount),
+                         &quot;&quot;, pProgressArg) )
+        {
+            CPLError( CE_Failure, CPLE_UserInterrupt, &quot;User terminated&quot; );
+            eErr = CE_Failure;
+        }
+    }
+
+    if( bNeedToFreeTransformer )
+        GDALDestroyTransformer( pTransformArg );
+
+    return eErr;
+}
+
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

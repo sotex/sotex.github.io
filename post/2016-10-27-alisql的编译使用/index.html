@@ -1,0 +1,430 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> AliSQL的编译使用 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>AliSQL的编译使用</h1>
+          <span class="post-date">2016年10月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/10/27/6004220.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/10/27/6004220.html</a></p>
+
+<h2 id="1-下载源码">1、下载源码</h2>
+
+<pre><code class="language-shell">git clone https://github.com/alibaba/AliSQL.git
+</code></pre>
+
+<p>#Linux下编译</p>
+
+<h2 id="2-编译">2、编译</h2>
+
+<p>编译前需要安装好<code>gcc</code> <code>cmake</code> <code>bison</code>等。(如果缺少其他依赖,debian系的可以使用<code>sudo apt-get build-dep mysql-server</code>快速安装)</p>
+
+<pre><code class="language-shell">cd AliSQL
+# 创建并进入构建目录
+make build_linux &amp;&amp; cd build_linux
+# 生成 makefile
+cmake -DCMAKE_INSTALL_PREFIX=/home/x/alisql   ..	#指定安装路径/home/x/alisql
+# 编译
+make -j4
+</code></pre>
+
+<h2 id="3-安装使用">3、安装使用</h2>
+
+<pre><code class="language-shell">make install	# 安装
+</code></pre>
+
+<p>安装完成后可以进入安装目录下的<code>bin</code>目录</p>
+
+<pre><code class="language-shell">/home/x/alisql/bin [o@o-s] [11:42]
+&gt; ./mysql_config 
+Usage: ./mysql_config [OPTIONS]
+Options:
+        --cflags         [-I/home/x/alisql/include   -g -fabi-version=2 -fno-omit-frame-pointer -fno-strict-aliasing]
+        --cxxflags       [-I/home/x/alisql/include   -g -fabi-version=2 -fno-omit-frame-pointer -fno-strict-aliasing]
+        --include        [-I/home/x/alisql/include]
+        --libs           [-L/home/x/alisql/lib -lmysqlclient -lpthread -lm -ldl]
+        --libs_r         [-L/home/x/alisql/lib -lmysqlclient -lpthread -lm -ldl]
+        --plugindir      [/home/x/alisql/lib/plugin]
+        --socket         [/tmp/mysql.sock]
+        --port           [0]
+        --version        [5.6.32]
+        --libmysqld-libs [-L/home/x/alisql/lib -lmysqld -lpthread -lm -lcrypt -ldl -laio]
+        --variable=VAR   VAR is one of:
+                pkgincludedir [/home/x/alisql/include]
+                pkglibdir     [/home/x/alisql/lib]
+                plugindir     [/home/x/alisql/lib/plugin]
+</code></pre>
+
+<p>在<code>alisql</code>创建一个<code>my.cnf</code>文件，写入配置文件信息。
+启动mysql</p>
+
+<pre><code class="language-shell">./bin/mysqld
+</code></pre>
+
+<p>mysql配置文件说明（注意，配置文件应该是<strong>UTF-8编码无BOM标识</strong>的，否则可能出错）
+<a href="http://www.cnblogs.com/captain_jack/archive/2010/10/12/1848496.html">http://www.cnblogs.com/captain_jack/archive/2010/10/12/1848496.html</a></p>
+
+<h1 id="windows下vs2013编译">windows下VS2013编译</h1>
+
+<h2 id="1-生成vs2013工程">1、生成VS2013工程</h2>
+
+<p>windows下使用VS2013进行编译</p>
+
+<pre><code class="language-cmd">mkdir build_msvc
+cd build_msvc
+cmake -DCMAKE_INSTALL_PREFIX=D:\AliSQL -G &quot;Visual Studio 12 Win64&quot; ..
+</code></pre>
+
+<p>执行<code>cmake</code>前需要安装好<code>bison</code>。
+<a href="http://files.cnblogs.com/files/oloroso/win_flex_bison-latest.7z">点击下载</a></p>
+
+<h2 id="2-编译安装">2、编译安装</h2>
+
+<p>执行完成<code>cmake</code>后生成VS工程文件
+使用<code>VS2013 开发人员命令提示</code>进入<code>build_msvc</code>目录，执行下面命令进行编译</p>
+
+<pre><code class="language-cmd">msbuild ALL_BUILD.vcxproj   # 编译
+msbuild INSTALL.vcxproj     # 安装
+</code></pre>
+
+<p>可以在后面添加<code>/p:Configuration=&quot;Release&quot;</code>参数来指定编译<code>release</code>版本。因为文件比较多，可以使用<code>/maxcpucount:8</code>来指定使用的CPU核心数，并行编译。</p>
+
+<h2 id="3-使用">3、使用</h2>
+
+<p>安装后在安装目录下建立<code>my.ini</code>文件，具体写法可以百度。
+新建一个<code>start.bat</code></p>
+
+<pre><code class="language-cmd">::
+START bin\mysqld --standalone --console
+</code></pre>
+
+<p>双击<code>start.bat</code>启动即可。</p>
+
+<h2 id="4-编译错误解决">4、编译错误解决</h2>
+
+<h3 id="错误1-alisql-sql-binlog-h-236-error-c2065-asm-未声明的标识符">错误1：alisql\sql\binlog.h(236): error C2065: “<strong>asm</strong>”: 未声明的标识符</h3>
+
+<p>定位到错误代码</p>
+
+<pre><code class="language-c">#define barrier() __asm volatile(&quot;&quot; ::: &quot;memory&quot;)
+</code></pre>
+
+<p>这个宏是<code>GCC</code>下做编译屏障的宏，VS2013不支持(x64编译也不支持内联汇编)，使用windows下的替代版本</p>
+
+<pre><code class="language-c">#define barrier() MemoryBarrier()
+</code></pre>
+
+<p>具体的可以看<a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms684208(v=vs.85).aspx">MemoryBarrier macro</a>
+参考<a href="http://book.51cto.com/art/201504/474436.htm">http://book.51cto.com/art/201504/474436.htm</a></p>
+
+<h3 id="错误2-alisql-storage-innobase-include-trx0trx-h-54-error-c2146-语法错误-缺少-在标识符-attribute-的前面">错误2：alisql\storage\innobase\include\trx0trx.h(54): error C2146: 语法错误: 缺少“,”(在标识符“<strong>attribute</strong>”的前面)</h3>
+
+<p>因为<code>__attribute__</code>是<code>gcc</code>的扩展，所以VC不支持也很正常。
+在<code>trx0trx.h</code>文件最前面添加<code>#define __attribute__(...)</code>即可。
+类似的问题还出现在<code>sql_connect.cc</code>等文件中，可以将上面的宏添加到预编译指令中。</p>
+
+<h3 id="错误3-alisql-storage-innobase-handler-ha-innodb-cc-16222-error-c2440-初始化-无法从-ulint-转换为-unsigned-long">错误3：AliSQL\storage\innobase\handler\ha_innodb.cc(16222): error C2440: “初始化”: 无法从“ulint *”转换为“unsigned long *”</h3>
+
+<p>将<code>ha_innodb.cc</code>中的</p>
+
+<pre><code>static MYSQL_SYSVAR_ULONG(adaptive_hash_index_parts, btr_search_index_num,
+  PLUGIN_VAR_RQCMDARG | PLUGIN_VAR_READONLY,
+  &quot;Number of InnoDB adaptive hash index partitions&quot;,
+  NULL, NULL, 8, 1, 512, 0);
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code class="language-cpp">static unsigned long&amp; btr_search_index_num_ul = (unsigned long&amp;)btr_search_index_num;
+static MYSQL_SYSVAR_ULONG(adaptive_hash_index_parts, btr_search_index_num_ul,
+  PLUGIN_VAR_RQCMDARG | PLUGIN_VAR_READONLY,
+  &quot;Number of InnoDB adaptive hash index partitions&quot;,
+  NULL, NULL, 8, 1, 512, 0);
+</code></pre>
+
+<h3 id="错误4-alisql-storage-innobase-read-read0read-cc-507-error-c3861-min-找不到标识符">错误4：AliSQL\storage\innobase\read\read0read.cc(507): error C3861: “min”:  找不到标识符</h3>
+
+<p>将<code>read0read.cc</code>中代码(506-508行)</p>
+
+<pre><code class="language-cpp">	if (view-&gt;n_descr &gt; 0) {
+		view-&gt;up_limit_id = min(view-&gt;up_limit_id, view-&gt;descriptors[0]);
+	}
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code class="language-cpp">	if (view-&gt;n_descr &gt; 0) {
+		view-&gt;up_limit_id = (view-&gt;up_limit_id &lt; view-&gt;descriptors[0])?
+							view-&gt;up_limit_id : view-&gt;descriptors[0];
+	}
+</code></pre>
+
+<h3 id="错误5-alisql-storage-innobase-read-read0read-cc-603-error-c2664-lint-win-xchg-and-add-volatile-lint-lint-无法将参数-1-从-ulint-转换为-volatile-lint">错误5：AliSQL\storage\innobase\read\read0read.cc(603): error C2664: “lint win_xchg_and_add(volatile lint *,lint)”: 无法将参数 1 从“ulint *”转换为“volatile lint *”</h3>
+
+<p>将<code>read0read.cc</code>中代码(601-604行)</p>
+
+<pre><code class="language-cpp">	os_atomic_decrement_lint(&amp;srv_read_views_memory,
+				 sizeof(read_view_t) +
+				 view-&gt;max_descr * sizeof(trx_id_t));
+</code></pre>
+
+<p>修改为</p>
+
+<pre><code>	os_atomic_decrement_lint((volatile lint*)&amp;srv_read_views_memory,
+				 sizeof(read_view_t) +
+				 view-&gt;max_descr * sizeof(trx_id_t));
+</code></pre>
+
+<p>这样的错误还有几个，都是做这样的修改即可。</p>
+
+<h3 id="错误6-alisql-sql-sql-filter-cc-134-error-c3861-sync-add-and-fetch-找不到标识符">错误6：AliSQL\sql\sql_filter.cc(134): error C3861: “__sync_add_and_fetch”:  找不到标识符</h3>
+
+<p>这样的错误有多个</p>
+
+<pre><code>4&gt;E:\AliSQL\sql\sql_filter.cc(134): error C3861: “__sync_add_and_fetch”:  找不到标识符
+4&gt;E:\AliSQL\sql\sql_filter.cc(356): error C3861: “__sync_add_and_fetch”:  找不到标识符
+4&gt;E:\AliSQL\sql\sql_filter.cc(362): error C3861: “__sync_bool_compare_and_swap”:  找不到标识符
+4&gt;E:\AliSQL\sql\sql_filter.cc(455): error C3861: “__sync_sub_and_fetch”:  找不到标识符
+</code></pre>
+
+<p>这是gcc提供的<code>built-in</code>函数，用于提供加减和逻辑运算的原子操作。参考<a href="http://www.cnblogs.com/FrankTan/archive/2010/12/11/1903377.html">http://www.cnblogs.com/FrankTan/archive/2010/12/11/1903377.html</a>
+可以对应VC下的<code>Interlocked</code>函数族。
+参考<a href="http://jishublog.iteye.com/blog/1898518">http://jishublog.iteye.com/blog/1898518</a>
+<a href="https://technet.microsoft.com/zh-cn/library/ms683504">https://technet.microsoft.com/zh-cn/library/ms683504</a>
+带<code>Exchange</code>的函数返回的是更新前的值，不带的返回更新后的值。</p>
+
+<p>所以这里可以在<code>sql_filter.h</code>(多个文件中都需要用到)文件头部添加如下宏定义来实现替换</p>
+
+<pre><code class="language-cpp">
+// 返回更新前的值
+#define __sync_fetch_and_add(ptr,value, ...)	InterlockedExchangeAdd64((LONG64 volatile *)ptr,value)
+#define __sync_fetch_and_sub(ptr, value, ...)	InterlockedExchangeAdd64((LONG64 volatile *)ptr,-value)
+#define __sync_fetch_and_or(ptr, value, ...)
+#define __sync_fetch_and_and(ptr, value, ...)
+#define __sync_fetch_and_xor(ptr, value, ...)
+#define __sync_fetch_and_nand(ptr, value, ...)
+
+// 返回更新后的值
+#define __sync_add_and_fetch(ptr, value, ...)	InterlockedAdd64((LONG64 volatile *)ptr,value)
+#define __sync_sub_and_fetch(ptr, value, ...)	InterlockedAdd64((LONG64 volatile *)ptr,-value)
+#define __sync_or_and_fetch(ptr, value, ...)
+#define __sync_and_and_fetch(ptr, value, ...)
+#define __sync_xor_and_fetch(ptr, value, ...)
+#define __sync_nand_and_fetch(ptr, value, ...)
+
+#define __sync_bool_compare_and_swap(ptr, oldval,newval, ...) InterlockedCompareExchange64(ptr,newval,oldval)
+</code></pre>
+
+<h3 id="错误7-alisql-sql-sql-locale-cc-789-error-c2146-语法错误-缺少-在标识符-嗒忇-喃嵿-嗒苦-的前面">错误7：AliSQL\sql\sql_locale.cc(789): error C2146: 语法错误: 缺少“}”(在标识符“嗒忇喃嵿嗒苦”的前面)</h3>
+
+<p>这是因为VS对utf-8的支持不好(编译器支持不好)，将其保存为带<code>BOM</code>标记的UTF-8编码即可。</p>
+
+<h3 id="错误8-alisql-sql-sql-show-cc-3896-error-c2059-语法错误">错误8：AliSQL\sql\sql_show.cc(3896): error C2059: 语法错误:“(”</h3>
+
+<p>先看一下这一段代码</p>
+
+<pre><code class="language-cpp">// Sends the global table stats back to the client.
+int fill_schema_table_stats(THD* thd, TABLE_LIST* tables, Item* __attribute__((unused)))
+{
+  TABLE *table= tables-&gt;table;
+  DBUG_ENTER(&quot;fill_schema_table_stats&quot;);
+  char *table_full_name, *table_schema;
+  TABLE_SHARE *share;
+  uint indx;
+</code></pre>
+
+<p>这里函数中出现了<code>__attribute__((unused))</code>这个东西，需要处理一下。
+在文件<code>sql_show.cc</code>开头添加(在<code>mysqld.cc</code>中也需要)</p>
+
+<pre><code class="language-cpp">#define __attribute__(...)
+</code></pre>
+
+<h3 id="错误9-alisql-sql-sql-show-cc-3922-error-c3861-strsep-找不到标识符">错误9：AliSQL\sql\sql_show.cc(3922): error C3861: “strsep”:  找不到标识符</h3>
+
+<p>这个函数在linux下是有的，windows下没有就使用下面的来替代</p>
+
+<pre><code class="language-c">char *strsep(char **stringp, const char *delim)
+{
+    char *s;
+    const char *spanp;
+    int c, sc;
+    char *tok;
+    if ((s = *stringp)== NULL)
+        return (NULL);
+    for (tok = s;;) {
+        c = *s++;
+        spanp = delim;
+        do {
+            if ((sc =*spanp++) == c) {
+                if (c == 0)
+                    s = NULL;
+                else
+                    s[-1] = 0;
+                *stringp = s;
+                return (tok);
+            }
+        } while (sc != 0);
+    }
+    /* NOTREACHED */
+}
+</code></pre>
+
+<h3 id="错误10-c-program-files-x86-msbuild-microsoft-cpp-v4-0-v120-microsoft-cppcommon-targets-170-5-error-msb6006-cmd-exe-已退出-代码为-1">错误10：C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(170,5): error MSB6006: “cmd.exe”已退出，代码为 1。</h3>
+
+<p>因为编译<code>ALL_BUILD</code>工程完成后会去执行下面操作</p>
+
+<pre><code>Executing E:/AliSQL/build_msvc/sql/Debug/mysqld.exe --no-defaults --console --bootstrap --lc-messages-dir=E:/windows-software/AliSQL/build_msvc/sql/share --basedir=. --datadir=. --default-storage-engine=MyISAM --default-tmp-storage-engine=MyISAM --loose-skip-ndbcluster --max_allowed_packet=8M --net_buffer_length=16K
+</code></pre>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

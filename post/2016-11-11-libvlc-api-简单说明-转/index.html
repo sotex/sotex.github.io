@@ -1,0 +1,447 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Libvlc  API 简单说明 [转] &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Libvlc  API 简单说明 [转]</h1>
+          <span class="post-date">2016年11月11日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2016/11/11/6055095.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2016/11/11/6055095.html</a></p>
+
+<h1 id="libvlc-api-简单说明">Libvlc  API 简单说明</h1>
+
+<p>原文来自<a href="http://www.xuebuyuan.com/1519616.html">http://www.xuebuyuan.com/1519616.html</a>
+####</p>
+
+<pre><code class="language-c">libvlc_instance_t* libvlc_new(int  argc,  const char* const*  argv)
+</code></pre>
+
+<p>创建并初始化一个LIBVLC实例<br />
+这个函数接受一个命令行参数列表，这个参数列表影响LIBVLC INSTANCE的缺省配置.</p>
+
+<p>Version:<br />
+    参数意味着被从命令行传递到LIBVLC,就像VLC媒体播放器做的那样。有效的参数列表依赖于LIBVLC的版本、操作系统、平台以及LIBVLC的插件集。无效或不支持的参数将会导致该API的失败（return NULL）。此外，某些参数可能会改变LIBVLC的行为或以其它方式干扰LIBVLC的其它功能。</p>
+
+<p>param:
+    argc : 命令行参数个数<br />
+    argv : 命令行类型参数</p>
+
+<p><strong>return:</strong><br />
+    成功返回LIBVLC实例，失败返回NULL。</p>
+
+<p>####
+　　</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_release( libvlc_instance_t *p_instance );
+</code></pre>
+
+<p>减少LIBVLC INSTANCE的引用计数，并且如果计数为零的话就摧毁它。<br />
+（Decrement the reference count of a libvlc instance, and destroy it if it reaches zero）</p>
+
+<p><strong>param：</strong><br />
+    要摧毁的LIBVLC INSTANCE<br />
+####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API libvlc_media_player_t * libvlc_media_player_new( libvlc_instance_t *p_libvlc_instance );
+</code></pre>
+
+<p>创建一个空的媒体播放器对象</p>
+
+<p>Parameters:<br />
+    p_libvlc_instance：被创建的媒体播放器所属的实例</p>
+
+<p><strong>return:</strong><br />
+    一个新的媒体播放器对象，出错返回NULL.</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_media_player_release( libvlc_media_player_t *p_mi );
+</code></pre>
+
+<p>使用后释放媒体播放器对象，减少媒体播放器对象的引用次数。如果计数已经为零，该方法将释放掉媒体播放器对象，如果媒体播放器对象已经被释放了，这个方法不应该再被调用（Release a media_player after use Decrement the reference count of a media player object. If the reference count is 0, then libvlc_media_player_release() will release the media player object. If the media player object has been released, then it should not be used again.）</p>
+
+<p><strong>param：</strong><br />
+    p_mi：要释放的媒体播放器对象</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API libvlc_event_manager_t * libvlc_media_player_event_manager ( libvlc_media_player_t *p_mi );
+</code></pre>
+
+<p>从发送事件的媒体播放器对象那里获取一个事件管理器<br />
+（Get the Event Manager from which the media player send event）</p>
+
+<p><strong>param：</strong><br />
+    p_mi: 媒体播放器对象</p>
+
+<p><strong>return:</strong><br />
+    返回关联到给定媒体播放器对象的事件管理器</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API int libvlc_event_attach( libvlc_event_manager_t *p_event_manager,
+                                        libvlc_event_type_t i_event_type,
+                                        libvlc_callback_t f_callback,
+                                        void *user_data );
+</code></pre>
+
+<p>事件通知注册器（Register for an event notification），设置事件处理器</p>
+
+<p><strong>param：</strong><br />
+    p_event_manager：你想关联的事件管理器<br />
+    i_event_type：我们所要关注事件的类型<br />
+    f_callback：事件发生时的回调函数<br />
+    user_data：user provided data to carry with the event(  还没理解这个参数)</p>
+
+<p><strong>return:</strong><br />
+    成功：0；失败：ENOMEM</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_media_player_set_hwnd ( libvlc_media_player_t *p_mi, void *drawable );
+</code></pre>
+
+<p>设置给予媒体播放器媒体输出的win32/win64窗口句柄。如果构建LIBVLC时没有Win32/Win64 API输出的内置支持，该方法将不起作用（If LibVLC was built without Win32/Win64 API output support, then this has no effects）</p>
+
+<p><strong>param：</strong><br />
+    p_mi: 媒体播放器<br />
+    drawable：绘制媒体（媒体输出）的窗口句柄</p>
+
+<pre><code>libvlc_log_* 函数提供对LibVLC消息日志的访问，用于调试或用于高级用户
+VLC_PUBLIC_API unsigned libvlc_get_log_verbosity( const libvlc_instance_t *p_instance );
+</code></pre>
+
+<p>返回LIBVLC的日志级别<br />
+<strong>param：</strong><br />
+    p_instance：libvlc 实例<br />
+return：<br />
+    日志级别</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API unsigned libvlc_get_log_verbosity( const libvlc_instance_t *p_instance );
+</code></pre>
+
+<p>设置LIBVLC的日志级别<br />
+<strong>param：</strong><br />
+    p_instance：libvlc 实例<br />
+    level：日志级别</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API libvlc_log_t *libvlc_log_open( libvlc_instance_t *p_instance );
+</code></pre>
+
+<p>打开一个VLC消息日志句柄<br />
+param:<br />
+    p_instance:libvlc实例<br />
+<strong>return:</strong><br />
+    成功：返回日志消息实例；失败：出错返回NULL；</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_log_close( libvlc_log_t *p_log );
+</code></pre>
+
+<p>关闭一个VLC消息日志实例<br />
+param:<br />
+    p_log:libvlc日志实例或NULL<br />
+####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API unsigned libvlc_log_count( const libvlc_log_t *p_log );
+</code></pre>
+
+<p>返回一个日志实例内的消息数目<br />
+param:<br />
+    p_log:LIBVLC日志实例或NULL;<br />
+<strong>return:</strong><br />
+    返回日志消息的数目，如果p_log为空则返回0；</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_log_clear( libvlc_log_t *p_log );
+</code></pre>
+
+<p>清空一个日志实例<br />
+日志实例内所有的消息都将被清空。日志应定期清除以避免堵塞。<br />
+param:<br />
+    p_log:LIBVLC日志实例或NULL;</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API libvlc_log_iterator_t *libvlc_log_get_iterator( const libvlc_log_t *p_log );
+</code></pre>
+
+<p>分配或返回一个指向日志消息的新迭代器<br />
+param:<br />
+    p_log:LIBVLC日志实例<br />
+<strong>return:</strong><br />
+    日志迭代器对象或出错返回NULL</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API void libvlc_log_iterator_free( libvlc_log_iterator_t *p_iter );
+</code></pre>
+
+<p>释放之前分配的日志消息迭代器<br />
+param:<br />
+    p_iter:LIBVLC日志迭代器或NULL</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API int libvlc_log_iterator_has_next( const libvlc_log_iterator_t *p_iter );
+</code></pre>
+
+<p>迭代器返回日志是否有更多消息<br />
+param:<br />
+    p_iter:LIBVLC日志迭代器或NULL；<br />
+<strong>return:</strong><br />
+    有：返回TRUE；没有：返回FALSE;</p>
+
+<p>####</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API libvlc_log_message_t *libvlc_log_iterator_next( libvlc_log_iterator_t *p_iter,
+                                                               libvlc_log_message_t *p_buffer );
+</code></pre>
+
+<p>返回下一条日志消息<br />
+消息内容一定不能被释放了<br />
+<strong>param：</strong><br />
+    p_iter:LIBVLC日志迭代器或NULL；<br />
+    p_buffer:日志缓冲区；<br />
+<strong>return:</strong><br />
+    日志消息对象或NULL；</p>
+
+<h2 id="例程">例程</h2>
+
+<p>之前说了，呆龙在做一个简易播放器时需要做日志播放器处理。上面讲了一些，下面给出个简单例子：</p>
+
+<p>背景：对于简易LIBVLC日志处理，我们有三点未知：</p>
+
+<ol>
+<li>WHEN：播放器运行时，libvlc何时打出日志；</li>
+<li>WHERE：我们应该在应用代码的什么地方打日志；</li>
+<li>HOW：如何利用LIBVLC给出的以上日志API打日志；</li>
+</ol>
+
+<p>基于以上三点，我的想法是单独开一个线程，每隔一秒检查是否有日志，有则打出，没有继续</p>
+
+<h2 id="正文">正文</h2>
+
+<p>说明:一些libvlc对象,如libvlc实例,libvlc播放器会产生异步信号,每一个对象都提供有事件管理器.可以将相应对象事件关联到对应libvlc对象的事件管理器处理或取消关联事件管理器.
+相关结构</p>
+
+<p>事件管理器:事件管理器属于一个libvlc对象,管理器可以从对象处接收事件信号<br />
+<code>typedef struce libvlc_event_manager_t libvlc_event_manager_t;</code>############事件管理器结构<br />
+<code>&lt;p&gt;struct libvlc_event_t;</code>################################################################事件结构</p><br />
+<code>typedef int libvlc_event_type_t;</code>################################################&ndash;事件类型结构<br />
+<code>typedef void(*libvlc_callback_t)(const struct libvlc_event_t*,void*)</code>&ndash;事件回调函数</p>
+
+<p>####
+注册事件管理器</p>
+
+<pre><code class="language-c">VLC_PUBLIC_API int libvlc_event_attach (  
+	libvlc_event_manager_t *p_event_manager,  
+	libvlc_event_type_t i_event_type,  
+	libvlc_callback_t f_callback,  
+	void *user_data);  
+</code></pre>
+
+<p>param:<br />
+    p_event_manager:要绑定的事件管理器<br />
+    i_event_type: 事件类型<br />
+    f_callback:回调函数指针<br />
+    user_data:用户提供的数据,由事件带回</p>
+
+<h2 id="其他">其他</h2>
+
+<ol>
+<li>获取事件类型名<br />
+<code>VLC_PUBLIC_API const char * libvlc_event_type_name (libvlc_event_type_t event_type);</code>
+param:<br />
+    event_type:事件类型<br /></li>
+<li>获取播放器事件管理器<br />
+<code>VLC_PUBLIC_API libvlc_event_manager_t * libvlc_media_player_event_manager (libvlc_media_player_t *p_mi);</code><br />
+Param:<br />
+    p_mi : Media Player<br />
+<strong>return:</strong><br />
+    返回p_mi关联的事件管理器<br /></li>
+<li>获取媒体描述符对象事件管理器<br />
+VLC_PUBLIC_API libvlc_event_manager_t *<br />
+libvlc_media_event_manager (libvlc_media_t * p_md);<br /></li>
+<li>获取媒体服务discover对象事件管理器<br />
+<code>VLC_PUBLIC_API libvlc_event_manager_t * libvlc_media_discoverer_event_manager (libvlc_media_discoverer_t * p_mdis);</code></li>
+<li>获取媒体列表实例的事件管理器<br />
+VLC_PUBLIC_API libvlc_event_manager_t * libvlc_media_list_event_manager (libvlc_media_list_t *p_ml);<code>
+    param:  
+p_ml : 媒体列表实例  
+6.获取VLM媒体事件管理器  
+</code>VLC_PUBLIC_API libvlc_event_manager_t * libvlc_vlm_get_event_manager (libvlc_instance_t *p_instance);`
+Param:<br />
+    P_instance : libvlc实例<br /></li>
+</ol>
+
+<h2 id="注意">注意</h2>
+
+<p>通常,我们在&rdquo;Get&rdquo;之 后要&rdquo;Release&rdquo;,比如Windows API之GetDC(),相应的ReleaseDC等,在这里对于事件管理器的获取也有一个相应的&rdquo;Release&rdquo;.</p>
+
+<p><code>void libvlc_event_manager_release(libvlc_event_manager_t * p_em );</code></p>
+
+<p>但是,我们并不需要显示的调用该方法,因为&rdquo;对于一些LIBVLC对象,其结构里就有&rsquo;事件管理器&rsquo;####-</p>
+
+<p><code>libvlc_event_manager_t * p_event_manager;</code></p>
+
+<p>在释放或销毁对象的时候，该方法会被调用以同时销毁相应对象的＇事件管理器＇＂，例如：在调用libvlc_media_player_release()释放媒体播放器时就会调用该方法释放媒体播放器事件管理器．</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

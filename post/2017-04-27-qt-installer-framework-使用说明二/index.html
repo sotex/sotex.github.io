@@ -1,0 +1,574 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> Qt Installer Framework 使用说明（二） &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>Qt Installer Framework 使用说明（二）</h1>
+          <span class="post-date">2017年04月27日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/04/27/6775243.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2017/04/27/6775243.html</a></p>
+
+<h1 id="span-id-4-4-教程-创建一个安装程序-span"><span id="4">4、教程: 创建一个安装程序</span></h1>
+
+<p>本教程介绍如何为小项目创建简单的安装程序：</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171829006-301333699.png" alt="安装起始页面" /></p>
+
+<p>本节介绍以下创建安装程序 <strong>必须</strong> 完成的任务：</p>
+
+<ol>
+<li>创建一个包(package)目录，其中将包含所有配置文件和可安装的包。</li>
+<li>创建包含有关如何构建安装程序二进制文件和联机存储库的信息的配置文件。</li>
+<li>创建包信息文件，其中包含有关可安装组件的信息。</li>
+<li>创建安装程序内容并将其复制到软件包(package)目录中。</li>
+<li>使用<code>binarycreator</code>工具创建安装程序。<br>安装程序页面是使用您在配置和程序包信息文件中提供的信息创建的。</li>
+</ol>
+
+<p>示例文件位于Qt Installer Framework资源库中的<code>examples\tutorial</code>目录中。</p>
+
+<h2 id="创建软件包目录">创建软件包目录</h2>
+
+<p>创建一个反映安装程序设计的目录结构，并允许将来扩展安装程序。 该目录必须包含<code>config</code>和<code>packages</code>的子目录。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171851319-862661983.png" alt="包目录结构" /></p>
+
+<p>有关软件包目录的详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-component-description.html">Package Directory</a>。</p>
+
+<h2 id="创建配置文件">创建配置文件</h2>
+
+<p>在<code>config</code>目录中，创建一个名为<code>config.xml</code>的文件，其中包含以下内容：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Installer&gt;
+    &lt;Name&gt;Your application&lt;/Name&gt;
+    &lt;Version&gt;1.0.0&lt;/Version&gt;
+    &lt;Title&gt;Your application Installer&lt;/Title&gt;
+    &lt;Publisher&gt;Your vendor&lt;/Publisher&gt;
+    &lt;StartMenuDir&gt;Super App&lt;/StartMenuDir&gt;
+    &lt;TargetDir&gt;@HomeDir@/InstallationDirectory&lt;/TargetDir&gt;
+&lt;/Installer&gt;
+</code></pre>
+
+<p>该配置文件指定介绍页面上显示以下信息：</p>
+
+<p><code>&lt;Title</code>元素指定显示在标题栏 <em>(下图[1])</em> 上的安装程序名称。
+<code>&lt;Name</code>元素指定添加到页面名称和简介文本 <em>(下图[2])</em> 的应用程序名称。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171921506-1927411748.png" alt="介绍页面" /></p>
+
+<p>其他元素用于自定义安装程序的行为：</p>
+
+<ul>
+<li><code>&lt;Version&gt;</code>元素指定应用程序版本号。</li>
+<li><code>&lt;Publisher&gt;</code>元素指定软件的发布者（例如，在Windows控制面板中所示）。</li>
+<li><code>&lt;StartMenuDir&gt;</code>元素指定Windows开始菜单中产品的默认程序组的名称。</li>
+<li><code>&lt;TargetDir&gt;</code>元素指定显示给用户的默认目标目录是当前用户的主目录中的InstallationDirectory（因为预定义变量@HomeDir@用作值的一部分）。 有关详细信息，请参阅预定义变量。</li>
+</ul>
+
+<p>有关配置文件格式和可用元素的详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-globalconfig.html">Configuration File</a>。</p>
+
+<h2 id="创建程序包信息文件">创建程序包信息文件</h2>
+
+<p>在这种简单的情况下，安装程序只处理一个名为<code>com.vendor.product</code>的组件。 要向安装程序提供有关组件的信息，请创建一个名为<code>package.xml</code>的文件，其中包含以下内容，并将其放在<code>meta</code>目录中：</p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Package&gt;
+    &lt;DisplayName&gt;The root component&lt;/DisplayName&gt;
+    &lt;Description&gt;Install this example.&lt;/Description&gt;
+    &lt;Version&gt;0.1.0-1&lt;/Version&gt;
+    &lt;ReleaseDate&gt;2010-09-21&lt;/ReleaseDate&gt;
+    &lt;Licenses&gt;
+        &lt;License name=&quot;Beer Public License Agreement&quot; file=&quot;license.txt&quot; /&gt;
+    &lt;/Licenses&gt;
+    &lt;Default&gt;script&lt;/Default&gt;
+    &lt;Script&gt;installscript.qs&lt;/Script&gt;
+    &lt;UserInterfaces&gt;
+        &lt;UserInterface&gt;page.ui&lt;/UserInterface&gt;
+    &lt;/UserInterfaces&gt;
+&lt;/Package&gt;
+</code></pre>
+
+<p>下面更详细地描述示例文件中的元素。
+有关软件包信息文件的详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-component-description.html#package-information-file-syntax">Package Information File Syntax</a></p>
+
+<h2 id="指定组件信息">指定组件信息</h2>
+
+<p>来自以下元素的信息显示在组件选择页面上：</p>
+
+<p><code>&lt;DisplayName&gt;</code>元素指定组件列表中组件的名称 <em>(下图[1])</em> 。
+<code>&lt;Description&gt;</code>元素指定在选择组件时显示的文本 <em>(下图[2])</em> 。</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427171943990-720833375.png" alt="组件选择" /></p>
+
+<h2 id="指定安装程序版本">指定安装程序版本</h2>
+
+<p><code>&lt;Versionss&gt;</code>元素使您能够在用户有可用更新时提醒用户进行更新。</p>
+
+<h2 id="添加许可证">添加许可证</h2>
+
+<p><code>&lt;License&gt;</code>元素指定包含许可协议文本 <em>(下图[1])</em> 的文件名称，该文本显示在许可检查页上：</p>
+
+<p><img src="http://images2015.cnblogs.com/blog/693958/201704/693958-20170427172009725-352890100.png" alt="许可证检查" /></p>
+
+<h2 id="选择默认内容">选择默认内容</h2>
+
+<p><code>&lt;Default&gt;</code>元素指定默认情况下是否选择组件。值为<code>true</code>的组件将设置为选定。 在此示例中，我们使用脚本在运行时解析值。 JavaScript脚本文件<code>installscript.qs</code>的名称在<code>&lt;Script&gt;</code>元素中指定。</p>
+
+<h2 id="创建安装程序内容">创建安装程序内容</h2>
+
+<p>要安装的内容存储在组件的<code>data</code>目录中。 因为只有一个组件，请将数据放在<code>packages/com.vendor.product/data</code>目录中。 该示例已包含用于测试目的的文件，但您基本上可以将任何文件放在目录中。</p>
+
+<p>有关打包规则和选项的详细信息，请参阅数据目录。</p>
+
+<h2 id="创建安装程序二进制文件">创建安装程序二进制文件</h2>
+
+<p>您现在可以创建您的第一个安装程序。 在命令行上切换到<code>examples\tutorial</code>目录。 要创建一个名为<code>YourInstaller.exe</code>一个安装程序，其中包含<code>com.vendor.product</code>标识的包，输入以下命令：</p>
+
+<p><strong>在Windows上:</strong></p>
+
+<pre><code class="language-shell">..\..\bin\binarycreator.exe -c config\config.xml -p packages YourInstaller.exe
+</code></pre>
+
+<p><strong>在Linux 或 OS 上:</strong></p>
+
+<pre><code class="language-shell">../../bin/binarycreator -c config/config.xml -p packages YourInstaller
+</code></pre>
+
+<p>安装程序会在当前目录中创建，你可以提供给最终用户。</p>
+
+<p>有关使用binarycreator工具的更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-tools.html#binarycreator">binarycreator</a>。</p>
+
+<p>注意：如果在运行教程安装程序时显示错误消息，请检查是否使用静态构建的Qt创建安装程序。 有关更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-getting-started.html#configuring-qt">Configuring Qt</a>。</p>
+
+<h1 id="5-创建安装程序-creating-installers">5、创建安装程序 Creating Installers</h1>
+
+<p>创建离线和联机安装程序需要以下步骤：</p>
+
+<ul>
+<li>1. 为可安装组件创建包目录。相关相信信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-component-description.html">Package Directory</a></li>
+<li>2. 在config目录中创建一个名为<code>config.xml</code>的配置文件。 它包含有关如何构建安装程序二进制文件和联机存储库的信息。 有关文件格式和可用设置的详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-globalconfig.html">Configuration File</a></li>
+<li>3. 在<code>config\meta</code>目录中创建一个名为<code>package.xml</code>的包信息文件。 它包含部署和安装过程的设置。 有关详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-component-description.html#meta-directory">Meta Directory</a></li>
+<li>4. 创建安装程序内容并将其复制到软件包目录中。 有关详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-component-description.html#data-directory">Data Directory</a></li>
+<li>5. 对于联机安装程序，请使用<code>repogen</code>工具创建包含可安装内容的存储库，并将存储库上载到Web服务器。</li>
+<li>6. 使用binarycreator工具创建安装程序。 有关详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-tools.html">Tools</a></li>
+</ul>
+
+<p>有关如何创建使用预定义安装程序页面的简单安装程序的示例，请参阅<a href="#4">Tutorial: Creating an Installer</a></p>
+
+<p>以下部分介绍如何创建不同类型的安装程序：</p>
+
+<h2 id="创建离线安装程序-creating-offline-installers">创建离线安装程序 Creating Offline Installers</h2>
+
+<p>在安装期间， <strong>离线安装程序</strong> 根本不尝试连接到联机存储库。 但是，元数据配置（config.xml）中可以设置允许用户在线添加和更新组件。</p>
+
+<p>离线安装程序在公司防火墙不允许最终用户连接到Web服务器的情况下尤其有用。 网络管理员可以在网络中设置本地更新服务。</p>
+
+<p>要创建离线安装程序，请使用<code>binarycreator</code>工具的<code>--offline-only</code>选项。</p>
+
+<p>要在Windows中创建离线安装程序，请输入以下命令：</p>
+
+<pre><code class="language-shell">&lt;location-of-ifw&gt;\binarycreator.exe --offline-only -t &lt;location-of-ifw&gt;\installerbase.exe -p &lt;package_directory&gt; -c &lt;config_directory&gt;\&lt;config_file&gt; &lt;installer_name&gt;
+</code></pre>
+
+<p>译注:<code>&lt;location-of-ifw&gt;</code>表示<code>binarycreator</code>程序所在目录。</p>
+
+<p>某些选项具有默认值，所以，可以忽略它们。例如，输入以下命令来创建名为SDKInstaller.exe的安装程序二进制文件，其中包含由org.qt-project.sdk标识的软件包及其依赖关系：</p>
+
+<pre><code class="language-shell">binarycreator.exe --offline-only -c installer-config -p installer-packes SDKInstaller.exe
+</code></pre>
+
+<h2 id="创建在线安装程序-creating-online-installers">创建在线安装程序 Creating Online Installers</h2>
+
+<p>联机安装程序获取一个不在二进制文件中的存储库描述<code>(Update.xml)</code>。创建存储库并将其上传到Web服务器。 然后在用于创建安装程序的config.xml文件中指定存储库的位置。</p>
+
+<h3 id="span-id-5-2-1-创建存储库-creating-repositories-span"><span id="5_2_1">创建存储库 Creating Repositories</span></h3>
+
+<p>使用<code>repogen</code>工具创建一个软件包目录的所有软件包的联机存储库：</p>
+
+<pre><code class="language-shell">repogen.exe -p &lt;package_directory&gt; &lt;repository_directory&gt;
+</code></pre>
+
+<p>例如，要创建只包含<code>org.qt-project.sdk.qt</code>和<code>org.qt-project.sdk.qtcreator</code>的存储库，请输入以下命令：
+`</p>
+
+<pre><code class="language-shell">repogen.exe -p packages -i org.qt-project.sdk.qt,org.qt-project.sdk.qtcreator repository
+</code></pre>
+
+<p>创建存储库后，将其上传到Web服务器。 您必须在安装程序配置文件(config.xml)中指定存储库的位置。</p>
+
+<h3 id="span-id-5-2-2-配置存储库-configuring-repositories-span"><span id="5_2_2">配置存储库 Configuring Repositories</span></h3>
+
+<p>安装程序配置文件<code>(config.xml)</code>中的<code>&lt;RemoteRepositories&gt;</code>元素可以包含多个存储库列表。 每个存储库都可以有以下设置项：</p>
+
+<ul>
+<li><code>&lt;Url&gt;</code>, 指向可用组件列表。</li>
+<li><code>&lt;Enabled&gt;</code>, 0表示禁用此存储库。</li>
+<li><code>&lt;Username&gt;</code>, 用于受保护存储库验证的用户名。</li>
+<li><code>&lt;Password&gt;</code>, 用于受保护存储库验证的密码。</li>
+<li><code>&lt;DisplayName&gt;</code>, 可选，设置要显示的字符串，而不是URL。</li>
+</ul>
+
+<p>URL需要指向列出可用组件的Updates.xml文件。 例如：</p>
+
+<pre><code class="language-xml">&lt;RemoteRepositories&gt;
+     &lt;Repository&gt;
+             &lt;Url&gt;http://www.example.com/packages&lt;/Url&gt;
+             &lt;Enabled&gt;1&lt;/Enabled&gt;
+             &lt;Username&gt;user&lt;/Username&gt;
+             &lt;Password&gt;password&lt;/Password&gt;
+             &lt;DisplayName&gt;Example repository&lt;/DisplayName&gt;
+     &lt;/Repository&gt;
+&lt;/RemoteRepositories&gt;
+</code></pre>
+
+<p>仅当安装程序 <strong>可以访问存储库</strong> 时，安装程序才会继续。 如果在安装后访问存储库，维护工具将拒绝安装。 但是，卸载后可再次安装。 默认情况下可以启用或禁用存储库。 对于需要验证的存储库，也可以在此处设置详细信息，但在此输入密码通常不可取，因为它以纯文本保存。 若此处未设置身份验证详细信息，将在 <strong>运行时通过对话框获取</strong> 。 用户可以在运行时解决这些设置。</p>
+
+<h3 id="创建安装程序二进制文件-creating-installer-binaries">创建安装程序二进制文件 Creating Installer Binaries</h3>
+
+<p>要使用binarycreator工具创建联机安装程序，请输入以下命令：</p>
+
+<pre><code class="language-shell">&lt;location-of-ifw&gt;\binarycreator.exe -t &lt;location-of-ifw&gt;\installerbase.exe -p &lt;package_directory&gt; -c &lt;config_directory&gt;\&lt;config_file&gt; -e &lt;packages&gt; &lt;installer_name&gt;
+</code></pre>
+
+<p>例如，输入以下命令以创建名为<code>SDKInstaller.exe</code>的安装程序二进制文件，其中 <strong>不包含</strong> <code>org.qt-project.sdk.qt</code>和<code>org.qt-project.qtcreator</code>的数据，因为这些软件包是 <strong>从远程存储库下载</strong> 的：</p>
+
+<pre><code class="language-shell">binarycreator.exe -p installer-packages -c installer-config\config.xml -e org.qt-project.sdk.qt,org.qt-project.qtcreator SDKInstaller.exe
+</code></pre>
+
+<h3 id="减少安装程序文件大小-reducing-installer-size">减少安装程序文件大小 Reducing Installer Size</h3>
+
+<p>即使组件从Web服务器获取，<code>binarycreator</code> <strong>仍然会将它们添加到安装程序二进制文件</strong> 中。 但是，当安装程序检查Web服务器上的更新时，如果新版本不可用，则最终用户可以免于下载。</p>
+
+<p>或者，您可以创建不包含任何数据仅从Web服务器获取所有数据的联机安装程序。 使用<code>binarycreator</code>工具的<code>-n</code>参数，并且只将<code>根(root)组件</code>添加到安装程序。 通常根(root)组件是空的，因此只添加根(root)的XML描述。</p>
+
+<p>更多相关选项的详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/ifw-tools.html#summary-of-binarycreator-parameters">Summary of binarycreator Parameters</a></p>
+
+<h2 id="促进更新-promoting-updates">促进更新 Promoting Updates</h2>
+
+<p>促进更新这是一个很别扭的翻译，这里的意思是在运行联机安装程序的时候，会去读取存储库中的<code>Update.xml</code>文件来判断是否需要下载更新。</p>
+
+<p>创建在联机程序，以便能够向最终安装产品用户促进更新。</p>
+
+<p>需要以下步骤来促进更新：</p>
+
+<ul>
+<li>1. 复制要更新的内容到软件包目录。</li>
+<li>2. 增加<code>package.xml</code>文件中已更新组件的<code>&lt;Version&gt;</code>元素的值。</li>
+<li>3. 使用<code>repogen</code>工具重新创建具有更新内容的联机存储库，并在存储库的根目录中生成<code>Updates.xml</code>文件。</li>
+<li>4. 将存储库上传到Web服务器。</li>
+<li>5. 使用<code>binarycreator</code>工具创建安装程序。</li>
+</ul>
+
+<h3 id="配置更新-configuring-updates">配置更新 Configuring Updates</h3>
+
+<p>安装程序在启动时下载<code>Updates.xml</code>文件，并将安装的版本与文件中的版本进行比较。 如果联机版本号大于本地版本号，安装程序将在可用更新列表中显示它。</p>
+
+<p>增加<code>package.xml</code>文件中组件的<code>&lt;Version&gt;</code>元素的值。</p>
+
+<h3 id="重新创建存储库-recreating-repositories">重新创建存储库 Recreating Repositories</h3>
+
+<p>提供更新的最简单方法是重新创建资源库，并上传到Web服务器。 有关更多信息，请参阅<a href="#5_2_1">创建存储库 Creating Repositories</a></p>
+
+<h3 id="部分更新存储库">部分更新存储库</h3>
+
+<p>整个库完全更新可能不是最优的，如果：
+- 存储库非常大，因为上传需要很长时间。
+- 你想只提供更新的组件。</p>
+
+<p><strong>注意：</strong> <code>repogen</code>会在每次调用时重新创建7zip存档。 由于7zip存储所包含的文件的时间戳（在此过程中被移动或复制时改变），每个归档的SHA值将改变。 SHA校验和值用于验证下载的存档，因此需要匹配7zip的SHA值。 由于SHA值存储在Updates.xml文件中，因此将强制您上传完整存储库。 这可以通过使用<code>repogen</code>的<code>--update</code>选项来规避。</p>
+
+<h3 id="创建部分更新-creating-partial-updates">创建部分更新 Creating Partial Updates</h3>
+
+<p>在重新创建联机存储库时，请使用<code>--update</code>参数。 它将现有存储库作为输入，并仅更改附加参数指定的组件。 那些SHA值在全局配置中也被改变。</p>
+
+<h3 id="上传部分更新-uploading-partial-updates">上传部分更新 Uploading Partial Updates</h3>
+
+<p>上传下列项目到Web服务器：</p>
+
+<ul>
+<li>组件目录（通常类似于com.vendor.product.updatedpart）。</li>
+<li>全局Updates.xml存储在联机存储库的根目录中。</li>
+</ul>
+
+<p><strong>注意：</strong> 上传项目的顺序非常重要。 如果在实时服务器上更新存储库，请首先更新组件，然后更新<code>Updates.xml</code>。 软件包名称包括版本号，因此，在新软件包完全上传前，最终用户会收到旧软件包。</p>
+
+<h3 id="更改存储库-changing-repositories">更改存储库 Changing Repositories</h3>
+
+<p>要使当前更新存储库指向其他存储库，请编辑当前存储库中的<code>Updates.xml</code>文件。 您可以<code>添加</code>，<code>替换</code>或<code>删除</code>存储库。</p>
+
+<pre><code class="language-xml">&lt;RepositoryUpdate&gt;
+  &lt;Repository action=&quot;...&quot; OPTIONS /&gt;
+  &lt;Repository action=&quot;...&quot; OPTIONS /&gt;
+&lt;/RepositoryUpdate&gt;
+</code></pre>
+
+<h4 id="添加存储库-adding-repositories">添加存储库 Adding Repositories</h4>
+
+<p>要更新(原文是Update，猜测应该是添加)存储库，请将 <strong>具有以下选项</strong> <code>&lt;Repository&gt;</code>子元素添加到<code>&lt;RepositoryUpdate&gt;</code>元素中：</p>
+
+<pre><code class="language-xml">&lt;Repository action=&quot;add&quot; url=&quot;http://www.example.com/repository&quot; name=&quot;user&quot; password=&quot;password&quot;
+             displayname=&quot;Example Repository&quot; /&gt;
+</code></pre>
+
+<h4 id="删除存储库-removing-repositories">删除存储库 Removing Repositories</h4>
+
+<p>要删除存储库，请将 <strong>具有以下选项</strong> <code>&lt;Repository&gt;</code>子元素添加到<code>&lt;RepositoryUpdate&gt;</code>元素中：</p>
+
+<pre><code class="language-xml">&lt;Repository action=&quot;remove&quot; url=&quot;http://www.example.com/repository&quot; /&gt;
+</code></pre>
+
+<h4 id="替换存储库-replacing-repositories">替换存储库 Replacing Repositories</h4>
+
+<p>要用一个存储库替换另一个，请将 <strong>具有以下选项</strong> <code>&lt;Repository&gt;</code>子元素添加到<code>&lt;RepositoryUpdate&gt;</code>元素中：</p>
+
+<pre><code class="language-xml">&lt;Repository action=&quot;replace&quot; oldurl=&quot;http://www.example.com/repository&quot;
+            newurl=&quot;http://www.example.com/newrepository&quot; name=&quot;user&quot; password=&quot;password&quot;
+            displayname=&quot;New Example Repository&quot; /&gt;
+</code></pre>
+
+<h2 id="自定义安装程序-customizing-installers">自定义安装程序 Customizing Installers</h2>
+
+<p>您可以使用脚本通过以下方式自定义安装程序：</p>
+
+<ul>
+<li>添加由脚本编译的Qt Installer Framework 操作，并由安装程序来执行。</li>
+<li>在<code>package.xml</code>文件中指定添加的新页面，并存放到<code>package</code>目录中。</li>
+<li>通过修改现有页面，将自定义的用户界面元素作为单个widgets小部件插入其中。</li>
+<li>添加语言(variants)</li>
+</ul>
+
+<p>您可以使用<code>组件脚本(component scripts)</code>和<code>控制脚本(control script)</code>来自定义安装程序。组件脚本在组件的<code>package.xml</code>文件的<code>&lt;Script&gt;</code>元素中指定，与特定组件相关联。在 <strong>获取组件的元数据时加载脚本</strong> 。有关组件脚本的更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/noninteractive.html">组件脚本Controller Scripting</a>。</p>
+
+<p>有关可在组件和控制脚本中使用的全局JavaScript对象的更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/scripting-qmlmodule.html">Scripting API</a>。</p>
+
+<h3 id="span-id-5-4-1-添加操作-adding-operations-span"><span id="5_4_1">添加操作 Adding Operations</span></h3>
+
+<p>您可以使用组件脚本在安装过程中执行Qt Installer Framework操作。 通常，通过<code>移动</code>，<code>复制</code>或<code>修补</code>来操作文件。 使用<a href="http://doc.qt.io/qtinstallerframework/qinstaller-component.html#addOperation"><code>QInstaller::Component::addOperation</code></a>或<a href="http://doc.qt.io/qtinstallerframework/qinstaller-component.html#addElevatedOperation"><code>QInstaller::Component::addElevatedOperation</code></a>函数添加操作。 有关更多信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/scripting.html#adding-operations-to-components">向组件添加操作 Adding Operations to Components</a>。</p>
+
+<p>此外，您可以通过派生<a href="http://doc.qt.io/qtinstallerframework/kdupdater-updateoperation.html"><code>KDUpdater::UpdateOperation</code></a>来实现在安装程序中注册自定义安装操作的方法。 有关详细信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/scripting.html#registering-custom-operations">注册自定义操作 Registering Custom Operations</a>。</p>
+
+<p>有关可用操作的信息，请参阅<a href="http://doc.qt.io/qtinstallerframework/operations.html">操作Operations</a>。</p>
+
+<h3 id="span-id-5-4-2-添加页面-adding-pages-span"><span id="5_4_2">添加页面 Adding Pages</span></h3>
+
+<p>组件可以包含一个或多个用户界面文件，这些文件由组件或控制脚本放置到安装程序中(在安装程序执行时加载)。 安装程序将自动加载<code>package.xml</code>文件的<code>UserInterfaces</code>元素中列出的所有用户界面文件。</p>
+
+<h4 id="使用组件脚本添加页面-using-component-scripts-to-add-pages">使用组件脚本添加页面 Using Component Scripts to Add Pages</h4>
+
+<p>要向安装程序添加新页面，请使用<a href="http://doc.qt.io/qtinstallerframework/scripting-installer.html#addWizardPage-method"><code>installer::addWizardPage()</code></a>方法并指定新页面的位置。 例如，以下代码在 <strong>准备安装页面</strong> 之前添加了一个<code>MyPage</code>的实例：</p>
+
+<pre><code class="language-js">installer.addWizardPage( component, &quot;MyPage&quot;, QInstaller.ReadyForInstallation );
+</code></pre>
+
+<p>您可以使用组件脚本通过调用<a href="http://doc.qt.io/qtinstallerframework/scripting-component.html#userInterface-method"><code>component::userInterface()</code></a>方法访问加载的小部件的类名，如下面的代码段所示：</p>
+
+<pre><code class="language-js">component.userInterface( &quot;MyPage&quot; ).checkbox.checked = true;
+</code></pre>
+
+<h4 id="使用控制脚本添加页面-using-control-scripts-to-add-pages">使用控制脚本添加页面 Using Control Scripts to Add Pages</h4>
+
+<p>要注册自定义页面，请使用[<code>installer::addWizardPage()</code>]()方法和U并文件中设置的对象名称（例如“MyPage”）。 然后调用<code>Dynamic${ObjectName}Callback()</code>函数（例如，<code>DynamicMyPageCallback()</code>）：</p>
+
+<pre><code class="language-js">function Controller()
+{
+    installer.addWizardPage(component, &quot;MyPage&quot;, QInstaller.TargetDirectory)
+}
+
+Controller.prototype.DynamicMyPageCallback()
+{
+    var page = gui.pageWidgetByObjectName(&quot;DynamicMyPage&quot;);
+    page.myButton.click,
+    page.myWidget.subWidget.setText(&quot;hello&quot;)
+}
+</code></pre>
+
+<p>您可以通过使用在UI文件中设置的对象名称来访问窗口小部件。 例如，在上面的代码中<code>myButton</code>和<code>myWidget</code>就是控件对象名称。</p>
+
+<h3 id="添加小部件-adding-widgets">添加小部件 Adding Widgets</h3>
+
+<p>您可以使用组件或控制脚本将自定义用户界面元素作为单个窗口小部件（例如复选框）插入到安装程序中。</p>
+
+<p>要插入单个窗口小部件，请使用<a href="http://doc.qt.io/qtinstallerframework/scripting-installer.html#addWizardPageItem-method"><code>installer::addWizardPageItem</code></a>方法。 例如，以下代码片段从脚本中将<code>MyWidget</code>的实例添加到 <strong>组件选择页面</strong> ：</p>
+
+<pre><code class="language-js">installer.addWizardPageItem( component, &quot;MyWidget&quot;, QInstaller.ComponentSelection );
+</code></pre>
+
+<h3 id="与安装程序功能交互">与安装程序功能交互</h3>
+
+<p>例如，您可以使用控制脚本在测试中自动执行安装程序功能。 以下代码段说明如何自动单击目标目录选择页上的 <strong>下一步(Next)</strong> 按钮：</p>
+
+<pre><code class="language-js">Controller.prototype.TargetDirectoryPageCallback = function()
+{
+    gui.clickButton(buttons.NextButton);
+}
+</code></pre>
+
+<h3 id="span-id-5-4-5-翻译页面-translating-pages-span"><span id="5_4_5">翻译页面 Translating Pages</span></h3>
+
+<p>安装程序使用<code>Qt Translation</code>系统支持将用户可读输出转换为多种语言。 要向最终用户提供组件脚本和用户界面中包含的字符串的 <strong>本地化版本</strong> ，请创建随组件一起加载的<code>QTranslator</code>文件。 安装程序加载与当前系统区域设置匹配的翻译文件。 例如，如果系统语言环境是德语，则会加载de.qm文件。 此外，如果找到，将显示本地化license_de.txt而不是默认的license.txt。</p>
+
+<p>需要将翻译添加到激活组件的<code>package.xml</code>文件中：</p>
+
+<pre><code class="language-xml">&lt;Translations&gt;
+    &lt;Translation&gt;de.qm&lt;/Translation&gt;
+&lt;/Translations&gt;
+</code></pre>
+
+<p>对脚本中的文本文本使用<code>qsTr()</code>函数。 此外，您可以将<code>Component.prototype.retranslateUi</code>方法添加到脚本。 当安装程序的语言更改并加载翻译文件时调用。</p>
+
+<p>当在翻译用户界面时使用<code>qsTr</code>或<code>UI文件的类名</code>,用于翻译的上下文是脚本文件的基本名称。例如，如果脚本文件被称为<code>installscript.qs</code>，上下文将是<code>installscript</code>。</p>
+
+<p>注意：翻译系统也可用于自定义UI。 使用例如一个<code>en.ts</code>文件作为自定义英语版本替换安装程序中的任何文本。</p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

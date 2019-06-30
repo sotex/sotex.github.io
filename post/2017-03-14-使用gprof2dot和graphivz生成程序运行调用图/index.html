@@ -1,0 +1,254 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> 使用gprof2dot和graphivz生成程序运行调用图 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>使用gprof2dot和graphivz生成程序运行调用图</h1>
+          <span class="post-date">2017年03月14日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2017/03/14/6548189.html">博客园文章地址 http://www.cnblogs.com/oloroso/archive/2017/03/14/6548189.html</a></p>
+
+<h1 id="使用gprof2dot和graphivz生成程序运行调用图">使用gprof2dot和graphivz生成程序运行调用图</h1>
+
+<p><code>gprof2dot</code>是一个将<code>gprof</code>生成的输出转换为<code>dot</code>脚本的工具。通过给定一个<code>gprof</code>的输出文件，将其转换为生成程序调用图的<code>dot</code>脚本。<code>dot</code>脚本可以生成图像来进行查看。</p>
+
+<h2 id="1-下载gprof2dot工具">1、下载gprof2dot工具</h2>
+
+<p>gprof2dot工具由JoséFronseca维护，并托管在Google代码（<a href="http://code.google.com/p/jrfonseca/w/list）,但是这个已经无法访问了。这里提供一个github的地址[https://github.com/jrfonseca/gprof2dot.git](https://github.com/jrfonseca/gprof2dot.git)。">http://code.google.com/p/jrfonseca/w/list）,但是这个已经无法访问了。这里提供一个github的地址[https://github.com/jrfonseca/gprof2dot.git](https://github.com/jrfonseca/gprof2dot.git)。</a></p>
+
+<pre><code class="language-bash">git clone https://github.com/jrfonseca/gprof2dot.git
+</code></pre>
+
+<p>这个工具需要<code>python</code>环境的支持，请提前安装好<code>python3</code>。</p>
+
+<h2 id="2-使用gprof生成概要分析数据">2、使用gprof生成概要分析数据</h2>
+
+<h3 id="2-1-gprof简介">2.1 gprof简介</h3>
+
+<p>Gprof 是GNU gnu binutils工具之一，默认情况下linux系统当中都带有这个工具。
+- 1. 可以显示“flat profile”，包括每个函数的调用次数，每个函数消耗的处理器时间。
+- 2. 可以显示“Call graph”，包括函数的调用关系，每个函数调用花费了多少时间。
+- 3. 可以显示“注释的源代码”－－是程序源代码的一个副本，标记有程序中每行代码的执行次数。</p>
+
+<h3 id="2-2-使用gprof生成分析数据">2.2 使用gprof生成分析数据</h3>
+
+<p>1、在编译的时候使用<code>-pg</code>选项，可以写入makefile中。（链接时不需要）</p>
+
+<pre><code class="language-bash"># 普通程序编译
+$ gcc -pg -g source.c -o binary
+# cuda程序编译
+$ nvcc -Xcompiler“-g -pg”-g -pg -arch = sm_20 source.cu -o binary
+</code></pre>
+
+<p>2、执行编译出的程序。
+执行方式与没有加<code>pg</code>选项前是一样的，执行后将在程序运行目录下生成<code>gmon.out</code>文件。这是一个二进制文件，需要进一步分析生成文本文件。如果已经存在了<code>gmon.out</code>文件，将会被覆盖。</p>
+
+<pre><code class="language-bash">./binary	# 必须先运行一遍生成gmon.out文件，后面才能使用gprof工具继续操作
+</code></pre>
+
+<p>3、用<code>gprof</code>工具生成概要分析数据文件。</p>
+
+<pre><code class="language-bash">$ gprof ./binary&gt; gprof_output.txt
+</code></pre>
+
+<h2 id="3-生成调用图">3、生成调用图</h2>
+
+<p>配置好<code>gprof2dot</code>运行环境后，就可以使用其来生成<code>dot</code>脚本。</p>
+
+<pre><code class="language-bash">$ graph2dot.py gprof_output.txt&gt; call_graph.dot
+</code></pre>
+
+<p>我这里是直接使用<code>git</code>克隆下来的，提前安装好了python3和graphivz`，所以直接运行即可。</p>
+
+<h2 id="4-生成可视化的图形">4、生成可视化的图形</h2>
+
+<p>这里需要安装好<code>Graphivz</code>软件。
+Windows下可以直接下载<a href="http://www.graphviz.org/pub/graphviz/stable/windows/graphviz-2.38.msi">安装包</a>安装，或者下载<a href="http://www.graphviz.org/pub/graphviz/stable/windows/graphviz-2.38.zip">编写版本</a>。
+Linux下可以使用下面命令直接安装</p>
+
+<pre><code class="language-bash"># debian系列
+sudo apt install graphivz
+# Archlinux系列
+sudo pacman -S graphivz
+# fedora
+sudo dnf install graphivz
+</code></pre>
+
+<p>然后使用<code>dot</code>命令将前面生成的<code>call_graph.dot</code>文件转换为图像文件。
+<strong>生成png文件</strong></p>
+
+<pre><code class="language-bash">$ dot -Tpng call_graph.dot -o call_graph.png
+</code></pre>
+
+<p><strong>生成PostScript文件</strong></p>
+
+<pre><code class="language-bash">$ dot -Tps call_graph.dot -o call_graph.ps
+</code></pre>
+
+<p>如果要生成其他格式的图像，可以使用<code>-T</code>选项指定，支持eps/gif/jpeg/ps/svg/png/ps2/svgz等格式/
+如果需要对布局引擎进行选择，可以使用<code>-K</code>进行指定，支持circo/dot/fdp/neato/nop/nop1/nop2/osage/patchwork/sfdp/twopi等。
+例如，生成<code>png</code>图像，使用<code>fdp</code>布局引擎的命令如下:</p>
+
+<pre><code class="language-bash">$ dot -Tsvg -Kfdp call_graph.dot -o call_graph.svg
+</code></pre>
+
+<p>注：布局引擎可以根据自己的喜好选择，个人倾向使用fdp。默认是上下方向布局的，可以在<code>call_graph.dot</code>中添加一行<code>rankdir=LR</code>改为左向右方向布局。</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="http://www.xuebuyuan.com/zh-tw/1849475.html">Linux性能評測工具之一：gprof篇</a>
+<a href="http://blog.csdn.net/u014717036/article/details/50762252">Linux下性能分析工具和内存泄露检测工具的简介(Valgrind和gprof)</a>
+<a href="https://redmine.epfl.ch/projects/python_cookbook/wiki/gprof_call-graph_visualization">gprof_call-graph_visualization</a></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>

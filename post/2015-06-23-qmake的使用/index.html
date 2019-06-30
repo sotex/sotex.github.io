@@ -1,0 +1,502 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title> qmake的使用 &middot; 风吹过 </title>
+    
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/uno.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://sotex.github.io//css/lightGallery.css" />
+    
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link href="" rel="alternate" type="application/rss+xml" title="风吹过" />
+    
+    <script src="http://sotex.github.io//js/jquery.min.js"></script>
+    <script src="http://sotex.github.io//js/main.min.js">
+    </script>
+</head>
+
+  <body>
+    <div id="scriptHeader">
+    <span class="mobile btn-mobile-menu">
+            <i class="fa fa-bars btn-mobile-menu__icon"></i>
+            <i class="fa fa-times btn-mobile-close__icon hidden"> </i>
+    </span>
+    <header class="
+        
+            panel-cover panel-cover--collapsed
+        " >
+    <div class="panel-main">
+        <div class="panel-main__inner panel-inverted">
+            <div class="panel-main__content"> 
+                <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                <h1 class="panel-cover__title panel-title">
+                    <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                </h1>
+                <hr class="panel-cover__divider" />
+                <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                <div class="navigation-wrapper">
+                    <nav class="cover-navigation cover-navigation--primary">
+                        <ul class="navigation">
+                            <li class="navigation__item"><a href="http://sotex.github.io/#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                            <li class="navigation__item"><a href="/pages/about.html" title="查看简介 " class="blog-button">简介</a> </li></br> 
+                            
+                       </ul>
+                    </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+            </div>
+        </div>
+        <div class="panel-cover--overlay"></div>
+    </div>
+</header>
+</div>
+<noscript>
+    <style>
+        #scriptHeader {display:none;}
+        .navigation-wrapper{
+            display: block;
+            top: 0;
+        }
+    </style>
+
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url()">
+        <div class="panel-main">
+            <div class="panel-main__inner panel-inverted">
+                <div class="panel-main__content"> 
+                    <a href="http://sotex.github.io//" title="link to homepage for 风吹过"> <img src="/images/user.png" width="80" alt="风吹过 logo" class="panel-cover__logo logo" /> </a> 
+                    <h1 class="panel-cover__title panel-title">
+                        <a href="http://sotex.github.io//"  title="link to homepage for 风吹过">风吹过</a>
+                    </h1>
+                    <hr class="panel-cover__divider" />
+                    <p class="panel-cover__description">  以前，晚餐后在学校田径场的大榕树下，散散步吹吹风，累了就去图书馆看看书，感觉真好。  </p>
+                    <hr class="panel-cover__divider panel-cover__divider--secondary" />
+                    <div class="navigation-wrapper">
+                        <nav class="cover-navigation cover-navigation--primary">
+                            <ul class="navigation">
+                                <li class="navigation__item"><a href="http://sotex.github.io//#blog" title="查看 风吹过 博客" class="blog-button">博客</a> </li></br>
+                                <li class="navigation__item"><a href="/pages/about.html" title="查看简介" class="blog-button">简介</a> </li></br> 
+                                
+                           </ul>
+                        </nav> <nav class="cover-navigation navigation--social">
+    <ul class="navigation"> 
+	
+        
+        <li class="navigation__item">
+            <a href="http://cnblogs.com/oloroso" title="@oloroso 博客园"> <i class='fa fa-twitter'></i> <span class="label">cnblogs</span> </a>
+        </li> 
+	
+	
+        
+        <li class="navigation__item">
+            <a href="https://github.com/sotex" title="sotex on github"> <i class='fa fa-github'></i> <span class="label">Github</span> </a>
+        </li>  </br>
+	
+	
+	
+        
+        <li class="navigation__item">
+            <a href="mailto:ymwh@foxmail.com" title="Email ymwh@foxmail.com"> <i class='fa fa-envelope-o'></i> <span class="label">Email</span> </a>
+        </li>  </ul>
+</nav>
+ </div>
+                </div>
+            </div>
+            <div class="panel-cover--overlay"></div>
+        </div>
+    </header>
+</noscript>
+
+    <div class="content-wrapper">
+      <div class="content-wrapper__inner">
+        <div class="post">
+          <h1>qmake的使用</h1>
+          <span class="post-date">2015年06月23日</span>
+          
+
+<p>[TOC]
+<a href="http://www.cnblogs.com/oloroso/archive/2015/06/23/4595181.html">博客园原文地址 http://www.cnblogs.com/oloroso/archive/2015/06/23/4595181.html</a></p>
+
+<p>本文由乌合之众 lym瞎编，欢迎转载 blog.cnblogs.net/oloroso
+本文由乌合之众 lym瞎编，欢迎转载 my.oschina.net/oloroso</p>
+
+<hr />
+
+<p>还是先说一下当前的系统环境：Ubuntu 14.04 + Qt5.4
+如果没有安装过QT，可以安装下面几个qt软件</p>
+
+<pre><code class="language-shell">sudo apt-get install qt5-default qt5-doc-html qt5-qmake qt5-doc qt5-image-formats-plugins
+</code></pre>
+
+<p>-</p>
+
+<p>这只是对qmake使用的一个说明而已。如果一直使用Qt Create来构建工程，很容易让人以为Qt项目必须使用Qt Create来创建。其实我们可以像写普通的C++工程一样，不一定需要IDE，编辑器+编译器即可搞定了。
+不过这个有一个缺点，就是如果在connect函数连接信号的槽的时候，即便是<strong>槽函数不存在，也能够通过编译</strong>。</p>
+
+<p>##1. 先来写源代码
+必须先写源代码，这个源代码很简单，就是创建一个<code>Widget</code>,然后widget上面有一个<code>PushButton</code>,点击之后弹出一个<code>MessageBox</code>来提示一个*&ldquo;hello world&rdquo;*。</p>
+
+<p>###hello.h</p>
+
+<pre><code class="language-cpp">#ifndef __HELLO_H_
+#define __HELLO_H_
+
+#include &lt;QWidget&gt;
+
+class hello:public QWidget{
+	Q_OBJECT
+	public:
+		explicit hello(QWidget *parent = 0);
+		~hello();
+
+public slots:
+	//槽函数，处理button单击
+	void btn_click();
+	private:
+};
+
+#endif
+
+#endif
+</code></pre>
+
+<hr />
+
+<p>###hello.cpp</p>
+
+<pre><code class="language-cpp">#include &quot;hello.h&quot;
+
+#include &lt;QPushButton&gt;
+#include &lt;QMessageBox&gt;
+
+hello::hello(QWidget *parent)
+	: QWidget(parent){
+	
+	//创建一个PushButton
+	QPushButton * btn = new QPushButton(&quot;点击我^-^&quot;,this);
+	//连接信号和槽
+	connect(btn,SIGNAL(clicked()),this,SLOT(btn_click()));
+
+}
+
+void hello::btn_click()
+{
+	QMessageBox::information(NULL, &quot;单击了button&quot;, 
+				&quot;hello world&quot;, QMessageBox::Yes);
+}
+</code></pre>
+
+<p>###main.cpp</p>
+
+<pre><code class="language-cpp">#include &quot;hello.h&quot;
+#include &lt;QApplication&gt;
+
+int main(int argc, char *argv[])
+{
+	QApplication a(argc, argv);
+	hello w;
+	w.show();
+
+	return a.exec();
+}
+</code></pre>
+
+<p>##2.编写.pro文件
+***.pro是Qt的工程文件，这个文件是给qmake用来生成Makefile用的。
+如果了解makefile的人应该知道，Makefile的三个关键点就是<code>目标</code>，<code>依赖</code>，<code>命令</code>。这里也很类似。
+.pro文件中可以指明这个Qt项目的<code>头文件</code>，<code>源文件</code>，<code>链接的外部库</code>，<code>目标文件名</code>，<code>模板(生成什么样的Makefile)</code>，<code>版本配置(debug/release)</code>等。
+这里并不打算详细介绍每一个部分，只做简单介绍</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">.pro中变量</th>
+<th align="left">含义</th>
+<th>示例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left">TEMPLATE</td>
+<td align="left">模板变量指定生成makefile(app:应用程序/lib:库)</td>
+<td>TEMPLATE = app</td>
+</tr>
+
+<tr>
+<td align="left">QT</td>
+<td align="left">使用到的Qt定义的类(core/gui/widgets&hellip;)</td>
+<td>QT += widgtes</td>
+</tr>
+
+<tr>
+<td align="left">DESTDIR</td>
+<td align="left">指定生成的应用程序放置的目录</td>
+<td>DESTDIR += ../bin</td>
+</tr>
+
+<tr>
+<td align="left">TARGET</td>
+<td align="left">指定生成的应用程序名</td>
+<td>TARGET = hello</td>
+</tr>
+
+<tr>
+<td align="left">HEADERS</td>
+<td align="left">工程中包含的头文件</td>
+<td>HEADERS += hello.h</td>
+</tr>
+
+<tr>
+<td align="left">FORMS</td>
+<td align="left">工程中包含的.ui设计文件</td>
+<td>FORMS += hello.ui</td>
+</tr>
+
+<tr>
+<td align="left">SOURCES</td>
+<td align="left">工程中包含的源文件</td>
+<td>SOURCES += main.cpp hello.cpp</td>
+</tr>
+
+<tr>
+<td align="left">RESOURCES</td>
+<td align="left">工程中包含的资源文件</td>
+<td>RESOURCES += qrc/hello.qrc</td>
+</tr>
+
+<tr>
+<td align="left">LIBS</td>
+<td align="left">引入的lib文件的路径  -L：引入路径</td>
+<td>LIBS += -L.</td>
+</tr>
+
+<tr>
+<td align="left">CONFIG</td>
+<td align="left">用来告诉qmake关于应用程序的配置信息</td>
+<td>CONFIG+= qt warn_on release</td>
+</tr>
+
+<tr>
+<td align="left">UI_DIR</td>
+<td align="left">指定.ui文件转化成<code>ui_*.h</code>文件的存放目录</td>
+<td>UI_DIR += forms</td>
+</tr>
+
+<tr>
+<td align="left">RCC_DIR</td>
+<td align="left">指定将.qrc文件转换成<code>qrc_*.h</code>文件的存放目录</td>
+<td>RCC_DIR += ../tmp</td>
+</tr>
+
+<tr>
+<td align="left">MOC_DIR</td>
+<td align="left">指定将含Q_OBJECT的头文件转换成标准.h文件的存放目录</td>
+<td>MOC_DIR += ../tmp</td>
+</tr>
+
+<tr>
+<td align="left">OBJECTS_DIR</td>
+<td align="left">指定目标文件(obj)的存放目录</td>
+<td>OBJECTS_DIR += ../tmp</td>
+</tr>
+
+<tr>
+<td align="left">DEPENDPATH</td>
+<td align="left">程序编译时依赖的相关路径</td>
+<td>DEPENDPATH += . forms include qrc sources</td>
+</tr>
+
+<tr>
+<td align="left">INCLUDEPATH</td>
+<td align="left">头文件包含路径</td>
+<td>INCLUDEPATH += .</td>
+</tr>
+
+<tr>
+<td align="left">DEFINES</td>
+<td align="left">增加预处理器宏（gcc的-D选项）。</td>
+<td>DEFINES += USE_MY_STUFF</td>
+</tr>
+
+<tr>
+<td align="left">QMAKE_CFLAGS</td>
+<td align="left">设置c编译器flag参数</td>
+<td>QMAKE_CFLAGS += -g</td>
+</tr>
+
+<tr>
+<td align="left">QMAKE_CXXFLAGS</td>
+<td align="left">设置c++编译器flag参数</td>
+<td>QMAKE_CXXFLAGS += -g</td>
+</tr>
+
+<tr>
+<td align="left">QMAKE_LFLAGS</td>
+<td align="left">设置链接器flag参数</td>
+<td>QMAKE_LFLAGS += -rdynamic</td>
+</tr>
+</tbody>
+</table>
+
+<p>-</p>
+
+<h2 id="还有-这个-pro-文件中-以-开头的是-注释">-还有，这个<code>.pro</code>文件中，以<code>#</code>开头的是<strong>注释</strong></h2>
+
+<p>具体可以看这篇文章：<a href="http://blog.csdn.net/adriano119/article/details/5878169"> QT中PRO文件写法的详细介绍</a></p>
+
+<p>###hello.pro
+因为我们这里比较简单，就只写需要的部分了。</p>
+
+<pre><code># 使用到的Qt库
+QT       += core widgets
+
+#目标文件名
+TARGET = hello
+
+#生成应用程序
+TEMPLATE = app
+
+#用到的cpp源文件
+SOURCES += main.cpp hello.cpp
+
+#用到的cpp头文件
+HEADERS  += hello.h
+</code></pre>
+
+<p>##3. 使用qmake生成Makefile文件
+qmake是Trolltech公司创建的用来为不同的平台和编译器书写Makefile的工具。是qt工具包的一部分.使用qmake作为Qt库和Qt所提供的工具的主要连编工具。</p>
+
+<p>-</p>
+
+<p>qmake程序在Qt的安装目录下，比如我的机器上就在
+<code>o@o-pc:~/program_files/Qt5.4.1/5.4/gcc_64/bin$</code>
+你可以把这个路径加入到系统环境变量的PATH变量中，这样就可以随便使用了。我不喜欢加入到环境变量，所以这里指定路径来运行。</p>
+
+<p>如果没有安装Qt qmake，可以使用<code>apt-get</code>来获取(大便系的linux)</p>
+
+<pre><code class="language-shell">o@o-pc:~/MyStudy$ sudo apt-get install qt5-qmake 
+</code></pre>
+
+<p>如果你加了，使用下面的命令来生成Makefile文件</p>
+
+<pre><code class="language-shell">qmake hello.pro -o Makefile
+</code></pre>
+
+<p>其实这样也可以(qtchooser在/usr/bin目录下，这里的qt是安装到默认目录的)</p>
+
+<pre><code class="language-shell">o@o-pc:~/hello$ qtchooser  -run-tool=qmake  -qt=5 hello.pro 
+</code></pre>
+
+<p>我这里是这样的</p>
+
+<pre><code class="language-shell">o@o-pc:~/program_files/Qt5.4.1/5.4/gcc_64/bin$ ./qmake ~/hello/hello.pro -o ~/hello/Makefile
+</code></pre>
+
+<p>###编译hello程序
+生成了makefile之后，使用make命令来编译就可以了。
+可以看到我这里出了一点问题，报了一堆错误。是因为没有链接<code>xcb</code>这个库。这是在我安装了<code>xcb</code>库之后依然存在的错误，最开始是找不到<code>libGL</code>这个问题。解决的办法就是修改<code>.pro</code>文件。这个见后面</p>
+
+<pre><code class="language-shell">o@o-pc:~/hello$ make
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o main.o main.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o widget.o widget.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include widget.h -o moc_widget.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o moc_widget.o moc_widget.cpp
+g++ -m64 -Wl,-O1 -o hello main.o widget.o moc_widget.o   -L/usr/X11R6/lib64 -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread 
+/usr/lib/x86_64-linux-gnu/libGL.so：对‘xcb_poll_for_special_event’未定义的引用
+/usr/lib/x86_64-linux-gnu/libGL.so：对‘xcb_wait_for_special_event’未定义的引用
+//usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0：对‘xcb_get_reply_fds’未定义的引用
+/usr/lib/x86_64-linux-gnu/libGL.so：对‘xcb_unregister_for_special_event’未定义的引用
+/usr/lib/x86_64-linux-gnu/libGL.so：对‘xcb_register_for_special_xge’未定义的引用
+//usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0：对‘xcb_send_fd’未定义的引用
+collect2: error: ld returned 1 exit status
+make: *** [hello] 错误 1
+
+</code></pre>
+
+<p>###解决 xcb_xxx未定义的引用的问题
+这里出现的都是<code>xcb_xxx...</code>未定义的引用的问题，说明在链接的时候没有链接到<code>libxcb</code>库。很好解决，修改pro文件中的LIBS变量就是。</p>
+
+<pre><code># 使用到的Qt库
+QT       += core widgets
+
+#目标文件名
+TARGET = hello
+
+#生成应用程序
+TEMPLATE = app
+
+#用到的cpp源文件
+SOURCES += main.cpp hello.cpp
+
+#用到的cpp头文件
+HEADERS  += hello.h
+
+#解决 xcb_xxx未定义引用问题
+LIBS += -lxcb
+</code></pre>
+
+<hr />
+
+<p>###未出错的编译
+下面可以直接使用<code>qmake</code>是因为我安装了qt5-qmake(<code>sudo apt-get install qt5-qmake</code>)</p>
+
+<pre><code class="language-shell">o@o-pc:~/hello$ ls
+hello.cpp  hello.h  hello.pro  hello.pro.user  main.cpp
+o@o-pc:~/hello$ qmake 
+o@o-pc:~/hello$ make
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o main.o main.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o hello.o hello.cpp
+/usr/lib/x86_64-linux-gnu/qt5/bin/moc -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -I/usr/include/c++/4.8/backward -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include hello.h -o moc_hello.cpp
+g++ -c -m64 -pipe -O2 -Wall -W -D_REENTRANT -fPIE -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I. -I/usr/include/qt5 -I/usr/include/qt5/QtWidgets -I/usr/include/qt5/QtGui -I/usr/include/qt5/QtCore -I. -o moc_hello.o moc_hello.cpp
+g++ -m64 -Wl,-O1 -o hello main.o hello.o moc_hello.o   -L/usr/X11R6/lib64 -lxcb -lQt5Widgets -L/usr/lib/x86_64-linux-gnu -lQt5Gui -lQt5Core -lGL -lpthread 
+o@o-pc:~/hello$ 
+</code></pre>
+
+<p>###下面来看一下运行效果</p>
+
+<p><img src="http://i1.tietuku.com/9f93cd0cebc07ff6.png" alt="hello" /></p>
+
+        </div>
+        <div class="sharing">
+
+
+
+
+
+
+
+</div>
+        
+
+
+
+      </div>
+    </div>
+
+  </body>
+  
+</html>
